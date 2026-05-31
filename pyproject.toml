@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=72"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web-design-rl"
+version = "0.1.0"
+description = "RL environment pipeline: generate → task → grade website replication"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "jinja2>=3.1",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Build on Veltrax</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  color:#FFFFFF;
+  background:linear-gradient(180deg,#0A0A0A 0%,#0D1100 100%);
+  background-attachment:fixed;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+/* Gradient text */
+@keyframes gradPulse { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+.gradient-text{
+  background:linear-gradient(135deg,#7B2FBE,#00D4FF,#7B2FBE);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradPulse 6s ease infinite;
+}
+
+/* Nav */
+nav{
+  position:sticky;top:0;left:0;right:0;height:72px;z-index:100;
+  background:rgba(10,10,10,0.7);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;
+}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px;}
+.logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7B2FBE,#00D4FF);box-shadow:0 0 20px rgba(123,47,190,0.5);position:relative;}
+.logo-mark::after{content:"";position:absolute;inset:6px;border-radius:4px;background:#0A0A0A;}
+.nav-center{display:flex;gap:32px;}
+.nav-center a{color:#94A3B8;text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;}
+.nav-center a:hover{color:#fff;}
+.nav-center a.active{color:#fff;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.github-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#94A3B8;border:1px solid rgba(255,255,255,0.08);transition:all 0.2s;text-decoration:none;}
+.github-icon:hover{color:#fff;border-color:#00D4FF;}
+.launch-btn{
+  padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;
+  border:1px solid transparent;
+  background:linear-gradient(#0D1B2A,#0D1B2A) padding-box,linear-gradient(90deg,#7B2FBE,#00D4FF) border-box;
+  color:#fff;text-decoration:none;transition:all 0.3s;
+}
+.launch-btn:hover{box-shadow:0 0 20px rgba(0,212,255,0.5);}
+
+/* Section label */
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#00D4FF;margin-bottom:20px;}
+
+/* HERO */
+.hero{
+  position:relative;padding:140px 24px 100px;overflow:hidden;
+}
+.hero-particles{position:absolute;inset:0;pointer-events:none;}
+@keyframes drift { 0%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} 100%{transform:translate(0,0)} }
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:#00D4FF;box-shadow:0 0 8px rgba(0,212,255,0.8);animation:drift 12s ease-in-out infinite;}
+.particle.w{background:#fff;box-shadow:0 0 6px rgba(255,255,255,0.7);}
+.particle-line{position:absolute;height:1px;background:linear-gradient(90deg,rgba(0,212,255,0.4),rgba(0,212,255,0));transform-origin:left center;animation:drift 14s ease-in-out infinite;}
+
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;}
+.hero h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:64px;line-height:1.05;font-weight:700;letter-spacing:-0.02em;margin-bottom:24px;
+}
+.hero p.sub{font-size:20px;color:#94A3B8;margin-bottom:32px;max-width:520px;}
+.evm-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border-radius:999px;
+  border:1px solid rgba(0,212,255,0.3);
+  background:rgba(0,212,255,0.05);
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:#00D4FF;
+  margin-bottom:28px;
+}
+.evm-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#00FF41;box-shadow:0 0 10px #00FF41;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{
+  padding:14px 26px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;color:#fff;
+  border:1px solid transparent;
+  background:linear-gradient(#0A0A0A,#0A0A0A) padding-box,linear-gradient(135deg,#7B2FBE,#00D4FF) border-box;
+  transition:box-shadow 0.3s,transform 0.3s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{box-shadow:0 0 30px rgba(0,212,255,0.6),0 0 60px rgba(123,47,190,0.4);transform:translateY(-2px);}
+.btn-ghost{padding:14px 26px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,0.15);background:transparent;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+.btn-ghost:hover{border-color:#00D4FF;color:#00D4FF;}
+
+/* Terminal */
+.terminal{
+  background:#0D1100;border:1px solid rgba(0,255,65,0.15);
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 0 40px rgba(0,212,255,0.12),0 30px 60px rgba(0,0,0,0.5);
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+}
+.terminal-head{display:flex;align-items:center;padding:14px 18px;background:#070A00;border-bottom:1px solid rgba(0,255,65,0.1);gap:10px;}
+.term-dot{width:12px;height:12px;border-radius:50%;}
+.term-dot.r{background:#ff5f56;} .term-dot.y{background:#ffbd2e;} .term-dot.g{background:#27c93f;}
+.term-title{margin-left:12px;font-size:12px;color:#94A3B8;}
+.term-tabs{display:flex;background:#0A0D00;border-bottom:1px solid rgba(0,255,65,0.1);}
+.term-tab{padding:10px 18px;font-size:12px;color:#94A3B8;border-right:1px solid rgba(0,255,65,0.08);cursor:pointer;}
+.term-tab.active{color:#00FF41;background:#0D1100;border-bottom:2px solid #00FF41;}
+.term-body{padding:24px;color:#00FF41;line-height:1.7;}
+.term-body .c{color:#5a8a5a;}
+.term-body .k{color:#7B2FBE;font-weight:700;filter:brightness(1.7);}
+.term-body .s{color:#00D4FF;}
+.term-body .v{color:#fff;}
+.term-prompt{color:#00FF41;}
+
+/* Sections */
+section{padding:100px 24px;position:relative;}
+.section-head{text-align:center;margin-bottom:64px;}
+.section-head h2{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:700;letter-spacing:-0.02em;margin-bottom:16px;}
+.section-head p{color:#94A3B8;font-size:18px;max-width:640px;margin:0 auto;}
+
+/* SDK cards */
+.sdk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.glow-card{
+  background:#13131A;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px;
+  animation:glowReveal 0.8s ease-out both;transition:box-shadow 0.4s,transform 0.4s;
+}
+.glow-card:hover{transform:translateY(-4px);box-shadow:0 0 40px rgba(123,47,190,0.4),0 0 80px rgba(0,212,255,0.2);}
+@keyframes glowReveal { from{opacity:0;transform:translateY(24px);box-shadow:none} to{opacity:1;transform:translateY(0);box-shadow:0 0 30px rgba(0,212,255,0.15)} }
+
+.sdk-card{display:flex;flex-direction:column;gap:14px;}
+.sdk-lang{display:flex;align-items:center;gap:12px;}
+.sdk-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;}
+.sdk-icon.js{background:rgba(247,223,30,0.12);color:#F7DF1E;}
+.sdk-icon.py{background:rgba(53,114,165,0.18);color:#4B8BBE;}
+.sdk-icon.rs{background:rgba(222,165,132,0.15);color:#DEA584;}
+.sdk-icon.go{background:rgba(0,173,216,0.15);color:#00ADD8;}
+.sdk-name{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;}
+.sdk-sub{font-size:13px;color:#94A3B8;}
+.sdk-stars{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#94A3B8;margin-top:6px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);}
+.sdk-stars .star{color:#FFD93D;}
+
+/* Grants */
+.grants{background:linear-gradient(180deg,transparent,rgba(123,47,190,0.06),transparent);}
+.grants-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;}
+.grants-left h2{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px;}
+.grants-left p{color:#94A3B8;margin-bottom:32px;font-size:17px;}
+.fund-stat{margin-bottom:32px;}
+@keyframes tickUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.stat-value{font-family:'JetBrains Mono',monospace;font-size:80px;font-weight:700;line-height:1;letter-spacing:-0.04em;animation:tickUp 1.2s ease-out both;}
+.fund-stat .label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#94A3B8;margin-top:12px;}
+
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;}
+.step{background:#13131A;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;}
+.step-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#00D4FF;margin-bottom:8px;}
+.step-title{font-weight:600;margin-bottom:4px;}
+.step-desc{font-size:13px;color:#94A3B8;}
+
+.grantees{display:flex;flex-direction:column;gap:14px;}
+.grantee{display:flex;align-items:center;gap:16px;padding:18px 20px;background:#13131A;border:1px solid rgba(255,255,255,0.08);border-radius:12px;}
+.grantee-logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#fff;flex-shrink:0;}
+.grantee-logo.helix{background:linear-gradient(135deg,#7B2FBE,#00D4FF);}
+.grantee-logo.pulsar{background:linear-gradient(135deg,#FF6B6B,#7B2FBE);}
+.grantee-logo.kronos{background:linear-gradient(135deg,#00D4FF,#00FF41);}
+.grantee-info{flex:1;}
+.grantee-name{font-weight:600;font-size:16px;}
+.grantee-cat{font-family:'JetBrains Mono',monospace;font-size:11px;color:#94A3B8;text-transform:uppercase;letter-spacing:0.12em;margin-top:2px;}
+.grantee-amount{font-family:'JetBrains Mono',monospace;color:#00FF41;font-weight:700;}
+
+/* Faucet */
+.faucet-wrap{max-width:880px;margin:0 auto;}
+.faucet{
+  background:#13131A;border:1px solid rgba(0,212,255,0.2);border-radius:16px;padding:48px;
+  box-shadow:0 0 60px rgba(0,212,255,0.08);
+  position:relative;overflow:hidden;
+}
+.faucet::before{content:"";position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,0.15),transparent 70%);}
+.faucet h3{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;margin-bottom:8px;}
+.faucet .sub{color:#94A3B8;margin-bottom:32px;}
+.faucet-form{display:flex;gap:12px;position:relative;z-index:2;}
+.faucet-input{
+  flex:1;padding:16px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);
+  background:#0A0A0A;color:#fff;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none;
+}
+.faucet-input:focus{border-color:#00D4FF;box-shadow:0 0 0 3px rgba(0,212,255,0.15);}
+.faucet-drip{
+  padding:16px 28px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,#7B2FBE,#00D4FF);color:#fff;font-weight:600;font-size:14px;cursor:pointer;
+  transition:all 0.3s;font-family:'Inter',sans-serif;
+}
+.faucet-drip:hover{box-shadow:0 0 30px rgba(0,212,255,0.5);}
+.faucet-meta{display:flex;gap:24px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#94A3B8;}
+.faucet-meta span{display:flex;align-items:center;gap:6px;}
+.faucet-meta .dot{width:6px;height:6px;border-radius:50%;background:#00FF41;box-shadow:0 0 8px #00FF41;}
+
+/* Docs CTA */
+.docs-cta{
+  background:linear-gradient(135deg,rgba(123,47,190,0.25),rgba(0,212,255,0.15));
+  border:1px solid rgba(0,212,255,0.25);
+  border-radius:20px;padding:64px;
+  display:flex;align-items:center;justify-content:space-between;gap:48px;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 60px rgba(123,47,190,0.15);
+}
+.docs-cta::before{content:"</>";position:absolute;font-family:'JetBrains Mono',monospace;font-size:240px;font-weight:700;right:-30px;top:-60px;color:rgba(255,255,255,0.03);}
+.docs-cta h3{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.1;margin-bottom:12px;letter-spacing:-0.02em;}
+.docs-cta .sub{color:#94A3B8;font-size:18px;}
+.docs-cta-right{flex-shrink:0;}
+
+/* Footer */
+footer{background:#070709;padding:80px 24px 32px;border-top:1px solid rgba(255,255,255,0.06);margin-top:60px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px;}
+.footer-brand .logo{margin-bottom:16px;}
+.footer-brand p{color:#94A3B8;font-size:14px;margin-bottom:20px;max-width:280px;}
+.ticker{display:inline-flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;background:#13131A;border:1px solid rgba(255,255,255,0.08);font-family:'JetBrains Mono',monospace;font-size:13px;}
+.ticker .sym{color:#94A3B8;}
+.ticker .price{color:#fff;font-weight:700;}
+.ticker .chg{color:#00FF41;}
+.footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:0.15em;color:#fff;margin-bottom:18px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{color:#94A3B8;text-decoration:none;font-size:14px;transition:color 0.2s;}
+.footer-col a:hover{color:#00D4FF;}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);font-size:13px;color:#94A3B8;font-family:'JetBrains Mono',monospace;}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      Veltrax
+    </a>
+    <div class="nav-center">
+      <a href="/technology">Technology</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/developers" class="active">Developers</a>
+      <a href="/community">Community</a>
+      <a href="/blog">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://github.com" class="github-icon" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.07-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02.01 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://app.veltrax.io" class="launch-btn">Launch App</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-particles">
+    <span class="particle" style="top:12%;left:8%;"></span>
+    <span class="particle w" style="top:22%;left:18%;animation-delay:-2s;"></span>
+    <span class="particle" style="top:38%;left:6%;animation-delay:-4s;"></span>
+    <span class="particle" style="top:58%;left:14%;animation-delay:-6s;"></span>
+    <span class="particle w" style="top:72%;left:9%;animation-delay:-1s;"></span>
+    <span class="particle" style="top:85%;left:22%;animation-delay:-3s;"></span>
+    <span class="particle w" style="top:18%;left:42%;animation-delay:-5s;"></span>
+    <span class="particle" style="top:62%;left:35%;animation-delay:-7s;"></span>
+    <span class="particle" style="top:14%;right:32%;animation-delay:-2s;"></span>
+    <span class="particle w" style="top:48%;right:42%;animation-delay:-4s;"></span>
+    <span class="particle" style="top:78%;right:38%;animation-delay:-6s;"></span>
+    <span class="particle" style="top:8%;right:10%;animation-delay:-3s;"></span>
+    <span class="particle w" style="top:32%;right:18%;animation-delay:-5s;"></span>
+    <span class="particle" style="top:56%;right:6%;animation-delay:-7s;"></span>
+    <span class="particle" style="top:82%;right:14%;animation-delay:-2s;"></span>
+    <span class="particle-line" style="top:22%;left:18%;width:140px;transform:rotate(15deg);"></span>
+    <span class="particle-line" style="top:48%;right:42%;width:180px;transform:rotate(-20deg);animation-delay:-3s;"></span>
+    <span class="particle-line" style="top:72%;left:9%;width:160px;transform:rotate(28deg);animation-delay:-5s;"></span>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="section-label">Build on Veltrax</div>
+      <h1><span class="gradient-text">Ship faster</span> on the parallel EVM.</h1>
+      <p class="sub">Full Solidity compatibility plus native multi-threaded execution. Deploy in minutes, scale to millions of users.</p>
+      <div class="evm-badge">100% EVM COMPATIBLE · SOLIDITY 0.8.x</div>
+      <div class="hero-ctas">
+        <a href="https://docs.veltrax.io" class="btn-primary">View Docs →</a>
+        <a href="#faucet" class="btn-ghost">Get Testnet VLX</a>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-head">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">~/veltrax-app — deploy.js</span>
+      </div>
+      <div class="term-tabs">
+        <div class="term-tab active">JavaScript</div>
+        <div class="term-tab">Python</div>
+        <div class="term-tab">Rust</div>
+        <div class="term-tab">Go</div>
+      </div>
+      <div class="term-body">
+<span class="term-prompt">$</span> <span class="v">npm install @veltrax/sdk</span><br>
+<br>
+<span class="c">// Initialize Veltrax client</span><br>
+<span class="k">import</span> { <span class="v">VeltraxClient</span>, <span class="v">Wallet</span> } <span class="k">from</span> <span class="s">'@veltrax/sdk'</span>;<br>
+<br>
+<span class="k">const</span> <span class="v">client</span> = <span class="k">new</span> <span class="v">VeltraxClient</span>({<br>
+&nbsp;&nbsp;rpc: <span class="s">'https://mainnet.veltrax.io'</span>,<br>
+&nbsp;&nbsp;chainId: <span class="s">8453</span>,<br>
+});<br>
+<br>
+<span class="k">const</span> <span class="v">wallet</span> = <span class="v">Wallet</span>.fromKey(process.env.<span class="v">PRIVATE_KEY</span>);<br>
+<br>
+<span class="c">// Deploy contract in parallel slot</span><br>
+<span class="k">const</span> <span class="v">tx</span> = <span class="k">await</span> client.deployContract({<br>
+&nbsp;&nbsp;bytecode,<br>
+&nbsp;&nbsp;abi,<br>
+&nbsp;&nbsp;signer: wallet,<br>
+});<br>
+<br>
+console.log(<span class="s">`Deployed at ${tx.address} · ${tx.finalityMs}ms`</span>);<br>
+<span class="c">// → Deployed at 0x9Af2... · 412ms</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SDK CARDS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Official SDKs</div>
+      <h2><span class="gradient-text">Four languages.</span> One chain.</h2>
+      <p>Battle-tested SDKs maintained by the Veltrax Foundation, with first-class type safety and identical APIs.</p>
+    </div>
+    <div class="sdk-grid">
+      <div class="glow-card sdk-card" style="animation-delay:0s">
+        <div class="sdk-lang"><div class="sdk-icon js">JS</div><div><div class="sdk-name">veltrax.js</div><div class="sdk-sub">JavaScript / TypeScript</div></div></div>
+        <p style="font-size:13px;color:#94A3B8;">npm i @veltrax/sdk — Browser & Node.js, ethers-compatible.</p>
+        <div class="sdk-stars"><span class="star">★</span> 3.2k stars · MIT</div>
+      </div>
+      <div class="glow-card sdk-card" style="animation-delay:0.08s">
+        <div class="sdk-lang"><div class="sdk-icon py">Py</div><div><div class="sdk-name">veltrax-py</div><div class="sdk-sub">Python 3.9+</div></div></div>
+        <p style="font-size:13px;color:#94A3B8;">pip install veltrax — Async-first, web3.py interop.</p>
+        <div class="sdk-stars"><span class="star">★</span> 1.4k stars · MIT</div>
+      </div>
+      <div class="glow-card sdk-card" style="animation-delay:0.16s">
+        <div class="sdk-lang"><div class="sdk-icon rs">Rs</div><div><div class="sdk-name">veltrax-rs</div><div class="sdk-sub">Rust 1.65+</div></div></div>
+        <p style="font-size:13px;color:#94A3B8;">cargo add veltrax — Zero-copy, used by core validators.</p>
+        <div class="sdk-stars"><span class="star">★</span> 890 stars · Apache-2.0</div>
+      </div>
+      <div class="glow-card sdk-card" style="animation-delay:0.24s">
+        <div class="sdk-lang"><div class="sdk-icon go">Go</div><div><div class="sdk-name">veltrax-go</div><div class="sdk-sub">Go 1.19+</div></div></div>
+        <p style="font-size:13px;color:#94A3B8;">go get veltrax.io/sdk — go-ethereum compatible client.</p>
+        <div class="sdk-stars"><span class="star">★</span> 412 stars · Apache-2.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANTS -->
+<section class="grants">
+  <div class="container">
+    <div class="grants-wrap">
+      <div class="grants-left">
+        <div class="section-label">Veltrax Builders Grant</div>
+        <h2><span class="gradient-text">$2M fund</span> for protocols shaping the parallel future.</h2>
+        <p>Non-dilutive funding, validator credits, and white-glove support from the Veltrax core team.</p>
+        <div class="fund-stat">
+          <div class="stat-value gradient-text">$2,000,000</div>
+          <div class="label">TOTAL FUND · 24 GRANTS AWARDED</div>
+        </div>
+        <a href="#" class="btn-primary">Apply for a Grant →</a>
+      </div>
+      <div>
+        <div class="steps">
+          <div class="glow-card step" style="padding:20px;">
+            <div class="step-num">STEP 01</div>
+            <div class="step-title">Submit Proposal</div>
+            <div class="step-desc">2-page form with scope, team, and milestones.</div>
+          </div>
+          <div class="glow-card step" style="padding:20px;animation-delay:0.1s">
+            <div class="step-num">STEP 02</div>
+            <div class="step-title">Foundation Review</div>
+            <div class="step-desc">14-day evaluation by core engineering team.</div>
+          </div>
+          <div class="glow-card step" style="padding:20px;animation-delay:0.2s">
+            <div class="step-num">STEP 03</div>
+            <div class="step-title">Milestone Funding</div>
+            <div class="step-desc">VLX disbursed across 3 milestones in USD value.</div>
+          </div>
+          <div class="glow-card step" style="padding:20px;animation-delay:0.3s">
+            <div class="step-num">STEP 04</div>
+            <div class="step-title">Mainnet Launch</div>
+            <div class="step-desc">Marketing support + ecosystem distribution.</div>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#94A3B8;margin-bottom:18px;">Past Grantees</div>
+        <div class="grantees">
+          <div class="grantee">
+            <div class="grantee-logo helix">H</div>
+            <div class="grantee-info"><div class="grantee-name">HelixDEX</div><div class="grantee-cat">Concentrated Liquidity AMM</div></div>
+            <div class="grantee-amount">$180k</div>
+          </div>
+          <div class="grantee">
+            <div class="grantee-logo pulsar">P</div>
+            <div class="grantee-info"><div class="grantee-name">Pulsar Oracle</div><div class="grantee-cat">Sub-second Price Feeds</div></div>
+            <div class="grantee-amount">$240k</div>
+          </div>
+          <div class="grantee">
+            <div class="grantee-logo kronos">K</div>
+            <div class="grantee-info"><div class="grantee-name">KronosPerps</div><div class="grantee-cat">Perpetual Futures Protocol</div></div>
+            <div class="grantee-amount">$320k</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAUCET -->
+<section id="faucet">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Testnet Faucet</div>
+      <h2><span class="gradient-text">Get tVLX</span> in seconds.</h2>
+      <p>Drip 10 tVLX on the Veltrax Helios Testnet. Rate-limited to one request per address per 24 hours.</p>
+    </div>
+    <div class="faucet-wrap">
+      <div class="faucet">
+        <h3>Helios Testnet Faucet</h3>
+        <div class="sub">Paste your Veltrax address below to receive 10 tVLX for testing.</div>
+        <div class="faucet-form">
+          <input type="text" class="faucet-input" placeholder="0x... your veltrax address" value="0x9aF2c4E81Bb43d5A8C7eF0d2..."/>
+          <button class="faucet-drip">Drip 10 tVLX</button>
+        </div>
+        <div class="faucet-meta">
+          <span><span class="dot"></span> Faucet online · Block 8,412,902</span>
+          <span>Rate limit: 1 request / 24h</span>
+          <span>Chain ID: 8454 (testnet)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCS CTA -->
+<section>
+  <div class="container">
+    <div class="docs-cta">
+      <div>
+        <div class="section-label">Documentation</div>
+        <h3><span class="gradient-text">docs.veltrax.io</span></h3>
+        <div class="sub">Quickstart in 5 minutes. Full reference for SDKs, RPC, smart contracts, and validators.</div>
+      </div>
+      <div class="docs-cta-right">
+        <a href="https://docs.veltrax.io" class="btn-primary">Open Docs →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mark"></span> Veltrax</a>
+        <p>The parallelized Layer-1 for global-scale finance.</p>
+        <div class="ticker">
+          <span class="sym">VLX</span>
+          <span class="price">$1.84</span>
+          <span class="chg">▲ 6.2%</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/technology">Technology</a></li>
+          <li><a href="/ecosystem">Ecosystem</a></li>
+          <li><a href="#">Validators</a></li>
+          <li><a href="#">Token (VLX)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Developers</h4>
+        <ul>
+          <li><a href="https://docs.veltrax.io">Documentation</a></li>
+          <li><a href="#">SDKs</a></li>
+          <li><a href="#">Testnet Faucet</a></li>
+          <li><a href="#">Builders Grant</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Discord</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Forum</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Brand Kit</a></li>
+          <li><a href="#">Foundation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2022 VELTRAX FOUNDATION</span>
+      <span>HELIOS MAINNET · BLOCK 12,840,219</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

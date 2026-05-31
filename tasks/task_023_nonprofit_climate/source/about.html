@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Team — Climate Horizon Collective</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  color: #1B2E20;
+  background: #FFFFFF;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  color: #1B2E20;
+  line-height: 1.2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  height: 72px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5E3D8;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #1B4332;
+}
+.logo-leaf {
+  width: 28px;
+  height: 28px;
+  background: #2D6A4F;
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+  position: relative;
+}
+.logo-leaf::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-left: 2px solid #B7E4C7;
+  border-radius: 50% 0 50% 50%;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1B2E20;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #2D6A4F; }
+.nav-links a.active { color: #2D6A4F; font-weight: 600; }
+.btn-primary {
+  background: #2D6A4F;
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover { background: #1B4332; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: #2D6A4F;
+  border: 1.5px solid #2D6A4F;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover { background: #2D6A4F; color: #FFFFFF; }
+
+/* HERO */
+.hero {
+  padding: 110px 24px 90px;
+  background: linear-gradient(135deg, #E9F5E9 0%, #FFFFFF 60%, #F4EFE6 100%);
+  border-bottom: 1px solid #D5E3D8;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(45,106,79,0.08), transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2D6A4F;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+  max-width: 880px;
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+.hero .sub {
+  font-size: 20px;
+  color: #5A6B5F;
+  max-width: 720px;
+  line-height: 1.5;
+}
+.hero-meta {
+  display: flex;
+  gap: 48px;
+  margin-top: 56px;
+  border-top: 1px solid #D5E3D8;
+  padding-top: 36px;
+}
+.hero-meta .item {
+  display: flex;
+  flex-direction: column;
+}
+.hero-meta .num {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2D6A4F;
+  font-variant-numeric: tabular-nums;
+}
+.hero-meta .lbl {
+  font-size: 13px;
+  color: #5A6B5F;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* SECTION */
+section { padding: 96px 24px; }
+.section-alt { background: #E9F5E9; }
+.section-head { margin-bottom: 56px; max-width: 800px; }
+.section-head .kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C62828;
+  margin-bottom: 14px;
+}
+.section-head h2 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.section-head p {
+  font-size: 18px;
+  color: #5A6B5F;
+}
+
+/* MISSION */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.mission-card {
+  background: #FFFFFF;
+  border: 1px solid #D5E3D8;
+  border-radius: 4px;
+  padding: 36px 32px;
+  border-top: 4px solid #2D6A4F;
+}
+.mission-card:nth-child(2) { border-top-color: #E07A5F; }
+.mission-card:nth-child(3) { border-top-color: #C62828; }
+.mission-card .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #5A6B5F;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+.mission-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.mission-card p {
+  color: #5A6B5F;
+  font-size: 16px;
+}
+
+/* ADVISORY */
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.advisor {
+  background: #FFFFFF;
+  border: 1px solid #D5E3D8;
+  border-radius: 4px;
+  padding: 28px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.advisor .avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2D6A4F, #1B4332);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Serif Pro', serif;
+  font-size: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.advisor:nth-child(2) .avatar { background: linear-gradient(135deg, #E07A5F, #C45843); }
+.advisor:nth-child(3) .avatar { background: linear-gradient(135deg, #74C0FC, #4A9FD9); }
+.advisor:nth-child(4) .avatar { background: linear-gradient(135deg, #B7E4C7, #74C69D); color: #1B4332; }
+.advisor:nth-child(5) .avatar { background: linear-gradient(135deg, #1B4332, #081C15); }
+.advisor:nth-child(6) .avatar { background: linear-gradient(135deg, #C62828, #8B1A1A); }
+.advisor h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.advisor .title {
+  font-size: 13px;
+  color: #2D6A4F;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.advisor .bio {
+  font-size: 14px;
+  color: #5A6B5F;
+  line-height: 1.5;
+}
+
+/* EXEC TEAM */
+.exec-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+.exec {
+  background: #FFFFFF;
+  border-radius: 4px;
+}
+.exec .photo {
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+  background: linear-gradient(160deg, #B7E4C7 0%, #2D6A4F 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Serif Pro', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.exec:nth-child(2) .photo { background: linear-gradient(160deg, #F4EFE6 0%, #E07A5F 100%); }
+.exec:nth-child(3) .photo { background: linear-gradient(160deg, #74C0FC 0%, #1B4332 100%); }
+.exec:nth-child(4) .photo { background: linear-gradient(160deg, #B7E4C7 0%, #1B4332 100%); }
+.exec:nth-child(5) .photo { background: linear-gradient(160deg, #E07A5F 0%, #C62828 100%); }
+.exec h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.exec .role {
+  font-size: 14px;
+  color: #5A6B5F;
+}
+
+/* FINANCIALS */
+.fin-wrap {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.pie {
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  position: relative;
+}
+.legend {
+  list-style: none;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #D5E3D8;
+  font-size: 16px;
+}
+.legend .swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin-right: 14px;
+}
+.legend .label { flex: 1; font-weight: 500; }
+.legend .pct {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  color: #1B2E20;
+}
+.revenue-box {
+  margin-top: 28px;
+  padding: 22px;
+  background: #F4EFE6;
+  border-left: 4px solid #2D6A4F;
+  border-radius: 4px;
+}
+.revenue-box .lbl {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5A6B5F;
+}
+.revenue-box .val {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #1B4332;
+  font-variant-numeric: tabular-nums;
+}
+
+/* RATINGS */
+.ratings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.rating {
+  background: #FFFFFF;
+  border: 1px solid #D5E3D8;
+  border-radius: 4px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.rating .badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #E9F5E9;
+  border: 2px solid #2D6A4F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.rating h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.rating p {
+  font-size: 14px;
+  color: #5A6B5F;
+}
+
+/* PRESS */
+.press-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid #D5E3D8;
+  border-bottom: 1px solid #D5E3D8;
+}
+.press-logo {
+  padding: 40px 24px;
+  text-align: center;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #5A6B5F;
+  border-right: 1px solid #D5E3D8;
+  letter-spacing: -0.02em;
+}
+.press-logo:last-child { border-right: none; }
+.press-intro {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5A6B5F;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+/* ANNUAL REPORT */
+.report-cta {
+  background: linear-gradient(120deg, #1B4332 0%, #2D6A4F 100%);
+  color: #FFFFFF;
+  padding: 64px 56px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.report-cta::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(224,122,95,0.25), transparent 70%);
+  border-radius: 50%;
+}
+.report-cta h2 {
+  color: #FFFFFF;
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+.report-cta p {
+  color: #B7E4C7;
+  font-size: 17px;
+  max-width: 560px;
+}
+.report-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.btn-accent {
+  background: #E07A5F;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+.btn-accent:hover { background: #C45843; }
+.btn-ghost {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+/* FOOTER */
+footer {
+  background: #1B2E20;
+  color: #B7E4C7;
+  padding: 72px 24px 32px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(183,228,199,0.15);
+}
+.footer-brand .logo { color: #FFFFFF; }
+.footer-brand p {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #B7E4C7;
+  max-width: 280px;
+}
+.footer-col h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 15px; color: #B7E4C7; }
+.footer-col a:hover { color: #FFFFFF; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  font-size: 13px;
+  color: #5A6B5F;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-leaf"></span>
+      Climate Horizon Collective
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Our Work</a></li>
+      <li><a href="#">The Science</a></li>
+      <li><a href="#">Take Action</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#" class="active">About</a></li>
+      <li><a href="#" class="btn-primary">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">About the Collective</div>
+    <h1>Founded in 2011. Independent. Science-led.</h1>
+    <p class="sub">A 501(c)(3) coalition of scientists, organizers, and storytellers working in 31 countries — coordinating the policy, communications, and frontline resources needed to keep 1.5°C within reach.</p>
+    <div class="hero-meta">
+      <div class="item"><span class="num">2011</span><span class="lbl">Founded</span></div>
+      <div class="item"><span class="num">31</span><span class="lbl">Countries</span></div>
+      <div class="item"><span class="num">184</span><span class="lbl">Local Chapters</span></div>
+      <div class="item"><span class="num">$24.3M</span><span class="lbl">2023 Revenue</span></div>
+      <div class="item"><span class="num">71%</span><span class="lbl">To Programs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Our Mission</div>
+      <h2>Three pillars. One deadline.</h2>
+      <p>Climate Horizon Collective exists to compress the gap between climate science and political reality — by funding the people, evidence, and stories that move policy.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="num">PILLAR 01</div>
+        <h3>Rigorous science communication</h3>
+        <p>We translate IPCC findings and peer-reviewed research into accessible briefings used by journalists, legislators, and 240,000 weekly subscribers to The Horizon Brief.</p>
+      </div>
+      <div class="mission-card">
+        <div class="num">PILLAR 02</div>
+        <h3>Frontline community support</h3>
+        <p>We direct unrestricted funding, legal aid, and organizing capacity to communities on the receiving end of fossil-fuel infrastructure and climate disasters.</p>
+      </div>
+      <div class="mission-card">
+        <div class="num">PILLAR 03</div>
+        <h3>Structural policy change</h3>
+        <p>We coordinate lobbying, litigation, and electoral programs targeting the federal, state, and corporate levers that determine whether emissions actually fall.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY BOARD -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Scientific Advisory Board</div>
+      <h2>The researchers who steer our work.</h2>
+      <p>Our advisors review every major report and campaign brief. They are unpaid and independent, with no veto power over operations.</p>
+    </div>
+    <div class="advisory-grid">
+      <div class="advisor">
+        <div class="avatar">KM</div>
+        <div>
+          <h4>Dr. Kate Marvel</h4>
+          <div class="title">Climate Modeler · Project Drawdown</div>
+          <p class="bio">Physicist specializing in cloud feedback and climate sensitivity. Author of "Human Nature: Nine Ways to Feel About Our Changing Planet."</p>
+        </div>
+      </div>
+      <div class="advisor">
+        <div class="avatar">SH</div>
+        <div>
+          <h4>Dr. Saleemul Huq</h4>
+          <div class="title">Adaptation · ICCCAD, Bangladesh</div>
+          <p class="bio">Director of the International Centre for Climate Change and Development. Architect of the COP27 Loss & Damage Fund framework.</p>
+        </div>
+      </div>
+      <div class="advisor">
+        <div class="avatar">RB</div>
+        <div>
+          <h4>Dr. Robert Bullard</h4>
+          <div class="title">Environmental Justice · TSU</div>
+          <p class="bio">Founder of the modern environmental justice movement. Distinguished Professor at Texas Southern University; advisor to the EPA on Justice40.</p>
+        </div>
+      </div>
+      <div class="advisor">
+        <div class="avatar">FO</div>
+        <div>
+          <h4>Dr. Friederike Otto</h4>
+          <div class="title">Attribution Science · Imperial College</div>
+          <p class="bio">Co-lead of World Weather Attribution. Pioneered the rapid attribution methodology now used to link heatwaves and floods to fossil emissions.</p>
+        </div>
+      </div>
+      <div class="advisor">
+        <div class="avatar">JR</div>
+        <div>
+          <h4>Dr. Johan Rockström</h4>
+          <div class="title">Earth Systems · PIK Potsdam</div>
+          <p class="bio">Director of the Potsdam Institute. Lead author on planetary boundaries framework and tipping-point cascades research.</p>
+        </div>
+      </div>
+      <div class="advisor">
+        <div class="avatar">AT</div>
+        <div>
+          <h4>Dr. Ayana Elizabeth Johnson</h4>
+          <div class="title">Marine Biology · Urban Ocean Lab</div>
+          <p class="bio">Co-founder of Urban Ocean Lab, co-editor of "All We Can Save." Advisor on coastal resilience and blue-carbon policy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEC TEAM -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Executive Team</div>
+      <h2>Who runs the organization.</h2>
+      <p>Day-to-day operations are led by a five-person executive team accountable to a 13-member board of directors.</p>
+    </div>
+    <div class="exec-grid">
+      <div class="exec">
+        <div class="photo">MO</div>
+        <h4>Maya Okonkwo</h4>
+        <p class="role">Executive Director</p>
+      </div>
+      <div class="exec">
+        <div class="photo">JC</div>
+        <h4>Jordan Chen</h4>
+        <p class="role">Policy Director</p>
+      </div>
+      <div class="exec">
+        <div class="photo">PR</div>
+        <h4>Dr. Priya Raman</h4>
+        <p class="role">Science Director</p>
+      </div>
+      <div class="exec">
+        <div class="photo">DA</div>
+        <h4>Daniel Aguilar</h4>
+        <p class="role">Field Programs Director</p>
+      </div>
+      <div class="exec">
+        <div class="photo">SK</div>
+        <h4>Simone Kwame</h4>
+        <p class="role">Communications Director</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Financial Transparency</div>
+      <h2>Where every dollar goes.</h2>
+      <p>Independently audited by Crowe LLP. Full financials and IRS Form 990 are public. Below: how we deployed $24.3M in 2023.</p>
+    </div>
+    <div class="fin-wrap">
+      <div>
+        <svg class="pie" viewBox="0 0 200 200">
+          <!-- Pie segments: 71% programs, 14% advocacy, 9% fundraising, 6% ops -->
+          <!-- circumference of r=80 circle = ~502.65 -->
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#E9F5E9" stroke-width="40"/>
+          <!-- 71% programs (forest green) -->
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#2D6A4F" stroke-width="40"
+            stroke-dasharray="356.88 502.65" transform="rotate(-90 100 100)"/>
+          <!-- 14% advocacy (terra cotta) starts at 71% -->
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#E07A5F" stroke-width="40"
+            stroke-dasharray="70.37 502.65" stroke-dashoffset="-356.88" transform="rotate(-90 100 100)"/>
+          <!-- 9% fundraising (sky blue) starts at 85% -->
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#74C0FC" stroke-width="40"
+            stroke-dasharray="45.24 502.65" stroke-dashoffset="-427.25" transform="rotate(-90 100 100)"/>
+          <!-- 6% operations (light green) starts at 94% -->
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#B7E4C7" stroke-width="40"
+            stroke-dasharray="30.16 502.65" stroke-dashoffset="-472.49" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="58" fill="#E9F5E9"/>
+          <text x="100" y="95" text-anchor="middle" font-family="Source Serif Pro" font-size="26" font-weight="700" fill="#1B4332">$24.3M</text>
+          <text x="100" y="115" text-anchor="middle" font-family="Inter" font-size="10" fill="#5A6B5F" letter-spacing="1">2023 REVENUE</text>
+        </svg>
+      </div>
+      <div>
+        <ul class="legend">
+          <li><span class="swatch" style="background:#2D6A4F"></span><span class="label">Programs (climate science, frontline grants, field organizing)</span><span class="pct">71%</span></li>
+          <li><span class="swatch" style="background:#E07A5F"></span><span class="label">Advocacy & policy</span><span class="pct">14%</span></li>
+          <li><span class="swatch" style="background:#74C0FC"></span><span class="label">Fundraising</span><span class="pct">9%</span></li>
+          <li><span class="swatch" style="background:#B7E4C7"></span><span class="label">Management & operations</span><span class="pct">6%</span></li>
+        </ul>
+        <div class="revenue-box">
+          <div class="lbl">Total 2023 Revenue</div>
+          <div class="val">$24,318,402</div>
+          <div style="font-size:14px;color:#5A6B5F;margin-top:6px;">62% individual donors · 24% foundations · 9% corporate partners · 5% earned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Third-Party Ratings</div>
+      <h2>Independently verified.</h2>
+    </div>
+    <div class="ratings">
+      <div class="rating">
+        <div class="badge">★★★★</div>
+        <div>
+          <h4>Charity Navigator</h4>
+          <p>4-star rating · 96/100 score for finance, accountability & impact.</p>
+        </div>
+      </div>
+      <div class="rating">
+        <div class="badge">✦</div>
+        <div>
+          <h4>Candid Platinum Seal</h4>
+          <p>Highest transparency tier · 2024 Seal of Transparency.</p>
+        </div>
+      </div>
+      <div class="rating">
+        <div class="badge">✓</div>
+        <div>
+          <h4>BBB Wise Giving Alliance</h4>
+          <p>Accredited charity · meets all 20 standards for charity accountability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="section-alt">
+  <div class="container">
+    <div class="press-intro">As reported in</div>
+    <div class="press-strip" style="background:#FFFFFF;">
+      <div class="press-logo">The New York Times</div>
+      <div class="press-logo" style="font-family:Inter;letter-spacing:-1px;">BBC</div>
+      <div class="press-logo">The Atlantic</div>
+      <div class="press-logo" style="font-style:italic;">Grist</div>
+      <div class="press-logo" style="font-family:Inter;font-weight:800;">ProPublica</div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNUAL REPORT -->
+<section>
+  <div class="container">
+    <div class="report-cta">
+      <div>
+        <div class="eyebrow" style="color:#B7E4C7;">2023 Annual Report</div>
+        <h2>Read the full year in review.</h2>
+        <p>72 pages of campaigns, financials, community spotlights, and the climate-policy wins we helped deliver across 31 countries. Includes our auditor's letter and complete IRS Form 990.</p>
+      </div>
+      <div class="report-actions">
+        <a href="#" class="btn-accent">📄 Download Annual Report (PDF, 8.2MB)</a>
+        <a href="#" class="btn-ghost">↗ View IRS Form 990 (2023)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-leaf"></span>
+          Climate Horizon Collective
+        </a>
+        <p>Science. Justice. Action. Before 2030.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Our Work</h5>
+        <ul>
+          <li><a href="#">Campaigns</a></li>
+          <li><a href="#">The Science</a></li>
+          <li><a href="#">Take Action</a></li>
+          <li><a href="#">Stories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Organization</h5>
+        <ul>
+          <li><a href="#">About & Team</a></li>
+          <li><a href="#">Financials</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Give</h5>
+        <ul>
+          <li><a href="#">Monthly Giving</a></li>
+          <li><a href="#">Corporate Partners</a></li>
+          <li><a href="#">Planned Giving</a></li>
+          <li><a href="#">Shop</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Stay Connected</h5>
+        <ul>
+          <li><a href="#">The Horizon Brief</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Press Inquiries</a></li>
+          <li><a href="#">Privacy & Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Climate Horizon Collective. A 501(c)(3) nonprofit. EIN 27-4218836.</div>
+      <div>Made with hope. Powered by 38,402 donors.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

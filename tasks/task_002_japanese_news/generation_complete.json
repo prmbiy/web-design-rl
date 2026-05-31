@@ -1,0 +1,12 @@
+{
+  "dna_id": "002",
+  "dna_name": "japanese_news",
+  "pages": [
+    "home",
+    "politics",
+    "economy",
+    "international",
+    "culture"
+  ],
+  "has_animations": false
+}

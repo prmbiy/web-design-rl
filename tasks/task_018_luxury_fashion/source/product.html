@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Sac Vauban 36 — Maison Delacroix-Vauban</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'EB Garamond', 'Garamond', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 96px;
+  background: #FFFFFF;
+  z-index: 100;
+  border-bottom: 1px solid #E5E1DA;
+}
+
+.nav-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 18px;
+}
+
+.wordmark {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-size: 15px;
+  letter-spacing: 0.35em;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.nav-line {
+  width: 220px;
+  height: 1px;
+  background: #1A1A1A;
+  margin-bottom: 14px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 56px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease 0.1s;
+}
+
+.nav-wrapper:hover .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-link {
+  position: relative;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: #1A1A1A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.bag-icon {
+  position: fixed;
+  top: 36px;
+  right: 40px;
+  z-index: 110;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.bag-icon::before {
+  content: '◇';
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+/* ===== Hero / Breadcrumb ===== */
+.breadcrumb {
+  padding: 140px 80px 40px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+
+.breadcrumb a:hover { color: #1A1A1A; }
+
+/* ===== Product Layout ===== */
+.product {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 80px;
+  padding: 0 80px 120px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 820px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-img .crossfade {
+  position: absolute; inset: 0;
+}
+
+.crossfade img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+}
+
+/* CSS-only "photographs" — soft gradient compositions */
+.photo-1 {
+  background:
+    radial-gradient(ellipse at 50% 40%, #2a2a2a 0%, #1a1a1a 45%, #0d0d0d 100%);
+  position: relative;
+}
+.photo-1::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 240px; height: 320px;
+  transform: translate(-50%, -45%);
+  background: linear-gradient(140deg, #1f1f1f 0%, #2c2c2c 50%, #161616 100%);
+  border-radius: 8px 8px 30px 30px / 8px 8px 18px 18px;
+  box-shadow:
+    inset 0 -40px 60px rgba(0,0,0,0.6),
+    inset 0 20px 40px rgba(255,255,255,0.03),
+    0 60px 80px rgba(0,0,0,0.5);
+}
+.photo-1::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 36%;
+  width: 60px; height: 80px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(180deg, #3a3a3a, #1f1f1f);
+  border-radius: 30px 30px 4px 4px;
+  z-index: 2;
+}
+
+.photo-2 {
+  background: linear-gradient(160deg, #FAF7F2 0%, #F2EEE6 60%, #E5E1DA 100%);
+  position: relative;
+}
+.photo-2::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 380px; height: 260px;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  background: linear-gradient(120deg, #1a1a1a, #2a2a2a, #1a1a1a);
+  box-shadow:
+    inset 0 -30px 60px rgba(0,0,0,0.5),
+    0 30px 60px rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+
+.photo-3 {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  position: relative;
+}
+.photo-3::after {
+  content: '';
+  position: absolute;
+  inset: 80px;
+  background:
+    linear-gradient(135deg, #C4A882 0%, #b09668 50%, #8c764e 100%);
+  opacity: 0.95;
+}
+.photo-3::before {
+  content: '';
+  position: absolute;
+  inset: 80px;
+  background:
+    repeating-linear-gradient(45deg,
+      transparent 0px, transparent 18px,
+      rgba(0,0,0,0.04) 18px, rgba(0,0,0,0.04) 19px);
+  z-index: 2;
+}
+
+.photo-4 {
+  background:
+    linear-gradient(180deg, #d4cdc0 0%, #b8aea0 40%, #8a8278 70%, #4a463f 100%);
+  position: relative;
+}
+.photo-4::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 55%;
+  width: 180px; height: 240px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(160deg, #1a1a1a, #0a0a0a);
+  border-radius: 10px 10px 24px 24px;
+  box-shadow: 0 40px 60px rgba(0,0,0,0.4);
+}
+
+/* Product Info */
+.info {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  padding-top: 20px;
+}
+
+.info-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  margin-bottom: 28px;
+}
+
+.info-name {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+
+.info-price {
+  font-size: 12px;
+  color: #8A8A8A;
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+}
+
+.info-color {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #8A8A8A;
+}
+
+.color-swatch {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #1A1A1A;
+  margin-right: 12px;
+  vertical-align: middle;
+  border: 1px solid #E5E1DA;
+}
+
+.color-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 18px 24px;
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: 1px solid #1A1A1A;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background 1s ease, color 1s ease;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  background: #FFFFFF;
+  color: #1A1A1A;
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  color: #1A1A1A;
+}
+
+.btn-secondary:hover {
+  background: #1A1A1A;
+  color: #FFFFFF;
+}
+
+.private-client {
+  margin-top: 28px;
+  font-size: 12px;
+  font-style: italic;
+  color: #8A8A8A;
+  line-height: 1.7;
+}
+
+.private-client a {
+  border-bottom: 1px solid #C4A882;
+  padding-bottom: 1px;
+}
+
+/* Accordion */
+.accordion {
+  margin-top: 56px;
+  border-top: 1px solid #1A1A1A;
+}
+
+.accordion details {
+  border-bottom: 1px solid #E5E1DA;
+}
+
+.accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 0;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion summary::-webkit-details-marker { display: none; }
+
+.accordion summary::after {
+  content: '+';
+  font-size: 16px;
+  font-weight: 300;
+  transition: transform 0.6s ease;
+}
+
+.accordion details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.accordion-body {
+  padding: 0 0 24px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  font-style: italic;
+}
+
+/* Related */
+.related {
+  padding: 100px 80px 140px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.related-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 80px;
+  font-weight: 400;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.product-card {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+  animation: card_reveal 1.8s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.2s; }
+.product-card:nth-child(2) { animation-delay: 0.5s; }
+.product-card:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes card_reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-img {
+  width: 100%;
+  height: 460px;
+  margin-bottom: 28px;
+  background: #FAF7F2;
+}
+
+.card-img.bag-1 {
+  background:
+    radial-gradient(ellipse at 50% 55%, #2a2a2a 0%, #1a1a1a 55%, #0d0d0d 100%);
+  position: relative;
+}
+.card-img.bag-1::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 55%;
+  width: 180px; height: 230px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(140deg, #1f1f1f, #2c2c2c, #161616);
+  border-radius: 6px 6px 24px 24px;
+  box-shadow: inset 0 -30px 50px rgba(0,0,0,0.6);
+}
+
+.card-img.wallet {
+  background: linear-gradient(160deg, #FAF7F2, #F2EEE6, #E5E1DA);
+  position: relative;
+}
+.card-img.wallet::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 220px; height: 140px;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  background: linear-gradient(135deg, #C4A882, #a08660);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-img.mini-bag {
+  background: linear-gradient(180deg, #d4cdc0, #a8a094);
+  position: relative;
+}
+.card-img.mini-bag::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 55%;
+  width: 140px; height: 160px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(160deg, #1a1a1a, #2a2a2a);
+  border-radius: 4px 4px 18px 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #8A8A8A;
+}
+
+/* Footer */
+footer {
+  background: #FAF7F2;
+  padding: 100px 80px 60px;
+  border-top: 1px solid #E5E1DA;
+}
+
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  gap: 80px;
+  padding-bottom: 80px;
+}
+
+.footer-col h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+.footer-col p, .footer-col a {
+  display: block;
+  font-size: 13px;
+  line-height: 2;
+  color: #4a4a4a;
+}
+
+.footer-col a:hover { color: #1A1A1A; }
+
+.newsletter-input {
+  display: flex;
+  border-bottom: 1px solid #1A1A1A;
+  padding: 8px 0;
+  margin-top: 18px;
+}
+
+.newsletter-input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  color: #1A1A1A;
+  outline: none;
+  font-style: italic;
+}
+
+.newsletter-input input::placeholder { color: #8A8A8A; }
+
+.newsletter-input button {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #1A1A1A;
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  border-top: 1px solid #E5E1DA;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+
+.tagline {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  color: #4a4a4a;
+}
+
+/* Hero fade-in (for breadcrumb area treated as hero entrance) */
+.fade-up {
+  animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.info > * {
+  animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.info > *:nth-child(1) { animation-delay: 0.1s; }
+.info > *:nth-child(2) { animation-delay: 0.2s; }
+.info > *:nth-child(3) { animation-delay: 0.3s; }
+.info > *:nth-child(4) { animation-delay: 0.4s; }
+.info > *:nth-child(5) { animation-delay: 0.5s; }
+.info > *:nth-child(6) { animation-delay: 0.6s; }
+.info > *:nth-child(7) { animation-delay: 0.7s; }
+
+.gallery-img { animation: fade_in_hero 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.gallery-img:nth-child(2) { animation-delay: 0.3s; }
+.gallery-img:nth-child(3) { animation-delay: 0.5s; }
+.gallery-img:nth-child(4) { animation-delay: 0.7s; }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-wrapper">
+    <div class="wordmark">Maison Delacroix–Vauban</div>
+    <div class="nav-line"></div>
+    <div class="nav-menu">
+      <a class="nav-link" href="#">Femme</a>
+      <a class="nav-link" href="#">Homme</a>
+      <a class="nav-link" href="#">Maroquinerie</a>
+      <a class="nav-link" href="#">Défilé</a>
+      <a class="nav-link" href="#">Maison</a>
+    </div>
+  </div>
+</nav>
+
+<div class="bag-icon">Bag (0)</div>
+
+<div class="breadcrumb fade-up">
+  <a href="#">Maroquinerie</a> &nbsp;·&nbsp; <a href="#">Sacs</a> &nbsp;·&nbsp; Sac Vauban 36
+</div>
+
+<section class="product">
+
+  <div class="gallery">
+    <div class="gallery-img photo-1"></div>
+    <div class="gallery-img photo-2"></div>
+    <div class="gallery-img photo-3"></div>
+    <div class="gallery-img photo-4"></div>
+  </div>
+
+  <aside class="info">
+    <div class="info-eyebrow">Automne–Hiver 2023 · Silences du Nord</div>
+    <h1 class="info-name">Sac Vauban 36</h1>
+    <div class="info-price">€9,400</div>
+
+    <div class="info-color">Couleur</div>
+    <div class="color-row">
+      <span class="color-swatch"></span> Noir Calfskin
+    </div>
+
+    <button class="btn">Reserve</button>
+    <button class="btn btn-secondary">Add to Bag</button>
+
+    <p class="private-client">
+      Pour une présentation privée de cette pièce, veuillez prendre contact avec notre <a href="#">Conseiller Privé</a>.
+    </p>
+
+    <div class="accordion">
+      <details open>
+        <summary>Matières</summary>
+        <div class="accordion-body">
+          Veau grainé sélectionné dans les tanneries du sud-ouest de la France. Doublure en agneau plongé, teinte Vauban Sand. Fermoir V en laiton bruni, gainé main.
+        </div>
+      </details>
+      <details>
+        <summary>Savoir-faire</summary>
+        <div class="accordion-body">
+          Assemblé dans notre atelier de Fiesso d'Artico, Italie. Trente-huit heures de travail par pièce. Surpiqûres chevron exécutées à la main par un seul artisan, du début à la fin.
+        </div>
+      </details>
+      <details>
+        <summary>Entretien</summary>
+        <div class="accordion-body">
+          Conserver dans la housse en lin fournie, dans un lieu sec à l'abri de la lumière directe. Nourrir le cuir une fois par saison à l'aide du baume de la Maison. Éviter tout contact prolongé avec les textiles teints.
+        </div>
+      </details>
+      <details>
+        <summary>Made in</summary>
+        <div class="accordion-body">
+          Italie. Fiesso d'Artico, Vénétie. Numéro de série gravé à chaud sur la pièce de cuir intérieure.
+        </div>
+      </details>
+    </div>
+  </aside>
+
+</section>
+
+<section class="related">
+  <h3 class="related-title">Pièces apparentées</h3>
+  <div class="related-grid">
+
+    <div class="product-card">
+      <div class="card-img bag-1"></div>
+      <div class="card-name">Sac Vauban 28</div>
+      <div class="card-price">€8,200</div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img wallet"></div>
+      <div class="card-name">Portefeuille Astrid</div>
+      <div class="card-price">€1,450</div>
+    </div>
+
+    <div class="product-card">
+      <div class="card-img mini-bag"></div>
+      <div class="card-name">Sac Camille Mini</div>
+      <div class="card-price">€5,600</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Maison</h4>
+      <p class="tagline">Paris, depuis 1923.</p>
+      <p>Une maison française de couture et de maroquinerie, fondée par Augustin Delacroix-Vauban au-dessus d'un atelier de la Rue Cambon.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Boutiques</h4>
+      <a href="#">Paris</a>
+      <a href="#">Milano</a>
+      <a href="#">Tokyo</a>
+      <a href="#">New York</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services Clients</h4>
+      <p>Conciergerie<br>+33 1 42 60 00 23</p>
+      <p>correspondance@<br>delacroix-vauban.com</p>
+    </div>
+    <div class="footer-col">
+      <h4>Correspondance</h4>
+      <p>Recevez nos invitations et nouvelles de la Maison, en toute discrétion.</p>
+      <div class="newsletter-input">
+        <input type="email" placeholder="votre adresse électronique">
+        <button>→</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© MMXXIII Maison Delacroix–Vauban</div>
+    <div>Mentions Légales · Confidentialité · Cookies</div>
+  </div>
+</footer>
+
+</body>
+</html>

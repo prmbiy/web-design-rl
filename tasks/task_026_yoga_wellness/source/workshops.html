@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workshops & Retreats — Stillwater Yoga & Wellness</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAFAF7;
+  --surface: #F5ECD7;
+  --primary: #88A47C;
+  --secondary: #D4B896;
+  --accent: #C5848A;
+  --text: #5C5C52;
+  --muted: #9E9E8E;
+  --border: #E8E2D5;
+  --deep-sage: #5F7256;
+  --terracotta: #B87355;
+  --warm-white: #FDFCF8;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: linear-gradient(180deg, #FAFAF7 0%, #F5ECD7 100%);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 84px;
+  background: rgba(250,250,247,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--deep-sage);
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  gap: 44px;
+  list-style: none;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.nav-links a { color: var(--text); transition: color .3s ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.cart {
+  font-size: 18px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.cta-book {
+  background: var(--primary);
+  color: var(--warm-white);
+  padding: 12px 26px;
+  border-radius: 2px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background .3s ease;
+}
+.cta-book:hover { background: var(--deep-sage); }
+
+/* HERO */
+.hero {
+  padding: 200px 40px 100px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 28px;
+  color: var(--deep-sage);
+}
+.hero p {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--muted);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero, .hero h1, .hero p {
+  animation: fade_in_hero 1.6s ease-out both;
+}
+.hero h1 { animation-delay: .2s; }
+.hero p { animation-delay: .4s; }
+
+@keyframes scroll_reveal_cards {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.card, .class-card, .teacher-card, .event {
+  animation: scroll_reveal_cards 1s ease-out both;
+}
+
+@keyframes breath_pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.breath { animation: breath_pulse 4s ease-in-out infinite; }
+
+/* DIVIDER */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--secondary);
+  margin: 0 auto 80px;
+}
+
+/* EVENTS */
+.events-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+.event:nth-child(even) .event-image { order: 2; }
+.event:nth-child(even) .event-content { order: 1; }
+
+.event-image {
+  height: 480px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.img-zoom { overflow: hidden; }
+.img-zoom .img-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s ease;
+}
+.img-zoom:hover .img-inner { transform: scale(1.05); }
+
+.img-winter {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(197,132,138,0.25), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(136,164,124,0.3), transparent 60%),
+    linear-gradient(135deg, #E8E2D5 0%, #F5ECD7 100%);
+  position: relative;
+}
+.img-winter::after {
+  content: '✦';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: var(--deep-sage);
+  opacity: 0.35;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.img-breath {
+  background:
+    radial-gradient(circle at 60% 50%, rgba(212,184,150,0.4), transparent 60%),
+    linear-gradient(160deg, #F5ECD7 0%, #E8E2D5 100%);
+  position: relative;
+}
+.img-breath::after {
+  content: '◯';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 140px;
+  color: var(--terracotta);
+  opacity: 0.4;
+  font-weight: 200;
+}
+
+.img-costa {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(95,114,86,0.4), transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(212,184,150,0.5), transparent 60%),
+    linear-gradient(180deg, #D4B896 0%, #88A47C 100%);
+  position: relative;
+}
+.img-costa::after {
+  content: '⌘';
+  position: absolute;
+  bottom: 40px; right: 40px;
+  font-size: 48px;
+  color: var(--warm-white);
+  opacity: 0.6;
+}
+
+.event-tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.event-content h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: var(--deep-sage);
+}
+.event-teacher {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.event-meta div {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.event-meta .label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  min-width: 90px;
+}
+.event-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.event-includes {
+  list-style: none;
+  margin-bottom: 36px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.event-includes li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.event-includes li::before {
+  content: '— ';
+  color: var(--secondary);
+  margin-right: 8px;
+}
+
+.event-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.investment {
+  font-family: 'Cormorant Garamond', serif;
+}
+.investment .label {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.investment .amount {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--text);
+}
+.spots {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+.spots .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.reserve-btn {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 14px 32px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  transition: all .4s ease;
+  border-radius: 2px;
+}
+.reserve-btn:hover {
+  background: var(--primary);
+  color: var(--warm-white);
+}
+
+/* REGISTRATION */
+.registration {
+  max-width: 760px;
+  margin: 60px auto 120px;
+  padding: 0 40px;
+  text-align: center;
+}
+.registration .eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+.registration h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: var(--deep-sage);
+}
+.registration .lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.spots-counter {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  padding: 8px 20px;
+  border: 1px solid var(--secondary);
+  border-radius: 2px;
+  margin-bottom: 60px;
+}
+
+.reg-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  text-align: left;
+}
+.field { display: flex; flex-direction: column; }
+.field.full { grid-column: 1 / -1; }
+.field label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.field input, .field textarea, .field select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color .3s ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-bottom-color: var(--primary);
+}
+.field textarea { resize: none; min-height: 80px; }
+.submit-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.submit-btn {
+  background: var(--primary);
+  color: var(--warm-white);
+  border: none;
+  padding: 16px 50px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  border-radius: 2px;
+  transition: background .3s ease;
+}
+.submit-btn:hover { background: var(--deep-sage); }
+
+/* FOOTER */
+.footer {
+  background: var(--surface);
+  padding: 80px 40px 40px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 60px;
+}
+.footer h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--deep-sage);
+  margin-bottom: 16px;
+}
+.footer p, .footer li {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.9;
+}
+.footer ul { list-style: none; }
+.newsletter input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--muted);
+  padding: 10px 0;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  margin-bottom: 16px;
+}
+.newsletter button {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 22px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+}
+.social { margin-top: 18px; font-size: 14px; }
+.social a { margin-right: 18px; color: var(--muted); }
+.footer-bottom {
+  max-width: 1240px;
+  margin: 60px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand breath">Stillwater</a>
+    <ul class="nav-links">
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Teachers</a></li>
+      <li><a href="#" class="active">Workshops</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="cart">⊙</span>
+      <a href="#" class="cta-book">Book Class</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Workshops & Retreats</div>
+  <h1>Deeper time,<br>fuller practice.</h1>
+  <p>Seasonal workshops in the studio and small-group retreats abroad.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="events-section">
+
+  <article class="event">
+    <div class="event-image img-zoom">
+      <div class="img-inner img-winter"></div>
+    </div>
+    <div class="event-content">
+      <div class="event-tag">Winter Immersion</div>
+      <h2>Winter Yin & Yoga Nidra Immersion</h2>
+      <div class="event-teacher">with Ines Marchetti</div>
+      <div class="event-meta">
+        <div><span class="label">Date</span> Saturday, February 17</div>
+        <div><span class="label">Time</span> 1:00pm — 5:30pm</div>
+        <div><span class="label">Location</span> In-studio · 147 Wythe Ave</div>
+        <div><span class="label">Level</span> All practitioners</div>
+      </div>
+      <p class="event-description">An afternoon of long-held yin postures and guided yoga nidra to meet winter where it is — slow, internal, restorative. Designed for those craving stillness.</p>
+      <ul class="event-includes">
+        <li>Four hours of guided practice</li>
+        <li>Seasonal tea service & light nourishment</li>
+        <li>Hand-illustrated practice journal</li>
+        <li>Recording of nidra to take home</li>
+      </ul>
+      <div class="event-footer">
+        <div class="investment">
+          <span class="label">Investment</span>
+          <span class="amount">$145</span>
+        </div>
+        <div class="spots"><span class="dot"></span>9 of 18 spots remaining</div>
+        <a href="#registration" class="reserve-btn">Reserve</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="event">
+    <div class="event-image img-zoom">
+      <div class="img-inner img-breath"></div>
+    </div>
+    <div class="event-content">
+      <div class="event-tag">Online Workshop</div>
+      <h2>Breath & Backbends Workshop</h2>
+      <div class="event-teacher">with Devan Rao</div>
+      <div class="event-meta">
+        <div><span class="label">Date</span> Saturday, March 9</div>
+        <div><span class="label">Time</span> 10:00am — 12:30pm EST</div>
+        <div><span class="label">Location</span> Online · Stillwater Stream</div>
+        <div><span class="label">Level</span> Intermediate</div>
+      </div>
+      <p class="event-description">A careful study of the breath as it meets the spine. We will move through preparatory shapes, accessible variations, and a thoughtful peak sequence — held together by pranayama.</p>
+      <ul class="event-includes">
+        <li>Two-and-a-half hour live session</li>
+        <li>30-day access to the recording</li>
+        <li>Sequencing notes & home practice plan</li>
+        <li>Q&A with Devan after class</li>
+      </ul>
+      <div class="event-footer">
+        <div class="investment">
+          <span class="label">Investment</span>
+          <span class="amount">$65</span>
+        </div>
+        <div class="spots"><span class="dot"></span>Open enrollment</div>
+        <a href="#registration" class="reserve-btn">Reserve</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="event">
+    <div class="event-image img-zoom">
+      <div class="img-inner img-costa"></div>
+    </div>
+    <div class="event-content">
+      <div class="event-tag">Retreat Abroad</div>
+      <h2>Costa Rica Retreat — Nosara</h2>
+      <div class="event-teacher">with Amara Okafor & Yuki Tanabe</div>
+      <div class="event-meta">
+        <div><span class="label">Dates</span> May 4 — May 11</div>
+        <div><span class="label">Location</span> Bodhi Tree, Nosara · Guanacaste</div>
+        <div><span class="label">Group size</span> Limited to 14 practitioners</div>
+        <div><span class="label">Level</span> All practitioners</div>
+      </div>
+      <p class="event-description">Seven mornings of slow flow on open-air platforms, afternoons of yin and rest, evenings of breath and shared meals. A week to remember what the practice is for.</p>
+      <ul class="event-includes">
+        <li>Seven nights private or shared casita</li>
+        <li>Two daily practices + one workshop</li>
+        <li>Three plant-forward meals daily</li>
+        <li>Excursion to Playa Guiones</li>
+        <li>Closing ceremony & take-home practice</li>
+      </ul>
+      <div class="event-footer">
+        <div class="investment">
+          <span class="label">Investment</span>
+          <span class="amount">$2,890</span>
+        </div>
+        <div class="spots"><span class="dot"></span>4 of 14 spots remaining</div>
+        <a href="#registration" class="reserve-btn">Reserve</a>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<section class="registration" id="registration">
+  <div class="eyebrow">Registration</div>
+  <h2>Hold your place, gently.</h2>
+  <p class="lead">Tell us a little about yourself. We will reply within two days with arrival details and next steps.</p>
+  <div class="spots-counter">Limited to 14 practitioners</div>
+
+  <form class="reg-form">
+    <div class="field">
+      <label>Name</label>
+      <input type="text" placeholder="Your full name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+    </div>
+    <div class="field">
+      <label>Phone (optional)</label>
+      <input type="tel" placeholder="+1">
+    </div>
+    <div class="field">
+      <label>Which offering</label>
+      <select>
+        <option>Winter Yin & Yoga Nidra Immersion — Feb 17</option>
+        <option>Breath & Backbends Workshop — Mar 9</option>
+        <option>Costa Rica Retreat — May 4–11</option>
+      </select>
+    </div>
+    <div class="field full">
+      <label>Dietary notes or accommodations</label>
+      <textarea placeholder="Anything we should know to care for you well."></textarea>
+    </div>
+    <div class="field full">
+      <label>What draws you to this practice</label>
+      <textarea placeholder="A sentence or two, if you'd like to share."></textarea>
+    </div>
+    <div class="submit-row">
+      <button type="submit" class="submit-btn">Send Inquiry</button>
+    </div>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Stillwater</div>
+      <p>A quiet practice in the heart of the city.</p>
+      <p style="margin-top: 14px; color: var(--muted);">147 Wythe Avenue<br>Brooklyn, New York 11249</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>Mon — Fri · 6am — 9pm</li>
+        <li>Sat — Sun · 8am — 7pm</li>
+        <li style="margin-top: 12px;"><a href="#">Get directions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Practice</h4>
+      <ul>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="#">Teachers</a></li>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Stillwater Stream</a></li>
+      </ul>
+    </div>
+    <div class="newsletter">
+      <h4>Receive Our Seasonal Letter</h4>
+      <input type="email" placeholder="Your email">
+      <button>Subscribe</button>
+      <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">Spotify</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Stillwater Yoga & Wellness</span>
+    <span>Made slowly in Brooklyn</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>V8Lover_Brad - Member Profile - MiataOwners.net</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #E1E4F2;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #333333;
+  }
+  a { color: #22229C; text-decoration: none; }
+  a:visited { color: #551A8B; }
+  a:hover { text-decoration: underline; }
+
+  .container { max-width: 1000px; margin: 0 auto; background: #fff; border-left: 1px solid #B8C4D9; border-right: 1px solid #B8C4D9; }
+
+  /* Header banner */
+  .banner {
+    background: linear-gradient(180deg, #1a4a7a 0%, #003366 100%);
+    color: #fff;
+    padding: 14px 18px;
+    border-bottom: 3px solid #FF6600;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    right: -40px; top: -20px;
+    width: 280px; height: 140px;
+    background: radial-gradient(ellipse at center, rgba(255,102,0,0.18) 0%, transparent 70%);
+  }
+  .banner h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 0 #000;
+  }
+  .banner h1 .dot { color: #FF6600; }
+  .banner .tagline { font-size: 11px; color: #B8C4D9; margin-top: 2px; font-style: italic; }
+  .banner .welcome {
+    position: absolute;
+    right: 18px; bottom: 10px;
+    font-size: 11px;
+    color: #d9e2f0;
+    text-align: right;
+  }
+  .banner .welcome strong { color: #FF6600; }
+
+  /* Main nav */
+  .mainnav {
+    background: #003366;
+    border-top: 1px solid #4477AA;
+    border-bottom: 1px solid #001a33;
+    padding: 0 12px;
+    display: flex;
+  }
+  .mainnav a {
+    color: #fff;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    border-right: 1px solid #1a4a7a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .mainnav a:hover { background: #336699; text-decoration: none; }
+  .mainnav a.active { background: #FF6600; }
+
+  /* Subnav / breadcrumb */
+  .subnav {
+    background: #DCE2EF;
+    border-bottom: 1px solid #B8C4D9;
+    padding: 6px 12px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .subnav .crumbs { color: #555; }
+  .subnav .crumbs a { color: #22229C; }
+  .subnav .tools a {
+    background: linear-gradient(180deg, #fff 0%, #DCE2EF 100%);
+    border: 1px solid #B8C4D9;
+    padding: 2px 8px;
+    margin-left: 4px;
+    color: #003366;
+    font-weight: bold;
+  }
+
+  /* Profile header */
+  .profile-header {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    padding: 10px 14px;
+    border-bottom: 1px solid #003366;
+  }
+  .profile-header h2 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .profile-header h2 .rank {
+    color: #FFD966;
+    font-size: 13px;
+    font-weight: normal;
+    margin-left: 8px;
+  }
+  .profile-header .quote {
+    font-style: italic;
+    font-size: 12px;
+    color: #d9e2f0;
+    margin-top: 3px;
+  }
+
+  /* Two column layout */
+  .profile-body {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    padding: 12px;
+    background: #E1E4F2;
+  }
+
+  /* Left column */
+  .left-col { display: flex; flex-direction: column; gap: 10px; }
+
+  .panel {
+    background: #fff;
+    border: 1px solid #B8C4D9;
+    border-radius: 2px;
+  }
+  .panel-head {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #003366;
+  }
+  .panel-body { padding: 10px; }
+
+  .avatar-large {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+    background:
+      radial-gradient(ellipse at 50% 65%, #cc0000 0%, #770000 60%, #330000 100%);
+    border: 3px solid #003366;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+  .avatar-large::before {
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px;
+    top: 55px; height: 32px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #333 100%);
+    border-radius: 6px 6px 2px 2px;
+  }
+  .avatar-large::after {
+    content: "🚗";
+    position: absolute;
+    bottom: 4px; left: 0; right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+  }
+  .username-block {
+    text-align: center;
+    padding: 6px;
+    border-top: 1px solid #B8C4D9;
+    background: #F2F2F2;
+  }
+  .username-block .uname {
+    font-weight: bold;
+    font-size: 15px;
+    color: #003366;
+  }
+  .username-block .urank {
+    font-size: 11px;
+    color: #777;
+    font-style: italic;
+  }
+  .stars { color: #FF6600; font-size: 12px; letter-spacing: 1px; }
+
+  .contact-buttons { padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .btn {
+    background: linear-gradient(180deg, #fff 0%, #DCE2EF 100%);
+    border: 1px solid #B8C4D9;
+    padding: 5px 8px;
+    font-size: 11px;
+    color: #003366;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .btn:hover { background: linear-gradient(180deg, #DCE2EF 0%, #B8C4D9 100%); }
+  .btn-primary {
+    background: linear-gradient(180deg, #FF8833 0%, #CC5200 100%);
+    color: #fff;
+    border-color: #993D00;
+  }
+
+  .stats-table { width: 100%; font-size: 11px; }
+  .stats-table td {
+    padding: 3px 6px;
+    border-bottom: 1px dotted #D5DCE8;
+  }
+  .stats-table td:first-child { color: #777; width: 50%; }
+  .stats-table td:last-child { font-weight: bold; color: #333; text-align: right; }
+  .stats-table tr:last-child td { border-bottom: none; }
+  .rep-pos { color: #339933; }
+
+  /* Right column */
+  .right-col { display: flex; flex-direction: column; gap: 10px; padding-left: 12px; }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #003366;
+    background: #DCE2EF;
+  }
+  .tab {
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #003366;
+    border: 1px solid #B8C4D9;
+    border-bottom: none;
+    border-right: none;
+    background: linear-gradient(180deg, #DCE2EF 0%, #B8C4D9 100%);
+    cursor: pointer;
+  }
+  .tab:last-child { border-right: 1px solid #B8C4D9; }
+  .tab.active {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    border-color: #003366;
+  }
+
+  /* About me grid */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 130px 1fr 130px 1fr;
+    gap: 0;
+  }
+  .about-grid div {
+    padding: 6px 10px;
+    border-bottom: 1px solid #E8ECF5;
+    font-size: 12px;
+  }
+  .about-grid .label {
+    background: #F2F2F2;
+    color: #555;
+    font-weight: bold;
+    border-right: 1px solid #E8ECF5;
+  }
+
+  /* Awards / Infractions */
+  .awards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+  .awards-col h4 {
+    font-size: 12px;
+    color: #003366;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #B8C4D9;
+    padding-bottom: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .badges { display: flex; flex-direction: column; gap: 5px; }
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    background: #FFF8DC;
+    border: 1px solid #E5D9A8;
+    border-radius: 2px;
+    font-size: 11px;
+  }
+  .badge .ico {
+    width: 28px; height: 28px;
+    background: linear-gradient(180deg, #FFD966 0%, #CC9900 100%);
+    border: 1px solid #886600;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #663300;
+    flex-shrink: 0;
+  }
+  .badge .ttl { font-weight: bold; color: #333; }
+  .badge .sub { color: #777; font-size: 10px; }
+  .infraction {
+    padding: 6px 8px;
+    background: #FFEEEE;
+    border: 1px solid #E5B8B8;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #663333;
+  }
+  .infraction strong { color: #CC0000; }
+
+  /* Recent posts */
+  .posts-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .posts-table th {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    text-align: left;
+    padding: 5px 8px;
+    font-size: 11px;
+    border-right: 1px solid #003366;
+  }
+  .posts-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #E8ECF5;
+    border-right: 1px solid #F2F2F2;
+  }
+  .posts-table tr:nth-child(even) td { background: #F2F2F2; }
+  .posts-table .ico-col { width: 22px; text-align: center; }
+  .posts-table .forum-col { width: 160px; color: #555; font-size: 11px; }
+  .posts-table .time-col { width: 140px; color: #777; font-size: 11px; text-align: right; }
+  .thread-icon {
+    display: inline-block;
+    width: 14px; height: 14px;
+    background: linear-gradient(180deg, #FFE699 0%, #FFB300 100%);
+    border: 1px solid #996600;
+    border-radius: 2px;
+  }
+
+  /* Right ad */
+  .small-ad {
+    background: repeating-linear-gradient(45deg, #fff 0 8px, #f8f8f8 8px 16px);
+    border: 1px dashed #B8C4D9;
+    padding: 12px;
+    text-align: center;
+    color: #777;
+    font-size: 11px;
+  }
+  .small-ad strong { color: #003366; font-size: 13px; display: block; margin-bottom: 2px; }
+
+  /* Footer */
+  .footer {
+    background: #003366;
+    color: #B8C4D9;
+    padding: 12px 18px;
+    font-size: 11px;
+    border-top: 3px solid #FF6600;
+  }
+  .footer .footer-nav { margin-bottom: 6px; }
+  .footer .footer-nav a { color: #fff; margin-right: 12px; }
+  .footer .copy { color: #7d92b3; }
+
+  /* Forum stats bar */
+  .stats-bar {
+    background: #DCE2EF;
+    border: 1px solid #B8C4D9;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header banner -->
+  <div class="banner">
+    <h1>Miata<span class="dot">Owners</span>.net</h1>
+    <div class="tagline">The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999</div>
+    <div class="welcome">
+      Welcome back, <strong>RoadsterDan76</strong><br>
+      You have <strong>3 unread PMs</strong> and <strong>14 new posts</strong> since your last visit.
+    </div>
+  </div>
+
+  <!-- Main navigation -->
+  <div class="mainnav">
+    <a href="#">Home</a>
+    <a href="#">Forum</a>
+    <a href="#">Calendar</a>
+    <a href="#">FAQ</a>
+    <a href="#" class="active">Members</a>
+    <a href="#">Search</a>
+    <a href="#">Today's Posts</a>
+  </div>
+
+  <!-- Sub-nav / breadcrumb -->
+  <div class="subnav">
+    <div class="crumbs">
+      <a href="#">Forum Index</a> &gt; <a href="#">Members List</a> &gt; <strong>V8Lover_Brad</strong>
+    </div>
+    <div class="tools">
+      <a href="#">Send PM</a>
+      <a href="#">Add Friend</a>
+      <a href="#">View Posts</a>
+    </div>
+  </div>
+
+  <!-- Profile header -->
+  <div class="profile-header">
+    <h2>V8Lover_Brad <span class="rank">— Senior Member ★★★★☆</span></h2>
+    <div class="quote">"There's no replacement for displacement... except boost."</div>
+  </div>
+
+  <!-- Two column body -->
+  <div class="profile-body">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+      <!-- Avatar + identity -->
+      <div class="panel">
+        <div class="avatar-large"></div>
+        <div class="username-block">
+          <div class="uname">V8Lover_Brad</div>
+          <div class="urank">Senior Member</div>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="contact-buttons">
+          <button class="btn btn-primary">✉ Send Private Message</button>
+          <button class="btn">+ Add to Friends</button>
+          <button class="btn">⚑ Report User</button>
+          <button class="btn">🔍 Find All Posts</button>
+          <button class="btn">🔍 Find All Threads</button>
+        </div>
+      </div>
+
+      <!-- Statistics -->
+      <div class="panel">
+        <div class="panel-head">📊 Statistics</div>
+        <div class="panel-body" style="padding:0;">
+          <table class="stats-table">
+            <tr><td>Total Posts:</td><td>4,217</td></tr>
+            <tr><td>Threads Started:</td><td>38</td></tr>
+            <tr><td>Posts Per Day:</td><td>2.31</td></tr>
+            <tr><td>Reputation:</td><td class="rep-pos">+312 ●●●●●</td></tr>
+            <tr><td>Join Date:</td><td>Jun 12, 2007</td></tr>
+            <tr><td>Last Active:</td><td>Today 04:11 PM</td></tr>
+            <tr><td>Location:</td><td>Austin, TX</td></tr>
+            <tr><td>Local Time:</td><td>04:23 PM</td></tr>
+            <tr><td>Birthday:</td><td>March 22, 1982</td></tr>
+            <tr><td>Age:</td><td>30</td></tr>
+            <tr><td>Referrals:</td><td>7</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sidebar ad -->
+      <div class="panel">
+        <div class="panel-head">Sponsor</div>
+        <div class="small-ad" style="border:none;padding:14px 8px;">
+          <strong>Flyin' Miata</strong>
+          Turbo Kits &amp; Suspension<br>
+          <span style="color:#FF6600;font-weight:bold;">Free shipping over $200!</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <!-- Tabs -->
+      <div>
+        <div class="tabs">
+          <div class="tab active">About Me</div>
+          <div class="tab">Statistics</div>
+          <div class="tab">Friends (47)</div>
+          <div class="tab">Visitor Messages (218)</div>
+          <div class="tab">Subscriptions</div>
+        </div>
+
+        <!-- About Me panel -->
+        <div class="panel" style="border-top:none;border-radius:0 0 2px 2px;">
+          <div class="panel-head">👤 About V8Lover_Brad</div>
+          <div class="about-grid">
+            <div class="label">Real Name</div><div>Brad K.</div>
+            <div class="label">Occupation</div><div>Diesel Mechanic</div>
+            <div class="label">Location</div><div>Austin, TX</div>
+            <div class="label">Gender</div><div>Male</div>
+            <div class="label">Interests</div><div>Autocross, BBQ, Beer</div>
+            <div class="label">Member Since</div><div>June 2007</div>
+            <div class="label">Current Ride</div><div>1994 Miata LS3 Swap (R-Package)</div>
+            <div class="label">Daily Driver</div><div>'08 F-250 6.4L PowerStroke</div>
+            <div class="label">Previous Rides</div><div>'99 10AE, '06 NC Club</div>
+            <div class="label">Club / Crew</div><div>Hill Country Roadsters (HCR)</div>
+            <div class="label">Mod Goal</div><div>Sub-2:00 at COTA</div>
+            <div class="label">Build Thread</div><div><a href="#">1994 LS-Swap Track Car »</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awards & Infractions -->
+      <div class="panel">
+        <div class="panel-head">🏆 Awards &amp; Infractions</div>
+        <div class="awards-row">
+          <div class="awards-col">
+            <h4>Awards Earned (3)</h4>
+            <div class="badges">
+              <div class="badge">
+                <div class="ico">★</div>
+                <div>
+                  <div class="ttl">Build of the Month</div>
+                  <div class="sub">Awarded October 2011 — LS-Swap Build Thread</div>
+                </div>
+              </div>
+              <div class="badge">
+                <div class="ico" style="background:linear-gradient(180deg,#aaa 0%,#666 100%);border-color:#333;">5</div>
+                <div>
+                  <div class="ttl">5 Year Member</div>
+                  <div class="sub">Joined June 12, 2007</div>
+                </div>
+              </div>
+              <div class="badge">
+                <div class="ico" style="background:linear-gradient(180deg,#66bb66 0%,#339933 100%);border-color:#226622;">🏁</div>
+                <div>
+                  <div class="ttl">Track Day Veteran</div>
+                  <div class="sub">10+ track day events logged</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="awards-col">
+            <h4>Infractions (1 expired)</h4>
+            <div class="infraction">
+              <strong>Off-Topic Posting</strong> — Classifieds Section<br>
+              Issued by <a href="#">NBMike_PDX</a> on Feb 03, 2011<br>
+              Points: 1 / Expired: Aug 03, 2011<br>
+              <em style="color:#777;">Reason: Posted non-MX5 vehicle in Cars for Sale.</em>
+            </div>
+            <div style="margin-top:8px;font-size:11px;color:#339933;">
+              ✓ Account in good standing — no active infractions.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent posts -->
+      <div class="panel">
+        <div class="panel-head">📝 Most Recent Posts (10)</div>
+        <table class="posts-table">
+          <thead>
+            <tr>
+              <th class="ico-col"></th>
+              <th>Thread Title</th>
+              <th class="forum-col">Sub-Forum</th>
+              <th class="time-col">Posted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: LS3 oil pan clearance on NA crossmember?</a></td>
+              <td class="forum-col">Engine &amp; Drivetrain</td>
+              <td class="time-col">Today 03:47 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Build Thread: 1994 Miata LS-Swap Track Car (V8 Roadster)</a></td>
+              <td class="forum-col">Turbo &amp; SC Projects</td>
+              <td class="time-col">Today 11:22 AM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: Best 949 Racing wheel for 245 R-comps?</a></td>
+              <td class="forum-col">Suspension &amp; Brakes</td>
+              <td class="time-col">Yesterday 09:18 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: COTA track day — Oct 14 sign-up sheet</a></td>
+              <td class="forum-col">Track Day Coordination</td>
+              <td class="time-col">Yesterday 07:42 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: What brake pads for HPDE? Hawk DTC vs PFC</a></td>
+              <td class="forum-col">Suspension &amp; Brakes</td>
+              <td class="time-col">Yesterday 02:15 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Post Your Miata Pic Thread VOL.27</a></td>
+              <td class="forum-col">NA/NB Chat</td>
+              <td class="time-col">09-23-2012 08:33 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: Anyone running Treadstone TR8 turbo on V8?</a></td>
+              <td class="forum-col">Turbo &amp; SC Projects</td>
+              <td class="time-col">09-22-2012 11:04 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: Hill Country Roadsters Sept Meet recap</a></td>
+              <td class="forum-col">Regional Meetups</td>
+              <td class="time-col">09-22-2012 03:51 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: Replacing top boot clips — part #?</a></td>
+              <td class="forum-col">DIY How-To Archive</td>
+              <td class="time-col">09-21-2012 06:27 PM</td>
+            </tr>
+            <tr>
+              <td class="ico-col"><span class="thread-icon"></span></td>
+              <td><a href="#">Re: FS: OEM NA hardtop, red, Austin TX local pickup</a></td>
+              <td class="forum-col">Parts for Sale</td>
+              <td class="time-col">09-20-2012 10:11 AM</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:6px 10px;background:#F2F2F2;border-top:1px solid #B8C4D9;font-size:11px;text-align:right;">
+          <a href="#">» View all 4,217 posts by V8Lover_Brad</a>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar">
+        <span>Profile views: <strong>8,442</strong></span>
+        <span>Last visitor: <a href="#">BoostedBabs</a> — 2 hours ago</span>
+        <span><a href="#">Report Profile</a> | <a href="#">Block User</a></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-nav">
+      <a href="#">Home</a>
+      <a href="#">Forum Index</a>
+      <a href="#">Members List</a>
+      <a href="#">FAQ</a>
+      <a href="#">Rules</a>
+      <a href="#">Contact Staff</a>
+      <a href="#">Advertise</a>
+      <a href="#">Donate</a>
+      <a href="#">Premium Membership</a>
+    </div>
+    <div class="copy">
+      © 1999–2012 MiataOwners.net — All times are GMT -6. The time now is 04:23 PM.
+      Powered by vBulletin® Version 4.2.0 · Forum software not affiliated with Mazda Motor Corporation.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create an Event · Blockparty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { font-family: 'Nunito', sans-serif; color: #0F172A; background: #F8FAFC; font-size: 16px; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: 72px; background: #FFFFFF; border-bottom: 1px solid #E2E8F0;
+}
+.nav-inner {
+  max-width: 1240px; margin: 0 auto; height: 100%;
+  padding: 0 24px; display: flex; align-items: center; gap: 32px;
+}
+.logo {
+  font-weight: 900; font-size: 22px;
+  background: linear-gradient(90deg, #2563EB, #EC4899, #F97316);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+.nav-links { display: flex; gap: 28px; flex: 1; }
+.nav-links a { font-weight: 700; font-size: 15px; color: #0F172A; }
+.nav-links a:hover { color: #2563EB; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.location-picker {
+  display: flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 14px; color: #0F172A;
+  padding: 8px 12px; border-radius: 12px; background: #EFF6FF; cursor: pointer;
+}
+.icon-btn { width: 36px; height: 36px; border-radius: 50%; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.icon-btn:hover { background: #F8FAFC; }
+.login-link { font-weight: 700; font-size: 14px; }
+.cta-btn {
+  background: #F97316; color: #fff !important;
+  font-weight: 800; font-size: 14px;
+  padding: 10px 18px; border-radius: 12px; border: none; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(249,115,22,0.35); }
+
+/* HERO */
+.hero {
+  max-width: 1240px; margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+.hero h1 { font-size: 44px; font-weight: 900; letter-spacing: -1px; }
+.hero p { color: #64748B; font-size: 18px; margin-top: 8px; font-weight: 600; }
+@keyframes fadeInHero { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.hero > * { animation: fadeInHero 0.7s ease-out both; }
+.hero > *:nth-child(2) { animation-delay: 0.1s; }
+.hero > *:nth-child(3) { animation-delay: 0.2s; }
+
+/* PROGRESS */
+.progress {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 24px;
+}
+.step { display: flex; align-items: center; gap: 10px; }
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #fff; border: 2px solid #E2E8F0; color: #64748B;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px;
+}
+.step.active .step-num { background: #2563EB; color: #fff; border-color: #2563EB; }
+.step-label { font-weight: 700; font-size: 14px; color: #64748B; }
+.step.active .step-label { color: #0F172A; }
+.step-bar { flex: 0 0 40px; height: 2px; background: #E2E8F0; border-radius: 2px; }
+
+/* LAYOUT */
+.layout {
+  max-width: 1240px; margin: 0 auto; padding: 32px 24px 80px;
+  display: grid; grid-template-columns: 1fr 380px; gap: 32px;
+  align-items: start;
+}
+
+/* FORM CARD */
+.form-card {
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 16px;
+  padding: 32px; margin-bottom: 24px;
+}
+.form-card h2 {
+  font-size: 22px; font-weight: 800; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px;
+}
+.form-card h2 .step-pill {
+  background: #EFF6FF; color: #2563EB;
+  font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 999px;
+}
+.form-card .helper {
+  color: #64748B; font-size: 14px; margin-bottom: 24px; font-weight: 600;
+}
+.field { margin-bottom: 18px; }
+.field label {
+  display: block; font-weight: 700; font-size: 14px; margin-bottom: 6px;
+}
+.field input[type="text"], .field input[type="number"], .field input[type="date"],
+.field input[type="time"], .field textarea, .field select {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid #E2E8F0; border-radius: 12px;
+  font-family: inherit; font-size: 15px; font-weight: 600;
+  background: #fff; color: #0F172A;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: #2563EB; box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.rich-toolbar {
+  display: flex; gap: 4px; padding: 6px 10px;
+  border: 1.5px solid #E2E8F0; border-bottom: none;
+  border-radius: 12px 12px 0 0; background: #F8FAFC;
+}
+.rich-toolbar button {
+  background: transparent; border: none; cursor: pointer;
+  width: 30px; height: 30px; border-radius: 8px;
+  font-weight: 800; font-size: 14px; color: #64748B;
+}
+.rich-toolbar button:hover { background: #fff; color: #2563EB; }
+.rich-toolbar + textarea { border-radius: 0 0 12px 12px; border-top: none; }
+
+/* CATEGORY CHIPS */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 999px;
+  font-weight: 800; font-size: 13px; cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chip:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 6px 18px rgba(37,99,235,0.18); }
+.chip.selected { border-color: currentColor; }
+.chip-all { background: #EFF6FF; color: #2563EB; }
+.chip-music { background: rgba(236,72,153,0.15); color: #EC4899; }
+.chip-art { background: rgba(124,58,237,0.15); color: #7C3AED; }
+.chip-food { background: rgba(249,115,22,0.15); color: #F97316; }
+.chip-sports { background: rgba(22,163,74,0.15); color: #16A34A; }
+.chip-tech { background: rgba(14,165,233,0.15); color: #0EA5E9; }
+.chip-outdoors { background: rgba(101,163,13,0.15); color: #65A30D; }
+.chip-wellness { background: rgba(217,119,6,0.15); color: #D97706; }
+
+/* TOGGLE */
+.toggle-group {
+  display: inline-flex; background: #F8FAFC; padding: 4px;
+  border-radius: 12px; border: 1.5px solid #E2E8F0;
+}
+.toggle-group button {
+  background: transparent; border: none; cursor: pointer;
+  padding: 8px 16px; border-radius: 9px;
+  font-family: inherit; font-weight: 700; font-size: 14px; color: #64748B;
+}
+.toggle-group button.active { background: #fff; color: #2563EB; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+
+/* TICKETS */
+.ticket-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 40px; gap: 12px;
+  padding: 14px; border: 1.5px solid #E2E8F0; border-radius: 12px;
+  margin-bottom: 10px; background: #F8FAFC;
+  align-items: end;
+}
+.ticket-row .field { margin-bottom: 0; }
+.ticket-row label { font-size: 12px; color: #64748B; margin-bottom: 4px; }
+.ticket-row input {
+  background: #fff; padding: 10px 12px; font-size: 14px;
+}
+.remove-btn {
+  width: 36px; height: 36px; border-radius: 10px; background: #fff;
+  border: 1.5px solid #E2E8F0; cursor: pointer; color: #64748B;
+  font-size: 18px; font-weight: 700;
+}
+.remove-btn:hover { color: #F97316; border-color: #F97316; }
+.add-ticket {
+  width: 100%; padding: 14px; border: 2px dashed #2563EB;
+  background: #EFF6FF; color: #2563EB; border-radius: 12px;
+  font-family: inherit; font-weight: 800; font-size: 14px; cursor: pointer;
+  margin-top: 4px;
+}
+.add-ticket:hover { background: #DBEAFE; }
+
+/* MEDIA UPLOAD */
+.cover-drop {
+  border: 2px dashed #CBD5E1; border-radius: 14px;
+  aspect-ratio: 16/9; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(135deg, #EFF6FF 0%, #FEF3E8 100%);
+  cursor: pointer; transition: border-color 0.2s;
+  position: relative; overflow: hidden;
+}
+.cover-drop:hover { border-color: #2563EB; }
+.cover-drop .upload-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #2563EB; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+}
+.cover-drop .upload-title { font-weight: 800; font-size: 16px; }
+.cover-drop .upload-sub { color: #64748B; font-size: 13px; font-weight: 600; }
+.gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 16px; }
+.gallery-slot {
+  aspect-ratio: 1; border-radius: 10px;
+  background: #F1F5F9; border: 1.5px dashed #CBD5E1;
+  display: flex; align-items: center; justify-content: center;
+  color: #94A3B8; font-size: 20px; cursor: pointer;
+}
+.gallery-slot:hover { border-color: #2563EB; color: #2563EB; }
+
+/* PREVIEW SIDEBAR */
+.preview-sticky {
+  position: sticky; top: 96px;
+}
+.preview-label {
+  font-weight: 800; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 1px; color: #64748B; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.preview-label::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: #16A34A; box-shadow: 0 0 0 4px rgba(22,163,74,0.15);
+}
+.event-card {
+  background: #fff; border: 1px solid #E2E8F0; border-radius: 16px;
+  overflow: hidden; animation: revealCard 0.6s ease-out both;
+}
+@keyframes revealCard { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.event-card .cover {
+  height: 180px; position: relative;
+  background: linear-gradient(135deg, #2563EB 0%, #EC4899 60%, #F97316 100%);
+}
+.event-card .cover::after {
+  content: "🎧"; position: absolute; bottom: 12px; right: 14px;
+  font-size: 32px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+}
+.cat-tag {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,0.95); color: #EC4899;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.4px;
+}
+.feat-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: #F97316; color: #fff;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 800;
+}
+.event-card .body { padding: 16px; }
+.event-card .date {
+  color: #F97316; font-size: 13px; font-weight: 800; letter-spacing: 0.3px;
+}
+.event-card .title {
+  font-size: 18px; font-weight: 800; margin: 6px 0 8px;
+  line-height: 1.3;
+}
+.event-card .venue {
+  color: #64748B; font-size: 13px; font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+}
+.event-card .meta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid #F1F5F9;
+}
+.event-card .price {
+  font-size: 16px; font-weight: 800; color: #0F172A;
+}
+.event-card .price small { color: #64748B; font-weight: 600; font-size: 12px; }
+.event-card .going {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 13px; color: #64748B; font-weight: 700;
+}
+.avatars { display: flex; margin-right: 4px; }
+.avatars span {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid #fff; margin-left: -8px;
+  display: inline-block;
+}
+.avatars span:nth-child(1) { background: linear-gradient(135deg,#EC4899,#F97316); margin-left: 0;}
+.avatars span:nth-child(2) { background: linear-gradient(135deg,#2563EB,#0EA5E9); }
+.avatars span:nth-child(3) { background: linear-gradient(135deg,#16A34A,#65A30D); }
+
+.preview-actions {
+  margin-top: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.btn-publish {
+  background: #F97316; color: #fff; border: none; cursor: pointer;
+  padding: 14px; border-radius: 12px;
+  font-family: inherit; font-weight: 800; font-size: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-publish:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(249,115,22,0.35); }
+.btn-draft {
+  background: #fff; color: #0F172A; border: 1.5px solid #E2E8F0;
+  cursor: pointer; padding: 14px; border-radius: 12px;
+  font-family: inherit; font-weight: 800; font-size: 15px;
+}
+.btn-draft:hover { border-color: #2563EB; color: #2563EB; }
+.preview-tip {
+  margin-top: 16px; padding: 14px;
+  background: #EFF6FF; border-radius: 12px; border-left: 3px solid #2563EB;
+  font-size: 13px; color: #1E40AF; font-weight: 600; line-height: 1.5;
+}
+.preview-tip strong { display: block; margin-bottom: 4px; }
+
+/* LOCATION MAP PREVIEW */
+.mini-map {
+  position: relative; height: 140px; border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(37,99,235,0.06), rgba(236,72,153,0.06)),
+    repeating-linear-gradient(0deg, #E2E8F0 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, #E2E8F0 0 1px, transparent 1px 24px),
+    #F8FAFC;
+  margin-top: 10px; overflow: hidden;
+  border: 1.5px solid #E2E8F0;
+}
+.map-marker {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #2563EB; border: 3px solid #fff;
+}
+@keyframes markerPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.6); }
+  70% { box-shadow: 0 0 0 16px rgba(37,99,235,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+}
+.map-marker { animation: markerPulse 2s infinite; }
+
+/* FOOTER */
+footer {
+  background: #0F172A; color: #CBD5E1; padding: 56px 24px 32px;
+  margin-top: 64px;
+}
+.footer-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-logo {
+  font-weight: 900; font-size: 24px;
+  background: linear-gradient(90deg, #60A5FA, #F472B6, #FB923C);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.footer p { font-size: 14px; margin-top: 8px; color: #94A3B8; }
+.footer-city {
+  margin-top: 16px; display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 12px; background: #1E293B; border-radius: 10px;
+  font-size: 13px; font-weight: 700; color: #fff;
+}
+.footer h4 { color: #fff; font-size: 14px; margin-bottom: 14px; font-weight: 800; }
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 8px; font-size: 14px; }
+.footer ul li a:hover { color: #fff; }
+.footer-bottom {
+  max-width: 1240px; margin: 40px auto 0; padding-top: 24px;
+  border-top: 1px solid #1E293B;
+  display: flex; justify-content: space-between; align-items: center;
+  color: #64748B; font-size: 13px;
+}
+.socials { display: flex; gap: 10px; }
+.socials a {
+  width: 34px; height: 34px; border-radius: 50%; background: #1E293B;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.socials a:hover { background: #2563EB; }
+
+/* delay reveals */
+.event-card { animation-delay: 0.1s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">◆ Blockparty</a>
+    <div class="nav-links">
+      <a href="#">Explore</a>
+      <a href="#">Host an Event</a>
+      <a href="#">For Organizers</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="location-picker">📍 Brooklyn, NY ▾</div>
+      <div class="icon-btn">🔍</div>
+      <a href="#" class="login-link">Log in</a>
+      <button class="cta-btn">+ Create Event</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Let's get your event live</h1>
+  <p>Takes about 5 minutes. Save as draft anytime.</p>
+  <div class="progress">
+    <div class="step active"><div class="step-num">1</div><div class="step-label">Basics</div></div>
+    <div class="step-bar"></div>
+    <div class="step active"><div class="step-num">2</div><div class="step-label">Tickets</div></div>
+    <div class="step-bar"></div>
+    <div class="step active"><div class="step-num">3</div><div class="step-label">Media</div></div>
+    <div class="step-bar"></div>
+    <div class="step"><div class="step-num">4</div><div class="step-label">Review & Publish</div></div>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- LEFT: FORM -->
+  <div>
+
+    <!-- BASICS -->
+    <div class="form-card">
+      <h2><span class="step-pill">STEP 1</span> The basics</h2>
+      <p class="helper">Tell us about your event. Be specific — searchable titles get 3× more views.</p>
+
+      <div class="field">
+        <label>Event title</label>
+        <input type="text" value="Sunset Rooftop Vinyl Night — Jazz & Soul Edition" />
+      </div>
+
+      <div class="field">
+        <label>Description</label>
+        <div class="rich-toolbar">
+          <button><b>B</b></button>
+          <button><i>I</i></button>
+          <button><u>U</u></button>
+          <button>•</button>
+          <button>1.</button>
+          <button>🔗</button>
+        </div>
+        <textarea>Join us on Westlight's iconic rooftop for an unhurried evening of vinyl-only jazz and soul. Featured DJs Marcus Ellis and Lina Park curate sets from rare grooves to deep cuts, with skyline views and a natural wine bar from our friends at Discovery Cellar.</textarea>
+      </div>
+
+      <div class="field">
+        <label>Category</label>
+        <div class="chips">
+          <span class="chip chip-all">All</span>
+          <span class="chip chip-music selected">🎵 Music</span>
+          <span class="chip chip-art">🎨 Art</span>
+          <span class="chip chip-food">🍴 Food & Drink</span>
+          <span class="chip chip-sports">⚽ Sports</span>
+          <span class="chip chip-tech">💻 Tech</span>
+          <span class="chip chip-outdoors">🌳 Outdoors</span>
+          <span class="chip chip-wellness">🧘 Wellness</span>
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div class="field">
+          <label>Date</label>
+          <input type="date" value="2024-10-12" />
+        </div>
+        <div class="field">
+          <label>Start time</label>
+          <input type="time" value="18:00" />
+        </div>
+        <div class="field">
+          <label>End time</label>
+          <input type="time" value="22:00" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Format</label>
+        <div class="toggle-group">
+          <button class="active">📍 In-person</button>
+          <button>💻 Online</button>
+          <button>🌐 Hybrid</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Location</label>
+        <input type="text" value="Westlight at The William Vale · 111 N 12th St, Williamsburg, Brooklyn" />
+      </div>
+    </div>
+
+    <!-- TICKETS -->
+    <div class="form-card">
+      <h2><span class="step-pill">STEP 2</span> Tickets & pricing</h2>
+      <p class="helper">Add up to 6 ticket types. Early bird pricing helps drive momentum in week one.</p>
+
+      <div class="ticket-row">
+        <div class="field"><label>Ticket name</label><input type="text" value="Early Bird"></div>
+        <div class="field"><label>Price ($)</label><input type="number" value="20"></div>
+        <div class="field"><label>Quantity</label><input type="number" value="50"></div>
+        <button class="remove-btn">×</button>
+      </div>
+      <div class="ticket-row">
+        <div class="field"><label>Ticket name</label><input type="text" value="General Admission"></div>
+        <div class="field"><label>Price ($)</label><input type="number" value="30"></div>
+        <div class="field"><label>Quantity</label><input type="number" value="150"></div>
+        <button class="remove-btn">×</button>
+      </div>
+      <div class="ticket-row">
+        <div class="field"><label>Ticket name</label><input type="text" value="VIP Lounge"></div>
+        <div class="field"><label>Price ($)</label><input type="number" value="60"></div>
+        <div class="field"><label>Quantity</label><input type="number" value="20"></div>
+        <button class="remove-btn">×</button>
+      </div>
+
+      <button class="add-ticket">+ Add ticket type</button>
+    </div>
+
+    <!-- MEDIA -->
+    <div class="form-card">
+      <h2><span class="step-pill">STEP 3</span> Cover photo & gallery</h2>
+      <p class="helper">Upload a cover photo (1600 × 900 recommended). Drag to reposition the crop.</p>
+
+      <div class="cover-drop">
+        <div class="upload-icon">↑</div>
+        <div class="upload-title">Drop your cover photo here</div>
+        <div class="upload-sub">PNG or JPG · 16:9 ratio · Up to 8MB · 1600×900 recommended</div>
+      </div>
+
+      <label style="display:block; margin-top:20px; font-weight:700; font-size:14px;">Gallery (optional — up to 6 photos)</label>
+      <div class="gallery">
+        <div class="gallery-slot">＋</div>
+        <div class="gallery-slot">＋</div>
+        <div class="gallery-slot">＋</div>
+        <div class="gallery-slot">＋</div>
+        <div class="gallery-slot">＋</div>
+        <div class="gallery-slot">＋</div>
+      </div>
+    </div>
+
+    <!-- LOCATION MAP -->
+    <div class="form-card">
+      <h2><span class="step-pill">STEP 4</span> Confirm location on map</h2>
+      <p class="helper">We'll drop a pin so attendees can find you. Subway: L/G at Bedford Av.</p>
+      <div class="mini-map" style="height: 220px;">
+        <div class="map-marker"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: STICKY PREVIEW -->
+  <aside>
+    <div class="preview-sticky">
+      <div class="preview-label">Live preview</div>
+
+      <div class="event-card">
+        <div class="cover">
+          <span class="cat-tag">MUSIC</span>
+          <span class="feat-badge">FEATURED</span>
+        </div>
+        <div class="body">
+          <div class="date">SAT, OCT 12 · 6:00 PM</div>
+          <div class="title">Sunset Rooftop Vinyl Night — Jazz & Soul Edition</div>
+          <div class="venue">📍 Westlight, Williamsburg</div>
+          <div class="meta-row">
+            <div class="price">From $20 <small>· Early Bird</small></div>
+            <div class="going">
+              <div class="avatars"><span></span><span></span><span></span></div>
+              312 going
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-actions">
+        <button class="btn-publish">🚀 Publish Event</button>
+        <button class="btn-draft">💾 Save Draft</button>
+      </div>
+
+      <div class="preview-tip">
+        <strong>💡 Pro tip</strong>
+        Events with cover photos get 4.2× more clicks. Add at least 2 schedule items to qualify for Featured placement.
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">◆ Blockparty</div>
+      <p>Find your people, find your night.</p>
+      <div class="footer-city">📍 Brooklyn, NY ▾</div>
+    </div>
+    <div>
+      <h4>Discover</h4>
+      <ul>
+        <li><a href="#">Explore Events</a></li>
+        <li><a href="#">This Weekend</a></li>
+        <li><a href="#">Free Events</a></li>
+        <li><a href="#">Categories</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Organizers</h4>
+      <ul>
+        <li><a href="#">Host an Event</a></li>
+        <li><a href="#">Organizer Resources</a></li>
+        <li><a href="#">Pro Plan</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Trust & Safety</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Blockparty Inc. · Made in Brooklyn</div>
+    <div class="socials">
+      <a href="#">𝕏</a>
+      <a href="#">ig</a>
+      <a href="#">tt</a>
+      <a href="#">in</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

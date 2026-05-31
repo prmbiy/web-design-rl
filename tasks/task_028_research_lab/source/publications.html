@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Publications — Yale NLP & Reasoning Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Crimson Text', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+  background: #FFFFFF;
+}
+
+a { color: #00356B; text-decoration: underline; text-decoration-thickness: 0.5px; text-underline-offset: 2px; }
+a:hover { color: #A8132A; }
+a:visited { color: #5A2B7A; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D9D9D9;
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Crimson Text', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #00356B;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+.brand small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: #555;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links a:hover { color: #00356B; }
+.nav-links a.active { color: #00356B; border-bottom: 2px solid #00356B; padding-bottom: 4px; }
+.uni-badge {
+  width: 40px; height: 40px;
+  background: #00356B;
+  color: white;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+/* HERO */
+.hero {
+  border-bottom: 1px solid #D9D9D9;
+  padding: 56px 24px 40px;
+  background: #FFFFFF;
+}
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-family: 'Crimson Text', 'Times New Roman', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #00356B;
+  margin-bottom: 10px;
+}
+.hero .subhead {
+  font-size: 17px;
+  color: #555;
+  font-style: italic;
+}
+.hero .scholar-link {
+  margin-top: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+/* MAIN */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Filters */
+.filters {
+  background: #F5F5F5;
+  border: 1px solid #D9D9D9;
+  padding: 18px 20px;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.filter-row:last-child { margin-bottom: 0; }
+.filter-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.chip {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 4px 12px;
+  border: 1px solid #D9D9D9;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.chip:hover { background: #00356B; color: #fff; border-color: #00356B; }
+.chip.active { background: #00356B; color: #fff; border-color: #00356B; }
+
+/* Year sections */
+.year-section { margin-bottom: 48px; }
+.year-section h2 {
+  font-family: 'Crimson Text', 'Times New Roman', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #00356B;
+  border-bottom: 2px solid #00356B;
+  padding-bottom: 6px;
+  margin-bottom: 24px;
+}
+
+/* Publication entry */
+.pub {
+  padding: 16px 0 16px 28px;
+  text-indent: -28px;
+  border-bottom: 1px solid #EEE;
+  position: relative;
+}
+.pub:last-child { border-bottom: none; }
+.pub-authors {
+  font-style: italic;
+  color: #1a1a1a;
+}
+.pub-title {
+  font-weight: 600;
+  color: #000;
+}
+.pub-venue {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  background: #00356B;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-indent: 0;
+  margin-left: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.pub-rate {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555;
+}
+.pub-award {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  background: #B8860B;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-indent: 0;
+  margin-left: 6px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.pub-links {
+  margin-top: 6px;
+  text-indent: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  display: block;
+  padding-left: 0;
+}
+.pub-links a {
+  margin-right: 10px;
+  color: #00356B;
+  text-decoration: none;
+}
+.pub-links a:hover { text-decoration: underline; color: #A8132A; }
+.pub-links .arxiv-id { color: #555; }
+
+/* Collapsible earlier */
+details.earlier {
+  border: 1px solid #D9D9D9;
+  padding: 0;
+  margin-top: 16px;
+  border-radius: 2px;
+}
+details.earlier summary {
+  cursor: pointer;
+  padding: 14px 20px;
+  background: #F5F5F5;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #00356B;
+  list-style: none;
+}
+details.earlier summary::after {
+  content: ' ▸';
+  color: #555;
+}
+details.earlier[open] summary::after { content: ' ▾'; }
+details.earlier .earlier-body {
+  padding: 16px 24px 8px;
+}
+details.earlier .year-section { margin-bottom: 28px; }
+details.earlier .year-section h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #00356B;
+  border-bottom: 1px solid #D9D9D9;
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+
+/* FOOTER */
+footer {
+  background: #F5F5F5;
+  border-top: 1px solid #D9D9D9;
+  padding: 40px 24px 30px;
+  margin-top: 60px;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 6px;
+  text-decoration: none;
+}
+.footer-col a:hover { color: #00356B; }
+.footer-bottom {
+  max-width: 1080px;
+  margin: 28px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #D9D9D9;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      Yale NLP &amp; Reasoning Lab
+      <small>Department of Computer Science</small>
+    </a>
+    <div class="nav-links">
+      <a href="research.html">Research</a>
+      <a href="people.html">People</a>
+      <a href="publications.html" class="active">Publications</a>
+      <a href="code.html">Code &amp; Data</a>
+      <a href="news.html">News</a>
+      <a href="join.html">Join Us</a>
+      <div class="uni-badge">Y</div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Publications</h1>
+    <p class="subhead">Peer-reviewed work from 2019–2023. See also the lab's <a href="#">Google Scholar profile</a> and <a href="#">Semantic Scholar page</a>.</p>
+    <p class="scholar-link">Citations are listed in reverse chronological order. Equal contribution authors are marked with *.</p>
+  </div>
+</section>
+
+<main>
+
+  <div class="filters">
+    <div class="filter-row">
+      <span class="filter-label">Year</span>
+      <a class="chip active">All</a>
+      <a class="chip">2023</a>
+      <a class="chip">2022</a>
+      <a class="chip">2021</a>
+      <a class="chip">2020</a>
+      <a class="chip">2019</a>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Topic</span>
+      <a class="chip active">All</a>
+      <a class="chip">LLMs</a>
+      <a class="chip">Multimodal</a>
+      <a class="chip">Robustness</a>
+      <a class="chip">Interpretability</a>
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <section class="year-section">
+    <h2>2023</h2>
+
+    <div class="pub">
+      <span class="pub-authors">Ramaswamy, A., Park, H., Liu, J., &amp; Feldman, M.</span>
+      "Chain-of-Verification Decoding for Faithful Long-Form Reasoning."
+      <span class="pub-venue">NeurIPS 2023</span>
+      <span class="pub-rate"> (acceptance rate 26.1%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2310.04521]</a><a href="#">[Code]</a><a href="#">[BibTeX]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Alvarez, D., Okafor, S., &amp; Ramaswamy, A.</span>
+      "GroundCLIP: Pixel-Faithful Multimodal Alignment via Patch-Level Contrastive Objectives."
+      <span class="pub-venue">ICCV 2023</span>
+      <span class="pub-rate"> (acceptance rate 26.8%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2308.11790]</a><a href="#">[Code]</a><a href="#">[Data]</a><a href="#">[Demo]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Park, H., Liu, W., &amp; Ramaswamy, A.</span>
+      "Probing Refusal Circuits in 7B Language Models."
+      <span class="pub-venue">EMNLP 2023</span>
+      <span class="pub-award">★ Best Paper Runner-Up</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2311.02019]</a><a href="#">[Code]</a><a href="#">[BibTeX]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Liu, J.*, Feldman, M.*, &amp; Ramaswamy, A.</span>
+      "Sparse Attention Routing for 70B-Parameter Language Models."
+      <span class="pub-venue">ICML 2023</span>
+      <span class="pub-rate"> (acceptance rate 27.9%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2305.18142]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Okafor, S., Alvarez, D., &amp; Ramaswamy, A.</span>
+      "VideoQA via Temporal Scene Graphs."
+      <span class="pub-venue">CVPR 2023</span>
+      <span class="pub-rate"> (acceptance rate 25.8%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2303.04417]</a><a href="#">[Code]</a><a href="#">[Data]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Feldman, M., Park, H., &amp; Ramaswamy, A.</span>
+      "PromptArmor: Defending LLMs Against Indirect Prompt Injection."
+      <span class="pub-venue">USENIX Security 2023</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2302.10947]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Liu, W., Liu, J., &amp; Ramaswamy, A.</span>
+      "Causal Tracing of Factual Recall in Mid-Size Transformers."
+      <span class="pub-venue">ACL 2023</span>
+      <span class="pub-rate"> (acceptance rate 23.5%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2307.06219]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Alvarez, D., &amp; Ramaswamy, A.</span>
+      "REASON-Bench: A Benchmark for Multi-Step Symbolic Reasoning."
+      <span class="pub-venue">NeurIPS 2023 D&amp;B</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2309.13822]</a><a href="#">[Code]</a><a href="#">[Data]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Park, H., &amp; Ramaswamy, A.</span>
+      "Layer-Wise Interpretability of Instruction-Tuned Models."
+      <span class="pub-venue">TMLR 2023</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2306.01115]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2022 -->
+  <section class="year-section">
+    <h2>2022</h2>
+
+    <div class="pub">
+      <span class="pub-authors">Mehta, R., Chen, M., &amp; Ramaswamy, A.</span>
+      "Sparse Mixture Routing for Multilingual Machine Translation."
+      <span class="pub-venue">ACL 2022</span>
+      <span class="pub-rate"> (acceptance rate 24.6%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2204.07118]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Chen, M., Liu, J., &amp; Ramaswamy, A.</span>
+      "Calibrated Uncertainty in Open-Domain Dialogue."
+      <span class="pub-venue">EMNLP 2022</span>
+      <span class="pub-rate"> (acceptance rate 25.3%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2210.04488]</a><a href="#">[Code]</a><a href="#">[Data]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Liu, J., Mehta, R., &amp; Ramaswamy, A.</span>
+      "Compositional Generalization in Sequence-to-Sequence Models Revisited."
+      <span class="pub-venue">ICLR 2022</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2201.09887]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Okafor, S., Chen, M., &amp; Ramaswamy, A.</span>
+      "Adversarial Robustness via Token-Level Smoothing."
+      <span class="pub-venue">NeurIPS 2022</span>
+      <span class="pub-rate"> (acceptance rate 25.6%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2209.10031]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Feldman, M., &amp; Ramaswamy, A.</span>
+      "On the Reliability of LLM Evaluation Pipelines."
+      <span class="pub-venue">EMNLP Findings 2022</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2211.02893]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Alvarez, D., Okafor, S., &amp; Ramaswamy, A.</span>
+      "Cross-Modal Retrieval with Hard-Negative Mining."
+      <span class="pub-venue">CVPR 2022</span>
+      <span class="pub-rate"> (acceptance rate 25.3%)</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2203.11774]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-authors">Park, H., &amp; Ramaswamy, A.</span>
+      "Probing Compositionality in Pretrained Encoders."
+      <span class="pub-venue">NAACL 2022</span>
+      <div class="pub-links">
+        <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2205.00641]</a><a href="#">[Code]</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earlier collapsible -->
+  <details class="earlier">
+    <summary>Earlier publications (2019–2021) — 12 papers</summary>
+    <div class="earlier-body">
+
+      <section class="year-section">
+        <h3>2021</h3>
+
+        <div class="pub">
+          <span class="pub-authors">Zhao, L., Mehta, R., &amp; Ramaswamy, A.</span>
+          "Self-Supervised Pretraining for Low-Resource NLP."
+          <span class="pub-venue">ACL 2021</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2106.02331]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Mehta, R., &amp; Ramaswamy, A.</span>
+          "Hierarchical Attention for Document-Level Translation."
+          <span class="pub-venue">EMNLP 2021</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2110.04567]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Chen, M., &amp; Ramaswamy, A.</span>
+          "Knowledge-Grounded Question Generation."
+          <span class="pub-venue">NAACL 2021</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2104.07918]</a><a href="#">[Code]</a><a href="#">[Data]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Zhao, L., &amp; Ramaswamy, A.</span>
+          "On Layer Normalization in Deep Transformers."
+          <span class="pub-venue">ICML 2021</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2105.14103]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Liu, J., Chen, M., &amp; Ramaswamy, A.</span>
+          "Distilling Reasoning Skills into Smaller Models."
+          <span class="pub-venue">EMNLP Findings 2021</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2111.03014]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="year-section">
+        <h3>2020</h3>
+
+        <div class="pub">
+          <span class="pub-authors">Ramaswamy, A., Zhao, L., &amp; Chen, M.</span>
+          "Span-Based Coreference Resolution Revisited."
+          <span class="pub-venue">ACL 2020</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2005.07292]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Mehta, R., &amp; Ramaswamy, A.</span>
+          "Improving Faithfulness in Abstractive Summarization."
+          <span class="pub-venue">EMNLP 2020</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2010.04881]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Zhao, L., &amp; Ramaswamy, A.</span>
+          "Curriculum Learning for Sequence Models."
+          <span class="pub-venue">NeurIPS 2020</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2009.11212]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Chen, M., Zhao, L., &amp; Ramaswamy, A.</span>
+          "Few-Shot Entity Linking with Memory Networks."
+          <span class="pub-venue">AAAI 2020</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:2001.08719]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="year-section">
+        <h3>2019</h3>
+
+        <div class="pub">
+          <span class="pub-authors">Ramaswamy, A., &amp; Mehta, R.</span>
+          "Structured Prediction for Discourse Parsing."
+          <span class="pub-venue">ACL 2019</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:1906.03102]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Mehta, R., &amp; Ramaswamy, A.</span>
+          "Modeling Long-Range Dependencies with Memory-Augmented Attention."
+          <span class="pub-venue">EMNLP 2019</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:1909.10518]</a>
+          </div>
+        </div>
+
+        <div class="pub">
+          <span class="pub-authors">Zhao, L., &amp; Ramaswamy, A.</span>
+          "An Empirical Study of Subword Tokenization."
+          <span class="pub-venue">NAACL 2019</span>
+          <div class="pub-links">
+            <a href="#">[PDF]</a><a href="#" class="arxiv-id">[arXiv:1904.04567]</a><a href="#">[Code]</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Yale NLP &amp; Reasoning Lab</h4>
+      <p>Building language models that reason, explain, and remain robust.</p>
+      <p>AKW Hall, 51 Prospect St.<br>New Haven, CT 06511</p>
+    </div>
+    <div class="footer-col">
+      <h4>Lab</h4>
+      <a href="research.html">Research</a>
+      <a href="people.html">People</a>
+      <a href="publications.html">Publications</a>
+      <a href="code.html">Code &amp; Data</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">Google Scholar</a>
+      <a href="#">GitHub</a>
+      <a href="#">arXiv</a>
+      <a href="#">Contact PI</a>
+    </div>
+    <div class="footer-col">
+      <h4>Yale University</h4>
+      <a href="#">Department of CS</a>
+      <a href="#">School of Engineering</a>
+      <a href="#">Graduate Admissions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2023 Yale NLP &amp; Reasoning Lab — Yale University.</span>
+    <span>Supported by NSF, DARPA SAFRON, Google, Apple, &amp; Microsoft.</span>
+  </div>
+</footer>
+
+</body>
+</html>

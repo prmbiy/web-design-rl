@@ -1,0 +1,233 @@
+{
+  "brand_name": "NHS",
+  "tagline": "Your health, your NHS",
+  "primary_color_name": "NHS Blue",
+  "pages": {
+    "home": {
+      "title": "NHS",
+      "nav_items": [
+        "Health A to Z",
+        "Mental health",
+        "Care and support",
+        "Pregnancy",
+        "NHS services",
+        "Live Well"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Health information you can trust",
+          "subheadline": "Find conditions, services and advice from the UK's National Health Service"
+        },
+        {
+          "name": "search_bar",
+          "description": "Large central search input labelled 'Search the NHS website' with example placeholder text like 'tonsillitis', 'find a GP', or 'paracetamol'."
+        },
+        {
+          "name": "services_grid",
+          "description": "Three-column card grid linking to 'Find a GP', 'Find a pharmacy' and 'Book or manage an appointment' each with a brief one-line description and a blue chevron link."
+        },
+        {
+          "name": "111_status",
+          "description": "Live service status panel for NHS 111 online showing wait time (e.g. 'Average wait: 4 minutes') and a green 'Get help from 111 online' button."
+        },
+        {
+          "name": "nhs_app_promo",
+          "description": "Dark blue banner promoting the NHS App with bullet features like 'Order repeat prescriptions', 'View your GP health record' and 'Book appointments', plus App Store and Google Play badges."
+        },
+        {
+          "name": "top_topics",
+          "description": "Carousel of top health topics: 'Coronavirus (COVID-19)', 'Get your flu jab', 'Monkeypox', 'Strep A in children', 'Cost of living and your health'."
+        },
+        {
+          "name": "health_az_link",
+          "description": "Full-width blue panel linking to the Health A to Z with examples like 'Asthma', 'Back pain', 'Chickenpox'."
+        },
+        {
+          "name": "emergency_callout",
+          "description": "Persistent red-bordered emergency box reminding users to call 999 for life-threatening emergencies or 111 for urgent non-emergency help."
+        }
+      ]
+    },
+    "conditions": {
+      "title": "Health A to Z",
+      "nav_items": [
+        "Health A to Z",
+        "Mental health",
+        "Care and support",
+        "Pregnancy",
+        "NHS services",
+        "Live Well"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Health A to Z",
+          "subheadline": "Conditions, symptoms and treatments, including what to do and when to get help"
+        },
+        {
+          "name": "alphabet_index",
+          "description": "Horizontal A-Z letter selector linking to anchor sections, with disabled state for letters with no entries (e.g. X)."
+        },
+        {
+          "name": "breadcrumbs",
+          "description": "Breadcrumb trail: Home > Health A to Z > Type 2 diabetes."
+        },
+        {
+          "name": "on_this_page",
+          "description": "Sidebar 'Contents' list linking to: Overview, Symptoms, Causes, Getting diagnosed, Treatment, Living with Type 2 diabetes."
+        },
+        {
+          "name": "overview",
+          "description": "Short overview paragraph about Type 2 diabetes followed by a blue info box defining HbA1c and blood glucose."
+        },
+        {
+          "name": "symptoms",
+          "description": "Bullet list of common symptoms such as 'peeing more than usual, especially at night', 'feeling thirsty all the time', 'feeling very tired'."
+        },
+        {
+          "name": "urgent_advice_box",
+          "description": "Yellow 'Urgent advice: Contact 111 if' callout listing red-flag signs like very high blood sugar readings or symptoms of DKA."
+        },
+        {
+          "name": "treatment",
+          "description": "Treatment section describing lifestyle changes, metformin medication and referral to the NHS Diabetes Prevention Programme."
+        },
+        {
+          "name": "living_with",
+          "description": "Numbered steps for daily management including diet, exercise targets (150 minutes/week) and annual diabetic eye screening."
+        },
+        {
+          "name": "last_reviewed",
+          "description": "Grey footer line showing 'Page last reviewed: 14 March 2022' and 'Next review due: 14 March 2025'."
+        }
+      ]
+    },
+    "service_finder": {
+      "title": "Find NHS services near you",
+      "nav_items": [
+        "Health A to Z",
+        "Mental health",
+        "Care and support",
+        "Pregnancy",
+        "NHS services",
+        "Live Well"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Find NHS services",
+          "subheadline": "Search for GPs, dentists, pharmacies, hospitals and more in your area"
+        },
+        {
+          "name": "service_type_tabs",
+          "description": "Row of tabs to select service type: GP, Dentist, Pharmacy, Hospital, Optician, Sexual health clinic, Mental health support."
+        },
+        {
+          "name": "postcode_widget",
+          "description": "Postcode input with example 'e.g. SW1A 1AA', radius dropdown (1, 3, 5, 10 miles) and a green 'Search' button."
+        },
+        {
+          "name": "results_list",
+          "description": "List of service result cards each showing name (e.g. 'Riverside Medical Practice'), distance ('0.4 miles'), opening hours, accepting new patients status and a 'Book online' CTA."
+        },
+        {
+          "name": "map_panel",
+          "description": "Static map placeholder on the right showing pinned results with a note that postcode data is provided by Ordnance Survey."
+        },
+        {
+          "name": "help_choosing",
+          "description": "Blue info box titled 'Not sure which service you need?' linking to 'Use NHS 111 online' and 'When to call 999'."
+        }
+      ]
+    },
+    "medicines": {
+      "title": "Medicines A to Z",
+      "nav_items": [
+        "Health A to Z",
+        "Mental health",
+        "Care and support",
+        "Pregnancy",
+        "NHS services",
+        "Live Well"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Amoxicillin",
+          "subheadline": "Antibiotic used to treat bacterial infections"
+        },
+        {
+          "name": "on_this_page",
+          "description": "Contents sidebar linking to: About amoxicillin, Who can take it, How and when to take it, Side effects, Pregnancy and breastfeeding, Common questions."
+        },
+        {
+          "name": "key_facts",
+          "description": "Blue 'Key facts' box with bullets like 'Take amoxicillin at evenly spaced times', 'Common side effects include feeling sick and diarrhoea', 'Finish the full course even if you feel better'."
+        },
+        {
+          "name": "dosage_steps",
+          "description": "Numbered step-by-step dosage instructions for adults and children including '1. Swallow capsules whole with a drink of water' and '2. Space doses evenly — every 8 hours'."
+        },
+        {
+          "name": "warning_box",
+          "description": "Yellow warning box covering allergic reactions and instructions to call 999 if signs of anaphylaxis (swollen lips, difficulty breathing) appear."
+        },
+        {
+          "name": "side_effects",
+          "description": "Bulleted list of common side effects (feeling sick, diarrhoea, thrush) followed by a 'Serious side effects' subsection."
+        },
+        {
+          "name": "interactions_table",
+          "description": "Two-column table listing medicines that interact with amoxicillin (e.g. methotrexate, warfarin, the contraceptive pill) and the effect."
+        },
+        {
+          "name": "last_reviewed",
+          "description": "Footer line 'Page last reviewed: 28 November 2022'."
+        }
+      ]
+    },
+    "mental_health": {
+      "title": "Mental health",
+      "nav_items": [
+        "Health A to Z",
+        "Mental health",
+        "Care and support",
+        "Pregnancy",
+        "NHS services",
+        "Live Well"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Mental health",
+          "subheadline": "Advice, support and where to get help for your mental wellbeing"
+        },
+        {
+          "name": "crisis_box",
+          "description": "Persistent red-bordered crisis support box with 'Call Samaritans free on 116 123', 'Text SHOUT to 85258' and 'Call 111 and select the mental health option'."
+        },
+        {
+          "name": "conditions_grid",
+          "description": "Grid of condition cards: Depression, Anxiety, OCD, PTSD, Eating disorders, Postnatal depression."
+        },
+        {
+          "name": "self_referral",
+          "description": "Green 'Get help' panel explaining NHS Talking Therapies (IAPT) self-referral with a postcode lookup to find a local service."
+        },
+        {
+          "name": "young_people",
+          "description": "Section for under-18s linking to YoungMinds, Kooth and CAMHS referral information."
+        },
+        {
+          "name": "carers_support",
+          "description": "Support for carers section with links to Carers UK helpline and tips for looking after your own wellbeing while caring."
+        },
+        {
+          "name": "last_reviewed",
+          "description": "Footer line 'Page last reviewed: 5 October 2022'."
+        }
+      ]
+    }
+  }
+}

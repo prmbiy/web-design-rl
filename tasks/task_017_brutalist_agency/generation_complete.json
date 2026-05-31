@@ -1,0 +1,12 @@
+{
+  "dna_id": "017",
+  "dna_name": "brutalist_agency",
+  "pages": [
+    "home",
+    "work",
+    "case_study",
+    "studio",
+    "contact"
+  ],
+  "has_animations": true
+}

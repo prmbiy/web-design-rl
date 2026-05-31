@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+    "font_heading": "'Fraunces', Georgia, serif",
+    "font_body": "'Karla', system-ui, sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "64px",
+    "size_h2": "40px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#3C1F6B",
+    "color_secondary": "#6B4BA8",
+    "color_accent": "#FF6B6B",
+    "color_bg": "#1A0F2E",
+    "color_surface": "#2A1A47",
+    "color_text": "#F5F0E8",
+    "color_text_muted": "#A89BB8",
+    "color_border": "#3D2C5C",
+    "border_radius": "4px",
+    "container_max_width": "1280px",
+    "section_padding": "96px 32px",
+    "nav_bg": "rgba(26, 15, 46, 0.92)",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#0F0820",
+    "extra_colors": {
+      "cream": "#F5F0E8",
+      "deep_purple": "#3C1F6B",
+      "coral": "#FF6B6B",
+      "amber": "#F5B544",
+      "new_badge": "#FF6B6B"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-width hero with network tagline in large Fraunces serif over deep purple gradient, persistent audio player widget, 3-column show artwork grid below, featured episode card, newsletter strip, support CTA section.",
+      "bg": "linear-gradient(180deg, #1A0F2E 0%, #2A1A47 60%, #1A0F2E 100%)"
+    },
+    "shows": {
+      "layout": "Header with title and genre filter pills, responsive 3-4 column grid of large square show cover art cards with title, description, and subscribe platform icons below each.",
+      "bg": "#1A0F2E"
+    },
+    "episodes": {
+      "layout": "Search bar and show filter dropdown at top, vertical list of episode cards each with thumbnail artwork, mono episode number, title, show name, date, duration, and circular play button.",
+      "bg": "#1A0F2E"
+    },
+    "episode": {
+      "layout": "Two-column layout with sticky embedded audio player and large artwork on left, episode title, show notes with timestamped chapters, guest bios, and transcript link on right.",
+      "bg": "#1A0F2E"
+    },
+    "support": {
+      "layout": "Mission statement hero, three-tier membership comparison cards centered with coral CTA on featured tier, Patreon embed strip, one-time donation block, merchandise preview grid.",
+      "bg": "linear-gradient(180deg, #2A1A47 0%, #1A0F2E 100%)"
+    }
+  }
+}

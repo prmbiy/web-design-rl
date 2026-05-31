@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1333936,
+      "page_width": 1440,
+      "page_height": 4895
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1670004,
+      "page_width": 1440,
+      "page_height": 5758
+    },
+    {
+      "slug": "reviews",
+      "path": "reviews.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1632178,
+      "page_width": 1440,
+      "page_height": 4772
+    },
+    {
+      "slug": "routine",
+      "path": "routine.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 905874,
+      "page_width": 1440,
+      "page_height": 4999
+    },
+    {
+      "slug": "skincare",
+      "path": "skincare.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 586785,
+      "page_width": 1440,
+      "page_height": 3036
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

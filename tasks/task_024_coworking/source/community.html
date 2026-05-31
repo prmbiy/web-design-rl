@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Community — Kiln & Co.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  color: #2C2C2C;
+  background: #F5F0E8;
+  line-height: 1.55;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D5;
+  height: 72px;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C2C2C;
+}
+.nav-links a.active { color: #C1603C; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.day-pass {
+  font-size: 13px;
+  color: #7A5C44;
+  font-weight: 500;
+}
+.cta-btn {
+  background: #C1603C;
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.cta-btn:hover { background: #B55A30; }
+
+/* HERO */
+.hero {
+  padding: 96px 32px 80px;
+  text-align: center;
+  background: #F5F0E8;
+}
+.hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B55A30;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #2C2C2C;
+  margin-bottom: 24px;
+}
+.hero .sub {
+  font-size: 20px;
+  color: #7A5C44;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* SECTION HEADERS */
+.section { padding: 64px 32px; }
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+.section-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #2C2C2C;
+  line-height: 1.05;
+}
+.section-head .desc {
+  font-size: 15px;
+  color: #7A5C44;
+  max-width: 360px;
+}
+
+/* MEMBER SPOTLIGHTS */
+.spotlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+.spot-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.spot-photo {
+  height: 340px;
+  background: linear-gradient(135deg, #C1603C22, #7BA05B22), #F5F0E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 96px;
+  color: #C1603C;
+  font-weight: 500;
+  font-style: italic;
+  position: relative;
+}
+.spot-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(193,96,60,0.12), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(123,160,91,0.15), transparent 50%);
+}
+.spot-body { padding: 28px 28px 32px; }
+.spot-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7BA05B;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.spot-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #2C2C2C;
+}
+.spot-company {
+  font-size: 14px;
+  color: #7A5C44;
+  margin-bottom: 16px;
+}
+.spot-desc {
+  font-size: 15px;
+  color: #2C2C2C;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E8E0D5;
+}
+.spot-quote {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: #7A5C44;
+  line-height: 1.35;
+}
+
+/* EVENTS */
+.events-section { background: #FFFFFF; border-top: 1px solid #E8E0D5; border-bottom: 1px solid #E8E0D5; }
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.event-card {
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 28px 24px;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+.event-date {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.event-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #C1603C;
+  line-height: 1;
+}
+.event-month {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7A5C44;
+  font-weight: 600;
+}
+.event-cat {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7BA05B;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #2C2C2C;
+}
+.event-meta {
+  font-size: 13px;
+  color: #7A5C44;
+  margin-bottom: auto;
+}
+.event-rsvp {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #C1603C;
+  border-top: 1px solid #E8E0D5;
+  padding-top: 16px;
+}
+
+/* PARTNERS */
+.partners-section { background: #F5F0E8; }
+.partner-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.chip {
+  background: rgba(123,160,91,0.13);
+  color: #5d7d44;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.chip.active { background: #7BA05B; color: #fff; }
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.partner-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 150px;
+}
+.partner-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #C1603C22, #7BA05B22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #C1603C;
+}
+.partner-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2C2C2C;
+}
+.partner-cat {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7A5C44;
+  margin-top: -8px;
+}
+.partner-discount {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: #B55A30;
+  background: rgba(181,90,48,0.08);
+  padding: 4px 8px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+.partner-foot {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #7A5C44;
+}
+.partner-foot a { color: #C1603C; font-weight: 600; }
+
+/* SLACK */
+.slack-section { background: #FFFFFF; border-top: 1px solid #E8E0D5; }
+.slack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.slack-copy h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -0.015em;
+}
+.slack-copy p {
+  color: #7A5C44;
+  font-size: 17px;
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+.slack-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(123,160,91,0.15);
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  color: #5d7d44;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+.slack-stat .dot {
+  width: 8px; height: 8px; background: #7BA05B; border-radius: 50%;
+}
+.channels {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.channels li {
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  background: #F5F0E8;
+  padding: 6px 12px;
+  border-radius: 3px;
+  color: #2C2C2C;
+  border: 1px solid #E8E0D5;
+}
+.slack-mock {
+  background: #2C2C2C;
+  border-radius: 6px;
+  padding: 24px;
+  color: #fff;
+  font-size: 13px;
+  min-height: 380px;
+}
+.slack-mock .channel-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.slack-mock .channel-name span {
+  color: #888; font-weight: 400; font-size: 12px; margin-left: 8px;
+}
+.msg { display: flex; gap: 12px; margin-bottom: 18px; }
+.msg-avatar {
+  width: 36px; height: 36px; border-radius: 4px; flex-shrink: 0;
+  background: linear-gradient(135deg, #C1603C, #7BA05B);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 600; font-size: 14px;
+}
+.msg-body { flex: 1; }
+.msg-name { font-weight: 600; font-size: 14px; }
+.msg-name span { color: #888; font-weight: 400; font-size: 11px; margin-left: 8px; }
+.msg-text { color: #ddd; line-height: 1.5; margin-top: 2px; }
+
+/* WAITLIST */
+.waitlist-section { background: #F5F0E8; }
+.waitlist-wrap {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+}
+.waitlist-wrap h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+.waitlist-wrap .lead {
+  color: #7A5C44;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field { display: flex; flex-direction: column; }
+.field.full { grid-column: 1 / -1; }
+.field label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7A5C44;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.field input, .field textarea, .field select {
+  background: #F5F0E8;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #2C2C2C;
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.form-grid .submit-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.form-note { font-size: 13px; color: #7A5C44; }
+.submit-btn {
+  background: #C1603C;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #2C2C2C;
+  color: #ccc;
+  padding: 64px 32px 32px;
+  margin-top: 0;
+}
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #444;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.footer-grid p { font-size: 14px; line-height: 1.6; color: #aaa; max-width: 280px; }
+.footer-grid h4 {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.footer-grid ul { list-style: none; }
+.footer-grid ul li { margin-bottom: 10px; font-size: 14px; color: #aaa; }
+.footer-grid ul li a:hover { color: #C1603C; }
+.copyright {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #888;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Kiln &amp; Co.</a>
+    <ul class="nav-links">
+      <li><a href="#">Spaces</a></li>
+      <li><a href="#">Membership</a></li>
+      <li><a href="#" class="active">Community</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="day-pass">Day Pass — $35</a>
+      <a href="#" class="cta-btn">Book a Tour</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Community</div>
+    <h1>The people make the place.</h1>
+    <p class="sub">847 founders, designers, writers, and engineers building in public — across three Brooklyn locations.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Member spotlights.</h2>
+      <p class="desc">A few of the folks you'll meet at the coffee bar this week. We feature three new members each month.</p>
+    </div>
+    <div class="spotlights">
+      <div class="spot-card">
+        <div class="spot-photo">A</div>
+        <div class="spot-body">
+          <div class="spot-tag">Climate · Williamsburg</div>
+          <div class="spot-name">Aisha Okonkwo</div>
+          <div class="spot-company">Founder, Mossbridge Climate</div>
+          <p class="spot-desc">Building a marketplace that connects regenerative farms with restaurants committed to soil health.</p>
+          <p class="spot-quote">"I joined for the desks. I stayed because someone at the beer tap introduced me to my Series A lead."</p>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-photo">J</div>
+        <div class="spot-body">
+          <div class="spot-tag">Design · Gowanus</div>
+          <div class="spot-name">Jules Tanaka</div>
+          <div class="spot-company">Brand Designer, freelance</div>
+          <p class="spot-desc">Designs visual identities for independent food brands — from kombucha labels to neighborhood bakeries.</p>
+          <p class="spot-quote">"The Risograph in the print room paid for my membership three times over in the first month."</p>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-photo">R</div>
+        <div class="spot-body">
+          <div class="spot-tag">Engineering · LIC</div>
+          <div class="spot-name">Ravi Mehta</div>
+          <div class="spot-company">CTO, Pillar Health</div>
+          <p class="spot-desc">Leads a 12-person engineering team building EHR tools for community health clinics in the Northeast.</p>
+          <p class="spot-quote">"Our team suite has the best natural light of any office I've worked in. The roof deck doesn't hurt either."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section events-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Coming up this month.</h2>
+      <p class="desc">A small slice of what's on the calendar. Members RSVP free; day-pass holders welcome to most events.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-date"><span class="event-day">14</span><span class="event-month">Mar · Tue</span></div>
+        <div class="event-cat">Panel</div>
+        <div class="event-title">Founder Roundtable: Hiring Your First Five</div>
+        <div class="event-meta">6:30pm · The Foundry · 22 spots left</div>
+        <div class="event-rsvp">RSVP →</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><span class="event-day">16</span><span class="event-month">Mar · Thu</span></div>
+        <div class="event-cat">Workshop</div>
+        <div class="event-title">Notion Power-User Workshop</div>
+        <div class="event-meta">12pm · Meeting Room 2 · 8 spots left</div>
+        <div class="event-rsvp">RSVP →</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><span class="event-day">17</span><span class="event-month">Mar · Fri</span></div>
+        <div class="event-cat">Social</div>
+        <div class="event-title">Friday Wine Hour</div>
+        <div class="event-meta">5pm · Roof Deck · Open invite</div>
+        <div class="event-rsvp">RSVP →</div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><span class="event-day">25</span><span class="event-month">Mar · Sat</span></div>
+        <div class="event-cat">Workshop</div>
+        <div class="event-title">Risograph Print Night</div>
+        <div class="event-meta">2pm · Print Studio · 6 spots left</div>
+        <div class="event-rsvp">RSVP →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section partners-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>40+ partner perks.</h2>
+      <p class="desc">Member discounts at our favorite neighborhood spots and software you actually use. Updated monthly.</p>
+    </div>
+    <div class="partner-filters">
+      <span class="chip active">All Perks</span>
+      <span class="chip">Coffee</span>
+      <span class="chip">Fitness</span>
+      <span class="chip">Software</span>
+      <span class="chip">Food</span>
+      <span class="chip">Wellness</span>
+      <span class="chip">Retail</span>
+    </div>
+    <div class="partner-grid">
+      <div class="partner-card">
+        <div class="partner-logo">D</div>
+        <div class="partner-name">Devoción Coffee</div>
+        <div class="partner-cat">Coffee</div>
+        <div class="partner-discount">25% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">E</div>
+        <div class="partner-name">Equinox</div>
+        <div class="partner-cat">Fitness</div>
+        <div class="partner-discount">1 month free</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">L</div>
+        <div class="partner-name">Linear</div>
+        <div class="partner-cat">Software</div>
+        <div class="partner-discount">3 mo Pro</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">S</div>
+        <div class="partner-name">Sweetgreen</div>
+        <div class="partner-cat">Food</div>
+        <div class="partner-discount">15% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">F</div>
+        <div class="partner-name">Figma</div>
+        <div class="partner-cat">Software</div>
+        <div class="partner-discount">Annual credit</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">B</div>
+        <div class="partner-name">Birch Coffee</div>
+        <div class="partner-cat">Coffee</div>
+        <div class="partner-discount">20% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">N</div>
+        <div class="partner-name">Notion</div>
+        <div class="partner-cat">Software</div>
+        <div class="partner-discount">6 mo Plus</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">R</div>
+        <div class="partner-name">Rumble Boxing</div>
+        <div class="partner-cat">Fitness</div>
+        <div class="partner-discount">2 free classes</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">J</div>
+        <div class="partner-name">Joe's Pizza</div>
+        <div class="partner-cat">Food</div>
+        <div class="partner-discount">10% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">V</div>
+        <div class="partner-name">Vercel</div>
+        <div class="partner-cat">Software</div>
+        <div class="partner-discount">Pro credit</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">C</div>
+        <div class="partner-name">CorePower Yoga</div>
+        <div class="partner-cat">Wellness</div>
+        <div class="partner-discount">30% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">M</div>
+        <div class="partner-name">Maman Café</div>
+        <div class="partner-cat">Coffee</div>
+        <div class="partner-discount">15% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">H</div>
+        <div class="partner-name">Hims & Hers</div>
+        <div class="partner-cat">Wellness</div>
+        <div class="partner-discount">$20 credit</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">A</div>
+        <div class="partner-name">Arc'teryx</div>
+        <div class="partner-cat">Retail</div>
+        <div class="partner-discount">10% off</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">P</div>
+        <div class="partner-name">Partake Bakery</div>
+        <div class="partner-cat">Food</div>
+        <div class="partner-discount">20% off</div>
+      </div>
+    </div>
+    <p class="partner-foot">+ 25 more partners across Brooklyn, Manhattan, and Queens. <a href="#">View the full directory →</a></p>
+  </div>
+</section>
+
+<section class="section slack-section">
+  <div class="container">
+    <div class="slack-grid">
+      <div class="slack-copy">
+        <div class="slack-stat"><span class="dot"></span> 847 members active</div>
+        <h2>The conversation never really stops.</h2>
+        <p>Our private Slack is where the introductions, the late-night hiring asks, and the "anyone want to split lunch?" pings actually happen. Open to all members from day one.</p>
+        <ul class="channels">
+          <li>#kiln-general</li>
+          <li>#founders</li>
+          <li>#designers</li>
+          <li>#engineering</li>
+          <li>#hiring</li>
+          <li>#lunch-buddies</li>
+          <li>#williamsburg</li>
+          <li>#gowanus</li>
+          <li>#lic</li>
+          <li>#book-club</li>
+        </ul>
+        <a href="#" class="cta-btn">Get an invite →</a>
+      </div>
+      <div class="slack-mock">
+        <div class="channel-name"># kiln-general <span>847 members</span></div>
+        <div class="msg">
+          <div class="msg-avatar">PR</div>
+          <div class="msg-body">
+            <div class="msg-name">Priya R. <span>10:14 AM</span></div>
+            <div class="msg-text">Office hours on the roof deck at 4pm — first 5 founders, 15 min each. Bring your hardest question.</div>
+          </div>
+        </div>
+        <div class="msg">
+          <div class="msg-avatar">MC</div>
+          <div class="msg-body">
+            <div class="msg-name">Marcus C. <span>10:32 AM</span></div>
+            <div class="msg-text">Anyone know a great fractional CFO for a seed-stage climate co? Need someone hands-on, not just spreadsheets.</div>
+          </div>
+        </div>
+        <div class="msg">
+          <div class="msg-avatar">SA</div>
+          <div class="msg-body">
+            <div class="msg-name">Sofia A. <span>10:48 AM</span></div>
+            <div class="msg-text">Riso ink restock just hit the print studio — fluorescent pink is back in stock 🎨</div>
+          </div>
+        </div>
+        <div class="msg">
+          <div class="msg-avatar">DP</div>
+          <div class="msg-body">
+            <div class="msg-name">Devon P. <span>11:02 AM</span></div>
+            <div class="msg-text">Lunch run to Sweetgreen in 20, who's in? (15% off with the perks code, btw)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section waitlist-section">
+  <div class="container">
+    <div class="waitlist-wrap">
+      <div>
+        <h2>Apply to join the waitlist.</h2>
+        <p class="lead">We review applications weekly. Most members hear back within five days — and tour within two weeks.</p>
+      </div>
+      <form class="form-grid" onsubmit="return false;">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="you@domain.com">
+        </div>
+        <div class="field full">
+          <label>What are you building?</label>
+          <textarea placeholder="One or two sentences is plenty."></textarea>
+        </div>
+        <div class="field">
+          <label>Preferred Location</label>
+          <select>
+            <option>Williamsburg</option>
+            <option>Gowanus</option>
+            <option>Long Island City</option>
+            <option>No preference</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Plan Interest</label>
+          <select>
+            <option>Hot Desk — $299/mo</option>
+            <option>Dedicated Desk — $499/mo</option>
+            <option>Private Office — from $899/mo</option>
+            <option>Team Suite — from $2,499/mo</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+        <div class="submit-row">
+          <span class="form-note">We'll never share your details. Reviewed by a real human.</span>
+          <button class="submit-btn">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Kiln &amp; Co.</div>
+      <p>Coworking and creative studios for builders in Brooklyn. Three locations, one community of 847 members.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>Williamsburg — 142 N 6th St</li>
+        <li>Gowanus — 380 3rd Ave</li>
+        <li>Long Island City — 44-02 23rd St</li>
+        <li><a href="#">Book a tour →</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Spaces</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>hello@kilnand.co</li>
+        <li>(718) 555-0142</li>
+        <li>Mon–Fri · 9am – 6pm</li>
+        <li><a href="#">Press inquiries</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>© 2023 Kiln &amp; Co. Made in Brooklyn.</span>
+    <span>Privacy · Terms · Member Handbook</span>
+  </div>
+</footer>
+
+</body>
+</html>

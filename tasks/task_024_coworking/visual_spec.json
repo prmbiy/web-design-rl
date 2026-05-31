@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap",
+    "font_heading": "'Cormorant Garamond', Georgia, serif",
+    "font_body": "'Inter', -apple-system, sans-serif",
+    "font_mono": null,
+    "size_h1": "72px",
+    "size_h2": "48px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#C1603C",
+    "color_secondary": "#7BA05B",
+    "color_accent": "#B55A30",
+    "color_bg": "#F5F0E8",
+    "color_surface": "#FFFFFF",
+    "color_text": "#2C2C2C",
+    "color_text_muted": "#7A5C44",
+    "color_border": "#E8E0D5",
+    "border_radius": "4px",
+    "container_max_width": "1280px",
+    "section_padding": "64px 32px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#2C2C2C",
+    "extra_colors": {
+      "handwriting": "#7A5C44",
+      "badge_bg": "#7BA05B22",
+      "photo_gradient": "linear-gradient(135deg, #C1603C22, #7BA05B22)",
+      "available_green": "#7BA05B",
+      "brick_red": "#B55A30"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed 85vh hero photo with overlaid serif headline, followed by 3-column membership tier cards, member stat band, events preview row, 3-column testimonials in Caveat, and terracotta Book a Tour CTA section.",
+      "bg": "#F5F0E8"
+    },
+    "spaces": {
+      "layout": "Editorial intro header then masonry-style photo gallery grid (2-3 columns) of space cards with documentary photos, capacity, amenities icons and availability badges, plus virtual tour and floor plan PDF buttons.",
+      "bg": "#F5F0E8"
+    },
+    "membership": {
+      "layout": "Centered header with annual/monthly toggle, 4-column pricing cards with most-popular badge on Dedicated Desk, followed by full-width feature comparison checklist grid.",
+      "bg": "#F5F0E8"
+    },
+    "community": {
+      "layout": "3-column featured member spotlights with candid photos and Caveat quotes, 4-card upcoming events row, 40+ partner perks logo grid with discount tags, and Slack waitlist form section.",
+      "bg": "#F5F0E8"
+    },
+    "events": {
+      "layout": "Monthly calendar grid widget at top with event dots, filter chip row, vertical list of upcoming workshops with facilitator photos and RSVP buttons, and past events photo strip at bottom.",
+      "bg": "#F5F0E8"
+    }
+  }
+}

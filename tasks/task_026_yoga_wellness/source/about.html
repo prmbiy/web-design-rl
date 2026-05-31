@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Story — Stillwater Yoga & Wellness</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #5C5C52;
+  background: #FAFAF7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  color: #5C5C52;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 84px;
+  background: rgba(250,250,247,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E8E2D5;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #5F7256;
+}
+.brand em {
+  font-style: italic;
+  font-weight: 400;
+}
+.nav-links {
+  display: flex;
+  gap: 44px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5C5C52;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: #88A47C; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.cart { font-size: 18px; color: #5C5C52; }
+.cta-book {
+  background: #88A47C;
+  color: #FDFCF8;
+  padding: 12px 26px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+.cta-book:hover { background: #5F7256; }
+
+/* Hero */
+.hero {
+  padding: 200px 40px 120px;
+  max-width: 1240px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fade_in_hero 1.6s ease-out both;
+}
+.hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #88A47C;
+  margin-bottom: 36px;
+  display: block;
+}
+.hero h1 {
+  font-size: 84px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero h1 em {
+  font-style: italic;
+  color: #5F7256;
+}
+.hero p {
+  font-size: 19px;
+  color: #9E9E8E;
+  max-width: 560px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Sections */
+section {
+  padding: 100px 40px;
+}
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.container-wide {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #88A47C;
+  margin-bottom: 32px;
+  display: block;
+}
+.section-title {
+  font-size: 48px;
+  line-height: 1.15;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+.section-title em { font-style: italic; color: #5F7256; }
+
+/* Founding story */
+.story p {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #5C5C52;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.story p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 78px;
+  float: left;
+  line-height: 0.85;
+  padding: 8px 12px 0 0;
+  color: #88A47C;
+  font-style: italic;
+}
+.signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #9E9E8E;
+  margin-top: 48px;
+}
+
+/* Pull quote */
+.pull-quote {
+  padding: 140px 40px;
+  text-align: center;
+  background: #F5ECD7;
+}
+.pull-quote blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 54px;
+  line-height: 1.25;
+  color: #5F7256;
+  max-width: 900px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+.pull-quote .mark {
+  font-size: 90px;
+  color: #88A47C;
+  line-height: 0.4;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Philosophy */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-top: 60px;
+}
+.pillar {
+  text-align: left;
+  padding-top: 32px;
+  border-top: 1px solid #E8E2D5;
+}
+.pillar-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #88A47C;
+  margin-bottom: 18px;
+  display: block;
+  letter-spacing: 0.1em;
+}
+.pillar h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.pillar h3 em { font-style: italic; color: #5F7256; }
+.pillar p {
+  font-size: 15px;
+  color: #9E9E8E;
+  line-height: 1.7;
+}
+
+/* Full-bleed image */
+.full-bleed {
+  height: 560px;
+  background: linear-gradient(135deg, #88A47C 0%, #D4B896 60%, #F5ECD7 100%);
+  position: relative;
+  overflow: hidden;
+  margin: 80px 0;
+}
+.full-bleed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.25), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(95,114,86,0.3), transparent 55%);
+}
+.full-bleed::after {
+  content: '☼';
+  position: absolute;
+  top: 18%;
+  right: 22%;
+  font-size: 140px;
+  color: rgba(253,252,248,0.45);
+  font-weight: 300;
+}
+.full-bleed .caption {
+  position: absolute;
+  bottom: 36px;
+  left: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #FDFCF8;
+  letter-spacing: 0.04em;
+}
+
+/* The Space */
+.space-section {
+  background: #FAFAF7;
+}
+.space-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 240px 240px;
+  gap: 16px;
+  margin-top: 64px;
+}
+.photo {
+  background: #F5ECD7;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  color: rgba(95,114,86,0.4);
+}
+.photo.img-zoom { overflow: hidden; }
+.photo img {
+  width: 100%; height: 100%;
+  display: block;
+  transition: transform 1.2s ease;
+}
+.photo:hover img { transform: scale(1.05); }
+
+.photo.p1 { grid-column: span 3; grid-row: span 2; background: linear-gradient(160deg, #D4B896 0%, #F5ECD7 100%); }
+.photo.p2 { grid-column: span 3; background: linear-gradient(140deg, #88A47C 0%, #5F7256 100%); color: rgba(253,252,248,0.5); }
+.photo.p3 { grid-column: span 2; background: linear-gradient(120deg, #F5ECD7 0%, #E8E2D5 100%); }
+.photo.p4 { grid-column: span 1; background: linear-gradient(180deg, #C5848A 0%, #D4B896 100%); color: rgba(255,255,255,0.55); }
+
+.space-text {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.space-text .section-title { margin-bottom: 0; }
+.space-text p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #5C5C52;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.space-meta {
+  margin-top: 40px;
+  display: flex;
+  gap: 48px;
+  border-top: 1px solid #E8E2D5;
+  padding-top: 28px;
+}
+.meta-item {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #9E9E8E;
+  text-transform: uppercase;
+}
+.meta-item strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #5F7256;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+/* Testimonials */
+.testimonials {
+  background: #FDFCF8;
+  padding: 140px 40px;
+}
+.testimonial-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 72px;
+}
+.testimonial {
+  padding: 0 8px;
+}
+.testimonial .mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  color: #C5848A;
+  line-height: 0.3;
+  display: block;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+.testimonial p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #5C5C52;
+  font-style: italic;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.testimonial .attribution {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #88A47C;
+  font-style: normal;
+}
+.testimonial .attribution span {
+  color: #9E9E8E;
+  margin-left: 8px;
+}
+
+/* Giving */
+.giving {
+  background: #F5ECD7;
+  padding: 120px 40px;
+}
+.giving-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.giving-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #88A47C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #C5848A;
+}
+.giving h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.giving h2 em { font-style: italic; color: #5F7256; }
+.giving p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #5C5C52;
+  margin-bottom: 16px;
+}
+.giving .when {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #88A47C;
+}
+
+/* FAQ */
+.faq-section { padding: 140px 40px; }
+.faq-section .section-title { text-align: center; margin-bottom: 64px; }
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-top: 1px solid #E8E2D5;
+  padding: 36px 0;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.faq-item:last-child { border-bottom: 1px solid #E8E2D5; }
+.faq-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #88A47C;
+}
+.faq-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: #5C5C52;
+  margin-bottom: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.faq-a {
+  font-size: 15px;
+  color: #9E9E8E;
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+/* Press */
+.press {
+  background: #FDFCF8;
+  padding: 100px 40px;
+  border-top: 1px solid #E8E2D5;
+}
+.press-label {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #9E9E8E;
+  margin-bottom: 48px;
+}
+.press-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 96px;
+  flex-wrap: wrap;
+}
+.press-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  color: #9E9E8E;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.press-logo.bold {
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+.press-logo:hover { opacity: 1; color: #5F7256; }
+
+/* Footer */
+footer {
+  background: #F5ECD7;
+  padding: 100px 40px 40px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #E8E2D5;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  color: #5F7256;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.footer-brand em { font-style: italic; }
+.footer-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #9E9E8E;
+  max-width: 280px;
+  line-height: 1.5;
+}
+.footer-col h4 {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5F7256;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: 14px;
+  color: #5C5C52;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.footer-col a { color: #5C5C52; transition: color 0.3s ease; }
+.footer-col a:hover { color: #88A47C; }
+.newsletter input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #9E9E8E;
+  padding: 10px 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #5C5C52;
+  outline: none;
+  margin-bottom: 16px;
+}
+.newsletter input::placeholder { color: #9E9E8E; font-style: italic; }
+.newsletter button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #88A47C;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9E9E8E;
+  letter-spacing: 0.06em;
+}
+.socials { display: flex; gap: 24px; }
+
+/* Animations */
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes scroll_reveal_cards {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.card, .pillar, .testimonial, .faq-item, .photo {
+  animation: scroll_reveal_cards 1s ease-out both;
+}
+.pillar:nth-child(2) { animation-delay: 0.15s; }
+.pillar:nth-child(3) { animation-delay: 0.3s; }
+.testimonial:nth-child(2) { animation-delay: 0.15s; }
+.testimonial:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes breath_pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.breath { animation: breath_pulse 4s ease-in-out infinite; }
+
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 1.2s ease; }
+.img-zoom:hover img { transform: scale(1.05); }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Stillwater <em>&amp;</em> Wellness</div>
+    <ul class="nav-links">
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Teachers</a></li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#" class="active">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="cart">⊙</span>
+      <a href="#" class="cta-book">Book Class</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="eyebrow breath">Our Story</span>
+  <h1>A quiet practice <em>in the heart</em> of the city.</h1>
+  <p>Six years of slow mornings, candlelit evenings, and the steady company of breath. This is how Stillwater began — and how it continues.</p>
+</section>
+
+<section class="story">
+  <div class="container">
+    <span class="section-label">Founding</span>
+    <h2 class="section-title">How <em>Stillwater</em> began.</h2>
+    <p>Mira Halvorsen opened the doors of Stillwater on a quiet morning in September 2018, the way she opens every class — without fanfare, with a long exhale. For ten years before that, she had been teaching: first in a small zendo in Kyoto, where she studied the slow architecture of Iyengar alignment and learned to sit; later in a converted printing house in Greenpoint, where her Saturday classes ran past their hour because no one wanted to leave the floor.</p>
+    <p>What she wanted to build, she said later, was not a studio so much as a room. A room with reclaimed oak under your feet, linen at the windows, and enough quiet that you could hear your own breath find you. A practice that did not perform itself. A place where beginners and lifelong students sat on the same warm wood and started, again, from where they were.</p>
+    <p>Stillwater is that room. It has grown — twelve teachers now, a tea bar, an online streaming archive, retreats in Costa Rica and the Hudson Valley — but its center has not. The doors still open at six. The floor is still warm. Mira still teaches Tuesdays.</p>
+    <p class="signature">— with care, the Stillwater team</p>
+  </div>
+</section>
+
+<section class="pull-quote">
+  <div class="container">
+    <span class="mark">"</span>
+    <blockquote>We do not chase the practice. We make room for it to arrive.</blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-label">Philosophy</span>
+    <h2 class="section-title">Three things we keep <em>returning to</em>.</h2>
+    <div class="philosophy-grid">
+      <div class="pillar">
+        <span class="pillar-number">I.</span>
+        <h3><em>Slowness</em></h3>
+        <p>We move at the pace of breath, not the pace of the clock. The body has its own time.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-number">II.</span>
+        <h3><em>Lineage</em></h3>
+        <p>We honor the teachers who came before us — and the rooms in Kyoto, Pune, and Brooklyn that shaped this practice.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-number">III.</span>
+        <h3><em>Belonging</em></h3>
+        <p>The mat is for every body. There is no shape you have to make to be welcome here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-bleed">
+  <div class="caption">Morning light through the east windows · 147 Wythe Ave</div>
+</div>
+
+<section class="space-section">
+  <div class="container-wide">
+    <div class="space-text">
+      <div>
+        <span class="section-label">The Space</span>
+        <h2 class="section-title">1,800 sq ft of <em>breath</em>.</h2>
+      </div>
+      <div>
+        <p>The studio sits on the second floor of a converted warehouse on Wythe Avenue. Tall east-facing windows fill the room with morning light. Reclaimed oak floors, warmed by underfloor heating in the colder months. Linen curtains we open and close with the seasons.</p>
+        <p>At the back, a small tea bar serves matcha, hojicha, and a rotating list of herbal blends from a tea grower in upstate New York. Students often linger after class, kneeling on the bench, watching the steam rise. We think this is part of the practice too.</p>
+        <div class="space-meta">
+          <div class="meta-item"><strong>1,800</strong>square feet</div>
+          <div class="meta-item"><strong>24</strong>mats at capacity</div>
+          <div class="meta-item"><strong>2018</strong>year opened</div>
+        </div>
+      </div>
+    </div>
+    <div class="space-grid">
+      <div class="photo p1">❋</div>
+      <div class="photo p2">☼</div>
+      <div class="photo p3">⌘</div>
+      <div class="photo p4">✿</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container-wide">
+    <div style="text-align:center;">
+      <span class="section-label">Community</span>
+      <h2 class="section-title">Words from <em>our students</em>.</h2>
+    </div>
+    <div class="testimonial-row">
+      <div class="testimonial">
+        <span class="mark">"</span>
+        <p>Stillwater gave me back my mornings. I come at six, I leave at seven, and the whole day is softer for it.</p>
+        <div class="attribution">Priya <span>· 3 years practicing</span></div>
+      </div>
+      <div class="testimonial">
+        <span class="mark">"</span>
+        <p>I had tried yoga in a dozen rooms and always left feeling like I'd failed at something. Here I just feel met.</p>
+        <div class="attribution">Henrik <span>· 18 months practicing</span></div>
+      </div>
+      <div class="testimonial">
+        <span class="mark">"</span>
+        <p>The candlelit yin on Wednesday nights is the closest thing I have to a religion. I bring my mother now.</p>
+        <div class="attribution">Sasha <span>· 5 years practicing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="giving">
+  <div class="giving-inner">
+    <div class="giving-icon breath">♡</div>
+    <div>
+      <span class="section-label">Community Giving</span>
+      <h2>The <em>Karma Class</em>.</h2>
+      <p>Every Sunday morning, we hold a donation-based class open to all. One hundred percent of the proceeds go to <strong>The Loveland Foundation</strong>, which provides therapy and healing resources for Black women and girls.</p>
+      <p>The class is taught on rotation by our full teaching staff. There is no minimum donation. Bring a friend, bring your stillness, bring whatever you can.</p>
+      <p class="when">Sundays · 10:00am · Studio</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <span class="section-label" style="text-align:center; display:block;">Beginning</span>
+    <h2 class="section-title">If you are <em>new here</em>.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-num">01</div>
+        <div>
+          <div class="faq-q">What should I bring to my first class?</div>
+          <div class="faq-a">Comfortable clothes you can move and bend in, and a water bottle if you'd like. Mats, blocks, bolsters, and blankets are all provided. We rinse and care for them between classes.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">02</div>
+        <div>
+          <div class="faq-q">When should I arrive?</div>
+          <div class="faq-a">Please arrive ten to fifteen minutes before class. This gives you time to settle, find your spot, and meet the teacher. Doors close gently as class begins.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">03</div>
+        <div>
+          <div class="faq-q">I've never done yoga before. Is that okay?</div>
+          <div class="faq-a">More than okay. Our Slow Flow and Yin classes are well-suited to beginners, and our teachers are practiced at offering quiet adjustments and options for every body in the room.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">04</div>
+        <div>
+          <div class="faq-q">Is there an etiquette I should know?</div>
+          <div class="faq-a">Phones rest in the cubbies by the door. We move slowly between poses and keep voices soft in the lobby. If you arrive after class begins, please join us at the next opening rather than during a held pose.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">05</div>
+        <div>
+          <div class="faq-q">How does pricing work?</div>
+          <div class="faq-a">Drop-in classes are $28. We offer an 8-Class Pack at $168, a Studio Unlimited membership at $189/month, and Stillwater Stream — our online library — at $24/month. Your first class is always $15.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">06</div>
+        <div>
+          <div class="faq-q">What if I need to cancel a class?</div>
+          <div class="faq-a">We ask for twelve hours' notice so the spot can find another practitioner. Late cancellations count as a class against your pack, but we are kind about life — write to us if something unusual comes up.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="press">
+  <div class="press-label">As mentioned in</div>
+  <div class="press-logos">
+    <div class="press-logo">Well+Good</div>
+    <div class="press-logo bold">GOOP</div>
+    <div class="press-logo">The Cut</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Stillwater <em>&amp;</em> Wellness</div>
+      <p class="footer-tag">A quiet practice in the heart of the city.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li>147 Wythe Ave</li>
+        <li>Brooklyn, NY 11211</li>
+        <li>Mon–Fri 6a–9p</li>
+        <li>Sat–Sun 8a–6p</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Practice</h4>
+      <ul>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="#">Teachers</a></li>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Stillwater Stream</a></li>
+      </ul>
+    </div>
+    <div class="footer-col newsletter">
+      <h4>Receive our seasonal letter</h4>
+      <input type="email" placeholder="your email, gently">
+      <button>Subscribe →</button>
+      <div class="socials" style="margin-top:24px;">
+        <a href="#">Instagram</a>
+        <a href="#">Spotify</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Stillwater Yoga &amp; Wellness</div>
+    <div>Made slowly in Brooklyn</div>
+  </div>
+</footer>
+
+</body>
+</html>

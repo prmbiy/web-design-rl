@@ -1,0 +1,12 @@
+{
+  "dna_id": "004",
+  "dna_name": "tabloid",
+  "pages": [
+    "home",
+    "celebrity",
+    "tv",
+    "style",
+    "viral"
+  ],
+  "has_animations": false
+}

@@ -1,0 +1,12 @@
+{
+  "dna_id": "008",
+  "dna_name": "hacker_news",
+  "pages": [
+    "home",
+    "new",
+    "ask",
+    "show",
+    "jobs"
+  ],
+  "has_animations": false
+}

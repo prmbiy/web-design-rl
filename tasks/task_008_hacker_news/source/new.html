@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New Links | Hacker News</title>
+<style>
+  body {
+    background: #F6F6EF;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    background: #F6F6EF;
+  }
+  /* Top bar */
+  .topbar {
+    background: #FF6600;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    height: 18px;
+  }
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 10px;
+  }
+  .logo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #FFFFFF;
+    background: #FF6600;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 18px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .topbar-left .brand {
+    color: #000000;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  .topbar-left a {
+    color: #000000;
+  }
+  .topbar-left .sep {
+    color: #000000;
+    margin: 0 3px;
+  }
+  .topbar-left .current {
+    font-weight: bold;
+  }
+  .topbar-right {
+    font-size: 10px;
+    padding-right: 4px;
+  }
+  .topbar-right a {
+    color: #000000;
+  }
+
+  /* Story list */
+  .stories {
+    padding: 4px 6px 0 6px;
+  }
+  .story {
+    display: table;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  .story-rank, .story-vote, .story-main {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .story-rank {
+    color: #828282;
+    font-size: 10px;
+    text-align: right;
+    width: 26px;
+    padding-right: 2px;
+    padding-top: 1px;
+  }
+  .story-vote {
+    width: 14px;
+    padding-top: 2px;
+  }
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 6px solid #999999;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .triangle:hover {
+    border-bottom-color: #FF6600;
+  }
+  .story-title {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .story-title a {
+    color: #000000;
+  }
+  .story-title a:visited {
+    color: #828282;
+  }
+  .domain {
+    color: #828282;
+    font-size: 8pt;
+  }
+  .domain a {
+    color: #828282;
+  }
+  .subtext {
+    color: #828282;
+    font-size: 7pt;
+    padding-left: 0;
+    padding-top: 1px;
+  }
+  .subtext a {
+    color: #828282;
+  }
+  .dead {
+    color: #828282;
+  }
+  .dead a {
+    color: #828282;
+  }
+  .more-row {
+    padding: 8px 0 8px 40px;
+    font-size: 10px;
+  }
+  .more-row a {
+    color: #000000;
+  }
+  /* Footer */
+  .footer-divider {
+    border-top: 2px solid #FF6600;
+    margin: 10px 0 6px 0;
+  }
+  .footer {
+    text-align: center;
+    font-size: 8pt;
+    color: #828282;
+    padding-bottom: 16px;
+  }
+  .footer a {
+    color: #828282;
+  }
+  .footer .applylink {
+    color: #000000;
+  }
+  .footer-search {
+    margin-top: 6px;
+    font-size: 8pt;
+    color: #828282;
+  }
+  .footer-search input {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 8pt;
+    padding: 1px 3px;
+    border: 1px solid #828282;
+    background: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="#"><span class="logo">Y</span></a>
+      <span class="brand"><a href="#">Hacker News</a></span>
+      <span class="current"><a href="#">new</a></span><span class="sep">|</span>
+      <a href="#">threads</a><span class="sep">|</span>
+      <a href="#">past</a><span class="sep">|</span>
+      <a href="#">comments</a><span class="sep">|</span>
+      <a href="#">ask</a><span class="sep">|</span>
+      <a href="#">show</a><span class="sep">|</span>
+      <a href="#">jobs</a><span class="sep">|</span>
+      <a href="#">submit</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#">login</a>
+    </div>
+  </div>
+
+  <!-- Stories -->
+  <div class="stories">
+
+    <div class="story">
+      <div class="story-rank">1.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Our Series A pitch deck template</a> <span class="domain">(<a href="#">notion.so</a>)</span>
+        </div>
+        <div class="subtext">
+          3 points by <a href="#">vcgremlin</a> 2 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">2.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Ask HN: Anyone else seeing GPT-4o latency spikes today?</a>
+        </div>
+        <div class="subtext">
+          11 points by <a href="#">latency_lou</a> 4 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">9&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">3.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title dead">
+          <span>[dead] </span><a href="#">Buy cheap followers 2023</a> <span class="domain">(<a href="#">spamdomain.ru</a>)</span>
+        </div>
+        <div class="subtext">
+          1 point by <a href="#">cheapsocial99</a> 6 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">4.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: I built a tiny CLI for managing SSH tunnels</a> <span class="domain">(<a href="#">github.com/sshjump</a>)</span>
+        </div>
+        <div class="subtext">
+          5 points by <a href="#">tunnelboy</a> 8 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">1&nbsp;comment</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">5.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">The unreasonable effectiveness of plain text logs</a> <span class="domain">(<a href="#">bitsandlogs.dev</a>)</span>
+        </div>
+        <div class="subtext">
+          7 points by <a href="#">grepforever</a> 11 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">2&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">6.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Why I'm switching back to Firefox in 2023</a> <span class="domain">(<a href="#">jenna.computer</a>)</span>
+        </div>
+        <div class="subtext">
+          14 points by <a href="#">jenna_c</a> 13 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">22&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">7.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Ask HN: Best resources to learn CUDA in 2023?</a>
+        </div>
+        <div class="subtext">
+          18 points by <a href="#">gpu_curious</a> 16 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">31&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">8.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title dead">
+          <span>[flagged] </span><a href="#">Make $10k/week with this one trick</a> <span class="domain">(<a href="#">getrichquick.biz</a>)</span>
+        </div>
+        <div class="subtext">
+          2 points by <a href="#">scamlord</a> 18 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">9.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">A minimal Wayland compositor in 800 lines of C</a> <span class="domain">(<a href="#">git.sr.ht/~lina</a>)</span>
+        </div>
+        <div class="subtext">
+          21 points by <a href="#">lina_hacks</a> 20 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">6&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">10.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: Local-first todo app that syncs over Bluetooth</a> <span class="domain">(<a href="#">bttodo.app</a>)</span>
+        </div>
+        <div class="subtext">
+          9 points by <a href="#">btnerd</a> 22 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">4&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">11.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">EU's new chat control proposal: a technical analysis</a> <span class="domain">(<a href="#">edri.org</a>)</span>
+        </div>
+        <div class="subtext">
+          33 points by <a href="#">privacypls</a> 25 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">47&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">12.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">I rewrote my Rails monolith in Go, it was a mistake</a> <span class="domain">(<a href="#">danthoughts.com</a>)</span>
+        </div>
+        <div class="subtext">
+          28 points by <a href="#">dan_thoughts</a> 28 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">54&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">13.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Ask HN: How do you stay motivated as a solo founder?</a>
+        </div>
+        <div class="subtext">
+          12 points by <a href="#">solofoundr</a> 31 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">19&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">14.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Postgres 16 array operators cheatsheet</a> <span class="domain">(<a href="#">pgnotes.com</a>)</span>
+        </div>
+        <div class="subtext">
+          16 points by <a href="#">pg_curious</a> 35 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">3&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">15.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title dead">
+          <span>[dead] </span><a href="#">CryptoMillion ICO ending soon</a> <span class="domain">(<a href="#">crypto-million.xyz</a>)</span>
+        </div>
+        <div class="subtext">
+          1 point by <a href="#">moonwhale</a> 37 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">16.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: Tldraw – an infinite canvas SDK</a> <span class="domain">(<a href="#">tldraw.com</a>)</span>
+        </div>
+        <div class="subtext">
+          42 points by <a href="#">stevedraws</a> 40 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">11&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">17.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">FAA finalizes new drone Remote ID rules</a> <span class="domain">(<a href="#">faa.gov</a>)</span>
+        </div>
+        <div class="subtext">
+          8 points by <a href="#">flightplan</a> 44 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">5&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">18.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Why CRDTs are harder than they look</a> <span class="domain">(<a href="#">jakelazaroff.com</a>)</span>
+        </div>
+        <div class="subtext">
+          37 points by <a href="#">jlazaroff</a> 47 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">14&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">19.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">A weekend with Mojo: faster than Python, easier than Rust?</a> <span class="domain">(<a href="#">modular-experiments.dev</a>)</span>
+        </div>
+        <div class="subtext">
+          25 points by <a href="#">mojomaybe</a> 51 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">38&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">20.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Ask HN: I'm 42 and burned out — what next?</a>
+        </div>
+        <div class="subtext">
+          61 points by <a href="#">tired_42</a> 54 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">112&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">21.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Reverse engineering the Apple Vision Pro EyeSight display</a> <span class="domain">(<a href="#">aviationtech.blog</a>)</span>
+        </div>
+        <div class="subtext">
+          19 points by <a href="#">teardownjoe</a> 58 minutes ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">7&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">22.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: I replaced Zapier with 200 lines of Deno</a> <span class="domain">(<a href="#">github.com/marko</a>)</span>
+        </div>
+        <div class="subtext">
+          29 points by <a href="#">markowski</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">16&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">23.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Llama 3.1 405B weights released</a> <span class="domain">(<a href="#">ai.meta.com</a>)</span>
+        </div>
+        <div class="subtext">
+          88 points by <a href="#">openweights</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">73&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">24.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title dead">
+          <span>[flagged] </span><a href="#">My MLM is actually different, I promise</a> <span class="domain">(<a href="#">trustme.co</a>)</span>
+        </div>
+        <div class="subtext">
+          1 point by <a href="#">defnotmlm</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">25.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Notes on running my own mail server for 12 years</a> <span class="domain">(<a href="#">smtprants.net</a>)</span>
+        </div>
+        <div class="subtext">
+          54 points by <a href="#">selfhost_dad</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">41&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">26.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: Offline-first Markdown editor for iPad</a> <span class="domain">(<a href="#">ergojot.app</a>)</span>
+        </div>
+        <div class="subtext">
+          22 points by <a href="#">ergojot</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">8&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">27.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Ask HN: What are you working on in October 2023?</a>
+        </div>
+        <div class="subtext">
+          76 points by <a href="#">whatchaup</a> 1 hour ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">241&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">28.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">A practical guide to running Postgres in a single container</a> <span class="domain">(<a href="#">prod-tales.io</a>)</span>
+        </div>
+        <div class="subtext">
+          17 points by <a href="#">containercat</a> 2 hours ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">12&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">29.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">Show HN: I built a local-first Postgres GUI in Rust</a> <span class="domain">(<a href="#">github.com/pgwave</a>)</span>
+        </div>
+        <div class="subtext">
+          48 points by <a href="#">pgwave_dev</a> 2 hours ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">23&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-rank">30.</div>
+      <div class="story-vote"><span class="triangle"></span></div>
+      <div class="story-main">
+        <div class="story-title">
+          <a href="#">The case against microservices for teams under 20</a> <span class="domain">(<a href="#">monolithdaily.com</a>)</span>
+        </div>
+        <div class="subtext">
+          31 points by <a href="#">monomax</a> 2 hours ago | <a href="#">flag</a> | <a href="#">hide</a> | <a href="#">66&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-row">
+      <a href="#">More</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-divider"></div>
+  <div class="footer">
+    <a href="#">Guidelines</a>
+    | <a href="#">FAQ</a>
+    | <a href="#">Lists</a>
+    | <a href="#">API</a>
+    | <a href="#">Security</a>
+    | <a href="#">Legal</a>
+    | <a href="#" class="applylink">Apply to YC</a>
+    | <a href="#">Contact</a>
+    <div class="footer-search">
+      Search: <input type="text" value="">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

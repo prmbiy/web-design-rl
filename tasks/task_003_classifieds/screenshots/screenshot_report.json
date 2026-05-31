@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "community",
+      "path": "community.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 185655,
+      "page_width": 1440,
+      "page_height": 900
+    },
+    {
+      "slug": "forsale",
+      "path": "forsale.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 248061,
+      "page_width": 1440,
+      "page_height": 1357
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 83022,
+      "page_width": 1440,
+      "page_height": 900
+    },
+    {
+      "slug": "housing",
+      "path": "housing.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 228393,
+      "page_width": 1440,
+      "page_height": 1004
+    },
+    {
+      "slug": "jobs",
+      "path": "jobs.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 181957,
+      "page_width": 1440,
+      "page_height": 1058
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

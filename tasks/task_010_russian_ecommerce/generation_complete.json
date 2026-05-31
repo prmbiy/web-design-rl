@@ -1,0 +1,12 @@
+{
+  "dna_id": "010",
+  "dna_name": "russian_ecommerce",
+  "pages": [
+    "home",
+    "catalog",
+    "product",
+    "cart",
+    "seller"
+  ],
+  "has_animations": false
+}

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Collection — Automne–Hiver 2023 · Maison Delacroix-Vauban</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #FAF7F2;
+  color: #1A1A1A;
+  font-family: 'EB Garamond', 'Garamond', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- NAVIGATION ---------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 96px;
+  background: #FFFFFF;
+  z-index: 100;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.nav-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wordmark {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-size: 16px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 4px 0;
+}
+
+.nav-divider {
+  width: 240px;
+  height: 1px;
+  background: #1A1A1A;
+  margin: 10px 0 0 0;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 96px;
+  left: 0; right: 0;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  padding: 22px 0 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease 0.1s;
+  border-bottom: 1px solid #E5E1DA;
+}
+
+.nav-wrapper:hover .nav-menu { opacity: 1; pointer-events: auto; }
+
+.nav-link {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: #1A1A1A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.nav-bag {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.nav-bag-icon {
+  display: inline-block;
+  width: 14px; height: 16px;
+  border: 1px solid #1A1A1A;
+  border-radius: 1px 1px 0 0;
+  position: relative;
+  margin-right: 8px;
+  vertical-align: -3px;
+}
+.nav-bag-icon::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 3px;
+  width: 6px; height: 6px;
+  border: 1px solid #1A1A1A;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding-top: 200px;
+  padding-bottom: 120px;
+  text-align: center;
+  background: #FAF7F2;
+}
+
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero, .hero * {
+  animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  margin-bottom: 56px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 88px;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  margin-bottom: 40px;
+}
+
+.hero-sub {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+
+.hero-sep {
+  display: inline-block;
+  margin: 0 12px;
+  color: #C4A882;
+}
+
+/* ---------- CATEGORY FILTER ---------- */
+.filter-bar {
+  border-top: 1px solid #1A1A1A;
+  border-bottom: 1px solid #E5E1DA;
+  padding: 28px 80px;
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+  background: #FAF7F2;
+  position: sticky;
+  top: 96px;
+  z-index: 50;
+}
+
+.filter-link {
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+.filter-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: #1A1A1A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.filter-link:hover::after,
+.filter-link.active::after {
+  transform: scaleX(1); transform-origin: left;
+}
+
+/* ---------- LOOKBOOK (full bleed) ---------- */
+.lookbook {
+  width: 100%;
+  height: 820px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.lookbook-1 {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #d9d1c4 0%, #b8ab97 38%, #5e564b 72%, #2a2620 100%);
+}
+
+.lookbook-2 {
+  background:
+    radial-gradient(ellipse at 65% 35%, rgba(250,247,242,0.1) 0%, transparent 55%),
+    linear-gradient(135deg, #1f1c18 0%, #2c2823 45%, #4a4239 80%, #6b5f50 100%);
+}
+
+.lookbook-3 {
+  background:
+    radial-gradient(ellipse at 45% 50%, rgba(255,255,255,0.06) 0%, transparent 55%),
+    linear-gradient(160deg, #efeae0 0%, #d6cdbd 40%, #a8997f 75%, #6e6249 100%);
+}
+
+.lookbook-caption {
+  position: absolute;
+  bottom: 48px;
+  left: 80px;
+  color: #FAF7F2;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.lookbook-caption .look-no {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  display: block;
+  margin-bottom: 6px;
+  color: #FAF7F2;
+}
+
+.lookbook-credit {
+  position: absolute;
+  bottom: 48px;
+  right: 80px;
+  color: #FAF7F2;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 2;
+  opacity: 0.85;
+}
+
+/* ---------- PRODUCT GRID ---------- */
+.product-section {
+  padding: 160px 80px;
+  background: #FAF7F2;
+}
+
+.product-section.cream-deep {
+  background: #F2EEE6;
+}
+
+.product-section-header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: #1A1A1A;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 72px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* unique image styles per product */
+.img-manteau {
+  background:
+    linear-gradient(180deg, #FAF7F2 0%, #FAF7F2 18%, #c8b08a 18%, #b89a72 70%, #a08660 100%);
+}
+.img-manteau::after {
+  content: '';
+  position: absolute;
+  top: 22%; left: 50%;
+  transform: translateX(-50%);
+  width: 38%;
+  height: 70%;
+  background: linear-gradient(180deg, #c4a882 0%, #b09371 60%, #8a7252 100%);
+  clip-path: polygon(30% 0, 70% 0, 90% 100%, 10% 100%);
+}
+
+.img-sac {
+  background: #FAF7F2;
+}
+.img-sac::after {
+  content: '';
+  position: absolute;
+  top: 30%; left: 50%;
+  transform: translateX(-50%);
+  width: 52%;
+  height: 38%;
+  background: linear-gradient(180deg, #2a2620 0%, #1A1A1A 100%);
+  border-radius: 2px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+.img-sac::before {
+  content: '';
+  position: absolute;
+  top: 22%; left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 12%;
+  border: 1px solid #1A1A1A;
+  border-bottom: none;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  z-index: 2;
+}
+
+.img-bottines {
+  background: #FAF7F2;
+}
+.img-bottines::after {
+  content: '';
+  position: absolute;
+  bottom: 14%; left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 55%;
+  background: linear-gradient(180deg, #3a2e22 0%, #2a2218 100%);
+  clip-path: polygon(35% 0, 65% 0, 75% 60%, 95% 90%, 95% 100%, 5% 100%, 5% 90%, 25% 60%);
+}
+
+.img-blouse {
+  background:
+    linear-gradient(180deg, #FAF7F2 0%, #f0ece2 100%);
+}
+.img-blouse::after {
+  content: '';
+  position: absolute;
+  top: 18%; left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 70%;
+  background: linear-gradient(180deg, #fbfaf6 0%, #ede7d8 100%);
+  clip-path: polygon(20% 0, 80% 0, 100% 25%, 95% 100%, 5% 100%, 0 25%);
+  border: 1px solid #e5e1da;
+}
+
+.img-portefeuille {
+  background: #FAF7F2;
+}
+.img-portefeuille::after {
+  content: '';
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translateX(-50%);
+  width: 48%;
+  height: 26%;
+  background: linear-gradient(135deg, #5a4a36 0%, #3a2e22 100%);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.img-souliers {
+  background: #FAF7F2;
+}
+.img-souliers::after {
+  content: '';
+  position: absolute;
+  bottom: 28%; left: 50%;
+  transform: translateX(-50%);
+  width: 56%;
+  height: 14%;
+  background: linear-gradient(180deg, #1f1812 0%, #0d0a07 100%);
+  border-radius: 50% 50% 12% 12% / 100% 100% 24% 24%;
+}
+
+.img-foulard {
+  background:
+    linear-gradient(135deg, #c4a882 0%, #d9c19a 50%, #a89070 100%);
+}
+.img-foulard::after {
+  content: '';
+  position: absolute;
+  top: 25%; left: 25%;
+  width: 50%; height: 50%;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 10px, rgba(26,26,26,0.08) 10px 11px),
+    repeating-linear-gradient(-45deg, transparent 0 14px, rgba(26,26,26,0.05) 14px 15px);
+  border: 1px solid rgba(26,26,26,0.15);
+}
+
+.img-pull {
+  background: #FAF7F2;
+}
+.img-pull::after {
+  content: '';
+  position: absolute;
+  top: 22%; left: 50%;
+  transform: translateX(-50%);
+  width: 52%; height: 60%;
+  background: linear-gradient(180deg, #f5f1e8 0%, #ebe4d3 100%);
+  clip-path: polygon(15% 5%, 85% 5%, 100% 40%, 100% 100%, 0 100%, 0 40%);
+  border: 1px solid #ddd6c5;
+}
+
+.img-ceinture {
+  background: #FAF7F2;
+}
+.img-ceinture::after {
+  content: '';
+  position: absolute;
+  top: 47%; left: 8%;
+  width: 84%; height: 6%;
+  background: linear-gradient(180deg, #2a2218 0%, #14100b 100%);
+}
+.img-ceinture::before {
+  content: '';
+  position: absolute;
+  top: 44%; left: 48%;
+  width: 4%; height: 12%;
+  background: linear-gradient(180deg, #d4b87a 0%, #a08653 100%);
+  z-index: 2;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 4px;
+}
+
+.product-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.product-cat {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  margin-top: 6px;
+}
+
+.product-price {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #1A1A1A;
+  font-variant-numeric: lining-nums;
+}
+
+/* ---------- EDITORIAL STATEMENT ---------- */
+.editorial-statement {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 180px 40px;
+  background: #FAF7F2;
+}
+
+.editorial-statement p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.65;
+  font-weight: 400;
+  color: #1A1A1A;
+}
+
+.editorial-statement .signature {
+  display: block;
+  margin-top: 56px;
+  font-family: 'EB Garamond', serif;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #FAF7F2;
+  border-top: 1px solid #1A1A1A;
+  padding: 100px 80px 48px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 80px;
+  margin-bottom: 96px;
+}
+
+.footer-col h4 {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 28px;
+  color: #1A1A1A;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: 14px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+}
+
+.newsletter-line {
+  display: flex;
+  border-bottom: 1px solid #1A1A1A;
+  padding-bottom: 8px;
+  margin-top: 8px;
+}
+.newsletter-line .field {
+  flex: 1;
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: #8A8A8A;
+}
+.newsletter-line .arrow {
+  font-size: 14px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #E5E1DA;
+  padding-top: 36px;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+
+.footer-wordmark {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: #1A1A1A;
+}
+
+/* Cards initially in-view (no JS, so make them visible) */
+.product-card { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-wrapper">
+    <div class="wordmark">Maison Delacroix–Vauban</div>
+    <div class="nav-divider"></div>
+    <div class="nav-menu">
+      <a class="nav-link" href="#">Tout</a>
+      <a class="nav-link" href="#">Prêt-à-Porter</a>
+      <a class="nav-link" href="#">Maroquinerie</a>
+      <a class="nav-link" href="#">Souliers</a>
+      <a class="nav-link" href="#">Accessoires</a>
+    </div>
+    <div class="nav-bag">
+      <span class="nav-bag-icon"></span>Sac (0)
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Collection · Automne–Hiver 2023</div>
+  <h1 class="hero-title">Silences du Nord</h1>
+  <div class="hero-sub">
+    Quarante-deux pièces
+    <span class="hero-sep">·</span>
+    Présentées au Palais de Tokyo
+    <span class="hero-sep">·</span>
+    28 février 2023
+  </div>
+</header>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <a class="filter-link active">Tout</a>
+  <a class="filter-link">Prêt-à-Porter</a>
+  <a class="filter-link">Maroquinerie</a>
+  <a class="filter-link">Souliers</a>
+  <a class="filter-link">Accessoires</a>
+</div>
+
+<!-- LOOKBOOK 1 -->
+<section class="lookbook lookbook-1">
+  <div class="lookbook-caption">
+    <span class="look-no">Look 04</span>
+    Manteau Sologne · Robe Astrid
+  </div>
+  <div class="lookbook-credit">
+    Photographie<br>Paolo Roversi · Honfleur
+  </div>
+</section>
+
+<!-- PRODUCT GRID 1 -->
+<section class="product-section">
+  <div class="product-section-header">
+    <div class="section-eyebrow">Pièces Maîtresses · I</div>
+    <h2 class="section-title">Pour la femme</h2>
+  </div>
+  <div class="product-grid">
+    <a class="product-card">
+      <div class="product-image img-manteau"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Manteau Sologne</div>
+          <span class="product-cat">Laine vierge camel</span>
+        </div>
+        <div class="product-price">€7,800</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-sac"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Sac Vauban 36</div>
+          <span class="product-cat">Veau grainé noir</span>
+        </div>
+        <div class="product-price">€9,400</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-bottines"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Bottines Astrid</div>
+          <span class="product-cat">Cuir de veau ébène</span>
+        </div>
+        <div class="product-price">€1,950</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LOOKBOOK 2 -->
+<section class="lookbook lookbook-2">
+  <div class="lookbook-caption">
+    <span class="look-no">Look 11</span>
+    Tailleur Camille · Souliers Étienne
+  </div>
+  <div class="lookbook-credit">
+    Direction artistique<br>Hélène Marchetti
+  </div>
+</section>
+
+<!-- EDITORIAL STATEMENT -->
+<section class="editorial-statement">
+  <p>
+    «&nbsp;Une collection écrite à la lumière grise de Normandie. Les volumes se taisent, les coupes se souviennent. Quarante-deux pièces pour traverser l'hiver sans rien dire de trop.&nbsp;»
+  </p>
+  <span class="signature">Hélène Marchetti — Directrice de la Création</span>
+</section>
+
+<!-- PRODUCT GRID 2 -->
+<section class="product-section cream-deep">
+  <div class="product-section-header">
+    <div class="section-eyebrow">Pièces Maîtresses · II</div>
+    <h2 class="section-title">Soieries &amp; Mailles</h2>
+  </div>
+  <div class="product-grid">
+    <a class="product-card">
+      <div class="product-image img-blouse"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Blouse Étienne</div>
+          <span class="product-cat">Soie ivoire</span>
+        </div>
+        <div class="product-price">€2,150</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-pull"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Pull Camille</div>
+          <span class="product-cat">Cachemire écru</span>
+        </div>
+        <div class="product-price">€2,480</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-foulard"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Carré Honfleur 90</div>
+          <span class="product-cat">Twill de soie · Sand</span>
+        </div>
+        <div class="product-price">€620</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LOOKBOOK 3 -->
+<section class="lookbook lookbook-3">
+  <div class="lookbook-caption">
+    <span class="look-no">Look 27</span>
+    Robe du soir Vauban · Carré Honfleur
+  </div>
+  <div class="lookbook-credit">
+    Palais de Tokyo<br>28 février 2023
+  </div>
+</section>
+
+<!-- PRODUCT GRID 3 -->
+<section class="product-section">
+  <div class="product-section-header">
+    <div class="section-eyebrow">Pièces Maîtresses · III</div>
+    <h2 class="section-title">Maroquinerie &amp; Souliers</h2>
+  </div>
+  <div class="product-grid">
+    <a class="product-card">
+      <div class="product-image img-portefeuille"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Portefeuille Astrid</div>
+          <span class="product-cat">Veau lisse cognac</span>
+        </div>
+        <div class="product-price">€890</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-souliers"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Souliers Étienne</div>
+          <span class="product-cat">Cuir verni noir</span>
+        </div>
+        <div class="product-price">€1,420</div>
+      </div>
+    </a>
+    <a class="product-card">
+      <div class="product-image img-ceinture"></div>
+      <div class="product-meta">
+        <div>
+          <div class="product-name">Ceinture Vauban V</div>
+          <span class="product-cat">Boucle laiton brossé</span>
+        </div>
+        <div class="product-price">€780</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Correspondance</h4>
+      <p style="font-size:13px; line-height:1.7; color:#1A1A1A; margin-bottom: 20px;">
+        Recevez les invitations aux défilés, les avant-premières de collection et la voix discrète de la Maison.
+      </p>
+      <div class="newsletter-line">
+        <span class="field">votre adresse électronique</span>
+        <span class="arrow">→</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Boutiques</h4>
+      <ul>
+        <li>Paris</li>
+        <li>Milano</li>
+        <li>Tokyo</li>
+        <li>New York</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Maison</h4>
+      <ul>
+        <li>Histoire</li>
+        <li>Atelier</li>
+        <li>Défilés</li>
+        <li>Carrières</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services Clients</h4>
+      <ul>
+        <li>Conciergerie · +33 1 42 60 00 23</li>
+        <li>correspondance@delacroix-vauban.com</li>
+        <li>Rendez-vous Privé</li>
+        <li>Entretien &amp; Restauration</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-wordmark">Maison Delacroix–Vauban · Paris, depuis 1923</span>
+    <span>© MMXXIII · Tous droits réservés</span>
+  </div>
+</footer>
+
+</body>
+</html>

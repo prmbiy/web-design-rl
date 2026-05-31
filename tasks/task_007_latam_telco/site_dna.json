@@ -1,0 +1,22 @@
+{
+  "id": "007",
+  "name": "latam_telco",
+  "source": "B",
+  "archetype": "Latin American telecommunications company website",
+  "market": "Mexico and Colombia, mass-market mobile and broadband provider",
+  "era": "2021",
+  "density": "Dense but organized. Heavy use of full-width color bands separating sections. Many promotional banners for current offers with countdown timers. Prepaid recharge section prominent. Plan comparison tables. Live chat widget. Service status page linked prominently.",
+  "nav_style": "Full-width top nav in deep teal/blue. Left side: brand logo. Center: main nav links — Móvil, Internet, TV, Paquetes, Empresa, Tiendas. Right side: Mi Cuenta login, help icon, cart icon. Below nav: a promotional banner carousel rotating between current offers with bright colors and large discount percentages.",
+  "commercial_model": "Consumer telco. Revenue from plan subscriptions and prepaid recharges. Heavy promotional culture: 2-for-1 lines, double data weekends, exclusive streaming bundles. Partner content deals with Netflix/Disney+ included in premium plans.",
+  "color_palette": "Deep teal (#007B8A) and bright orange (#FF5722) primary brand. White (#FFFFFF) page backgrounds. Yellow (#FFC107) for promotional highlights and countdown timers. Light teal (#E0F7FA) for plan card backgrounds. The palette is energetic and accessible.",
+  "typography": "Nunito Sans or similar rounded sans-serif — approachable and modern. Promotional headlines very large (40-56px) with discount percentages in oversized bold. Plan prices in huge display type. Body text at 15px. Spanish language throughout with formal 'usted' address.",
+  "quirks": ["countdown_timer_promotions", "plan_comparison_table", "prepaid_recharge_widget", "service_status_indicator", "live_chat_button", "store_locator_map", "double_data_promo_badge", "streaming_bundle_callout", "portability_cta", "whatsapp_business_number"],
+  "pages": [
+    {"slug": "home", "title": "Inicio", "description": "Full-width hero carousel with current promotions. Below: plan category tabs (Móvil, Internet, TV). Featured plans grid with prices and key features. Streaming partner logos. Recharge widget. Store locator link."},
+    {"slug": "movil", "title": "Planes Móvil", "description": "Mobile plan comparison table with GB data, minutes, SMS, streaming inclusions, price per month. Toggle between prepaid/postpaid. Portability CTA. 5G coverage map section."},
+    {"slug": "internet", "title": "Internet para Casa", "description": "Home internet plans with speeds in Mbps, price, router included yes/no, installation fee, contract terms. Speed test widget. Coverage checker by address. Installation scheduling."},
+    {"slug": "paquetes", "title": "Paquetes Combinados", "description": "Bundle deals combining mobile + internet + TV. Savings calculator showing monthly savings vs separate plans. Most popular bundle highlighted. Family plan section."},
+    {"slug": "tiendas", "title": "Tiendas y Atención", "description": "Store locator with interactive map. Store hours and services offered. Technical support contact options: phone, WhatsApp, email, chat. Tramites online section to avoid store visit."}
+  ],
+  "animations": false
+}

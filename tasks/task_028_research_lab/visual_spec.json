@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+    "font_heading": "'Crimson Text', 'Times New Roman', Times, serif",
+    "font_body": "Georgia, 'Crimson Text', serif",
+    "font_mono": "'JetBrains Mono', 'Courier New', monospace",
+    "size_h1": "36px",
+    "size_h2": "26px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#00356B",
+    "color_secondary": "#1a1a1a",
+    "color_accent": "#A8132A",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F5F5F5",
+    "color_text": "#000000",
+    "color_text_muted": "#555555",
+    "color_border": "#D9D9D9",
+    "border_radius": "2px",
+    "container_max_width": "1080px",
+    "section_padding": "56px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "68px",
+    "nav_position": "sticky",
+    "footer_bg": "#F5F5F5",
+    "extra_colors": {
+      "badge_award": "#B8860B",
+      "badge_venue": "#00356B",
+      "link_visited": "#5A2B7A",
+      "highlight_yellow": "#FFF8C5",
+      "code_bg": "#FAFAFA"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Masthead with lab name and university crest, single-paragraph mission, three highlighted publication cards in a row, two PhD opening callouts, news ticker list, group photo, funder logo strip.",
+      "bg": "#FFFFFF"
+    },
+    "research": {
+      "layout": "Sectioned long-form page with four thematic research areas; each area has a heading, prose description, inline SVG diagram, and a bulleted list of three key papers.",
+      "bg": "#FFFFFF"
+    },
+    "publications": {
+      "layout": "Year-grouped reverse-chronological list with filter chips at top; each entry is a hanging-indent citation with venue badge and link row (PDF, arXiv, Code, Data).",
+      "bg": "#FFFFFF"
+    },
+    "people": {
+      "layout": "Role-grouped roster: PI featured large at top, then grid sections for PhD Students, Postdocs, Research Scientists, and an Alumni table with placement column.",
+      "bg": "#FFFFFF"
+    },
+    "join": {
+      "layout": "Two-column prose-heavy page with PhD application info on left and FAQ accordion on right, followed by open positions list and visiting researcher callout box.",
+      "bg": "#F5F5F5"
+    }
+  }
+}

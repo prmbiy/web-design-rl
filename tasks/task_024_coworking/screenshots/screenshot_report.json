@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "community",
+      "path": "community.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 654043,
+      "page_width": 1440,
+      "page_height": 4494
+    },
+    {
+      "slug": "events",
+      "path": "events.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 731083,
+      "page_width": 1440,
+      "page_height": 4860
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1112183,
+      "page_width": 1440,
+      "page_height": 4297
+    },
+    {
+      "slug": "membership",
+      "path": "membership.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 235804,
+      "page_width": 1440,
+      "page_height": 3454
+    },
+    {
+      "slug": "spaces",
+      "path": "spaces.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 833540,
+      "page_width": 1440,
+      "page_height": 5360
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

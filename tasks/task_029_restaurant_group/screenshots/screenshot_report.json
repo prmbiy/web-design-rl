@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "events",
+      "path": "events.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1486361,
+      "page_width": 1440,
+      "page_height": 6854
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1724944,
+      "page_width": 1440,
+      "page_height": 4823
+    },
+    {
+      "slug": "menu",
+      "path": "menu.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 333356,
+      "page_width": 1440,
+      "page_height": 5224
+    },
+    {
+      "slug": "reservations",
+      "path": "reservations.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 245157,
+      "page_width": 1440,
+      "page_height": 2627
+    },
+    {
+      "slug": "restaurants",
+      "path": "restaurants.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 2271698,
+      "page_width": 1440,
+      "page_height": 7697
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "dna_id": "019",
+  "dna_name": "esports_hub",
+  "pages": [
+    "home",
+    "teams",
+    "roster",
+    "schedule",
+    "shop"
+  ],
+  "has_animations": true
+}

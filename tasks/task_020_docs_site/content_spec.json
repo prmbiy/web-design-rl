@@ -1,0 +1,200 @@
+{
+  "brand_name": "Quillforge",
+  "tagline": "A lightweight, async-first task orchestration framework for Python",
+  "primary_color_name": "Quill Blue",
+  "pages": {
+    "index": {
+      "title": "Quillforge 2.4 Documentation",
+      "nav_items": [
+        "Home",
+        "Installation",
+        "Quick Start",
+        "API Reference",
+        "Configuration",
+        "GitHub",
+        "v2.4 ▾"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Quillforge 2.4 Documentation",
+          "subheadline": "Build resilient async task pipelines in pure Python. Stable release: 2.4.1 (Oct 2023)."
+        },
+        {
+          "name": "install_tabs",
+          "description": "Tabbed install snippet for pip ('pip install quillforge'), Poetry ('poetry add quillforge'), and Conda ('conda install -c conda-forge quillforge')."
+        },
+        {
+          "name": "quick_example",
+          "description": "Dark-themed Python code block showing a minimal @quill.task decorated 'fetch_users' function chained into a Pipeline with .run(), with a copy button in the corner."
+        },
+        {
+          "name": "section_cards",
+          "description": "Grid of 4 cards linking to: Tutorials (First Pipeline), Core Concepts (Tasks, Workers, Schedulers), API Reference (quill.core, quill.runtime), and Deployment (Docker, Kubernetes Helm chart)."
+        },
+        {
+          "name": "features_table",
+          "description": "Comparison table with rows like 'Async backend (asyncio/trio)', 'Retry policies', 'Distributed workers (Redis/NATS)', and 'OpenTelemetry tracing', each marked ✓ Supported."
+        },
+        {
+          "name": "community",
+          "description": "Footer links to Discord (#quillforge), GitHub Discussions, the @quillforge Mastodon, and the Quillforge Cloud 'Pro' CTA banner."
+        }
+      ]
+    },
+    "installation": {
+      "title": "Installation Guide",
+      "nav_items": [
+        "Prerequisites",
+        "Linux / macOS",
+        "Windows",
+        "Virtual Environments",
+        "Verification",
+        "Troubleshooting"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb",
+          "headline": "Docs › Getting Started › Installation",
+          "subheadline": ""
+        },
+        {
+          "name": "prerequisites",
+          "description": "Bullet list of requirements: Python ≥ 3.10, pip ≥ 23.0, optional Redis 7.x for distributed mode, and Docker 24+ for the dev container."
+        },
+        {
+          "name": "os_instructions",
+          "description": "Three OS sections (Ubuntu 22.04, macOS 13 Ventura, Windows 11) each with shell code blocks like 'sudo apt install python3.11-venv' and 'brew install quillforge'."
+        },
+        {
+          "name": "venv_setup",
+          "description": "Code block creating a venv with 'python -m venv .venv && source .venv/bin/activate' followed by 'pip install quillforge[redis,otel]'."
+        },
+        {
+          "name": "verification",
+          "description": "Command 'quill --version' with expected stdout 'Quillforge 2.4.1 (CPython 3.11.5)' shown in a terminal-style block."
+        },
+        {
+          "name": "troubleshooting_note",
+          "description": "Green note box about M1/M2 wheels, a yellow warning about Python 3.9 EOL, and a red danger box about mixing system pip with venv."
+        }
+      ]
+    },
+    "quickstart": {
+      "title": "Quick Start Tutorial",
+      "nav_items": [
+        "Step 1: Initialize",
+        "Step 2: Define a Task",
+        "Step 3: Build Pipeline",
+        "Step 4: Run",
+        "Next Steps"
+      ],
+      "sections": [
+        {
+          "name": "intro",
+          "headline": "Your First Pipeline in 5 Minutes",
+          "subheadline": "Build a CSV-to-Postgres ETL pipeline using Quillforge tasks."
+        },
+        {
+          "name": "step_1",
+          "description": "Numbered step explaining 'quill init etl-demo' scaffold command, with directory tree output showing pipelines/, tasks/, and quill.toml."
+        },
+        {
+          "name": "step_2",
+          "description": "Python code block defining an async task 'load_csv(path: Path) -> DataFrame' decorated with @quill.task(retries=3, timeout=30)."
+        },
+        {
+          "name": "step_3",
+          "description": "Code block composing Pipeline([load_csv, clean_rows, write_postgres]) with a sidebar note about DAG inference from type hints."
+        },
+        {
+          "name": "step_4",
+          "description": "Terminal block running 'quill run etl-demo --workers 4' with expected log output showing task IDs and 'Pipeline completed in 2.31s'."
+        },
+        {
+          "name": "next_steps",
+          "description": "Three link cards pointing to: Scheduling with Cron Triggers, Adding Prometheus Metrics, and Deploying to Quillforge Cloud."
+        },
+        {
+          "name": "prev_next",
+          "description": "Bottom pagination: ← Installation Guide | API Reference →"
+        }
+      ]
+    },
+    "api": {
+      "title": "API Reference — quill.core",
+      "nav_items": [
+        "quill.core",
+        "quill.runtime",
+        "quill.scheduler",
+        "quill.workers",
+        "quill.metrics",
+        "Deprecated"
+      ],
+      "sections": [
+        {
+          "name": "module_header",
+          "headline": "quill.core",
+          "subheadline": "Core decorators, Pipeline class, and TaskContext primitives."
+        },
+        {
+          "name": "function_signature",
+          "description": "Monospaced signature 'quill.task(*, retries: int = 0, timeout: float | None = None, name: str | None = None) -> Callable' with anchor link."
+        },
+        {
+          "name": "parameters_table",
+          "description": "Table with columns Name | Type | Required | Default | Description, listing rows for 'retries (int, no, 0)', 'timeout (float|None, no, None)', and 'name (str|None, no, fn.__name__)'."
+        },
+        {
+          "name": "returns",
+          "description": "Returns subsection stating 'A decorated coroutine function registered with the active Registry' with link to quill.core.Registry."
+        },
+        {
+          "name": "example",
+          "description": "Code block example showing @quill.task(retries=5) applied to 'async def fetch_invoice(id: UUID): ...' with copy button."
+        },
+        {
+          "name": "deprecated_notice",
+          "description": "Yellow box noting 'quill.legacy_task' is deprecated since 2.3, removal scheduled for 3.0, with migration link to using @quill.task."
+        },
+        {
+          "name": "github_edit",
+          "description": "Small 'Edit on GitHub' link in top-right pointing to docs/api/core.rst on the quillforge/quillforge repo."
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Configuration",
+      "nav_items": [
+        "quill.toml",
+        "Options Reference",
+        "Environment Variables",
+        "Profiles",
+        "Advanced Patterns"
+      ],
+      "sections": [
+        {
+          "name": "intro",
+          "headline": "Configuring Quillforge",
+          "subheadline": "All settings can be set via quill.toml, environment variables, or programmatic Config()."
+        },
+        {
+          "name": "options_table",
+          "description": "Reference table with Key | Type | Default | Description rows including 'broker.url (str, redis://localhost:6379)', 'workers.concurrency (int, 8)', and 'telemetry.otlp_endpoint (str, None)'."
+        },
+        {
+          "name": "example_toml",
+          "description": "TOML code block showing a full quill.toml with [broker], [workers], and [telemetry] sections and realistic values."
+        },
+        {
+          "name": "env_vars",
+          "description": "Two-column mapping of TOML keys to env equivalents like 'QUILL_BROKER_URL', 'QUILL_WORKERS_CONCURRENCY', 'QUILL_LOG_LEVEL'."
+        },
+        {
+          "name": "advanced_patterns",
+          "description": "Subsections on per-environment profiles (dev/staging/prod), dynamic config via Vault, and a green note about config hot-reload behind feature flag 'experimental.hot_reload'."
+        }
+      ]
+    }
+  }
+}

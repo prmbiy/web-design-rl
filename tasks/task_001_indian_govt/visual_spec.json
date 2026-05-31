@@ -1,0 +1,61 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "Arial, 'Helvetica', sans-serif",
+    "font_body": "Arial, 'Helvetica', sans-serif",
+    "font_mono": "'Courier New', monospace",
+    "size_h1": "16px",
+    "size_h2": "14px",
+    "size_body": "12px",
+    "size_small": "11px",
+    "color_primary": "#FF6600",
+    "color_secondary": "#003366",
+    "color_accent": "#FFCC00",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F5F5F5",
+    "color_text": "#222222",
+    "color_text_muted": "#666666",
+    "color_border": "#CCCCCC",
+    "border_radius": "0",
+    "container_max_width": "1200px",
+    "section_padding": "8px 12px",
+    "nav_bg": "#FF6600",
+    "nav_height": "112px",
+    "nav_position": "static",
+    "footer_bg": "#003366",
+    "extra_colors": {
+      "alert_red": "#CC0000",
+      "link_blue": "#0066CC",
+      "link_visited": "#551A8B",
+      "utility_bar": "#1A1A1A",
+      "table_alt": "#F5F5F5",
+      "table_header": "#003366",
+      "scheme_green": "#008000",
+      "border_dark": "#999999",
+      "serif_title": "'Times New Roman', Times, serif"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Top utility bar, orange ministry header with emblem, mega-menu nav, red marquee announcement strip, then a 3-column grid: left citizen-service sidebar, center scheme banners and news tables, right tenders/important-links column.",
+      "bg": "#FFFFFF"
+    },
+    "about": {
+      "layout": "Breadcrumb, page heading, 2-column layout with left sidebar links and right content area containing history paragraphs, organizational chart image, and minister/secretary profile photo tables with bios.",
+      "bg": "#FFFFFF"
+    },
+    "schemes": {
+      "layout": "Breadcrumb, ALL-CAPS heading, filter row, dense full-width data table with zebra striping listing scheme name, launch date, budget, beneficiaries, status badge, and action links.",
+      "bg": "#FFFFFF"
+    },
+    "tenders": {
+      "layout": "Breadcrumb, heading, tab strip for Active/Archived, large data table with tender ID, department, value, deadline, download column, plus a yellow notice box above and pagination below.",
+      "bg": "#FFFFFF"
+    },
+    "contact": {
+      "layout": "Breadcrumb, heading, multi-column office directory table (address/phone/fax/email), embedded map placeholder block, and a bordered grievance registration form with required-field asterisks below.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "011",
+  "name": "korean_beauty",
+  "source": "B",
+  "archetype": "Korean beauty (K-beauty) brand e-commerce and lifestyle site",
+  "market": "South Korea and global K-beauty audience, predominantly 18-35 women",
+  "era": "2023",
+  "density": "Medium density with generous whitespace and pastel aesthetics. Products displayed in clean grid with lifestyle photography. Each product card has a soft hover animation revealing quick-add button. The visual language is 'cute and clinical' — adorable pastel packaging combined with dermatologist-approved ingredient lists.",
+  "nav_style": "Transparent-to-white sticky nav on scroll. Left: minimal wordmark logo in script font. Center: navigation links — New, Skincare, Makeup, Body, Sets, About. Right: search icon, wishlist heart icon, cart bag icon. Below nav: a soft pastel banner promoting current skincare routine guide.",
+  "commercial_model": "Direct-to-consumer brand. Subscription box option. Loyalty points (포인트) system. Free sample with every order. Free shipping over threshold. Skincare routine quiz as lead generation tool.",
+  "color_palette": "Soft millennial pink (#FFB6C1) as primary accent. Ivory (#FFFFF0) and very light peach (#FFF5EE) for backgrounds. Dusty rose (#C8829A) for text accents and CTAs. Mint green (#B2DFDB) for 'new' badges. Gold (#D4AF37) for premium product markers. The palette is feminine, soft, aspirational.",
+  "typography": "Mix of Korean (Noto Sans KR) and English (DM Serif Display for headings, Lato for body). Product names displayed in both Korean and English. Ingredient names in small clinical sans-serif. Quotes from reviews in italic serif. Korean brand story text alongside English translation.",
+  "quirks": ["bilingual_korean_english", "ingredient_list_prominent", "skin_type_filter", "routine_builder_quiz", "sample_included_badge", "dermatologist_tested_label", "loyalty_points_system", "before_after_comparison", "product_layering_guide", "vegan_cruelty_free_badges"],
+  "pages": [
+    {"slug": "home", "title": "홈", "description": "Full-screen hero with K-beauty model using the product line. Below: new arrivals grid with hover animations. Skincare routine guide section. Bestsellers with review counts. K-beauty philosophy brand story. Instagram feed mosaic."},
+    {"slug": "skincare", "title": "스킨케어", "description": "Skincare product grid with skin type filter (oily, dry, combination, sensitive). Cleansers, toners, essences, serums, moisturizers, SPF categories. Product cards with ingredient highlights and skin concern tags."},
+    {"slug": "routine", "title": "루틴 빌더", "description": "10-step K-beauty routine builder. Each step has a product recommendation. Toggle between AM and PM routine. Add all to cart button. Routine explanation for each step. Quiz CTA to personalize."},
+    {"slug": "about", "title": "브랜드 스토리", "description": "Brand founding story in Korea. Founder's photo. Lab/manufacturing facility photos. Cruelty-free and vegan certifications. K-beauty philosophy text. Press features: Vogue Korea, Allure, Refinery29."},
+    {"slug": "reviews", "title": "리뷰", "description": "Customer reviews page with photo reviews prominent. Filter by skin type and concern. Before/after transformation photos with consent captions. Featured community reviews. Skincare journeys blog section."}
+  ],
+  "animations": ["fade_in_hero", "hover_card_lift", "scroll_reveal_cards"]
+}

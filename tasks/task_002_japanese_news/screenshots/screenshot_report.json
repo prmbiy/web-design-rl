@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "culture",
+      "path": "culture.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 647477,
+      "page_width": 1440,
+      "page_height": 2449
+    },
+    {
+      "slug": "economy",
+      "path": "economy.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 712299,
+      "page_width": 1440,
+      "page_height": 2647
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 801761,
+      "page_width": 1440,
+      "page_height": 2495
+    },
+    {
+      "slug": "international",
+      "path": "international.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 745800,
+      "page_width": 1440,
+      "page_height": 2496
+    },
+    {
+      "slug": "politics",
+      "path": "politics.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 750168,
+      "page_width": 1440,
+      "page_height": 2427
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

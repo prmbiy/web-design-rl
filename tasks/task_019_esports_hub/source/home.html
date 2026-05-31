@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voltaic Esports — Home</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #0D0D0D; color: #FFFFFF; font-family: 'Roboto', sans-serif; font-size: 16px; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+
+/* NAV */
+.nav-wrap { position: sticky; top: 0; z-index: 100; }
+.nav { background: #000; height: 72px; display: flex; align-items: center; border-bottom: 1px solid #262626; }
+.nav-inner { display: flex; align-items: center; gap: 40px; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 2px; text-transform: uppercase; }
+.logo-mark { width: 32px; height: 32px; background: #FF0033; clip-path: polygon(40% 0, 100% 0, 60% 45%, 100% 45%, 0 100%, 40% 55%, 0 55%); }
+.nav-links { display: flex; gap: 28px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-links a { color: #fff; transition: color 0.2s; }
+.nav-links a:hover { color: #FF0033; }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.socials { display: flex; gap: 10px; color: #888; font-size: 14px; }
+.socials span { width: 28px; height: 28px; border: 1px solid #262626; display: inline-flex; align-items: center; justify-content: center; border-radius: 2px; }
+.discord-btn { background: #5865F2; color: #fff; padding: 9px 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 14px; border-radius: 2px; }
+.watch-live-btn { background: #FF0033; color: #fff; padding: 9px 18px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; font-size: 14px; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; }
+.watch-live-btn::before { content: ''; width: 8px; height: 8px; background: #fff; border-radius: 50%; }
+
+/* TICKER */
+@keyframes ticker_scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker { background: #1A1A1A; border-bottom: 1px solid #262626; overflow: hidden; position: relative; }
+.ticker-inner { display: flex; align-items: center; height: 44px; }
+.ticker-label { background: #FF0033; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; padding: 0 16px; height: 44px; display: flex; align-items: center; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; flex-shrink: 0; }
+.ticker-track { display: flex; width: max-content; animation: ticker_scroll 60s linear infinite; }
+.ticker-item { display: flex; align-items: center; gap: 10px; padding: 0 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #ccc; border-right: 1px solid #262626; height: 44px; white-space: nowrap; }
+.ticker-item .team { color: #fff; font-weight: 700; }
+.ticker-item .score { color: #FFD700; font-weight: 700; }
+.ticker-item .tag { color: #888; font-size: 11px; text-transform: uppercase; }
+.ticker-item .live { color: #FF0033; font-weight: 700; letter-spacing: 1px; }
+
+/* LIVE BADGE */
+@keyframes live_strobe { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,0,51,0.7); } 50% { opacity: 0.85; box-shadow: 0 0 0 8px rgba(255,0,51,0); } }
+.live-badge { display: inline-flex; align-items: center; gap: 6px; background: #FF0033; color: #fff; padding: 4px 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; animation: live_strobe 1.2s ease-in-out infinite; }
+.live-badge::before { content: ''; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+.watch-live-btn { animation: live_strobe 1.2s ease-in-out infinite; }
+
+/* HERO */
+.hero { position: relative; background: radial-gradient(ellipse at 30% 50%, rgba(255,0,51,0.35) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(255,0,51,0.18) 0%, transparent 50%), linear-gradient(135deg, #1a0008 0%, #0D0D0D 60%, #000 100%); border-bottom: 1px solid #262626; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 60px), repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 60px); pointer-events: none; }
+.hero-inner { max-width: 1400px; margin: 0 auto; padding: 80px 32px; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; position: relative; }
+.hero-tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 3px; text-transform: uppercase; font-size: 13px; color: #FFD700; }
+.hero-tag::before { content: ''; width: 32px; height: 2px; background: #FFD700; }
+.hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 88px; line-height: 0.95; letter-spacing: -1px; text-transform: uppercase; margin-bottom: 20px; }
+.hero h1 .accent { color: #FF0033; }
+.hero p.sub { font-size: 18px; color: #aaa; max-width: 540px; margin-bottom: 32px; line-height: 1.5; }
+.hero-ctas { display: flex; gap: 14px; align-items: center; }
+.btn-primary { background: #FF0033; color: #fff; padding: 14px 28px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 15px; border-radius: 2px; }
+.btn-ghost { background: transparent; color: #fff; border: 1px solid #444; padding: 13px 28px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 15px; border-radius: 2px; }
+.hero-stats { display: flex; gap: 32px; margin-top: 40px; padding-top: 28px; border-top: 1px solid #262626; }
+.hstat .n { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: #FFD700; }
+.hstat .l { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; color: #888; font-size: 12px; margin-top: 4px; }
+
+/* Hero match card */
+.match-card { background: #111; border: 1px solid #262626; border-radius: 2px; padding: 28px; position: relative; }
+.match-card .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.match-card .tournament { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: #888; font-size: 12px; }
+.match-versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; padding: 24px 0; }
+.team-block { text-align: center; }
+.team-logo { width: 76px; height: 76px; margin: 0 auto 12px; background: linear-gradient(135deg, #FF0033, #800019); display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; border-radius: 2px; }
+.team-logo.opp { background: linear-gradient(135deg, #FFD700, #806b00); color: #000; }
+.team-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px; }
+.team-sub { font-size: 11px; color: #888; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+@keyframes score_count_up { 0% { transform: translateY(100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+.match-score { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 56px; color: #FFD700; font-variant-numeric: tabular-nums; display: inline-block; animation: score_count_up 0.8s cubic-bezier(0.2,0.8,0.2,1) both; line-height: 1; }
+.score-wrap { text-align: center; }
+.score-wrap .dash { color: #444; padding: 0 6px; }
+.match-card .foot { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #262626; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #888; }
+
+/* SECTIONS */
+section { padding: 64px 32px; }
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; }
+.section-head h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 44px; text-transform: uppercase; letter-spacing: -0.5px; }
+.section-head h2 .bar { display: inline-block; width: 8px; height: 32px; background: #FF0033; margin-right: 14px; vertical-align: -3px; }
+.section-head .more { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; color: #888; }
+.section-head .more:hover { color: #FF0033; }
+
+/* NEWS */
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.news-card { background: #111; border: 1px solid #262626; border-radius: 2px; overflow: hidden; transition: border-color 0.2s; }
+.news-card:hover { border-color: #FF0033; }
+.thumb { aspect-ratio: 16/9; position: relative; display: flex; align-items: center; justify-content: center; }
+.thumb.t1 { background: linear-gradient(135deg, #2a0010, #0D0D0D), repeating-linear-gradient(45deg, rgba(255,0,51,0.1) 0 2px, transparent 2px 14px); }
+.thumb.t2 { background: linear-gradient(135deg, #001a2a, #0D0D0D); }
+.thumb.t3 { background: linear-gradient(135deg, #1a1a00, #0D0D0D); }
+.thumb::after { content: '▶'; position: absolute; width: 56px; height: 56px; border: 2px solid rgba(255,255,255,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; backdrop-filter: blur(2px); background: rgba(0,0,0,0.4); }
+.thumb .duration { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 3px 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.thumb .cat { position: absolute; top: 10px; left: 10px; background: #FF0033; color: #fff; padding: 3px 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; }
+.news-body { padding: 20px; }
+.news-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.news-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px; margin-bottom: 10px; }
+.news-excerpt { color: #888; font-size: 13px; line-height: 1.5; }
+
+/* SCHEDULE TABLE */
+.schedule-wrap { background: #111; border: 1px solid #262626; border-radius: 2px; overflow: hidden; }
+.schedule-table { width: 100%; border-collapse: collapse; }
+.schedule-table th { text-align: left; padding: 16px 20px; background: #1A1A1A; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 12px; color: #888; border-bottom: 1px solid #262626; }
+.schedule-table td { padding: 18px 20px; border-bottom: 1px solid #1f1f1f; font-size: 14px; vertical-align: middle; }
+.schedule-table tr:last-child td { border-bottom: none; }
+.schedule-table tr:hover td { background: #161616; }
+.s-date { font-family: 'JetBrains Mono', monospace; color: #FFD700; font-weight: 700; }
+.s-time { font-family: 'JetBrains Mono', monospace; color: #888; font-size: 12px; margin-top: 2px; }
+.s-game { display: inline-block; padding: 3px 8px; background: #FF0033; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; }
+.s-game.lol { background: #c89b3c; color: #000; }
+.s-game.cs2 { background: #de9b35; color: #000; }
+.s-match { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 17px; }
+.s-match .vs { color: #FF0033; padding: 0 6px; }
+.s-tour { color: #aaa; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
+.s-watch { background: transparent; border: 1px solid #FF0033; color: #FF0033; padding: 7px 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 12px; border-radius: 2px; display: inline-block; }
+.s-watch:hover { background: #FF0033; color: #fff; }
+
+/* ROSTER SPOTLIGHT */
+@keyframes glow_static {}
+.roster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.player-card { background: #111; border: 1px solid #262626; border-radius: 2px; padding: 0; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; position: relative; }
+.player-card:hover { transform: translateY(-4px); box-shadow: 0 0 24px rgba(255,0,51,0.6); border-color: #FF0033; }
+.player-photo { aspect-ratio: 4/5; position: relative; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+.player-photo.echo { background: radial-gradient(circle at 50% 30%, rgba(255,0,51,0.4), transparent 60%), linear-gradient(180deg, #1a0008 0%, #000 100%); }
+.player-photo.kairos { background: radial-gradient(circle at 50% 30%, rgba(0,150,255,0.3), transparent 60%), linear-gradient(180deg, #001624 0%, #000 100%); }
+.player-photo.novah { background: radial-gradient(circle at 50% 30%, rgba(255,215,0,0.3), transparent 60%), linear-gradient(180deg, #1a1500 0%, #000 100%); }
+.player-photo::before { content: '👤'; font-size: 140px; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); opacity: 0.4; filter: grayscale(1) brightness(0.5); }
+.player-num { position: absolute; top: 16px; left: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 80px; color: rgba(255,255,255,0.08); line-height: 1; }
+.player-flag { position: absolute; top: 16px; right: 16px; width: 32px; height: 22px; border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; }
+.player-flag span { flex: 1; }
+.flag-kr { background: linear-gradient(180deg, #fff 50%, #fff 50%); position: relative; }
+.flag-kr::after { content: '☯'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #c00; font-size: 14px; }
+.flag-us span:nth-child(1) { background: #b22; } .flag-us span:nth-child(2) { background: #fff; } .flag-us span:nth-child(3) { background: #b22; }
+.flag-se span:nth-child(1) { background: #006aa7; } .flag-se { background: #006aa7; position: relative; } .flag-se::after { content: '+'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fecc00; font-weight: 900; font-size: 18px; }
+.player-info { padding: 20px; border-top: 1px solid #262626; }
+.player-ign { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 32px; letter-spacing: 2px; text-transform: uppercase; line-height: 1; }
+.player-real { color: #888; font-size: 13px; margin-top: 4px; }
+.player-role { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid #1f1f1f; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; }
+.player-role .r { color: #FF0033; font-weight: 700; }
+.player-role .g { color: #FFD700; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+
+/* STREAM EMBED */
+.stream-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+.stream-main { background: #111; border: 1px solid #262626; border-radius: 2px; overflow: hidden; }
+.stream-video { aspect-ratio: 16/9; background: radial-gradient(ellipse at center, rgba(255,0,51,0.3), transparent 60%), linear-gradient(135deg, #1a0010, #000); position: relative; display: flex; align-items: center; justify-content: center; }
+.stream-video::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 3px); }
+.stream-play { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,0,51,0.9); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; position: relative; z-index: 1; }
+.stream-overlay { position: absolute; top: 16px; left: 16px; display: flex; gap: 10px; align-items: center; }
+.viewers { background: rgba(0,0,0,0.7); padding: 6px 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #fff; display: flex; align-items: center; gap: 6px; }
+.viewers::before { content: '👁'; }
+.stream-info { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #262626; }
+.stream-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; }
+.stream-channel { color: #888; font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 4px; }
+
+.chat-box { background: #111; border: 1px solid #262626; border-radius: 2px; display: flex; flex-direction: column; }
+.chat-head { padding: 14px 18px; border-bottom: 1px solid #262626; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; display: flex; justify-content: space-between; }
+.chat-head span { color: #FFD700; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.chat-body { padding: 14px 18px; flex: 1; font-size: 13px; }
+.chat-msg { padding: 6px 0; border-bottom: 1px dashed #1f1f1f; display: flex; gap: 8px; }
+.chat-msg .u { font-weight: 700; }
+.chat-msg .u.gold { color: #FFD700; }
+.chat-msg .u.red { color: #FF0033; }
+.chat-msg .u.blue { color: #5865F2; }
+.chat-msg .u.green { color: #00C853; }
+.chat-msg .t { color: #aaa; }
+.chat-input { padding: 12px 18px; border-top: 1px solid #262626; color: #555; font-size: 13px; }
+
+/* SPONSORS */
+.sponsor-strip { background: #0a0a0a; border-top: 1px solid #262626; border-bottom: 1px solid #262626; padding: 36px 32px; }
+.sponsor-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 30px; align-items: center; max-width: 1400px; margin: 0 auto; }
+.sponsor { height: 50px; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; color: #555; filter: grayscale(1); transition: color 0.2s, filter 0.2s; }
+.sponsor:hover { color: #fff; filter: grayscale(0); }
+.sponsor.intel { font-family: 'Roboto', sans-serif; font-weight: 400; font-style: italic; }
+.sponsor.redbull { color: #555; }
+.sponsor.santander { font-family: 'Roboto', sans-serif; }
+
+/* DISCORD CTA */
+.discord-cta { background: linear-gradient(90deg, #FF0033 0%, #c8002a 100%); padding: 56px 32px; position: relative; overflow: hidden; }
+.discord-cta::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 24px); }
+.discord-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; position: relative; }
+.discord-text h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 48px; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
+.discord-text .sub { margin-top: 10px; font-size: 15px; opacity: 0.85; display: flex; align-items: center; gap: 16px; }
+.discord-text .sub .dot { width: 10px; height: 10px; border-radius: 50%; background: #00C853; display: inline-block; box-shadow: 0 0 8px #00C853; }
+.discord-text strong { font-family: 'JetBrains Mono', monospace; }
+.discord-join { background: #5865F2; color: #fff; padding: 18px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 18px; border-radius: 2px; white-space: nowrap; display: inline-flex; align-items: center; gap: 12px; }
+.discord-join::before { content: '◊'; font-size: 22px; }
+
+/* FOOTER */
+footer { background: #000; padding: 60px 32px 30px; border-top: 1px solid #262626; }
+.foot-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid #1f1f1f; }
+.foot-brand .logo { margin-bottom: 16px; }
+.foot-brand p { color: #888; font-size: 13px; line-height: 1.6; max-width: 320px; }
+.foot-col h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; color: #FF0033; margin-bottom: 16px; }
+.foot-col a { display: block; color: #888; font-size: 13px; padding: 6px 0; }
+.foot-col a:hover { color: #fff; }
+.foot-bottom { max-width: 1400px; margin: 30px auto 0; display: flex; justify-content: space-between; color: #555; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo"><span class="logo-mark"></span> Voltaic</a>
+      <div class="nav-links">
+        <a href="#">News</a>
+        <a href="#">Teams</a>
+        <a href="#">Schedule</a>
+        <a href="#">Results</a>
+        <a href="#">Shop</a>
+        <a href="#">Watch</a>
+      </div>
+      <div class="nav-right">
+        <div class="socials">
+          <span>𝕏</span><span>▶</span><span>📷</span><span>♪</span>
+        </div>
+        <a href="#" class="discord-btn">◊ Discord</a>
+        <a href="#" class="watch-live-btn">Watch Live</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-inner">
+      <div class="ticker-label">● Live</div>
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">2 - 1</span> <span class="team">SENTINELS</span> <span class="tag">VCT Americas</span></div>
+        <div class="ticker-item"><span class="live">LIVE NOW</span> <span class="team">VOLT</span> vs <span class="team">T1</span> <span class="tag">VCT Showmatch</span></div>
+        <div class="ticker-item"><span class="team">FNATIC</span> <span class="score">13 - 9</span> <span class="team">VOLT</span> <span class="tag">Final</span></div>
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">3 - 1</span> <span class="team">KC</span> <span class="tag">RLCS</span></div>
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">16 - 12</span> <span class="team">NAVI</span> <span class="tag">IEM Cologne</span></div>
+        <div class="ticker-item"><span class="team">CLOUD9</span> <span class="score">2 - 3</span> <span class="team">VOLT</span> <span class="tag">LCS Playoffs</span></div>
+        <div class="ticker-item"><span class="team">G2</span> vs <span class="team">VOLT</span> <span class="tag">Tonight 19:00 PT</span></div>
+        <!-- duplicate for seamless loop -->
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">2 - 1</span> <span class="team">SENTINELS</span> <span class="tag">VCT Americas</span></div>
+        <div class="ticker-item"><span class="live">LIVE NOW</span> <span class="team">VOLT</span> vs <span class="team">T1</span> <span class="tag">VCT Showmatch</span></div>
+        <div class="ticker-item"><span class="team">FNATIC</span> <span class="score">13 - 9</span> <span class="team">VOLT</span> <span class="tag">Final</span></div>
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">3 - 1</span> <span class="team">KC</span> <span class="tag">RLCS</span></div>
+        <div class="ticker-item"><span class="team">VOLT</span> <span class="score">16 - 12</span> <span class="team">NAVI</span> <span class="tag">IEM Cologne</span></div>
+        <div class="ticker-item"><span class="team">CLOUD9</span> <span class="score">2 - 3</span> <span class="team">VOLT</span> <span class="tag">LCS Playoffs</span></div>
+        <div class="ticker-item"><span class="team">G2</span> vs <span class="team">VOLT</span> <span class="tag">Tonight 19:00 PT</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">▲ Announcement — Oct 12, 2023</div>
+      <h1>Voltaic Qualify For <span class="accent">VCT Champions</span> Seoul</h1>
+      <p class="sub">Watch the open qualifier replay and our run through Americas Stage 2. Born in the Server. Built for the Stage.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">Watch Replay ▶</a>
+        <a href="#" class="btn-ghost">Read Full Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="n">24-11</div><div class="l">VAL Record '23</div></div>
+        <div class="hstat"><div class="n">#3</div><div class="l">VCT Americas</div></div>
+        <div class="hstat"><div class="n">$1.4M</div><div class="l">Prize Earned</div></div>
+        <div class="hstat"><div class="n">184K</div><div class="l">Discord Fans</div></div>
+      </div>
+    </div>
+    <div class="match-card">
+      <div class="top">
+        <span class="live-badge">Live</span>
+        <span class="tournament">VCT Showmatch · Map 2 · Bind</span>
+      </div>
+      <div class="match-versus">
+        <div class="team-block">
+          <div class="team-logo">V</div>
+          <div class="team-name">Voltaic</div>
+          <div class="team-sub">VCT AMER · 24W 11L</div>
+        </div>
+        <div class="score-wrap">
+          <span class="match-score">13</span><span class="dash">—</span><span class="match-score">11</span>
+        </div>
+        <div class="team-block">
+          <div class="team-logo opp">T1</div>
+          <div class="team-name">T1</div>
+          <div class="team-sub">VCT PAC · 19W 14L</div>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Map 2 of 3 · Round 24</span>
+        <a href="#" style="color:#FF0033; font-weight:700;">WATCH ON TWITCH →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS GRID -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>Latest News</h2>
+      <a href="#" class="more">All News →</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="thumb t1">
+          <span class="cat">Roster</span>
+          <span class="duration">04:21</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">Oct 11 · League of Legends</div>
+          <h3 class="news-title">Roster Move: Zephyr Joins LoL Lineup</h3>
+          <p class="news-excerpt">The 19-year-old mid laner signs a two-year deal from Academy, replacing veteran starter Vex.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="thumb t2">
+          <span class="cat">Bootcamp</span>
+          <span class="duration">12:08</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">Oct 09 · Behind the Scenes</div>
+          <h3 class="news-title">Inside the Bootcamp: Berlin Diaries Ep.4</h3>
+          <p class="news-excerpt">Coach Reyna breaks down VOD review methodology as the Valorant squad prepares for Seoul.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="thumb t3">
+          <span class="cat">Recap</span>
+          <span class="duration">07:54</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">Oct 08 · Counter-Strike 2</div>
+          <h3 class="news-title">CS2 Major Stockholm — Day 3 Recap</h3>
+          <p class="news-excerpt">NOVAH posts a 1.38 rating as Voltaic CS2 advances to playoffs with a 3-1 group stage finish.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING MATCHES -->
+<section style="background:#0a0a0a;">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>Upcoming Matches</h2>
+      <a href="#" class="more">Full Schedule →</a>
+    </div>
+    <div class="schedule-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th style="width:130px;">Date</th>
+            <th style="width:90px;">Game</th>
+            <th>Match</th>
+            <th>Tournament</th>
+            <th style="width:140px; text-align:right;">Stream</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="s-date">Oct 14</div><div class="s-time">19:00 PT</div></td>
+            <td><span class="s-game">VAL</span></td>
+            <td><div class="s-match">VOLT <span class="vs">vs</span> G2 Esports</div></td>
+            <td><div class="s-tour">VCT Americas — Group B</div></td>
+            <td style="text-align:right;"><a href="#" class="s-watch">Set Reminder</a></td>
+          </tr>
+          <tr>
+            <td><div class="s-date">Oct 16</div><div class="s-time">17:30 PT</div></td>
+            <td><span class="s-game lol">LoL</span></td>
+            <td><div class="s-match">VOLT <span class="vs">vs</span> Cloud9</div></td>
+            <td><div class="s-tour">LCS Playoffs — Quarterfinal</div></td>
+            <td style="text-align:right;"><a href="#" class="s-watch">Set Reminder</a></td>
+          </tr>
+          <tr>
+            <td><div class="s-date">Oct 18</div><div class="s-time">10:00 PT</div></td>
+            <td><span class="s-game cs2">CS2</span></td>
+            <td><div class="s-match">VOLT <span class="vs">vs</span> NAVI</div></td>
+            <td><div class="s-tour">IEM Katowice — Group Stage</div></td>
+            <td style="text-align:right;"><a href="#" class="s-watch">Set Reminder</a></td>
+          </tr>
+          <tr>
+            <td><div class="s-date">Oct 21</div><div class="s-time">14:00 PT</div></td>
+            <td><span class="s-game">VAL</span></td>
+            <td><div class="s-match">VOLT <span class="vs">vs</span> LOUD</div></td>
+            <td><div class="s-tour">VCT Champions — Showmatch</div></td>
+            <td style="text-align:right;"><a href="#" class="s-watch">Set Reminder</a></td>
+          </tr>
+          <tr>
+            <td><div class="s-date">Oct 23</div><div class="s-time">12:00 PT</div></td>
+            <td><span class="s-game" style="background:#0099ff;">RL</span></td>
+            <td><div class="s-match">VOLT <span class="vs">vs</span> Karmine Corp</div></td>
+            <td><div class="s-tour">RLCS Fall Major — Round 1</div></td>
+            <td style="text-align:right;"><a href="#" class="s-watch">Set Reminder</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ROSTER SPOTLIGHT -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>Roster Spotlight</h2>
+      <a href="#" class="more">Meet the Team →</a>
+    </div>
+    <div class="roster-grid">
+      <a class="player-card" href="#">
+        <div class="player-photo echo">
+          <span class="player-num">01</span>
+          <span class="player-flag flag-kr"><span></span><span></span></span>
+        </div>
+        <div class="player-info">
+          <div class="player-ign">Echo</div>
+          <div class="player-real">Min-jun Park</div>
+          <div class="player-role">
+            <span class="r">Duelist · Valorant</span>
+            <span class="g">KDA 1.34</span>
+          </div>
+        </div>
+      </a>
+      <a class="player-card" href="#">
+        <div class="player-photo kairos">
+          <span class="player-num">02</span>
+          <span class="player-flag flag-us"><span></span><span></span><span></span></span>
+        </div>
+        <div class="player-info">
+          <div class="player-ign">Kairos</div>
+          <div class="player-real">Daniel Cho</div>
+          <div class="player-role">
+            <span class="r">Mid Lane · LoL</span>
+            <span class="g">CSM 9.8</span>
+          </div>
+        </div>
+      </a>
+      <a class="player-card" href="#">
+        <div class="player-photo novah">
+          <span class="player-num">03</span>
+          <span class="player-flag flag-se"><span></span><span></span></span>
+        </div>
+        <div class="player-info">
+          <div class="player-ign">Novah</div>
+          <div class="player-real">Erik Lindqvist</div>
+          <div class="player-role">
+            <span class="r">AWPer · CS2</span>
+            <span class="g">RATING 1.28</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STREAM EMBED -->
+<section style="background:#0a0a0a;">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>Live on Twitch</h2>
+      <a href="#" class="more">twitch.tv/voltaic_tv →</a>
+    </div>
+    <div class="stream-wrap">
+      <div class="stream-main">
+        <div class="stream-video">
+          <div class="stream-overlay">
+            <span class="live-badge">Live</span>
+            <span class="viewers">42,318</span>
+          </div>
+          <div class="stream-play">▶</div>
+        </div>
+        <div class="stream-info">
+          <div>
+            <div class="stream-title">VCT Watch Party w/ Coach Reyna</div>
+            <div class="stream-channel">voltaic_tv · Valorant · Started 2h ago</div>
+          </div>
+          <a href="#" class="btn-primary" style="padding:12px 22px; font-size:14px;">Open Stream</a>
+        </div>
+      </div>
+      <div class="chat-box">
+        <div class="chat-head">Chat <span>2.1k chatting</span></div>
+        <div class="chat-body">
+          <div class="chat-msg"><span class="u gold">VoltFan99</span><span class="t">ECHO IS COOKING 🔥</span></div>
+          <div class="chat-msg"><span class="u red">BoltBuddy</span><span class="t">that one tap was insane</span></div>
+          <div class="chat-msg"><span class="u green">novah_AWP</span><span class="t">GG WP 13-11</span></div>
+          <div class="chat-msg"><span class="u blue">Mod_Reyna</span><span class="t">Q&A after the match folks!</span></div>
+          <div class="chat-msg"><span class="u gold">SeoulBound</span><span class="t">SEE YOU IN SEOUL 🇰🇷</span></div>
+          <div class="chat-msg"><span class="u">drift</span><span class="t">tempo IGL diff</span></div>
+          <div class="chat-msg"><span class="u red">FlashOps</span><span class="t">Wraith clutch incoming</span></div>
+          <div class="chat-msg"><span class="u">k1rito</span><span class="t">VOLT VOLT VOLT</span></div>
+          <div class="chat-msg"><span class="u green">cs2_diff</span><span class="t">when does CS2 squad play?</span></div>
+        </div>
+        <div class="chat-input">Send a message…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<div class="sponsor-strip">
+  <div class="sponsor-row">
+    <div class="sponsor intel">intel</div>
+    <div class="sponsor">CORSAIR</div>
+    <div class="sponsor redbull">RED BULL</div>
+    <div class="sponsor">HyperX</div>
+    <div class="sponsor santander">Santander</div>
+    <div class="sponsor">SECRETLAB</div>
+  </div>
+</div>
+
+<!-- DISCORD CTA -->
+<div class="discord-cta">
+  <div class="discord-inner">
+    <div class="discord-text">
+      <h3>Join 184,000 Fans in the Voltaic Discord</h3>
+      <div class="sub"><span class="dot"></span><strong>12,403</strong> online now · Daily AMAs · Roster drops first · Watch parties</div>
+    </div>
+    <a href="#" class="discord-join">Join the Server</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark"></span> Voltaic</div>
+      <p>Born in the Server. Built for the Stage. Voltaic Esports fields professional rosters across Valorant, League of Legends, Counter-Strike 2, and Rocket League.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Compete</h4>
+      <a href="#">Teams</a><a href="#">Schedule</a><a href="#">Results</a><a href="#">Brackets</a>
+    </div>
+    <div class="foot-col">
+      <h4>Watch</h4>
+      <a href="#">Twitch</a><a href="#">YouTube</a><a href="#">VOD Archive</a><a href="#">Highlights</a>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <a href="#">Jerseys</a><a href="#">Apparel</a><a href="#">Accessories</a><a href="#">Signed</a>
+    </div>
+    <div class="foot-col">
+      <h4>Org</h4>
+      <a href="#">About</a><a href="#">Careers</a><a href="#">Partners</a><a href="#">Press</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2023 Voltaic Esports Inc. · Los Angeles, CA</span>
+    <span>Terms · Privacy · Code of Conduct</span>
+  </div>
+</footer>
+
+</body>
+</html>

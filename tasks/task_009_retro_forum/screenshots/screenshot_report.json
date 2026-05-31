@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "index",
+      "path": "index.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 401702,
+      "page_width": 1440,
+      "page_height": 1970
+    },
+    {
+      "slug": "profile",
+      "path": "profile.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 270230,
+      "page_width": 1440,
+      "page_height": 1123
+    },
+    {
+      "slug": "search",
+      "path": "search.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 289660,
+      "page_width": 1440,
+      "page_height": 1430
+    },
+    {
+      "slug": "subforum",
+      "path": "subforum.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 448762,
+      "page_width": 1440,
+      "page_height": 1779
+    },
+    {
+      "slug": "thread",
+      "path": "thread.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 786118,
+      "page_width": 1440,
+      "page_height": 5376
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

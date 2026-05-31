@@ -1,0 +1,181 @@
+{
+  "brand_name": "Voltaic Esports",
+  "tagline": "Born in the Server. Built for the Stage.",
+  "primary_color_name": "Voltaic Red",
+  "pages": {
+    "home": {
+      "title": "Voltaic Esports — Home",
+      "nav_items": [
+        "News",
+        "Teams",
+        "Schedule",
+        "Results",
+        "Shop",
+        "Watch"
+      ],
+      "sections": [
+        {
+          "name": "live_ticker",
+          "description": "Horizontal scrolling ticker with live scores like 'VOLT 2 - 1 SENTINELS (VCT Americas)', 'VOLT vs T1 LIVE NOW', 'FNATIC 13 - 9 VOLT FINAL'."
+        },
+        {
+          "name": "hero",
+          "headline": "VOLTAIC QUALIFY FOR VCT CHAMPIONS SEOUL",
+          "subheadline": "Watch the open qualifier replay and our run through Americas Stage 2."
+        },
+        {
+          "name": "news_grid",
+          "description": "Magazine-style grid of news cards with video thumbnails such as 'Roster Move: Zephyr Joins LoL Lineup', 'Inside the Bootcamp: Berlin Diaries Ep.4', 'CS2 Major Stockholm — Day 3 Recap'."
+        },
+        {
+          "name": "upcoming_matches",
+          "description": "Schedule table listing next matches like 'VOLT vs G2 — VCT Americas — Oct 14 19:00 PT', 'VOLT vs Cloud9 — LCS Playoffs — Oct 16', 'VOLT vs NaVi — IEM Katowice — Oct 18'."
+        },
+        {
+          "name": "roster_spotlight",
+          "description": "Three featured player cards with red hover glow for 'ECHO' (Valorant Duelist, KR), 'KAIROS' (LoL Mid, US), 'NOVAH' (CS2 AWPer, SE)."
+        },
+        {
+          "name": "stream_embed",
+          "description": "Twitch embed labeled 'voltaic_tv' with current stream title 'VCT Watch Party w/ Coach Reyna'."
+        },
+        {
+          "name": "sponsor_strip",
+          "description": "Greyscale logo row featuring Intel, Corsair, Red Bull, HyperX, Santander, and SecretLab."
+        },
+        {
+          "name": "discord_cta",
+          "description": "Bold red banner inviting fans to 'Join 184,000 fans in the Voltaic Discord' with member count and online indicator."
+        }
+      ]
+    },
+    "teams": {
+      "title": "Our Teams",
+      "nav_items": [
+        "News",
+        "Teams",
+        "Schedule",
+        "Results",
+        "Shop",
+        "Watch"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "FOUR GAMES. ONE FLAG.",
+          "subheadline": "Meet the squads carrying Voltaic across the global circuit."
+        },
+        {
+          "name": "team_grid",
+          "description": "Cards for each team with logo, game icon, ranking and W-L: 'Voltaic VAL — VCT Americas #3 (24-11)', 'Voltaic LoL — LCS #5 (18-14)', 'Voltaic CS2 — HLTV #9 (31-12)', 'Voltaic RL — RLCS #6 (22-9)'."
+        },
+        {
+          "name": "championships",
+          "description": "Gold-accented trophy shelf with titles like 'VCT Americas Stage 1 Champion 2023', 'ESL Pro League S17 Runner-up', 'RLCS Spring Major Top 4'."
+        }
+      ]
+    },
+    "roster": {
+      "title": "Voltaic Valorant Roster",
+      "nav_items": [
+        "News",
+        "Teams",
+        "Schedule",
+        "Results",
+        "Shop",
+        "Watch"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "VOLTAIC VALORANT",
+          "subheadline": "VCT Americas | Est. 2021 | Based in Los Angeles"
+        },
+        {
+          "name": "starting_five",
+          "description": "Five player cards with IGN, real name, role, flag and socials: 'ECHO — Min-jun Park, Duelist, KR', 'RIVET — Lucas Almeida, Initiator, BR', 'KAIROS — Daniel Cho, Controller, US', 'WRAITH — Oliver Hayes, Sentinel, UK', 'TEMPO — Hugo Martin, Flex/IGL, FR'."
+        },
+        {
+          "name": "coaching_staff",
+          "description": "Cards for 'Reyna Vidal — Head Coach', 'Mikhail Orlov — Assistant Coach', 'Sarah Liang — Performance Analyst'."
+        },
+        {
+          "name": "support_staff",
+          "description": "List of team manager Jonas Keller, sports psychologist Dr. Amira Patel, and content creator Riley Tan."
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Schedule & Results",
+      "nav_items": [
+        "News",
+        "Teams",
+        "Schedule",
+        "Results",
+        "Shop",
+        "Watch"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "EVERY MATCH. EVERY GAME.",
+          "subheadline": "Filter by team or tournament."
+        },
+        {
+          "name": "filters",
+          "description": "Filter chips for game (VAL, LoL, CS2, RL) and tournament (VCT Americas, LCS Summer, IEM Cologne, RLCS Major)."
+        },
+        {
+          "name": "upcoming",
+          "description": "Table of upcoming matches with Watch links: 'Oct 14 — VOLT vs G2 — VCT Americas', 'Oct 16 — VOLT vs Cloud9 — LCS Playoffs', 'Oct 18 — VOLT vs NaVi — IEM Katowice'."
+        },
+        {
+          "name": "results",
+          "description": "Recent results with scores in gold tabular numerals: 'VOLT 13 - 10 SEN (Ascent)', 'VOLT 2 - 3 FNC (Bo5)', 'VOLT 3 - 1 KC (RLCS)'."
+        },
+        {
+          "name": "bracket",
+          "description": "Single-elimination bracket visualization for 'VCT Americas Playoffs 2023' showing Voltaic's path to the Upper Final."
+        }
+      ]
+    },
+    "shop": {
+      "title": "Voltaic Merch Shop",
+      "nav_items": [
+        "News",
+        "Teams",
+        "Schedule",
+        "Results",
+        "Shop",
+        "Watch"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "2023 PRO KIT — NOW SHIPPING",
+          "subheadline": "Designed with the players. Worn on the world stage."
+        },
+        {
+          "name": "drop_countdown",
+          "description": "Countdown timer for 'Championship Edition Jersey — Drops Oct 20 12:00 PT'."
+        },
+        {
+          "name": "jerseys",
+          "description": "Product cards with size selector: 'Pro Jersey 2023 — $79.99', 'Away Jersey Black/Red — $74.99', 'Coach Polo — $59.99'."
+        },
+        {
+          "name": "apparel",
+          "description": "Hoodies and tees: 'Voltaic Bolt Hoodie — $89.99', 'Roster Tee CS2 — $34.99', 'Sponsor Patch Crewneck — $69.99'."
+        },
+        {
+          "name": "accessories",
+          "description": "Gear and accessories: 'XL Mousepad — $39.99', 'Voltaic x Corsair Keycap Set — $29.99', 'Snapback Cap — $32.00'."
+        },
+        {
+          "name": "signed_collection",
+          "description": "Limited signed items in gold-accented cards: 'ECHO Signed Jersey (50 ed.) — $249', 'NOVAH Signed AWP Print — $129'."
+        }
+      ]
+    }
+  }
+}

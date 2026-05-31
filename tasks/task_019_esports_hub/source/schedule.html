@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voltaic Esports — Schedule & Results</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0D0D0D;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============ NAV ============ */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #000;
+  border-bottom: 1px solid #262626;
+}
+.nav {
+  height: 72px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-bolt {
+  width: 28px;
+  height: 28px;
+  background: #FF0033;
+  clip-path: polygon(45% 0, 100% 0, 55% 45%, 100% 45%, 0 100%, 45% 55%, 0 55%);
+}
+.brand-name { color: #fff; }
+.brand-name span { color: #FF0033; }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin-left: 20px;
+}
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ccc;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav-links a:hover { color: #FF0033; }
+.nav-links a.active { color: #fff; border-bottom-color: #FF0033; }
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.socials {
+  display: flex;
+  gap: 10px;
+  color: #888;
+}
+.socials span {
+  width: 28px; height: 28px;
+  border: 1px solid #262626;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  transition: border-color .2s, color .2s;
+}
+.socials span:hover { border-color: #FF0033; color: #fff; }
+
+.discord-btn {
+  background: #5865F2;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 2px;
+}
+
+.watch-live-btn {
+  background: #FF0033;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  animation: live_strobe 1.2s ease-in-out infinite;
+}
+.watch-live-btn::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* ============ LIVE TICKER ============ */
+.ticker {
+  background: #1A1A1A;
+  border-bottom: 1px solid #262626;
+  overflow: hidden;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 72px;
+  z-index: 99;
+}
+.ticker-label {
+  background: #FF0033;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  padding: 6px 14px;
+  margin: 0 16px 0 32px;
+  animation: live_strobe 1.2s ease-in-out infinite;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker_scroll 60s linear infinite;
+  gap: 36px;
+  padding-left: 16px;
+}
+.ticker-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 13px;
+  color: #ddd;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ticker-item .tk-score { color: #FFD700; font-weight: 700; }
+.ticker-item .tk-live {
+  color: #FF0033;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+}
+.ticker-item .tk-final { color: #888; }
+.ticker-item .tk-sep { color: #444; }
+
+@keyframes ticker_scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes live_strobe {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,0,51,0.7); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 8px rgba(255,0,51,0); }
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 80px 32px 56px;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-bottom: 1px solid #262626;
+  background:
+    radial-gradient(ellipse at top right, rgba(255,0,51,0.18), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(255,215,0,0.05), transparent 60%);
+}
+.hero-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  color: #FF0033;
+  letter-spacing: 0.25em;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.hero .sub {
+  margin-top: 18px;
+  color: #888;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* ============ FILTERS ============ */
+.filters {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  border-bottom: 1px solid #262626;
+}
+.filter-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.filter-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-right: 6px;
+}
+.chip {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid #262626;
+  background: #1A1A1A;
+  color: #ccc;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.chip:hover { border-color: #FF0033; color: #fff; }
+.chip.active { background: #FF0033; border-color: #FF0033; color: #fff; }
+
+/* ============ MAIN LAYOUT ============ */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+}
+.sb-block {
+  background: #1A1A1A;
+  border: 1px solid #262626;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.sb-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: #fff;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #262626;
+}
+.sb-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.sb-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #ccc;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color .2s;
+}
+.sb-list li:hover { color: #FF0033; }
+.sb-list li .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888;
+  background: #0D0D0D;
+  padding: 2px 8px;
+  border: 1px solid #262626;
+}
+.sb-list li.active { color: #fff; }
+.sb-list li.active .count { color: #FFD700; border-color: #FFD700; }
+
+.sb-record {
+  background: #0D0D0D;
+  border: 1px solid #262626;
+  padding: 14px;
+  margin-top: 12px;
+}
+.sb-record .label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #888;
+}
+.sb-record .value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: #FFD700;
+  margin-top: 4px;
+}
+.sb-record .pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #00C853;
+}
+
+/* CONTENT */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #262626;
+}
+.tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  background: transparent;
+  color: #888;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all .2s;
+}
+.tab:hover { color: #fff; }
+.tab.active { color: #fff; border-bottom-color: #FF0033; }
+.tab .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFD700;
+  margin-left: 8px;
+}
+
+/* TOURNAMENT GROUPS */
+.tourney {
+  margin-bottom: 40px;
+}
+.tourney-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #262626;
+}
+.tourney-logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #FF0033, #8B0000);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #fff;
+}
+.tourney-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tourney-meta {
+  margin-left: auto;
+  font-size: 12px;
+  color: #888;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* MATCH ROW */
+.match {
+  display: grid;
+  grid-template-columns: 110px 1fr 200px 200px 130px;
+  align-items: center;
+  background: #1A1A1A;
+  border: 1px solid #262626;
+  padding: 18px 20px;
+  margin-bottom: 10px;
+  gap: 16px;
+  transition: border-color .2s, background .2s;
+}
+.match:hover { border-color: #FF0033; background: #1f1f1f; }
+
+.m-datetime {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888;
+}
+.m-datetime .d {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.m-datetime .t { color: #FFD700; }
+
+.m-teams {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.m-logo {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #fff;
+  border: 1px solid #262626;
+}
+.m-logo.volt { background: linear-gradient(135deg, #FF0033, #4a0010); }
+.m-logo.g2  { background: linear-gradient(135deg, #1a1a1a, #333); color: #FFD700; }
+.m-logo.c9  { background: linear-gradient(135deg, #0a3d8f, #061f4a); }
+.m-logo.navi{ background: linear-gradient(135deg, #f5e042, #b89c0e); color: #000; }
+.m-logo.sen { background: linear-gradient(135deg, #e91e63, #6a0e30); }
+.m-logo.fnc { background: linear-gradient(135deg, #ff8a00, #5a3000); color: #000; }
+.m-logo.kc  { background: linear-gradient(135deg, #1abc9c, #0a4d3d); }
+.m-logo.t1  { background: linear-gradient(135deg, #e60012, #4a0006); }
+.m-logo.lev { background: linear-gradient(135deg, #800020, #2a000a); color: #FFD700; }
+
+.m-team-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+}
+.m-vs {
+  color: #555;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+
+.m-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.match-score {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 28px;
+  color: #FFD700;
+  font-variant-numeric: tabular-nums;
+  animation: score_count_up 0.6s cubic-bezier(0.2,0.8,0.2,1) both;
+  min-width: 36px;
+  text-align: center;
+}
+.match-score.dash { color: #444; }
+.m-score .dash-sep { color: #555; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px; }
+.m-result-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-left: 8px;
+  padding: 2px 8px;
+}
+.m-result-tag.win { background: #00C853; color: #000; }
+.m-result-tag.loss { background: #FF0033; color: #fff; }
+
+@keyframes score_count_up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.m-meta {
+  font-size: 12px;
+  color: #888;
+}
+.m-meta .game {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #0D0D0D;
+  border: 1px solid #262626;
+  padding: 3px 8px;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.m-meta .stage {
+  color: #888;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+}
+
+.m-action {
+  text-align: right;
+}
+.watch-btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  background: #FF0033;
+  color: #fff;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.watch-btn.vod {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #262626;
+}
+.watch-btn.vod:hover { border-color: #FF0033; color: #fff; }
+
+.live-badge {
+  background: #FF0033;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  animation: live_strobe 1.2s ease-in-out infinite;
+  margin-bottom: 4px;
+}
+.live-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* ============ BRACKET ============ */
+.bracket-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+  border-top: 1px solid #262626;
+}
+.bracket-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.bracket-head h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.bracket-head .sub {
+  color: #888;
+  font-size: 14px;
+}
+.bracket-note {
+  color: #888;
+  margin-bottom: 32px;
+}
+.bracket-note .voltpath {
+  color: #FF0033;
+  font-weight: 700;
+}
+
+.bracket {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  background: #1A1A1A;
+  border: 1px solid #262626;
+  padding: 28px;
+  position: relative;
+}
+.round {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-around;
+}
+.round-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #262626;
+  margin-bottom: 10px;
+}
+
+.br-match {
+  background: #0D0D0D;
+  border: 1px solid #262626;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.br-match.volt-path { border-color: #FF0033; box-shadow: 0 0 12px rgba(255,0,51,0.25); }
+.br-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+.br-team .name { display: flex; align-items: center; gap: 8px; }
+.br-team .dot {
+  width: 14px; height: 14px;
+  display: inline-block;
+}
+.br-team.win .score { color: #FFD700; font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+.br-team.lose { color: #666; }
+.br-team.lose .score { color: #666; font-family: 'JetBrains Mono', monospace; }
+.br-team.tbd { color: #444; }
+.r4 { justify-content: center; }
+.r4 .br-match { border-color: #FFD700; }
+
+/* ============ SPONSOR STRIP ============ */
+.sponsors {
+  background: #000;
+  border-top: 1px solid #262626;
+  padding: 32px;
+}
+.sponsor-row {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+.sponsor {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: #000;
+  padding: 60px 32px 24px;
+  border-top: 1px solid #262626;
+}
+.foot {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #262626;
+}
+.foot h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.foot ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.foot ul a { color: #888; font-size: 14px; transition: color .2s; }
+.foot ul a:hover { color: #FF0033; }
+.foot-tag { color: #888; margin-top: 12px; max-width: 320px; }
+.foot-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <div class="brand">
+      <div class="brand-bolt"></div>
+      <div class="brand-name">VOLTAIC<span>.</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#">News</a>
+      <a href="#">Teams</a>
+      <a href="#" class="active">Schedule</a>
+      <a href="#">Results</a>
+      <a href="#">Shop</a>
+      <a href="#">Watch</a>
+    </div>
+    <div class="nav-right">
+      <div class="socials">
+        <span>𝕏</span><span>▶</span><span>📷</span><span>🎮</span>
+      </div>
+      <a href="#" class="discord-btn">Join Discord</a>
+      <a href="#" class="watch-live-btn">Watch Live</a>
+    </div>
+  </nav>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">● LIVE SCORES</div>
+  <div class="ticker-track">
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-score">2 – 1</span> <span>SENTINELS</span> <span class="tk-final">FINAL</span> <span class="tk-sep">VCT AMERICAS</span></div>
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-live">vs</span> <span>T1</span> <span class="tk-live">● LIVE NOW</span></div>
+    <div class="ticker-item"><span>FNATIC</span> <span class="tk-score">13 – 9</span> <span>VOLT</span> <span class="tk-final">FINAL · ASCENT</span></div>
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-score">3 – 1</span> <span>KARMINE CORPS</span> <span class="tk-final">RLCS</span></div>
+    <div class="ticker-item"><span>G2</span> <span class="tk-score">10 – 13</span> <span>VOLT</span> <span class="tk-final">CS2 BIND</span></div>
+    <div class="ticker-item"><span>CLOUD9</span> <span class="tk-live">vs</span> <span>VOLT</span> <span class="tk-final">OCT 16 · LCS PLAYOFFS</span></div>
+    <div class="ticker-item"><span>NAVI</span> <span class="tk-live">vs</span> <span>VOLT</span> <span class="tk-final">OCT 18 · IEM KATOWICE</span></div>
+    <!-- duplicate for loop -->
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-score">2 – 1</span> <span>SENTINELS</span> <span class="tk-final">FINAL</span> <span class="tk-sep">VCT AMERICAS</span></div>
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-live">vs</span> <span>T1</span> <span class="tk-live">● LIVE NOW</span></div>
+    <div class="ticker-item"><span>FNATIC</span> <span class="tk-score">13 – 9</span> <span>VOLT</span> <span class="tk-final">FINAL · ASCENT</span></div>
+    <div class="ticker-item"><span>VOLT</span> <span class="tk-score">3 – 1</span> <span>KARMINE CORPS</span> <span class="tk-final">RLCS</span></div>
+    <div class="ticker-item"><span>G2</span> <span class="tk-score">10 – 13</span> <span>VOLT</span> <span class="tk-final">CS2 BIND</span></div>
+    <div class="ticker-item"><span>CLOUD9</span> <span class="tk-live">vs</span> <span>VOLT</span> <span class="tk-final">OCT 16 · LCS PLAYOFFS</span></div>
+    <div class="ticker-item"><span>NAVI</span> <span class="tk-live">vs</span> <span>VOLT</span> <span class="tk-final">OCT 18 · IEM KATOWICE</span></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-kicker">Schedule & Results · Updated Oct 13</div>
+  <h1>Every Match.<br>Every Game.</h1>
+  <p class="sub">Filter by team or tournament. Stream links go live 15 minutes before broadcast. Results refreshed instantly post-match.</p>
+</section>
+
+<!-- FILTERS -->
+<section class="filters">
+  <div class="filter-group">
+    <span class="filter-label">Game</span>
+    <button class="chip active">ALL</button>
+    <button class="chip">VAL</button>
+    <button class="chip">LoL</button>
+    <button class="chip">CS2</button>
+    <button class="chip">RL</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label">Tournament</span>
+    <button class="chip">VCT Americas</button>
+    <button class="chip">LCS Summer</button>
+    <button class="chip">IEM Cologne</button>
+    <button class="chip">RLCS Major</button>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-block">
+      <div class="sb-title">Teams</div>
+      <ul class="sb-list">
+        <li class="active"><span>All Voltaic</span><span class="count">87</span></li>
+        <li><span>Voltaic VAL</span><span class="count">24</span></li>
+        <li><span>Voltaic LoL</span><span class="count">18</span></li>
+        <li><span>Voltaic CS2</span><span class="count">31</span></li>
+        <li><span>Voltaic RL</span><span class="count">14</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-title">Tournaments</div>
+      <ul class="sb-list">
+        <li><span>VCT Americas</span><span class="count">12</span></li>
+        <li><span>LCS Summer</span><span class="count">9</span></li>
+        <li><span>IEM Cologne</span><span class="count">7</span></li>
+        <li><span>IEM Katowice</span><span class="count">5</span></li>
+        <li><span>RLCS Major</span><span class="count">6</span></li>
+        <li><span>ESL Pro League</span><span class="count">11</span></li>
+      </ul>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-title">Season Record</div>
+      <div class="sb-record">
+        <div class="label">Overall W–L</div>
+        <div class="value">95 – 46</div>
+        <div class="pct">67.4% Win Rate</div>
+      </div>
+      <div class="sb-record">
+        <div class="label">Trophies 2023</div>
+        <div class="value">3</div>
+        <div class="pct" style="color:#FFD700;">Champion · 2× Runner-up</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active">Upcoming <span class="count">12</span></button>
+      <button class="tab">Live <span class="count">1</span></button>
+      <button class="tab">Results <span class="count">42</span></button>
+      <button class="tab">Calendar</button>
+    </div>
+
+    <!-- TOURNAMENT 1 -->
+    <div class="tourney">
+      <div class="tourney-head">
+        <div class="tourney-logo">VCT</div>
+        <div class="tourney-name">VCT Americas — Playoffs</div>
+        <div class="tourney-meta">Oct 14 – Oct 22 · Los Angeles</div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 14</span>
+          <span class="t">19:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo g2">G2</div>
+          <div class="m-team-name">G2 ESPORTS</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score dash">–</span>
+          <span class="dash-sep">:</span>
+          <span class="match-score dash">–</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">VALORANT</span>
+          <div class="stage">Upper Bracket R1 · Bo3</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn">▶ Watch</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 13</span>
+          <span class="t">21:30 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo t1">T1</div>
+          <div class="m-team-name">T1</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">1</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">1</span>
+        </div>
+        <div class="m-meta">
+          <div class="live-badge">LIVE NOW</div>
+          <span class="game">VALORANT</span>
+          <div class="stage">Group B · Map 3 · Haven</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn">▶ Live</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 09</span>
+          <span class="t">18:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo sen">SEN</div>
+          <div class="m-team-name">SENTINELS</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">13</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">10</span>
+          <span class="m-result-tag win">WIN</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">VALORANT</span>
+          <div class="stage">Ascent · Bo1</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn vod">VOD</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 06</span>
+          <span class="t">20:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo fnc">FNC</div>
+          <div class="m-team-name">FNATIC</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">2</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">3</span>
+          <span class="m-result-tag loss">LOSS</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">VALORANT</span>
+          <div class="stage">Upper Final · Bo5</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn vod">VOD</a></div>
+      </div>
+    </div>
+
+    <!-- TOURNAMENT 2 -->
+    <div class="tourney">
+      <div class="tourney-head">
+        <div class="tourney-logo" style="background:linear-gradient(135deg,#c89b3c,#5a4216);">LCS</div>
+        <div class="tourney-name">LCS Summer Playoffs</div>
+        <div class="tourney-meta">Oct 16 – Oct 29 · Riot Arena</div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 16</span>
+          <span class="t">17:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo c9">C9</div>
+          <div class="m-team-name">CLOUD9</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score dash">–</span>
+          <span class="dash-sep">:</span>
+          <span class="match-score dash">–</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">LEAGUE OF LEGENDS</span>
+          <div class="stage">Lower Bracket QF · Bo5</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn">▶ Watch</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 02</span>
+          <span class="t">18:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo" style="background:linear-gradient(135deg,#f7df1e,#a08c00);color:#000;">100</div>
+          <div class="m-team-name">100 THIEVES</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">3</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">2</span>
+          <span class="m-result-tag win">WIN</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">LEAGUE OF LEGENDS</span>
+          <div class="stage">Group A · Bo5</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn vod">VOD</a></div>
+      </div>
+    </div>
+
+    <!-- TOURNAMENT 3 -->
+    <div class="tourney">
+      <div class="tourney-head">
+        <div class="tourney-logo" style="background:linear-gradient(135deg,#1e2a44,#000);">IEM</div>
+        <div class="tourney-name">IEM Katowice 2023</div>
+        <div class="tourney-meta">Oct 18 – Oct 27 · Spodek Arena</div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 18</span>
+          <span class="t">12:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo navi">NAVI</div>
+          <div class="m-team-name">NATUS VINCERE</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score dash">–</span>
+          <span class="dash-sep">:</span>
+          <span class="match-score dash">–</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">CS2</span>
+          <div class="stage">Group Stage · Bo3</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn">▶ Watch</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">OCT 20</span>
+          <span class="t">15:30 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo" style="background:linear-gradient(135deg,#5e35b1,#1a0a47);">VIT</div>
+          <div class="m-team-name">VITALITY</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score dash">–</span>
+          <span class="dash-sep">:</span>
+          <span class="match-score dash">–</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">CS2</span>
+          <div class="stage">Group Stage · Bo3</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn">▶ Watch</a></div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">SEP 28</span>
+          <span class="t">11:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo lev">LEV</div>
+          <div class="m-team-name">LEVIATÁN</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">16</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">12</span>
+          <span class="m-result-tag win">WIN</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">CS2</span>
+          <div class="stage">Qualifier · Inferno</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn vod">VOD</a></div>
+      </div>
+    </div>
+
+    <!-- TOURNAMENT 4 -->
+    <div class="tourney">
+      <div class="tourney-head">
+        <div class="tourney-logo" style="background:linear-gradient(135deg,#0e91d9,#072f4a);">RLCS</div>
+        <div class="tourney-name">RLCS Fall Major</div>
+        <div class="tourney-meta">Oct 24 – Oct 29 · São Paulo</div>
+      </div>
+
+      <div class="match">
+        <div class="m-datetime">
+          <span class="d">SEP 30</span>
+          <span class="t">14:00 PT</span>
+        </div>
+        <div class="m-teams">
+          <div class="m-logo volt">VOLT</div>
+          <div class="m-team-name">VOLTAIC</div>
+          <div class="m-vs">VS</div>
+          <div class="m-logo kc">KC</div>
+          <div class="m-team-name">KARMINE CORPS</div>
+        </div>
+        <div class="m-score">
+          <span class="match-score">3</span>
+          <span class="dash-sep">–</span>
+          <span class="match-score">1</span>
+          <span class="m-result-tag win">WIN</span>
+        </div>
+        <div class="m-meta">
+          <span class="game">ROCKET LEAGUE</span>
+          <div class="stage">Regional Final · Bo5</div>
+        </div>
+        <div class="m-action"><a href="#" class="watch-btn vod">VOD</a></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BRACKET -->
+<section class="bracket-section">
+  <div class="bracket-head">
+    <h2>VCT Americas Playoffs 2023</h2>
+    <span class="sub">Single-elimination · Bo5 from Semis</span>
+  </div>
+  <p class="bracket-note">Voltaic's path through the upper bracket. <span class="voltpath">Red-outlined matches</span> indicate VOLT participation. Currently advancing to the Upper Final after a 2–1 series vs T1.</p>
+
+  <div class="bracket">
+    <!-- ROUND 1 -->
+    <div class="round">
+      <div class="round-label">Quarterfinals</div>
+
+      <div class="br-match volt-path">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#FF0033;"></span>VOLTAIC</span><span class="score">2</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#e91e63;"></span>SENTINELS</span><span class="score">0</span></div>
+      </div>
+      <div class="br-match">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#e60012;"></span>T1</span><span class="score">2</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#0a3d8f;"></span>CLOUD9</span><span class="score">1</span></div>
+      </div>
+      <div class="br-match">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#ff8a00;"></span>FNATIC</span><span class="score">2</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#1a1a1a;border:1px solid #444;"></span>G2 ESPORTS</span><span class="score">1</span></div>
+      </div>
+      <div class="br-match">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#f5e042;"></span>NAVI</span><span class="score">2</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#800020;"></span>LEVIATÁN</span><span class="score">0</span></div>
+      </div>
+    </div>
+
+    <!-- ROUND 2 -->
+    <div class="round">
+      <div class="round-label">Semifinals</div>
+
+      <div class="br-match volt-path">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#FF0033;"></span>VOLTAIC</span><span class="score">2</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#e60012;"></span>T1</span><span class="score">1</span></div>
+      </div>
+      <div class="br-match">
+        <div class="br-team win"><span class="name"><span class="dot" style="background:#ff8a00;"></span>FNATIC</span><span class="score">3</span></div>
+        <div class="br-team lose"><span class="name"><span class="dot" style="background:#f5e042;"></span>NAVI</span><span class="score">2</span></div>
+      </div>
+    </div>
+
+    <!-- ROUND 3 -->
+    <div class="round">
+      <div class="round-label">Upper Final</div>
+      <div class="br-match volt-path">
+        <div class="br-team"><span class="name"><span class="dot" style="background:#FF0033;"></span>VOLTAIC</span><span class="score">—</span></div>
+        <div class="br-team"><span class="name"><span class="dot" style="background:#ff8a00;"></span>FNATIC</span><span class="score">—</span></div>
+      </div>
+    </div>
+
+    <!-- ROUND 4 -->
+    <div class="round r4">
+      <div class="round-label">Grand Final</div>
+      <div class="br-match" style="border-color:#FFD700;">
+        <div class="br-team tbd"><span class="name"><span class="dot" style="background:#FFD700;"></span>UPPER WINNER</span><span class="score">—</span></div>

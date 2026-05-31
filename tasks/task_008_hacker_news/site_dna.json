@@ -1,0 +1,22 @@
+{
+  "id": "008",
+  "name": "hacker_news",
+  "source": "B",
+  "archetype": "Tech news aggregator and developer community link board",
+  "market": "Global, technically sophisticated developers, startup founders, researchers",
+  "era": "2023",
+  "density": "Ultra-minimal, information-dense in a deliberately text-only way. No images whatsoever except a tiny orange Y logo. Every line is a story. 30 stories fit above the fold. The density is achieved through radical text compression — no visual hierarchy, no cards, no images. Just numbered lines of text with metadata.",
+  "nav_style": "Single orange top bar. Left: Y logo, 'Hacker News' text link, navigation links (new, past, comments, ask, show, jobs, submit). Right: login link. That's it. The entire navigation is one line of text.",
+  "commercial_model": "Non-commercial, run by Y Combinator. No ads. No revenue. No popups. The only monetization is indirect: goodwill and talent pipeline for YC. Hiring posts appear in a separate jobs section.",
+  "color_palette": "Hacker News orange (#FF6600) for the top bar and vote triangles. White (#FFFFFF) page background. Black (#000000) text. Dark grey (#828282) for subtext (points, author, time, comment count). Visited links in a slightly different shade. Minimal, functional, intentionally archaic.",
+  "typography": "Verdana 10pt — intentionally stuck in the 2007 design era. No heading hierarchy — everything is the same size. The visual compression is extreme by modern standards. Comment indentation by reply depth creates the only visual structure.",
+  "quirks": ["no_images_except_logo", "30_stories_above_fold", "upvote_triangle_buttons", "comment_count_links", "domain_name_shown_in_parens", "time_since_posted", "points_displayed", "flagging_mechanism", "ask_hn_pattern", "show_hn_pattern"],
+  "pages": [
+    {"slug": "home", "title": "Front Page", "description": "30 numbered stories with title, domain in parens, upvote triangle, points, username, time, comment count. Top bar navigation. Pagination with 'More' link at bottom."},
+    {"slug": "new", "title": "New Stories", "description": "Newest submissions sorted by time, not votes. Same layout as front page. These are unvetted — spam more common. Community self-moderation visible."},
+    {"slug": "ask", "title": "Ask HN", "description": "Community questions: 'Ask HN: What is everyone working on this month?' type posts. Higher text content ratio. Long discussion threads visible."},
+    {"slug": "show", "title": "Show HN", "description": "Founders and developers showing what they built. 'Show HN: I made X using Y' format. Product launches, side projects, open source tools."},
+    {"slug": "jobs", "title": "Jobs", "description": "YC company job postings. Minimal layout matching the rest. No images, no logo. Just company name, role, location, and 'remote ok' or 'on-site' indicator."}
+  ],
+  "animations": false
+}

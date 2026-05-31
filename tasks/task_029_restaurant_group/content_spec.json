@@ -1,0 +1,198 @@
+{
+  "brand_name": "Maison Verleux Hospitality",
+  "tagline": "Five tables. One philosophy. Always seasonal.",
+  "primary_color_name": "Verleux Plum",
+  "pages": {
+    "home": {
+      "title": "Maison Verleux | Restaurants by Chef Elise Verleux",
+      "nav_items": [
+        "Restaurants",
+        "Menu",
+        "Reservations",
+        "Events",
+        "About",
+        "Gift Cards",
+        "Reserve Now"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "A Quiet Revolution at the Table",
+          "subheadline": "Five restaurants across Brooklyn and Hudson Valley, all sharing one pantry and one obsession with provenance."
+        },
+        {
+          "name": "todays_hours_strip",
+          "description": "Thin gold-bordered bar showing live status for each location: 'Le Petit Verleux — Open until 11pm', 'Atelier Hudson — Closed Mondays', 'Bar Maribel — Now Seating'."
+        },
+        {
+          "name": "locations_grid",
+          "description": "Five cards with full-bleed food photo, restaurant name, cuisine line, and Reserve button: Atelier Hudson (Modern American, Hudson NY), Le Petit Verleux (French Bistro, Cobble Hill), Bar Maribel (Spanish small plates, Williamsburg), Otsu by Verleux (Kaiseki tasting, Tribeca), Verleux Pasta Bar (Fort Greene)."
+        },
+        {
+          "name": "awards_strip",
+          "description": "Gold-divider strip listing accolades: 'One Michelin Star — Otsu by Verleux 2023, 2024', 'James Beard Semifinalist — Best Chef NYC 2024', 'New York Times Two Stars — Atelier Hudson'."
+        },
+        {
+          "name": "press_quote",
+          "description": "Single large pull-quote in Cormorant italic from Pete Wells / NYT, with two smaller quotes from Eater NY and Bon Appétit underneath."
+        },
+        {
+          "name": "private_events_cta",
+          "description": "Plum panel with photo of long candlelit table inviting inquiries for weddings, rehearsal dinners, and corporate buyouts up to 120 guests."
+        }
+      ]
+    },
+    "restaurants": {
+      "title": "Our Restaurants",
+      "nav_items": [
+        "Restaurants",
+        "Menu",
+        "Reservations",
+        "Events",
+        "About",
+        "Gift Cards",
+        "Reserve Now"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Five Rooms, One Family",
+          "subheadline": "Each restaurant is led by its own chef de cuisine under Elise Verleux's direction."
+        },
+        {
+          "name": "restaurant_detail_otsu",
+          "description": "Full-width interior photo, signature dishes callout ('Hokkaido uni with brown butter dashi', 'A5 Miyazaki, charcoal-grilled'), chef name in italic (Chef de Cuisine Kenji Mori), hours, neighborhood, Reserve + Order buttons."
+        },
+        {
+          "name": "restaurant_detail_atelier",
+          "description": "Hudson Valley farmhouse photo with description of wood-fired Modern American menu, chef Maya Okonkwo, signature 'Smoked beet tartare' and 'Black trumpet agnolotti'."
+        },
+        {
+          "name": "restaurant_detail_lepetit",
+          "description": "Bistro detail with chef Antoine Reyes, signature 'Steak frites au poivre' and 'Soufflé Grand Marnier', daily prix fixe note."
+        },
+        {
+          "name": "restaurant_detail_maribel",
+          "description": "Late-night bar concept by chef Lucia Aranda, signatures 'Gilda skewers', 'Jamón Ibérico de Bellota 36 mo', natural Spanish wine focus."
+        },
+        {
+          "name": "restaurant_detail_pasta",
+          "description": "Counter-seating pasta bar with chef Dario Castellucci, signatures 'Cacio e pepe tortelloni', 'Squid ink chitarra', daily fresh sheet."
+        },
+        {
+          "name": "ambience_gallery",
+          "description": "Masonry gallery of 9 candlelit interior and plating shots with the amber overlay treatment."
+        }
+      ]
+    },
+    "menu": {
+      "title": "Menu",
+      "nav_items": [
+        "Restaurants",
+        "Menu",
+        "Reservations",
+        "Events",
+        "About",
+        "Gift Cards",
+        "Reserve Now"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Autumn Menu",
+          "subheadline": "Updated 14 October 2024 — sourced from Hawthorne Valley Farm, Montauk Shellfish Co., and Violet Hill Farm."
+        },
+        {
+          "name": "restaurant_selector",
+          "description": "Horizontal tab selector for the five restaurants with active tab in plum, defaulting to 'Atelier Hudson'."
+        },
+        {
+          "name": "starters",
+          "description": "Section with gold 1px divider, listing items like 'Delicata Squash Velouté — toasted pepitas, sage oil — $19 (V, GF)' and 'Yellowfin Crudo — yuzu kosho, finger lime — $24 (GF, DF)' with dietary icons."
+        },
+        {
+          "name": "mains",
+          "description": "Items such as 'Wood-Roasted Hen of the Woods — farro verde, black garlic — $34 (VG)', 'Dry-Aged Duck Breast — quince, foie jus — $46', with italic wine pairing notes underneath each ('Pair with 2019 Domaine Tessier Sancerre Rouge')."
+        },
+        {
+          "name": "sides_desserts_drinks",
+          "description": "Three compact subsections divided by gold lines, ending with cocktail list and a 'Seasonal Special' gold-flagged dessert: 'Concord Grape Pavlova — $16'."
+        },
+        {
+          "name": "allergy_note",
+          "description": "Small-type footer explaining dietary icon legend (V, VG, GF, DF) and inviting guests to inform servers of allergies."
+        }
+      ]
+    },
+    "reservations": {
+      "title": "Reservations",
+      "nav_items": [
+        "Restaurants",
+        "Menu",
+        "Reservations",
+        "Events",
+        "About",
+        "Gift Cards",
+        "Reserve Now"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Reserve Your Table",
+          "subheadline": "Bookings open 30 days in advance at 9:00 AM ET."
+        },
+        {
+          "name": "resy_widget",
+          "description": "Embedded Resy-style form with restaurant dropdown, date picker, time slots in 15-min increments, party size 1–8, and special requests textarea."
+        },
+        {
+          "name": "large_party_inquiry",
+          "description": "Secondary form for parties of 9+ routing to private dining coordinator Margaux Lévy with phone (718) 555-0144."
+        },
+        {
+          "name": "cancellation_policy",
+          "description": "Short policy block: 48-hour cancellation, $50/seat fee for no-shows at Otsu, credit card hold required."
+        }
+      ]
+    },
+    "events": {
+      "title": "Events & Private Dining",
+      "nav_items": [
+        "Restaurants",
+        "Menu",
+        "Reservations",
+        "Events",
+        "About",
+        "Gift Cards",
+        "Reserve Now"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Gather, Beautifully",
+          "subheadline": "From intimate chef's tables to full buyouts for 120."
+        },
+        {
+          "name": "rooms",
+          "description": "Three room cards with capacity and layout: 'The Verleux Cellar — seated 24, standing 40', 'Atelier Greenhouse — seated 60', 'Otsu Counter Buyout — 12 guests'."
+        },
+        {
+          "name": "sample_menus",
+          "description": "Two downloadable PDFs displayed as elegant cards: 'Four-Course Seasonal — $145pp' and 'Chef's Tasting with Pairings — $245pp'."
+        },
+        {
+          "name": "event_gallery",
+          "description": "Grid of past event photography (weddings, product launches, birthday dinners) with amber overlay."
+        },
+        {
+          "name": "tasting_calendar",
+          "description": "Upcoming chef's table dates list: 'Truffle Dinner — Nov 14', 'Burgundy & Game — Dec 5', 'New Year's Eve Kaiseki — Dec 31'."
+        },
+        {
+          "name": "inquiry_form",
+          "description": "Form fields for event type, date, guest count, budget range, and contact info routed to events@maisonverleux.com."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Flexor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0F1117;
+  --surface: #171923;
+  --border: #252836;
+  --primary: #4F6BFF;
+  --secondary: #A78BFA;
+  --accent: #22C55E;
+  --text: #FFFFFF;
+  --muted: #94A3B8;
+  --badge-bg: #1E293B;
+  --code-bg: #0A0C12;
+  --footer-bg: #0A0C12;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(180deg, #0F1117 0%, #131625 100%);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+nav.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+.nav-right { display: flex; align-items: center; gap: 12px; }
+
+.gh-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+.gh-stars .star { color: #FBBF24; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-ghost:hover { background: var(--surface); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,107,255,0.4); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--primary); }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 96px 24px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(79,107,255,0.15), transparent 70%);
+  pointer-events: none;
+}
+.hero-content { position: relative; animation: fade_in_hero 0.8s ease-out forwards; }
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 20px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@keyframes fade_in_hero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Billing toggle */
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 56px;
+}
+.toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px;
+  gap: 4px;
+  position: relative;
+}
+.toggle-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.toggle-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+.save-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.15);
+  color: var(--accent);
+  font-weight: 700;
+}
+.toggle-btn.active .save-badge { background: rgba(255,255,255,0.2); color: white; }
+
+/* Pricing cards */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+
+.pricing-card.featured {
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--surface), var(--surface)), linear-gradient(135deg, var(--primary), var(--secondary));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: gradient_border_glow 3s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes gradient_border_glow {
+  0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); }
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tier-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.tier-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.tier-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.price-amount {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.price-period { color: var(--muted); font-size: 15px; }
+.price-note { font-size: 13px; color: var(--muted); margin-bottom: 24px; min-height: 18px;}
+
+.tier-cta {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.tier-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+.tier-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #CBD5E1;
+}
+.check {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.15);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* Enterprise CTA */
+.enterprise-banner {
+  background: linear-gradient(135deg, rgba(79,107,255,0.12), rgba(167,139,250,0.12)), var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 96px;
+  position: relative;
+  overflow: hidden;
+}
+.enterprise-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(167,139,250,0.15), transparent 70%);
+  pointer-events: none;
+}
+.ent-left { position: relative; flex: 1; }
+.ent-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+.ent-left h3 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.ent-left p { color: var(--muted); margin-bottom: 16px; max-width: 560px; }
+.ent-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+.ent-features li {
+  font-size: 13px;
+  padding: 5px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: #CBD5E1;
+}
+.ent-right { position: relative; }
+
+/* Section heading */
+.section-heading {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.section-heading h2 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.section-heading p { color: var(--muted); }
+
+/* Comparison matrix */
+.matrix-section { padding: 0 0 96px; }
+.matrix-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.matrix-table thead th {
+  text-align: left;
+  padding: 18px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
+}
+.matrix-table thead th:not(:first-child) { text-align: center; width: 160px;}
+.matrix-table tbody td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  color: #CBD5E1;
+}
+.matrix-table tbody td:not(:first-child) { text-align: center; }
+.matrix-table tbody tr:last-child td { border-bottom: none; }
+.matrix-table tbody tr.group-row td {
+  background: rgba(255,255,255,0.02);
+  font-weight: 700;
+  color: var(--text);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 20px;
+}
+.dot-check { color: var(--accent); font-weight: 700; }
+.dot-x { color: #475569; }
+.tier-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+}
+
+/* Usage pricing */
+.usage-section { padding: 0 0 96px; }
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+.usage-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+.usage-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.usage-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(79,107,255,0.2), rgba(167,139,250,0.2));
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.usage-card p { color: var(--muted); margin-bottom: 16px; }
+.overage-meter {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+.overage-row { display: flex; justify-content: space-between; padding: 6px 0; color: #CBD5E1; }
+.overage-row .val { color: var(--text); }
+.overage-row.divider { border-top: 1px dashed var(--border); margin-top: 6px; padding-top: 12px; font-weight: 700; }
+.overage-row .accent-val { color: var(--accent); }
+
+.stat-line {
+  display: flex; align-items: baseline; gap: 12px; margin: 14px 0;
+}
+.stat-number {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: counter_animation_stats 1s ease-out forwards;
+  display: inline-block;
+}
+.stat-label { color: var(--muted); font-size: 14px;}
+
+@keyframes counter_animation_stats {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* FAQ */
+.faq-section { padding: 0 0 96px; }
+.faq-list {
+  max-width: 880px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.faq-item:hover { border-color: #36394A; }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 15px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--muted);
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-body {
+  padding: 0 24px 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Footer */
+footer.site-footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  padding: 64px 24px 32px;
+  margin-top: 32px;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+.footer-brand p { color: var(--muted); font-size: 14px; max-width: 280px; margin-top: 12px; }
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  color: #CBD5E1;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: var(--muted); text-decoration: none; font-size: 14px; }
+.footer-col a:hover { color: var(--text); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.status-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(34,197,94,0.6); }
+.soc-badge {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #CBD5E1;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">F</span>
+      Flexor
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Product</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#" class="active">Pricing</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="gh-stars">
+        <span class="star">★</span>
+        <span>18.4k</span>
+      </span>
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content container">
+    <h1>Simple pricing that scales with you</h1>
+    <p>Start free, upgrade when your team grows. Annual saves 20%.</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Billing toggle -->
+  <div class="billing-toggle">
+    <div class="toggle-wrap">
+      <button class="toggle-btn">Monthly</button>
+      <button class="toggle-btn active">
+        Annual
+        <span class="save-badge">Save 20%</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Pricing cards -->
+  <div class="pricing-grid">
+    <!-- Free -->
+    <div class="pricing-card">
+      <div class="tier-name">Free</div>
+      <div class="tier-desc">For hobby projects and getting started.</div>
+      <div class="tier-price">
+        <span class="price-amount">$0</span>
+        <span class="price-period">/ forever</span>
+      </div>
+      <div class="price-note">No credit card required</div>
+      <a href="#" class="btn btn-outline tier-cta">Start free</a>
+      <ul class="tier-features">
+        <li><span class="check">✓</span><span>1 seat included</span></li>
+        <li><span class="check">✓</span><span>50,000 monthly active users</span></li>
+        <li><span class="check">✓</span><span>10 feature flags</span></li>
+        <li><span class="check">✓</span><span>Targeting rules &amp; rollouts</span></li>
+        <li><span class="check">✓</span><span>All SDKs (Node, Python, Go, etc.)</span></li>
+        <li><span class="check">✓</span><span>Community Discord support</span></li>
+      </ul>
+    </div>
+
+    <!-- Pro (featured) -->
+    <div class="pricing-card featured">
+      <span class="popular-badge">Most Popular</span>
+      <div class="tier-name">Pro</div>
+      <div class="tier-desc">For growing teams shipping daily.</div>
+      <div class="tier-price">
+        <span class="price-amount">$29</span>
+        <span class="price-period">/ month</span>
+      </div>
+      <div class="price-note">Billed annually · $35 billed monthly</div>
+      <a href="#" class="btn btn-primary tier-cta">Start 14-day trial</a>
+      <ul class="tier-features">
+        <li><span class="check">✓</span><span>5 seats included</span></li>
+        <li><span class="check">✓</span><span>250,000 monthly active users</span></li>
+        <li><span class="check">✓</span><span>Unlimited feature flags</span></li>
+        <li><span class="check">✓</span><span>A/B experiments &amp; Stats Engine v2</span></li>
+        <li><span class="check">✓</span><span>Edge SDK (sub-50ms p99)</span></li>
+        <li><span class="check">✓</span><span>Slack &amp; PagerDuty integrations</span></li>
+        <li><span class="check">✓</span><span>30-day audit history</span></li>
+        <li><span class="check">✓</span><span>Email support, 24h response</span></li>
+      </ul>
+    </div>
+
+    <!-- Team -->
+    <div class="pricing-card">
+      <div class="tier-name">Team</div>
+      <div class="tier-desc">For org-wide rollouts with governance.</div>
+      <div class="tier-price">
+        <span class="price-amount">$99</span>
+        <span class="price-period">/ month</span>
+      </div>
+      <div class="price-note">Billed annually · $119 billed monthly</div>
+      <a href="#" class="btn btn-outline tier-cta">Start 14-day trial</a>
+      <ul class="tier-features">
+        <li><span class="check">✓</span><span>20 seats included</span></li>
+        <li><span class="check">✓</span><span>1,000,000 monthly active users</span></li>
+        <li><span class="check">✓</span><span>Everything in Pro</span></li>
+        <li><span class="check">✓</span><span>SAML SSO &amp; SCIM provisioning</span></li>
+        <li><span class="check">✓</span><span>RBAC with custom roles</span></li>
+        <li><span class="check">✓</span><span>Unlimited audit logs</span></li>
+        <li><span class="check">✓</span><span>Approval workflows</span></li>
+        <li><span class="check">✓</span><span>Priority support, 4h response</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Enterprise CTA -->
+  <div class="enterprise-banner">
+    <div class="ent-left">
+      <span class="ent-tag">Enterprise</span>
+      <h3>Custom plans for regulated &amp; high-scale teams</h3>
+      <p>Dedicated infrastructure, advanced compliance, and white-glove onboarding for teams with strict requirements.</p>
+      <ul class="ent-features">
+        <li>SOC 2 Type II</li>
+        <li>SAML SSO &amp; SCIM</li>
+        <li>On-prem deployment</li>
+        <li>Dedicated Slack channel</li>
+        <li>99.99% Uptime SLA</li>
+        <li>HIPAA &amp; GDPR</li>
+        <li>Volume discounts</li>
+      </ul>
+    </div>
+    <div class="ent-right">
+      <a href="#" class="btn btn-primary">Contact sales →</a>
+    </div>
+  </div>
+
+  <!-- Comparison matrix -->
+  <section class="matrix-section">
+    <div class="section-heading">
+      <h2>Compare every plan</h2>
+      <p>24 features across all four tiers — pick what's right for your team.</p>
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Features</th>
+            <th><span class="tier-pill">Free</span></th>
+            <th><span class="tier-pill">Pro</span></th>
+            <th><span class="tier-pill">Team</span></th>
+            <th><span class="tier-pill">Enterprise</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="5">Core platform</td></tr>
+          <tr>
+            <td>Monthly active users</td>
+            <td>50k</td><td>250k</td><td>1M</td><td>Custom</td>
+          </tr>
+          <tr>
+            <td>Feature flags</td>
+            <td>10</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Seats</td>
+            <td>1</td><td>5</td><td>20</td><td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Environments per project</td>
+            <td>2</td><td>5</td><td>Unlimited</td><td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>All SDKs (Node, Python, Go, Rust, Ruby)</td>
+            <td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Edge SDK (Cloudflare Workers)</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="5">Experimentation</td></tr>
+          <tr>
+            <td>A/B &amp; multivariate experiments</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Stats Engine v2 (Bayesian)</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Sample ratio mismatch detection</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Holdout groups</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="5">Integrations</td></tr>
+          <tr>
+            <td>Slack, GitHub, GitLab</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Datadog, Sentry, Honeycomb</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>PagerDuty &amp; webhook streams</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Terraform provider</td>
+            <td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="5">Governance &amp; security</td></tr>
+          <tr>
+            <td>SAML SSO</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>SCIM user provisioning</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>RBAC with custom roles</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>Audit logs</td>
+            <td>7 days</td><td>30 days</td><td>Unlimited</td><td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Approval workflows</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>SOC 2 Type II report</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td><td class="dot-check">●</td>
+          </tr>
+          <tr>
+            <td>On-prem / self-hosted relay</td>
+            <td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-x">—</td><td class="dot-check">●</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="5">Support &amp; reliability</td></tr>
+          <tr>
+            <td>Uptime SLA</td>
+            <td class="dot-x">—</td><td>99.9%</td><td>99.95%</td><td>99.99%</td>
+          </tr>
+          <tr>
+            <td>Support channel</td>
+            <td>Community</td><td>Email · 24h</td><td>Priority · 4h</td><td>Dedicated Slack</td>
+          </tr>
+          <tr>
+            <td>Onboarding</td>
+            <td>Self-serve</td><td>Self-serve</td><td>Guided</td><td>White-glove</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Usage pricing explainer -->
+  <section class="usage-section">
+    <div class="section-heading">
+      <h2>Usage-based, predictable</h2>
+      <p>Flag evaluations are uncapped on every plan. You only pay for the users you actually serve.</p>
+    </div>
+
+    <div class="usage-grid">
+      <div class="usage-card">
+        <h3><span class="usage-icon">⚡</span> Unlimited flag evaluations</h3>
+        <p>Flexor evaluates over 2.1 billion flags per day at the edge. We never throttle, rate-limit, or bill you per evaluation — call <code style="font-family:'JetBrains Mono',monospace;color:#A78BFA;background:var(--code-bg);padding:2px 6px;border-radius:4px;">flexor.evaluate()</code> as often as you need.</p>
+        <div class="stat-line">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">evaluations included on every paid plan</span>
+        </div>
+        <div class="stat-line">
+          <span class="stat-number">&lt;50ms</span>
+          <span class="stat-label">global p99 latency, billed at $0</span>
+        </div>
+      </div>
+
+      <div class="usage-card">
+        <h3><span class="usage-icon">📈</span> MAU overage pricing</h3>
+        <p>If you exceed your plan's MAU allowance, we bill the overage at a flat, predictable rate. No surprise invoices.</p>
+        <div class="overage-meter">
+          <div class="overage-row"><span>Pro plan MAU</span><span class="val">250,000</span></div>
+          <div class="overage-row"><span>Used in May</span><span class="val">312,000</span></div>
+          <div class="overage-row"><span>Overage</span><span class="val">62,000 MAU</span></div>
+          <div class="overage-row"><span>Rate</span><span class="val">$0.50 / 10k MAU</span></div>
+          <div class="overage-row divider"><span>Overage charge</span><span class="accent-val">+ $3.10</span></div>
+        </div>
+        <p style="margin-top:14px; font-size:13px;">An MAU is a unique user identifier passed to <code style="font-family:'JetBrains Mono',monospace;color:#A78BFA;background:var(--code-bg);padding:2px 6px;border-radius:4px;">evaluate()</code> within a 30-day rolling window.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-heading">
+      <h2>Frequently asked questions</h2>
+      <p>Can't find what you need? Email <a style="color:var(--secondary);text-decoration:none;" href="#">support@flexor.dev</a>.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What counts as a Monthly Active User (MAU)?</summary>
+        <div class="faq-body">An MAU is any unique user identifier (typically your internal user ID) that Flexor receives in an <code style="font-family:'JetBrains Mono',monospace;">evaluate()</code> call within a rolling 30-day window. Anonymous visitors with a stable device ID count too. We deduplicate aggressively, so a single user across 10 sessions is still one MAU.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I self-host Flexor?</summary>
+        <div class="faq-body">Self-hosting is available exclusively on the Enterprise plan, including our Self-Hosted Relay for keeping all evaluation traffic inside your VPC. Pro and Team plans run on our SOC 2 Type II–certified multi-tenant cloud.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer startup discounts?</summary>
+        <div class="faq-body">Yes. Pre-seed and seed-stage startups (under $5M raised) get 50% off Pro and Team plans for 12 months. Y Combinator, Techstars, and a16z portfolio companies receive an additional 6 months free — just email startups@flexor.dev with your AngelList or Crunchbase link.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a free trial of Pro?</summary>
+        <div class="faq-body">Every paid plan includes a 14-day free trial with no credit card required. At the end of the trial, your workspace downgrades to Free automatically — nothing breaks, but premium features pause until you upgrade.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if I exceed my MAU limit?</summary>
+        <div class="faq-body">On Pro and Team, we never block evaluations. We bill overage at $0.50 per additional 10,000 MAU at the end of the month. On Free, evaluations beyond 50k MAU return your configured fallback value and we send a friendly email asking you to upgrade.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which SDKs do you support?</summary>
+        <div class="faq-body">First-party SDKs for Node.js, TypeScript, Python, Go, Rust, Ruby, Java, .NET, PHP, Swift, Kotlin, React, React Native, Vue, and Flutter. Plus an Edge SDK for Cloudflare Workers, Vercel Edge, and Deno Deploy. All SDKs are open source on GitHub.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I switch from monthly to annual mid-cycle?</summary>
+        <div class="faq-body">Yes — switching to annual is prorated instantly and the 20% discount applies to the remaining term. Switching from annual back to monthly takes effect at your renewal date.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How does data residency work?</summary>
+        <div class="faq-body">Free, Pro, and Team plans run on AWS us-east-1 with replication to eu-west-1. Enterprise customers can choose dedicated EU (Frankfurt), APAC (Singapore), or US-only deployments with full data residency guarantees and DPA addendums.</div>
+      </details>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-mark">F</span>
+        Flexor
+      </a>
+      <p>Feature flags and experimentation built for engineering velocity.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Integrations</a></li>
+        <li><a href="#">Edge SDK</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Discord</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Press kit</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">DPA</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Flexor, Inc. All rights reserved.</div>
+    <div class="footer-meta">
+      <a href="#" class="status-pill"><span class="status-dot"></span> status.flexor.dev — All systems operational</a>
+      <span class="soc-badge">SOC 2 Type II</span>
+      <a href="#" style="color:var(--muted);text-decoration:none;">v2.14.0 changelog →</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

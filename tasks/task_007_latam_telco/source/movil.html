@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Planes Móvil — Volaris Móvil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { font-family: 'Nunito Sans', system-ui, sans-serif; color: #142A30; font-size: 15px; line-height: 1.55; background: #FFFFFF; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== TOP UTILITY BAR ===== */
+.utility-bar { background: #005A66; color: #fff; font-size: 13px; padding: 6px 24px; display: flex; justify-content: space-between; align-items: center; }
+.utility-bar .left span { margin-right: 18px; }
+.utility-bar .status-dot { display: inline-block; width: 8px; height: 8px; background: #2BAE66; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.utility-bar .right span { margin-left: 16px; cursor: pointer; }
+
+/* ===== NAV ===== */
+.nav { position: sticky; top: 0; z-index: 100; background: #007B8A; height: 72px; display: flex; align-items: center; padding: 0 24px; color: #fff; }
+.nav-inner { max-width: 1240px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 40px; }
+.brand { font-weight: 900; font-size: 22px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+.brand-mark { width: 32px; height: 32px; background: #FF5722; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; }
+.nav-links { display: flex; gap: 28px; flex: 1; justify-content: center; }
+.nav-links a { font-weight: 700; font-size: 15px; padding: 8px 4px; border-bottom: 3px solid transparent; }
+.nav-links a.active { border-bottom-color: #FFC107; }
+.nav-links a:hover { color: #FFC107; }
+.nav-right { display: flex; align-items: center; gap: 18px; font-weight: 700; font-size: 14px; }
+.nav-right .icon-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.12); display: inline-flex; align-items: center; justify-content: center; font-size: 16px; }
+.mi-cuenta { background: #FF5722; padding: 10px 18px; border-radius: 999px; }
+
+/* ===== PROMO STRIP ===== */
+.promo-strip { background: #FFC107; color: #142A30; padding: 10px 24px; text-align: center; font-weight: 800; font-size: 14px; }
+.promo-strip .pill { background: #FF5722; color: #fff; padding: 3px 10px; border-radius: 999px; margin: 0 8px; font-size: 12px; }
+
+/* ===== HERO ===== */
+.hero { background: linear-gradient(135deg, #007B8A 0%, #005A66 70%, #003D47 100%); color: #fff; padding: 72px 24px 96px; position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; right: -100px; top: -80px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(255,87,34,0.35), transparent 65%); }
+.hero::before { content: ""; position: absolute; left: -120px; bottom: -160px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,193,7,0.25), transparent 65%); }
+.hero-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.hero-tag { display: inline-block; background: rgba(255,193,7,0.18); color: #FFC107; font-weight: 800; font-size: 12px; letter-spacing: 1px; padding: 6px 14px; border-radius: 999px; text-transform: uppercase; margin-bottom: 18px; }
+.hero h1 { font-size: 52px; font-weight: 900; line-height: 1.05; letter-spacing: -1px; margin-bottom: 18px; }
+.hero h1 em { color: #FFC107; font-style: normal; }
+.hero p { font-size: 18px; max-width: 540px; color: rgba(255,255,255,0.92); margin-bottom: 28px; }
+.hero-badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); padding: 10px 16px; border-radius: 10px; font-size: 13px; font-weight: 700; }
+.hero-badge strong { display: block; color: #FFC107; font-size: 16px; font-weight: 900; }
+
+.phone-card { background: linear-gradient(160deg, #FF5722, #c83e0c); border-radius: 24px; padding: 28px; color: #fff; box-shadow: 0 30px 50px -20px rgba(0,0,0,0.4); }
+.phone-card .pc-label { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #FFE4D6; text-transform: uppercase; }
+.phone-card h3 { font-size: 28px; font-weight: 900; margin: 8px 0 4px; }
+.phone-card .price { font-size: 56px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin: 12px 0 6px; }
+.phone-card .price span { font-size: 18px; font-weight: 700; }
+.phone-card .pc-feats { list-style: none; margin: 20px 0; }
+.phone-card .pc-feats li { padding: 8px 0; border-top: 1px dashed rgba(255,255,255,0.3); font-size: 14px; display: flex; justify-content: space-between; }
+.phone-card .pc-feats li:first-child { border-top: 0; }
+.phone-card .pc-cta { background: #FFC107; color: #142A30; padding: 14px; border-radius: 10px; text-align: center; font-weight: 900; display: block; }
+
+/* ===== TOGGLE SECTION ===== */
+.section { padding: 64px 24px; }
+.section-inner { max-width: 1240px; margin: 0 auto; }
+.section-heading { text-align: center; margin-bottom: 36px; }
+.section-heading h2 { font-size: 36px; font-weight: 900; letter-spacing: -0.5px; }
+.section-heading p { color: #5C7079; font-size: 16px; margin-top: 8px; }
+
+.toggle-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
+.toggle { background: #fff; border: 1px solid #D5E5E8; border-radius: 999px; padding: 6px; display: flex; gap: 4px; box-shadow: 0 4px 12px rgba(0,123,138,0.08); }
+.toggle button { border: 0; background: transparent; padding: 12px 28px; font-weight: 800; font-family: inherit; font-size: 15px; border-radius: 999px; color: #5C7079; cursor: pointer; }
+.toggle button.active { background: #007B8A; color: #fff; }
+.toggle button .small { display: block; font-size: 11px; font-weight: 600; opacity: 0.85; }
+
+/* ===== COMPARISON TABLE ===== */
+.compare-section { background: linear-gradient(180deg,#FFFFFF 0%,#E0F7FA 100%); }
+.table-wrap { background: #fff; border-radius: 16px; border: 1px solid #D5E5E8; overflow: hidden; box-shadow: 0 12px 40px -20px rgba(0,90,102,0.25); }
+.plan-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.plan-table thead th { background: #007B8A; color: #fff; padding: 22px 14px; text-align: center; font-weight: 800; font-size: 14px; position: relative; }
+.plan-table thead th.feature-col { background: #005A66; text-align: left; padding-left: 22px; width: 230px; }
+.plan-table thead th.popular::before { content: "MÁS POPULAR"; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #FFC107; color: #142A30; padding: 4px 12px; border-radius: 0 0 8px 8px; font-size: 10px; font-weight: 900; letter-spacing: 1px; }
+.plan-table thead th .plan-name { font-size: 16px; font-weight: 900; display: block; margin-bottom: 6px; }
+.plan-table thead th .plan-price { font-size: 32px; font-weight: 900; letter-spacing: -1px; color: #FFC107; }
+.plan-table thead th .plan-price small { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 700; }
+.plan-table thead th .plan-data { font-size: 24px; font-weight: 900; color: #fff; display: block; }
+
+.plan-table tbody td { padding: 16px 14px; text-align: center; border-bottom: 1px solid #ECF4F5; font-weight: 600; color: #142A30; }
+.plan-table tbody td.feature-col { text-align: left; padding-left: 22px; color: #5C7079; font-weight: 700; font-size: 13px; background: #F7FBFC; }
+.plan-table tbody td.feature-col strong { display: block; color: #142A30; font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.plan-table tbody td.popular-col { background: #E0F7FA; }
+.plan-table tbody tr:last-child td { border-bottom: 0; }
+.check { color: #2BAE66; font-weight: 900; font-size: 18px; }
+.dash { color: #B5C5C9; font-weight: 700; }
+
+.streaming-mini { display: flex; gap: 4px; justify-content: center; }
+.s-chip { background: #142A30; color: #fff; font-size: 10px; padding: 3px 7px; border-radius: 4px; font-weight: 800; }
+.s-chip.n { background: #E50914; }
+.s-chip.d { background: #0067D9; }
+.s-chip.h { background: #6f1ed4; }
+.s-chip.p { background: #0064FF; }
+.s-chip.a { background: #232f3e; }
+
+.table-footer-row td { background: #005A66; padding: 18px 14px; }
+.contratar-btn { background: #FF5722; color: #fff; padding: 11px 18px; border-radius: 10px; font-weight: 900; display: inline-block; font-size: 13px; }
+.contratar-btn.popular { background: #FFC107; color: #142A30; }
+
+.table-legend { display: flex; gap: 24px; justify-content: center; margin-top: 22px; font-size: 13px; color: #5C7079; flex-wrap: wrap; }
+.table-legend span::before { content: "•"; color: #FF5722; margin-right: 6px; font-weight: 900; }
+
+/* ===== PORTABILITY CTA ===== */
+.portability { background: linear-gradient(100deg, #FF5722 0%, #E04316 100%); color: #fff; padding: 56px 24px; }
+.portability-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+.portability h2 { font-size: 44px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; }
+.portability h2 strong { color: #FFC107; }
+.portability p { font-size: 17px; margin: 14px 0 24px; max-width: 520px; opacity: 0.95; }
+.port-form { display: flex; gap: 8px; max-width: 540px; }
+.port-form input { flex: 1; padding: 16px 18px; border-radius: 10px; border: 0; font-family: inherit; font-size: 15px; font-weight: 700; }
+.port-form button { padding: 16px 26px; background: #142A30; color: #fff; border: 0; border-radius: 10px; font-weight: 900; font-family: inherit; font-size: 15px; cursor: pointer; }
+.port-card { background: #fff; color: #142A30; border-radius: 18px; padding: 28px; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.3); }
+.port-card h4 { font-size: 13px; font-weight: 900; letter-spacing: 1px; color: #5C7079; text-transform: uppercase; margin-bottom: 14px; }
+.carriers { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 18px; }
+.carrier { border: 2px solid #D5E5E8; border-radius: 10px; padding: 14px 8px; text-align: center; font-weight: 900; font-size: 14px; }
+.carrier.telcel { color: #00A0DC; }
+.carrier.movistar { color: #0066FF; }
+.carrier.claro { color: #DA291C; }
+.port-card .reward { background: #FFC107; padding: 14px; border-radius: 10px; text-align: center; font-weight: 900; font-size: 15px; }
+.port-card .reward strong { display: block; font-size: 26px; }
+
+/* ===== 5G COVERAGE MAP ===== */
+.coverage { padding: 72px 24px; background: #fff; }
+.coverage-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
+.coverage h2 { font-size: 40px; font-weight: 900; letter-spacing: -1px; }
+.coverage .label-5g { display: inline-block; background: linear-gradient(90deg,#FF5722,#FFC107); color: #fff; padding: 6px 14px; border-radius: 999px; font-weight: 900; font-size: 12px; letter-spacing: 1px; margin-bottom: 12px; }
+.coverage p { color: #5C7079; margin: 14px 0 20px; font-size: 16px; }
+.zip-lookup { display: flex; gap: 8px; margin-bottom: 24px; }
+.zip-lookup input { flex: 1; padding: 14px 16px; border: 1px solid #D5E5E8; border-radius: 10px; font-family: inherit; font-size: 15px; }
+.zip-lookup button { padding: 14px 22px; background: #007B8A; color: #fff; border: 0; border-radius: 10px; font-weight: 900; font-family: inherit; cursor: pointer; }
+.city-list { list-style: none; }
+.city-list li { padding: 14px 0; border-bottom: 1px solid #ECF4F5; display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+.city-list li:last-child { border-bottom: 0; }
+.city-list .pct { color: #2BAE66; font-weight: 900; font-size: 14px; }
+.city-list .bar { display: inline-block; width: 80px; height: 6px; background: #ECF4F5; border-radius: 3px; margin-left: 12px; overflow: hidden; vertical-align: middle; }
+.city-list .bar::after { content: ""; display: block; height: 100%; background: linear-gradient(90deg,#007B8A,#2BAE66); width: var(--w,80%); }
+
+.map-card { background: linear-gradient(135deg, #E0F7FA 0%, #fff 100%); border: 1px solid #D5E5E8; border-radius: 18px; padding: 24px; position: relative; min-height: 460px; overflow: hidden; }
+.map-card h4 { font-weight: 900; font-size: 16px; margin-bottom: 4px; }
+.map-card .updated { font-size: 12px; color: #5C7079; }
+.map-svg { width: 100%; height: 380px; margin-top: 12px; }
+.map-legend { position: absolute; bottom: 24px; left: 24px; right: 24px; background: rgba(255,255,255,0.95); border: 1px solid #D5E5E8; border-radius: 10px; padding: 12px 14px; display: flex; gap: 18px; font-size: 12px; font-weight: 700; }
+.map-legend span { display: flex; align-items: center; gap: 6px; }
+.map-legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-5g { background: #FF5722; }
+.dot-lte { background: #007B8A; }
+.dot-soon { background: #FFC107; }
+
+/* ===== FAQ + BENEFITS strip ===== */
+.benefits { background: #142A30; color: #fff; padding: 56px 24px; }
+.benefits-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.benefit { display: flex; gap: 14px; align-items: flex-start; }
+.benefit .ico { width: 44px; height: 44px; background: #FF5722; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.benefit h5 { font-weight: 900; font-size: 15px; margin-bottom: 4px; }
+.benefit p { font-size: 13px; color: rgba(255,255,255,0.75); }
+
+/* ===== FOOTER ===== */
+.footer { background: #003D47; color: #B8D4D9; padding: 56px 24px 24px; font-size: 14px; }
+.footer-inner { max-width: 1240px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid #1A5560; }
+.footer h6 { color: #fff; font-size: 13px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+.footer ul { list-style: none; }
+.footer ul li { padding: 5px 0; }
+.footer ul a:hover { color: #FFC107; }
+.footer-brand p { margin: 14px 0 18px; }
+.socials { display: flex; gap: 8px; }
+.socials span { width: 34px; height: 34px; border-radius: 50%; background: #1A5560; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+.footer-bottom { padding-top: 22px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #6C9099; }
+
+/* ===== WHATSAPP STICKY ===== */
+.whatsapp-sticky { position: fixed; bottom: 24px; right: 24px; background: #25D366; color: #fff; padding: 14px 20px; border-radius: 999px; font-weight: 900; box-shadow: 0 12px 30px -8px rgba(37,211,102,0.5); z-index: 50; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.whatsapp-sticky .wpi { width: 30px; height: 30px; background: #fff; color: #25D366; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; }
+.whatsapp-sticky small { display: block; font-weight: 600; font-size: 11px; opacity: 0.9; }
+
+</style>
+</head>
+<body>
+
+<!-- UTILITY -->
+<div class="utility-bar">
+  <div class="left">
+    <span><span class="status-dot"></span>Todos los servicios operando con normalidad</span>
+    <span>📞 *611 desde tu Volaris</span>
+    <span>🇲🇽 México · 🇨🇴 Colombia</span>
+  </div>
+  <div class="right">
+    <span>Ayuda</span>
+    <span>Buscar tienda</span>
+    <span>Idioma: ES</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#"><span class="brand-mark">⚡</span> Volaris<span style="color:#FFC107">Móvil</span></a>
+    <div class="nav-links">
+      <a href="#" class="active">Móvil</a>
+      <a href="#">Internet</a>
+      <a href="#">TV</a>
+      <a href="#">Paquetes</a>
+      <a href="#">Empresa</a>
+      <a href="#">Tiendas</a>
+    </div>
+    <div class="nav-right">
+      <span class="icon-btn">❔</span>
+      <span class="icon-btn">🛒</span>
+      <a href="#" class="mi-cuenta">Mi Cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PROMO STRIP -->
+<div class="promo-strip">
+  ⏰ ¡50% OFF en tu primer mes! <span class="pill">Termina en 2d 14h 32m</span> Aplica a planes pospago seleccionados — Termina 30 sept 2021
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">Planes Móvil · Prepago & Pospago</span>
+      <h1>Encuentra tu plan móvil <em>ideal</em></h1>
+      <p>Prepago o pospago, 4G LTE en todo el país y 5G en las principales ciudades de México y Colombia. Cambia, comparte y renueva en segundos.</p>
+      <div class="hero-badges">
+        <div class="hero-badge"><strong>5G</strong>en 6 ciudades</div>
+        <div class="hero-badge"><strong>+120GB</strong>en Plan Pro</div>
+        <div class="hero-badge"><strong>Roaming USA</strong>incluido</div>
+        <div class="hero-badge"><strong>Netflix · Disney+</strong>en planes selectos</div>
+      </div>
+    </div>
+    <div class="phone-card">
+      <span class="pc-label">⭐ Plan destacado</span>
+      <h3>Plan Ilimitado 5G</h3>
+      <div class="price">$549<span> /mes</span></div>
+      <ul class="pc-feats">
+        <li><span>Datos</span><strong>Ilimitados</strong></li>
+        <li><span>Velocidad 5G</span><strong>Hasta 1 Gbps</strong></li>
+        <li><span>Minutos · SMS</span><strong>Ilimitados</strong></li>
+        <li><span>Streaming incluido</span><strong>Netflix + Disney+</strong></li>
+        <li><span>Roaming USA</span><strong>10 GB</strong></li>
+      </ul>
+      <a class="pc-cta" href="#">Contratar ahora →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON / TOGGLE -->
+<section class="section compare-section">
+  <div class="section-inner">
+    <div class="section-heading">
+      <h2>Compara todos nuestros planes móviles</h2>
+      <p>Elige entre Volaris Amigo (prepago) o Volaris Plan (pospago) — sin permanencia mínima</p>
+    </div>
+
+    <div class="toggle-wrap">
+      <div class="toggle">
+        <button>Volaris Amigo<span class="small">Prepago · recarga libre</span></button>
+        <button class="active">Volaris Plan<span class="small">Pospago · factura mensual</span></button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th class="feature-col">Características</th>
+            <th>
+              <span class="plan-name">Esencial</span>
+              <span class="plan-data">30 GB</span>
+              <span class="plan-price">$249<small> /mes</small></span>
+            </th>
+            <th>
+              <span class="plan-name">Plus</span>
+              <span class="plan-data">50 GB</span>
+              <span class="plan-price">$329<small> /mes</small></span>
+            </th>
+            <th class="popular">
+              <span class="plan-name">Pro</span>
+              <span class="plan-data">80 GB</span>
+              <span class="plan-price">$399<small> /mes</small></span>
+            </th>
+            <th>
+              <span class="plan-name">Max</span>
+              <span class="plan-data">120 GB</span>
+              <span class="plan-price">$479<small> /mes</small></span>
+            </th>
+            <th>
+              <span class="plan-name">Ilimitado 5G</span>
+              <span class="plan-data">∞ GB</span>
+              <span class="plan-price">$549<small> /mes</small></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-col"><strong>Datos móviles</strong>Navegación 4G LTE / 5G</td>
+            <td>30 GB</td>
+            <td>50 GB</td>
+            <td class="popular-col">80 GB</td>
+            <td>120 GB</td>
+            <td>Ilimitados</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Velocidad 5G</strong>Disponible en ciudades 5G</td>
+            <td><span class="dash">—</span></td>
+            <td>Hasta 200 Mbps</td>
+            <td class="popular-col">Hasta 500 Mbps</td>
+            <td>Hasta 800 Mbps</td>
+            <td>Hasta 1 Gbps</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Minutos a todo destino</strong>México, USA y Canadá</td>
+            <td>Ilimitados</td>
+            <td>Ilimitados</td>
+            <td class="popular-col">Ilimitados</td>
+            <td>Ilimitados</td>
+            <td>Ilimitados</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>SMS / MMS</strong>Mensajería nacional e int.</td>
+            <td>500</td>
+            <td>1,500</td>
+            <td class="popular-col">Ilimitados</td>
+            <td>Ilimitados</td>
+            <td>Ilimitados</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Streaming incluido</strong>6 meses gratis en pospago</td>
+            <td><div class="streaming-mini"><span class="s-chip a">Music</span></div></td>
+            <td><div class="streaming-mini"><span class="s-chip n">Netflix</span><span class="s-chip a">Music</span></div></td>
+            <td class="popular-col"><div class="streaming-mini"><span class="s-chip n">Netflix</span><span class="s-chip d">Disney+</span><span class="s-chip a">Music</span></div></td>
+            <td><div class="streaming-mini"><span class="s-chip n">Netflix</span><span class="s-chip d">Disney+</span><span class="s-chip h">HBO</span></div></td>
+            <td><div class="streaming-mini"><span class="s-chip n">Netflix</span><span class="s-chip d">Disney+</span><span class="s-chip h">HBO</span><span class="s-chip p">P+</span></div></td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Roaming en USA</strong>Datos + minutos sin cargo</td>
+            <td><span class="dash">—</span></td>
+            <td>3 GB</td>
+            <td class="popular-col">5 GB</td>
+            <td>8 GB</td>
+            <td>10 GB</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Hotspot / Compartir</strong>Convertir el móvil en Wi-Fi</td>
+            <td>5 GB</td>
+            <td>10 GB</td>
+            <td class="popular-col">25 GB</td>
+            <td>40 GB</td>
+            <td>60 GB</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Hijo / Línea adicional</strong>Misma factura</td>
+            <td>+$149</td>
+            <td>+$129</td>
+            <td class="popular-col">+$99</td>
+            <td>+$99</td>
+            <td>+$99</td>
+          </tr>
+          <tr>
+            <td class="feature-col"><strong>Sin permanencia</strong>Cancela cuando quieras</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td class="popular-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr class="table-footer-row">
+            <td class="feature-col" style="background:#003D47;"></td>
+            <td><a class="contratar-btn" href="#">Contratar</a></td>
+            <td><a class="contratar-btn" href="#">Contratar</a></td>
+            <td class="popular-col" style="background:#005A66;"><a class="contratar-btn popular" href="#">Contratar ★</a></td>
+            <td><a class="contratar-btn" href="#">Contratar</a></td>
+            <td><a class="contratar-btn" href="#">Contratar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-legend">
+      <span>Precios mensuales en MXN, IVA incluido</span>
+      <span>Streaming gratis 6 meses, después aplica tarifa del proveedor</span>
+      <span>Cobertura 5G sujeta a ciudad y dispositivo compatible</span>
+    </div>
+  </div>
+</section>
+
+<!-- PORTABILITY -->
+<section class="portability">
+  <div class="portability-inner">
+    <div>
+      <h2>Trae tu número y recibe <strong>$200 de saldo</strong></h2>
+      <p>Proceso 100% online en 24 horas. Sin visitas a tienda, sin papeleo: ingresa tu número actual y nosotros nos encargamos del resto.</p>
+      <form class="port-form" onsubmit="return false;">
+        <input type="tel" placeholder="Tu número actual (10 dígitos)" maxlength="10">
+        <button>Portar ahora →</button>
+      </form>
+      <p style="margin-top:18px;font-size:13px;opacity:0.85;">⚡ Conserva tu número · 📱 Sin cambiar de equipo · 💸 Sin costo de portabilidad</p>
+    </div>
+    <div class="port-card">
+      <h4>¿De qué operadora vienes?</h4>
+      <div class="carriers">
+        <div class="carrier telcel">Telcel</div>
+        <div class="carrier movistar">Movistar</div>
+        <div class="carrier claro">Claro</div>
+        <div class="carrier" style="color:#9B59B6;">AT&amp;T</div>
+        <div class="carrier" style="color:#1E88E5;">Tigo</div>
+        <div class="carrier" style="color:#5C7079;">Otra</div>
+      </div>
+      <div class="reward">
+        Bono de bienvenida<strong>$200 MXN</strong>
+        en saldo o descuento factura
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5G COVERAGE -->
+<section class="coverage">
+  <div class="coverage-inner">
+    <div>
+      <span class="label-5g">⚡ RED 5G VOLARIS</span>
+      <h2>Cobertura 5G en las principales ciudades</h2>
+      <p>Velocidades de hasta 1 Gbps en CDMX, Monterrey, Guadalajara, Bogotá y Cali. Verifica si tu colonia ya cuenta con la red más rápida.</p>
+
+      <div class="zip-lookup">
+        <input type="text" placeholder="Ingresa tu código postal (ej. 06700)">
+        <button>Verificar</button>
+      </div>
+
+      <ul class="city-list">
+        <li>
+          <span>🇲🇽 Ciudad de México</span>
+          <span><span class="pct">92%</span><span class="bar" style="--w:92%"></span></span>
+        </li>
+        <li>
+          <span>🇲🇽 Monterrey</span>
+          <span><span class="pct">88%</span><span class="bar" style="--w:88%"></span></span>
+        </li>
+        <li>
+          <span>🇲🇽 Guadalajara</span>
+          <span><span class="pct">81%</span><span class="bar" style="--w:81%"></span></span>
+        </li>
+        <li>
+          <span>🇨🇴 Bogotá D.C.</span>
+          <span><span class="pct">76%</span><span class="bar" style="--w:76%"></span></span>
+        </li>
+        <li>
+          <span>🇨🇴 Cali</span>
+          <span><span class="pct">64%</span><span class="bar" style="--w:64%"></span></span>
+        </li>
+        <li>
+          <span>🇨🇴 Medellín</span>
+          <span><span class="pct" style="color:#FFC107;">Próximamente Q4 2021</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="map-card">
+      <h4>Mapa de cobertura · 5G y 4G LTE</h4>
+      <span class="updated">Última actualización: 15 sept 2021 · 14:20</span>
+      <svg class="map-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Map base -->
+        <rect width="600" height="380" fill="#E0F7FA"/>
+        <!-- Mexico shape (stylized) -->
+        <path d="M40,90 Q90,60 160,70 L240,55 Q320,60 360,95 L380,150 L350,180 L300,200 L260,230 L220,225 L180,200 L130,190 L80,170 Z" fill="#B8E3E8" stroke="#007B8A" stroke-width="1.5"/>
+        <text x="200" y="135" font-family="Nunito Sans" font-size="11" font-weight="800" fill="#005A66">MÉXICO</text>
+        <!-- Colombia shape (stylized) -->
+        <path d="M380,230 Q420,215 470,225 L520,250 L540,310 L500,355 L440,360 L405,335 L385,290 Z" fill="#B8E3E8" stroke="#007B8A" stroke-width="1.5"/>
+        <text x="445" y="295" font-family="Nunito Sans" font-size="11" font-weight="800" fill="#005A66">COLOMBIA</text>
+
+        <!-- 5G dots -->
+        <g>
+          <circle cx="225" cy="155" r="14" fill="#FF5722" opacity="0.25"/>
+          <circle cx="225" cy="155" r="6" fill="#FF5722"/>
+          <text x="240" y="158" font-size="10" font-weight="800" fill="#142A30">CDMX</text>
+
+          <circle cx="175" cy="115" r="12" fill="#FF5722" opacity="0.25"/>
+          <circle cx="175" cy="115" r="5" fill="#FF5722"/>
+          <text x="188" y="118" font-size="10" font-weight="800" fill="#142A30">Monterrey</text>
+
+          <circle cx="160" cy="160" r="12" fill="#FF5722" opacity="0.25"/>
+          <circle cx="160" cy="160" r="5" fill="#FF5722"/>
+          <text x="100" y="178" font-size="10" font-weight="800" fill="#142A30">Guadalajara</text>
+
+          <circle cx="445" cy="280" r="13" fill="#FF5722" opacity="0.25"/>
+          <circle cx="445" cy="280" r="5" fill="#FF5722"/>
+          <text x="458" y="283" font-size="10" font-weight="800" fill="#142A30">Bogotá</text>
+
+          <circle cx="415" cy="320" r="11" fill="#FF5722" opacity="0.25"/>
+          <circle cx="415" cy="320" r="4" fill="#FF5722"/>
+          <text x="350" y="335" font-size="10" font-weight="800" fill="#142A30">Cali</text>
+
+          <circle cx="430" cy="255" r="8" fill="#FFC107"/>
+          <text x="442" y="252" font-size="9" font-weight="700" fill="#142A30">Medellín (próx.)</text>
+        </g>
+
+        <!-- LTE dots -->
+        <g fill="#007B8A">
+          <circle cx="120" cy="135" r="3"/>
+          <circle cx="270" cy="180" r="3"/>
+          <circle cx="305" cy="155" r="3"/>
+          <circle cx="200" cy="195" r="3"/>
+          <circle cx="335" cy="125" r="3"/>
+          <circle cx="475" cy="245" r="3"/>
+          <circle cx="500" cy="310" r="3"/>
+          <circle cx="460" cy="340" r="3"/>
+        </g>
+      </svg>
+      <div class="map-legend">
+        <span><span class="dot dot-5g"></span>5G activo</span>
+        <span><span class="dot dot-lte"></span>4G LTE</span>
+        <span><span class="dot dot-soon"></span>Próximamente</span>
+        <span style="margin-left:auto;color:#5C7079;">+1,240 antenas activas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS STRIP -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefit">
+      <div class="ico">🔄</div>
+      <div><h5>Sin permanencia</h5><p>Cambia o cancela tu plan cuando quieras, sin penalizaciones.</p></div>
+    </div>
+    <div class="benefit">
+      <div class="ico">📦</div>
+      <div><h5>SIM a domicilio gratis</h5><p>Recíbela en 24-48 horas en CDMX, GDL, MTY y Bogotá.</p></div>
+    </div>
+    <div class="benefit">
+      <div class="ico">🌎</div>
+      <div><h5>Roaming en USA</h5><p>Incluido sin cargo extra en planes Plus y superiores.</p></div>
+    </div>
+    <div class="benefit">
+      <div class="ico">🎁</div>
+      <div><h5>Streaming gratis</h5><p>Netflix y Disney+ por 6 meses al contratar pospago.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color:#fff;font-size:22px;"><span class="brand-mark">⚡</span> Volaris<span style="color:#FFC107">Móvil</span></div>
+        <p>Conecta sin límites en México y Colombia. Más de 1,240 tiendas y 18 millones de clientes confían en Volaris.</p>
+        <div class="socials"><span>f</span><span>𝕏</span><span>📷</span><span>▶</span></div>
+      </div>
+      <div>
+        <h6>Móvil</h6>
+        <ul><li><a href="#">Planes pospago</a></li><li><a href="#">Volaris Amigo</a></li><li><a href="#">Portabilidad</a></li><li><a href="#">Recargas</a></li><li><a href="#">Roaming</a></li></ul>
+      </div>
+      <div>
+        <h6>Servicios</h6>
+        <ul><li><a href="#">Internet hogar</a></li><li><a href="#">Volaris TV</a></li><li><a href="#">Paquetes</a></li><li><a href="#">Empresas</a></li><li><a href="#">5G</a></li></ul>
+      </div>
+      <div>
+        <h6>Soporte</h6>
+        <ul><li><a href="#">Centro de ayuda</a></li><li><a href="#">Estado del servicio</a></li><li><a href="#">Tiendas</a></li><li><a href="#">Reportar falla</a></li><li><a href="#">WhatsApp</a></li></ul>
+      </div>
+      <div>
+        <h6>Legal</h6>
+        <ul><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos</a></li><li><a href="#">Código de prácticas</a></li><li><a href="#">PROFECO</a></li><li><a href="#">IFT</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2021 Volaris Móvil S.A. de C.V. Todos los derechos reservados.</span>
+      <span>RFC: VMO210315A12 · Atención: *611 · atencion@volaris.mx</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP STICKY -->
+<a class="whatsapp-sticky" href="#">
+  <span class="wpi">💬</span>
+  <span>WhatsApp Volaris<small>+52 55 8000 8888 · responde en 30s</small></span>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Take Action — Climate Horizon Collective</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { font-family: 'Inter', system-ui, sans-serif; font-size: 17px; color: #1B2E20; background: #E9F5E9; line-height: 1.55; }
+h1, h2, h3, h4 { font-family: 'Source Serif Pro', Georgia, serif; color: #1B2E20; }
+h1 { font-size: 56px; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; }
+h3 { font-size: 22px; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav { background: #fff; height: 72px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #D5E3D8; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: 'Source Serif Pro', serif; font-weight: 700; font-size: 19px; color: #1B4332; }
+.logo-mark { width: 28px; height: 28px; background: #2D6A4F; border-radius: 50% 0 50% 50%; transform: rotate(-15deg); position: relative; }
+.logo-mark::after { content: ''; position: absolute; inset: 6px; background: #B7E4C7; border-radius: 50% 0 50% 50%; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 15px; font-weight: 500; color: #1B2E20; }
+.nav-links a:hover { color: #2D6A4F; }
+.nav-clock { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: #C62828; color: #fff; padding: 6px 10px; border-radius: 4px; font-weight: 600; }
+.btn-primary { background: #2D6A4F; color: #fff; padding: 11px 22px; border-radius: 4px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; display: inline-block; transition: background 0.2s ease, transform 0.2s ease; }
+.btn-primary:hover { background: #1B4332; transform: translateY(-1px); }
+.btn-secondary { background: #fff; color: #2D6A4F; border: 1.5px solid #2D6A4F; padding: 11px 22px; border-radius: 4px; font-weight: 600; font-size: 15px; cursor: pointer; display: inline-block; }
+.btn-accent { background: #E07A5F; color: #fff; padding: 11px 22px; border-radius: 4px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; display: inline-block; }
+.btn-accent:hover { background: #c66344; }
+
+/* Hero */
+.hero { padding: 96px 24px 64px; background: #E9F5E9; }
+.hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; }
+.hero h1 { margin-bottom: 20px; }
+.hero .sub { font-size: 20px; color: #5A6B5F; max-width: 560px; }
+.hero-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #2D6A4F; margin-bottom: 16px; }
+.hero-quick { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 28px; }
+.hero-quick h4 { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #5A6B5F; margin-bottom: 14px; font-weight: 700; }
+.quick-list { list-style: none; }
+.quick-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #D5E3D8; font-size: 15px; }
+.quick-list li:last-child { border-bottom: none; }
+.quick-list .time { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #2D6A4F; font-weight: 600; }
+
+/* Action counter */
+.counter-band { background: #1B4332; color: #fff; padding: 48px 24px; }
+.counter-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; align-items: center; }
+.counter-label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #B7E4C7; font-weight: 700; margin-bottom: 8px; }
+.counter-big { font-family: 'Inter', sans-serif; font-size: 56px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.counter-sub { font-size: 14px; color: #B7E4C7; margin-top: 6px; }
+.counter-cell .num { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.counter-cell .lab { font-size: 13px; color: #B7E4C7; }
+
+/* Section base */
+section { padding: 96px 24px; }
+.bg-white { background: #fff; }
+.bg-sage { background: #E9F5E9; }
+.sec-head { max-width: 720px; margin-bottom: 48px; }
+.sec-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #2D6A4F; margin-bottom: 12px; }
+.sec-head p { color: #5A6B5F; font-size: 18px; margin-top: 12px; }
+
+/* Petition */
+.petition-card { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr; }
+.petition-img { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #C62828 100%); position: relative; min-height: 380px; }
+.petition-img::before { content: '✊'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 120px; opacity: 0.35; }
+.petition-img .badge { position: absolute; top: 20px; left: 20px; background: #C62828; color: #fff; padding: 6px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; }
+.petition-body { padding: 40px; }
+.petition-body h3 { font-size: 28px; margin-bottom: 12px; }
+.petition-body .target { font-size: 14px; color: #5A6B5F; margin-bottom: 20px; }
+.petition-counter { margin: 24px 0; }
+.petition-counter .num { font-size: 42px; font-weight: 800; font-variant-numeric: tabular-nums; color: #C62828; line-height: 1; animation: counter_pulse 3s ease-in-out infinite; }
+@keyframes counter_pulse { 0%, 100% { color: #C62828; } 50% { color: #E07A5F; } }
+.petition-counter .of { font-size: 16px; color: #5A6B5F; margin-left: 6px; }
+.progress { height: 10px; background: #E9F5E9; border-radius: 5px; overflow: hidden; margin: 14px 0; }
+.progress-fill { width: 56.95%; height: 100%; background: linear-gradient(90deg, #2D6A4F, #E07A5F); }
+.petition-form { display: flex; gap: 8px; margin-top: 20px; }
+.petition-form input { flex: 1; padding: 12px 14px; border: 1px solid #D5E3D8; border-radius: 4px; font-family: inherit; font-size: 15px; }
+.petition-meta { font-size: 12px; color: #5A6B5F; margin-top: 10px; }
+
+/* Contact rep */
+.rep-card { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.rep-card h3 { font-size: 28px; margin-bottom: 12px; }
+.rep-card p { color: #5A6B5F; margin-bottom: 24px; }
+.zip-lookup { display: flex; gap: 8px; margin-bottom: 24px; }
+.zip-lookup input { flex: 1; padding: 14px; border: 1px solid #D5E3D8; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: 0.05em; }
+.script-preview { background: #F4EFE6; border-left: 3px solid #E07A5F; padding: 20px; border-radius: 0 4px 4px 0; font-size: 14px; line-height: 1.6; color: #1B2E20; font-style: italic; }
+.script-preview strong { color: #2D6A4F; font-style: normal; }
+.rep-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.rep-tags span { background: #E9F5E9; color: #2D6A4F; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+
+/* Carbon calculator */
+.calc { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 48px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+.calc h3 { font-size: 28px; margin-bottom: 8px; }
+.calc-desc { color: #5A6B5F; margin-bottom: 28px; }
+.slider-row { margin-bottom: 22px; }
+.slider-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.slider-label .val { font-family: 'JetBrains Mono', monospace; color: #2D6A4F; }
+.slider-track { height: 6px; background: #E9F5E9; border-radius: 3px; position: relative; }
+.slider-fill { height: 100%; background: #2D6A4F; border-radius: 3px; }
+.slider-knob { width: 18px; height: 18px; background: #fff; border: 2px solid #2D6A4F; border-radius: 50%; position: absolute; top: -6px; }
+.slider-sub { font-size: 12px; color: #5A6B5F; margin-top: 6px; }
+.calc-result { background: #1B4332; color: #fff; padding: 32px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; }
+.calc-result .label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #B7E4C7; font-weight: 700; }
+.calc-result .big { font-size: 56px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; margin: 12px 0 4px; }
+.calc-result .unit { font-size: 15px; color: #B7E4C7; }
+.calc-compare { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 14px; }
+.calc-compare .row { display: flex; justify-content: space-between; padding: 6px 0; }
+.calc-compare .row .v { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+
+/* Map */
+.map-wrap { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 40px; }
+.map-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 20px; }
+.map-head h3 { font-size: 28px; }
+.map-stats { display: flex; gap: 32px; }
+.map-stat .n { font-size: 28px; font-weight: 800; color: #2D6A4F; font-variant-numeric: tabular-nums; }
+.map-stat .l { font-size: 12px; color: #5A6B5F; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.map-svg-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: stretch; }
+.map-svg { background: #E9F5E9; border-radius: 4px; padding: 16px; }
+.events-list { background: #F4EFE6; border-radius: 4px; padding: 20px; }
+.events-list h4 { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #5A6B5F; margin-bottom: 14px; font-weight: 700; }
+.event { padding: 12px 0; border-bottom: 1px solid #D5E3D8; }
+.event:last-child { border-bottom: none; }
+.event .date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C62828; font-weight: 600; }
+.event .name { font-size: 15px; font-weight: 600; margin: 2px 0; }
+.event .loc { font-size: 13px; color: #5A6B5F; }
+
+/* Volunteer */
+.vol-card { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 48px; display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
+.vol-card h3 { font-size: 28px; margin-bottom: 12px; }
+.vol-card > div > p { color: #5A6B5F; margin-bottom: 20px; }
+.role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.role { border: 1px solid #D5E3D8; border-radius: 4px; padding: 14px; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; }
+.role .check { width: 18px; height: 18px; border: 1.5px solid #2D6A4F; border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+.role.active { background: #E9F5E9; border-color: #2D6A4F; }
+.role.active .check { background: #2D6A4F; position: relative; }
+.role.active .check::after { content: '✓'; color: #fff; font-size: 12px; position: absolute; top: -2px; left: 3px; font-weight: 700; }
+.role .name { font-size: 14px; font-weight: 600; }
+.role .desc { font-size: 12px; color: #5A6B5F; margin-top: 2px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid .full { grid-column: 1 / -1; }
+.form-grid label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #1B2E20; }
+.form-grid input, .form-grid select { width: 100%; padding: 12px; border: 1px solid #D5E3D8; border-radius: 4px; font-family: inherit; font-size: 15px; }
+
+/* Share kit */
+.share-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
+.share-card { background: #fff; border: 1px solid #D5E3D8; border-radius: 4px; padding: 28px; }
+.share-card h4 { font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #5A6B5F; margin-bottom: 16px; font-weight: 700; }
+.post-preview { background: #F4EFE6; border-radius: 4px; padding: 18px; font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
+.post-preview .hash { color: #2D6A4F; font-weight: 600; }
+.share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.share-btn { background: #E9F5E9; color: #2D6A4F; padding: 8px 14px; border-radius: 4px; font-size: 13px; font-weight: 600; }
+.graphic-thumb { aspect-ratio: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #fff; font-weight: 800; font-family: 'Source Serif Pro', serif; }
+.graphics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gt1 { background: linear-gradient(135deg, #2D6A4F, #1B4332); }
+.gt2 { background: linear-gradient(135deg, #C62828, #E07A5F); }
+.gt3 { background: linear-gradient(135deg, #74C0FC, #2D6A4F); }
+.gt4 { background: linear-gradient(135deg, #E07A5F, #F4EFE6); color: #1B4332; }
+
+/* Footer */
+footer { background: #1B2E20; color: #B7E4C7; padding: 72px 24px 32px; }
+.foot-inner { max-width: 1200px; margin: 0 auto; }
+.foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.foot-top h5 { color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+.foot-top ul { list-style: none; }
+.foot-top li { padding: 6px 0; font-size: 14px; }
+.foot-top li a:hover { color: #fff; }
+.foot-brand .logo { color: #fff; margin-bottom: 14px; }
+.foot-brand p { font-size: 14px; max-width: 280px; }
+.foot-bot { padding-top: 32px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #5A6B5F; }
+.foot-bot .badges { display: flex; gap: 16px; }
+.foot-bot .badges span { background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 4px; }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-mark"></span>Climate Horizon Collective</a>
+    <div class="nav-links">
+      <a href="#">Our Work</a>
+      <a href="#">The Science</a>
+      <a href="#" style="color:#2D6A4F;font-weight:700;">Take Action</a>
+      <a href="#">Stories</a>
+      <a href="#">About</a>
+      <span class="nav-clock">⏱ 5Y 7M 12D TO 1.5°C</span>
+      <a href="#" class="btn-primary">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Take Action · 2024 Campaign Cycle</div>
+      <h1>Pick your power.</h1>
+      <p class="sub" style="margin-top:20px;">Six ways to push the needle this week — from 30 seconds to 30 hours. Choose what fits your day, then come back tomorrow.</p>
+      <div style="display:flex; gap:12px; margin-top:32px;">
+        <a href="#petition" class="btn-primary">Sign the petition</a>
+        <a href="#volunteer" class="btn-secondary">Volunteer with us</a>
+      </div>
+    </div>
+    <div class="hero-quick">
+      <h4>Choose your time commitment</h4>
+      <ul class="quick-list">
+        <li>Sign petition <span class="time">30 sec</span></li>
+        <li>Call your rep <span class="time">3 min</span></li>
+        <li>Share toolkit <span class="time">5 min</span></li>
+        <li>Carbon audit <span class="time">10 min</span></li>
+        <li>Donate monthly <span class="time">2 min</span></li>
+        <li>Volunteer locally <span class="time">2+ hrs/wk</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTER -->
+<section class="counter-band" style="padding:48px 24px;">
+  <div class="counter-inner">
+    <div>
+      <div class="counter-label">Actions taken in 2024</div>
+      <div class="counter-big">487,213</div>
+      <div class="counter-sub">Across 184 chapters · updated every 15 minutes</div>
+    </div>
+    <div class="counter-cell">
+      <div class="num">312,418</div>
+      <div class="lab">Petitions signed</div>
+    </div>
+    <div class="counter-cell">
+      <div class="num">96,820</div>
+      <div class="lab">Calls to reps</div>
+    </div>
+    <div class="counter-cell">
+      <div class="num">77,975</div>
+      <div class="lab">Volunteer hrs</div>
+    </div>
+  </div>
+</section>
+
+<!-- PETITION -->
+<section id="petition" class="bg-sage">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Featured Petition</div>
+      <h2>Stop the CP2 LNG Export Terminal.</h2>
+      <p>The proposed Calcasieu Pass 2 facility would lock in 20+ years of methane emissions and bulldoze Cameron Parish wetlands. FERC is reviewing public comment now.</p>
+    </div>
+    <div class="petition-card">
+      <div class="petition-img">
+        <span class="badge">Urgent · Closes Nov 14</span>
+      </div>
+      <div class="petition-body">
+        <h3>Tell FERC: Reject CP2's permit.</h3>
+        <div class="target">To: Federal Energy Regulatory Commission · Cc: Sec. Granholm, DOE</div>
+        <div class="petition-counter">
+          <span class="num">142,388</span><span class="of">of 250,000 signatures</span>
+        </div>
+        <div class="progress"><div class="progress-fill"></div></div>
+        <div style="font-size:13px; color:#5A6B5F;">107,612 signatures to go · 56% complete</div>
+        <div class="petition-form">
+          <input type="text" placeholder="Full name" value="">
+          <input type="email" placeholder="Email address">
+        </div>
+        <div class="petition-form" style="margin-top:8px;">
+          <input type="text" placeholder="ZIP code" style="max-width:140px;">
+          <button class="btn-accent" style="flex:1;">Sign the petition →</button>
+        </div>
+        <div class="petition-meta">We never sell your data. Read our <u>privacy policy</u>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT REP -->
+<section class="bg-white">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">2 · Call your Representative</div>
+      <h2>Three minutes. One phone call. Real leverage.</h2>
+      <p>The Clean Electricity Performance Standard is back on the floor. Constituent calls are the single most-tracked signal in congressional offices.</p>
+    </div>
+    <div class="rep-card">
+      <div>
+        <h3>Find your rep in 10 seconds</h3>
+        <p>Enter your ZIP and we'll generate a tailored script for your specific House member and both senators.</p>
+        <div class="zip-lookup">
+          <input type="text" placeholder="Your ZIP code (e.g. 70802)">
+          <button class="btn-primary">Look up →</button>
+        </div>
+        <div class="rep-tags">
+          <span>📞 Phone script</span>
+          <span>✉ Email template</span>
+          <span>📋 Office hours</span>
+          <span>🎯 Voting record</span>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:Inter,sans-serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#5A6B5F; margin-bottom:12px; font-weight:700;">Your script preview</h4>
+        <div class="script-preview">
+          "Hi, my name is <strong>[your name]</strong>, and I'm a constituent in <strong>[district]</strong>. I'm calling to urge <strong>Rep. [name]</strong> to support the Clean Electricity Performance Standard. We can't reach our 2030 emissions targets without a federal grid policy. Will the Representative commit to a yes vote? Thank you."
+        </div>
+        <div style="font-size:13px; color:#5A6B5F; margin-top:14px;">⏱ Average call duration: 47 seconds · You'll likely speak with a staffer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARBON CALCULATOR -->
+<section class="bg-sage">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">3 · Audit your footprint</div>
+      <h2>The carbon calculator that's honest about it.</h2>
+      <p>Personal action alone won't solve this — but knowing your baseline helps you advocate, vote, and spend with conviction.</p>
+    </div>
+    <div class="calc">
+      <div>
+        <h3>Your annual footprint</h3>
+        <p class="calc-desc">Drag the sliders to roughly match your lifestyle. We use EPA and Project Drawdown coefficients.</p>
+
+        <div class="slider-row">
+          <div class="slider-label"><span>🥗 Diet</span><span class="val">Omnivore, moderate red meat</span></div>
+          <div class="slider-track"><div class="slider-fill" style="width:55%;"></div><div class="slider-knob" style="left:53%;"></div></div>
+          <div class="slider-sub">≈ 2.8 tCO2e/yr</div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label"><span>🚗 Transport</span><span class="val">12,000 mi/yr, gas sedan</span></div>
+          <div class="slider-track"><div class="slider-fill" style="width:62%;"></div><div class="slider-knob" style="left:60%;"></div></div>
+          <div class="slider-sub">≈ 4.6 tCO2e/yr</div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label"><span>🏠 Home energy</span><span class="val">1,400 sq ft, mixed grid</span></div>
+          <div class="slider-track"><div class="slider-fill" style="width:48%;"></div><div class="slider-knob" style="left:46%;"></div></div>
+          <div class="slider-sub">≈ 3.2 tCO2e/yr</div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label"><span>✈ Flights</span><span class="val">2 medium-haul round trips</span></div>
+          <div class="slider-track"><div class="slider-fill" style="width:35%;"></div><div class="slider-knob" style="left:33%;"></div></div>
+          <div class="slider-sub">≈ 1.8 tCO2e/yr</div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label"><span>🛒 Goods & services</span><span class="val">Average US consumer</span></div>
+          <div class="slider-track"><div class="slider-fill" style="width:50%;"></div><div class="slider-knob" style="left:48%;"></div></div>
+          <div class="slider-sub">≈ 1.9 tCO2e/yr</div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="label">Your estimate</div>
+        <div class="big">14.3</div>
+        <div class="unit">tons CO₂e per year</div>
+        <div class="calc-compare">
+          <div class="row"><span>US average</span><span class="v">16.0 t</span></div>
+          <div class="row"><span>EU average</span><span class="v">7.4 t</span></div>
+          <div class="row"><span>Global average</span><span class="v">4.7 t</span></div>
+          <div class="row" style="color:#B7E4C7;"><span>1.5°C-aligned by 2030</span><span class="v">2.3 t</span></div>
+        </div>
+        <a href="#" style="display:block; margin-top:20px; font-size:14px; color:#B7E4C7; border-bottom:1px solid rgba(183,228,199,0.3); padding-bottom:6px;">See top 5 changes for your profile →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL ACTION MAP -->
+<section class="bg-white">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">4 · Show up local</div>
+      <h2>Find your nearest chapter.</h2>
+      <p>184 active chapters organizing in their cities — from heat-pump workshops to climate strikes. Most welcome new folks with no experience.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="map-head">
+        <h3>Chapters & events near you</h3>
+        <div class="map-stats">
+          <div class="map-stat"><div class="n">184</div><div class="l">Active chapters</div></div>
+          <div class="map-stat"><div class="n">62</div><div class="l">Events this month</div></div>
+          <div class="map-stat"><div class="n">47</div><div class="l">US states</div></div>
+        </div>
+      </div>
+      <div class="map-svg-wrap">
+        <div class="map-svg">
+          <svg viewBox="0 0 600 340" style="width:100%; height:auto; display:block;">
+            <!-- US-ish outline -->
+            <path d="M40,140 Q60,80 120,70 L200,55 Q280,50 360,65 L460,55 Q520,70 555,110 L560,180 Q540,230 480,260 L380,290 Q300,300 220,290 L140,275 Q70,250 40,200 Z" fill="#B7E4C7" stroke="#2D6A4F" stroke-width="1.5"/>
+            <!-- State dividers (suggestive) -->
+            <line x1="180" y1="80" x2="180" y2="280" stroke="#fff" stroke-width="1" opacity="0.6"/>
+            <line x1="280" y1="70" x2="280" y2="290" stroke="#fff" stroke-width="1" opacity="0.6"/>
+            <line x1="380" y1="65" x2="380" y2="285" stroke="#fff" stroke-width="1" opacity="0.6"/>
+            <line x1="460" y1="80" x2="460" y2="270" stroke="#fff" stroke-width="1" opacity="0.6"/>
+            <line x1="40" y1="170" x2="560" y2="170" stroke="#fff" stroke-width="1" opacity="0.6"/>
+            <!-- Pins -->
+            <g>
+              <circle cx="120" cy="120" r="7" fill="#C62828" stroke="#fff" stroke-width="2"/>
+              <circle cx="150" cy="190" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="200" cy="160" r="6" fill="#E07A5F" stroke="#fff" stroke-width="2"/>
+              <circle cx="240" cy="220" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="290" cy="140" r="7" fill="#C62828" stroke="#fff" stroke-width="2"/>
+              <circle cx="320" cy="240" r="6" fill="#74C0FC" stroke="#fff" stroke-width="2"/>
+              <circle cx="370" cy="180" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="420" cy="120" r="6" fill="#E07A5F" stroke="#fff" stroke-width="2"/>
+              <circle cx="450" cy="220" r="7" fill="#C62828" stroke="#fff" stroke-width="2"/>
+              <circle cx="490" cy="155" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="510" cy="200" r="6" fill="#74C0FC" stroke="#fff" stroke-width="2"/>
+              <circle cx="80" cy="180" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="220" cy="100" r="6" fill="#E07A5F" stroke="#fff" stroke-width="2"/>
+              <circle cx="340" cy="100" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+              <circle cx="270" cy="270" r="6" fill="#C62828" stroke="#fff" stroke-width="2"/>
+              <circle cx="400" cy="260" r="5" fill="#2D6A4F" stroke="#fff" stroke-width="2"/>
+            </g>
+            <!-- Legend -->
+            <g transform="translate(40,310)">
+              <circle cx="0" cy="0" r="4" fill="#C62828"/><text x="9" y="4" font-size="11" fill="#1B2E20" font-family="Inter">Strike/rally</text>
+              <circle cx="100" cy="0" r="4" fill="#2D6A4F"/><text x="109" y="4" font-size="11" fill="#1B2E20" font-family="Inter">Chapter meeting</text>
+              <circle cx="225" cy="0" r="4" fill="#E07A5F"/><text x="234" y="4" font-size="11" fill="#1B2E20" font-family="Inter">Workshop</text>
+              <circle cx="320" cy="0" r="4" fill="#74C0FC"/><text x="329" y="4" font-size="11" fill="#1B2E20" font-family="Inter">Training</text>
+            </g>
+          </svg>
+        </div>
+        <div class="events-list">
+          <h4>Upcoming Events</h4>
+          <div class="event">
+            <div class="date">OCT 12 · SAT</div>
+            <div class="name">Boston Climate Strike</div>
+            <div class="loc">Boston Common · 11:00 AM</div>
+          </div>
+          <div class="event">
+            <div class="date">OCT 15 · TUE</div>
+            <div class="name">Denver Heat Pump Workshop</div>
+            <div class="loc">RiNo Community Hall · 6:30 PM</div>
+          </div>
+          <div class="event">
+            <div class="date">OCT 19 · SAT</div>
+            <div class="name">Phoenix Chapter Onboarding</div>
+            <div class="loc">Downtown Library · 2:00 PM</div>
+          </div>
+          <div class="event">
+            <div class="date">OCT 22 · TUE</div>
+            <div class="name">Brooklyn Lobby Training</div>
+            <div class="loc">St. Joseph's Hall · 7:00 PM</div>
+          </div>
+          <div class="event">
+            <div class="date">OCT 26 · SAT</div>
+            <div class="name">Seattle Rapid Response 101</div>
+            <div class="loc">Cap Hill Center · 10:00 AM</div>
+          </div>
+          <a href="#" style="display:block; margin-top:14px; font-size:13px; color:#2D6A4F; font-weight:600;">See all 62 events →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer" class="bg-sage">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">5 · Join the roster</div>
+      <h2>We need your skills, not just your time.</h2>
+      <p>Whether you can give two hours a week or twenty, there's a role. We'll match you to a local lead within 72 hours.</p>
+    </div>
+    <div class="vol-card">
+      <div>
+        <h3>What role fits you?</h3>
+        <p>Pick one or more. You can update preferences any time.</p>
+        <div class="role-grid">
+          <div class="role active">
+            <div class="check"></div>
+            <div><div class="name">Phone banker</div><div class="desc">Voter outreach, 2 hrs/wk</div></div>
+          </div>
+          <div class="role">
+            <div class="check"></div>
+            <div><div class="name">Data analyst</div><div class="desc">SQL/Python, async work</div></div>
+          </div>
+          <div class="role active">
+            <div class="check"></div>
+            <div><div class="name">Community organizer</div><div class="desc">Lead a local chapter</div></div>
+          </div>
+          <div class="role">
+            <div class="check"></div>
+            <div><div class="name">Translator</div><div class="desc">ES, FR, AR, ZH, PT</div></div>
+          </div>
+          <div class="role">
+            <div class="check"></div>
+            <div><div class="name">Designer</div><div class="desc">Graphics & toolkits</div></div>
+          </div>
+          <div class="role">
+            <div class="check"></div>
+            <div><div class="name">Researcher</div><div class="desc">Policy briefs, lit review</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Your details</h3>
+        <p>We'll only contact you about roles you've selected. No newsletter spam.</p>
+        <div class="form-grid">
+          <div><label>First name</label><input type="text" placeholder="Maya"></div>
+          <div><label>Last name</label><input type="text" placeholder="Okonkwo"></div>
+          <div class="full"><label>Email</label><input type="email" placeholder="you@example.com"></div>
+          <div><label>ZIP / Postal</label><input type="text" placeholder="11211"></div>
+          <div><label>Hours per week</label>
+            <select><option>2–4 hrs</option><option>5–10 hrs</option><option>10+ hrs</option></select>
+          </div>
+          <div class="full"><label>Languages spoken (optional)</label><input type="text" placeholder="English, Yoruba, Portuguese"></div>
+        </div>
+        <button class="btn-primary" style="margin-top:20px; width:100%; padding:14px;">Add me to the roster →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE -->
+<section class="bg-white">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">6 · Share the work</div>
+      <h2>The toolkit. Yours to remix.</h2>
+      <p>Pre-written posts, downloadable graphics, and the <strong>#HorizonBy2030</strong> hashtag — designed for Instagram, LinkedIn, Bluesky, and TikTok.</p>
+    </div>
+    <div class="share-grid">
+      <div class="share-card">
+        <h4>Pre-written posts</h4>
+        <div class="post-preview">
+          We have <strong>5 years, 7 months</strong> to limit warming to 1.5°C. The CP2 LNG terminal would lock in 20+ years of methane. Add your name to the FERC petition before Nov 14. <span class="hash">#HorizonBy2030</span>
+        </div>
+        <div class="post-preview">
+          312,418 of us called Congress this year about the Clean Electricity Performance Standard. One call takes 47 seconds. Find your rep's number at climatehorizon.org/act. <span class="hash">#HorizonBy2030</span>
+        </div>
+        <div class="share-btns">
+          <span class="share-btn">Copy text</span>
+          <span class="share-btn">📱 Instagram</span>
+          <span class="share-btn">💼 LinkedIn</span>
+          <span class="share-btn">🦋 Bluesky</span>
+        </div>
+      </div>
+      <div class="share-card">
+        <h4>Downloadable graphics</h4>
+        <div class="graphics">
+          <div class="graphic-thumb gt1">1.5°</div>
+          <div class="graphic-thumb gt2">422<span style="font-size:14px;">ppm</span></div>
+          <div class="graphic-thumb gt3">2030</div>
+          <div class="graphic-thumb gt4">CP2</div>
+        </div>
+        <div style="margin-top:14px; font-size:13px; color:#5A6B5F;">PNG · SVG · 1:1, 9:16, 16:9 ratios included</div>
+        <a href="#" class="btn-secondary" style="margin-top:14px; display:block; text-align:center;">Download full kit (24 MB)</a>
+      </div>
+      <div class="share-card">
+        <h4>Spread the hashtag</h4>
+        <div style="font-family:'Source Serif Pro',serif; font-size:32px; color:#2D6A4F; font-weight:700; margin-bottom:8px;">#HorizonBy2030</div>
+        <div style="font-size:14px; color:#5A6B5F; margin-bottom:16px;">Used 84,200+ times across platforms in 2024. Tag us and we'll amplify the best posts in The Horizon Brief.</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div style="background:#E9F5E9; padding:10px; border-radius:4px; text-align:center;"><div style="font-weight:800; font-size:20px; color:#2D6A4F;">42K</div><div style="font-size:11px; color:#5A6B5F;">Instagram</div></div>
+          <div style="background:#E9F5E9; padding:10px; border-radius:4px; text-align:center;"><div style="font-weight:800; font-size:20px; color:#2D6A4F;">28K</div><div style="font-size:11px; color:#5A6B5F;">TikTok</div></div>
+          <div style="background:#E9F5E9; padding:10px; border-radius:4px; text-align:center;"><div style="font-weight:800; font-size:20px; color:#2D6A4F;">9.4K</div><div style="font-size:11px; color:#5A6B5F;">Bluesky</div></div>
+          <div style="background:#E9F5E9; padding:10px; border-radius:4px; text-align:center;"><div style="font-weight:800; font-size:20px; color:#2D6A4F;">4.8K</div><div style="font-size:11px; color:#5A6B5F;">LinkedIn</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); color: #fff; padding: 80px 24px;">
+  <div class="container" style="text-align:center;">
+    <h2 style="color:#fff; max-width:780px; margin:0 auto 16px;">The fastest way to multiply your action? Become a monthly donor.</h2>
+    <p style="color:#B7E4C7; max-width:600px; margin:0 auto 28px;">$35/mo funds one community organizer for a week. Stable monthly support lets us hire, plan, and fight long campaigns.</p>
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <a href="#" class="btn-accent">Give monthly →</a>
+      <a href="#" style="background:transparent; border:1.5px solid #B7E4C7; color:#fff; padding:11px 22px; border-radius:4px; font-weight:600; font-size:15px;">One-time donation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><span class="logo-mark"></span>Climate Horizon Collective</div>
+        <p>Science. Justice. Action. Before 2030. A 501(c)(3) coalition working in 31 countries.</p>
+      </div>
+      <div>
+        <h5>Work</h5>
+        <ul><li><a href="#">Campaigns</a></li><li><a href="#">The Science</a></li><li><a href="#">Stories</a></li><li><a href="#">Policy briefs</a></li></ul>
+      </div>
+      <div>
+        <h5>Act</h5>
+        <ul><li><a href="#">Donate</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Petitions</a></li><li><a href="#">Find a chapter</a></li></ul>
+      </div>
+      <div>
+        <h5>Org</h5>
+        <ul><li><a href="#">About & team</a></li><li><a href="#">Financials</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul><li><a href="#">hello@climatehorizon.org</a></li><li><a href="#">Press inquiries</a></li><li><a href="#">Newsletter</a></li><li><a href="#">@horizonby2030</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>© 2024 Climate Horizon Collective · EIN 47-2018114 · 501(c)(3)</div>
+      <div class="badges">
+        <span>★★★★ Charity Navigator</span>
+        <span>Candid Platinum</span>
+        <span>BBB Accredited</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

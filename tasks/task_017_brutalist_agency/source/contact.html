@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact — VANTBLACK/STUDIO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Cursor */
+.cursor-dot {
+  position: fixed;
+  top: 200px;
+  left: 600px;
+  width: 24px;
+  height: 24px;
+  background: #FFE500;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+/* Page Transition */
+@keyframes pageFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageFade 0.8s cubic-bezier(0.77, 0, 0.175, 1) both; }
+
+/* Scramble */
+@keyframes scramble {
+  0%,100% { letter-spacing: 0; }
+  25% { letter-spacing: 0.05em; transform: skewX(-2deg); }
+  50% { letter-spacing: -0.02em; }
+  75% { letter-spacing: 0.03em; transform: skewX(1deg); }
+}
+.scramble:hover { animation: scramble 0.4s steps(4) both; display: inline-block; }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+/* Left Nav */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 100vh;
+  background: #000;
+  border-right: 3px solid #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.side-nav .brand-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.side-nav .nav-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFE500;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+}
+
+.side-nav .nav-dot {
+  width: 10px;
+  height: 10px;
+  background: #FFE500;
+}
+
+/* Top Nav Bar */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 72px;
+  right: 0;
+  height: 72px;
+  background: #000;
+  border-bottom: 3px solid #fff;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.top-nav .links {
+  display: flex;
+  gap: 56px;
+}
+
+.top-nav .links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  position: relative;
+  padding: 4px 0;
+}
+
+.top-nav .links a.current {
+  color: #FFE500;
+}
+
+.top-nav .links a.current::before {
+  content: '→ ';
+}
+
+.top-nav .pagecount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 0.15em;
+}
+
+.top-nav .pagecount span { color: #FFE500; }
+
+main {
+  padding-left: 72px;
+  padding-top: 72px;
+}
+
+/* HERO */
+.hero {
+  border-bottom: 3px solid #fff;
+  padding: 120px 64px 80px;
+  position: relative;
+}
+
+.hero .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #FFE500;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 240px;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 48px;
+}
+
+.hero h1 .dot {
+  color: #FFE500;
+}
+
+.hero .sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  max-width: 640px;
+  line-height: 1.35;
+  color: #fff;
+  margin-left: auto;
+  margin-right: 8%;
+}
+
+.hero .sub::before {
+  content: '↘ ';
+  color: #FFE500;
+}
+
+/* EMAIL BLOCK */
+.email-block {
+  padding: 140px 64px 140px;
+  border-bottom: 3px solid #fff;
+  position: relative;
+}
+
+.email-block::before {
+  content: '01 / PRIMARY';
+  position: absolute;
+  top: 32px;
+  left: 64px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #666;
+}
+
+.email-block .primary-email {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  display: block;
+  margin-bottom: 64px;
+  border-bottom: 4px solid #FFE500;
+  padding-bottom: 24px;
+}
+
+.email-block .primary-email:hover {
+  color: #FFE500;
+}
+
+.email-block .secondary {
+  display: flex;
+  gap: 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #999;
+}
+
+.email-block .secondary strong {
+  color: #fff;
+  font-weight: 400;
+}
+
+.email-block .secondary a {
+  color: #fff;
+  border-bottom: 1px solid #FFE500;
+  padding-bottom: 2px;
+}
+
+/* ADDRESSES */
+.addresses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 3px solid #fff;
+}
+
+.address-card {
+  padding: 80px 48px;
+  border-right: 3px solid #fff;
+  position: relative;
+}
+
+.address-card:last-child { border-right: none; }
+
+.address-card .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFE500;
+  letter-spacing: 0.25em;
+  margin-bottom: 32px;
+}
+
+.address-card .city {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.address-card .addr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #999;
+}
+
+.address-card .addr strong {
+  color: #fff;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.address-card .hours {
+  margin-top: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* FORM */
+.form-section {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border-bottom: 3px solid #fff;
+}
+
+.form-side {
+  padding: 80px 48px;
+  border-right: 3px solid #fff;
+  background: #0a0a0a;
+}
+
+.form-side .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFE500;
+  letter-spacing: 0.25em;
+  margin-bottom: 40px;
+}
+
+.form-side h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+}
+
+.form-side p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #999;
+  margin-bottom: 32px;
+}
+
+.form-side .check {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FFE500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-side .check::before { content: '✓ '; }
+
+.brief-form {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 12px;
+}
+
+.field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #FFE500;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.field label .req { color: #666; margin-left: 8px; }
+
+.field input,
+.field textarea {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 0;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #333;
+}
+
+.field textarea {
+  resize: none;
+  min-height: 120px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.budget-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 8px;
+}
+
+.budget-options .opt {
+  border: 2px solid #fff;
+  padding: 24px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  margin-left: -2px;
+  position: relative;
+  transition: all 0.2s;
+  background: #000;
+}
+
+.budget-options .opt:first-child { margin-left: 0; }
+.budget-options .opt:hover { background: #FFE500; color: #000; }
+.budget-options .opt.selected { background: #FFE500; color: #000; }
+
+.budget-options .opt .range {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin-bottom: 8px;
+}
+
+.submit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.submit-row .note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.submit-btn {
+  background: #FFE500;
+  color: #000;
+  border: 3px solid #FFE500;
+  padding: 28px 56px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover {
+  background: #000;
+  color: #FFE500;
+}
+
+/* SOCIAL */
+.social-section {
+  padding: 80px 64px;
+  border-bottom: 3px solid #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.social-section .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFE500;
+  letter-spacing: 0.25em;
+  margin-bottom: 24px;
+}
+
+.social-section h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  line-height: 1;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+}
+
+.social-links a {
+  border-bottom: 3px solid transparent;
+  padding-bottom: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.social-links a::before {
+  content: '↗';
+  color: #FFE500;
+  font-size: 20px;
+  vertical-align: super;
+  margin-right: 6px;
+}
+
+.social-links a:hover {
+  color: #FFE500;
+  border-bottom-color: #FFE500;
+}
+
+.social-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.social-meta strong {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Marquee Bar */
+.marquee-bar {
+  background: #FFE500;
+  color: #000;
+  padding: 24px 0;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  overflow: hidden;
+}
+
+.marquee-bar .marquee-track {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.marquee-bar .marquee-track span {
+  padding: 0 32px;
+}
+
+.marquee-bar .marquee-track .star { color: #000; }
+
+/* FOOTER */
+footer {
+  background: #000;
+  padding: 64px 64px 32px;
+  border-top: 3px solid #fff;
+}
+
+footer .top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #333;
+}
+
+footer .brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+footer .brand .slash { color: #FFE500; }
+
+footer .tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.15em;
+  margin-top: 16px;
+  text-transform: uppercase;
+}
+
+footer .col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FFE500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+footer .col a, footer .col p {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+footer .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+footer .bottom .accent { color: #FFE500; }
+
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+
+<aside class="side-nav">
+  <div class="nav-dot"></div>
+  <div class="brand-vertical">VANTBLACK/STUDIO</div>
+  <div class="nav-counter">05·05</div>
+</aside>
+
+<nav class="top-nav">
+  <div class="links">
+    <a href="#" class="scramble">Index</a>
+    <a href="#" class="scramble">Work</a>
+    <a href="#" class="scramble">Studio</a>
+    <a href="#" class="current scramble">Contact</a>
+  </div>
+  <div class="pagecount">PAGE <span>05 / 05</span></div>
+</nav>
+
+<main class="page-enter">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="label">
+      <span>§ 05 — CONTACT / NEW BUSINESS</span>
+      <span>EST. 2017 · BERLIN</span>
+    </div>
+    <h1>TALK TO US<span class="dot">.</span></h1>
+    <p class="sub">New business inquiries reviewed weekly. We respond to everyone — even the ones we politely decline. No bots, no forms forwarded into a void.</p>
+  </section>
+
+  <!-- EMAIL BLOCK -->
+  <section class="email-block">
+    <a href="mailto:hello@vantblack.studio" class="primary-email scramble">hello@vantblack.studio</a>
+    <div class="secondary">
+      <div><strong>PRESS &amp; EDITORIAL —</strong> <a href="mailto:press@vantblack.studio">press@vantblack.studio</a></div>
+      <div><strong>CAREERS —</strong> <a href="mailto:jobs@vantblack.studio">jobs@vantblack.studio</a></div>
+      <div><strong>PGP —</strong> <a href="#">0xA4F9 2B17</a></div>
+    </div>
+  </section>
+
+  <!-- ADDRESSES -->
+  <section class="addresses">
+    <div class="address-card">
+      <div class="num">02 / DE — HQ</div>
+      <div class="city">BERLIN</div>
+      <div class="addr">
+        <strong>Köpenicker Str. 187</strong>
+        10997 Kreuzberg<br>
+        Germany<br>
+        +49 30 2904 1182
+      </div>
+      <div class="hours">Mon–Thu · 09:00 – 19:00 CET</div>
+    </div>
+    <div class="address-card">
+      <div class="num">03 / US</div>
+      <div class="city">NEW YORK</div>
+      <div class="addr">
+        <strong>55 Walker St, FL 4</strong>
+        Tribeca, NY 10013<br>
+        United States<br>
+        +1 212 555 0184
+      </div>
+      <div class="hours">Mon–Fri · 10:00 – 18:00 EST</div>
+    </div>
+    <div class="address-card">
+      <div class="num">04 / KR</div>
+      <div class="city">SEOUL</div>
+      <div class="addr">
+        <strong>14 Itaewon-ro</strong>
+        Yongsan-gu, 04347<br>
+        Republic of Korea<br>
+        +82 2 6953 1187
+      </div>
+      <div class="hours">Tue–Sat · 10:00 – 20:00 KST</div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <div class="form-side">
+      <div class="num">05 / BRIEF</div>
+      <h2>Send us a brief.</h2>
+      <p>Four fields. Three minutes. We read every submission within seven days. If we can help, you'll hear from a partner — not a salesperson.</p>
+      <span class="check">Reviewed weekly by Mira &amp; Otto</span>
+      <span class="check">Avg. response within 5 days</span>
+      <span class="check">NDA available on request</span>
+    </div>
+
+    <form class="brief-form" onsubmit="return false;">
+      <div class="field">
+        <label>01 — Your name <span class="req">required</span></label>
+        <input type="text" placeholder="e.g. Anouk Vermeer">
+      </div>
+
+      <div class="field">
+        <label>02 — Company / Organisation</label>
+        <input type="text" placeholder="e.g. Koruna Hodinářství">
+      </div>
+
+      <div class="field" style="border-bottom: none;">
+        <label>03 — Budget range</label>
+        <div class="budget-options">
+          <div class="opt">
+            <span class="range">Under €50K</span>
+            Identity sprint
+          </div>
+          <div class="opt selected">
+            <span class="range">€50–250K</span>
+            Full rebrand
+          </div>
+          <div class="opt">
+            <span class="range">€250K+</span>
+            Multi-phase
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>04 — Tell us about the project</label>
+        <textarea placeholder="What are you making? Who is it for? When does it need to exist?"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <p class="note">By submitting you agree to our quiet review process. No newsletters, no follow-up funnels.</p>
+        <button class="submit-btn scramble">Send Brief →</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- SOCIAL -->
+  <section class="social-section">
+    <div>
+      <div class="num">06 / ELSEWHERE</div>
+      <h3>Where we lurk.</h3>
+      <div class="social-links">
+        <a href="#" class="scramble">Instagram</a>
+        <a href="#" class="scramble">Are.na</a>
+        <a href="#" class="scramble">Read.cv</a>
+        <a href="#" class="scramble">LinkedIn</a>
+      </div>
+    </div>
+    <div>
+      <div class="num">07 / META</div>
+      <h3>The fine print.</h3>
+      <div class="social-meta">
+        <strong>VANTBLACK STUDIO GmbH</strong>
+        Registered: Amtsgericht Berlin-Charlottenburg, HRB 198472 B<br>
+        VAT: DE 318 924 671<br>
+        Managing partners: Mira Hess, Otto Lindgren<br><br>
+        <strong>Recruiters &amp; agencies:</strong> please don't.<br>
+        <strong>Speaking requests:</strong> press@vantblack.studio<br>
+        <strong>Awards submissions:</strong> we self-submit, thank you.
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span>NOW BOOKING Q2 2024</span><span class="star">✦</span>
+      <span>TAKING 6 PROJECTS THIS YEAR</span><span class="star">✦</span>
+      <span>SAY HELLO</span><span class="star">✦</span>
+      <span>HELLO@VANTBLACK.STUDIO</span><span class="star">✦</span>
+      <span>WE READ EVERYTHING</span><span class="star">✦</span>
+      <span>NOW BOOKING Q2 2024</span><span class="star">✦</span>
+      <span>TAKING 6 PROJECTS THIS YEAR</span><span class="star">✦</span>
+      <span>SAY HELLO</span><span class="star">✦</span>
+      <span>HELLO@VANTBLACK.STUDIO</span><span class="star">✦</span>
+      <span>WE READ EVERYTHING</span><span class="star">✦</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="top">
+      <div>
+        <div class="brand">VANTBLACK<span class="slash">/</span>STUDIO</div>
+        <div class="tagline">We make brands that refuse to be ignored.</div>
+      </div>
+      <div class="col">
+        <h4>Navigate</h4>
+        <a href="#">Index</a>
+        <a href="#">Work</a>
+        <a href="#">Studio</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="col">
+        <h4>Offices</h4>
+        <p>Berlin · HQ</p>
+        <p>New York</p>
+        <p>Seoul</p>
+      </div>
+      <div class="col">
+        <h4>Direct</h4>
+        <a href="mailto:hello@vantblack.studio">hello@vantblack.studio</a>
+        <a href="mailto:press@vantblack.studio">press@vantblack.studio</a>
+        <a href="mailto:jobs@vantblack.studio">jobs@vantblack.studio</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2017—2024 VANTBLACK STUDIO GMBH — INDEPENDENT, UNREPRESENTED</div>
+      <div><span class="accent">●</span> ACCEPTING BRIEFS · Q2 2024</div>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

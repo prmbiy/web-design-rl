@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hacker News</title>
+<style>
+  body {
+    background: #F6F6EF;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+  a { color: #000000; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .subtext a { color: #828282; }
+  .subtext a:hover { text-decoration: underline; }
+
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    background: #F6F6EF;
+  }
+
+  .topbar {
+    background: #FF6600;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    font-size: 10pt;
+  }
+  .topbar .logo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #FFFFFF;
+    background: #FF6600;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 18px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 0 4px 0 2px;
+    font-size: 11pt;
+  }
+  .topbar .brand {
+    font-weight: bold;
+    color: #000000;
+    margin-right: 8px;
+  }
+  .topbar .nav a {
+    color: #000000;
+  }
+  .topbar .nav {
+    flex: 1;
+    color: #000000;
+  }
+  .topbar .login {
+    color: #000000;
+    margin-right: 4px;
+  }
+
+  .story-list {
+    padding: 4px 0 4px 0;
+  }
+  .story {
+    padding: 1px 0;
+    font-size: 10pt;
+  }
+  .story-row {
+    display: flex;
+    align-items: baseline;
+  }
+  .rank {
+    display: inline-block;
+    width: 28px;
+    text-align: right;
+    color: #828282;
+    font-size: 10pt;
+    padding-right: 2px;
+  }
+  .vote {
+    display: inline-block;
+    width: 12px;
+    color: #999999;
+    font-size: 8pt;
+    text-align: center;
+    cursor: pointer;
+  }
+  .vote:hover { color: #FF6600; }
+  .titleline {
+    margin-left: 2px;
+  }
+  .titleline a.title {
+    color: #000000;
+  }
+  .titleline a.title:visited {
+    color: #828282;
+  }
+  .domain {
+    color: #828282;
+    font-size: 8pt;
+  }
+  .domain a {
+    color: #828282;
+  }
+  .subtext {
+    color: #828282;
+    font-size: 7pt;
+    padding-left: 42px;
+    padding-bottom: 4px;
+  }
+  .subtext a {
+    color: #828282;
+  }
+
+  .more {
+    padding: 8px 0 8px 42px;
+    font-size: 10pt;
+  }
+  .more a {
+    color: #000000;
+  }
+
+  .footer-divider {
+    border-top: 2px solid #FF6600;
+    margin: 8px 0 6px 0;
+  }
+  .footer {
+    text-align: center;
+    color: #828282;
+    font-size: 8pt;
+    padding: 4px 0 12px 0;
+  }
+  .footer a {
+    color: #828282;
+  }
+  .footer .search {
+    margin-top: 6px;
+  }
+  .footer .search input {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    border: 1px solid #828282;
+    padding: 1px 3px;
+    background: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <span class="logo">Y</span>
+      <span class="brand"><a href="#">Hacker News</a></span>
+      <span class="nav">
+        <a href="#">new</a> |
+        <a href="#">past</a> |
+        <a href="#">comments</a> |
+        <a href="#">ask</a> |
+        <a href="#">show</a> |
+        <a href="#">jobs</a> |
+        <a href="#">submit</a>
+      </span>
+      <span class="login"><a href="#">login</a></span>
+    </div>
+
+    <div class="story-list">
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">1.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Show HN: I built a local-first Postgres GUI in Rust</a>
+            <span class="domain">(<a href="#">github.com/pgwave</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">412 points by <a href="#">pgwave_dev</a> 3 hours ago | <a href="#">hide</a> | <a href="#">287 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">2.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Llama 3.1 405B weights released</a>
+            <span class="domain">(<a href="#">ai.meta.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">1893 points by <a href="#">zuckface</a> 6 hours ago | <a href="#">hide</a> | <a href="#">1124 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">3.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Why CRDTs are harder than they look</a>
+            <span class="domain">(<a href="#">jakelazaroff.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">298 points by <a href="#">jakelazaroff</a> 4 hours ago | <a href="#">hide</a> | <a href="#">142 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">4.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">SQLite is not a toy database</a>
+            <span class="domain">(<a href="#">antonz.org</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">724 points by <a href="#">nalgeon</a> 7 hours ago | <a href="#">hide</a> | <a href="#">389 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">5.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Ask HN: What are you working on in October 2023?</a>
+          </span>
+        </div>
+        <div class="subtext">231 points by <a href="#">mrbarrett</a> 5 hours ago | <a href="#">hide</a> | <a href="#">612 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">6.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">The unreasonable effectiveness of single-binary deployments</a>
+            <span class="domain">(<a href="#">fly.io</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">456 points by <a href="#">tomh_fly</a> 8 hours ago | <a href="#">hide</a> | <a href="#">203 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">7.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Show HN: Tldraw – an infinite canvas SDK</a>
+            <span class="domain">(<a href="#">tldraw.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">587 points by <a href="#">steveruizok</a> 9 hours ago | <a href="#">hide</a> | <a href="#">178 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">8.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">A 19th-century mathematical conjecture that fell to ChatGPT</a>
+            <span class="domain">(<a href="#">quantamagazine.org</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">312 points by <a href="#">digital_ghost</a> 11 hours ago | <a href="#">hide</a> | <a href="#">256 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">9.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Linux 6.6 released with bcachefs filesystem support</a>
+            <span class="domain">(<a href="#">kernel.org</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">619 points by <a href="#">torvalds_fan</a> 12 hours ago | <a href="#">hide</a> | <a href="#">341 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">10.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Retool (YC W17) Is Hiring a Senior Backend Engineer — San Francisco</a>
+          </span>
+        </div>
+        <div class="subtext">1 hour ago | <a href="#">hide</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">11.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">I quit my $400k job to grow tomatoes</a>
+            <span class="domain">(<a href="#">substack.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">893 points by <a href="#">ex_meta_pm</a> 13 hours ago | <a href="#">hide</a> | <a href="#">472 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">12.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Show HN: I replaced Zapier with 200 lines of Deno</a>
+            <span class="domain">(<a href="#">github.com/marko</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">421 points by <a href="#">marko_dev</a> 10 hours ago | <a href="#">hide</a> | <a href="#">165 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">13.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">The hidden cost of microservices at small scale</a>
+            <span class="domain">(<a href="#">martinfowler.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">278 points by <a href="#">mfowler</a> 14 hours ago | <a href="#">hide</a> | <a href="#">198 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">14.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Ask HN: I'm 42 and burned out — what next?</a>
+          </span>
+        </div>
+        <div class="subtext">512 points by <a href="#">tired_dev_42</a> 9 hours ago | <a href="#">hide</a> | <a href="#">734 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">15.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Mojo language goes open source</a>
+            <span class="domain">(<a href="#">modular.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">734 points by <a href="#">lattner_ai</a> 15 hours ago | <a href="#">hide</a> | <a href="#">412 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">16.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">A deep dive into io_uring</a>
+            <span class="domain">(<a href="#">lwn.net</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">186 points by <a href="#">kernel_hacker</a> 16 hours ago | <a href="#">hide</a> | <a href="#">73 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">17.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Show HN: Offline-first Markdown editor for iPad</a>
+            <span class="domain">(<a href="#">ergojot.app</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">203 points by <a href="#">ergojot</a> 7 hours ago | <a href="#">hide</a> | <a href="#">89 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">18.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Apple's M3 chip benchmarks leak — 25% faster than M2</a>
+            <span class="domain">(<a href="#">anandtech.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">389 points by <a href="#">silicon_watch</a> 17 hours ago | <a href="#">hide</a> | <a href="#">267 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">19.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Ask HN: Best resources to learn CUDA in 2023?</a>
+          </span>
+        </div>
+        <div class="subtext">167 points by <a href="#">gpu_curious</a> 6 hours ago | <a href="#">hide</a> | <a href="#">298 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">20.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">The case against React</a>
+            <span class="domain">(<a href="#">infrequently.org</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">654 points by <a href="#">slightlyoff</a> 18 hours ago | <a href="#">hide</a> | <a href="#">893 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">21.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Pave (YC S19) Is Hiring a Founding Designer — Remote (US)</a>
+          </span>
+        </div>
+        <div class="subtext">2 hours ago | <a href="#">hide</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">22.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">How I shipped a SaaS solo in 30 days</a>
+            <span class="domain">(<a href="#">indiehackers.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">243 points by <a href="#">solo_founder</a> 19 hours ago | <a href="#">hide</a> | <a href="#">128 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">23.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Postgres 16 query optimizer changes that will surprise you</a>
+            <span class="domain">(<a href="#">crunchydata.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">312 points by <a href="#">pg_guru</a> 20 hours ago | <a href="#">hide</a> | <a href="#">87 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">24.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Bun 1.0 is released</a>
+            <span class="domain">(<a href="#">bun.sh</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">812 points by <a href="#">jarred_sumner</a> 21 hours ago | <a href="#">hide</a> | <a href="#">534 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">25.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">A mathematician's lament (2002) [pdf]</a>
+            <span class="domain">(<a href="#">maa.org</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">198 points by <a href="#">lockhart_fan</a> 22 hours ago | <a href="#">hide</a> | <a href="#">156 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">26.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Building a Tiny WASM Runtime in 500 LOC</a>
+            <span class="domain">(<a href="#">surma.dev</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">267 points by <a href="#">surma</a> 23 hours ago | <a href="#">hide</a> | <a href="#">62 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">27.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Speak (YC W17) Is Hiring iOS Engineers — Seoul / SF</a>
+          </span>
+        </div>
+        <div class="subtext">4 hours ago | <a href="#">hide</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">28.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">The strange life of Paul Erdős</a>
+            <span class="domain">(<a href="#">newyorker.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">421 points by <a href="#">mathlover</a> 1 day ago | <a href="#">hide</a> | <a href="#">183 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">29.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Show HN: A self-hosted alternative to Google Analytics in Go</a>
+            <span class="domain">(<a href="#">github.com/plausible</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">389 points by <a href="#">marko_saric</a> 1 day ago | <a href="#">hide</a> | <a href="#">147 comments</a></div>
+      </div>
+
+      <div class="story">
+        <div class="story-row">
+          <span class="rank">30.</span>
+          <span class="vote">▲</span>
+          <span class="titleline">
+            <a class="title" href="#">Why we moved off Kubernetes</a>
+            <span class="domain">(<a href="#">37signals.com</a>)</span>
+          </span>
+        </div>
+        <div class="subtext">567 points by <a href="#">dhh</a> 1 day ago | <a href="#">hide</a> | <a href="#">782 comments</a></div>
+      </div>
+
+    </div>
+
+    <div class="more">
+      <a href="#">More</a>
+    </div>
+
+    <div class="footer-divider"></div>
+    <div class="footer">
+      <a href="#">Guidelines</a> | <a href="#">FAQ</a> | <a href="#">Lists</a> | <a href="#">API</a> | <a href="#">Security</a> | <a href="#">Legal</a> | <a href="#">Apply to YC</a> | <a href="#">Contact</a>
+      <div class="search">
+        Search: <input type="text" value="">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NA/NB Chat - MiataOwners.net</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #E1E4F2;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+  }
+  a { color: #22229C; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:visited { color: #551A8B; }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #E1E4F2;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(180deg, #004488 0%, #002B5C 100%);
+    color: #fff;
+    padding: 14px 18px;
+    border-bottom: 2px solid #FF6600;
+  }
+  .header .logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+  }
+  .header .logo span { color: #FF6600; }
+  .header .tagline {
+    font-size: 11px;
+    color: #B8C4D9;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  /* PRIMARY NAV */
+  .primary-nav {
+    background: #003366;
+    border-bottom: 1px solid #001A33;
+    padding: 0;
+  }
+  .primary-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 12px;
+    display: flex;
+  }
+  .primary-nav li a {
+    display: block;
+    color: #fff;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    border-right: 1px solid #1A4477;
+  }
+  .primary-nav li a:hover {
+    background: #336699;
+    text-decoration: none;
+  }
+
+  /* WELCOME BAR */
+  .welcome-bar {
+    background: #DCE2EF;
+    padding: 6px 14px;
+    font-size: 11px;
+    color: #333;
+    border-bottom: 1px solid #B8C4D9;
+    display: flex;
+    justify-content: space-between;
+  }
+  .welcome-bar .pm-alert { color: #CC0000; font-weight: bold; }
+
+  /* BREADCRUMB / TOOLBAR */
+  .toolbar {
+    background: #E1E4F2;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #B8C4D9;
+  }
+  .breadcrumb {
+    font-size: 12px;
+  }
+  .breadcrumb .home-ico { color: #003366; font-weight: bold; }
+  .breadcrumb-sep { color: #777; margin: 0 4px; }
+  .toolbar-buttons button {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    border: 1px solid #003366;
+    padding: 4px 12px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  .toolbar-buttons button.primary {
+    background: linear-gradient(180deg, #FF8833 0%, #DD5500 100%);
+    border-color: #AA4400;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    padding: 6px 12px 14px;
+  }
+
+  /* SUBFORUM TITLE BAR */
+  .subforum-title {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    padding: 7px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #003366;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .subforum-title .description {
+    font-size: 11px;
+    font-weight: normal;
+    color: #DCE2EF;
+    font-style: italic;
+  }
+
+  /* THREAD TABLE */
+  table.thread-list {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #B8C4D9;
+    font-size: 12px;
+  }
+  table.thread-list thead th {
+    background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+    color: #fff;
+    padding: 5px 8px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 11px;
+    border-right: 1px solid #1A4477;
+    border-bottom: 1px solid #003366;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  table.thread-list thead th.num { text-align: center; width: 65px; }
+  table.thread-list thead th.icon { width: 28px; text-align: center; }
+  table.thread-list thead th.lastpost { width: 200px; }
+
+  table.thread-list tbody tr {
+    border-bottom: 1px solid #E0E4ED;
+  }
+  table.thread-list tbody tr:nth-child(even) {
+    background: #F2F2F2;
+  }
+  table.thread-list tbody tr.sticky {
+    background: #FFF8DC;
+  }
+  table.thread-list tbody tr.sticky:nth-child(even) {
+    background: #FFF8DC;
+  }
+  table.thread-list tbody tr:hover { background: #EAF0F8; }
+  table.thread-list tbody tr.sticky:hover { background: #FFF3B0; }
+
+  table.thread-list td {
+    padding: 6px 8px;
+    vertical-align: middle;
+    border-right: 1px solid #E5E8F0;
+  }
+  td.icon-cell {
+    text-align: center;
+    width: 28px;
+    font-size: 16px;
+  }
+  .ico-dot {
+    display: inline-block;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 2px solid #003366;
+    background: linear-gradient(180deg, #FFFFFF, #B8C4D9);
+    position: relative;
+  }
+  .ico-dot.hot {
+    background: linear-gradient(180deg, #FFAA33, #CC4400);
+    border-color: #AA3300;
+  }
+  .ico-dot.hot::after {
+    content: "🔥";
+    position: absolute;
+    top: -4px; left: -2px;
+    font-size: 10px;
+  }
+  .ico-pin {
+    color: #CC0000;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .ico-locked { color: #777; }
+
+  .thread-title {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .thread-title a { color: #22229C; }
+  .thread-prefix {
+    display: inline-block;
+    background: #336699;
+    color: #fff;
+    padding: 1px 5px;
+    font-size: 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    margin-right: 4px;
+  }
+  .thread-prefix.sticky-tag { background: #CC0000; }
+  .thread-prefix.poll { background: #339933; }
+  .new-badge {
+    display: inline-block;
+    background: #FF6600;
+    color: #fff;
+    padding: 1px 4px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .thread-meta {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+  }
+  .thread-meta a { color: #555; }
+  .rating {
+    color: #FF9900;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .rating .empty { color: #CCC; }
+  .mini-pages {
+    font-size: 10px;
+    color: #555;
+    margin-left: 6px;
+  }
+  .mini-pages a {
+    background: #DCE2EF;
+    border: 1px solid #B8C4D9;
+    padding: 0 3px;
+    color: #003366;
+    font-weight: bold;
+  }
+
+  td.num {
+    text-align: center;
+    width: 65px;
+    font-size: 11px;
+  }
+  td.num .big {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+  }
+  td.lastpost {
+    width: 200px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  td.lastpost .by { color: #777; }
+  td.lastpost .timestamp { color: #555; }
+  td.lastpost .arrow {
+    float: right;
+    color: #336699;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  /* PAGINATION */
+  .pagination-bar {
+    background: #DCE2EF;
+    border: 1px solid #B8C4D9;
+    border-top: none;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+  }
+  .pager a, .pager span {
+    display: inline-block;
+    padding: 3px 7px;
+    border: 1px solid #B8C4D9;
+    background: #fff;
+    margin-right: 2px;
+    font-weight: bold;
+    color: #22229C;
+    font-size: 11px;
+  }
+  .pager .current {
+    background: #003366;
+    color: #fff;
+    border-color: #003366;
+  }
+  .pager .label { background: transparent; border: none; color: #555; font-weight: normal; }
+
+  .forum-jump {
+    font-size: 11px;
+  }
+  .forum-jump select {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    border: 1px solid #B8C4D9;
+    padding: 2px;
+  }
+
+  /* BOTTOM TOOLBAR REPEAT */
+  .bottom-toolbar {
+    margin-top: 10px;
+    background: #E1E4F2;
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+  }
+  .legend {
+    background: #fff;
+    border: 1px solid #B8C4D9;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #555;
+  }
+  .legend .legend-title {
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .legend .legend-item {
+    display: inline-block;
+    margin-right: 16px;
+  }
+  .legend .ico-dot, .legend .ico-pin {
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #003366;
+    color: #B8C4D9;
+    padding: 14px 18px;
+    margin-top: 14px;
+    border-top: 2px solid #FF6600;
+    font-size: 11px;
+    text-align: center;
+  }
+  .footer a { color: #FFAA66; }
+  .footer .links { margin-bottom: 6px; }
+  .footer .links a { margin: 0 8px; }
+  .footer .copy { color: #889ABF; }
+
+  /* sticky tags inline */
+  .moderator-tag {
+    color: #CC0000;
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .premium-tag {
+    color: #B8860B;
+    font-weight: bold;
+    font-size: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">Miata<span>Owners</span>.net</div>
+    <div class="tagline">The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999</div>
+  </div>
+
+  <!-- PRIMARY NAV -->
+  <nav class="primary-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Forum</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Members</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Today's Posts</a></li>
+    </ul>
+  </nav>
+
+  <!-- WELCOME BAR -->
+  <div class="welcome-bar">
+    <div>Welcome back, <b>RoadsterDan76</b> &mdash; <span class="pm-alert">3 unread PMs</span> &middot; 14 new posts since last visit</div>
+    <div>Tuesday, August 21 2012 &middot; 04:47 PM CDT</div>
+  </div>
+
+  <!-- TOOLBAR / BREADCRUMB -->
+  <div class="toolbar">
+    <div class="breadcrumb">
+      <span class="home-ico">🏠</span>
+      <a href="#">Forum Index</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="#">General Discussion</a>
+      <span class="breadcrumb-sep">›</span>
+      <b>NA/NB Chat</b>
+    </div>
+    <div class="toolbar-buttons">
+      <button class="primary">+ New Thread</button>
+      <button>★ Subscribe</button>
+      <button>Mark Forum Read</button>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- SUBFORUM TITLE -->
+    <div class="subforum-title">
+      <span>NA/NB Chat</span>
+      <span class="description">Discussion of 1990-2005 Miatas — 48,221 threads · 1,114,002 posts · Moderated by NBMike_PDX</span>
+    </div>
+
+    <!-- THREAD TABLE -->
+    <table class="thread-list">
+      <thead>
+        <tr>
+          <th class="icon"></th>
+          <th>Thread / Thread Starter</th>
+          <th class="num">Rating</th>
+          <th class="num">Replies</th>
+          <th class="num">Views</th>
+          <th class="lastpost">Last Post</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- STICKY THREADS -->
+        <tr class="sticky">
+          <td class="icon-cell"><span class="ico-pin">📌</span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix sticky-tag">STICKY</span>
+              <a href="#">READ FIRST: NA/NB Forum Rules</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">NBMike_PDX</a> <span class="moderator-tag">[MOD]</span> · Jan 4, 2010</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">12</span></td>
+          <td class="num"><span class="big">98,442</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 02:14 PM</span><br>
+            <span class="by">by</span> <a href="#">NBMike_PDX</a>
+          </td>
+        </tr>
+        <tr class="sticky">
+          <td class="icon-cell"><span class="ico-pin">📌</span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix sticky-tag">STICKY</span>
+              <a href="#">NB Common Problems Megathread (Updated 2012)</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">MX5Mike</a> · Mar 22, 2008
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>...<a href="#">87</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">2,174</span></td>
+          <td class="num"><span class="big">412,338</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 03:58 PM</span><br>
+            <span class="by">by</span> <a href="#">RoadsterDan76</a>
+          </td>
+        </tr>
+        <tr class="sticky">
+          <td class="icon-cell"><span class="ico-pin">📌</span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix sticky-tag">STICKY</span>
+              <a href="#">Post Your Miata Pic Thread VOL.27</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">ClassicRedNA</a> · Jul 2, 2012
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>...<a href="#">42</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">1,047</span></td>
+          <td class="num"><span class="big">38,221</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 04:32 PM</span><br>
+            <span class="by">by</span> <a href="#">BoostedBabs</a> <span class="premium-tag">★</span>
+          </td>
+        </tr>
+
+        <!-- SEPARATOR -->
+        <tr>
+          <td colspan="6" style="background:#DCE2EF; padding:3px 8px; font-size:10px; color:#555; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">— Normal Threads —</td>
+        </tr>
+
+        <!-- REGULAR THREADS -->
+        <tr>
+          <td class="icon-cell"><span class="ico-dot hot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Just picked up a 99 10AE #347!</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">ClassicRedNA</a> · Today 09:14 AM
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">47</span></td>
+          <td class="num"><span class="big">1,204</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 03:42 PM</span><br>
+            <span class="by">by</span> <a href="#">VTECkiller</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix">HELP</span>
+              <a href="#">94 idle hangs at 1500rpm after warm up - vacuum leak?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">RustyValve94</a> · Aug 20, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">18</span></td>
+          <td class="num"><span class="big">342</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 03:11 PM</span><br>
+            <span class="by">by</span> <a href="#">MX5Mike</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot hot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Official Hard Top vs Soft Top Debate (don't kill me)</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">TopdownTim</a> · Aug 18, 2012
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>...<a href="#">12</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">287</span></td>
+          <td class="num"><span class="big">5,884</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 02:58 PM</span><br>
+            <span class="by">by</span> <a href="#">NBMike_PDX</a> <span class="moderator-tag">[MOD]</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix poll">POLL</span>
+              <a href="#">What's your favorite NA color? (closed body Mariner blue gang here)</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">MarinerMatt</a> · Aug 19, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">93</span></td>
+          <td class="num"><span class="big">2,118</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 02:44 PM</span><br>
+            <span class="by">by</span> <a href="#">ZoomZoomKaren</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">FS pic: my 92 BRG just hit 200k miles today</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">Started by <a href="#">BRG_Forever</a> · Today 01:02 PM</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">22</span></td>
+          <td class="num"><span class="big">487</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 02:31 PM</span><br>
+            <span class="by">by</span> <a href="#">V8Lover_Brad</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">NB1 vs NB2 differences - need a clean answer please</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">NewGuy2012</a> · Aug 17, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">31</span></td>
+          <td class="num"><span class="big">894</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 01:55 PM</span><br>
+            <span class="by">by</span> <a href="#">MX5Mike</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot hot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">CRANK NO START - 99 NB - tried everything please help</a>
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">StrandedSarah</a> · Today 11:18 AM
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">68</span></td>
+          <td class="num"><span class="big">1,022</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 01:42 PM</span><br>
+            <span class="by">by</span> <a href="#">NBMike_PDX</a> <span class="moderator-tag">[MOD]</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Best tires for an autox novice on a budget NA8?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">AutoxNewbie</a> · Aug 16, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">42</span></td>
+          <td class="num"><span class="big">1,118</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 12:33 PM</span><br>
+            <span class="by">by</span> <a href="#">BoostedBabs</a> <span class="premium-tag">★</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Anyone running the Garage Star roll bar? Pics/review wanted</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">CageMeUp</a> · Aug 15, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">27</span></td>
+          <td class="num"><span class="big">812</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 12:01 PM</span><br>
+            <span class="by">by</span> <a href="#">TrackRat99</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">My weekend with the soldering iron — finally fixed my flaky dash lights</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">SolderSam</a> · Aug 14, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">14</span></td>
+          <td class="num"><span class="big">389</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 11:28 AM</span><br>
+            <span class="by">by</span> <a href="#">RustyValve94</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">95 M Edition originality question - is my interior correct?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">MerlotMint95</a> · Aug 13, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★<span class="empty">★★★</span></span></td>
+          <td class="num"><span class="big">9</span></td>
+          <td class="num"><span class="big">214</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 10:47 AM</span><br>
+            <span class="by">by</span> <a href="#">ClassicRedNA</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Stock 1.6 vs 1.8 — which one is actually more fun on a backroad?</a>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">SmallBoreSteve</a> · Aug 12, 2012
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>...<a href="#">7</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">163</span></td>
+          <td class="num"><span class="big">3,894</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 10:12 AM</span><br>
+            <span class="by">by</span> <a href="#">MarcoEunos</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">[PICS] cleaned up the engine bay this weekend — before/after</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">DetailingDan</a> · Aug 11, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">36</span></td>
+          <td class="num"><span class="big">742</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 09:38 AM</span><br>
+            <span class="by">by</span> <a href="#">TopdownTim</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <span class="thread-prefix">HELP</span>
+              <a href="#">Convertible top latch broken at the rear — common issue?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">FlappyTopFred</a> · Aug 10, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">19</span></td>
+          <td class="num"><span class="big">418</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Today 09:04 AM</span><br>
+            <span class="by">by</span> <a href="#">MX5Mike</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Coolant reroute kit — worth it for a street car in TX?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">V8Lover_Brad</a> · Aug 09, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">52</span></td>
+          <td class="num"><span class="big">1,278</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 11:58 PM</span><br>
+            <span class="by">by</span> <a href="#">FlyinMiataAnna</a> <span class="premium-tag">★</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">What rims do you wish were still made? Bring back FAT FIVES</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">WheelWhore88</a> · Aug 08, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">88</span></td>
+          <td class="num"><span class="big">2,144</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 09:42 PM</span><br>
+            <span class="by">by</span> <a href="#">ClassicRedNA</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-locked">🔒</span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">[LOCKED] heated debate about miata vs s2000 — keep it civil please</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">S2KSquad</a> · Aug 07, 2012 · <i>Closed by NBMike_PDX</i></div>
+          </td>
+          <td class="num"><span class="rating">★★<span class="empty">★★★</span></span></td>
+          <td class="num"><span class="big">214</span></td>
+          <td class="num"><span class="big">4,887</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 06:17 PM</span><br>
+            <span class="by">by</span> <a href="#">NBMike_PDX</a> <span class="moderator-tag">[MOD]</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Found a "barn find" 90 — original paint, 31k miles, what would you pay?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">BarnFinderBob</a> · Aug 06, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">76</span></td>
+          <td class="num"><span class="big">3,224</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 04:55 PM</span><br>
+            <span class="by">by</span> <a href="#">MerlotMint95</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Show off your garage! NA/NB edition</a>
+            </div>
+            <div class="thread-meta">
+              Started by <a href="#">GarageGoals</a> · Aug 05, 2012
+              <span class="mini-pages">[<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>...<a href="#">9</a>]</span>
+            </div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">214</span></td>
+          <td class="num"><span class="big">4,118</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 02:33 PM</span><br>
+            <span class="by">by</span> <a href="#">BoostedBabs</a> <span class="premium-tag">★</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Cheapest way to address NA paint oxidation on the hood?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">FadedRedNA</a> · Aug 04, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">23</span></td>
+          <td class="num"><span class="big">612</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 20, 2012 12:18 PM</span><br>
+            <span class="by">by</span> <a href="#">DetailingDan</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">First time at the Tail of the Dragon — group meet anyone?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">DragonSlayer</a> · Aug 03, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">41</span></td>
+          <td class="num"><span class="big">988</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 11:42 PM</span><br>
+            <span class="by">by</span> <a href="#">TopdownTim</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Sourcing OEM Mazdaspeed badges — what's legit and what's repop?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">JDMjustin</a> · Aug 02, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★<span class="empty">★★</span></span></td>
+          <td class="num"><span class="big">15</span></td>
+          <td class="num"><span class="big">412</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 08:17 PM</span><br>
+            <span class="by">by</span> <a href="#">MarcoEunos</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">Anyone else feel weird seeing NDs talked about already?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">PurNB99</a> · Aug 01, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★<span class="empty">★★★</span></span></td>
+          <td class="num"><span class="big">62</span></td>
+          <td class="num"><span class="big">1,488</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 06:04 PM</span><br>
+            <span class="by">by</span> <a href="#">SmallBoreSteve</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">DIY: replacing your trunk lid struts in 15 minutes (with pics)</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">DIYDave</a> · Jul 30, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">11</span></td>
+          <td class="num"><span class="big">587</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 03:22 PM</span><br>
+            <span class="by">by</span> <a href="#">SolderSam</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">My 17 year old just bought a Miata as her first car — proud dad moment</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">ProudDadJim</a> · Jul 29, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★★</span></td>
+          <td class="num"><span class="big">96</span></td>
+          <td class="num"><span class="big">2,344</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 19, 2012 12:01 PM</span><br>
+            <span class="by">by</span> <a href="#">ZoomZoomKaren</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon-cell"><span class="ico-dot"></span></td>
+          <td>
+            <div class="thread-title">
+              <a href="#">94 R-package — what makes one "real" vs a tribute? checklist?</a>
+            </div>
+            <div class="thread-meta">Started by <a href="#">RPackageRyan</a> · Jul 28, 2012</div>
+          </td>
+          <td class="num"><span class="rating">★★★★<span class="empty">★</span></span></td>
+          <td class="num"><span class="big">37</span></td>
+          <td class="num"><span class="big">1,002</span></td>
+          <td class="lastpost">
+            <span class="arrow">»</span>
+            <span class="timestamp">Aug 18, 2012 11:14 PM</span><br>
+            <span class="by">by</span> <a href="#">V8Lover_Brad</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- PAGINATION -->
+    <div class="pagination-bar">
+      <div class="pager">
+        <span class="label">Page 1 of 1,847</span>
+        <span class="current">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <span class="label">...</span>
+        <a href="#">Next ›</a>
+        <a href="#">Last »</a>
+      </div>
+      <div class="forum-jump">
+        <label>Forum Jump:
+          <select>
+            <option>-- General Discussion --</option>
+            <option selected>NA/NB Chat</option>
+            <option>NC Owners Lounge</option>
+            <option>ND Speculation &amp; Rumors</option>
+            <option>-- Technical Help --</option>
+            <option>Engine &amp; Drivetrain</option>
+            <option>Suspension &amp; Brakes</option>
+            <option>Electrical Gremlins</option>
+            <option>DIY How-To Archive</option>
+            <option>-- Build Threads --</option>
+            <option>Track/Autocross Builds</option>
+            <option>Turbo &amp; Supercharger Projects</option>
+            <option>-- Classifieds --</option>
+            <option>Cars for Sale</option>
+            <option>Parts for Sale</option>
+          </select>
+          <button style="background:#DCE2EF; border:1px solid #B8C4D9; padding:2px 8px; font-size:10px; cursor:pointer;">Go</button>
+        </label>
+      </div>
+    </div>
+
+    <!-- BOTTOM TOOLBAR -->
+    <div class="bottom-toolbar">
+      <div class="toolbar-buttons">
+        <button class="primary">+ New Thread</button>
+        <button>Mark Forum Read</button>
+      </div>
+      <div style="color:#555;">Showing threads 1 to 25 of 48,221 in forum <b>NA/NB Chat</b></div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+      <span class="legend-title">THREAD DISPLAY OPTIONS &amp; ICON LEGEND</span>
+      <span class="legend-item"><span class="ico-dot"></span> Standard thread</span>
+      <span class="legend-item"><span class="ico-dot hot"></span> Hot thread (50+ replies)</span>
+      <span class="legend-item"><span class="ico-pin">📌</span> Sticky thread</span>
+      <span class="legend-item"><span class="ico-locked">🔒</span> Closed thread</span>
+      <span class="legend-item"><span class="new-badge">NEW</span> New posts since last visit</span>
+      <span class="legend-item"><span class="moderator-tag">[MOD]</span> Moderator</span>
+      <span class="legend-item"><span class="premium-tag">★</span> Premium Member</span>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="links">
+      <a href="#">Forum Index</a> ·
+      <a href="#">Contact Us</a> ·
+      <a href="#">Forum Rules</a> ·
+      <a href="#">Privacy Policy</a> ·
+      <a href="#">Premium Membership</a> ·
+      <a href="#">Archive</a> ·
+      <a href="#">Top</a>
+    </div>
+    <div class="copy">
+      All times are GMT -6. The time now is 04:47 PM.<br>
+      © 1999-2012 MiataOwners.net &mdash; Powered by vBulletin Version 3.8.7. Mazda, MX-5, Miata, and Eunos are trademarks of their respective owners.<br>
+      This site is not affiliated with Mazda Motor Corporation.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "id": "004",
+  "name": "tabloid",
+  "source": "B",
+  "archetype": "Ad-heavy celebrity gossip and tabloid news site",
+  "market": "United States, mass-market entertainment news, 18-45 demographic",
+  "era": "2021",
+  "density": "Overwhelming. Every section sandwiched between ads. Auto-playing video ads in sticky sidebar. Three ads above the fold before any article content. Photo slideshows dominate. Related articles panels interrupt article text every three paragraphs. Outbrain/Taboola-style recommended content fills the bottom third of every page.",
+  "nav_style": "Sticky top nav with the brand logo in hot pink. 8 category tabs: Celebrity, TV, Music, Movies, Style, Beauty, Royals, Viral. Below nav: a horizontal trending ticker showing today's top 10 stories with red 'HOT' badges. Hamburger menu on mobile.",
+  "commercial_model": "Aggressively ad-supported. Display ads in every possible placement: leaderboard, billboard, half-page, interstitial, sticky sidebar, native content (labeled 'Sponsored'). Email newsletter popup after 5 seconds. Push notification request prompt. Subscription offer popup on exit intent.",
+  "color_palette": "Hot pink (#FF1493) as brand primary. Black (#000000) for text and nav. White (#FFFFFF) page backgrounds. Gold (#FFD700) for star ratings and VIP badges. Red (#FF0000) for 'BREAKING' and trending badges. The overall effect is loud, maximalist, and deliberately attention-grabbing.",
+  "typography": "Montserrat for headlines — very bold, very large (36-48px for feature headlines). Georgia for article body at 16px with generous line-height. Pull quotes in oversized italic. Photo captions in small grey sans-serif. Celebrity name callouts in hot pink bold.",
+  "quirks": ["auto_playing_video_ads", "taboola_outbrain_sections", "photo_gallery_heavy", "countdown_timers_on_exclusives", "celebrity_name_hyperlinked_everywhere", "star_rating_widgets", "social_share_floating_buttons", "email_capture_popups", "trending_ticker", "breaking_news_badge_overuse"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Hero feature story with full-bleed celebrity photo. Below it a masonry grid of gossip stories with thumbnail images. Trending sidebar. Three ad placements above the fold. Viral video section."},
+    {"slug": "celebrity", "title": "Celebrity News", "description": "Rolling celebrity news feed with paparazzi photos. Who's dating who, who wore what, breakup/makeup stories. Photo-heavy card grid with sensational headlines."},
+    {"slug": "tv", "title": "TV & Streaming", "description": "Reality TV recaps, streaming service drama, cast drama, ratings news. Episode recap articles with screenshot galleries. Viewer polls."},
+    {"slug": "style", "title": "Style & Fashion", "description": "Red carpet photos, best/worst dressed rankings, outfit breakdowns with shopping links. Photo slideshow format with swipe interface."},
+    {"slug": "viral", "title": "Viral & WTF", "description": "Viral social media moments, weird news, internet drama. Video embeds, tweet screenshots, Reddit roundups. Outrage bait adjacent but fun."}
+  ],
+  "animations": false
+}

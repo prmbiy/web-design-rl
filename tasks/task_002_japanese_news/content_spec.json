@@ -1,0 +1,85 @@
+{
+  "brand_name": "朝日毎報 (Asahi Mainpō)",
+  "tagline": "信頼される日本の声 — Japan's Trusted Voice Since 1968",
+  "primary_color_name": "Mainpō Crimson",
+  "pages": {
+    "home": {
+      "title": "トップページ",
+      "nav_items": [
+        "速報",
+        "政治",
+        "経済",
+        "国際",
+        "社会",
+        "スポーツ",
+        "文化",
+        "エンタメ",
+        "科学",
+        "テクノロジー",
+        "ライフ",
+        "教育",
+        "地域",
+        "気象",
+        "オピニオン",
+        "社説",
+        "コラム",
+        "書評",
+        "写真",
+        "動画",
+        "english",
+        "紙面版"
+      ],
+      "sections": [
+        {
+          "name": "breaking_banner",
+          "headline": "【速報】日銀、追加金融緩和策を発表 政策金利据え置き",
+          "subheadline": "本日14:32更新 — 黒田総裁が記者会見で詳細説明"
+        },
+        {
+          "name": "top_carousel",
+          "description": "Three rotating lead stories with large photos: Suga cabinet approval rating drops to 41%, Tokyo 2020 Olympics postponement official announcement, Nikkei breaks 24,000 yen barrier."
+        },
+        {
+          "name": "five_column_grid",
+          "description": "5-column thumbnail grid of 20 breaking headlines covering Diet debates on supplementary budget, Sony PS5 launch sales figures, Mt. Fuji eruption preparedness drill, and Hokkaido snowfall warnings."
+        },
+        {
+          "name": "category_quicklinks",
+          "description": "Horizontal panel of section shortcuts each with 3 sub-headlines: Politics (LDP leadership race, Komeito coalition talks), Economy (Toyota Q3 earnings, yen-dollar at 104.5), Sports (Hanshin Tigers off-season trades)."
+        },
+        {
+          "name": "stock_ticker",
+          "description": "Persistent scrolling ticker showing Nikkei 225 at 23,847.27 (+128.45), TOPIX 1,654.32, USD/JPY 104.58, with quick links to Toyota (7203), SoftBank (9984), Sony (6758)."
+        },
+        {
+          "name": "right_sidebar_weather",
+          "description": "Today's Tokyo weather 8°C/晴れ, 7-day forecast, regional weather grid for 47 prefectures, typhoon advisory link."
+        },
+        {
+          "name": "right_sidebar_sports",
+          "description": "Live scores box showing NPB (Giants 4-Carp 2), J-League (浦和-鹿島), sumo Kyushu Basho day 9 results with Hakuho's record."
+        },
+        {
+          "name": "right_sidebar_tv",
+          "description": "Tonight's TV schedule listing NHK総合 7pm news, テレビ朝日 報道ステーション, TBS NEWS23 with vertical-text channel labels."
+        },
+        {
+          "name": "opinion_columns",
+          "description": "Three signed editorial columns: '社説：コロナ第三波への備え', columnist 山田太郎 on US election aftermath, reader's voice submissions 投書欄."
+        },
+        {
+          "name": "ad_leaderboard",
+          "description": "Top banner 728x90 ad slot for Mitsubishi UFJ Bank housing loans, mid-page interstitial for ANA winter campaign, sidebar 300x250 for Suntory Premium Malts."
+        },
+        {
+          "name": "archive_widget",
+          "description": "Search past archives back to 1968 with calendar picker and 'この日の朝日毎報' historical featured front page from exactly 50 years ago."
+        },
+        {
+          "name": "footer",
+          "description": "Six-column footer with site map, corporate info (本社：東京都中央区築地3-2-1), subscription links 購読申込, English edition, mobile app QR codes, copyright ©1968-2020."
+        }
+      ]
+    }
+  }
+}

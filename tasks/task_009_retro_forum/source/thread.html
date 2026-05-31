@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Build Thread: 1994 Miata LS-Swap Track Car - MiataOwners.net</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #E1E4F2;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #333333;
+  }
+  a { color: #22229C; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:visited { color: #551A8B; }
+
+  /* Header / Banner */
+  .header-banner {
+    background: linear-gradient(180deg, #003366 0%, #002244 100%);
+    color: #fff;
+    padding: 14px 24px 10px;
+    border-bottom: 2px solid #FF6600;
+  }
+  .header-banner .logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 0 #001f3f;
+  }
+  .header-banner .logo span { color: #FF6600; }
+  .header-banner .tagline {
+    font-size: 11px;
+    color: #B8C4D9;
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .welcome-bar {
+    background: #DCE2EF;
+    padding: 5px 24px;
+    font-size: 11px;
+    color: #333;
+    border-bottom: 1px solid #B8C4D9;
+  }
+  .welcome-bar strong { color: #003366; }
+  .welcome-bar .pmlink { color: #FF6600; font-weight: bold; }
+
+  /* Nav */
+  .mainnav {
+    background: #003366;
+    padding: 0 24px;
+    border-bottom: 1px solid #001f3f;
+  }
+  .mainnav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+  }
+  .mainnav li a {
+    display: block;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    border-right: 1px solid #1a4d80;
+  }
+  .mainnav li a:hover { background: #336699; text-decoration: none; }
+
+  /* Toolbar */
+  .toolbar {
+    max-width: 1000px;
+    margin: 10px auto 0;
+    background: #DCE2EF;
+    border: 1px solid #B8C4D9;
+    padding: 6px 10px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .breadcrumb { color: #333; }
+  .breadcrumb a { font-weight: bold; }
+  .toolbar-buttons button, .btn {
+    background: linear-gradient(180deg, #4477AA, #2D5A87);
+    color: #fff;
+    border: 1px solid #1a4d80;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+    font-family: Tahoma, Arial, sans-serif;
+    margin-left: 4px;
+  }
+  .btn-orange {
+    background: linear-gradient(180deg, #FF8833, #DD5500);
+    border-color: #AA4400;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+  }
+
+  /* Thread header */
+  .thread-header {
+    background: linear-gradient(180deg, #4477AA, #2D5A87);
+    color: #fff;
+    padding: 8px 12px;
+    border: 1px solid #1a4d80;
+    margin-bottom: 10px;
+  }
+  .thread-header h1 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  .thread-header .meta {
+    font-size: 11px;
+    color: #DCE2EF;
+    margin-top: 2px;
+  }
+  .stars { color: #FFCC00; letter-spacing: -1px; }
+
+  /* Post Card */
+  .post {
+    background: #fff;
+    border: 1px solid #B8C4D9;
+    margin-bottom: 8px;
+    display: flex;
+    min-height: 240px;
+  }
+  .post-bar {
+    background: #DCE2EF;
+    border-bottom: 1px solid #B8C4D9;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+  }
+  .post-bar a { font-weight: bold; }
+  .post-wrap { display: flex; flex-direction: column; flex: 1; }
+  .post-body-row { display: flex; flex: 1; }
+
+  .post-sidebar {
+    width: 170px;
+    background: #F2F2F2;
+    border-right: 1px solid #B8C4D9;
+    padding: 8px;
+    font-size: 11px;
+    color: #555;
+  }
+  .username {
+    font-weight: bold;
+    font-size: 13px;
+    color: #22229C;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .username.mod { color: #CC0000; }
+  .username.premium { color: #B8860B; }
+  .username.admin { color: #CC0000; }
+  .rank {
+    font-size: 10px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .badge {
+    display: inline-block;
+    background: #CC0000;
+    color: #fff;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 4px;
+    margin-left: 3px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .badge.prem { background: #B8860B; }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    margin: 4px auto 8px;
+    border: 1px solid #B8C4D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 11px;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+  }
+  .av-red { background: linear-gradient(135deg, #CC2222 0%, #770000 100%); }
+  .av-blue { background: linear-gradient(135deg, #336699 0%, #001f3f 100%); }
+  .av-silver { background: linear-gradient(135deg, #CCCCCC 0%, #666666 100%); }
+  .av-yellow { background: linear-gradient(135deg, #FFCC33 0%, #886600 100%); color: #333; text-shadow: 1px 1px 0 #fff; }
+  .av-green { background: linear-gradient(135deg, #339966 0%, #114422 100%); }
+  .av-black { background: linear-gradient(135deg, #444 0%, #000 100%); }
+  .av-white { background: linear-gradient(135deg, #fff 0%, #BBB 100%); color: #333; text-shadow: 1px 1px 0 #fff; }
+  .av-orange { background: linear-gradient(135deg, #FF8833 0%, #AA3300 100%); }
+  .av-purple { background: linear-gradient(135deg, #663399 0%, #220055 100%); }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    border-bottom: 1px dotted #ccc;
+  }
+  .stat-row .lbl { color: #777; }
+  .stat-row .val { font-weight: bold; color: #333; }
+  .rep { color: #339933; font-weight: bold; }
+
+  .post-content {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .post-content p { margin: 0 0 10px; }
+
+  .quote {
+    background: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    border-left: 3px solid #336699;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 12px;
+  }
+  .quote-head {
+    font-size: 11px;
+    color: #555;
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+  }
+  .quote-head strong { color: #22229C; }
+  .quote .quote {
+    background: #ECECEC;
+    border-left-color: #888;
+  }
+
+  .inline-img {
+    display: inline-block;
+    width: 220px;
+    height: 140px;
+    margin: 4px 6px 4px 0;
+    border: 2px solid #fff;
+    outline: 1px solid #B8C4D9;
+    vertical-align: middle;
+  }
+  .img-engine { background: linear-gradient(135deg, #555 0%, #222 50%, #FF6600 100%); }
+  .img-track { background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 60%, #444 60%, #222 100%); }
+  .img-garage { background: linear-gradient(180deg, #888 0%, #444 100%); }
+  .img-front { background: linear-gradient(135deg, #CC0000 0%, #660000 100%); }
+  .img-react {
+    width: 100px; height: 80px;
+    background: linear-gradient(135deg, #FFD700, #FF6600);
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    font-size: 32px;
+    border: 2px solid #fff;
+    outline: 1px solid #B8C4D9;
+  }
+
+  .img-caption {
+    font-size: 10px;
+    color: #777;
+    font-style: italic;
+    display: block;
+    margin-top: -2px;
+  }
+
+  .signature {
+    margin-top: 14px;
+    padding-top: 6px;
+    border-top: 1px solid #CCCCCC;
+    font-size: 11px;
+    font-style: italic;
+    color: #666699;
+    line-height: 1.4;
+  }
+  .signature .sig-red { color: #CC0000; font-weight: bold; }
+  .signature .sig-blue { color: #003366; font-weight: bold; }
+
+  .post-footer {
+    background: #F2F2F2;
+    border-top: 1px solid #B8C4D9;
+    padding: 4px 10px;
+    font-size: 11px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .post-footer .btn-mini {
+    background: linear-gradient(180deg, #fff, #DDD);
+    border: 1px solid #999;
+    color: #333;
+    padding: 2px 8px;
+    font-size: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .post-num {
+    font-size: 11px;
+    color: #777;
+    font-weight: bold;
+  }
+
+  /* Banner ad */
+  .ad-banner {
+    background: repeating-linear-gradient(45deg, #FFFACD 0 10px, #FFF8DC 10px 20px);
+    border: 1px dashed #AA8800;
+    text-align: center;
+    padding: 16px;
+    margin: 8px 0;
+    font-family: Arial;
+    font-weight: bold;
+    color: #884400;
+  }
+  .ad-banner .ad-label {
+    font-size: 9px;
+    color: #999;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .ad-banner .ad-headline { font-size: 16px; color: #CC0000; }
+  .ad-banner .ad-sub { font-size: 11px; color: #555; margin-top: 3px; font-weight: normal; font-style: italic; }
+
+  /* Reply box */
+  .reply-box {
+    background: #fff;
+    border: 1px solid #B8C4D9;
+    margin-top: 14px;
+  }
+  .reply-head {
+    background: linear-gradient(180deg, #4477AA, #2D5A87);
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .bbcode-bar {
+    background: #DCE2EF;
+    padding: 5px 8px;
+    border-bottom: 1px solid #B8C4D9;
+    display: flex;
+    gap: 3px;
+  }
+  .bbcode-bar button {
+    background: linear-gradient(180deg, #fff, #DDD);
+    border: 1px solid #999;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    min-width: 28px;
+  }
+  .reply-box textarea {
+    width: 100%;
+    height: 120px;
+    border: none;
+    padding: 8px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    resize: vertical;
+    outline: none;
+  }
+  .reply-actions {
+    background: #F2F2F2;
+    padding: 6px 10px;
+    border-top: 1px solid #B8C4D9;
+    text-align: right;
+  }
+
+  /* Pagination */
+  .pagination {
+    background: #DCE2EF;
+    border: 1px solid #B8C4D9;
+    padding: 5px 10px;
+    margin: 10px 0;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pagination a, .pagination .current {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 0 1px;
+    border: 1px solid #B8C4D9;
+    background: #fff;
+    color: #22229C;
+    font-weight: bold;
+  }
+  .pagination .current { background: #336699; color: #fff; border-color: #1a4d80; }
+
+  /* Footer */
+  footer {
+    background: #003366;
+    color: #B8C4D9;
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 20px;
+    border-top: 2px solid #FF6600;
+  }
+  footer a { color: #FF6600; }
+
+  .modicon {
+    display: inline-block;
+    background: #CC0000;
+    color: #fff;
+    padding: 1px 5px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+  .premicon {
+    display: inline-block;
+    background: linear-gradient(180deg, #FFD700, #B8860B);
+    color: #4a3a00;
+    padding: 1px 5px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header-banner">
+  <div class="logo">Miata<span>Owners</span>.net</div>
+  <div class="tagline">The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999</div>
+</div>
+<div class="welcome-bar">
+  Welcome back, <strong>RoadsterDan76</strong> — You have <span class="pmlink">3 unread PMs</span> and 14 new posts since your last visit. &nbsp;|&nbsp; <a href="#">Log Out</a>
+</div>
+<nav class="mainnav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Forum</a></li>
+    <li><a href="#">Calendar</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Members</a></li>
+    <li><a href="#">Search</a></li>
+    <li><a href="#">Today's Posts</a></li>
+  </ul>
+</nav>
+
+<div class="toolbar">
+  <div class="breadcrumb">
+    <a href="#">Forum Index</a> &gt; <a href="#">Build Threads</a> &gt; <a href="#">Track/Autocross Builds</a> &gt; <strong>Build Thread: 1994 Miata LS-Swap Track Car</strong>
+  </div>
+  <div class="toolbar-buttons">
+    <button class="btn-orange btn">+ Post Reply</button>
+    <button class="btn">New Thread</button>
+    <button class="btn">Subscribe</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="thread-header">
+    <h1>Build Thread: 1994 Miata LS-Swap Track Car (V8 Roadster)</h1>
+    <div class="meta">Started by <a href="#" style="color:#FFCC66;"><strong>V8Lover_Brad</strong></a> on March 14, 2011 &nbsp;|&nbsp; 287 replies &nbsp;|&nbsp; 42,118 views &nbsp;|&nbsp; Rating: <span class="stars">★★★★★</span> (47 votes)</div>
+  </div>
+
+  <div class="pagination">
+    <div>Page <strong>1</strong> of <strong>20</strong></div>
+    <div>
+      <span class="current">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a> ... <a href="#">20</a> &nbsp;<a href="#">Next &gt;</a>
+    </div>
+    <div>15 posts per page</div>
+  </div>
+
+  <!-- POST 1 - OP -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar">
+        <span>March 14, 2011, 09:42 AM</span>
+        <span class="post-num">#1</span>
+      </div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">V8Lover_Brad</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-red">NA<br>RED</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">4,217</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Jun 2007</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+312</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Austin TX</span></div>
+          <div class="stat-row"><span class="lbl">Ride:</span><span class="val">'94 LS3</span></div>
+        </div>
+        <div class="post-content">
+          <h3 style="margin:0 0 8px; font-size:15px; color:#003366;">The "V8 Roadster" Build — Starting Fresh</h3>
+          <p>Alright fellas, after lurking for 4 years and helping build a half dozen Miatas for friends, it's finally time to start MY build thread. Picked up this '94 R-Package with a tired but running 1.8 last weekend for $3,400. Body is mostly straight, frame rails are solid (checked with a magnet), and the soft top isn't completely shredded.</p>
+          <p>The plan: <strong>LS3 6.2L</strong> mated to a T56 Magnum, custom subframe from V8Roadsters, Wilwood big brakes, and FM Fox coilovers. Goal weight is 2,650 lbs with a 50/50 distribution. This thing is going to be a 400whp track weapon.</p>
+          <span class="inline-img img-front"></span>
+          <span class="inline-img img-engine"></span>
+          <span class="inline-img img-garage"></span>
+          <span class="inline-img img-track"></span>
+          <span class="img-caption">^ Day 1: home from the previous owner. Already love it.</span>
+          <p>Updates will be at least weekly. Questions, suggestions, and "you're crazy" comments all welcome. Let's do this. 🏁</p>
+          <div class="signature">
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>
+            <span class="sig-red">'94 R-Package</span> | <span class="sig-blue">LS3 Swap In Progress</span> | Flyin' Miata Suspension<br>
+            "There's no replacement for displacement... except boost."<br>
+            <em>Build Thread → /click my username</em>
+          </div>
+        </div>
+      </div>
+      <div class="post-footer">
+        <button class="btn-mini">QUOTE</button>
+        <button class="btn-mini">REPLY</button>
+        <button class="btn-mini">REPORT</button>
+        <button class="btn-mini">+ REP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD AFTER FIRST POST -->
+  <div class="ad-banner">
+    <span class="ad-label">— Advertisement —</span>
+    <div class="ad-headline">TRACK DOG RACING — Coilovers from $899</div>
+    <div class="ad-sub">Track-tested. Street-friendly. Free shipping on orders over $500. Click here →</div>
+  </div>
+
+  <!-- POST 2 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 10:08 AM</span><span class="post-num">#2</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username mod">NBMike_PDX <span class="badge">MOD</span></a>
+          <div class="rank">Moderator — NA/NB Section</div>
+          <div class="avatar av-blue">NB<br>MARINER</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">12,884</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Aug 2004</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+1,847</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Portland OR</span></div>
+          <div class="modicon">★ STAFF ★</div>
+        </div>
+        <div class="post-content">
+          <p>Subscribed. Brad, you have NO idea how long the community has been waiting for someone to do a proper documented LS swap thread instead of a 4-page tease and disappearing act.</p>
+          <p>A few notes from my experience helping with two of these:</p>
+          <ul>
+            <li>Trans tunnel — even with V8R kit, plan on at least minor sheet metal massaging if you want headers tucked tight</li>
+            <li>Cooling: <strong>do not</strong> cheap out. C&amp;R or Ron Davis. Don't ask me how I know.</li>
+            <li>Hood clearance with LS3 intake is tight. If you go with FAST 102, expect a bulge or cowl hood.</li>
+          </ul>
+          <p>Stickied this for now. Keep us posted. 👍</p>
+          <div class="signature">
+            <span class="sig-red">2001 NB Mariner Blue</span> — daily / autocross<br>
+            1999 10AE #2348 — garage queen<br>
+            <em>Read the rules. Use the search. Be kind.</em>
+          </div>
+        </div>
+      </div>
+      <div class="post-footer">
+        <button class="btn-mini">QUOTE</button>
+        <button class="btn-mini">REPLY</button>
+        <button class="btn-mini">+ REP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 3 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 10:31 AM</span><span class="post-num">#3</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username premium">BoostedBabs <span class="badge prem">PREMIUM</span></a>
+          <div class="rank">Premium Member ★</div>
+          <div class="avatar av-yellow">SC<br>'97</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">6,541</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Feb 2008</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+489</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">San Diego</span></div>
+          <div class="premicon">⚡ GOLD ⚡</div>
+        </div>
+        <div class="post-content">
+          <p>Oooh ooh ooh!! Finally!! 🎉 Subscribed twice in case the first one didn't take.</p>
+          <p>Brad — what's the plan for the diff? You're going to grenade an OEM Torsen with that kind of torque. Are you doing the Ford 8.8 swap, an OS Giken, or just running through factory diffs and treating them as consumables?</p>
+          <p>Also: PLEASE document the wiring tune. That's the part nobody ever shows.</p>
+          <div class="signature">
+            ✨ <span style="color:#B8860B; font-weight:bold;">1997 STO</span> — Jackson Racing Supercharged ✨<br>
+            <em>If it doesn't whine, it isn't mine.</em>
+          </div>
+        </div>
+      </div>
+      <div class="post-footer">
+        <button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 4 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 11:02 AM</span><span class="post-num">#4</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">V8Lover_Brad</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-red">NA<br>RED</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">4,218</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Jun 2007</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+312</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Austin TX</span></div>
+        </div>
+        <div class="post-content">
+          <div class="quote">
+            <div class="quote-head">Originally Posted by <strong>BoostedBabs</strong> &nbsp;<a href="#">⤴ View Post</a></div>
+            Brad — what's the plan for the diff? You're going to grenade an OEM Torsen with that kind of torque. Are you doing the Ford 8.8 swap, an OS Giken, or just running through factory diffs and treating them as consumables?
+          </div>
+          <p>Great question Babs. Going with the <strong>Ford 8.8 IRS conversion</strong> using the FM kit. 3.55 gears, Truetrac LSD. Yeah it's more expensive up front but I'm not interested in rebuilding a Torsen every 6 months.</p>
+          <p>Wiring will be a Holley Terminator X Max harness. I'll document EVERY pin. Promise.</p>
+          <div class="signature">
+            <span class="sig-red">'94 R-Package</span> | <span class="sig-blue">LS3 Swap In Progress</span><br>
+            "There's no replacement for displacement... except boost."
+          </div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 5 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 11:47 AM</span><span class="post-num">#5</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">NewGuy2012</a>
+          <div class="rank">Junior Member</div>
+          <div class="avatar av-silver">NEW<br>?</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">14</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Jan 2012</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+2</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">N/A</span></div>
+        </div>
+        <div class="post-content">
+          <p>noob question but why would u put a V8 in a miata isnt the whole point that its light and balanced??? wouldnt a turbo be lighter and cheaper</p>
+          <p>not hating just curious</p>
+          <div class="signature">— Sent from my Droid X</div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button></div>
+    </div>
+  </div>
+
+  <!-- POST 6 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 12:03 PM</span><span class="post-num">#6</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username mod">NBMike_PDX <span class="badge">MOD</span></a>
+          <div class="rank">Moderator</div>
+          <div class="avatar av-blue">NB<br>MARINER</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">12,885</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Aug 2004</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+1,847</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Portland OR</span></div>
+          <div class="modicon">★ STAFF ★</div>
+        </div>
+        <div class="post-content">
+          <div class="quote">
+            <div class="quote-head">Originally Posted by <strong>NewGuy2012</strong> &nbsp;<a href="#">⤴ View Post</a></div>
+            noob question but why would u put a V8 in a miata isnt the whole point that its light and balanced??? wouldnt a turbo be lighter and cheaper
+          </div>
+          <p>@NewGuy2012 — perfectly valid question. Short version: a properly executed LS swap actually adds <strong>only about 60–80 lbs</strong> over a stock NA. The all-aluminum LS-series engines weigh roughly the same as a built BP plus all its turbo plumbing, intercooler, manifold, and supporting bracing.</p>
+          <p>Long version: please use the Search function and read the "LS Swap FAQ" sticky. Brad's build thread isn't really the place for the swap-vs-turbo debate (we have a 400-page megathread for that). 👍</p>
+          <div class="signature"><em>Read the rules. Use the search. Be kind.</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 7 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 12:14 PM</span><span class="post-num">#7</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">VTECkiller</a>
+          <div class="rank">Veteran Member</div>
+          <div class="avatar av-green">'99<br>GRN</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">8,932</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Mar 2006</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+612</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Atlanta GA</span></div>
+        </div>
+        <div class="post-content">
+          <p>oh hell yes. been waiting for this thread brad. 🍿🍿🍿</p>
+          <span class="img-react">🍿</span>
+          <p>also +1 to mike on the cooling. I cooked TWO motors before I gave in and bought a C&amp;R. don't be me.</p>
+          <div class="signature"><span style="color:#339933;">'99 Sport Green</span> — BP turbo 320whp daily<br><em>K-swap your civic, LS-swap your Miata.</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 8 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 01:22 PM</span><span class="post-num">#8</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">ClassicRedNA</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-red">'90<br>NA</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">3,109</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Nov 2008</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+218</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Denver CO</span></div>
+        </div>
+        <div class="post-content">
+          <p>Brad — congrats on pulling the trigger. Question: are you keeping the R-Package badging and interior as a sleeper move or going full track stripped?</p>
+          <p>Personally I love the idea of an LS car that still looks 95% stock from the outside. NOTHING wakes a Hellcat driver up faster.</p>
+          <div class="signature"><span class="sig-red">1990 Classic Red NA</span> — 1.6 / NB6 swap / Hard S<br>— —<br><em>"Slow car fast" 4 lyfe</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 9 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 02:48 PM</span><span class="post-num">#9</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">MX5Mike</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-black">NB<br>BLK</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">5,477</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">May 2009</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+391</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Phoenix AZ</span></div>
+        </div>
+        <div class="post-content">
+          <p>What headers are you running? I've heard the Sikky long tubes are king for that platform but they're back-ordered into 2013 right now.</p>
+          <span class="inline-img img-engine"></span>
+          <span class="img-caption">^ for reference, the Sikky package on my buddy's '97</span>
+          <div class="signature"><em>2001 Black NB — coilovers / harnesses / no AC, no regrets</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 10 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 03:15 PM</span><span class="post-num">#10</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">V8Lover_Brad</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-red">NA<br>RED</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">4,221</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Jun 2007</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+313</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Austin TX</span></div>
+        </div>
+        <div class="post-content">
+          <div class="quote">
+            <div class="quote-head">Originally Posted by <strong>MX5Mike</strong> &nbsp;<a href="#">⤴ View Post</a></div>
+            What headers are you running? I've heard the Sikky long tubes are king for that platform but they're back-ordered into 2013 right now.
+          </div>
+          <p>Yep — Sikky long tubes are spoken for. Got my name on the list back in December. ETA "May-ish". In the meantime I'll run the shorty manifolds that came with the takeout engine — gets the car driving, then swap headers when they arrive.</p>
+          <div class="quote">
+            <div class="quote-head">Originally Posted by <strong>ClassicRedNA</strong> &nbsp;<a href="#">⤴ View Post</a></div>
+            are you keeping the R-Package badging and interior as a sleeper move or going full track stripped?
+          </div>
+          <p>Full sleeper exterior, fully gutted interior. Best of both worlds. 😎 Bolt-in cage, two Sparco seats, kept the factory dash and radio delete plate.</p>
+          <div class="signature"><span class="sig-red">'94 R-Package</span> | <span class="sig-blue">LS3 Swap In Progress</span></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 11 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 04:33 PM</span><span class="post-num">#11</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">TopdownTim</a>
+          <div class="rank">Junior Member</div>
+          <div class="avatar av-white">NC<br>WHT</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">47</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Mar 2012</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+8</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Boise ID</span></div>
+        </div>
+        <div class="post-content">
+          <p>Holy moly. Subscribed!! Even though I just got my first Miata (a clean NC2) I LOVE seeing these crazy builds. This is the kind of thread that made me sign up here.</p>
+          <p>What's your projected total budget if you don't mind sharing?</p>
+          <div class="signature"><em>'10 NC2 PRHT — bone stock for now (says every Miata owner ever)</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button></div>
+    </div>
+  </div>
+
+  <!-- POST 12 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 05:01 PM</span><span class="post-num">#12</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">RoadsterDan76</a>
+          <div class="rank">Member</div>
+          <div class="avatar av-orange">'95<br>ORG</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">812</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Sep 2010</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+44</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Cleveland OH</span></div>
+        </div>
+        <div class="post-content">
+          <p>Brad you're the reason I get on this forum every morning. Seriously. 🙌</p>
+          <p>Did you weigh the donor LS3 yet on a scale, or are you going off the published 415 lb spec sheet number? Curious what real-world drivetrain weight ends up being with T56 + driveshaft.</p>
+          <div class="signature">'95 R — Sunburst Yellow respray<br><em>My wife knows about the Miata. She does NOT know about the second Miata.</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 13 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 06:18 PM</span><span class="post-num">#13</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username premium">BoostedBabs <span class="badge prem">PREMIUM</span></a>
+          <div class="rank">Premium Member ★</div>
+          <div class="avatar av-yellow">SC<br>'97</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">6,544</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Feb 2008</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+489</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">San Diego</span></div>
+          <div class="premicon">⚡ GOLD ⚡</div>
+        </div>
+        <div class="post-content">
+          <div class="quote">
+            <div class="quote-head">Originally Posted by <strong>V8Lover_Brad</strong> &nbsp;<a href="#">⤴ View Post</a></div>
+            <div class="quote">
+              <div class="quote-head">Originally Posted by <strong>BoostedBabs</strong></div>
+              Wiring will be a Holley Terminator X Max harness. I'll document EVERY pin. Promise.
+            </div>
+            Going with the <strong>Ford 8.8 IRS conversion</strong> using the FM kit. 3.55 gears, Truetrac LSD.
+          </div>
+          <p>👏👏👏 PERFECT choices. The Truetrac is the unsung hero of these builds. Quiet, durable, and doesn't pop and bark in slow corners like a clutch-type LSD.</p>
+          <p>One more pro tip: when you do the harness — <strong>label every connector with a P-touch label maker.</strong> Future you (six months in when you're chasing a no-start) will weep with gratitude.</p>
+          <div class="signature">✨ <span style="color:#B8860B; font-weight:bold;">1997 STO</span> — Jackson Racing Supercharged ✨</div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 14 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 08:42 PM</span><span class="post-num">#14</span></div>
+      <div class="post-body-row">
+        <div class="post-sidebar">
+          <a href="#" class="username">MarcoEunos</a>
+          <div class="rank">Senior Member</div>
+          <div class="avatar av-purple">EUNOS<br>JDM</div>
+          <div class="stat-row"><span class="lbl">Posts:</span><span class="val">2,219</span></div>
+          <div class="stat-row"><span class="lbl">Joined:</span><span class="val">Oct 2009</span></div>
+          <div class="stat-row"><span class="lbl">Reputation:</span><span class="val rep">+147</span></div>
+          <div class="stat-row"><span class="lbl">Location:</span><span class="val">Vancouver BC</span></div>
+        </div>
+        <div class="post-content">
+          <p>Following with extreme interest from north of the border. 🇨🇦</p>
+          <p>If you end up needing a wide-body solution to clear bigger wheels under the LS power, look at the V-Spec fender flares — bolt-on, not fiberglass tape-and-pray. I did them on my Eunos last summer and the fitment was 9/10.</p>
+          <span class="inline-img img-front"></span>
+          <span class="inline-img img-garage"></span>
+          <div class="signature"><em>1991 Eunos Roadster V-Spec — RHD imported, dressed JDM tasteful</em></div>
+        </div>
+      </div>
+      <div class="post-footer"><button class="btn-mini">QUOTE</button><button class="btn-mini">REPLY</button><button class="btn-mini">+ REP</button></div>
+    </div>
+  </div>
+
+  <!-- POST 15 -->
+  <div class="post">
+    <div class="post-wrap">
+      <div class="post-bar"><span>March 14, 2011, 09:55 PM</span><span

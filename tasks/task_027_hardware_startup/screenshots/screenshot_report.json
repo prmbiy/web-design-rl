@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "compare",
+      "path": "compare.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 250504,
+      "page_width": 1440,
+      "page_height": 3764
+    },
+    {
+      "slug": "features",
+      "path": "features.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 721170,
+      "page_width": 1440,
+      "page_height": 5766
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 314496,
+      "page_width": 1440,
+      "page_height": 2102
+    },
+    {
+      "slug": "specs",
+      "path": "specs.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 270354,
+      "page_width": 1440,
+      "page_height": 4604
+    },
+    {
+      "slug": "story",
+      "path": "story.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 722106,
+      "page_width": 1440,
+      "page_height": 7439
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

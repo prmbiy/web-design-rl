@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Features — NOVA Field One</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #111111;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #2A2A2A;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.logo span { color: #FF9F0A; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: #CACACA;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover { color: #FFFFFF; }
+.nav-links a.active { color: #FF9F0A; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  line-height: 1.1;
+}
+.nav-price .pr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.nav-price .ship {
+  font-size: 10px;
+  color: #888888;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background: #007AFF;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: #0051D5; transform: translateY(-1px); }
+
+.cart {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #2A2A2A;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #CACACA;
+}
+
+/* PAGE HEADER */
+.page-head {
+  padding-top: 144px;
+  padding-bottom: 64px;
+  text-align: center;
+  border-bottom: 1px solid #2A2A2A;
+}
+.page-head .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FF9F0A;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.page-head h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.page-head p {
+  margin-top: 16px;
+  color: #888888;
+  font-size: 15px;
+}
+
+/* FEATURE SECTION */
+.feature {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 32px;
+  border-bottom: 1px solid #2A2A2A;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.feature.reverse .feature-text { order: 2; }
+.feature.reverse .feature-visual { order: 1; }
+
+.feature-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888888;
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+.feature-index .num { color: #FF9F0A; }
+
+.feature h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.feature .lead {
+  font-size: 17px;
+  color: #CACACA;
+  margin-bottom: 32px;
+  max-width: 480px;
+  line-height: 1.55;
+}
+
+.differentiator {
+  border-left: 2px solid #FF9F0A;
+  padding: 18px 22px;
+  background: #1C1C1C;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.differentiator .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888888;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.differentiator .value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #FF9F0A;
+  letter-spacing: 0.01em;
+}
+
+.spec-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+.spec-row .item .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+.spec-row .item .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* VISUAL placeholders */
+.feature-visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle at 50% 50%, #2A2A2A 0%, #161616 60%, #0E0E0E 100%);
+  border: 1px solid #2A2A2A;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.feature-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,0.025) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,0.025) 39px 40px);
+  pointer-events: none;
+}
+.feature-visual::after {
+  content: attr(data-tag);
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+/* Camera body illustration */
+.cam {
+  position: relative;
+  width: 70%;
+  height: 50%;
+  background: linear-gradient(180deg, #2C2C2C 0%, #1A1A1A 100%);
+  border-radius: 8px;
+  border: 1px solid #3A3A3A;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.cam .lens {
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #0A0A0A 0%, #1C1C1C 40%, #2C2C2C 70%, #3A3A3A 100%);
+  border: 3px solid #1A1A1A;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 0 6px #2A2A2A, inset 0 0 30px rgba(0,0,0,0.8);
+}
+.cam .lens::after {
+  content: '';
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255,159,10,0.15), transparent 50%), #050505;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+}
+.cam .rec {
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #FF9F0A;
+  box-shadow: 0 0 10px rgba(255,159,10,0.6);
+}
+.cam .grip {
+  position: absolute;
+  top: 0; bottom: 0;
+  right: -10%;
+  width: 18%;
+  background: linear-gradient(90deg, #1A1A1A 0%, #252525 100%);
+  border-radius: 6px;
+  border: 1px solid #3A3A3A;
+}
+
+/* Variant: codec — show display */
+.cam-display .screen {
+  position: absolute;
+  left: 8%;
+  top: 18%;
+  width: 38%;
+  height: 64%;
+  background: linear-gradient(135deg, #0A1A2A 0%, #0A0A14 100%);
+  border-radius: 4px;
+  border: 1px solid #2A2A2A;
+  overflow: hidden;
+}
+.cam-display .screen::before {
+  content: 'REC • 6K 60p';
+  position: absolute;
+  top: 8px; left: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: #FF453A;
+  letter-spacing: 0.1em;
+}
+.cam-display .screen::after {
+  content: 'NovaRAW 12-bit';
+  position: absolute;
+  bottom: 8px; left: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: #FF9F0A;
+  letter-spacing: 0.1em;
+}
+.cam-display .lens {
+  left: auto;
+  right: 18%;
+  width: 35%;
+}
+
+/* Mount variant */
+.mount-stack { position: relative; width: 80%; height: 50%; display: flex; align-items: center; justify-content: space-around; }
+.mount-ring {
+  width: 22%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #1A1A1A 30%, #2A2A2A 60%, #3A3A3A 100%);
+  border: 2px solid #444;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.mount-ring::after {
+  content: '';
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: #0A0A0A;
+  border: 1px dashed #555;
+}
+.mount-ring .tag {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #CACACA;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+.mount-ring.amber { box-shadow: 0 0 0 2px #FF9F0A, 0 10px 30px rgba(0,0,0,0.5); }
+
+/* Screen variant */
+.screen-big {
+  position: relative;
+  width: 70%;
+  height: 50%;
+  background: linear-gradient(135deg, #FF9F0A 0%, #B36F00 100%);
+  border-radius: 6px;
+  padding: 14px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screen-big .inner {
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.15), transparent 40%),
+    linear-gradient(180deg, #2a4060 0%, #14243a 100%);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.screen-big .inner::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(0deg, #1a1a1a 0%, transparent 100%);
+}
+.screen-big .nit {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  z-index: 2;
+}
+.screen-big .nit small { display: block; font-size: 14px; letter-spacing: 0.2em; }
+
+/* Audio variant — grip */
+.grip-vis { position: relative; width: 70%; height: 60%; display: flex; align-items: stretch; gap: 4px; }
+.grip-cam {
+  flex: 2;
+  background: linear-gradient(180deg, #2C2C2C 0%, #1A1A1A 100%);
+  border-radius: 6px;
+  border: 1px solid #3A3A3A;
+  position: relative;
+}
+.grip-cam::after {
+  content: '';
+  position: absolute;
+  width: 60%; aspect-ratio: 1/1;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #0A0A0A, #2A2A2A);
+  border: 4px solid #1A1A1A;
+}
+.grip-side {
+  flex: 1;
+  background: linear-gradient(180deg, #1A1A1A 0%, #0E0E0E 100%);
+  border-radius: 6px;
+  border: 1px solid #3A3A3A;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px;
+  gap: 10px;
+}
+.grip-side .xlr {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1A1A1A 30%, #444 100%);
+  border: 2px solid #2A2A2A;
+  position: relative;
+}
+.grip-side .xlr::after {
+  content: '';
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: #0A0A0A;
+  box-shadow: 0 0 0 2px #2A2A2A;
+}
+.grip-side .lbl {
+  margin-top: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: #FF9F0A;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+/* Bottom CTA strip */
+.bottom-cta {
+  background: #0A0A0A;
+  padding: 80px 32px;
+  border-bottom: 1px solid #2A2A2A;
+  text-align: center;
+}
+.bottom-cta h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.bottom-cta p {
+  color: #888888;
+  margin-bottom: 32px;
+}
+.bottom-cta .price-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #CACACA;
+  margin-bottom: 24px;
+}
+.bottom-cta .price-line .strike { text-decoration: line-through; color: #555; }
+.bottom-cta .price-line .now { color: #FF9F0A; font-weight: 700; }
+
+/* FOOTER */
+footer {
+  background: #0A0A0A;
+  padding: 64px 32px 32px;
+  color: #888888;
+  font-size: 13px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-inner h5 {
+  color: #FFFFFF;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.footer-inner ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-inner a:hover { color: #FFFFFF; }
+.badge-row { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid #2A2A2A;
+  color: #CACACA;
+  border-radius: 3px;
+}
+.badge.amber { border-color: #FF9F0A; color: #FF9F0A; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #1A1A1A;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">NOVA <span>◆</span> FIELD ONE</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Features</a></li>
+      <li><a href="#">Specs</a></li>
+      <li><a href="#">Compare</a></li>
+      <li><a href="#">Story</a></li>
+      <li><a href="#">Press</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-price">
+        <span class="pr">$899 EARLY BIRD</span>
+        <span class="ship">Ships Feb 2025</span>
+      </div>
+      <button class="btn-primary">Pre-order</button>
+      <div class="cart">⌗</div>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="eyebrow">— Features 01 / 05 —</div>
+  <h1>Built for the<br>shoot, not the spec sheet.</h1>
+  <p>Five reasons the Field One earned 4,812 backers in 11 days.</p>
+</header>
+
+<!-- FEATURE 01: SENSOR -->
+<section class="feature">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-index"><span class="num">01</span> &nbsp;&nbsp;/&nbsp;&nbsp; SENSOR</div>
+      <h2>Open-Gate<br>Super 35.</h2>
+      <p class="lead">A 6048×4032 Super 35 CMOS that captures the entire image circle. Frame for 2.39:1 cinema, 9:16 vertical, and 16:9 broadcast — all from a single take. No re-shoots, no compromise.</p>
+      <div class="differentiator">
+        <div class="label">Differentiator</div>
+        <div class="value">Shoot 6K 3:2 to any aspect in post.</div>
+      </div>
+      <div class="spec-row">
+        <div class="item"><div class="k">Resolution</div><div class="v">6048×4032</div></div>
+        <div class="item"><div class="k">Dynamic Range</div><div class="v">14 stops</div></div>
+        <div class="item"><div class="k">Base ISO</div><div class="v">800 / 4000</div></div>
+      </div>
+    </div>
+    <div class="feature-visual" data-tag="FIG. A — SENSOR">
+      <div class="cam">
+        <div class="lens"></div>
+        <div class="rec"></div>
+        <div class="grip"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 02: CODEC -->
+<section class="feature reverse">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-index"><span class="num">02</span> &nbsp;&nbsp;/&nbsp;&nbsp; CODEC</div>
+      <h2>NovaRAW<br>12-bit.</h2>
+      <p class="lead">Record internally to CFexpress Type B with full 12-bit color depth. NovaRAW gives you log-grade flexibility without the proprietary tax. ProRes 422 HQ and H.265 also onboard.</p>
+      <div class="differentiator">
+        <div class="label">Differentiator</div>
+        <div class="value">4K ProRes 422 HQ at 120fps internally.</div>
+      </div>
+      <div class="spec-row">
+        <div class="item"><div class="k">Color Depth</div><div class="v">12-bit</div></div>
+        <div class="item"><div class="k">Media</div><div class="v">CFexpress B</div></div>
+        <div class="item"><div class="k">Max Bitrate</div><div class="v">800 Mbps</div></div>
+      </div>
+    </div>
+    <div class="feature-visual" data-tag="FIG. B — CODEC PIPELINE">
+      <div class="cam cam-display">
+        <div class="screen"></div>
+        <div class="lens"></div>
+        <div class="rec"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 03: MOUNT -->
+<section class="feature">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-index"><span class="num">03</span> &nbsp;&nbsp;/&nbsp;&nbsp; MOUNT</div>
+      <h2>Interchangeable<br>Mount System.</h2>
+      <p class="lead">Swap between L-mount, Canon EF, and PL without sending your camera to service. Three captive hex bolts, one shim, done. Run vintage Cooke glass at lunch, Sigma Art at dinner.</p>
+      <div class="differentiator">
+        <div class="label">Differentiator</div>
+        <div class="value">&lt; 8 second mount swap.</div>
+      </div>
+      <div class="spec-row">
+        <div class="item"><div class="k">Mounts</div><div class="v">L / EF / PL</div></div>
+        <div class="item"><div class="k">Flange Tol.</div><div class="v">±5μm</div></div>
+        <div class="item"><div class="k">Tool</div><div class="v">2.5mm Hex</div></div>
+      </div>
+    </div>
+    <div class="feature-visual" data-tag="FIG. C — MOUNT SWAP">
+      <div class="mount-stack">
+        <div class="mount-ring"><div class="tag">L-MOUNT</div></div>
+        <div class="mount-ring amber"><div class="tag">EF</div></div>
+        <div class="mount-ring"><div class="tag">PL</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 04: SCREEN -->
+<section class="feature reverse">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-index"><span class="num">04</span> &nbsp;&nbsp;/&nbsp;&nbsp; DISPLAY</div>
+      <h2>4.3" 1500-nit<br>HDR Tilt Screen.</h2>
+      <p class="lead">A daylight-readable IPS panel with 10-point capacitive touch. Tilt-pivots for low angles, high overhead, and selfie monitoring. Calibrated to Rec.709 and DCI-P3 out of the box.</p>
+      <div class="differentiator">
+        <div class="label">Differentiator</div>
+        <div class="value">Readable in direct noon sunlight.</div>
+      </div>
+      <div class="spec-row">
+        <div class="item"><div class="k">Brightness</div><div class="v">1500 nit</div></div>
+        <div class="item"><div class="k">Resolution</div><div class="v">1920×1080</div></div>
+        <div class="item"><div class="k">Gamut</div><div class="v">DCI-P3</div></div>
+      </div>
+    </div>
+    <div class="feature-visual" data-tag="FIG. D — DISPLAY">
+      <div class="screen-big">
+        <div class="inner"></div>
+        <div class="nit">1500<small>NITS</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 05: AUDIO -->
+<section class="feature">
+  <div class="feature-inner">
+    <div class="feature-text">
+      <div class="feature-index"><span class="num">05</span> &nbsp;&nbsp;/&nbsp;&nbsp; AUDIO</div>
+      <h2>Dual 32-bit Float<br>XLR via NovaGrip.</h2>
+      <p class="lead">The magnetic NovaGrip side handle adds two phantom-powered XLR inputs with 32-bit float recording. Clip-proof, gain-free, monitorable. Detach in two seconds when you go gimbal.</p>
+      <div class="differentiator">
+        <div class="label">Differentiator</div>
+        <div class="value">No gain knob. Ever.</div>
+      </div>
+      <div class="spec-row">
+        <div class="item"><div class="k">Inputs</div><div class="v">2× XLR</div></div>
+        <div class="item"><div class="k">Bit Depth</div><div class="v">32-bit float</div></div>
+        <div class="item"><div class="k">Phantom</div><div class="v">+48V</div></div>
+      </div>
+    </div>
+    <div class="feature-visual" data-tag="FIG. E — NOVAGRIP">
+      <div class="grip-vis">
+        <div class="grip-cam"></div>
+        <div class="grip-side">
+          <div class="xlr"></div>
+          <div class="xlr"></div>
+          <div class="lbl">NOVAGRIP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bottom-cta">
+  <h3>Reserve yours.<br>First batch is 1,200 units.</h3>
+  <p>Refundable $99 deposit holds your spot. Ships Feb 2025 from Hsinchu, Taiwan.</p>
+  <div class="price-line"><span class="strike">$1,199</span> &nbsp; <span class="now">$899 EARLY BIRD</span> &nbsp; · &nbsp; CUTOFF NOV 30 2024</div>
+  <button class="btn-primary" style="font-size: 15px; padding: 14px 28px;">Pre-order Field One →</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo" style="margin-bottom: 16px;">NOVA <span>◆</span> FIELD ONE</div>
+      <p style="max-width: 320px; line-height: 1.6;">The pocket cinema camera, reimagined for creators who shoot first.</p>
+      <div class="badge-row">
+        <span class="badge amber">★ KICKSTARTER 412%</span>
+        <span class="badge">MADE IN TAIWAN 🇹🇼</span>
+        <span class="badge">SHIPS FEB 2025</span>
+      </div>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Specs</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="#">Pre-order</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Press Kit (ZIP, 240MB)</a></li>
+        <li><a href="#">Reviews embargo: Jan 15, 2025</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">30-day refund policy</a></li>
+        <li><a href="#">Shipping &amp; duties</a></li>
+        <li><a href="#">Field One Discord</a></li>
+        <li><a href="#">Referral: $50 off / friend</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 NOVA IMAGING CO., LTD. · HSINCHU, TAIWAN</span>
+    <span>v1.2 · BUILD 2411</span>
+  </div>
+</footer>
+
+</body>
+</html>

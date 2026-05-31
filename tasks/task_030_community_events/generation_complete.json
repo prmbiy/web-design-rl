@@ -1,0 +1,12 @@
+{
+  "dna_id": "030",
+  "dna_name": "community_events",
+  "pages": [
+    "home",
+    "explore",
+    "event",
+    "organizer",
+    "create"
+  ],
+  "has_animations": true
+}

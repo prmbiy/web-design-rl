@@ -1,0 +1,12 @@
+{
+  "dna_id": "013",
+  "dna_name": "aus_real_estate",
+  "pages": [
+    "home",
+    "search",
+    "listing",
+    "suburb",
+    "agents"
+  ],
+  "has_animations": false
+}

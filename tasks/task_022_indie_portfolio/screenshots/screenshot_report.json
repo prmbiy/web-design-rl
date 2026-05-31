@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 261518,
+      "page_width": 1440,
+      "page_height": 3251
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 377539,
+      "page_width": 1440,
+      "page_height": 3407
+    },
+    {
+      "slug": "project",
+      "path": "project.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 358079,
+      "page_width": 1440,
+      "page_height": 4776
+    },
+    {
+      "slug": "work",
+      "path": "work.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 422416,
+      "page_width": 1440,
+      "page_height": 3745
+    },
+    {
+      "slug": "writing",
+      "path": "writing.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 309258,
+      "page_width": 1440,
+      "page_height": 3363
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

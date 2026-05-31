@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap",
+    "font_heading": "'Nunito Sans', system-ui, sans-serif",
+    "font_body": "'Nunito Sans', system-ui, sans-serif",
+    "font_mono": null,
+    "size_h1": "52px",
+    "size_h2": "36px",
+    "size_body": "15px",
+    "size_small": "13px",
+    "color_primary": "#007B8A",
+    "color_secondary": "#FF5722",
+    "color_accent": "#FFC107",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#E0F7FA",
+    "color_text": "#142A30",
+    "color_text_muted": "#5C7079",
+    "color_border": "#D5E5E8",
+    "border_radius": "12px",
+    "container_max_width": "1240px",
+    "section_padding": "64px 24px",
+    "nav_bg": "#007B8A",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#003D47",
+    "extra_colors": {
+      "promo_band": "#FF5722",
+      "countdown_bg": "#FFC107",
+      "success_green": "#2BAE66",
+      "deep_teal": "#005A66",
+      "soft_orange": "#FFE4D6"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Promo carousel hero in orange/teal, plan category tabs, featured plan card grid on light teal, streaming partner strip, prepaid recharge widget block, store locator CTA.",
+      "bg": "#FFFFFF"
+    },
+    "movil": {
+      "layout": "Prepaid/postpaid toggle, full comparison table of mobile plans with GB/min/SMS columns, portability CTA banner, 5G coverage map section.",
+      "bg": "linear-gradient(180deg,#FFFFFF 0%,#E0F7FA 100%)"
+    },
+    "internet": {
+      "layout": "Coverage address checker hero, internet plan cards with Mbps prices and router badges, speed test widget, installation scheduler form.",
+      "bg": "#FFFFFF"
+    },
+    "paquetes": {
+      "layout": "Bundle hero with savings calculator, three-column bundle cards with 'Más Popular' highlight, family plan section, streaming logos band.",
+      "bg": "#E0F7FA"
+    },
+    "tiendas": {
+      "layout": "Interactive store locator map with sidebar list, store hours table, contact channel grid (phone/WhatsApp/chat), trámites online links.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

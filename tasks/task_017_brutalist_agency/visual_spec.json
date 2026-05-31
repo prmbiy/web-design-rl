@@ -1,0 +1,82 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap",
+    "font_heading": "'Fraunces', 'Times New Roman', serif",
+    "font_body": "'Space Grotesk', 'Helvetica Neue', sans-serif",
+    "font_mono": "'JetBrains Mono', 'Courier New', monospace",
+    "size_h1": "180px",
+    "size_h2": "96px",
+    "size_body": "18px",
+    "size_small": "12px",
+    "color_primary": "#000000",
+    "color_secondary": "#FFFFFF",
+    "color_accent": "#FFE500",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F4F4F1",
+    "color_text": "#000000",
+    "color_text_muted": "#666666",
+    "color_border": "#000000",
+    "border_radius": "0",
+    "container_max_width": "1920px",
+    "section_padding": "120px 48px",
+    "nav_bg": "#000000",
+    "nav_height": "72px",
+    "nav_position": "fixed",
+    "footer_bg": "#000000",
+    "extra_colors": {
+      "accent_red": "#FF1A1A",
+      "accent_cyan": "#00FFFF",
+      "border_thick": "#000000",
+      "overlay_black": "rgba(0,0,0,0.92)"
+    },
+    "animation_specs": {
+      "page_transition_fade": {
+        "css": "@keyframes pageFade { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } } .page-enter { animation: pageFade 0.8s cubic-bezier(0.77, 0, 0.175, 1) both; }",
+        "applies_to": "main, .page-enter",
+        "trigger": "on-load"
+      },
+      "hover_image_reveal": {
+        "css": ".work-item { position: relative; overflow: hidden; } .work-item::after { content: ''; position: absolute; inset: 0; background: #000; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.77,0,0.175,1); } .work-item:hover::after { transform: translateY(0); } .work-item .reveal-title { opacity: 0; transition: opacity 0.4s 0.2s; z-index: 2; position: relative; color: #FFE500; } .work-item:hover .reveal-title { opacity: 1; }",
+        "applies_to": ".work-item",
+        "trigger": "on-hover"
+      },
+      "text_scramble_effect": {
+        "css": "@keyframes scramble { 0%,100% { letter-spacing: 0; } 25% { letter-spacing: 0.05em; transform: skewX(-2deg); } 50% { letter-spacing: -0.02em; } 75% { letter-spacing: 0.03em; transform: skewX(1deg); } } .scramble:hover { animation: scramble 0.4s steps(4) both; }",
+        "applies_to": ".scramble, nav a",
+        "trigger": "on-hover"
+      },
+      "horizontal_marquee": {
+        "css": "@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 30s linear infinite; }",
+        "applies_to": ".marquee-track",
+        "trigger": "continuous"
+      },
+      "cursor_dot": {
+        "css": ".cursor-dot { position: fixed; width: 24px; height: 24px; background: #FFE500; border-radius: 50%; pointer-events: none; mix-blend-mode: difference; transition: transform 0.15s ease; z-index: 9999; }",
+        "applies_to": ".cursor-dot",
+        "trigger": "continuous"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed black hero with 200px white agency name, manifesto line beneath, three overlapping case study previews with monospace numerical labels colliding diagonally down the page.",
+      "bg": "#000000"
+    },
+    "work": {
+      "layout": "Asymmetric brutalist grid of case studies in mixed sizes, some full-bleed bleeding past edges, project names overlapping images in oversized serif type.",
+      "bg": "#FFFFFF"
+    },
+    "case_study": {
+      "layout": "Massive brand name header, full-bleed hero image, large-scale project brief, irregular process photo collage, oversized metrics, yellow accent blocks.",
+      "bg": "#FFFFFF"
+    },
+    "studio": {
+      "layout": "Manifesto-style large text statements stacked, asymmetric team photo grid with overlaid names, compact client logo wall, infinite awards marquee at bottom.",
+      "bg": "#F4F4F1"
+    },
+    "contact": {
+      "layout": "Sparse page with single 80px email address centered, small address text, minimal underlined form fields, plain text social links bottom-left.",
+      "bg": "#000000"
+    }
+  }
+}

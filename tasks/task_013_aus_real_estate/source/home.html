@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Real Estate Australia | PropertyNest</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  color: #1A2A2A;
+  background: #F5F5F5;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E1E5E5;
+  height: 120px;
+}
+.nav-top {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  color: #006E6E;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  background: #006E6E;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A2A2A;
+}
+.nav-right a:hover { color: #006E6E; }
+.btn-primary {
+  background: #006E6E;
+  color: #fff !important;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #004D4D; }
+.nav-tabs {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+  border-top: 1px solid #F0F4F4;
+}
+.nav-tab {
+  padding: 16px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6B7878;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+.nav-tab.active {
+  color: #006E6E;
+  border-bottom-color: #006E6E;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #006E6E 0%, #004D4D 100%);
+  padding: 80px 24px 96px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,103,0,0.08) 0%, transparent 40%);
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 36px;
+}
+.search-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 12px 40px rgba(0,40,40,0.25);
+}
+.search-tabs {
+  display: flex;
+  gap: 0;
+  margin: 0 auto 14px;
+  max-width: 920px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 4px;
+  width: fit-content;
+}
+.search-tab {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.search-tab.active {
+  background: #fff;
+  color: #006E6E;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #1A2A2A;
+}
+.search-select {
+  border: 1px solid #E1E5E5;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1A2A2A;
+  background: #fff;
+}
+.search-btn {
+  background: #006E6E;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 36px;
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+}
+.hero-stats strong { color: #fff; font-weight: 700; font-size: 18px; display: block; }
+
+/* SECTIONS */
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+.section-head h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1A2A2A;
+  letter-spacing: -0.01em;
+}
+.section-head .sub {
+  color: #6B7878;
+  font-size: 15px;
+  margin-top: 4px;
+}
+.see-all {
+  font-size: 14px;
+  font-weight: 600;
+  color: #006E6E;
+}
+
+/* SUBURB REPORT CARDS */
+.suburb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.suburb-card {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,40,40,0.08);
+  border: 1px solid #E1E5E5;
+}
+.suburb-img {
+  height: 160px;
+  background: linear-gradient(135deg, #006E6E 0%, #2E7D32 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  color: #fff;
+}
+.suburb-img.b { background: linear-gradient(135deg, #C62828 0%, #FF6700 100%); }
+.suburb-img.c { background: linear-gradient(135deg, #004D4D 0%, #006E6E 100%); }
+.suburb-img-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.suburb-body { padding: 20px; }
+.suburb-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.suburb-loc { color: #6B7878; font-size: 13px; margin-bottom: 16px; }
+.suburb-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #E1E5E5;
+}
+.stat-label { font-size: 11px; color: #6B7878; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 3px; }
+.stat-val { font-size: 15px; font-weight: 700; color: #006E6E; }
+.stat-val.up { color: #2E7D32; }
+
+/* AUCTION RESULTS */
+.auction-section {
+  background: #fff;
+}
+.auction-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.auction-table {
+  background: #F5F5F5;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #E1E5E5;
+}
+table { width: 100%; border-collapse: collapse; }
+.auction-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6B7878;
+  padding: 14px 18px;
+  background: #fff;
+  border-bottom: 1px solid #E1E5E5;
+}
+.auction-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid #E1E5E5;
+  background: #fff;
+}
+.auction-table tr:last-child td { border-bottom: none; }
+.city-name { font-weight: 600; }
+.clearance {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+.clearance.mid { background: #FFF3E0; color: #E65100; }
+.clearance.low { background: #FFEBEE; color: #C62828; }
+.auction-side h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.auction-side p { color: #6B7878; font-size: 14px; margin-bottom: 18px; }
+.big-stat {
+  background: linear-gradient(135deg, #006E6E 0%, #004D4D 100%);
+  color: #fff;
+  padding: 24px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+.big-stat .num { font-size: 36px; font-weight: 800; }
+.big-stat .lab { font-size: 13px; opacity: 0.85; }
+
+/* GUIDE CARDS */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.guide-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 28px;
+  border: 1px solid #E1E5E5;
+  border-left: 4px solid #FF6700;
+}
+.guide-card:nth-child(2) { border-left-color: #006E6E; }
+.guide-card:nth-child(3) { border-left-color: #2E7D32; }
+.guide-icon {
+  width: 44px; height: 44px;
+  background: #FFF3E0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.guide-card:nth-child(2) .guide-icon { background: #E0F2F2; }
+.guide-card:nth-child(3) .guide-icon { background: #E8F5E9; }
+.guide-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.guide-card p { font-size: 14px; color: #6B7878; margin-bottom: 16px; }
+.guide-link { color: #006E6E; font-weight: 600; font-size: 14px; }
+
+/* NEWS */
+.news-section { background: #fff; }
+.news-wrap { max-width: 1280px; margin: 0 auto; padding: 56px 24px; }
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.news-card { cursor: pointer; }
+.news-img {
+  height: 160px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #006E6E, #2E7D32);
+  position: relative;
+}
+.news-img.b { background: linear-gradient(135deg, #FF6700, #C62828); }
+.news-img.c { background: linear-gradient(135deg, #004D4D, #006E6E); }
+.news-img.d { background: linear-gradient(135deg, #2E7D32, #006E6E); }
+.news-tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: rgba(255,255,255,0.95);
+  color: #006E6E;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.news-card h3 { font-size: 16px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+.news-meta { font-size: 12px; color: #6B7878; }
+
+/* SPOTLIGHT */
+.spotlight {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #E1E5E5;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+}
+.spotlight-img {
+  background: linear-gradient(135deg, #006E6E 0%, #003838 100%);
+  position: relative;
+  min-height: 380px;
+  padding: 32px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.spotlight-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(255,103,0,0.2), transparent 50%);
+}
+.spotlight-img-content { position: relative; }
+.spotlight-tag {
+  display: inline-block;
+  background: #FF6700;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.spotlight-img h2 { font-size: 36px; font-weight: 800; }
+.spotlight-img .loc { opacity: 0.85; margin-top: 4px; }
+.spotlight-median {
+  position: relative;
+  background: rgba(0,0,0,0.3);
+  padding: 16px;
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+.spotlight-median .lbl { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+.spotlight-median .val { font-size: 24px; font-weight: 800; margin-top: 2px; }
+.spotlight-body { padding: 32px; }
+.spotlight-body h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.spotlight-body > p { color: #6B7878; font-size: 15px; margin-bottom: 24px; line-height: 1.6; }
+.mini-listings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.mini-listing {
+  border: 1px solid #E1E5E5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.mini-img {
+  height: 80px;
+  background: linear-gradient(135deg, #2E7D32, #006E6E);
+}
+.mini-listing:nth-child(2) .mini-img { background: linear-gradient(135deg, #FF6700, #C62828); }
+.mini-listing:nth-child(3) .mini-img { background: linear-gradient(135deg, #004D4D, #006E6E); }
+.mini-body { padding: 10px; }
+.mini-price { font-weight: 700; color: #006E6E; font-size: 14px; }
+.mini-addr { font-size: 11px; color: #6B7878; margin-top: 2px; }
+.mini-icons { font-size: 11px; color: #1A2A2A; margin-top: 6px; }
+
+/* APP DOWNLOAD */
+.app-section {
+  background: linear-gradient(135deg, #003838 0%, #006E6E 100%);
+  color: #fff;
+  border-radius: 12px;
+  margin: 56px auto;
+  max-width: 1232px;
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.6fr;
+  gap: 40px;
+  align-items: center;
+}
+.app-section h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em; }
+.app-section > div:first-child p { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+.app-badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.app-badge {
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.app-badge .ico { font-size: 22px; }
+.app-badge small { display: block; font-size: 10px; opacity: 0.7; }
+.app-badge strong { font-size: 14px; font-weight: 600; }
+.app-screen {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  height: 280px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.app-screen-head { font-size: 12px; opacity: 0.8; margin-bottom: 4px; }
+.app-screen-row {
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+  font-size: 12px;
+}
+.app-screen-row .thumb {
+  width: 36px; height: 36px; background: #FF6700; border-radius: 4px;
+}
+.app-screen-row:nth-child(3) .thumb { background: #2E7D32; }
+.app-screen-row:nth-child(4) .thumb { background: #006E6E; }
+.qr {
+  width: 140px; height: 140px;
+  background: #fff;
+  border-radius: 8px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  background-image:
+    linear-gradient(45deg, #000 25%, transparent 25%),
+    linear-gradient(-45deg, #000 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(-45deg, transparent 75%, #000 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+}
+.qr-wrap { text-align: center; }
+.qr-wrap p { font-size: 13px; margin-top: 12px; opacity: 0.9; }
+
+/* FOOTER */
+footer {
+  background: #003838;
+  color: #fff;
+  padding: 56px 24px 24px;
+}
+.foot-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.foot-brand { font-size: 22px; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.foot-brand .logo-mark { background: #FF6700; }
+.foot-tag { font-size: 14px; opacity: 0.7; max-width: 280px; }
+.foot-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.foot-col a { display: block; font-size: 14px; opacity: 0.75; padding: 5px 0; }
+.foot-col a:hover { opacity: 1; }
+.foot-bot {
+  max-width: 1280px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.icon-bbb { display: inline-flex; gap: 10px; font-size: 13px; }
+.icon-bbb span { display: flex; align-items: center; gap: 3px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-top">
+    <div class="logo">
+      <span class="logo-mark">🏠</span>
+      PropertyNest
+    </div>
+    <div class="nav-right">
+      <a href="#">Agents</a>
+      <a href="#">News &amp; Insights</a>
+      <a href="#">Sign in</a>
+      <button class="btn-primary">List a property</button>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tab active">Buy</div>
+    <div class="nav-tab">Rent</div>
+    <div class="nav-tab">Sold</div>
+    <div class="nav-tab">New Homes</div>
+    <div class="nav-tab">Estimate</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Find your next home across Australia</h1>
+    <p>Over 482,000 properties for sale and rent — from Bondi to Broome.</p>
+    <div class="search-tabs">
+      <div class="search-tab active">Buy</div>
+      <div class="search-tab">Rent</div>
+      <div class="search-tab">Sold</div>
+      <div class="search-tab">New Homes</div>
+    </div>
+    <div class="search-box">
+      <input class="search-input" placeholder="Search suburb, postcode or state (e.g. Hawthorn VIC 3122)">
+      <select class="search-select">
+        <option>Price (any)</option>
+        <option>$400k – $700k</option>
+        <option>$700k – $1M</option>
+        <option>$1M – $1.5M</option>
+        <option>$1.5M – $3M+</option>
+      </select>
+      <select class="search-select">
+        <option>Beds (any)</option>
+        <option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option>
+      </select>
+      <button class="search-btn">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div><strong>482,317</strong>Properties listed</div>
+      <div><strong>41,200+</strong>Verified agents</div>
+      <div><strong>15,847</strong>Open inspections this weekend</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Featured suburb market reports</h2>
+      <div class="sub">Median price, year-on-year change, and auction clearance for trending suburbs.</div>
+    </div>
+    <a class="see-all" href="#">View all suburb reports →</a>
+  </div>
+  <div class="suburb-grid">
+    <div class="suburb-card">
+      <div class="suburb-img"><span class="suburb-img-label">VIC · Inner North</span></div>
+      <div class="suburb-body">
+        <h3>Brunswick</h3>
+        <div class="suburb-loc">3056 · 5.4km from Melbourne CBD</div>
+        <div class="suburb-stats">
+          <div><div class="stat-label">Median</div><div class="stat-val">$1.32M</div></div>
+          <div><div class="stat-label">YoY</div><div class="stat-val up">+5.8%</div></div>
+          <div><div class="stat-label">Clearance</div><div class="stat-val">74%</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="suburb-card">
+      <div class="suburb-img b"><span class="suburb-img-label">NSW · Eastern Suburbs</span></div>
+      <div class="suburb-body">
+        <h3>Paddington</h3>
+        <div class="suburb-loc">2021 · 3.1km from Sydney CBD</div>
+        <div class="suburb-stats">
+          <div><div class="stat-label">Median</div><div class="stat-val">$2.85M</div></div>
+          <div><div class="stat-label">YoY</div><div class="stat-val up">+3.4%</div></div>
+          <div><div class="stat-label">Clearance</div><div class="stat-val">69%</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="suburb-card">
+      <div class="suburb-img c"><span class="suburb-img-label">QLD · Inner Brisbane</span></div>
+      <div class="suburb-body">
+        <h3>New Farm</h3>
+        <div class="suburb-loc">4005 · 2.5km from Brisbane CBD</div>
+        <div class="suburb-stats">
+          <div><div class="stat-label">Median</div><div class="stat-val">$1.74M</div></div>
+          <div><div class="stat-label">YoY</div><div class="stat-val up">+8.1%</div></div>
+          <div><div class="stat-label">Clearance</div><div class="stat-val">82%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="auction-section">
+  <div class="auction-wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:20px;">
+        <div>
+          <h2>Weekend auction results</h2>
+          <div class="sub">Saturday 18 November 2023 · 2,418 auctions reported</div>
+        </div>
+        <a class="see-all" href="#">Full results →</a>
+      </div>
+      <div class="auction-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Capital City</th>
+              <th>Auctions</th>
+              <th>Sold</th>
+              <th>Median Sale</th>
+              <th>Clearance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="city-name">Sydney</td>
+              <td>892</td>
+              <td>607</td>
+              <td>$1,685,000</td>
+              <td><span class="clearance mid">68%</span></td>
+            </tr>
+            <tr>
+              <td class="city-name">Melbourne</td>
+              <td>1,104</td>
+              <td>707</td>
+              <td>$1,082,500</td>
+              <td><span class="clearance mid">64%</span></td>
+            </tr>
+            <tr>
+              <td class="city-name">Adelaide</td>
+              <td>184</td>
+              <td>149</td>
+              <td>$842,000</td>
+              <td><span class="clearance">81%</span></td>
+            </tr>
+            <tr>
+              <td class="city-name">Brisbane</td>
+              <td>168</td>
+              <td>121</td>
+              <td>$1,145,000</td>
+              <td><span class="clearance">72%</span></td>
+            </tr>
+            <tr>
+              <td class="city-name">Canberra</td>
+              <td>54</td>
+              <td>38</td>
+              <td>$985,000</td>
+              <td><span class="clearance">70%</span></td>
+            </tr>
+            <tr>
+              <td class="city-name">Perth</td>
+              <td>16</td>
+              <td>9</td>
+              <td>$755,000</td>
+              <td><span class="clearance low">56%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="auction-side">
+      <h3>National snapshot</h3>
+      <p>Combined capital city clearance rate ticked down slightly week-on-week with Melbourne the busiest market.</p>
+      <div class="big-stat">
+        <div class="num">68.3%</div>
+        <div class="lab">National preliminary clearance rate</div>
+      </div>
+      <div class="big-stat" style="background:linear-gradient(135deg,#FF6700 0%, #C62828 100%);">
+        <div class="num">2,418</div>
+        <div class="lab">Auctions held nationally</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>First home buyer guide</h2>
+      <div class="sub">Tools and grants to help you take the first step.</div>
+    </div>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card">
+      <div class="guide-icon">🎁</div>
+      <h3>First Home Owner Grant 2023</h3>
+      <p>State-by-state breakdown of grants up to $30,000 for eligible first home buyers building or buying new.</p>
+      <a class="guide-link" href="#">Check eligibility →</a>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">🧮</div>
+      <h3>Stamp duty calculator</h3>
+      <p>Estimate stamp duty for your state — including concessions for first home buyers and off-the-plan purchases.</p>
+      <a class="guide-link" href="#">Calculate now →</a>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">💰</div>
+      <h3>Deposit savings tips</h3>
+      <p>How much you really need — from a 5% deposit with LMI to 20% strategies and the First Home Super Saver Scheme.</p>
+      <a class="guide-link" href="#">Read the guide →</a>
+    </div>
+  </div>
+</section>
+
+<section class="news-section">
+  <div class="news-wrap">
+    <div class="section-head">
+      <div>
+        <h2>Property news &amp; insights</h2>
+        <div class="sub">Latest market analysis from PropertyNest editors.</div>
+      </div>
+      <a class="see-all" href="#">All news →</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-img"><span class="news-tag">Finance</span></div>
+        <h3>RBA holds cash rate at 4.10% — what it means for borrowers</h3>
+        <div class="news-meta">8 min read · 21 November 2023</div>
+      </div>
+      <div class="news-card">
+        <div class="news-img b"><span class="news-tag">Trends</span></div>
+        <h3>Where Aussies are moving in 2023: regional QLD leads the pack</h3>
+        <div class="news-meta">6 min read · 19 November 2023</div>
+      </div>
+      <div class="news-card">
+        <div class="news-img c"><span class="news-tag">Apartments</span></div>
+        <h3>Off-the-plan apartments rebound in Brisbane after two-year slump</h3>
+        <div class="news-meta">5 min read · 17 November 2023</div>
+      </div>
+      <div class="news-card">
+        <div class="news-img d"><span class="news-tag">Auction</span></div>
+        <h3>Spring selling season finishes strong with 12,400 listings nationally</h3>
+        <div class="news-meta">4 min read · 16 November 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Suburb spotlight: Coburg VIC</h2>
+      <div class="sub">Family-friendly streets, a maturing café scene and a 12-minute tram into the city.</div>
+    </div>
+    <a class="see-all" href="#">Full suburb profile →</a>
+  </div>
+  <div class="spotlight">
+    <div class="spotlight-img">
+      <div class="spotlight-img-content">
+        <span class="spotlight-tag">⭐ Featured suburb</span>
+        <h2>Coburg</h2>
+        <div class="loc">3058 · Inner North Melbourne · 7.8km from CBD</div>
+      </div>
+      <div class="spotlight-median">
+        <div class="lbl">House median</div>
+        <div class="val">$1,065,000</div>
+        <div style="font-size:13px; opacity:0.85; margin-top:6px;">↑ 4.7% YoY · Days on market 28</div>
+      </div>
+    </div>
+    <div class="spotlight-body">
+      <h3>Why buyers are heading north of Brunswick</h3>
+      <p>Once a quiet pocket of postwar bungalows, Coburg has become one of Melbourne's most-watched suburbs. Sydney Road's Lebanese bakeries and Persian grocers sit beside specialty coffee, and the Upfield bike path delivers a stress-free commute to the CBD. Families are drawn to Coburg High's rebuild and the parklands of Merri Creek.</p>
+      <div class="mini-listings">
+        <div class="mini-listing">
+          <div class="mini-img"></div>
+          <div class="mini-body">
+            <div class="mini-price">$1,180,000</div>
+            <div class="mini-addr">14 Bell St, Coburg</div>
+            <div class="mini-icons">🛏 3 · 🛁 2 · 🚗 2</div>
+          </div>
+        </div>
+        <div class="mini-listing">
+          <div class="mini-img"></div>
+          <div class="mini-body">
+            <div class="mini-price">Auction Sat 25 Nov</div>
+            <div class="mini-addr">8/22 Pentridge Bvd</div>
+            <div class="mini-icons">🛏 2 · 🛁 2 · 🚗 1</div>
+          </div>
+        </div>
+        <div class="mini-listing">
+          <div class="mini-img"></div>
+          <div class="mini-body">
+            <div class="mini-price">$1,425,000</div>
+            <div class="mini-addr">47 Reynard St, Coburg</div>
+            <div class="mini-icons">🛏 4 · 🛁 2 · 🚗 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="app-section">
+  <div>
+    <h2>Take PropertyNest with you</h2>
+    <p>Save searches, get instant alerts when new listings hit the market, and book inspections — all from your phone.</p>
+    <div class="app-badges">
+      <div class="app-badge">
+        <span class="ico"></span>
+        <div>
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </div>
+      </div>
+      <div class="app-badge">
+        <span class="ico">▶</span>
+        <div>
+          <small>GET IT ON</small>
+          <strong>Google Play</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="app-screen">
+    <div class="app-screen-head">Saved searches · 4 new</div>
+    <div class="app-screen-row">
+      <div class="thumb"></div>
+      <div>
+        <div style="font-weight:600;">Hawthorn · 3+ bed</div>
+        <div style="opacity:0.7; font-size:11px;">12 new this week</div>
+      </div>
+    </div>
+    <div class="app-screen-row">
+      <div class="thumb"></div>
+      <div>
+        <div style="font-weight:600;">Coburg · Under $1.2M</div>
+        <div style="opacity:0.7; font-size:11px;">7 new this week</div>
+      </div>
+    </div>
+    <div class="app-screen-row">
+      <div class="thumb"></div>
+      <div>
+        <div style="font-weight:600;">Paddington · Apartments</div>
+        <div style="opacity:0.7; font-size:11px;">4 new this week</div>
+      </div>
+    </div>
+  </div>
+  <div class="qr-wrap">
+    <span class="qr"></span>
+    <p>Scan to download</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand"><span class="logo-mark">🏠</span> PropertyNest</div>
+      <p class="foot-tag">Find your place in Australia. Over 482,000 listings, 41,000 agents and the country's most accurate suburb data.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Discover</h4>
+      <a href="#">Buy</a>
+      <a href="#">Rent</a>
+      <a href="#">Sold</a>
+      <a href="#">New Homes</a>
+      <a href="#">Estimate</a>
+    </div>
+    <div class="foot-col">
+      <h4>Tools</h4>
+      <a href="#">Suburb reports</a>
+      <a href="#">Auction results</a>
+      <a href="#">Mortgage calculator</a>
+      <a href="#">Stamp duty calculator</a>
+      <a href="#">Saved searches</a>
+    </div>
+    <div class="foot-col">
+      <h4>For agents</h4>
+      <a href="#">List a property</a>
+      <a href="#">Agent dashboard</a>
+      <a href="#">Featured placements</a>
+      <a href="#">Data subscriptions</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="#">About PropertyNest</a>
+      <a href="#">Careers</a>
+      <a href="#">News &amp; Insights</a>
+      <a href="#">Contact</a>
+      <a href="#">Help centre</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <div>© 2023 PropertyNest Pty Ltd · ABN 47 122 488 901</div>
+    <div>Terms · Privacy · Cookies · Accessibility</div>
+  </div>
+</footer>
+
+</body>
+</html>

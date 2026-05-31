@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1276968,
+      "page_width": 1440,
+      "page_height": 4330
+    },
+    {
+      "slug": "roster",
+      "path": "roster.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 481917,
+      "page_width": 1440,
+      "page_height": 2759
+    },
+    {
+      "slug": "schedule",
+      "path": "schedule.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 371633,
+      "page_width": 1440,
+      "page_height": 2840
+    },
+    {
+      "slug": "shop",
+      "path": "shop.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1416028,
+      "page_width": 1550,
+      "page_height": 4838
+    },
+    {
+      "slug": "teams",
+      "path": "teams.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 481731,
+      "page_width": 1440,
+      "page_height": 3063
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

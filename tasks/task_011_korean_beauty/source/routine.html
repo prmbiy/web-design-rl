@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>루틴 빌더 — 도담 / Dodam Beauty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FFFFF0;
+  --surface: #FFF5EE;
+  --primary: #FFB6C1;
+  --secondary: #C8829A;
+  --accent: #B2DFDB;
+  --text: #3D2A35;
+  --muted: #9B8590;
+  --border: #F2DCE2;
+  --blush: #FFE4E1;
+  --gold: #D4AF37;
+  --ivory: #FFFAF0;
+}
+
+body {
+  font-family: 'Lato', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: linear-gradient(180deg, #FFF5EE 0%, #FFE4E1 100%);
+  line-height: 1.6;
+  padding-bottom: 100px;
+}
+
+h1, h2, h3, h4 { font-family: 'DM Serif Display', 'Noto Sans KR', serif; font-weight: 400; color: var(--text); }
+
+/* Nav */
+.nav-banner {
+  background: var(--blush);
+  text-align: center;
+  padding: 8px 24px;
+  font-size: 13px;
+  color: var(--secondary);
+  letter-spacing: 0.5px;
+}
+.nav-banner strong { font-weight: 700; }
+
+nav.main-nav {
+  position: sticky; top: 0;
+  z-index: 100;
+  background: rgba(255,255,240,0.85);
+  backdrop-filter: blur(12px);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--secondary);
+}
+.logo span { font-family: 'Noto Sans KR', sans-serif; font-style: normal; font-size: 14px; margin-left: 8px; color: var(--muted); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--secondary); }
+.nav-icons { display: flex; gap: 20px; align-items: center; font-size: 18px; color: var(--text); }
+.nav-icons span { cursor: pointer; }
+.nav-icons .points {
+  background: var(--accent);
+  color: var(--text);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Hero */
+.hero {
+  padding: 90px 24px 60px;
+  text-align: center;
+}
+.hero-content { animation: fadeInHero 1.2s ease-out forwards; }
+.hero .tag {
+  display: inline-block;
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.hero h1 em { font-style: italic; color: var(--secondary); }
+.hero p {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+.hero .korean-sub {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+/* AM/PM Toggle */
+.toggle-section {
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+  background: rgba(255, 245, 238, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.toggle-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.toggle-pills {
+  display: flex;
+  background: var(--ivory);
+  border-radius: 40px;
+  padding: 6px;
+  border: 1px solid var(--border);
+}
+.toggle-pills button {
+  border: none;
+  background: transparent;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--muted);
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+.toggle-pills button.active {
+  background: var(--primary);
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(255,182,193,0.4);
+}
+.toggle-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.toggle-meta strong { color: var(--secondary); font-size: 16px; font-family: 'DM Serif Display', serif; }
+.toggle-meta .meta-item { display: flex; flex-direction: column; }
+
+/* Routine Steps */
+.routine-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+.section-label {
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr 360px;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 28px;
+  position: relative;
+}
+.step-number {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 72px;
+  color: var(--primary);
+  text-align: center;
+  line-height: 1;
+  position: relative;
+}
+.step-number::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+.step:last-child .step-number::after { display: none; }
+
+.step-info {
+  background: rgba(255, 250, 240, 0.6);
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+.step-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.step-name .kr { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; color: var(--muted); margin-left: 10px; letter-spacing: 1px; }
+.step-explainer { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.step-tags { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.step-tags span {
+  font-size: 11px;
+  background: var(--blush);
+  color: var(--secondary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.step-tags .ingredient { background: var(--accent); color: #2d5853; }
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(200,130,154,0.18); }
+
+.product-visual {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  position: relative;
+  margin-bottom: 14px;
+}
+.badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--accent);
+  color: #2d5853;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+.badge-sample {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--ivory);
+  color: var(--secondary);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border);
+}
+.product-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.product-name-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.product-meta { display: flex; justify-content: space-between; align-items: center; }
+.product-price {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+.product-rating { font-size: 12px; color: var(--muted); }
+.quick-add {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Quiz CTA */
+.quiz-cta {
+  max-width: 1100px;
+  margin: 80px auto;
+  background: linear-gradient(135deg, #FFE4E1 0%, #B2DFDB 100%);
+  border-radius: 24px;
+  padding: 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.quiz-cta::before {
+  content: '✨';
+  position: absolute;
+  top: 30px; right: 60px;
+  font-size: 40px;
+  opacity: 0.6;
+}
+.quiz-cta::after {
+  content: '🌸';
+  position: absolute;
+  bottom: 30px; left: 60px;
+  font-size: 40px;
+  opacity: 0.5;
+}
+.quiz-cta h3 {
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.quiz-cta h3 em { font-style: italic; color: var(--secondary); }
+.quiz-cta p { color: var(--text); margin-bottom: 24px; font-size: 15px; }
+.quiz-cta .points-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+.quiz-cta .points-badge .gold {
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+}
+.quiz-btn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.quiz-illus {
+  background: rgba(255,255,255,0.4);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+}
+.quiz-illus .big-emoji { font-size: 80px; display: block; margin-bottom: 12px; }
+.quiz-illus .quiz-meta {
+  display: flex; justify-content: space-around;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+.quiz-illus .quiz-meta div { font-size: 12px; color: var(--secondary); }
+.quiz-illus .quiz-meta strong { display: block; font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--text); }
+
+/* Sticky Add All Bar */
+.add-all-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: white;
+  border-top: 1px solid var(--border);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  box-shadow: 0 -8px 30px rgba(200,130,154,0.1);
+}
+.add-all-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.add-all-info { display: flex; align-items: center; gap: 24px; }
+.add-all-info .label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.add-all-info .price {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: var(--text);
+}
+.add-all-info .save {
+  background: var(--accent);
+  color: #2d5853;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.add-all-info .strikethrough {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-size: 14px;
+  margin-right: 8px;
+}
+.add-all-btn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.bundle-note {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Footer */
+footer {
+  background: var(--surface);
+  padding: 60px 40px 30px;
+  margin-bottom: 80px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand .logo { margin-bottom: 16px; display: inline-block; }
+.footer-brand p { font-size: 13px; color: var(--muted); max-width: 280px; }
+footer h4 { font-family: 'Lato', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary); margin-bottom: 16px; }
+footer ul { list-style: none; }
+footer ul li { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Product card color variants */
+.bg-blush { background: linear-gradient(135deg, #FFE4E1, #FFB6C1); }
+.bg-mint { background: linear-gradient(135deg, #B2DFDB, #E0F2F1); }
+.bg-peach { background: linear-gradient(135deg, #FFF5EE, #FFD7C2); }
+.bg-rose { background: linear-gradient(135deg, #F8C8DC, #E8A5BB); }
+.bg-cream { background: linear-gradient(135deg, #FFFAF0, #F5E6D3); }
+.bg-petal { background: linear-gradient(135deg, #FFD1DC, #FFB6C1); }
+.bg-sage { background: linear-gradient(135deg, #D4E4D4, #B5D3B0); }
+.bg-honey { background: linear-gradient(135deg, #FFE8C7, #F5D49E); }
+.bg-lavender { background: linear-gradient(135deg, #E6E0F0, #C8B8DD); }
+.bg-coral { background: linear-gradient(135deg, #FFCBA4, #FFA07A); }
+
+/* Animations */
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollReveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { animation: scrollReveal 0.8s ease-out forwards; }
+.step:nth-child(1) { animation-delay: 0.05s; }
+.step:nth-child(2) { animation-delay: 0.1s; }
+.step:nth-child(3) { animation-delay: 0.15s; }
+.step:nth-child(4) { animation-delay: 0.2s; }
+.step:nth-child(5) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<div class="nav-banner">
+  ✿ <strong>Free Heartleaf Sample</strong> with every order over ₩50,000 · Earn 500 포인트 with the Skin Quiz ✿
+</div>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <div class="logo">Dodam <span>도담</span></div>
+    <ul class="nav-links">
+      <li><a href="#">New</a></li>
+      <li><a href="#">Skincare</a></li>
+      <li><a href="#">Makeup</a></li>
+      <li><a href="#">Body</a></li>
+      <li><a href="#">Sets</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-icons">
+      <span class="points">1,240 P</span>
+      <span>⌕</span>
+      <span>♡</span>
+      <span>⛬</span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="tag">루틴 빌더 · Routine Builder</span>
+    <h1>Build your <em>10-step</em> ritual</h1>
+    <p>Toggle AM ☀ / PM 🌙 — add the full routine in one tap. Dermatologist-tested, hypoallergenic, made for glass skin.</p>
+    <p class="korean-sub">유리알 같은 피부, 천천히 한 단계씩.</p>
+  </div>
+</section>
+
+<div class="toggle-section">
+  <div class="toggle-inner">
+    <div class="toggle-pills">
+      <button class="active">☀ AM Routine · 7 STEPS</button>
+      <button>🌙 PM Routine · 10 STEPS</button>
+    </div>
+    <div class="toggle-meta">
+      <div class="meta-item"><span>Routine total</span><strong>₩187,000</strong></div>
+      <div class="meta-item"><span>Bundle saving</span><strong style="color:#2d5853;">−₩23,000</strong></div>
+      <div class="meta-item"><span>Earn points</span><strong>+1,870 P</strong></div>
+    </div>
+  </div>
+</div>
+
+<section class="routine-section">
+  <div class="section-label">PM RITUAL · 10 단계</div>
+  <h2 class="section-title">Layer gently, glow slowly.</h2>
+
+  <div class="step reveal">
+    <div class="step-number">01</div>
+    <div class="step-info">
+      <div class="step-name">Oil Cleanser <span class="kr">오일 클렌저</span></div>
+      <div class="step-explainer">Step 1: Melt away SPF, makeup, and sebum with a gentle plant-oil cleanser. Massage onto dry skin for 60 seconds.</div>
+      <div class="step-tags"><span>1ST CLEANSE</span><span class="ingredient">Camellia + Rice Bran Oil</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-honey">
+        <span class="badge-sample">SAMPLE INCLUDED</span>
+        🫧
+      </div>
+      <div class="product-name">Rice Bran Cleansing Oil</div>
+      <div class="product-name-kr">쌀겨 클렌징 오일 150ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩22,000</div>
+        <div class="product-rating">★ 4.8 (1,204)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">02</div>
+    <div class="step-info">
+      <div class="step-name">Water Cleanser <span class="kr">워터 클렌저</span></div>
+      <div class="step-explainer">Step 2: Double cleanse with a low-pH gel to remove residue without stripping your barrier. Lather, swirl, rinse.</div>
+      <div class="step-tags"><span>2ND CLEANSE</span><span class="ingredient">pH 5.5 · Heartleaf</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-mint">
+        <span class="badge-new">NEW</span>
+        <span class="badge-sample">DERM TESTED</span>
+        🌿
+      </div>
+      <div class="product-name">Heartleaf Gel Cleanser</div>
+      <div class="product-name-kr">어성초 젤 클렌저 200ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩18,000</div>
+        <div class="product-rating">★ 4.9 (2,108)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">03</div>
+    <div class="step-info">
+      <div class="step-name">Exfoliator <span class="kr">엑스폴리에이터</span></div>
+      <div class="step-explainer">Step 3: Use 2–3× weekly. A gentle PHA toner sloughs off dead cells without irritation — even for sensitive skin.</div>
+      <div class="step-tags"><span>2–3× WEEKLY</span><span class="ingredient">3% PHA + Niacinamide</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-blush">
+        <span class="badge-sample">DERM TESTED</span>
+        ✨
+      </div>
+      <div class="product-name">PHA Smoothing Toner</div>
+      <div class="product-name-kr">PHA 스무딩 토너 150ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩26,000</div>
+        <div class="product-rating">★ 4.7 (943)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">04</div>
+    <div class="step-info">
+      <div class="step-name">Toner <span class="kr">토너</span></div>
+      <div class="step-explainer">Step 4: Replenish hydration and balance pH. Press in with palms — never cotton pads — to maximize absorption.</div>
+      <div class="step-tags"><span>HYDRATE</span><span class="ingredient">Centella 77% + Madecassoside</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-sage">
+        <span class="badge-new">NEW</span>
+        💧
+      </div>
+      <div class="product-name">Centella Calming Toner</div>
+      <div class="product-name-kr">센텔라 카밍 토너 200ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩24,000</div>
+        <div class="product-rating">★ 4.9 (1,654)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">05</div>
+    <div class="step-info">
+      <div class="step-name">Essence <span class="kr">에센스</span></div>
+      <div class="step-explainer">Step 4: Essence — Rice Glow Essence for hydration layering. The heart of K-beauty: fermented rice water for the dewy "yulia" finish.</div>
+      <div class="step-tags"><span>GLASS SKIN</span><span class="ingredient">Fermented Rice 90%</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-cream">
+        <span class="badge-new">NEW</span>
+        <span class="badge-sample">SAMPLE INCLUDED</span>
+        🍚
+      </div>
+      <div class="product-name">Rice Glow Essence</div>
+      <div class="product-name-kr">라이스 글로우 에센스 100ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩32,000</div>
+        <div class="product-rating">★ 4.9 (3,420)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">06</div>
+    <div class="step-info">
+      <div class="step-name">Treatment / Ampoule <span class="kr">앰플</span></div>
+      <div class="step-explainer">Step 6: Target your skin's main concern with concentrated actives. Three drops, two pumps — no more.</div>
+      <div class="step-tags"><span>TARGET</span><span class="ingredient">80% Propolis + Royal Jelly</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-honey">
+        <span class="badge-sample">DERM TESTED</span>
+        🍯
+      </div>
+      <div class="product-name">Propolis Glow Ampoule</div>
+      <div class="product-name-kr">프로폴리스 앰플 30ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩38,000</div>
+        <div class="product-rating">★ 4.8 (1,872)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">07</div>
+    <div class="step-info">
+      <div class="step-name">Serum <span class="kr">세럼</span></div>
+      <div class="step-explainer">Step 7: Brighten and even tone with a niacinamide serum. Stack with ampoule for layered hydration.</div>
+      <div class="step-tags"><span>BRIGHTEN</span><span class="ingredient">5% Niacinamide + Rice Bran</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-peach">
+        <span class="badge-sample">DERM TESTED</span>
+        🌸
+      </div>
+      <div class="product-name">Niacinamide Bright Serum</div>
+      <div class="product-name-kr">나이아신아마이드 세럼 30ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩29,000</div>
+        <div class="product-rating">★ 4.7 (1,109)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">08</div>
+    <div class="step-info">
+      <div class="step-name">Sheet Mask <span class="kr">시트 마스크</span></div>
+      <div class="step-explainer">Step 8: 2–3× weekly. Drench skin in essence for 15 minutes. Pat in remaining serum, never rinse.</div>
+      <div class="step-tags"><span>2–3× WEEKLY</span><span class="ingredient">Snow Mushroom + HA</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-lavender">
+        <span class="badge-sample">VEGAN</span>
+        🎭
+      </div>
+      <div class="product-name">Snow Mushroom Mask Set</div>
+      <div class="product-name-kr">설화고버섯 마스크 5매</div>
+      <div class="product-meta">
+        <div class="product-price">₩15,000</div>
+        <div class="product-rating">★ 4.9 (2,341)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">09</div>
+    <div class="step-info">
+      <div class="step-name">Eye Cream <span class="kr">아이크림</span></div>
+      <div class="step-explainer">Step 9: Tap (don't rub) under the orbital bone with your ring finger. Peptides smooth fine lines overnight.</div>
+      <div class="step-tags"><span>ANTI-AGE</span><span class="ingredient">Peptide Complex + Retinal 0.05%</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-rose">
+        <span class="badge-sample">DERM TESTED</span>
+        👁
+      </div>
+      <div class="product-name">Peptide Eye Cream</div>
+      <div class="product-name-kr">펩타이드 아이크림 25ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩34,000</div>
+        <div class="product-rating">★ 4.8 (876)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+
+  <div class="step reveal">
+    <div class="step-number">10</div>
+    <div class="step-info">
+      <div class="step-name">Sleeping Mask <span class="kr">슬리핑 마스크</span></div>
+      <div class="step-explainer">Step 10: Seal the routine with an occlusive sleeping cream. Wake up to plump, baby-soft "도담한" skin.</div>
+      <div class="step-tags"><span>SEAL</span><span class="ingredient">Shea + Ceramide NP</span></div>
+    </div>
+    <div class="product-card">
+      <div class="product-visual bg-petal">
+        <span class="badge-sample">SAMPLE INCLUDED</span>
+        🌙
+      </div>
+      <div class="product-name">Overnight Glow Cream</div>
+      <div class="product-name-kr">오버나잇 글로우 크림 60ml</div>
+      <div class="product-meta">
+        <div class="product-price">₩36,000</div>
+        <div class="product-rating">★ 4.9 (1,498)</div>
+      </div>
+      <button class="quick-add">+ QUICK ADD</button>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-cta reveal">
+  <div>
+    <div class="points-badge"><span class="gold">★</span> Earn 500 포인트 on completion</div>
+    <h3>Take the <em>도담 Skin Quiz</em> in 60 seconds.</h3>
+    <p>Answer 12 questions about your skin type, lifestyle, and goals. We'll build a personalized AM + PM routine — recommended by Dr. Yuna Park, our founding Yonsei dermatologist.</p>
+    <button class="quiz-btn">Start Skin Quiz →</button>
+  </div>
+  <div class="quiz-illus">
+    <span class="big-emoji">🧖🏻‍♀️</span>
+    <div style="font-family: 'DM Serif Display', serif; font-size: 22px;">Yuria-skin, in 8 weeks.</div>
+    <div style="font-size: 12px; color: var(--muted); margin-top: 6px;">유리알 같은 피부, 천천히.</div>
+    <div class="quiz-meta">
+      <div><strong>60s</strong>quiz time</div>
+      <div><strong>12</strong>questions</div>
+      <div><strong>+500P</strong>reward</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Dodam <span>도담</span></div>
+      <p>Glass skin, gently earned. Born in Seongsu-dong, made for the world. 유리알 같은 피부, 천천히.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li>New Arrivals</li>
+        <li>Skincare</li>
+        <li>Makeup</li>
+        <li>Body</li>
+        <li>Sets & Bundles</li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li>Our Story</li>
+        <li>Ingredients</li>
+        <li>Routine Builder</li>
+        <li>Reviews</li>
+        <li>Press</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Care</h4>
+      <ul>
+        <li>Loyalty 포인트</li>
+        <li>Subscription Box</li>
+        <li>Shipping & Returns</li>
+        <li>Contact</li>
+        <li>@dodam.beauty</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Dodam Beauty Co., Ltd. · Seongsu-dong, Seoul · 사업자등록번호 123-45-67890</div>
+    <div>Leaping Bunny · Vegan Society · EWG Verified</div>
+  </div>
+</footer>
+
+<div class="add-all-bar">
+  <div class="add-all-inner">
+    <div class="add-all-info">
+      <div>
+        <div class="label">Full PM Routine · 10 steps</div>
+        <div class="price"><span class="strikethrough">₩210,000</span>₩187,000</div>
+      </div>
+      <div class="save">SAVE ₩23,000</div>
+      <div class="bundle-note">+ free Heartleaf sample · earn 1,870 포인트</div>
+    </div>
+    <button class="add-all-btn">Add Full Routine to Bag →</button>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap",
+    "font_heading": "'Cormorant Garamond', Georgia, serif",
+    "font_body": "'Lato', -apple-system, sans-serif",
+    "font_mono": null,
+    "size_h1": "64px",
+    "size_h2": "44px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#4A1040",
+    "color_secondary": "#B8892F",
+    "color_accent": "#B8892F",
+    "color_bg": "#FDF8F0",
+    "color_surface": "#FFFFFF",
+    "color_text": "#3D3D3D",
+    "color_text_muted": "#7A6A6A",
+    "color_border": "#B8892F",
+    "border_radius": "2px",
+    "container_max_width": "1240px",
+    "section_padding": "96px 32px",
+    "nav_bg": "rgba(253,248,240,0.96)",
+    "nav_height": "84px",
+    "nav_position": "sticky",
+    "footer_bg": "#4A1040",
+    "extra_colors": {
+      "terracotta": "#B85C3A",
+      "deep_plum_dark": "#2E0A28",
+      "cream_warm": "#F5EDD8",
+      "gold_light": "#D4A85A",
+      "shadow_warm": "rgba(74,16,64,0.12)",
+      "candlelight_overlay": "rgba(255,248,225,0.15)"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed hero food photograph with overlaid serif tagline, followed by 3-column restaurant location cards, horizontal awards strip on plum band, italic press pull-quote, and private events CTA banner.",
+      "bg": "#FDF8F0"
+    },
+    "restaurants": {
+      "layout": "Alternating full-width restaurant sections with large photo on one side and details (name, cuisine, chef italic, hours, signature dishes, Reserve button) on the other, separated by 1px gold dividers, ending with ambience photo gallery grid.",
+      "bg": "#FDF8F0"
+    },
+    "menu": {
+      "layout": "Top restaurant selector tabs, then centered single-column menu with serif section headings (Starters, Mains, etc.), each dish as flex row with name+description left and gold tabular price right, dietary icons inline, gold 1px dividers between sections.",
+      "bg": "#F5EDD8"
+    },
+    "reservations": {
+      "layout": "Two-column layout with reservation form (restaurant, date, time, party size, requests) on left and cancellation policy plus private dining inquiry CTA card on right, embedded widget area centered below.",
+      "bg": "#FDF8F0"
+    },
+    "events": {
+      "layout": "Hero event image with intro, three-column room capacity cards, sample menu accordions, masonry photo gallery of past events, chef's table experience callout, and inquiry form at bottom on plum background.",
+      "bg": "#FDF8F0"
+    }
+  }
+}

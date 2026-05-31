@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ask | Hacker News</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #F6F6EF;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    color: #000000;
+  }
+  a { color: #000000; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .subtext a { color: #828282; }
+  .subtext a:hover { text-decoration: underline; }
+
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    background: #F6F6EF;
+  }
+
+  /* Top bar */
+  .topbar {
+    background: #FF6600;
+    padding: 2px 6px;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    line-height: 18px;
+  }
+  .topbar .logo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    color: #FF6600;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 18px;
+    margin-right: 4px;
+    font-family: Verdana, sans-serif;
+  }
+  .topbar .brand {
+    font-weight: bold;
+    color: #000000;
+    font-size: 10px;
+    margin-right: 8px;
+  }
+  .topbar .nav {
+    color: #000000;
+    font-size: 10px;
+    flex: 1;
+  }
+  .topbar .nav a {
+    color: #000000;
+  }
+  .topbar .nav .current {
+    color: #FFFFFF;
+    font-weight: bold;
+  }
+  .topbar .login {
+    color: #000000;
+    font-size: 10px;
+  }
+  .topbar .login a { color: #000000; }
+
+  /* Intro */
+  .intro {
+    background: #F6F6EF;
+    padding: 8px 6px 4px 6px;
+    font-size: 10px;
+  }
+  .intro b { font-weight: bold; }
+
+  /* Story list */
+  .stories {
+    padding: 4px 0 0 0;
+  }
+  .story {
+    display: flex;
+    align-items: flex-start;
+    padding: 2px 6px 0 6px;
+    margin-bottom: 4px;
+  }
+  .rank {
+    width: 28px;
+    color: #828282;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 4px;
+    line-height: 14px;
+  }
+  .vote {
+    width: 14px;
+    text-align: center;
+    line-height: 14px;
+  }
+  .vote .tri {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 6px solid #999999;
+    cursor: pointer;
+  }
+  .vote .tri:hover {
+    border-bottom-color: #FF6600;
+  }
+  .content {
+    padding-left: 2px;
+  }
+  .title-line {
+    font-size: 10px;
+    color: #000000;
+    line-height: 14px;
+  }
+  .title-line a:visited { color: #828282; }
+  .subtext {
+    color: #828282;
+    font-size: 7pt;
+    line-height: 12px;
+  }
+  .more {
+    padding: 10px 0 10px 40px;
+    font-size: 10px;
+  }
+  .more a { color: #000000; }
+
+  /* Footer */
+  .footer {
+    border-top: 2px solid #FF6600;
+    margin: 10px 6px 0 6px;
+    padding: 8px 0 20px 0;
+    text-align: center;
+    font-size: 9px;
+    color: #828282;
+  }
+  .footer a { color: #828282; }
+  .footer .links { margin-bottom: 6px; }
+  .footer .search {
+    margin-top: 6px;
+  }
+  .footer .search input {
+    font-family: Verdana, sans-serif;
+    font-size: 10px;
+    padding: 1px 2px;
+    border: 1px solid #828282;
+    background: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <a href="#" class="logo">Y</a>
+    <span class="brand"><a href="#">Hacker News</a></span>
+    <span class="nav">
+      <a href="#">new</a> | <a href="#">past</a> | <a href="#">comments</a> | <span class="current">ask</span> | <a href="#">show</a> | <a href="#">jobs</a> | <a href="#">submit</a>
+    </span>
+    <span class="login"><a href="#">login</a></span>
+  </div>
+
+  <!-- Intro line -->
+  <div class="intro">
+    Please read the <a href="#"><u>rules</u></a>. Ask HN posts should consist of a question or request for the HN community. Other text submissions should be posted to <a href="#"><u>/show</u></a>.
+  </div>
+
+  <!-- Ask list -->
+  <div class="stories">
+
+    <div class="story">
+      <div class="rank">1.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What are you working on in October 2023?</a></div>
+        <div class="subtext">
+          842 points by <a href="#">whatareyouon</a> <a href="#">3 hours ago</a> | <a href="#">hide</a> | <a href="#">1247&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">2.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Best resources to learn CUDA in 2023?</a></div>
+        <div class="subtext">
+          318 points by <a href="#">gpu_curious</a> <a href="#">5 hours ago</a> | <a href="#">hide</a> | <a href="#">214&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">3.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: I'm 42 and burned out — what next?</a></div>
+        <div class="subtext">
+          1104 points by <a href="#">tiredstaff</a> <a href="#">7 hours ago</a> | <a href="#">hide</a> | <a href="#">893&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">4.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Who is hiring? (October 2023)</a></div>
+        <div class="subtext">
+          612 points by <a href="#">whoishiring</a> <a href="#">9 hours ago</a> | <a href="#">hide</a> | <a href="#">1872&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">5.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What's your favorite small, niche programming language?</a></div>
+        <div class="subtext">
+          287 points by <a href="#">langfan</a> <a href="#">10 hours ago</a> | <a href="#">hide</a> | <a href="#">456&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">6.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: How do you stay focused with three monitors and 47 tabs open?</a></div>
+        <div class="subtext">
+          198 points by <a href="#">distracted_dev</a> <a href="#">11 hours ago</a> | <a href="#">hide</a> | <a href="#">312&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">7.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Who wants to be hired? (October 2023)</a></div>
+        <div class="subtext">
+          241 points by <a href="#">whoishiring</a> <a href="#">11 hours ago</a> | <a href="#">hide</a> | <a href="#">719&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">8.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Has anyone successfully migrated off AWS to bare metal?</a></div>
+        <div class="subtext">
+          376 points by <a href="#">cloudtired</a> <a href="#">13 hours ago</a> | <a href="#">hide</a> | <a href="#">428&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">9.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What books changed how you think about software engineering?</a></div>
+        <div class="subtext">
+          524 points by <a href="#">bookworm_42</a> <a href="#">14 hours ago</a> | <a href="#">hide</a> | <a href="#">687&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">10.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Solo founders — how do you handle the loneliness?</a></div>
+        <div class="subtext">
+          412 points by <a href="#">soloalone</a> <a href="#">15 hours ago</a> | <a href="#">hide</a> | <a href="#">298&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">11.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Is anyone else extremely bearish on the current LLM hype cycle?</a></div>
+        <div class="subtext">
+          289 points by <a href="#">skeptik</a> <a href="#">16 hours ago</a> | <a href="#">hide</a> | <a href="#">541&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">12.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What underrated CLI tools do you use every day?</a></div>
+        <div class="subtext">
+          603 points by <a href="#">terminalfan</a> <a href="#">17 hours ago</a> | <a href="#">hide</a> | <a href="#">824&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">13.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: How do you document architecture decisions on a small team?</a></div>
+        <div class="subtext">
+          167 points by <a href="#">adr_curious</a> <a href="#">18 hours ago</a> | <a href="#">hide</a> | <a href="#">182&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">14.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Quit my $400k job to garden full-time, was it stupid?</a></div>
+        <div class="subtext">
+          894 points by <a href="#">ex_faang</a> <a href="#">19 hours ago</a> | <a href="#">hide</a> | <a href="#">1156&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">15.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What does a healthy on-call rotation look like in 2023?</a></div>
+        <div class="subtext">
+          214 points by <a href="#">pager_burnout</a> <a href="#">20 hours ago</a> | <a href="#">hide</a> | <a href="#">263&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">16.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Self-hosters, what's in your home lab right now?</a></div>
+        <div class="subtext">
+          438 points by <a href="#">selfhost_life</a> <a href="#">21 hours ago</a> | <a href="#">hide</a> | <a href="#">612&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">17.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Is leetcode interviewing finally dying or am I imagining it?</a></div>
+        <div class="subtext">
+          521 points by <a href="#">no_more_dp</a> <a href="#">22 hours ago</a> | <a href="#">hide</a> | <a href="#">734&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">18.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: How do you motivate yourself to ship side projects?</a></div>
+        <div class="subtext">
+          312 points by <a href="#">unshipped</a> <a href="#">23 hours ago</a> | <a href="#">hide</a> | <a href="#">389&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">19.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Best way to teach a curious 10-year-old to code in 2023?</a></div>
+        <div class="subtext">
+          278 points by <a href="#">parent_dev</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">341&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">20.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Anyone running a profitable bootstrapped SaaS under $20k MRR?</a></div>
+        <div class="subtext">
+          487 points by <a href="#">tinysaas</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">523&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">21.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What's the most useful thing you learned from an old codebase?</a></div>
+        <div class="subtext">
+          156 points by <a href="#">legacy_lover</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">203&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">22.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Engineers over 50 — what are you doing now?</a></div>
+        <div class="subtext">
+          691 points by <a href="#">graybeard</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">812&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">23.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Postgres or SQLite for a new B2B SaaS in 2023?</a></div>
+        <div class="subtext">
+          243 points by <a href="#">db_picker</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">418&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">24.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What's your honest opinion on Rust after 2 years of using it?</a></div>
+        <div class="subtext">
+          372 points by <a href="#">rustacean</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">596&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">25.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: How do you handle the ethics of working on ad-tech?</a></div>
+        <div class="subtext">
+          184 points by <a href="#">conflicted_eng</a> <a href="#">1 day ago</a> | <a href="#">hide</a> | <a href="#">487&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">26.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Best note-taking system for engineers who hate note-taking?</a></div>
+        <div class="subtext">
+          329 points by <a href="#">no_notes</a> <a href="#">2 days ago</a> | <a href="#">hide</a> | <a href="#">421&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">27.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Anyone using local LLMs for serious work, or is it all hobby?</a></div>
+        <div class="subtext">
+          261 points by <a href="#">offline_ai</a> <a href="#">2 days ago</a> | <a href="#">hide</a> | <a href="#">374&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">28.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What's your dev environment in 2023? (editor, terminal, dotfiles)</a></div>
+        <div class="subtext">
+          412 points by <a href="#">dotfile_nerd</a> <a href="#">2 days ago</a> | <a href="#">hide</a> | <a href="#">638&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">29.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: Got fired for the first time at 38, how do you bounce back?</a></div>
+        <div class="subtext">
+          708 points by <a href="#">first_firing</a> <a href="#">2 days ago</a> | <a href="#">hide</a> | <a href="#">524&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="rank">30.</div>
+      <div class="vote"><span class="tri"></span></div>
+      <div class="content">
+        <div class="title-line"><a href="#">Ask HN: What would you build if you had a free year and $100k?</a></div>
+        <div class="subtext">
+          391 points by <a href="#">dreamerdev</a> <a href="#">2 days ago</a> | <a href="#">hide</a> | <a href="#">612&nbsp;comments</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="more"><a href="#">More</a></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="links">
+      <a href="#">Guidelines</a> | <a href="#">FAQ</a> | <a href="#">Lists</a> | <a href="#">API</a> | <a href="#">Security</a> | <a href="#">Legal</a> | <a href="#">Apply to YC</a> | <a href="#">Contact</a>
+    </div>
+    <div class="search">
+      Search: <input type="text" value="">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

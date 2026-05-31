@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Orders | Chatori</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 15px;
+  color: #3D4152;
+  background: #F8F8F8;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ============ NAV ============ */
+.nav {
+  background: #FFFFFF;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-bottom: 1px solid #E9E9EB;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  color: #FC8019;
+  letter-spacing: -0.5px;
+}
+
+.logo::before {
+  content: "🍱";
+  margin-right: 6px;
+  font-size: 24px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.location:hover { border-color: #E9E9EB; }
+
+.location-pin {
+  color: #FC8019;
+  font-weight: 800;
+}
+.location-text {
+  font-size: 14px;
+  color: #686B78;
+}
+.location-text b {
+  color: #3D4152;
+  border-bottom: 2px solid #3D4152;
+  padding-bottom: 1px;
+}
+
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  font-size: 15px;
+  color: #3D4152;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: #FC8019; }
+
+.nav-links .icon {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.cart-pill {
+  background: #FC8019;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-weight: 700;
+}
+.cart-pill:hover { background: #e57214; color: #fff !important; }
+
+/* ============ PAGE HEADER ============ */
+.page-header-wrap {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF6EE 100%);
+  border-bottom: 1px solid #F0E5D8;
+  padding: 40px 24px 36px;
+}
+
+.page-header {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.crumbs {
+  font-size: 13px;
+  color: #686B78;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.crumbs span { color: #3D4152; }
+
+.page-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  font-size: 15px;
+  color: #686B78;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.filter-tab {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #E9E9EB;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  color: #686B78;
+  cursor: pointer;
+}
+
+.filter-tab.active {
+  background: #FFF3E9;
+  border-color: #FC8019;
+  color: #FC8019;
+}
+
+/* ============ ORDERS LIST ============ */
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
+}
+
+.order-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E9E9EB;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.order-card-top {
+  display: flex;
+  padding: 22px 24px;
+  gap: 22px;
+  border-bottom: 1px dashed #E9E9EB;
+}
+
+.restaurant-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.thumb-1 { background: linear-gradient(135deg, #FFE1B3 0%, #FC8019 100%); }
+.thumb-2 { background: linear-gradient(135deg, #FFD1D6 0%, #E23744 100%); }
+.thumb-3 { background: linear-gradient(135deg, #D7F2DB 0%, #60B246 100%); }
+.thumb-4 { background: linear-gradient(135deg, #FFE9C7 0%, #E94E77 100%); }
+.thumb-5 { background: linear-gradient(135deg, #E7E1FF 0%, #6B5BD2 100%); }
+
+.order-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-restaurant {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 2px;
+}
+
+.restaurant-location {
+  font-size: 13px;
+  color: #686B78;
+  margin-bottom: 14px;
+}
+
+.order-id {
+  font-size: 12px;
+  color: #686B78;
+  text-align: right;
+  white-space: nowrap;
+}
+.order-id b { color: #3D4152; }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+.status-delivered {
+  background: #E5F5E8;
+  color: #3E8E41;
+}
+.status-delivered::before {
+  content: "✓";
+  font-weight: 900;
+}
+
+.status-cancelled {
+  background: #FBE0E2;
+  color: #C5303C;
+}
+.status-cancelled::before {
+  content: "✕";
+  font-weight: 900;
+}
+
+.order-items-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.veg-dot, .nonveg-dot {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.veg-dot { border-color: #60B246; }
+.veg-dot::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #60B246; }
+.nonveg-dot { border-color: #E23744; }
+.nonveg-dot::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #E23744; }
+
+.items-text {
+  font-size: 14px;
+  color: #3D4152;
+  font-weight: 600;
+}
+
+.order-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+}
+
+.order-meta .dot-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #B8BABE;
+}
+
+.order-total {
+  color: #3D4152;
+  font-weight: 800;
+}
+
+/* ============ ACTIONS ============ */
+.order-card-bottom {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  background: #FCFCFC;
+  gap: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #FC8019;
+  color: #fff;
+}
+.btn-primary:hover { background: #e57214; }
+
+.btn-outline {
+  background: #fff;
+  color: #FC8019;
+  border-color: #FC8019;
+}
+.btn-outline:hover { background: #FFF3E9; }
+
+.text-link {
+  color: #FC8019;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.text-link:hover { text-decoration: underline; }
+
+.divider-v {
+  width: 1px;
+  height: 20px;
+  background: #E9E9EB;
+}
+
+.rate-prompt {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+}
+.star {
+  color: #DBDBDB;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.star:hover, .star:hover ~ .star { color: #DBDBDB; }
+.stars:hover .star { color: #F5A623; }
+.stars .star:hover ~ .star { color: #DBDBDB; }
+
+.rating-given {
+  background: #48C479;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============ HELPER CARD ============ */
+.helper-card {
+  background: #FFFFFF;
+  border: 1px dashed #FC8019;
+  border-radius: 12px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.helper-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 4px;
+}
+
+.helper-card p {
+  font-size: 14px;
+  color: #686B78;
+}
+
+.helper-icon {
+  font-size: 38px;
+  margin-right: 8px;
+}
+
+.helper-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: #1B1F25;
+  color: #B8BABE;
+  padding: 56px 24px 28px;
+  margin-top: 32px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #2B2F36;
+}
+
+.footer-brand {
+  font-size: 26px;
+  font-weight: 900;
+  color: #FC8019;
+  margin-bottom: 10px;
+}
+
+.footer-tag {
+  font-size: 13px;
+  color: #B8BABE;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.app-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #2B2F36;
+  border: 1px solid #393E48;
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: fit-content;
+  font-size: 12px;
+  color: #fff;
+}
+.app-badge b { font-size: 14px; font-weight: 800; display: block; }
+.app-badge .platform-icon { font-size: 22px; }
+
+.footer h4 {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.footer ul { list-style: none; }
+
+.footer li {
+  font-size: 14px;
+  color: #B8BABE;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.footer li:hover { color: #fff; }
+
+.footer-bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #686B78;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2B2F36;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+.social-icon:hover { background: #FC8019; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Chatori</div>
+    <div class="location">
+      <span class="location-pin">📍</span>
+      <span class="location-text"><b>Indiranagar</b>, Bengaluru &nbsp;▾</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">🔍 Search</a>
+      <a href="#">🎁 Offers</a>
+      <a href="#">⭐ Chatori Pro</a>
+      <a href="#">👤 Profile</a>
+      <a href="#" class="cart-pill">🛒 Cart</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<div class="page-header-wrap">
+  <div class="page-header">
+    <div class="crumbs">Home / Profile / <span>Your Orders</span></div>
+    <div class="header-row">
+      <div>
+        <h1>Past Orders</h1>
+        <p>Manage your orders and reorder your favourites</p>
+      </div>
+      <div class="filter-tabs">
+        <div class="filter-tab active">All Orders</div>
+        <div class="filter-tab">Delivered</div>
+        <div class="filter-tab">Cancelled</div>
+        <div class="filter-tab">Last 30 days</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ORDERS LIST ============ -->
+<main class="main">
+
+  <!-- Order 1 -->
+  <div class="order-card">
+    <div class="order-card-top">
+      <div class="restaurant-thumb thumb-1">🍔</div>
+      <div class="order-info">
+        <div class="order-restaurant">
+          <div>
+            <div class="restaurant-name">Truffles, Koramangala</div>
+            <div class="restaurant-location">5th Block, Koramangala, Bengaluru</div>
+          </div>
+          <div class="order-id">
+            <div>Order ID</div>
+            <b>#CHA8821094</b>
+          </div>
+        </div>
+        <div class="status-badge status-delivered">DELIVERED</div>
+        <div class="order-items-list">
+          <span class="nonveg-dot"></span>
+          <span class="items-text">All American Cheese Burger × 1, Choco Lava Cake × 2, Cold Coffee × 1</span>
+        </div>
+        <div class="order-meta">
+          <span>📅 12 Mar 2022, 8:42 PM</span>
+          <span class="dot-sep"></span>
+          <span>🛵 Delivered in 32 min</span>
+          <span class="dot-sep"></span>
+          <span class="order-total">Total: ₹645.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-card-bottom">
+      <a class="btn btn-primary">🔁 REORDER</a>
+      <a class="btn btn-outline">HELP</a>
+      <div class="divider-v"></div>
+      <a class="text-link">⬇ Download Invoice</a>
+      <div class="rate-prompt">
+        <span>Rate your order:</span>
+        <span class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order 2 -->
+  <div class="order-card">
+    <div class="order-card-top">
+      <div class="restaurant-thumb thumb-2">🍗</div>
+      <div class="order-info">
+        <div class="order-restaurant">
+          <div>
+            <div class="restaurant-name">Meghana Foods</div>
+            <div class="restaurant-location">100 Feet Road, Indiranagar, Bengaluru</div>
+          </div>
+          <div class="order-id">
+            <div>Order ID</div>
+            <b>#CHA8819456</b>
+          </div>
+        </div>
+        <div class="status-badge status-delivered">DELIVERED</div>
+        <div class="order-items-list">
+          <span class="nonveg-dot"></span>
+          <span class="items-text">Chicken Boneless Biryani × 1, Paneer 65 × 2, Gulab Jamun × 1</span>
+        </div>
+        <div class="order-meta">
+          <span>📅 08 Mar 2022, 1:15 PM</span>
+          <span class="dot-sep"></span>
+          <span>🛵 Delivered in 38 min</span>
+          <span class="dot-sep"></span>
+          <span class="order-total">Total: ₹951.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-card-bottom">
+      <a class="btn btn-primary">🔁 REORDER</a>
+      <a class="btn btn-outline">HELP</a>
+      <div class="divider-v"></div>
+      <a class="text-link">⬇ Download Invoice</a>
+      <div class="rate-prompt">
+        <span>You rated:</span>
+        <span class="rating-given">4.5 ★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order 3 -->
+  <div class="order-card">
+    <div class="order-card-top">
+      <div class="restaurant-thumb thumb-3">🥗</div>
+      <div class="order-info">
+        <div class="order-restaurant">
+          <div>
+            <div class="restaurant-name">Empire Restaurant</div>
+            <div class="restaurant-location">CBD Bellandur, Bengaluru</div>
+          </div>
+          <div class="order-id">
+            <div>Order ID</div>
+            <b>#CHA8814702</b>
+          </div>
+        </div>
+        <div class="status-badge status-cancelled">CANCELLED</div>
+        <div class="order-items-list">
+          <span class="veg-dot"></span>
+          <span class="items-text">Veg Kothu Parotta × 2, Butter Naan × 4, Paneer Tikka Masala × 1</span>
+        </div>
+        <div class="order-meta">
+          <span>📅 02 Mar 2022, 9:08 PM</span>
+          <span class="dot-sep"></span>
+          <span>❌ Cancelled by restaurant</span>
+          <span class="dot-sep"></span>
+          <span class="order-total">Refunded: ₹520.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-card-bottom">
+      <a class="btn btn-primary">🔁 REORDER</a>
+      <a class="btn btn-outline">VIEW REFUND</a>
+      <div class="divider-v"></div>
+      <a class="text-link">⬇ Download Invoice</a>
+      <div class="rate-prompt">
+        <span style="color:#E23744;font-weight:700;">Refund of ₹520 credited to source account</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order 4 -->
+  <div class="order-card">
+    <div class="order-card-top">
+      <div class="restaurant-thumb thumb-4">🍕</div>
+      <div class="order-info">
+        <div class="order-restaurant">
+          <div>
+            <div class="restaurant-name">Domino's Pizza</div>
+            <div class="restaurant-location">HSR Layout Sector 2, Bengaluru</div>
+          </div>
+          <div class="order-id">
+            <div>Order ID</div>
+            <b>#CHA8809321</b>
+          </div>
+        </div>
+        <div class="status-badge status-delivered">DELIVERED</div>
+        <div class="order-items-list">
+          <span class="veg-dot"></span>
+          <span class="items-text">Farmhouse Pizza (Medium) × 1, Garlic Breadsticks × 1, Pepsi 500ml × 2</span>
+        </div>
+        <div class="order-meta">
+          <span>📅 24 Feb 2022, 7:55 PM</span>
+          <span class="dot-sep"></span>
+          <span>🛵 Delivered in 28 min</span>
+          <span class="dot-sep"></span>
+          <span class="order-total">Total: ₹489.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-card-bottom">
+      <a class="btn btn-primary">🔁 REORDER</a>
+      <a class="btn btn-outline">HELP</a>
+      <div class="divider-v"></div>
+      <a class="text-link">⬇ Download Invoice</a>
+      <div class="rate-prompt">
+        <span>You rated:</span>
+        <span class="rating-given">5.0 ★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order 5 -->
+  <div class="order-card">
+    <div class="order-card-top">
+      <div class="restaurant-thumb thumb-5">🥘</div>
+      <div class="order-info">
+        <div class="order-restaurant">
+          <div>
+            <div class="restaurant-name">Behrouz Biryani</div>
+            <div class="restaurant-location">Indiranagar, Bengaluru</div>
+          </div>
+          <div class="order-id">
+            <div>Order ID</div>
+            <b>#CHA8801558</b>
+          </div>
+        </div>
+        <div class="status-badge status-delivered">DELIVERED</div>
+        <div class="order-items-list">
+          <span class="nonveg-dot"></span>
+          <span class="items-text">Royal Lucknowi Chicken Biryani × 2, Phirni × 1, Mutton Seekh Kebab × 1</span>
+        </div>
+        <div class="order-meta">
+          <span>📅 14 Feb 2022, 9:30 PM</span>
+          <span class="dot-sep"></span>
+          <span>🛵 Delivered in 41 min</span>
+          <span class="dot-sep"></span>
+          <span class="order-total">Total: ₹1,124.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="order-card-bottom">
+      <a class="btn btn-primary">🔁 REORDER</a>
+      <a class="btn btn-outline">HELP</a>
+      <div class="divider-v"></div>
+      <a class="text-link">⬇ Download Invoice</a>
+      <div class="rate-prompt">
+        <span>You rated:</span>
+        <span class="rating-given">4.0 ★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Helper card -->
+  <div class="helper-card">
+    <div class="helper-left">
+      <div class="helper-icon">🔍</div>
+      <div>
+        <h3>Looking for an older order?</h3>
+        <p>We've shown orders from the last 90 days. View your complete order history anytime.</p>
+      </div>
+    </div>
+    <a class="btn btn-primary">VIEW ALL ORDERS →</a>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">🍱 Chatori</div>
+        <div class="footer-tag">"Bhookh lagi? Order kar!"</div>
+        <div class="app-badges">
+          <div class="app-badge">
+            <span class="platform-icon">🍎</span>
+            <span>Download on the<br><b>App Store</b></span>
+          </div>
+          <div class="app-badge">
+            <span class="platform-icon">▶</span>
+            <span>Get it on<br><b>Google Play</b></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>COMPANY</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Careers</li>
+          <li>Team</li>
+          <li>Chatori Blog</li>
+          <li>Bug Bounty</li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul>
+          <li>Help & Support</li>
+          <li>Partner with us</li>
+          <li>Ride with us</li>
+          <li>Press Kit</li>
+        </ul>
+      </div>
+      <div>
+        <h4>LEGAL</h4>
+        <ul>
+          <li>Terms & Conditions</li>
+          <li>Cookie Policy</li>
+          <li>Privacy Policy</li>
+          <li>Investor Relations</li>
+        </ul>
+      </div>
+      <div>
+        <h4>AVAILABLE IN</h4>
+        <ul>
+          <li>Bengaluru</li>
+          <li>Mumbai</li>
+          <li>Delhi NCR</li>
+          <li>Hyderabad</li>
+          <li>657 cities</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="copyright">© 2022 Chatori Foods Pvt. Ltd. All rights reserved.</div>
+      <div class="socials">
+        <span class="social-icon">f</span>
+        <span class="social-icon">𝕏</span>
+        <span class="social-icon">📷</span>
+        <span class="social-icon">▶</span>
+        <span class="social-icon">in</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

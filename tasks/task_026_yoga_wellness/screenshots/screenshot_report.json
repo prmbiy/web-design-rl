@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1121838,
+      "page_width": 1440,
+      "page_height": 8103
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1305054,
+      "page_width": 1440,
+      "page_height": 5645
+    },
+    {
+      "slug": "schedule",
+      "path": "schedule.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 379144,
+      "page_width": 1440,
+      "page_height": 6092
+    },
+    {
+      "slug": "teachers",
+      "path": "teachers.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1405342,
+      "page_width": 1440,
+      "page_height": 6004
+    },
+    {
+      "slug": "workshops",
+      "path": "workshops.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 837867,
+      "page_width": 1440,
+      "page_height": 5030
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

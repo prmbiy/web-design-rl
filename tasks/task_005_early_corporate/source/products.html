@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Products - Verisys Enterprise Solutions</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #FFFFFF;
+    line-height: 1.5;
+}
+a { color: #0033CC; text-decoration: underline; }
+a:visited { color: #660099; }
+
+/* Top utility bar */
+.util-bar {
+    background-color: #002060;
+    color: #CCCCCC;
+    font-size: 11px;
+    padding: 3px 20px;
+    text-align: right;
+}
+.util-bar a { color: #CCCCCC; text-decoration: none; margin-left: 10px; }
+.util-bar a:hover { text-decoration: underline; }
+
+/* Logo bar */
+.logo-bar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #999999;
+    padding: 10px 20px;
+}
+.logo-bar table { width: 100%; }
+.logo {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #003087;
+    letter-spacing: -1px;
+}
+.logo .dot { color: #FF6600; }
+.tagline {
+    font-size: 11px;
+    color: #4A4A4A;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Top nav */
+.top-nav {
+    background-color: #003087;
+    height: 28px;
+    padding: 0 20px;
+    border-bottom: 2px solid #FF6600;
+}
+.top-nav ul {
+    list-style: none;
+    line-height: 28px;
+}
+.top-nav li {
+    display: inline;
+    color: #FFFFFF;
+}
+.top-nav li:after {
+    content: " | ";
+    color: #6688BB;
+    text-decoration: none;
+}
+.top-nav li:last-child:after { content: ""; }
+.top-nav a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.15s linear;
+}
+.top-nav a:hover {
+    background-color: #FF6600;
+    color: #FFFFFF;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: #DDEEFF;
+    padding: 5px 20px;
+    font-size: 11px;
+    color: #4A4A4A;
+    border-bottom: 1px solid #99BBDD;
+}
+.breadcrumb a { color: #003087; }
+
+/* Layout */
+.wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+.layout-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.layout-table > tbody > tr > td {
+    vertical-align: top;
+    padding: 0;
+}
+.col-left {
+    width: 180px;
+    background-color: #F0F4FA;
+    border-right: 1px solid #99BBDD;
+    padding: 10px 0;
+}
+.col-main {
+    padding: 0 15px 20px 15px;
+}
+.col-right {
+    width: 220px;
+    background-color: #F0F4FA;
+    border-left: 1px solid #99BBDD;
+    padding: 10px;
+}
+
+/* Tree nav */
+.tree-nav { font-size: 11px; }
+.tree-nav .tree-title {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.tree-nav ul { list-style: none; }
+.tree-nav > ul > li {
+    border-bottom: 1px dotted #99BBDD;
+}
+.tree-nav > ul > li > span {
+    display: block;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: #003087;
+    cursor: default;
+}
+.tree-nav > ul > li > span:before {
+    content: "⊟ ";
+    color: #FF6600;
+    font-weight: normal;
+}
+.tree-nav ul ul {
+    padding-left: 18px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #DDEEFF;
+}
+.tree-nav ul ul li {
+    padding: 3px 0;
+    border-bottom: 1px dotted #DDEEFF;
+}
+.tree-nav ul ul li:before {
+    content: "» ";
+    color: #4A4A4A;
+}
+.tree-nav ul ul a {
+    color: #0033CC;
+    text-decoration: underline;
+    font-size: 11px;
+}
+.tree-nav .current {
+    background-color: #FF6600;
+    color: #FFFFFF !important;
+}
+.tree-nav .current a { color: #FFFFFF; }
+
+/* Hero banner */
+.hero-banner {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 25px 30px;
+    margin-bottom: 15px;
+    border: 1px solid #002060;
+    position: relative;
+    overflow: hidden;
+    animation: heroSlide 0.8s ease-out 1;
+}
+.hero-banner:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 200px;
+    background-color: #002060;
+    border-left: 3px solid #FF6600;
+}
+.hero-banner:after {
+    content: "▣";
+    position: absolute;
+    right: 60px;
+    top: 30px;
+    font-size: 80px;
+    color: #1A4DA0;
+    line-height: 1;
+}
+.hero-banner h1 {
+    font-size: 22px;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 2;
+}
+.hero-banner p {
+    font-size: 13px;
+    color: #CCDDFF;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+@keyframes heroSlide {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Section heading */
+.section-label {
+    background-color: #DDEEFF;
+    color: #003087;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    border-left: 4px solid #FF6600;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 16px;
+    color: #003087;
+    margin: 15px 0 8px 0;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+/* Featured product box */
+.featured-box {
+    border: 2px solid #003087;
+    margin-bottom: 18px;
+    background-color: #FFFFFF;
+}
+.featured-header {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.featured-content {
+    padding: 12px;
+}
+.featured-content table { width: 100%; }
+.featured-content td { vertical-align: top; }
+.featured-icon {
+    width: 90px;
+    height: 90px;
+    background-color: #DDEEFF;
+    border: 1px solid #003087;
+    text-align: center;
+    line-height: 90px;
+    font-size: 40px;
+    color: #003087;
+}
+.featured-text { padding-left: 15px; }
+.featured-text h3 {
+    color: #003087;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.featured-text .subhead {
+    color: #4A4A4A;
+    font-size: 11px;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+.featured-text ul {
+    margin: 6px 0 10px 18px;
+    font-size: 12px;
+}
+.featured-text ul li { padding: 1px 0; }
+
+/* CTA button */
+.btn-cta {
+    display: inline-block;
+    background-color: #FF6600;
+    color: #FFFFFF !important;
+    border: 1px solid #993D00;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 11px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+.btn-cta:hover { background-color: #CC5200; color: #FFFFFF !important; }
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #DDEEFF;
+    color: #003087 !important;
+    border: 1px solid #003087;
+    padding: 4px 10px;
+    font-weight: bold;
+    font-size: 11px;
+    text-decoration: none !important;
+}
+.btn-secondary:hover { background-color: #003087; color: #FFFFFF !important; }
+
+/* Tables */
+table.data {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #999999;
+    margin-bottom: 18px;
+    font-size: 12px;
+}
+table.data th {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 6px 8px;
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    border: 1px solid #002060;
+}
+table.data td {
+    padding: 8px;
+    border: 1px solid #BBCCDD;
+    vertical-align: top;
+}
+table.data tr:nth-child(even) td { background-color: #DDEEFF; }
+table.data tr:nth-child(odd) td { background-color: #FFFFFF; }
+table.data .prod-name {
+    font-weight: bold;
+    color: #003087;
+    width: 180px;
+}
+table.data .learn { width: 90px; text-align: center; }
+
+/* Comparison table */
+table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #999999;
+    margin-bottom: 18px;
+    font-size: 12px;
+}
+table.compare th {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    border: 1px solid #002060;
+}
+table.compare th.feature-col {
+    text-align: left;
+    background-color: #4A4A4A;
+}
+table.compare td {
+    padding: 6px 8px;
+    border: 1px solid #BBCCDD;
+    text-align: center;
+}
+table.compare td.feature {
+    text-align: left;
+    font-weight: bold;
+    color: #4A4A4A;
+    background-color: #F0F4FA;
+}
+table.compare tr:nth-child(even) td:not(.feature) { background-color: #DDEEFF; }
+.check { color: #006600; font-weight: bold; font-size: 14px; }
+.no { color: #999999; }
+
+/* Right sidebar */
+.sidebar-box {
+    background-color: #FFFFFF;
+    border: 1px solid #99BBDD;
+    margin-bottom: 12px;
+}
+.sidebar-box .head {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.sidebar-box .body {
+    padding: 8px;
+    font-size: 11px;
+}
+.analyst-quote {
+    font-style: italic;
+    color: #4A4A4A;
+    border-left: 3px solid #FF6600;
+    padding: 6px 8px;
+    background-color: #F0F4FA;
+    margin: 6px 0;
+    font-size: 11px;
+}
+.analyst-attrib {
+    font-size: 10px;
+    color: #666666;
+    text-align: right;
+    margin-top: 4px;
+}
+.gartner-badge {
+    background-color: #003087;
+    color: #FFFFFF;
+    padding: 8px;
+    text-align: center;
+    margin-top: 8px;
+    border: 2px solid #FF6600;
+}
+.gartner-badge .big {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+.gartner-badge .sm {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+/* Feature boxes (animated) */
+.feature-strip {
+    margin-bottom: 18px;
+}
+.feature-strip table { width: 100%; border-spacing: 8px 0; border-collapse: separate; }
+.feature-box {
+    background-color: #F0F4FA;
+    border: 1px solid #99BBDD;
+    border-top: 3px solid #FF6600;
+    padding: 10px;
+    width: 33%;
+    vertical-align: top;
+    animation: featureAppear 0.6s ease-out both;
+}
+.feature-box:nth-child(2) { animation-delay: 0.15s; }
+.feature-box:nth-child(3) { animation-delay: 0.30s; }
+.feature-box .ficon {
+    font-size: 22px;
+    color: #003087;
+    float: left;
+    width: 30px;
+}
+.feature-box h4 {
+    color: #003087;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.feature-box p { font-size: 11px; color: #4A4A4A; }
+@keyframes featureAppear {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+.footer {
+    background-color: #003087;
+    color: #CCDDFF;
+    padding: 20px;
+    margin-top: 0;
+    border-top: 3px solid #FF6600;
+    font-size: 11px;
+}
+.footer table { width: 100%; }
+.footer td { vertical-align: top; padding-right: 15px; }
+.footer h5 {
+    color: #FFFFFF;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #6688BB;
+    padding-bottom: 3px;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 2px 0; }
+.footer a { color: #CCDDFF; text-decoration: none; }
+.footer a:hover { color: #FF6600; text-decoration: underline; }
+.copyright {
+    background-color: #002060;
+    color: #99AACC;
+    padding: 8px 20px;
+    font-size: 10px;
+    text-align: center;
+    border-top: 1px solid #6688BB;
+}
+.copyright a { color: #CCDDFF; }
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+    <a href="#">Investor Relations</a> | <a href="#">Careers</a> | <a href="#">Worldwide Sites ▼</a> | <a href="#">Login</a>
+</div>
+
+<div class="logo-bar">
+    <table><tr>
+        <td><div class="logo">VERISYS<span class="dot">.</span></div></td>
+        <td class="tagline">Mission-Critical Software for the Global Enterprise</td>
+    </tr></table>
+</div>
+
+<div class="top-nav">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+
+<div class="breadcrumb">
+    <a href="#">Home</a> &gt; <strong>Products</strong> &gt; Product Family Overview
+</div>
+
+<div class="wrap">
+<table class="layout-table"><tr>
+
+    <!-- LEFT NAV -->
+    <td class="col-left">
+        <div class="tree-nav">
+            <div class="tree-title">Navigation</div>
+            <ul>
+                <li>
+                    <span>⊟ Products</span>
+                    <ul>
+                        <li class="current"><a href="#">Product Family</a></li>
+                        <li><a href="#">VeriSuite ERP</a></li>
+                        <li><a href="#">VeriFlow BPM</a></li>
+                        <li><a href="#">VeriVault DW</a></li>
+                        <li><a href="#">VeriPortal 4.0</a></li>
+                        <li><a href="#">VeriConnect EAI</a></li>
+                        <li><a href="#">VeriCore Platform</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>⊞ Solutions</span>
+                    <ul>
+                        <li><a href="#">By Industry</a></li>
+                        <li><a href="#">By Role</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>⊞ Resources</span>
+                    <ul>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Analyst Reports</a></li>
+                        <li><a href="#">Datasheets (PDF)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span>⊞ Support</span>
+                    <ul>
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Patches &amp; Updates</a></li>
+                        <li><a href="#">Open a Case</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div style="padding:10px;margin-top:15px;background-color:#003087;color:#FFFFFF;font-size:11px;text-align:center;border-top:3px solid #FF6600;">
+            <strong>NEED HELP?</strong><br>
+            Call our enterprise sales team:<br>
+            <span style="font-size:13px;color:#FFCC00;">1-800-VERISYS</span><br>
+            <span style="font-size:10px;">(1-800-837-4797)</span>
+        </div>
+    </td>
+
+    <!-- MAIN CONTENT -->
+    <td class="col-main">
+        <div class="hero-banner">
+            <h1>The Verisys Product Family</h1>
+            <p>Integrated enterprise applications built on the VeriCore J2EE Platform &mdash; delivering scalability, interoperability, and regulatory compliance for the Fortune 1000.</p>
+        </div>
+
+        <!-- Feature strip -->
+        <div class="feature-strip">
+            <table><tr>
+                <td class="feature-box">
+                    <div class="ficon">⚙</div>
+                    <h4>VERICORE J2EE PLATFORM</h4>
+                    <p>Common technology stack across all VeriSuite applications. Single sign-on, unified data model.</p>
+                </td>
+                <td class="feature-box">
+                    <div class="ficon">⇄</div>
+                    <h4>OPEN STANDARDS</h4>
+                    <p>SOAP, XML, JMS, and .NET interoperability via VeriConnect EAI Server.</p>
+                </td>
+                <td class="feature-box">
+                    <div class="ficon">✓</div>
+                    <h4>ENTERPRISE-CLASS SLA</h4>
+                    <p>99.999% uptime, 24x7 Premier Support, and Sarbanes-Oxley audit reporting.</p>
+                </td>
+            </tr></table>
+        </div>
+
+        <!-- Featured Product Box -->
+        <div class="section-label">★ Featured Product</div>
+        <div class="featured-box">
+            <div class="featured-header">VERISUITE ERP 7.2 &mdash; NOW SHIPPING</div>
+            <div class="featured-content">
+                <table><tr>
+                    <td style="width:90px;"><div class="featured-icon">▣</div></td>
+                    <td class="featured-text">
+                        <h3>VeriSuite ERP 7.2 Enterprise Edition</h3>
+                        <div class="subhead">The next-generation enterprise resource planning suite for global organizations.</div>
+                        <p style="font-size:12px;">VeriSuite ERP 7.2 unifies your back-office operations across financials, supply chain, and human capital management into a single integrated platform. Built on the VeriCore J2EE architecture and certified for Oracle 9i, IBM DB2, and Microsoft SQL Server.</p>
+                        <ul>
+                            <li><strong>Financials Module</strong> &mdash; GL, AP, AR, Asset Management, Multi-currency Consolidation</li>
+                            <li><strong>Supply Chain Module</strong> &mdash; Procurement, Inventory, Order Management, Demand Planning</li>
+                            <li><strong>HCM Module</strong> &mdash; Payroll, Benefits, Performance Management, Talent Acquisition</li>
+                        </ul>
+                        <div style="margin-top:10px;">
+                            <a href="#" class="btn-cta">▶ Request a Demo</a>
+                            &nbsp;
+                            <a href="#" class="btn-secondary">Download Datasheet (PDF, 1.2 MB)</a>
+                            &nbsp;&nbsp;
+                            <a href="#">Learn More »</a>
+                        </div>
+                    </td>
+                </tr></table>
+            </div>
+        </div>
+
+        <!-- Product Catalog Table -->
+        <div class="section-label">⚏ Complete Product Catalog</div>
+        <table class="data">
+            <thead>
+                <tr>
+                    <th class="prod-name">PRODUCT</th>
+                    <th>DESCRIPTION</th>
+                    <th class="learn">DETAILS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="prod-name">VeriSuite ERP 7.2</td>
+                    <td>Integrated enterprise resource planning suite spanning financials, supply chain, and human capital management. Multi-org, multi-currency, GAAP &amp; IFRS compliant.</td>
+                    <td class="learn"><a href="#">Learn More »</a></td>
+                </tr>
+                <tr>
+                    <td class="prod-name">VeriFlow BPM 3.1</td>
+                    <td>Business process management suite with graphical workflow designer, BPEL execution engine, and real-time process analytics dashboard.</td>
+                    <td class="learn"><a href="#">Learn More »</a></td>
+                </tr>
+                <tr>
+                    <td class="prod-name">VeriVault Data Warehouse</td>
+                    <td>High-performance data warehouse appliance with pre-built ETL connectors for SAP R/3, Siebel, PeopleSoft, and legacy mainframe systems.</td>
+                    <td class="learn"><a href="#">Learn More »</a></td>
+                </tr>
+                <tr>
+                    <td class="prod-name">VeriPortal 4.0</td>
+                    <td>JSR-168 compliant enterprise portal framework with single sign-on, content personalization, and role-based access control.</td>
+                    <td class="learn"><a href="#">Learn More »</a></td>
+                </tr>
+                <tr>
+                    <td class="prod-name">VeriConnect EAI Server</td>
+                    <td>Enterprise application integration server with 60+ pre-built adapters for SAP, Oracle Apps, Siebel, mainframe CICS/IMS, and IBM MQ Series.</td>
+                    <td class="learn"><a href="#">Learn More »</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Comparison Table -->
+        <div class="section-label">⊞ Edition Comparison Matrix</div>
+        <p style="font-size:11px;color:#666666;margin-bottom:8px;">Compare features across VeriSuite editions. Contact your account representative for volume licensing and academic pricing.</p>
+        <table class="compare">
+            <thead>
+                <tr>
+                    <th class="feature-col" style="text-align:left;">FEATURE</th>
+                    <th style="width:120px;">WORKGROUP</th>
+                    <th style="width:120px;">DEPARTMENTAL</th>
+                    <th style="width:120px;">ENTERPRISE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="feature">Concurrent Named Users</td>
+                    <td>Up to 25</td>
+                    <td>Up to 250</td>
+                    <td>Unlimited</td>
+                </tr>
+                <tr>
+                    <td class="feature">Oracle 9i Database Support</td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td class="feature">IBM DB2 / SQL Server Support</td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td class="feature">Application Server Clustering</td>
+                    <td><span class="no">—</span></td>
+                    <td>2-node</td>
+                    <td><span class="check">✓</span> N-node</td>
+                </tr>
+                <tr>
+                    <td class="feature">LDAP / Active Directory SSO</td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td class="feature">Sarbanes-Oxley Audit Module</td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td class="feature">Multi-currency / Multi-language</td>
+                    <td>Single</td>
+                    <td>Up to 5</td>
+                    <td><span class="check">✓</span> Unlimited</td>
+                </tr>
+                <tr>
+                    <td class="feature">Disaster Recovery Hot Standby</td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="no">—</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                    <td class="feature">24x7 Premier Support</td>
+                    <td>Business Hrs</td>
+                    <td>12x5</td>
+                    <td><span class="check">✓</span> 24x7</td>
+                </tr>
+                <tr>
+                    <td class="feature">Annual Maintenance Included</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background-color:#DDEEFF;border:1px solid #99BBDD;padding:12px;margin-bottom:15px;">
+            <table style="width:100%;"><tr>
+                <td style="font-size:12px;color:#4A4A4A;">
+                    <strong style="color:#003087;">Ready to evaluate VeriSuite?</strong> Our enterprise solution consultants will configure a custom proof-of-concept environment for your evaluation team within 5 business days.
+                </td>
+                <td style="text-align:right;width:200px;">
+                    <a href="#" class="btn-cta">▶ Request a Demo</a>
+                </td>
+            </tr></table>
+        </div>
+
+    </td>
+
+    <!-- RIGHT SIDEBAR -->
+    <td class="col-right">
+        <div class="sidebar-box">
+            <div class="head">★ Analyst Recognition</div>
+            <div class="body">
+                <div class="analyst-quote">
+                    "Verisys continues to execute on its integrated enterprise vision, demonstrating strong product completeness and a robust partner ecosystem that places it solidly in the Leaders quadrant."
+                </div>
+                <div class="analyst-attrib">
+                    &mdash; Gartner Group<br>
+                    <em>Magic Quadrant for Enterprise<br>Application Suites, 2003</em>
+                </div>
+                <div class="gartner-badge">
+                    <span class="sm">Gartner</span>
+                    <span class="big">LEADERS</span>
+                    <span class="sm">Quadrant 2003</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <div class="head">⇩ Resources</div>
+            <div class="body">
+                <ul style="list-style:none;font-size:11px;">
+                    <li style="padding:3px 0;border-bottom:1px dotted #99BBDD;">📄 <a href="#">VeriSuite 7.2 White Paper</a><br><span style="color:#666;font-size:10px;">PDF, 2.4 MB (email gate)</span></li>
+                    <li style="padding:3px 0;border-bottom:1px dotted #99BBDD;">📊 <a href="#">TCO Calculator</a><br><span style="color:#666;font-size:10px;">Excel Spreadsheet</span></li>
+                    <li style="padding:3px 0;border-bottom:1px dotted #99BBDD;">🎥 <a href="#">On-Demand Webinar</a><br><span style="color:#666;font-size:10px;">45 minutes</span></li>
+                    <li style="padding:3px 0;">📑 <a href="#">Reference Architecture</a><br><span style="color:#666;font-size:10px;">PDF, 870 KB</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <div class="head">☎ Contact Sales</div>
+            <div class="body" style="font-size:11px;">
+                <strong style="color:#003087;">North America:</strong><br>
+                1-800-VERISYS<br>
+                <span style="color:#666;font-size:10px;">(1-800-837-4797)</span><br><br>
+                <strong style="color:#003087;">EMEA:</strong><br>
+                +44 (0)20 7946 0958<br><br>
+                <strong style="color:#003087;">Email:</strong><br>
+                <a href="#">sales@verisys.com</a>
+                <div style="margin-top:8px;text-align:center;">
+                    <a href="#" class="btn-cta" style="font-size:10px;padding:4px 8px;">CONTACT SALES</a>
+                </div>
+            </div>
+        </div>
+    </td>
+
+</tr></table>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <table><tr>
+        <td>
+            <h5>Products</h5>
+            <ul>
+                <li><a href="#">VeriSuite ERP</a></li>
+                <li><a href="#">VeriFlow BPM</a></li>
+                <li><a href="#">VeriVault DW</a></li>
+                <li><a href="#">VeriPortal</a></li>
+                <li><a href="#">VeriConnect EAI</a></li>
+                <li><a href="#">VeriCore Platform</a></li>
+            </ul>
+        </td>
+        <td>
+            <h5>Solutions</h5>
+            <ul>
+                <li><a href="#">Financial Services</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Manufacturing</a></li>
+                <li><a href="#">Government</a></li>
+                <li><a href="#">Retail</a></li>
+            </ul>
+        </td>
+        <td>
+            <h5>Partners</h5>
+            <ul>
+                <li><a href="#">Find a Partner</a></li>
+                <li><a href="#">Become a Partner</a></li>
+                <li><a href="#">Partner Login</a></li>
+                <li><a href="#">Gold Partners</a></li>
+                <li><a href="#">ISV Program</a></li>
+            </ul>
+        </td>
+        <td>
+            <h5>Support</h5>
+            <ul>
+                <li><a href="#">Knowledge Base</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Open a Case</a></li>
+                <li><a href="#">Training</a></li>
+                <li><a href="#">Documentation</a></li>
+            </ul>
+        </td>
+        <td>
+            <h5>About</h5>
+            <ul>
+                <li><a href="#">Company Overview</a></li>
+                <li><a href="#">Executive Team</a></li>
+                <li><a href="#">Press Releases</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </td>
+        <td>
+            <h5>Investor Relations</h5>
+            <ul>
+                <li><a href="#">NASDAQ: VRSY</a></li>
+                <li><a href="#">SEC Filings</a></li>
+                <li><a href="#">Annual Reports</a></li>
+                <li><a href="#">Earnings Calls</a></li>
+                <li><a href="#">Stock Quote</a></li>
+            </ul>
+        </td>
+    </tr></table>
+</div>
+<div class="copyright">
+    Copyright © 1997-2003 Verisys Enterprise Solutions, Inc. All rights reserved. Verisys, VeriSuite, VeriFlow, VeriVault, VeriPortal, VeriConnect and VeriCore are trademarks or registered trademarks of Verisys Enterprise Solutions, Inc. in the United States and other countries. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="#">Site Map</a>
+</div>
+
+</body>
+</html>

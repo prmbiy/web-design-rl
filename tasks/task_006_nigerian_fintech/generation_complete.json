@@ -1,0 +1,12 @@
+{
+  "dna_id": "006",
+  "dna_name": "nigerian_fintech",
+  "pages": [
+    "home",
+    "personal",
+    "business",
+    "agents",
+    "security"
+  ],
+  "has_animations": false
+}

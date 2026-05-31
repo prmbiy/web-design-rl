@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home | Ministry of Panchayati Raj and Rural Empowerment, Government of India</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #222222;
+  background: #FFFFFF;
+}
+a { color: #0066CC; text-decoration: underline; }
+a:visited { color: #551A8B; }
+a:hover { color: #CC0000; }
+
+/* Utility Bar */
+.utility-bar {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  font-size: 11px;
+  padding: 4px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.utility-bar a { color: #FFCC00; text-decoration: underline; margin: 0 6px; }
+.utility-bar .left span, .utility-bar .right span { margin: 0 4px; }
+.font-sizer button {
+  background: #333; color: #fff; border: 1px solid #666;
+  font-size: 11px; padding: 0 4px; cursor: pointer; margin: 0 1px;
+}
+.lang-toggle { background: #FF6600; color: #fff; padding: 1px 6px; text-decoration: none; }
+
+/* Header */
+.ministry-header {
+  background: #FF6600;
+  border-bottom: 3px solid #003366;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.emblem {
+  width: 64px; height: 80px;
+  background: #FFFFFF;
+  border: 2px solid #003366;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+  color: #003366;
+}
+.ministry-title h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.ministry-title .hindi {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-top: 2px;
+}
+.ministry-title .gov {
+  font-size: 11px;
+  color: #FFCC00;
+  margin-top: 2px;
+}
+.ministry-title .tagline {
+  font-style: italic;
+  font-size: 11px;
+  color: #FFFFFF;
+  margin-top: 4px;
+}
+.header-right { display: flex; gap: 8px; align-items: center; }
+.logo-badge {
+  width: 64px; height: 64px;
+  background: #FFFFFF;
+  border: 1px solid #003366;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: bold; color: #003366;
+  text-align: center; padding: 3px;
+  line-height: 1.1;
+}
+.logo-badge.swachh { background: linear-gradient(135deg, #FFCC00, #FF6600); color: #003366; }
+.logo-badge.amrit { background: linear-gradient(135deg, #FF6600, #008000); color: #FFFFFF; }
+.logo-badge.g20 { background: #003366; color: #FFCC00; }
+
+/* Mega Nav */
+.mega-nav {
+  background: #003366;
+  border-top: 2px solid #FFCC00;
+  border-bottom: 2px solid #FFCC00;
+  display: flex;
+}
+.mega-nav a {
+  flex: 1;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 8px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border-right: 1px solid #FF6600;
+  text-transform: uppercase;
+}
+.mega-nav a:last-child { border-right: none; }
+.mega-nav a:hover, .mega-nav a.active { background: #FF6600; color: #FFFFFF; }
+
+/* Marquee */
+.marquee-strip {
+  background: #FFFFFF;
+  border-bottom: 1px solid #CCCCCC;
+  display: flex;
+  align-items: center;
+}
+.marquee-label {
+  background: #CC0000;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.marquee-content {
+  flex: 1;
+  overflow: hidden;
+  padding: 5px 8px;
+  color: #CC0000;
+  font-size: 12px;
+  font-weight: bold;
+}
+.marquee-content span { display: inline-block; padding-left: 100%; white-space: nowrap; }
+
+/* Hero strip */
+.hero-strip {
+  background: linear-gradient(90deg, #FF6600 0%, #003366 100%);
+  padding: 10px 14px;
+  color: #FFFFFF;
+  border-bottom: 3px solid #FFCC00;
+}
+.hero-strip h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.hero-strip p { font-size: 12px; margin-top: 2px; color: #FFCC00; }
+
+/* Main grid */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px 1fr 240px;
+  gap: 8px;
+  padding: 8px;
+  background: #FFFFFF;
+}
+
+/* Sidebar */
+.sidebar-box {
+  border: 1px solid #999999;
+  margin-bottom: 8px;
+  background: #FFFFFF;
+}
+.sidebar-box h3 {
+  background: #003366;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #FFCC00;
+}
+.sidebar-box ul { list-style: none; }
+.sidebar-box li {
+  border-bottom: 1px dotted #CCCCCC;
+  padding: 4px 8px 4px 18px;
+  font-size: 12px;
+  position: relative;
+  background: #F5F5F5;
+}
+.sidebar-box li:nth-child(even) { background: #FFFFFF; }
+.sidebar-box li:before {
+  content: "▸";
+  color: #FF6600;
+  position: absolute;
+  left: 6px;
+  font-weight: bold;
+}
+.sidebar-box li a { text-decoration: underline; color: #0066CC; }
+
+.contact-mini {
+  background: #FFCC00;
+  border: 2px solid #CC0000;
+  padding: 6px 8px;
+  font-size: 11px;
+  text-align: center;
+}
+.contact-mini strong { color: #CC0000; font-size: 13px; display: block; margin-top: 2px; }
+
+/* Center column */
+.center-col h2.section-head {
+  background: #003366;
+  color: #FFFFFF;
+  font-size: 13px;
+  padding: 5px 8px;
+  border-left: 5px solid #FF6600;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.scheme-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 6px;
+  background: #F5F5F5;
+  border: 1px solid #CCCCCC;
+}
+.scheme-banner {
+  border: 2px solid #003366;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.scheme-banner:visited { color: #FFFFFF; }
+.scheme-banner.pmay { background: linear-gradient(135deg, #FF6600, #CC0000); }
+.scheme-banner.mgnrega { background: linear-gradient(135deg, #008000, #003366); }
+.scheme-banner.rgsa { background: linear-gradient(135deg, #003366, #0066CC); }
+.scheme-banner.sagy { background: linear-gradient(135deg, #FFCC00, #FF6600); color: #003366; }
+.scheme-banner.sagy:visited { color: #003366; }
+.scheme-icon {
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.85);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  border: 1px solid #FFFFFF;
+}
+.scheme-banner .meta { font-size: 11px; }
+.scheme-banner h4 { font-size: 14px; margin-bottom: 2px; text-transform: uppercase; }
+
+.whatsnew-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.whatsnew-box { border: 1px solid #999999; }
+.whatsnew-box h3 {
+  background: #FF6600;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #003366;
+  display: flex;
+  justify-content: space-between;
+}
+.whatsnew-box h3 a { color: #FFFFFF; font-size: 10px; font-weight: normal; }
+.whatsnew-box table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.whatsnew-box td {
+  padding: 4px 6px;
+  border-bottom: 1px dotted #CCCCCC;
+  vertical-align: top;
+}
+.whatsnew-box tr:nth-child(even) td { background: #F5F5F5; }
+.whatsnew-box .date { color: #666666; font-size: 10px; white-space: nowrap; width: 70px; }
+.whatsnew-box .new-tag {
+  background: #CC0000; color: #FFFFFF;
+  font-size: 9px; padding: 0 3px;
+  font-weight: bold; margin-left: 3px;
+}
+
+/* Minister Corner */
+.minister-corner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.minister-card {
+  border: 1px solid #999999;
+  background: #FFFFFF;
+  display: flex;
+  padding: 6px;
+  gap: 8px;
+}
+.minister-photo {
+  width: 80px; height: 100px;
+  background: linear-gradient(180deg, #003366 0%, #FF6600 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #FFFFFF;
+  font-size: 32px;
+  border: 2px solid #FFCC00;
+  flex-shrink: 0;
+}
+.minister-info h4 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13px;
+  color: #003366;
+}
+.minister-info .desig {
+  font-size: 11px;
+  color: #CC0000;
+  font-weight: bold;
+  margin: 2px 0 4px;
+}
+.minister-info p { font-size: 11px; color: #222; }
+.minister-info .msg-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #FFFFFF;
+  background: #FF6600;
+  padding: 2px 6px;
+  text-decoration: none;
+}
+
+/* Stats strip */
+.stats-strip {
+  background: #FFCC00;
+  border: 2px solid #FF6600;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 8px;
+}
+.stat-item {
+  text-align: center;
+  padding: 8px 4px;
+  border-right: 1px dashed #FF6600;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #CC0000;
+}
+.stat-label {
+  font-size: 11px;
+  color: #003366;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Right column */
+.right-box { border: 1px solid #999999; margin-bottom: 8px; background: #FFFFFF; }
+.right-box h3 {
+  background: #CC0000;
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+.right-box.tenders h3 { background: #003366; }
+.right-box ul { list-style: none; padding: 4px 8px; }
+.right-box li {
+  font-size: 11px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #CCCCCC;
+}
+.right-box li .meta { color: #666666; font-size: 10px; display: block; }
+
+.imp-links li:before {
+  content: "►";
+  color: #FF6600;
+  margin-right: 4px;
+}
+
+/* Social Helpline */
+.social-helpline {
+  background: #003366;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid #FFCC00;
+  margin-top: 4px;
+}
+.social-icons { display: flex; gap: 6px; }
+.social-icons a {
+  width: 28px; height: 28px;
+  background: #FF6600;
+  color: #FFFFFF;
+  text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold;
+  border: 1px solid #FFCC00;
+}
+.helpline-num { font-size: 14px; font-weight: bold; }
+.helpline-num strong { color: #FFCC00; font-size: 16px; }
+.accessibility-btn {
+  background: #FFCC00;
+  color: #003366;
+  padding: 4px 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #FFFFFF;
+}
+
+/* Footer */
+footer {
+  background: #003366;
+  color: #FFFFFF;
+  padding: 12px;
+  border-top: 4px solid #FF6600;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
+.footer-grid h4 {
+  font-size: 12px;
+  color: #FFCC00;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #FF6600;
+  padding-bottom: 3px;
+}
+.footer-grid ul { list-style: none; }
+.footer-grid li { padding: 2px 0; font-size: 11px; }
+.footer-grid a { color: #FFFFFF; text-decoration: underline; }
+.footer-grid a:visited { color: #FFCC00; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 12px auto 0;
+  border-top: 1px dashed #FF6600;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #FFCC00;
+}
+.visitor-counter {
+  background: #1A1A1A;
+  border: 1px solid #FFCC00;
+  padding: 2px 6px;
+  font-family: 'Courier New', monospace;
+  color: #FFCC00;
+}
+.footer-about p { font-size: 11px; line-height: 1.4; }
+
+table.directory { width: 100%; border-collapse: collapse; }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="left">
+    <a href="#main">Skip to Main Content</a>
+    <span>|</span>
+    <a href="#screen">Screen Reader Access</a>
+    <span>|</span>
+    <span class="font-sizer">
+      <button>A-</button><button>A</button><button>A+</button>
+    </span>
+  </div>
+  <div class="right">
+    <a href="#" class="lang-toggle">English</a>
+    <a href="#" class="lang-toggle" style="background:#003366;">हिन्दी</a>
+    <span>|</span>
+    <a href="#">Sitemap</a>
+    <span>|</span>
+    <a href="#">Login</a>
+    <span>|</span>
+    <a href="#">Register</a>
+  </div>
+</div>
+
+<!-- Ministry Header -->
+<div class="ministry-header">
+  <div class="header-left">
+    <div class="emblem">⚜</div>
+    <div class="ministry-title">
+      <h1>Ministry of Panchayati Raj and Rural Empowerment</h1>
+      <div class="hindi">पंचायती राज एवं ग्रामीण सशक्तिकरण मंत्रालय</div>
+      <div class="gov">GOVERNMENT OF INDIA | भारत सरकार</div>
+      <div class="tagline">Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="logo-badge swachh">SWACHH<br>BHARAT</div>
+    <div class="logo-badge amrit">AZADI<br>KA AMRIT<br>MAHOTSAV</div>
+    <div class="logo-badge g20">G20<br>BHARAT</div>
+  </div>
+</div>
+
+<!-- Mega Nav -->
+<nav class="mega-nav">
+  <a href="#" class="active">Home</a>
+  <a href="#">About the Ministry</a>
+  <a href="#">Schemes &amp; Programs</a>
+  <a href="#">Tenders &amp; Procurement</a>
+  <a href="#">Acts &amp; Rules</a>
+  <a href="#">Publications</a>
+  <a href="#">RTI</a>
+  <a href="#">Contact Us</a>
+</nav>
+
+<!-- Marquee -->
+<div class="marquee-strip">
+  <div class="marquee-label">📢 What's New</div>
+  <div class="marquee-content">
+    <span>★ Last date for PMAY-G beneficiary verification extended to 30-Nov-2018 &nbsp;&nbsp; ★ National Panchayati Raj Day celebrations on 24-Apr &nbsp;&nbsp; ★ Recruitment notice for 142 Consultant posts uploaded &nbsp;&nbsp; ★ e-Gram Swaraj Portal mandatory for all GP transactions w.e.f. 01-Apr-2019 &nbsp;&nbsp; ★ Online RTI applications now accepted via rtionline.gov.in</span>
+  </div>
+</div>
+
+<!-- Hero Strip -->
+<div class="hero-strip">
+  <h2>Empowering 2.6 Lakh Gram Panchayats Across Bharat</h2>
+  <p>Strengthening grassroots democracy under the 73rd Constitutional Amendment</p>
+</div>
+
+<!-- Main Grid -->
+<div class="main-container" id="main">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="left-col">
+    <div class="sidebar-box">
+      <h3>Citizen Services</h3>
+      <ul>
+        <li><a href="#">Apply for PMAY-G</a></li>
+        <li><a href="#">Check MGNREGA Job Card Status</a></li>
+        <li><a href="#">e-Gram Swaraj Portal</a></li>
+        <li><a href="#">Grievance Registration (CPGRAMS)</a></li>
+        <li><a href="#">Track Application Status</a></li>
+        <li><a href="#">Find Your Gram Panchayat</a></li>
+        <li><a href="#">Download Aadhaar-Linked DBT</a></li>
+        <li><a href="#">RTI Online Request</a></li>
+        <li><a href="#">Tender e-Submission Portal</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">National Panchayat Awards</a></li>
+        <li><a href="#">Devolution Index Report 2018</a></li>
+        <li><a href="#">State Panchayat Acts</a></li>
+        <li><a href="#">Training Calendar (NIRD)</a></li>
+        <li><a href="#">Annual Report 2017-18</a></li>
+        <li><a href="#">Citizen's Charter</a></li>
+      </ul>
+    </div>
+
+    <div class="contact-mini">
+      TOLL-FREE HELPLINE<br>
+      <strong>1800-11-6446</strong>
+      Mon-Fri 09:30-18:00
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Important Days</h3>
+      <ul>
+        <li>24 Apr — National Panchayati Raj Day</li>
+        <li>02 Oct — Gandhi Jayanti / SAGY</li>
+        <li>11 Oct — Jayaprakash Narayan Jayanti</li>
+        <li>14 Nov — Children's Day</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- CENTER COLUMN -->
+  <section class="center-col">
+
+    <h2 class="section-head">Flagship Schemes</h2>
+    <div class="scheme-banners">
+      <a href="#" class="scheme-banner pmay">
+        <div class="scheme-icon">🏠</div>
+        <div>
+          <h4>PMAY-Gramin</h4>
+          <div class="meta">Pradhan Mantri Awaas Yojana — 2.95 Cr Houses Target by 2022</div>
+        </div>
+      </a>
+      <a href="#" class="scheme-banner mgnrega">
+        <div class="scheme-icon">⛏</div>
+        <div>
+          <h4>MGNREGA</h4>
+          <div class="meta">Mahatma Gandhi NREGA — 100 Days Wage Employment Guarantee</div>
+        </div>
+      </a>
+      <a href="#" class="scheme-banner rgsa">
+        <div class="scheme-icon">🏛</div>
+        <div>
+          <h4>RGSA</h4>
+          <div class="meta">Rashtriya Gram Swaraj Abhiyan — Capacity Building of PRIs</div>
+        </div>
+      </a>
+      <a href="#" class="scheme-banner sagy">
+        <div class="scheme-icon">🌾</div>
+        <div>
+          <h4>SAGY</h4>
+          <div class="meta">Saansad Adarsh Gram Yojana — MP Adopts 3 Gram Panchayats</div>
+        </div>
+      </a>
+    </div>
+
+    <h2 class="section-head">Latest Updates &amp; Notifications</h2>
+    <div class="whatsnew-wrap">
+      <div class="whatsnew-box">
+        <h3>Circulars &amp; Orders <a href="#">View All »</a></h3>
+        <table>
+          <tr><td class="date">12-Oct-2018</td><td><a href="#">Circular No. M-11015/3/2018-RE — Revised Operational Guidelines for RGSA</a> <span class="new-tag">NEW</span></td></tr>
+          <tr><td class="date">08-Oct-2018</td><td><a href="#">Office Memorandum on devolution of 14th Finance Commission grants Q3</a></td></tr>
+          <tr><td class="date">02-Oct-2018</td><td><a href="#">Notification — Constitution of National Committee on Panchayat Awards 2019</a></td></tr>
+          <tr><td class="date">25-Sep-2018</td><td><a href="#">Order No. N-11017/19/2018 — Posting/Transfer of Joint Secretaries</a></td></tr>
+          <tr><td class="date">19-Sep-2018</td><td><a href="#">Circular regarding mandatory e-Gram Swaraj usage by all GPs</a></td></tr>
+          <tr><td class="date">12-Sep-2018</td><td><a href="#">Guidelines for utilisation of Untied Funds 2018-19</a></td></tr>
+        </table>
+      </div>
+      <div class="whatsnew-box">
+        <h3>Tenders / Recruitment <a href="#">View All »</a></h3>
+        <table>
+          <tr><td class="date">22-Oct-2018</td><td><a href="#">Tender for ICT Infrastructure at Gram Panchayats (CPPP)</a> <span class="new-tag">NEW</span></td></tr>
+          <tr><td class="date">18-Oct-2018</td><td><a href="#">MoPR/2018-19/47 — Supply of Desktop Computers for e-Gram Swaraj</a></td></tr>
+          <tr><td class="date">15-Oct-2018</td><td><a href="#">Recruitment Notice — 142 Consultant Posts in MoPR</a></td></tr>
+          <tr><td class="date">10-Oct-2018</td><td><a href="#">EoI for Empanelment of Training Institutes under RGSA</a></td></tr>
+          <tr><td class="date">03-Oct-2018</td><td><a href="#">Hiring of Agency for IEC Campaign — Rs. 2.45 Cr</a></td></tr>
+          <tr><td class="date">28-Sep-2018</td><td><a href="#">Corrigendum-2 to MoPR/2018-19/45 dated 12-Sep-2018</a></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-head">Minister's Corner</h2>
+    <div class="minister-corner">
+      <div class="minister-card">
+        <div class="minister-photo">👤</div>
+        <div class="minister-info">
+          <h4>Shri Narendra Singh Tomar</h4>
+          <div class="desig">Hon'ble Union Minister</div>
+          <p>Minister for Panchayati Raj, Rural Development &amp; Mines. Member of Parliament from Morena, Madhya Pradesh.</p>
+          <a class="msg-link" href="#">Message from Minister »</a>
+        </div>
+      </div>
+      <div class="minister-card">
+        <div class="minister-photo" style="background: linear-gradient(180deg, #008000 0%, #003366 100%);">👤</div>
+        <div class="minister-info">
+          <h4>Shri Ram Kripal Yadav</h4>
+          <div class="desig">Hon'ble Minister of State</div>
+          <p>Minister of State for Panchayati Raj &amp; Rural Empowerment. Member of Parliament from Pataliputra, Bihar.</p>
+          <a class="msg-link" href="#">Message from MoS »</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-head">Panchayati Raj at a Glance</h2>
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">2,62,771</div>
+        <div class="stat-label">Gram Panchayats</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">31.2 Lakh</div>
+        <div class="stat-label">Elected Representatives</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">₹2,00,000 Cr</div>
+        <div class="stat-label">Devolved (2017-18)</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RIGHT COLUMN -->
+  <aside class="right-col">
+
+    <div class="right-box tenders">
+      <h3>Active Tenders</h3>
+      <ul>
+        <li>
+          <a href="#">Supply of Desktop Computers — e-Gram Swaraj</a>
+          <span class="meta">MoPR/2018-19/47 | Closes: 09-Nov-2018</span>
+        </li>
+        <li>
+          <a href="#">IEC Campaign Agency — RGSA</a>
+          <span class="meta">MoPR/2018-19/48 | Closes: 14-Nov-2018</span>
+        </li>
+        <li>
+          <a href="#">ICT Infrastructure at GPs</a>
+          <span class="meta">MoPR/2018-19/49 | Closes: 22-Nov-2018</span>
+        </li>
+        <li>
+          <a href="#">Hiring of Translation Services</a>
+          <span class="meta">MoPR/2018-19/50 | Closes: 26-Nov-2018</span>
+        </li>
+        <li>
+          <a href="#">Manpower Outsourcing for NIC Cell</a>
+          <span class="meta">MoPR/2018-19/51 | Closes: 30-Nov-2018</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="right-box">
+      <h3>Urgent Notices</h3>
+      <ul>
+        <li style="color:#CC0000;font-weight:bold;">⚠ PMAY-G verification deadline: 30-Nov-2018</li>
+        <li style="color:#CC0000;">⚠ Caution against fake recruitment websites impersonating MoPR</li>
+        <li>📌 e-Gram Swaraj mandatory from 01-Apr-2019</li>
+        <li>📌 Annual Devolution Report submission due</li>
+      </ul>
+    </div>
+
+    <div class="right-box imp-links">
+      <h3 style="background:#FF6600;">Important Links</h3>
+      <ul>
+        <li><a href="#">MyGov.in</a></li>
+        <li><a href="#">India.gov.in</a></li>
+        <li><a href="#">PMO India</a></li>
+        <li><a href="#">NIC.in</a></li>
+        <li><a href="#">CPPP (eProcurement)</a></li>
+        <li><a href="#">CPGRAMS Portal</a></li>
+        <li><a href="#">e-Gram Swaraj</a></li>
+        <li><a href="#">DBT Bharat</a></li>
+        <li><a href="#">NIRDPR Hyderabad</a></li>
+        <li><a href="#">Ministry of Rural Development</a></li>
+      </ul>
+    </div>
+
+    <div class="right-box">
+      <h3>Photo Gallery</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;">
+        <div style="height:50px;background:linear-gradient(135deg,#FF6600,#FFCC00);display:flex;align-items:center;justify-content:center;color:#fff;">🏛</div>
+        <div style="height:50px;background:linear-gradient(135deg,#003366,#0066CC);display:flex;align-items:center;justify-content:center;color:#fff;">🌾</div>
+        <div style="height:50px;background:linear-gradient(135deg,#008000,#FFCC00);display:flex;align-items:center;justify-content:center;color:#fff;">👥</div>
+        <div style="height:50px;background:linear-gradient(135deg,#CC0000,#FF6600);display:flex;align-items:center;justify-content:center;color:#fff;">📸</div>
+      </div>
+      <div style="text-align:center;padding:4px;border-top:1px dotted #ccc;"><a href="#">View All Photos »</a></div>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- Social Helpline Strip -->
+<div class="social-helpline">
+  <div class="social-icons">
+    <span style="color:#FFCC00;font-weight:bold;font-size:11px;margin-right:6px;">FOLLOW US:</span>
+    <a href="#" title="Twitter">T</a>
+    <a href="#" title="Facebook">f</a>
+    <a href="#" title="YouTube">▶</a>
+    <a href="#" title="Instagram">◉</a>
+    <a href="#" title="Koo">K</a>
+  </div>
+  <div class="helpline-num">
+    📞 Toll-Free Helpline: <strong>1800-11-6446</strong> (Mon-Fri 09:30-18:00 IST)
+  </div>
+  <a href="#" class="accessibility-btn">♿ Accessibility</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-about">
+      <h4>About the Ministry</h4>
+      <p>The Ministry of Panchayati Raj and Rural Empowerment is the nodal ministry for implementation of Part IX of the Constitution of India dealing with Panchayati Raj Institutions. Constituted on 27th May 2004.</p>
+      <p style="margin-top:6px;">Sardar Patel Bhawan, Sansad Marg,<br>New Delhi - 110001<br>EPABX: 011-23741732</p>
+    </div>
+    <div>
+      <h4>Related Links</h4>
+      <ul>
+        <li><a href="#">MyGov</a></li>
+        <li><a href="#">India.gov.in</a></li>
+        <li><a href="#">PMO India</a></li>
+        <li><a href="#">NIC.in</a></li>
+        <li><a href="#">data.gov.in</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Citizen Corner</h4>
+      <ul>
+        <li><a href="#">Citizen's Charter</a></li>
+        <li><a href="#">CPGRAMS</a></li>
+        <li><a href="#">RTI Online</a></li>
+        <li><a href="#">Tender Portal</a></li>
+        <li><a href="#">Career / Vacancies</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Copyright Policy</a></li>
+        <li><a href="#">Hyperlinking Policy</a></li>
+        <li><a href="#">Accessibility Statement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visitor Counter</h4>
+      <div class="visitor-counter">4,82,71,309</div>
+      <p style="font-size:11px;margin-top:6px;color:#FFFFFF;">Best viewed in Internet Explorer 9.0+, Firefox, Chrome at 1024x768 resolution.</p>
+      <p style="font-size:10px;margin-top:6px;color:#FFCC00;">Site hosted by NIC<br>Content owned and maintained by MoPR</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2018 Ministry of Panchayati Raj and Rural Empowerment, Government of India. All Rights Reserved.</div>
+    <div>Last Updated: 28-Oct-2018 | Version 4.2.1</div>
+  </div>
+</footer>
+
+</body>
+</html>

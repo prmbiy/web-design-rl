@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "agents",
+      "path": "agents.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 469160,
+      "page_width": 1440,
+      "page_height": 3106
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 981249,
+      "page_width": 1440,
+      "page_height": 4150
+    },
+    {
+      "slug": "listing",
+      "path": "listing.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 506712,
+      "page_width": 1440,
+      "page_height": 3287
+    },
+    {
+      "slug": "search",
+      "path": "search.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 924565,
+      "page_width": 1440,
+      "page_height": 4266
+    },
+    {
+      "slug": "suburb",
+      "path": "suburb.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 587532,
+      "page_width": 1440,
+      "page_height": 3707
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

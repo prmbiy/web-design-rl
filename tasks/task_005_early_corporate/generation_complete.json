@@ -1,0 +1,12 @@
+{
+  "dna_id": "005",
+  "dna_name": "early_corporate",
+  "pages": [
+    "home",
+    "products",
+    "solutions",
+    "partners",
+    "about"
+  ],
+  "has_animations": true
+}

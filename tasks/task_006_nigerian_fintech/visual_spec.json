@@ -1,0 +1,58 @@
+{
+  "global": {
+    "google_fonts_url": "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');",
+    "font_heading": "'DM Sans', sans-serif",
+    "font_body": "'DM Sans', sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "48px",
+    "size_h2": "36px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#00C853",
+    "color_secondary": "#4A148C",
+    "color_accent": "#AEEA00",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F5F8F6",
+    "color_text": "#1A1A1A",
+    "color_text_muted": "#5A6B66",
+    "color_border": "#E4EAE7",
+    "border_radius": "12px",
+    "container_max_width": "1200px",
+    "section_padding": "80px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#0B1F14",
+    "extra_colors": {
+      "stat_huge": "#00C853",
+      "trust_badge_bg": "#EAF8EF",
+      "premium_gradient_start": "#4A148C",
+      "premium_gradient_end": "#7B1FA2",
+      "whatsapp_green": "#25D366",
+      "warning_yellow": "#FFD600"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky nav, split hero with bold headline left and tilted phone mockup right, trust badge strip, 3-column feature grid, big user-count stat band, testimonials carousel, app download CTA section, footer.",
+      "bg": "#FFFFFF"
+    },
+    "personal": {
+      "layout": "Hero banner, alternating image-text feature rows for card/savings/bills/investing, side-by-side comparison table vs traditional banks, CTA band.",
+      "bg": "#FFFFFF"
+    },
+    "business": {
+      "layout": "Purple gradient hero for premium feel, 6-tile business features grid, three-tier pricing table center stage, SME testimonial, contact-sales CTA.",
+      "bg": "linear-gradient(180deg,#FFFFFF 0%,#F5F0FA 100%)"
+    },
+    "agents": {
+      "layout": "Hero with agent photo, commission structure table, Nigeria map showing agent density, requirements checklist, success-story cards, signup form.",
+      "bg": "#F5F8F6"
+    },
+    "security": {
+      "layout": "Hero with shield icon, 4-up security feature cards, full regulatory compliance strip with license numbers, 'How we protect your money' step diagram, FAQ accordion.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

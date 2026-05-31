@@ -1,0 +1,58 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+    "font_heading": "'Inter', system-ui, sans-serif",
+    "font_body": "'Inter', system-ui, sans-serif",
+    "font_mono": null,
+    "size_h1": "32px",
+    "size_h2": "24px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#006E6E",
+    "color_secondary": "#004D4D",
+    "color_accent": "#FF6700",
+    "color_bg": "#F5F5F5",
+    "color_surface": "#FFFFFF",
+    "color_text": "#1A2A2A",
+    "color_text_muted": "#6B7878",
+    "color_border": "#E1E5E5",
+    "border_radius": "6px",
+    "container_max_width": "1280px",
+    "section_padding": "48px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "120px",
+    "nav_position": "sticky",
+    "footer_bg": "#003838",
+    "extra_colors": {
+      "sale_green": "#2E7D32",
+      "sold_red": "#C62828",
+      "auction_orange": "#FF6700",
+      "price_teal": "#006E6E",
+      "card_shadow": "rgba(0,40,40,0.08)",
+      "tab_inactive": "#F0F4F4"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky tabbed search nav over a teal hero with location search, followed by stacked sections: featured suburbs grid, weekend auction results table, news cards row, and app download CTA banner.",
+      "bg": "#F5F5F5"
+    },
+    "search": {
+      "layout": "Left filter sidebar (260px) with collapsible groups, right main area with results count, sort dropdown, grid/list/map toggle, and a 3-column property card grid with pagination.",
+      "bg": "#F5F5F5"
+    },
+    "listing": {
+      "layout": "Full-width photo gallery carousel up top, two-column body with main details (price, address, beds/baths/cars, description, floorplan) on left and sticky agent contact card plus inspection times on right, suburb profile widget below.",
+      "bg": "#FFFFFF"
+    },
+    "suburb": {
+      "layout": "Suburb hero with median price stats row, two-column area with trend chart and demographics panel, full-width recent sales table, schools map, and a for-sale listings grid at the bottom.",
+      "bg": "#F5F5F5"
+    },
+    "agents": {
+      "layout": "Top filter bar for suburb and agency, three-column grid of agent cards with photo, sales stats and agency logo, side panel for top agents leaderboard and request appraisal CTA.",
+      "bg": "#F5F5F5"
+    }
+  }
+}

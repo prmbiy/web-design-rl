@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Maison — Delacroix-Vauban</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #FFFFFF; color: #1A1A1A; font-family: 'EB Garamond', Garamond, serif; font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+.nav-wrapper { position: fixed; top: 0; left: 0; right: 0; height: 96px; background: rgba(255,255,255,0.0); z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 26px; transition: background 0.9s ease; }
+.nav-wrapper.solid, .nav-wrapper:hover { background: #FFFFFF; }
+.wordmark { font-family: 'Playfair Display', Didot, serif; font-weight: 400; font-size: 13px; letter-spacing: 0.32em; color: #FFFFFF; text-transform: uppercase; transition: color 0.9s ease; }
+.nav-wrapper:hover .wordmark, .nav-wrapper.solid .wordmark { color: #1A1A1A; }
+.nav-line { width: 36px; height: 1px; background: #FFFFFF; margin-top: 14px; transition: background 0.9s ease, width 1.2s ease; }
+.nav-wrapper:hover .nav-line { background: #1A1A1A; width: 0; margin-top: 14px; }
+.nav-menu { opacity: 0; pointer-events: none; transition: opacity 0.9s ease 0.1s; display: flex; gap: 56px; margin-top: 18px; }
+.nav-wrapper:hover .nav-menu { opacity: 1; pointer-events: auto; }
+.nav-link { position: relative; font-family: 'EB Garamond', serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #1A1A1A; text-decoration: none; padding-bottom: 2px; }
+.nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1px; background: #1A1A1A; transform: scaleX(0); transform-origin: right; transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+.bag { position: fixed; top: 36px; right: 48px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #FFFFFF; z-index: 110; text-decoration: none; transition: color 0.9s ease; }
+.nav-wrapper:hover ~ .bag, .nav-wrapper.solid ~ .bag { color: #1A1A1A; }
+
+/* HERO */
+.hero { position: relative; height: 100vh; width: 100%; overflow: hidden; }
+@keyframes fade_in_hero { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero, .hero * { animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.crossfade { position: absolute; inset: 0; }
+.crossfade .slide { position: absolute; inset: 0; }
+.slide-1 { background:
+  radial-gradient(ellipse at 30% 40%, rgba(196,168,130,0.18) 0%, transparent 55%),
+  linear-gradient(160deg, #d8d2c6 0%, #b8ad9c 35%, #6b5e4f 75%, #2a241e 100%);
+}
+.slide-2 { background:
+  radial-gradient(ellipse at 70% 30%, rgba(255,250,242,0.22) 0%, transparent 55%),
+  linear-gradient(180deg, #efe9dd 0%, #c4a882 45%, #3f352a 100%);
+}
+@keyframes crossfade { 0%, 45% { opacity: 1; } 55%, 95% { opacity: 0; } 100% { opacity: 1; } }
+.crossfade .slide-2 { animation: crossfade 14s ease-in-out infinite; }
+.hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 180px 80px 80px; color: #FFFFFF; }
+.hero-mark { font-family: 'Playfair Display', Didot, serif; font-size: 12px; letter-spacing: 0.42em; text-transform: uppercase; opacity: 0.92; }
+.hero-bottom { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.hero-collection { font-family: 'Playfair Display', Didot, serif; font-style: italic; font-weight: 400; font-size: 64px; letter-spacing: 0.01em; line-height: 1; }
+.hero-meta { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.85; }
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.7; }
+
+/* COLLECTION INTRO */
+.intro { padding: 200px 80px 200px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.intro-label { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; color: #1A1A1A; margin-bottom: 80px; }
+.intro-title { font-family: 'Playfair Display', Didot, serif; font-style: italic; font-weight: 400; font-size: 88px; line-height: 1.05; letter-spacing: 0.005em; margin-bottom: 64px; }
+.intro-body { max-width: 560px; font-family: 'EB Garamond', serif; font-style: italic; font-size: 16px; line-height: 1.85; color: #1A1A1A; }
+.intro-signature { margin-top: 48px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #8A8A8A; }
+
+/* FEATURED PIECES */
+.featured { padding: 80px 80px 200px; }
+.featured-header { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #1A1A1A; padding-top: 28px; margin-bottom: 140px; }
+.featured-eyebrow { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; }
+.featured-link { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: #1A1A1A; text-decoration: none; position: relative; padding-bottom: 4px; }
+.featured-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1px; background: #1A1A1A; transform: scaleX(0); transform-origin: right; transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.featured-link:hover::after { transform: scaleX(1); transform-origin: left; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; }
+.product-card { opacity: 1; transform: translateY(0); transition: opacity 1.8s ease, transform 1.8s ease; display: flex; flex-direction: column; text-decoration: none; color: #1A1A1A; }
+.product-image { width: 100%; aspect-ratio: 3/4; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pi-1 { background: linear-gradient(160deg, #FAF7F2 0%, #E8DFD0 60%, #C4A882 100%); }
+.pi-2 { background: linear-gradient(170deg, #F2EEE6 0%, #d6c9b3 70%, #9d8b70 100%); }
+.pi-3 { background: linear-gradient(180deg, #FFFFFF 0%, #F2EEE6 50%, #E5E1DA 100%); }
+.product-glyph { font-family: 'Playfair Display', serif; font-style: italic; font-size: 96px; color: rgba(26,26,26,0.08); letter-spacing: -0.02em; }
+.product-tag { position: absolute; bottom: 24px; left: 24px; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(26,26,26,0.55); }
+.product-name { font-family: 'Playfair Display', Didot, serif; font-weight: 400; font-size: 18px; letter-spacing: 0.06em; margin-bottom: 10px; }
+.product-meta { font-size: 12px; color: #8A8A8A; letter-spacing: 0.06em; margin-bottom: 14px; }
+.product-price { font-size: 11px; letter-spacing: 0.18em; color: #1A1A1A; }
+
+/* EDITORIAL FILM */
+.editorial-film { position: relative; width: 100%; height: 88vh; background:
+  radial-gradient(ellipse at 50% 60%, rgba(196,168,130,0.15) 0%, transparent 60%),
+  linear-gradient(200deg, #2a2620 0%, #4a4036 40%, #1f1a14 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; color: #FAF7F2; padding: 80px;
+}
+.film-eyebrow { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; opacity: 0.7; margin-bottom: 48px; }
+.film-title { font-family: 'Playfair Display', Didot, serif; font-style: italic; font-weight: 400; font-size: 56px; letter-spacing: 0.01em; text-align: center; max-width: 800px; line-height: 1.1; margin-bottom: 56px; }
+.film-credit { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.65; margin-bottom: 64px; }
+.film-link { color: #FAF7F2; text-decoration: none; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; position: relative; padding-bottom: 6px; }
+.film-link::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #FAF7F2; transform: scaleX(1); transform-origin: left; transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.film-link:hover::after { transform: scaleX(0); transform-origin: right; }
+.film-play { width: 64px; height: 64px; border: 1px solid #FAF7F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 48px; font-size: 12px; }
+
+/* FOOTER */
+footer { background: #FAF7F2; padding: 120px 80px 60px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; padding-bottom: 100px; border-bottom: 1px solid #E5E1DA; }
+.footer-wordmark { font-family: 'Playfair Display', Didot, serif; font-size: 14px; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 24px; }
+.footer-tag { font-style: italic; font-size: 14px; color: #1A1A1A; margin-bottom: 40px; }
+.footer-newsletter-label { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; margin-bottom: 20px; }
+.footer-newsletter { display: flex; border-bottom: 1px solid #1A1A1A; padding-bottom: 10px; max-width: 360px; }
+.footer-newsletter input { flex: 1; border: none; background: transparent; outline: none; font-family: 'EB Garamond', serif; font-size: 14px; font-style: italic; color: #1A1A1A; }
+.footer-newsletter input::placeholder { color: #8A8A8A; font-style: italic; }
+.footer-newsletter button { background: none; border: none; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; color: #1A1A1A; }
+.footer-col h4 { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; font-weight: 400; margin-bottom: 24px; }
+.footer-col ul { list-style: none; }
+.footer-col li { font-size: 13px; line-height: 2.1; color: #1A1A1A; }
+.footer-col a { color: #1A1A1A; text-decoration: none; position: relative; }
+.footer-col a:hover { color: #8A8A8A; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 40px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A8A8A; }
+
+</style>
+</head>
+<body>
+
+<div class="nav-wrapper">
+  <div class="wordmark">Maison Delacroix-Vauban</div>
+  <div class="nav-line"></div>
+  <nav class="nav-menu">
+    <a href="#" class="nav-link">Femme</a>
+    <a href="#" class="nav-link">Homme</a>
+    <a href="#" class="nav-link">Maroquinerie</a>
+    <a href="#" class="nav-link">Défilé</a>
+    <a href="#" class="nav-link">Maison</a>
+  </nav>
+</div>
+<a href="#" class="bag">Sac (0)</a>
+
+<section class="hero">
+  <div class="crossfade">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-mark">Delacroix-Vauban · Paris, depuis 1923</div>
+    <div class="hero-bottom">
+      <div class="hero-collection">Silences du Nord</div>
+      <div class="hero-meta">Automne–Hiver 2023</div>
+    </div>
+  </div>
+  <div class="hero-scroll">Défiler</div>
+</section>
+
+<section class="intro">
+  <div class="intro-label">Collection · Automne–Hiver 2023</div>
+  <h1 class="intro-title">Silences<br>du Nord</h1>
+  <p class="intro-body">
+    Une lettre des côtes de Normandie. Quarante-deux pièces façonnées dans la quiétude
+    d'un hiver atlantique — cachemires brossés, laines fondues, cuirs patinés à la main.
+    Pour sa troisième saison à la direction artistique, Hélène Marchetti compose une garde-robe
+    de retraite et de lumière oblique, où chaque silence porte un poids.
+  </p>
+  <div class="intro-signature">— Hélène Marchetti, Directrice Artistique</div>
+</section>
+
+<section class="featured">
+  <div class="featured-header">
+    <span class="featured-eyebrow">Pièces de la Saison</span>
+    <a href="#" class="featured-link">Voir la collection complète</a>
+  </div>
+  <div class="product-grid">
+    <a href="#" class="product-card">
+      <div class="product-image pi-1">
+        <div class="product-glyph">V</div>
+        <div class="product-tag">Maroquinerie</div>
+      </div>
+      <div class="product-name">Sac Vauban 36</div>
+      <div class="product-meta">Veau grainé · Noir</div>
+      <div class="product-price">€9,400</div>
+    </a>
+    <a href="#" class="product-card">
+      <div class="product-image pi-2">
+        <div class="product-glyph">C</div>
+        <div class="product-tag">Prêt-à-Porter</div>
+      </div>
+      <div class="product-name">Manteau Camille</div>
+      <div class="product-meta">Cachemire double · Camel</div>
+      <div class="product-price">€6,200</div>
+    </a>
+    <a href="#" class="product-card">
+      <div class="product-image pi-3">
+        <div class="product-glyph">É</div>
+        <div class="product-tag">Prêt-à-Porter</div>
+      </div>
+      <div class="product-name">Blouse Étienne</div>
+      <div class="product-meta">Soie sablée · Ivoire</div>
+      <div class="product-price">€2,150</div>
+    </a>
+  </div>
+</section>
+
+<section class="editorial-film">
+  <div class="film-eyebrow">Film de Campagne · AH23</div>
+  <div class="film-play">▶</div>
+  <h2 class="film-title">Une Lettre à Honfleur</h2>
+  <div class="film-credit">Photographie · Paolo Roversi</div>
+  <a href="#" class="film-link">Revoir le défilé du Palais de Tokyo</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <div class="footer-wordmark">Delacroix-Vauban</div>
+      <div class="footer-tag">Paris, depuis 1923</div>
+      <div class="footer-newsletter-label">Correspondance</div>
+      <form class="footer-newsletter" onsubmit="return false;">
+        <input type="email" placeholder="Votre adresse" />
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+    <div class="footer-col">
+      <h4>Boutiques</h4>
+      <ul>
+        <li><a href="#">Paris</a></li>
+        <li><a href="#">Milano</a></li>
+        <li><a href="#">Tokyo</a></li>
+        <li><a href="#">New York</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Maison</h4>
+      <ul>
+        <li><a href="#">Histoire</a></li>
+        <li><a href="#">Atelier</a></li>
+        <li><a href="#">Défilés</a></li>
+        <li><a href="#">Archives</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services Clients</h4>
+      <ul>
+        <li>+33 1 42 60 00 23</li>
+        <li><a href="#">Rendez-vous Privé</a></li>
+        <li><a href="#">Conciergerie</a></li>
+        <li><a href="#">Soin & Restauration</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© MMXXIII Maison Delacroix-Vauban</div>
+    <div>Mentions Légales · Confidentialité · Cookies</div>
+  </div>
+</footer>
+
+</body>
+</html>

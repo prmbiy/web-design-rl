@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Our Restaurants — Maison Verleux Hospitality</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3D3D3D;
+  background: #FDF8F0;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  color: #4A1040;
+  line-height: 1.15;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253,248,240,0.96);
+  backdrop-filter: blur(8px);
+  height: 84px;
+  border-bottom: 1px solid rgba(184,137,47,0.3);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #4A1040;
+  letter-spacing: 0.5px;
+}
+.wordmark span { color: #B8892F; font-style: italic; font-weight: 400; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #3D3D3D;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #4A1040; }
+.nav-cta {
+  background: #4A1040;
+  color: #FDF8F0 !important;
+  padding: 12px 22px;
+  border-radius: 2px;
+  letter-spacing: 1.5px !important;
+  font-size: 12px !important;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #2E0A28; }
+.hours-indicator {
+  font-size: 12px;
+  color: #7A6A6A;
+  font-style: italic;
+  margin-right: 8px;
+}
+.hours-indicator::before {
+  content: "•";
+  color: #B85C3A;
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 32px 80px;
+  text-align: center;
+  background: #FDF8F0;
+  border-bottom: 1px solid #B8892F;
+}
+.hero-inner { max-width: 900px; margin: 0 auto; }
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 72px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: #B8892F;
+  font-weight: 400;
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #3D3D3D;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* RESTAURANT DETAIL */
+.restaurant {
+  padding: 110px 32px;
+  border-bottom: 1px solid #B8892F;
+}
+.restaurant-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.restaurant.reverse .restaurant-inner {
+  grid-template-columns: 1fr 1.05fr;
+}
+.restaurant.reverse .photo { order: 2; }
+.restaurant.reverse .details { order: 1; }
+
+.photo {
+  height: 580px;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(74,16,64,0.12);
+  overflow: hidden;
+}
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,248,225,0.15);
+  pointer-events: none;
+}
+.photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(184,137,47,0.3), transparent 60%);
+}
+
+.photo-otsu { background: linear-gradient(135deg, #2E0A28 0%, #4A1040 50%, #1a0610 100%); }
+.photo-otsu::before {
+  background: radial-gradient(circle at 70% 40%, rgba(212,168,90,0.4), transparent 55%),
+              linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4));
+}
+.photo-atelier { background: linear-gradient(160deg, #6b4423 0%, #3d2817 50%, #1a1410 100%); }
+.photo-atelier::before {
+  background: radial-gradient(circle at 35% 55%, rgba(184,92,58,0.5), transparent 60%);
+}
+.photo-lepetit { background: linear-gradient(150deg, #8b3a3a 0%, #4A1040 60%, #2E0A28 100%); }
+.photo-lepetit::before {
+  background: radial-gradient(circle at 60% 30%, rgba(212,168,90,0.45), transparent 55%);
+}
+.photo-maribel { background: linear-gradient(135deg, #2E0A28 0%, #5c1f3a 50%, #1a0610 100%); }
+.photo-maribel::before {
+  background: radial-gradient(ellipse at 40% 50%, rgba(184,92,58,0.55), transparent 60%);
+}
+.photo-pasta { background: linear-gradient(145deg, #7a5a2a 0%, #4A1040 60%, #2E0A28 100%); }
+.photo-pasta::before {
+  background: radial-gradient(circle at 55% 45%, rgba(212,168,90,0.5), transparent 55%);
+}
+
+.photo-label {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  z-index: 2;
+  color: #FDF8F0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+}
+
+.details .eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 18px;
+}
+.details h2 {
+  font-size: 56px;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.cuisine-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #4A1040;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #B8892F;
+}
+.description {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #3D3D3D;
+  margin-bottom: 32px;
+}
+.chef {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: #4A1040;
+  margin-bottom: 28px;
+}
+.chef span { color: #B8892F; font-size: 11px; font-family: 'Lato',sans-serif; font-style: normal; letter-spacing: 2.5px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+.signature {
+  background: #F5EDD8;
+  padding: 22px 26px;
+  margin-bottom: 32px;
+  border-left: 2px solid #B8892F;
+}
+.signature .label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 10px;
+}
+.signature ul { list-style: none; }
+.signature li {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #4A1040;
+  padding: 4px 0;
+}
+.signature li::before {
+  content: "—";
+  color: #B8892F;
+  margin-right: 10px;
+  font-style: normal;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  margin-bottom: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(184,137,47,0.4);
+}
+.meta-item .meta-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 6px;
+}
+.meta-item .meta-value {
+  font-size: 14px;
+  color: #3D3D3D;
+  line-height: 1.5;
+}
+
+.actions { display: flex; gap: 14px; }
+.btn {
+  padding: 16px 30px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+.btn-primary {
+  background: #4A1040;
+  color: #FDF8F0;
+}
+.btn-primary:hover { background: #2E0A28; }
+.btn-outline {
+  background: transparent;
+  color: #4A1040;
+  border: 1px solid #4A1040;
+}
+.btn-outline:hover { background: #4A1040; color: #FDF8F0; }
+
+.michelin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2E0A28;
+  color: #D4A85A;
+  padding: 7px 14px;
+  margin-bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.michelin-badge::before { content: "★"; font-size: 13px; }
+
+/* GALLERY */
+.gallery-section {
+  padding: 110px 32px 130px;
+  background: #FDF8F0;
+}
+.gallery-inner { max-width: 1240px; margin: 0 auto; }
+.gallery-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.gallery-head .eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 16px;
+}
+.gallery-head h2 {
+  font-size: 52px;
+  margin-bottom: 18px;
+}
+.gallery-head h2 em { font-style: italic; color: #B8892F; font-weight: 400; }
+.gallery-head p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #7A6A6A;
+}
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 16px;
+}
+.tile {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(74,16,64,0.12);
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,248,225,0.15);
+  pointer-events: none;
+}
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.tile-1 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #2E0A28, #4A1040); }
+.tile-1::before { background: radial-gradient(circle at 30% 40%, rgba(212,168,90,0.45), transparent 60%); }
+.tile-2 { grid-column: span 1; grid-row: span 1; background: linear-gradient(150deg, #6b4423, #2E0A28); }
+.tile-2::before { background: radial-gradient(circle at 60% 50%, rgba(184,92,58,0.5), transparent 55%); }
+.tile-3 { grid-column: span 1; grid-row: span 2; background: linear-gradient(165deg, #4A1040, #1a0610); }
+.tile-3::before { background: radial-gradient(circle at 50% 30%, rgba(212,168,90,0.4), transparent 55%); }
+.tile-4 { grid-column: span 1; grid-row: span 1; background: linear-gradient(140deg, #3d2817, #1a1410); }
+.tile-4::before { background: radial-gradient(circle at 40% 60%, rgba(184,137,47,0.45), transparent 55%); }
+.tile-5 { grid-column: span 2; grid-row: span 1; background: linear-gradient(135deg, #2E0A28, #5c1f3a); }
+.tile-5::before { background: radial-gradient(ellipse at 60% 50%, rgba(184,92,58,0.45), transparent 60%); }
+.tile-6 { grid-column: span 1; grid-row: span 1; background: linear-gradient(160deg, #7a5a2a, #2E0A28); }
+.tile-6::before { background: radial-gradient(circle at 50% 50%, rgba(212,168,90,0.5), transparent 55%); }
+.tile-7 { grid-column: span 1; grid-row: span 1; background: linear-gradient(135deg, #4A1040, #2E0A28); }
+.tile-7::before { background: radial-gradient(circle at 45% 45%, rgba(184,92,58,0.5), transparent 55%); }
+.tile-8 { grid-column: span 1; grid-row: span 1; background: linear-gradient(150deg, #6b4423, #3d2817); }
+.tile-8::before { background: radial-gradient(circle at 55% 50%, rgba(212,168,90,0.45), transparent 55%); }
+.tile-9 { grid-column: span 2; grid-row: span 1; background: linear-gradient(135deg, #2E0A28, #4A1040); }
+.tile-9::before { background: radial-gradient(circle at 40% 50%, rgba(184,137,47,0.45), transparent 60%); }
+
+.tile-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  z-index: 2;
+  color: #FDF8F0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+
+/* FOOTER */
+footer {
+  background: #4A1040;
+  color: #FDF8F0;
+  padding: 80px 32px 36px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(184,137,47,0.4);
+}
+.footer-brand h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: #FDF8F0;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.footer-brand h3 em { color: #D4A85A; font-style: italic; }
+.footer-brand p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(253,248,240,0.7);
+  line-height: 1.5;
+  max-width: 280px;
+}
+.footer-col h4 {
+  color: #B8892F;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: 14px;
+  color: rgba(253,248,240,0.8);
+  padding: 7px 0;
+}
+.footer-col li a:hover { color: #D4A85A; }
+.footer-bottom {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(253,248,240,0.5);
+  letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="wordmark">Maison <span>Verleux</span></a>
+    <ul class="nav-links">
+      <li><a href="#">Restaurants</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Reservations</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gift Cards</a></li>
+      <li class="hours-indicator">Most rooms open until 11pm</li>
+      <li><a href="#" class="nav-cta">Reserve Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Our Restaurants</div>
+    <h1>Five Rooms,<br><em>One Family</em></h1>
+    <p class="hero-sub">Each restaurant is led by its own chef de cuisine under Elise Verleux's direction — five distinct philosophies, one shared pantry.</p>
+  </div>
+</section>
+
+<!-- OTSU -->
+<section class="restaurant">
+  <div class="restaurant-inner">
+    <div class="photo photo-otsu">
+      <div class="photo-label">Otsu — counter at dusk</div>
+    </div>
+    <div class="details">
+      <div class="michelin-badge">One Michelin Star — 2023, 2024</div>
+      <div class="eyebrow">Tribeca · Kaiseki</div>
+      <h2>Otsu by Verleux</h2>
+      <p class="cuisine-line">A ten-seat kaiseki counter built around a single fire and the morning's market.</p>
+      <p class="description">Eight courses change nightly. Sourcing is direct from Toyosu twice weekly, with vegetable provenance shared with our Hudson Valley restaurants. The room is hushed, the lacquerware antique, the rice from a single field in Niigata.</p>
+      <p class="chef"><span>Chef de Cuisine</span>Kenji Mori</p>
+      <div class="signature">
+        <div class="label">Signature Dishes</div>
+        <ul>
+          <li>Hokkaido uni with brown butter dashi</li>
+          <li>A5 Miyazaki, charcoal-grilled</li>
+          <li>Hakkaisan rice, koji-pickled plum</li>
+        </ul>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Neighborhood</div>
+          <div class="meta-value">142 Franklin St, Tribeca</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">Tue–Sat · Two seatings, 6pm & 9pm</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Format</div>
+          <div class="meta-value">Tasting only · $245 pp</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Booking Window</div>
+          <div class="meta-value">30 days in advance, 9am ET</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Reserve at Otsu</a>
+        <a href="#" class="btn btn-outline">View Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATELIER -->
+<section class="restaurant reverse">
+  <div class="restaurant-inner">
+    <div class="photo photo-atelier">
+      <div class="photo-label">Atelier Hudson — main barn</div>
+    </div>
+    <div class="details">
+      <div class="eyebrow">Hudson, NY · Modern American</div>
+      <h2>Atelier Hudson</h2>
+      <p class="cuisine-line">Wood-fired Modern American in a restored 1840s dairy barn overlooking the Hudson River.</p>
+      <p class="description">Two New York Times stars and an obsessive relationship with the farms within a fifteen-mile radius. The hearth burns local apple and hickory; the cellar leans toward Finger Lakes Riesling and obscure Loire reds. A long lunch on the porch is among our quietest pleasures.</p>
+      <p class="chef"><span>Chef de Cuisine</span>Maya Okonkwo</p>
+      <div class="signature">
+        <div class="label">Signature Dishes</div>
+        <ul>
+          <li>Smoked beet tartare, horseradish snow</li>
+          <li>Black trumpet agnolotti, brown butter</li>
+          <li>Hearth-roasted heritage chicken for two</li>
+        </ul>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Neighborhood</div>
+          <div class="meta-value">412 Warren St, Hudson NY</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">Wed–Sun · 5pm–10pm · Sun brunch 11–2</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Format</div>
+          <div class="meta-value">À la carte & 5-course tasting</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Closed</div>
+          <div class="meta-value">Mondays & Tuesdays</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Reserve at Atelier</a>
+        <a href="#" class="btn btn-outline">Order Takeaway</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE PETIT -->
+<section class="restaurant">
+  <div class="restaurant-inner">
+    <div class="photo photo-lepetit">
+      <div class="photo-label">Le Petit Verleux — banquette no. 4</div>
+    </div>
+    <div class="details">
+      <div class="eyebrow">Cobble Hill · French Bistro</div>
+      <h2>Le Petit Verleux</h2>
+      <p class="cuisine-line">The original Verleux room — a thirty-eight seat bistro running steadily since 2014.</p>
+      <p class="description">Zinc bar, red banquettes, and a daily $58 three-course prix fixe served 5–7pm. The dessert list has not changed in eight years and that is on purpose. The natural-wine list is short, French, and revised quietly each season by our cellar master.</p>
+      <p class="chef"><span>Chef de Cuisine</span>Antoine Reyes</p>
+      <div class="signature">
+        <div class="label">Signature Dishes</div>
+        <ul>
+          <li>Steak frites au poivre</li>
+          <li>Soufflé Grand Marnier</li>
+          <li>Escargots, Persillade & marrow toast</li>
+        </ul>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Neighborhood</div>
+          <div class="meta-value">218 Court St, Cobble Hill</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">Daily · 5pm–11pm · Sat–Sun brunch</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Prix Fixe</div>
+          <div class="meta-value">$58, three courses, 5–7pm nightly</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Walk-Ins</div>
+          <div class="meta-value">Bar seats held nightly</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Reserve at Le Petit</a>
+        <a href="#" class="btn btn-outline">Order Delivery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARIBEL -->
+<section class="restaurant reverse">
+  <div class="restaurant-inner">
+    <div class="photo photo-maribel">
+      <div class="photo-label">Bar Maribel — after midnight</div>
+    </div>
+    <div class="details">
+      <div class="eyebrow">Williamsburg · Spanish Small Plates</div>
+      <h2>Bar Maribel</h2>
+      <p class="cuisine-line">A late-night Spanish bar with one of the city's deepest natural-wine lists from Galicia, Jerez, and Catalunya.</p>
+      <p class="description">Service runs until 1am Thursday through Saturday. The bar is high, the music is loud, the jamón is sliced thinly and to order. Half of the menu changes weekly; the Gilda has been the same since opening night and always will be.</p>
+      <p class="chef"><span>Chef de Cuisine</span>Lucia Aranda</p>
+      <div class="signature">
+        <div class="label">Signature Dishes</div>
+        <ul>
+          <li>Gilda skewers, three at a time</li>
+          <li>Jamón Ibérico de Bellota, 36 months</li>
+          <li>Tortilla española, runny center</li>
+        </ul>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Neighborhood</div>
+          <div class="meta-value">91 Wythe Ave, Williamsburg</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">Tue–Sun · 6pm–1am (last seating 11:30)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Format</div>
+          <div class="meta-value">Tapas & natural wine bar</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Closed</div>
+          <div class="meta-value">Mondays</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Reserve at Maribel</a>
+        <a href="#" class="btn btn-outline">Wine List</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PASTA BAR -->
+<section class="restaurant">
+  <div class="restaurant-inner">
+    <div class="photo photo-pasta">
+      <div class="photo-label">Verleux Pasta Bar — chitarra station</div>
+    </div>
+    <div class="details">
+      <div class="eyebrow">Fort Greene · Italian Counter</div>
+      <h2>Verleux Pasta Bar</h2>
+      <p class="cuisine-line">A sixteen-seat counter built around an open pasta laboratory and a single bronze die extruder.</p>
+      <p class="description">Six pastas nightly, hand-cut in front of you, plus a daily fresh sheet of seafood from Montauk. Best enjoyed at the counter with a Lambrusco and a long view of flour, eggs, and patience. Walk-ins welcome but always a wait.</p>
+      <p class="chef"><span>Chef de Cuisine</span>Dario Castellucci</p>
+      <div class="signature">
+        <div class="label">Signature Dishes</div>
+        <ul>
+          <li>Cacio e pepe tortelloni</li>
+          <li>Squid ink chitarra, Montauk uni</li>
+          <li>Cassoncelli, brown butter & sage</li>
+        </ul>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Neighborhood</div>
+          <div class="meta-value">66 Lafayette Ave, Fort Greene</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Hours</div>
+          <div class="meta-value">Wed–Sun · 5:30pm–10:30pm</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Format</div>
+          <div class="meta-value">Counter only · 6 pastas nightly</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Daily Sheet</div>
+          <div class="meta-value">Posted at 4pm on Instagram</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Reserve at Pasta Bar</a>
+        <a href="#" class="btn btn-outline">Tonight's Sheet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENCE GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="gallery-head">
+      <div class="eyebrow">Ambience</div>
+      <h2>An Evening, <em>Lit by Candle</em></h2>
+      <p>Nine quiet moments across the five rooms.</p>
+    </div>
+    <div class="masonry">
+      <div class="tile tile-1"><div class="tile-caption">Otsu — hinoki counter, 7:42pm</div></div>
+      <div class="tile tile-2"><div class="tile-caption">Atelier — hearth in service</div></div>
+      <div class="tile tile-3"><div class="tile-caption">Le Petit — banquettes, golden hour</div></div>
+      <div class="tile tile-4"><div class="tile-caption">Maribel — Gilda, plated</div></div>
+      <div class="tile tile-5"><div class="tile-caption">Pasta Bar — chitarra under the warm lamp</div></div>
+      <div class="tile tile-6"><div class="tile-caption">Atelier — porch table no. 7</div></div>
+      <div class="tile tile-7"><div class="tile-caption">Otsu — wagyu over binchotan</div></div>
+      <div class="tile tile-8"><div class="tile-caption">Le Petit — soufflé, just risen</div></div>
+      <div class="tile tile-9"><div class="tile-caption">Maribel — bar after midnight</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Maison <em>Verleux</em></h3>
+        <p>Five tables. One philosophy. Always seasonal.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Restaurants</h4>
+        <ul>
+          <li><a href="#">Atelier Hudson</a></li>
+          <li><a href="#">Le Petit Verleux</a></li>
+          <li><a href="#">Bar Maribel</a></li>
+          <li><a href="#">Otsu by Verleux</a></li>
+          <li><a href="#">Verleux Pasta Bar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#">Reservations</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Private Events</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Chef Elise Verleux</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Sourcing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>events@maisonverleux.com</li>
+          <li>press@maisonverleux.com</li>
+          <li>(718) 555-0144</li>
+          <li>@maisonverleux</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Maison Verleux Hospitality, LLC</div>
+      <div>Privacy · Accessibility · Allergy Policy</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

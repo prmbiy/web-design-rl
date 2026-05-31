@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Membership Plans — Kiln & Co.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: #F5F0E8;
+  color: #2C2C2C;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D5;
+  height: 72px;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 15px;
+  color: #2C2C2C;
+  font-weight: 500;
+}
+.nav-links a.active { color: #C1603C; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-right .daypass {
+  font-size: 14px;
+  color: #7A5C44;
+  font-weight: 500;
+}
+.btn {
+  display: inline-block;
+  background: #C1603C;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: #a8502f; }
+.btn-outline {
+  background: transparent;
+  color: #2C2C2C;
+  border: 1px solid #2C2C2C;
+}
+.btn-outline:hover { background: #2C2C2C; color: #fff; }
+
+/* HERO */
+.hero {
+  padding: 96px 32px 48px;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #2C2C2C;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 20px;
+  color: #7A5C44;
+  max-width: 620px;
+  margin: 0 auto;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* TOGGLE */
+.toggle-section {
+  padding: 32px 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.toggle {
+  display: inline-flex;
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 999px;
+  padding: 4px;
+}
+.toggle button {
+  border: none;
+  background: transparent;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #7A5C44;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.toggle button.active {
+  background: #2C2C2C;
+  color: #fff;
+}
+.save-note {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #7BA05B;
+  font-weight: 600;
+}
+
+/* PRICING CARDS */
+.pricing {
+  padding: 48px 32px 64px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.card.featured {
+  border: 2px solid #C1603C;
+  box-shadow: 0 8px 32px rgba(193, 96, 60, 0.12);
+  transform: translateY(-8px);
+}
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C1603C;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.tier-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B55A30;
+  margin-bottom: 16px;
+}
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.price-prefix {
+  font-size: 14px;
+  color: #7A5C44;
+}
+.price {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2C2C2C;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+}
+.price-unit {
+  font-size: 14px;
+  color: #7A5C44;
+}
+.tier-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #7A5C44;
+  margin: 12px 0 24px;
+  line-height: 1.4;
+}
+.perks {
+  list-style: none;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+.perks li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #2C2C2C;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid #F5F0E8;
+}
+.perks li:before {
+  content: '✓';
+  color: #7BA05B;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.card .btn { width: 100%; text-align: center; }
+.card.featured .btn { background: #C1603C; }
+.card:not(.featured) .btn {
+  background: #fff;
+  color: #2C2C2C;
+  border: 1px solid #2C2C2C;
+}
+.card:not(.featured) .btn:hover { background: #2C2C2C; color: #fff; }
+
+/* FEATURE COMPARISON */
+.compare {
+  padding: 80px 32px;
+  background: #FFFFFF;
+  border-top: 1px solid #E8E0D5;
+  border-bottom: 1px solid #E8E0D5;
+}
+.compare-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #B55A30;
+  margin-bottom: 12px;
+}
+.compare h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #2C2C2C;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.compare-table thead th {
+  text-align: center;
+  padding: 20px 16px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2C2C2C;
+  border-bottom: 2px solid #E8E0D5;
+}
+.compare-table thead th:first-child {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7A5C44;
+}
+.compare-table thead th.featured-col { color: #C1603C; }
+.compare-table tbody td {
+  padding: 18px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #2C2C2C;
+  border-bottom: 1px solid #F5F0E8;
+}
+.compare-table tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: #7A5C44;
+}
+.compare-table tbody td.featured-col {
+  background: #C1603C08;
+}
+.check { color: #7BA05B; font-size: 18px; font-weight: 700; }
+.dash { color: #C1C1C1; }
+
+/* FAQ */
+.faq {
+  padding: 96px 32px;
+}
+.faq-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.faq-header { text-align: center; margin-bottom: 48px; }
+.faq-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.faq-header p {
+  color: #7A5C44;
+  margin-top: 12px;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 22px 28px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2C2C2C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:after {
+  content: '+';
+  font-size: 24px;
+  color: #C1603C;
+  font-weight: 300;
+  transition: transform 0.2s;
+}
+.faq-item[open] summary:after { content: '−'; }
+.faq-item .answer {
+  padding: 0 28px 24px;
+  color: #7A5C44;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+.footer {
+  background: #2C2C2C;
+  color: #E8E0D5;
+  padding: 72px 32px 32px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand .logo { color: #F5F0E8; margin-bottom: 16px; display: block; }
+.footer-brand p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #B8AFA0;
+  font-size: 16px;
+  max-width: 280px;
+}
+.footer h4 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  margin-bottom: 18px;
+}
+.footer ul { list-style: none; }
+.footer ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #B8AFA0;
+}
+.footer ul li a:hover { color: #C1603C; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 56px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #888;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Kiln &amp; Co.</a>
+    <ul class="nav-links">
+      <li><a href="#">Spaces</a></li>
+      <li><a href="#" class="active">Membership</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="daypass">Day Pass — $35</a>
+      <a href="#" class="btn">Book a Tour</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Membership Plans</div>
+  <h1>Find your fit.</h1>
+  <p>Drop in for a day or set up your studio for the year.</p>
+</section>
+
+<section class="toggle-section">
+  <div class="toggle">
+    <button class="active">Monthly</button>
+    <button>Annual</button>
+  </div>
+  <div class="save-note">↑ Save 15% with annual</div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <div class="cards">
+
+      <div class="card">
+        <div class="tier-name">Day Pass</div>
+        <div class="price-row">
+          <span class="price-prefix">$</span>
+          <span class="price">35</span>
+          <span class="price-unit">/day</span>
+        </div>
+        <p class="tier-desc">For drop-ins and visitors testing the waters.</p>
+        <ul class="perks">
+          <li>Access 9am–6pm, weekdays</li>
+          <li>Coffee bar &amp; wifi included</li>
+          <li>One guest welcome</li>
+          <li>Choose any of 3 locations</li>
+        </ul>
+        <a href="#" class="btn">Buy a Day Pass</a>
+      </div>
+
+      <div class="card">
+        <div class="tier-name">Hot Desk</div>
+        <div class="price-row">
+          <span class="price-prefix">$</span>
+          <span class="price">299</span>
+          <span class="price-unit">/month</span>
+        </div>
+        <p class="tier-desc">Flexible seating across the main floor.</p>
+        <ul class="perks">
+          <li>9am–6pm access, weekdays</li>
+          <li>4 meeting room credits/mo</li>
+          <li>50 printing pages/mo</li>
+          <li>2 guest passes/mo</li>
+          <li>40+ partner discounts</li>
+        </ul>
+        <a href="#" class="btn">Choose Hot Desk</a>
+      </div>
+
+      <div class="card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="tier-name">Dedicated Desk</div>
+        <div class="price-row">
+          <span class="price-prefix">$</span>
+          <span class="price">499</span>
+          <span class="price-unit">/month</span>
+        </div>
+        <p class="tier-desc">Your own desk, your own monitor arm, 24/7.</p>
+        <ul class="perks">
+          <li>24/7 access, all locations</li>
+          <li>8 meeting room credits/mo</li>
+          <li>200 printing pages/mo</li>
+          <li>Dedicated locker</li>
+          <li>Business mail address</li>
+          <li>4 guest passes/mo</li>
+        </ul>
+        <a href="#" class="btn">Choose Dedicated</a>
+      </div>
+
+      <div class="card">
+        <div class="tier-name">Private Office</div>
+        <div class="price-row">
+          <span class="price-prefix">from $</span>
+          <span class="price">899</span>
+          <span class="price-unit">/month</span>
+        </div>
+        <p class="tier-desc">Lockable studios for teams of 1–12.</p>
+        <ul class="perks">
+          <li>24/7 access, all locations</li>
+          <li>Unlimited meeting rooms</li>
+          <li>500 printing pages/mo</li>
+          <li>Dedicated locker + storage</li>
+          <li>Business mail address</li>
+          <li>8 guest passes/mo</li>
+          <li>Custom signage on door</li>
+        </ul>
+        <a href="#" class="btn">Tour an Office</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="container">
+    <div class="compare-header">
+      <div class="eyebrow">Feature Comparison</div>
+      <h2>What's included.</h2>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Day Pass</th>
+          <th>Hot Desk</th>
+          <th class="featured-col">Dedicated Desk</th>
+          <th>Private Office</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Access hours</td>
+          <td>9am–6pm</td>
+          <td>9am–6pm</td>
+          <td class="featured-col">24/7</td>
+          <td>24/7</td>
+        </tr>
+        <tr>
+          <td>Guest passes / month</td>
+          <td>0</td>
+          <td>2</td>
+          <td class="featured-col">4</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Meeting room credits / month</td>
+          <td>0</td>
+          <td>4</td>
+          <td class="featured-col">8</td>
+          <td>Unlimited</td>
+        </tr>
+        <tr>
+          <td>Dedicated locker</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col"><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Business mail address</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td class="featured-col"><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Printing pages / month</td>
+          <td>10</td>
+          <td>50</td>
+          <td class="featured-col">200</td>
+          <td>500</td>
+        </tr>
+        <tr>
+          <td>Coffee &amp; beer tap included</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td class="featured-col"><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>40+ partner discounts</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="check">✓</span></td>
+          <td class="featured-col"><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="eyebrow">Frequently Asked</div>
+      <h2>Good questions, answered.</h2>
+      <p>The fine print, plain spoken.</p>
+    </div>
+
+    <details class="faq-item" open>
+      <summary>How do I cancel my membership?</summary>
+      <div class="answer">Monthly memberships can be cancelled anytime with 30 days' notice — just email community@kilnandco.com or stop by the front desk. Annual members can cancel and we'll prorate the remaining months at the monthly rate.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I bring guests, and what's the policy?</summary>
+      <div class="answer">Yes — guest passes vary by tier (2/4/8 per month for Hot Desk, Dedicated, and Private Office respectively). Sign guests in at the front desk. Guests have coffee bar and wifi access but cannot book meeting rooms independently.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is after-hours access really 24/7?</summary>
+      <div class="answer">For Dedicated Desk and Private Office members, yes — your keyfob works around the clock, every day of the year, at all three Brooklyn locations. The coffee bar is staffed weekdays 8am–7pm; after hours, the self-serve beer tap and snack pantry stay open.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I add teammates to my Private Office?</summary>
+      <div class="answer">Absolutely. Private Office pricing scales with team size — pricing starts at $899/mo for a one-person studio and goes up to our Team Suite at $2,499/mo+ for 8–12 person teams. Each teammate gets full member benefits.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I pause my membership if I'm traveling?</summary>
+      <div class="answer">Yes. Members in good standing can pause their membership for up to 60 days per calendar year at $49/mo, which holds your seat or office and keeps your community access (Slack, events, partner perks) intact.</div>
+    </details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">Kiln &amp; Co.</span>
+      <p>Work better. Together. Three Brooklyn locations, one community of builders.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>Williamsburg</li>
+        <li>Gowanus</li>
+        <li>Long Island City</li>
+        <li><a href="#">Book a Tour →</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Spaces</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>hello@kilnandco.com</li>
+        <li>(718) 555-0142</li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2023 Kiln &amp; Co. All rights reserved.</div>
+    <div>Made in Brooklyn.</div>
+  </div>
+</footer>
+
+</body>
+</html>

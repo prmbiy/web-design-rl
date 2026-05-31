@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Celebrity News - Latest Hollywood Gossip | BuzzDish</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Georgia, serif; background:#FFFFFF; color:#111111; font-size:16px; line-height:1.6; }
+a { color:inherit; text-decoration:none; }
+
+/* NAV */
+.top-nav { position:sticky; top:0; z-index:100; background:#FFFFFF; border-bottom:2px solid #000; }
+.nav-inner { max-width:1280px; margin:0 auto; height:64px; display:flex; align-items:center; padding:0 16px; gap:24px; }
+.logo { font-family:'Montserrat',sans-serif; font-weight:900; font-size:28px; color:#FF1493; letter-spacing:-1px; }
+.logo span { color:#000; }
+.nav-tabs { display:flex; gap:2px; flex:1; }
+.nav-tabs a { font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; text-transform:uppercase; padding:8px 12px; color:#000; }
+.nav-tabs a.active { background:#FF1493; color:#fff; }
+.nav-tabs a:hover { background:#000; color:#fff; }
+.nav-search { font-family:'Montserrat',sans-serif; font-weight:800; font-size:12px; background:#000; color:#fff; padding:8px 14px; }
+
+/* TICKER */
+.ticker { background:#1A1A1A; color:#fff; padding:10px 16px; display:flex; align-items:center; gap:16px; overflow:hidden; white-space:nowrap; }
+.ticker-label { font-family:'Montserrat',sans-serif; font-weight:900; font-size:12px; background:#FF1493; padding:4px 10px; letter-spacing:1px; flex-shrink:0; }
+.ticker-items { display:flex; gap:24px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; }
+.hot-badge { background:#FF0000; color:#fff; font-size:10px; padding:2px 6px; margin-right:6px; font-weight:900; }
+
+/* SUBNAV */
+.subnav { position:sticky; top:64px; z-index:99; background:#FFF5FA; border-bottom:1px solid #EEEEEE; padding:10px 16px; }
+.subnav-inner { max-width:1280px; margin:0 auto; display:flex; align-items:center; gap:20px; }
+.subnav-title { font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px; color:#FF1493; }
+.subnav-links { display:flex; gap:18px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; }
+.subnav-links a:hover { color:#FF1493; }
+
+/* CONTAINER */
+.container { max-width:1280px; margin:0 auto; padding:24px 16px; display:grid; grid-template-columns: 1fr 320px; gap:24px; }
+
+/* HERO */
+.hero { grid-column:1/-1; margin-bottom:8px; }
+.hero-inner { background:linear-gradient(135deg, #FF1493 0%, #D6107A 50%, #000 100%); position:relative; height:480px; display:flex; align-items:flex-end; padding:32px; overflow:hidden; }
+.hero-inner::before { content:'📸'; position:absolute; right:60px; top:50%; transform:translateY(-50%); font-size:240px; opacity:0.15; }
+.hero-badge { position:absolute; top:24px; left:24px; background:#FF0000; color:#fff; font-family:'Montserrat',sans-serif; font-weight:900; font-size:13px; padding:6px 12px; letter-spacing:1px; }
+.hero-content { color:#fff; max-width:780px; position:relative; z-index:2; }
+.hero h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:48px; line-height:1.05; margin-bottom:14px; text-shadow:2px 2px 0 rgba(0,0,0,0.4); }
+.hero .sub { font-family:Georgia,serif; font-size:18px; font-style:italic; line-height:1.4; }
+.hero .meta { margin-top:12px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:1px; opacity:0.9; }
+.celeb-tag { color:#FFD700; }
+
+/* AD */
+.ad-slot { background:#F4F4F4; border:1px dashed #CCC; padding:20px; text-align:center; margin:16px 0; }
+.ad-label { font-family:'Montserrat',sans-serif; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+.ad-content { font-family:'Montserrat',sans-serif; font-weight:800; color:#666; font-size:14px; }
+.ad-leaderboard { height:120px; display:flex; flex-direction:column; justify-content:center; background:linear-gradient(90deg,#fff5fa,#fff,#fff5fa); }
+
+/* MAIN COL */
+.main-col { min-width:0; }
+.side-col { min-width:0; }
+
+/* SECTION HEADERS */
+.section-title { font-family:'Montserrat',sans-serif; font-weight:900; font-size:24px; text-transform:uppercase; border-bottom:4px solid #FF1493; padding-bottom:8px; margin:24px 0 16px; display:flex; align-items:center; gap:10px; }
+.section-title .dot { width:10px; height:10px; background:#FF1493; }
+
+/* PAPARAZZI FEED */
+.papa-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+.papa-card { background:#fff; border:1px solid #EEEEEE; }
+.papa-img { aspect-ratio:4/3; background:linear-gradient(135deg,#FF1493,#FFD700); position:relative; display:flex; align-items:center; justify-content:center; font-size:64px; color:rgba(255,255,255,0.7); }
+.papa-img.v2 { background:linear-gradient(135deg,#000,#FF1493); }
+.papa-img.v3 { background:linear-gradient(135deg,#D6107A,#1A1A1A); }
+.papa-img.v4 { background:linear-gradient(135deg,#FFD700,#FF1493); }
+.papa-img.v5 { background:linear-gradient(135deg,#1A1A1A,#D6107A,#FFD700); }
+.papa-img.v6 { background:linear-gradient(135deg,#FF1493,#000); }
+.papa-tag { position:absolute; top:8px; left:8px; background:#FF0000; color:#fff; font-family:'Montserrat',sans-serif; font-weight:900; font-size:10px; padding:3px 7px; letter-spacing:1px; }
+.papa-tag.exc { background:#FFD700; color:#000; }
+.papa-body { padding:12px; }
+.papa-cat { font-family:'Montserrat',sans-serif; font-weight:800; font-size:10px; color:#FF1493; text-transform:uppercase; letter-spacing:1.5px; }
+.papa-head { font-family:'Montserrat',sans-serif; font-weight:800; font-size:17px; line-height:1.2; margin:6px 0; }
+.papa-head .celeb-tag { color:#FF1493; }
+.papa-meta { font-family:'Montserrat',sans-serif; font-size:10px; color:#777; text-transform:uppercase; }
+
+/* CAROUSEL */
+.carousel { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:14px; background:#FFF5FA; border:2px solid #FF1493; }
+.carousel-item { background:#fff; padding:12px; border-left:4px solid #FF1493; }
+.carousel-item .status { font-family:'Montserrat',sans-serif; font-weight:900; font-size:11px; color:#FF0000; text-transform:uppercase; letter-spacing:1px; }
+.carousel-item .status.makeup { color:#FFD700; background:#000; padding:2px 6px; display:inline-block; }
+.carousel-item h4 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; margin-top:6px; line-height:1.2; }
+.carousel-item p { font-family:Georgia,serif; font-size:13px; color:#555; margin-top:6px; font-style:italic; }
+.carousel-nav { display:flex; justify-content:space-between; padding:8px 14px 14px; background:#FFF5FA; font-family:'Montserrat',sans-serif; font-weight:800; font-size:12px; }
+
+/* COUNTDOWN */
+.countdown { background:#000; color:#fff; padding:22px; display:flex; align-items:center; gap:20px; border-left:6px solid #FF1493; }
+.countdown-icon { font-size:42px; }
+.countdown-body { flex:1; }
+.countdown-label { font-family:'Montserrat',sans-serif; font-weight:900; font-size:11px; color:#FFD700; letter-spacing:2px; }
+.countdown-time { font-family:'Montserrat',sans-serif; font-weight:900; font-size:34px; color:#FF1493; letter-spacing:2px; }
+.countdown-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:17px; margin-top:4px; }
+.countdown-btn { background:#FF1493; color:#fff; padding:12px 20px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+
+/* DISH METER */
+.dish-meter { background:#FFF5FA; padding:20px; border:2px dashed #FF1493; }
+.dish-meter h3 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:22px; text-transform:uppercase; }
+.dish-meter .sub { font-family:Georgia,serif; font-style:italic; color:#777; margin-bottom:14px; font-size:14px; }
+.scandal-row { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid #FFE0F0; }
+.scandal-row:last-child { border-bottom:none; }
+.scandal-img { width:60px; height:60px; background:linear-gradient(135deg,#FF1493,#000); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; }
+.scandal-body { flex:1; }
+.scandal-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; }
+.scandal-desc { font-size:13px; color:#555; }
+.stars { color:#FFD700; font-size:18px; letter-spacing:2px; }
+.stars-num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px; color:#FF1493; margin-left:6px; }
+
+/* SLIDESHOW */
+.slideshow { background:#000; color:#fff; padding:0; }
+.slideshow-head { padding:16px 20px; display:flex; justify-content:space-between; align-items:center; background:#FF1493; }
+.slideshow-head h3 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:20px; text-transform:uppercase; }
+.slideshow-counter { font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; }
+.slideshow-img { aspect-ratio:16/9; background:linear-gradient(135deg,#D6107A,#000,#FFD700); position:relative; display:flex; align-items:center; justify-content:center; font-size:120px; color:rgba(255,255,255,0.4); }
+.slide-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.7); color:#fff; padding:18px 14px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:24px; }
+.slide-arrow.prev { left:0; }
+.slide-arrow.next { right:0; }
+.slide-caption { padding:18px 20px; }
+.slide-caption h4 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:22px; }
+.slide-caption p { font-family:Georgia,serif; font-style:italic; color:#ccc; margin-top:6px; font-size:14px; }
+.slide-thumbs { display:flex; gap:4px; padding:0 20px 20px; }
+.slide-thumb { flex:1; height:50px; background:linear-gradient(135deg,#FF1493,#000); opacity:0.5; }
+.slide-thumb.active { opacity:1; border:2px solid #FFD700; }
+
+/* SPONSORED */
+.sponsored-block { background:#FFF8DC; padding:20px; border-top:3px solid #FFD700; border-bottom:3px solid #FFD700; }
+.sponsored-label { font-family:'Montserrat',sans-serif; font-weight:800; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+.sponsored-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.sponsored-card { background:#fff; padding:12px; border:1px solid #EEE; }
+.sponsored-img { aspect-ratio:1; background:linear-gradient(135deg,#FFD700,#FF1493); margin-bottom:10px; display:flex; align-items:center; justify-content:center; font-size:48px; }
+.sponsored-card h5 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; line-height:1.2; }
+.sponsored-card .tag { font-family:'Montserrat',sans-serif; font-size:10px; color:#999; text-transform:uppercase; margin-top:6px; }
+
+/* TABOOLA */
+.taboola { margin-top:24px; }
+.taboola-head { font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px; text-transform:uppercase; padding-bottom:8px; border-bottom:2px solid #000; margin-bottom:14px; display:flex; justify-content:space-between; }
+.taboola-head .promo { font-size:10px; color:#999; font-weight:700; }
+.taboola-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.taboola-card { background:#fff; }
+.taboola-img { aspect-ratio:4/3; background:linear-gradient(135deg,#777,#333); display:flex; align-items:center; justify-content:center; font-size:38px; color:rgba(255,255,255,0.6); }
+.taboola-img.a { background:linear-gradient(135deg,#FF1493,#1A1A1A); }
+.taboola-img.b { background:linear-gradient(135deg,#FFD700,#D6107A); }
+.taboola-img.c { background:linear-gradient(135deg,#000,#FF0000); }
+.taboola-img.d { background:linear-gradient(135deg,#1A1A1A,#FFD700); }
+.taboola-card h6 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; padding:8px 4px 4px; line-height:1.2; }
+.taboola-card .src { font-size:10px; color:#999; padding:0 4px 8px; font-family:'Montserrat',sans-serif; }
+
+/* SIDEBAR */
+.side-col { position:relative; }
+.side-block { background:#fff; border:2px solid #000; margin-bottom:20px; }
+.side-block h3 { background:#000; color:#fff; padding:12px 14px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:1px; }
+.most-read { padding:6px 14px; }
+.most-read li { list-style:none; padding:12px 0; border-bottom:1px dotted #DDD; display:flex; gap:10px; }
+.most-read li:last-child { border-bottom:none; }
+.most-read .num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:28px; color:#FF1493; line-height:1; flex-shrink:0; width:30px; }
+.most-read .title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; line-height:1.25; }
+.most-read .title .celeb-tag { color:#FF1493; }
+.most-read .views { font-size:10px; color:#777; margin-top:3px; }
+
+.video-ad { background:#000; color:#fff; padding:0; position:sticky; top:140px; }
+.video-ad-label { padding:6px 10px; background:#1a1a1a; font-family:'Montserrat',sans-serif; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:2px; display:flex; justify-content:space-between; }
+.video-frame { aspect-ratio:16/9; background:linear-gradient(135deg,#D6107A,#000); display:flex; align-items:center; justify-content:center; position:relative; }
+.video-play { width:60px; height:60px; background:rgba(255,20,147,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; }
+.video-mute { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 8px; font-size:10px; font-family:'Montserrat',sans-serif; }
+.video-cta { padding:12px; }
+.video-cta h5 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; }
+.video-cta p { font-size:11px; color:#999; margin:4px 0 8px; }
+.video-cta .btn { background:#FF1493; color:#fff; padding:8px 14px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:11px; text-transform:uppercase; display:inline-block; }
+
+.email-capture { background:linear-gradient(135deg,#FF1493,#D6107A); color:#fff; padding:18px; }
+.email-capture h4 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px; text-transform:uppercase; line-height:1.1; }
+.email-capture p { font-size:13px; margin:8px 0 12px; }
+.email-capture input { width:100%; padding:10px; border:none; font-family:Georgia,serif; font-size:13px; margin-bottom:8px; }
+.email-capture button { width:100%; background:#000; color:#FFD700; padding:10px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:13px; text-transform:uppercase; border:none; letter-spacing:1px; }
+
+.side-ad { background:#F4F4F4; border:1px dashed #CCC; padding:14px; text-align:center; height:600px; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.side-ad .ad-art { width:100%; flex:1; background:linear-gradient(135deg,#FFF5FA,#FFD700,#FF1493); margin-top:8px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px; text-align:center; padding:20px; }
+
+/* FLOATING SHARE */
+.share-float { position:fixed; left:10px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:6px; z-index:50; }
+.share-btn { width:38px; height:38px; background:#FF1493; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:900; font-size:13px; }
+.share-btn.fb { background:#1877F2; }
+.share-btn.tw { background:#000; }
+.share-btn.pin { background:#E60023; }
+.share-btn.em { background:#FFD700; color:#000; }
+
+/* FOOTER */
+footer { background:#000; color:#fff; padding:40px 16px 20px; margin-top:40px; }
+.footer-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:30px; }
+.footer-brand .logo { font-size:32px; }
+.footer-brand .logo span { color:#fff; }
+.footer-brand p { font-family:Georgia,serif; font-style:italic; color:#aaa; margin-top:10px; font-size:14px; }
+.footer-col h5 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#FF1493; margin-bottom:12px; }
+.footer-col a { display:block; font-size:13px; color:#ccc; padding:4px 0; font-family:'Montserrat',sans-serif; font-weight:700; }
+.footer-bottom { max-width:1280px; margin:30px auto 0; padding-top:20px; border-top:1px solid #333; text-align:center; font-size:11px; color:#777; font-family:'Montserrat',sans-serif; }
+
+</style>
+</head>
+<body>
+
+<!-- FLOATING SHARE -->
+<div class="share-float">
+  <div class="share-btn fb">f</div>
+  <div class="share-btn tw">𝕏</div>
+  <div class="share-btn pin">P</div>
+  <div class="share-btn em">✉</div>
+  <div class="share-btn">⋯</div>
+</div>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="logo">Buzz<span>Dish</span></div>
+    <div class="nav-tabs">
+      <a href="#" class="active">Celebrity</a>
+      <a href="#">TV</a>
+      <a href="#">Music</a>
+      <a href="#">Movies</a>
+      <a href="#">Style</a>
+      <a href="#">Beauty</a>
+      <a href="#">Royals</a>
+      <a href="#">Viral</a>
+    </div>
+    <div class="nav-search">🔍 SEARCH</div>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">🔥 TRENDING</div>
+  <div class="ticker-items">
+    <span><span class="hot-badge">HOT</span>Kim K Spotted With Mystery Man at Nobu</span>
+    <span><span class="hot-badge">HOT</span>Harry Styles Concert Chaos in Austin</span>
+    <span><span class="hot-badge">HOT</span>Bachelor Finale Leak Exposed</span>
+    <span><span class="hot-badge">HOT</span>Adele Postpones Vegas AGAIN</span>
+    <span><span class="hot-badge">HOT</span>Bennifer House Hunting</span>
+  </div>
+</div>
+
+<!-- SUBNAV -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <div class="subnav-title">💋 CELEBRITY</div>
+    <div class="subnav-links">
+      <a href="#">Hookups</a>
+      <a href="#">Breakups</a>
+      <a href="#">Paparazzi</a>
+      <a href="#">Scandals</a>
+      <a href="#">Red Carpet</a>
+      <a href="#">Baby Bumps</a>
+      <a href="#">Feuds</a>
+      <a href="#">Exclusives</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">💍 EXCLUSIVE</div>
+      <div class="hero-content">
+        <h1>Kourtney &amp; Travis: Wedding Date LEAKED</h1>
+        <div class="sub">A Poosh insider reveals the Italian villa, the guest list, and why <span class="celeb-tag">Kim</span> is 'fuming'</div>
+        <div class="meta">By Dish Squad · 14 min ago · 💬 2,847 comments · 🔥 184K reads</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN COL -->
+  <div class="main-col">
+
+    <!-- LEADERBOARD AD -->
+    <div class="ad-slot ad-leaderboard">
+      <div class="ad-label">— Advertisement · 728×90 —</div>
+      <div class="ad-content">💄 SEPHORA HOLIDAY SALE — UP TO 50% OFF · SHOP NOW</div>
+    </div>
+
+    <!-- PAPARAZZI FEED -->
+    <h2 class="section-title"><span class="dot"></span> Paparazzi Feed · Just Spotted</h2>
+    <div class="papa-grid">
+      <div class="papa-card">
+        <div class="papa-img v1"><span class="papa-tag">SPOTTED</span>🥤</div>
+        <div class="papa-body">
+          <div class="papa-cat">L.A. Sightings</div>
+          <div class="papa-head"><span class="celeb-tag">Hailey Bieber</span> Grabs Erewhon Smoothie in $4K Outfit</div>
+          <div class="papa-meta">21 min ago · 12 photos</div>
+        </div>
+      </div>
+      <div class="papa-card">
+        <div class="papa-img v2"><span class="papa-tag exc">EXCLUSIVE</span>🌃</div>
+        <div class="papa-body">
+          <div class="papa-cat">NYC After Dark</div>
+          <div class="papa-head"><span class="celeb-tag">Timothée Chalamet</span> Spotted with Mystery Brunette in NYC</div>
+          <div class="papa-meta">45 min ago · 18 photos</div>
+        </div>
+      </div>
+      <div class="papa-card">
+        <div class="papa-img v3"><span class="papa-tag">SPOTTED</span>👗</div>
+        <div class="papa-body">
+          <div class="papa-cat">Red Carpet</div>
+          <div class="papa-head"><span class="celeb-tag">Zendaya</span> Stuns in Vintage Versace at Venice After-Party</div>
+          <div class="papa-meta">1 hr ago · 24 photos</div>
+        </div>
+      </div>
+      <div class="papa-card">
+        <div class="papa-img v4"><span class="papa-tag">CAUGHT</span>🍔</div>
+        <div class="papa-body">
+          <div class="papa-cat">Snack Run</div>
+          <div class="papa-head"><span class="celeb-tag">Pete Davidson</span> Inhales In-N-Out at 2AM with New Flame</div>
+          <div class="papa-meta">2 hrs ago · 9 photos</div>
+        </div>
+      </div>
+      <div class="papa-card">
+        <div class="papa-img v5"><span class="papa-tag exc">EXCLUSIVE</span>💼</div>
+        <div class="papa-body">
+          <div class="papa-cat">House Hunting</div>
+          <div class="papa-head"><span class="celeb-tag">Bennifer 2.0</span> Touring $50M Bel-Air Mansion — See Inside</div>
+          <div class="papa-meta">3 hrs ago · 31 photos</div>
+        </div>
+      </div>
+      <div class="papa-card">
+        <div class="papa-img v6"><span class="papa-tag">SPOTTED</span>🏖️</div>
+        <div class="papa-body">
+          <div class="papa-cat">Vacay Mode</div>
+          <div class="papa-head"><span class="celeb-tag">Tom Holland &amp; Zendaya</span> Cozy Date Night Pics Surface</div>
+          <div class="papa-meta">4 hrs ago · 16 photos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD AD 2 -->
+    <div class="ad-slot ad-leaderboard">
+      <div class="ad-label">— Advertisement · 728×90 —</div>
+      <div class="ad-content">✨ SEPHORA HOLIDAY EVENT · BEAUTY INSIDER ACCESS</div>
+    </div>
+
+    <!-- BREAKUP/MAKEUP CAROUSEL -->
+    <h2 class="section-title"><span class="dot"></span> Splitsville &amp; Reconciliations</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <span class="status">💔 SPLITSVILLE</span>
+        <h4><span class="celeb-tag" style="color:#FF1493">Shakira &amp; Piqué</span> Officially Done</h4>
+        <p>After 12 years, the singer confirms separation as cheating rumors swirl in Barcelona.</p>
+      </div>
+      <div class="carousel-item">
+        <span class="status">💔 SPLITSVILLE</span>
+        <h4><span class="celeb-tag" style="color:#FF1493">Ariana Grande</span> Quiet Divorce</h4>
+        <p>Sources say Dalton Gomez moved out months ago. Lawyers are 'amicable'.</p>
+      </div>
+      <div class="carousel-item">
+        <span class="status makeup">💍 STILL ON</span>
+        <h4><span class="celeb-tag" style="color:#FF1493">Machine Gun Kelly</span> Engagement Update</h4>
+        <p>Megan Fox flashes the thorn ring at coffee run — wedding rumored for spring.</p>
+      </div>
+    </div>
+    <div class="carousel-nav" style="background:#FFF5FA;">
+      <span>◀ PREV</span>
+      <span>● ● ●</span>
+      <span>NEXT ▶</span>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown" style="margin-top:24px;">
+      <div class="countdown-icon">⏰</div>
+      <div class="countdown-body">
+        <div class="countdown-label">EXCLUSIVE UNLOCKS IN</div>
+        <div class="countdown-time">02 : 14 : 33</div>
+        <div class="countdown-title">The Truth About <span style="color:#FFD700">Selena Gomez's</span> Hospital Visit</div>
+      </div>
+      <a href="#" class="countdown-btn">NOTIFY ME →</a>
+    </div>
+
+    <!-- DISH METER -->
+    <div class="dish-meter" style="margin-top:24px;">
+      <h3>⭐ The Dish Meter</h3>
+      <div class="sub">Rate this week's juiciest scandals — readers have spoken:</div>
+      <div class="scandal-row">
+        <div class="scandal-img">👋</div>
+        <div class="scandal-body">
+          <div class="scandal-name">The Will Smith Oscars Slap</div>
+          <div class="scandal-desc">Still the gift that keeps on giving · 14,892 votes</div>
+        </div>
+        <div class="stars">★★★★★<span class="stars-num">4.8</span></div>
+      </div>
+      <div class="scandal-row">
+        <div class="scandal-img" style="background:linear-gradient(135deg,#FFD700,#D6107A);">🚁</div>
+        <div class="scandal-body">
+          <div class="scandal-name">Tom Cruise Helicopter Stunt</div>
+          <div class="scandal-desc">Iconic? Insane? Both. · 8,201 votes</div>
+        </div>
+        <div class="stars">★★★☆☆<span class="stars-num">3.2</span></div>
+      </div>
+      <div class="scandal-row">
+        <div class="scandal-img" style="background:linear-gradient(135deg,#000,#FFD700);">👰</div>
+        <div class="scandal-body">
+          <div class="scandal-name">Britney's Surprise Wedding</div>
+          <div class="scandal-desc">Sam Asghari era begins · 11,447 votes</div>
+        </div>
+        <div class="stars">★★★★☆<span class="stars-num">4.1</span></div>
+      </div>
+      <div class="scandal-row">
+        <div class="scandal-img" style="background:linear-gradient(135deg,#FF1493,#FFD700);">🎤</div>
+        <div class="scandal-body">
+          <div class="scandal-name">Adele's Vegas Cancellation</div>
+          <div class="scandal-desc">Tears, refunds, and a second postponement · 6,302 votes</div>
+        </div>
+        <div class="stars">★★☆☆☆<span class="stars-num">2.7</span></div>
+      </div>
+    </div>
+
+    <!-- SLIDESHOW -->
+    <div class="slideshow" style="margin-top:24px;">
+      <div class="slideshow-head">
+        <h3>📸 Celebs Who Aged Like Fine Wine</h3>
+        <div class="slideshow-counter">SLIDE 1 / 30</div>
+      </div>
+      <div class="slideshow-img">
+        🍷
+        <div class="slide-arrow prev">‹</div>
+        <div class="slide-arrow next">›</div>
+      </div>
+      <div class="slide-caption">
+        <h4>1. <span style="color:#FFD700">Paul Rudd</span> — Forever 29, Officially</h4>
+        <p>The Ant-Man actor has not aged a day since 1995. Scientists are baffled. Witches are credited.</p>
+      </div>
+      <div class="slide-thumbs">
+        <div class="slide-thumb active"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+        <div class="slide-thumb"></div>
+      </div>
+      <div style="background:#1a1a1a; padding:10px; text-align:center; font-family:'Montserrat',sans-serif; font-size:10px; color:#999; letter-spacing:2px;">— ADVERTISEMENT BEFORE NEXT SLIDE —</div>
+    </div>
+
+    <!-- SPONSORED -->
+    <div class="sponsored-block" style="margin-top:24px;">
+      <div class="sponsored-label">⚡ SPONSORED BY WALMART · PAID CONTENT</div>
+      <div class="sponsored-grid">
+        <div class="sponsored-card">
+          <div class="sponsored-img">💋</div>
+          <h5>Kim K's $12 Lip Hack You Can Snag at Walmart Tonight</h5>
+          <div class="tag">Sponsored · Walmart Beauty</div>
+        </div>
+        <div class="sponsored-card">
+          <div class="sponsored-img" style="background:linear-gradient(135deg,#FFD700,#FF1493);">✨</div>
+          <h5>J.Lo Glow Drugstore Dupes Under $15 — Stylists Approve</h5>
+          <div class="tag">Sponsored · Walmart Beauty</div>
+        </div>
+        <div class="sponsored-card">
+          <div class="sponsored-img" style="background:linear-gradient(135deg,#FF1493,#D6107A);">💅</div>
+          <h5>Hailey B's Glazed Donut Nails — DIY Kit, $9.99</h5>
+          <div class="tag">Sponsored · Walmart Beauty</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABOOLA -->
+    <div class="taboola">
+      <div class="taboola-head">
+        <span>You May Also Like</span>
+        <span class="promo">RECOMMENDED FOR YOU · BY DISHSTREAM</span>
+      </div>
+      <div class="taboola-grid">
+        <div class="taboola-card">
+          <div class="taboola-img a">👀</div>
+          <h6>The Real Reason She Left The View (You Won't Believe It)</h6>
+          <div class="src">DailyClickbait.co</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img b">💉</div>
+          <h6>Plastic Surgery Disasters You Forgot About — #7 Is Wild</h6>
+          <div class="src">CelebFails.net</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img c">😱</div>
+          <h6>Remember Her? You Won't Believe How She Looks Now</h6>
+          <div class="src">ThenAndNowDaily</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img d">💰</div>
+          <h6>15 Richest Child Stars — Their Net Worth Will Shock You</h6>
+          <div class="src">Hollywood$$</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img b">🏝️</div>
+          <h6>Inside The $80M Yacht Bezos Just Bought (Photos)</h6>
+          <div class="src">LuxuryLeakd</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img a">🤐</div>
+          <h6>20 Celebrity Secrets Their PR Teams Buried — Until Now</h6>
+          <div class="src">DishExposed</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img c">🍷</div>
+          <h6>Doctors Hate This One Trick Celebs Use to Stay Young</h6>
+          <div class="src">HealthBuzzed</div>
+        </div>
+        <div class="taboola-card">
+          <div class="taboola-img d">📞</div>
+          <h6>This Celeb Phone Bill Will Make You Spit Your Coffee</h6>
+          <div class="src">MoneyGossip</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="side-col">
+
+    <div class="side-block">
+      <h3>🔥 Most Read Today</h3>
+      <ol class="most-read">
+        <li><span class="num">1</span><div><div class="title"><span class="celeb-tag">Pete &amp; Kim</span> Wild Weekend In Palm Springs</div><div class="views">847K reads</div></div></li>
+        <li><span class="num">2</span><div><div class="title"><span class="celeb-tag">Olivia Rodrigo</span> Grammy Nominations Surprise</div><div class="views">521K reads</div></div></li>
+        <li><span class="num">3</span><div><div class="title"><span class="celeb-tag">Kanye Ye</span> Documentary Drops Bombshells</div><div class="views">489K reads</div></div></li>
+        <li><span class="num">4</span><div><div class="title"><span class="celeb-tag">Lisa Rinna</span> Drama With RHOBH Cast Heats Up</div><div class="views">412K reads</div></div></li>
+        <li><span class="num">5</span><div><div class="title"><span class="celeb-tag">Meghan Markle</span> Netflix Deal Details Leak</div><div class="views">389K reads</div></div></li>
+        <li><span class="num">6</span><div><div class="title"><span class="celeb-tag">Travis Scott</span> Astroworld Settlement News</div><div class="views">301K reads</div></div></li>
+        <li><span class="num">7</span><div><div class="title"><span class="celeb-tag">Britney Spears</span> Engagement Ring Revealed</div><div class="views">278K reads</div></div></li>
+        <li><span class="num">8</span><div><div class="title"><span class="celeb-tag">Megan Fox &amp; MGK</span> Matching Tattoos Decoded</div><div class="views">241K reads</div></div></li>
+        <li><span class="num">9</span><div><div class="title"><span class="celeb-tag">Adele</span> Postpones Vegas Residency AGAIN</div><div class="views">198K reads</div></div></li>
+        <li><span class="num">10</span><div><div class="title"><span class="celeb-tag">Kate Middleton's</span> £49 Zara Blazer Sells Out</div><div class="views">187K reads</div></div></li>
+      </ol>
+    </div>
+
+    <!-- VIDEO AD -->
+    <div class="video-ad">
+      <div class="video-ad-label"><span>● AD · AUTO-PLAY</span><span>SKIP IN 12s</span></div>
+      <div class="video-frame">
+        <div class="video-play">▶</div>
+        <div class="video-mute">🔇 TAP TO UNMUTE</div>
+      </div>
+      <div class="video-cta">
+        <h5>L'Oréal Paris · New Telescopic Lift Mascara</h5>
+        <p>10x lift. 1 brush. See the results.</p>
+        <a href="#" class="btn">SHOP NOW →</a>
+      </div>
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="email-capture">
+      <h4>Get The Daily Dish 💌</h4>
+      <p>Hollywood's hottest tea, served fresh to your inbox every morning.</p>
+      <input type="email" placeholder="your@email.com">
+      <button>SUBSCRIBE FREE</button>
+    </div>
+
+    <!-- HALF PAGE AD -->
+    <div class="side-ad">
+      <div class="ad-label">— Advertisement · 300×600 —</div>
+      <div class="ad-art">🚗<br><br>15 MINUTES<br>COULD SAVE YOU<br>15% OR MORE<br><br><span style="font-size:11px; opacity:0.8;">GEICO</span></div>
+    </div>
+
+    <!-- VIP -->
+    <div class="side-block" style="border-color:#FFD700; background:#000; color:#fff;">
+      <h3 style="background:#FFD700; color:#000;">⭐ BuzzDish VIP</h3>
+      <div style="padding:18px;">
+        <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:20px; color:#FFD700;">Go Ad-Lite</div>
+        <p style="font-family:Georgia,serif; font-size:13px; margin:8px 0 12px; color:#ccc;">Fewer ads. Exclusive scoops. Early access to gallery drops.</p>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:24px; color:#FF1493;">$2.99<span style="font-size:14px; color:#999;">/mo</span></div>
+        <a href="#" style="display:block; text-align:center; background:#FF1493; color:#fff; padding:10px; margin-top:10px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:1px;">JOIN VIP →</a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Buzz<span>Dish</span></div>
+      <p>"Hollywood's Hottest Tea, Served Daily"</p>
+      <div style="margin-top:14px; display:flex; gap:8px;">
+        <div style="width:34px; height:34px; background:#FF1493; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:900;">f</div>
+        <div style="width:34px; height:34px; background:#FF1493; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:900;">𝕏</div>
+        <div style="width:34px; height:34px; background:#FF1493; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:900;">📷</div>
+        <div style="width:34px; height:34px; background:#FF1493; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:900;">♪</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Sections</h5>
+      <a href="#">Celebrity</a>
+      <a href="#">TV</a>
+      <a href="#">Music</a>
+      <a href="#">Movies</a>
+      <a href="#">Style</a>
+    </div>
+    <div class="footer-col">
+      <h5>More</h5>
+      <a href="#">Beauty</a>
+      <a href="#">Royals</a>
+      <a href="#">Viral</a>
+      <a href="#">Galleries</a>
+      <a href="#">Videos</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#">About</a>
+      <a href="#">Tips Hotline</a>
+      <a href="#">Advertise</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+      <a href="#">Do Not Sell</a>
+      <a href="#">DMCA</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2021 BUZZDISH MEDIA LLC · ALL RIGHTS RESERVED · BUZZDISH IS A REGISTERED TRADEMARK
+  </div>
+</footer>
+
+</body>
+</html>

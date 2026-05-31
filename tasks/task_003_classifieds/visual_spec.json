@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "'Times New Roman', Times, serif",
+    "font_body": "'Times New Roman', Times, serif",
+    "font_mono": null,
+    "size_h1": "20px",
+    "size_h2": "16px",
+    "size_body": "13px",
+    "size_small": "11px",
+    "color_primary": "#0000EE",
+    "color_secondary": "#551A8B",
+    "color_accent": "#D3FFD3",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#FFFFFF",
+    "color_text": "#000000",
+    "color_text_muted": "#666666",
+    "color_border": "#CCCCCC",
+    "border_radius": "0",
+    "container_max_width": "1000px",
+    "section_padding": "8px 12px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "auto",
+    "nav_position": "static",
+    "footer_bg": "#FFFFFF",
+    "extra_colors": {
+      "link_unvisited": "#0000EE",
+      "link_visited": "#551A8B",
+      "link_hover_bg": "#FFFFCC",
+      "featured_row": "#D3FFD3",
+      "flag_red": "#CC0000"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Top header strip with site name and search bar, city selector beneath, then a two-column unordered list of all category links filling the viewport with no scroll required.",
+      "bg": "#FFFFFF"
+    },
+    "housing": {
+      "layout": "Single-column plain-text list of apartment listings; each row is date + price + bedrooms + neighborhood as a blue hyperlink, with sub-area filter sidebar on the left and pagination at the bottom.",
+      "bg": "#FFFFFF"
+    },
+    "jobs": {
+      "layout": "Sub-category index at top (accounting, admin, tech, etc.) followed by a date-sorted plain-text list of job posts with area tag in parentheses.",
+      "bg": "#FFFFFF"
+    },
+    "forsale": {
+      "layout": "Dense plain-text list of items grouped under sub-category headings, each line showing date, title as hyperlink, price, and neighborhood.",
+      "bg": "#FFFFFF"
+    },
+    "community": {
+      "layout": "Forum-style board index listing community sub-forums with post counts, followed by threaded discussion entries with date stamps and flag links.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

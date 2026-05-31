@@ -1,0 +1,175 @@
+{
+  "brand_name": "BuzzDish",
+  "tagline": "Hollywood's Hottest Tea, Served Daily",
+  "primary_color_name": "Dish Pink",
+  "pages": {
+    "home": {
+      "title": "BuzzDish - Celebrity Gossip, Scandals & Viral News",
+      "nav_items": [
+        "Celebrity",
+        "TV",
+        "Music",
+        "Movies",
+        "Style",
+        "Beauty",
+        "Royals",
+        "Viral"
+      ],
+      "sections": [
+        {
+          "name": "trending_ticker",
+          "description": "Horizontal scroll of 10 trending headlines with red HOT badges: 'Kim K Spotted With Mystery Man at Nobu', 'Harry Styles Concert Chaos in Austin', 'Bachelor Finale Leak Exposed'."
+        },
+        {
+          "name": "hero",
+          "headline": "Pete Davidson & Kim Kardashian: Inside Their Wild Weekend in Palm Springs",
+          "subheadline": "EXCLUSIVE photos and a source spills everything about their three-day desert getaway"
+        },
+        {
+          "name": "above_fold_ad_billboard",
+          "description": "970x250 leaderboard ad slot labeled 'Advertisement' with placeholder for Lancome mascara campaign."
+        },
+        {
+          "name": "breaking_grid",
+          "description": "3-column grid of BREAKING badged stories: 'Adele Postpones Vegas Residency AGAIN', 'Travis Scott Astroworld Update', 'Britney Spears Engagement Ring Revealed'."
+        },
+        {
+          "name": "masonry_gossip_grid",
+          "description": "Masonry layout of 12 gossip cards with paparazzi thumbnails: 'Bennifer 2.0 House Hunting in Bel-Air', 'Megan Fox & MGK Matching Tattoos Decoded', 'Tom Holland Zendaya Date Night Pics'."
+        },
+        {
+          "name": "sponsored_native",
+          "description": "Row of 4 'Sponsored' content cards mixed in: '10 Celebrity Skincare Secrets Under $20', 'This Wrinkle Cream Has Doctors Stunned'."
+        },
+        {
+          "name": "viral_video_section",
+          "description": "Auto-playing video tiles of TikTok and Twitter clips: 'Adele Adele Adele TikTok Trend', 'Couch Guy Reaction Video Goes Mega Viral'."
+        },
+        {
+          "name": "trending_sidebar",
+          "description": "Sticky right sidebar with Top 10 numbered list (Olivia Rodrigo Grammy Nods, Kanye Ye Documentary, Lisa Rinna Drama) plus auto-playing video ad and email capture box."
+        },
+        {
+          "name": "royals_strip",
+          "description": "Horizontal scroller of royal family stories: 'Meghan Markle Netflix Deal Details', 'Kate Middleton's £49 Zara Blazer Sells Out'."
+        },
+        {
+          "name": "taboola_recommended",
+          "description": "Bottom 'You May Also Like' grid of 12 clickbait thumbnails: 'Doctors Hate This One Trick', 'Remember Her? You Won't Believe How She Looks Now', '25 Forbidden Family Photos'."
+        },
+        {
+          "name": "newsletter_popup",
+          "description": "Modal overlay after 5s: 'Get The Daily Dish - Hollywood's Hottest Tea in Your Inbox' with email field and pink Subscribe button."
+        }
+      ]
+    },
+    "celebrity": {
+      "title": "Celebrity News - Latest Hollywood Gossip | BuzzDish",
+      "nav_items": [
+        "Celebrity",
+        "TV",
+        "Music",
+        "Movies",
+        "Style",
+        "Beauty",
+        "Royals",
+        "Viral"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Kourtney & Travis: Wedding Date LEAKED",
+          "subheadline": "A Poosh insider reveals the Italian villa, the guest list, and why Kim is 'fuming'"
+        },
+        {
+          "name": "leaderboard_ad",
+          "description": "728x90 ad slot for Sephora Holiday Sale placeholder."
+        },
+        {
+          "name": "paparazzi_feed",
+          "description": "Vertical feed of paparazzi photo cards with hot pink hyperlinked celeb names: 'Hailey Bieber Grabs Erewhon Smoothie in $4K Outfit', 'Timothée Chalamet Spotted with Mystery Brunette in NYC'."
+        },
+        {
+          "name": "breakup_makeup_carousel",
+          "description": "Swipeable carousel titled 'Splitsville & Reconciliations': 'Shakira & Piqué Officially Done', 'Ariana Grande Quiet Divorce', 'Machine Gun Kelly Engagement Update'."
+        },
+        {
+          "name": "countdown_exclusive",
+          "description": "Countdown timer widget '⏰ EXCLUSIVE UNLOCKS IN 02:14:33' teasing 'The Truth About Selena Gomez's Hospital Visit'."
+        },
+        {
+          "name": "star_rating_dish_meter",
+          "description": "'Dish Meter' widget letting readers rate scandals 1-5 gold stars: Will Smith Slap (4.8★), Astroworld Tragedy (handled separately), Tom Cruise Helicopter Stunt (3.2★)."
+        },
+        {
+          "name": "photo_slideshow",
+          "description": "30-slide gallery 'Celebs Who Aged Like Fine Wine' with next/prev arrows, ad every 3 slides, featuring Paul Rudd, Jennifer Aniston, Keanu Reeves."
+        },
+        {
+          "name": "sponsored_block",
+          "description": "Three 'Sponsored by Walmart' product cards posing as articles: 'Kim K's $12 Lip Hack', 'J.Lo Glow Drugstore Dupes'."
+        },
+        {
+          "name": "taboola_recommended",
+          "description": "Outbrain-style 4x3 grid of recommended content: 'The Real Reason She Left The View', 'Plastic Surgery Disasters You Forgot About'."
+        }
+      ]
+    },
+    "viral": {
+      "title": "Viral & WTF - Internet's Wildest Moments | BuzzDish",
+      "nav_items": [
+        "Celebrity",
+        "TV",
+        "Music",
+        "Movies",
+        "Style",
+        "Beauty",
+        "Royals",
+        "Viral"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "The 'Couch Guy' TikTok Saga: A Full Timeline of Internet Madness",
+          "subheadline": "How a 21-second video turned into a 4-day true-crime obsession"
+        },
+        {
+          "name": "half_page_ad",
+          "description": "300x600 sticky ad unit placeholder for Geico car insurance."
+        },
+        {
+          "name": "tweet_roundup",
+          "description": "Embedded tweet screenshots arranged in column: viral takes on the Met Gala, AOC 'Tax The Rich' dress reactions, Bean Dad fallout updates."
+        },
+        {
+          "name": "tiktok_grid",
+          "description": "3x3 grid of embedded vertical TikToks: 'Corn Kid Goes Mainstream', 'Subway Shirt Trend Explained', 'Nyquil Chicken Warning'."
+        },
+        {
+          "name": "reddit_roundup",
+          "description": "Card list of top r/AmItheAsshole and r/relationshipadvice posts of the week with BuzzDish hot-take captions."
+        },
+        {
+          "name": "wtf_poll",
+          "description": "Interactive viewer poll widget: 'Is Pumpkin Spice cancelled in 2021?' with live percentage bars."
+        },
+        {
+          "name": "interstitial_ad",
+          "description": "Full-width 970x250 placeholder ad for Hulu subscription."
+        },
+        {
+          "name": "weird_news_feed",
+          "description": "Card grid of bizarre stories: 'Florida Man Marries Emotional Support Alligator', 'Walmart Employee Quits Over Intercom', 'Cheugy: The Word That Killed Millennials'."
+        },
+        {
+          "name": "taboola_recommended",
+          "description": "Bottom recommended grid: 'You Won't Believe What She Looks Like Now', '15 Photos Taken Seconds Before Disaster', '1 Weird Trick For Belly Fat'."
+        },
+        {
+          "name": "exit_intent_popup",
+          "description": "Exit-intent modal offering 'BuzzDish VIP - Ad-Lite Membership $2.99/mo' with gold VIP badge."
+        }
+      ]
+    }
+  }
+}

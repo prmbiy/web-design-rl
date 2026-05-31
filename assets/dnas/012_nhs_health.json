@@ -1,0 +1,22 @@
+{
+  "id": "012",
+  "name": "nhs_health",
+  "source": "B",
+  "archetype": "National public health service patient-facing website",
+  "market": "United Kingdom, all demographics, from teenagers to elderly, accessibility-first",
+  "era": "2022",
+  "density": "Deliberately low density for maximum accessibility. Large tap targets. Generous line spacing. Short paragraphs. Heavy use of blue information boxes, warning boxes, and green 'important' callouts. Content organized as nested bullet points and numbered steps for medical instructions. Clear hierarchy with breadcrumbs and 'on this page' contents lists.",
+  "nav_style": "White top bar with NHS blue logo on left. Search bar taking up center 40%. 'Menu' button on right opening a full-width mega menu overlay. Below the nav on interior pages: a bold blue 'skip to content' accessibility link. The design is AA/AAA WCAG compliant throughout.",
+  "commercial_model": "Government public health service. No ads, no e-commerce. The 'product' is health information, service finder, and NHS app promotion. 111 non-emergency number promoted throughout. 999 emergency callout box always visible.",
+  "color_palette": "NHS Blue (#003087) as the defining primary brand color. White (#FFFFFF) page backgrounds. Green (#007F3B) for positive health information and CTAs. Yellow (#FFB81C) for warnings. Red (#DA291C) reserved for genuine emergencies only. The palette is clinical, trustworthy, accessible.",
+  "typography": "Frutiger or Noto Sans — the NHS design system uses highly legible sans-serif fonts. Body text at 19px (larger than most sites for elderly users). Line height 1.6. Very short paragraphs of 2-3 sentences max. Headings create clear hierarchy. No decorative fonts.",
+  "quirks": ["accessibility_skip_links", "nhsuk_design_system", "emergency_callout_boxes", "colored_info_boxes", "numbered_medical_steps", "on_this_page_toc", "gp_finder_postcode_widget", "medicine_dosage_warnings", "nhs_app_promotion", "last_reviewed_date_displayed"],
+  "pages": [
+    {"slug": "home", "title": "NHS", "description": "Three-column services grid: Find a GP, Find a pharmacy, Book appointment. Live service status for 111. NHS App promotion. Top health topics carousel. Health A-Z link. COVID and vaccination information."},
+    {"slug": "conditions", "title": "Health A to Z", "description": "Alphabetical conditions directory. Featured condition: detailed page for Type 2 Diabetes with overview, symptoms, causes, diagnosis, treatment, living with sections. Colored info boxes throughout."},
+    {"slug": "service_finder", "title": "Find NHS Services", "description": "Service finder tool: GP, dentist, pharmacy, hospital, optician, sexual health clinic. Postcode input with radius. Results list with distance, opening hours, ratings, and 'Book' CTAs."},
+    {"slug": "medicines", "title": "Medicines A to Z", "description": "Medicine information pages with dosage instructions in numbered steps, side effects in bullet lists, warnings in yellow boxes, interactions table, when to get help section."},
+    {"slug": "mental_health", "title": "Mental Health", "description": "Mental health landing page. Crisis support box with Samaritans number always visible. Conditions: depression, anxiety, OCD, PTSD. Self-referral to talking therapies section. Support for carers."}
+  ],
+  "animations": false
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1126664,
+      "page_width": 1440,
+      "page_height": 5644
+    },
+    {
+      "slug": "action",
+      "path": "action.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1061508,
+      "page_width": 1440,
+      "page_height": 7230
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1460821,
+      "page_width": 1440,
+      "page_height": 4798
+    },
+    {
+      "slug": "science",
+      "path": "science.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 629703,
+      "page_width": 1440,
+      "page_height": 7638
+    },
+    {
+      "slug": "stories",
+      "path": "stories.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1107234,
+      "page_width": 1440,
+      "page_height": 5310
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

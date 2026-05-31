@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ТоргоМир — интернет-магазин: одежда, электроника, продукты</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#1A1A1A;background:#F2F2F2}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 16px}
+
+/* TOP BAR */
+.topbar{background:#333;color:#fff;position:sticky;top:0;z-index:100}
+.topbar-inner{display:flex;align-items:center;gap:16px;height:56px;max-width:1280px;margin:0 auto;padding:0 16px}
+.logo{font-size:22px;font-weight:900;color:#FF6100;letter-spacing:-0.5px;white-space:nowrap}
+.logo span{color:#fff}
+.catalog-btn{background:#FF6100;color:#fff;padding:8px 16px;border-radius:4px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px}
+.search{flex:1;display:flex;max-width:580px}
+.search input{flex:1;height:36px;padding:0 12px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none}
+.search button{background:#FF6100;color:#fff;border:none;padding:0 18px;border-radius:0 4px 4px 0;font-weight:700;cursor:pointer;font-size:14px}
+.city{display:flex;flex-direction:column;font-size:12px;line-height:1.3;cursor:pointer;white-space:nowrap}
+.city .name{font-weight:700}
+.city .delivery{color:#00A857}
+.top-links{display:flex;gap:14px;font-size:12px}
+.top-link{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;position:relative}
+.top-link .ico{font-size:18px}
+.top-link.seller{color:#FF6100;font-weight:700}
+.badge-cart{position:absolute;top:-4px;right:-6px;background:#FF6100;color:#fff;border-radius:50%;width:16px;height:16px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* CATEGORY STRIP */
+.cat-strip{background:#444;overflow-x:auto;white-space:nowrap}
+.cat-strip-inner{max-width:1280px;margin:0 auto;padding:0 16px;display:flex;gap:18px;height:40px;align-items:center}
+.cat-strip a{color:#fff;font-size:13px;display:flex;align-items:center;gap:5px;flex-shrink:0;padding:4px 0}
+.cat-strip a:hover{color:#FF6100}
+.cat-strip .premium{color:#F0257A;font-weight:700}
+
+/* PROMO CAROUSEL */
+.promo-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:12px}
+.promo-main{background:linear-gradient(135deg,#FF6100 0%,#E30000 100%);border-radius:8px;padding:32px;color:#fff;min-height:280px;position:relative;overflow:hidden}
+.promo-main::before{content:"";position:absolute;right:-50px;top:-50px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);border-radius:50%}
+.promo-main .label{background:#1A1A1A;color:#FFC107;display:inline-block;padding:4px 10px;border-radius:3px;font-size:12px;font-weight:700;margin-bottom:12px}
+.promo-main h1{font-size:42px;font-weight:900;line-height:1.05;margin-bottom:8px}
+.promo-main .sub{font-size:16px;margin-bottom:18px;opacity:0.95}
+.promo-main .cta{background:#fff;color:#FF6100;padding:12px 24px;border-radius:4px;font-weight:700;display:inline-block;font-size:14px}
+.promo-side{background:#fff;border-radius:8px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;position:relative;overflow:hidden}
+.promo-side.purple{background:linear-gradient(135deg,#6E4FE0,#4A2EC2);color:#fff}
+.promo-side.green{background:linear-gradient(135deg,#00A857,#007A40);color:#fff}
+.promo-side h3{font-size:22px;font-weight:900;line-height:1.1;margin-bottom:6px}
+.promo-side p{font-size:13px;opacity:0.95}
+.promo-side .price{font-size:32px;font-weight:900;margin-top:auto}
+
+/* DEALS / TIMER */
+.section{background:#fff;border-radius:8px;margin-top:12px;padding:16px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.section-title{font-size:22px;font-weight:900}
+.timer{display:flex;align-items:center;gap:6px;font-size:14px;color:#666}
+.timer-blocks{display:flex;gap:4px}
+.timer-blocks span{background:#E30000;color:#fff;padding:4px 8px;border-radius:3px;font-weight:700;font-size:14px;min-width:30px;text-align:center}
+.see-all{color:#FF6100;font-weight:700;font-size:13px}
+
+/* PRODUCT GRID */
+.grid-6{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.card{background:#fff;border:1px solid #E0E0E0;border-radius:4px;padding:10px;position:relative;display:flex;flex-direction:column;min-height:340px}
+.card-img{height:160px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:8px;position:relative;overflow:hidden}
+.badge{position:absolute;top:6px;left:6px;background:#E30000;color:#fff;font-size:11px;font-weight:700;padding:3px 6px;border-radius:3px;z-index:2}
+.badge.ad{background:#FFC107;color:#1A1A1A;left:auto;right:6px}
+.badge.stock{background:#1A1A1A;top:auto;bottom:6px;left:6px}
+.price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:2px}
+.price-new{font-size:20px;font-weight:900;color:#1A1A1A}
+.price-old{font-size:12px;color:#999;text-decoration:line-through}
+.bnpl{font-size:11px;color:#6E4FE0;margin-bottom:4px}
+.card-name{font-size:13px;line-height:1.3;margin-bottom:6px;color:#1A1A1A;flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.rating{display:flex;align-items:center;gap:4px;font-size:12px;color:#666;margin-bottom:4px}
+.rating .stars{color:#FFC107}
+.delivery{font-size:11px;color:#00A857;font-weight:700;margin-bottom:6px}
+.add-btn{background:#FF6100;color:#fff;border:none;padding:8px;border-radius:4px;font-weight:700;font-size:13px;cursor:pointer;width:100%}
+
+/* card img backgrounds */
+.bg1{background:linear-gradient(135deg,#FFE4B5,#FFC080)}
+.bg2{background:linear-gradient(135deg,#D4E9FF,#A0C8FF)}
+.bg3{background:linear-gradient(135deg,#F0F0F0,#D0D0D0)}
+.bg4{background:linear-gradient(135deg,#FFE0E0,#FFB0B0)}
+.bg5{background:linear-gradient(135deg,#E0FFE0,#A0E0A0)}
+.bg6{background:linear-gradient(135deg,#F5E0FF,#D0A0FF)}
+
+/* CATEGORY ICON GRID */
+.cat-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.cat-tile{background:#fff;border:1px solid #E0E0E0;border-radius:4px;padding:12px 8px;text-align:center;cursor:pointer;transition:border-color 0.15s}
+.cat-tile:hover{border-color:#FF6100}
+.cat-tile .ico{font-size:36px;margin-bottom:4px;display:block}
+.cat-tile .name{font-size:12px;font-weight:700;line-height:1.2}
+.cat-tile .from{font-size:11px;color:#7A7A7A;margin-top:2px}
+
+/* BNPL banner */
+.bnpl-banner{background:linear-gradient(90deg,#FF6100 0%,#FF8a00 100%);color:#fff;border-radius:8px;margin-top:12px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.bnpl-banner h2{font-size:28px;font-weight:900;margin-bottom:4px}
+.bnpl-banner p{font-size:15px;opacity:0.95}
+.bnpl-banner .icon-big{font-size:80px}
+.bnpl-banner .btn{background:#fff;color:#FF6100;padding:12px 28px;border-radius:4px;font-weight:700;white-space:nowrap}
+
+/* APP DOWNLOAD */
+.app-banner{background:linear-gradient(135deg,#333 0%,#1A1A1A 100%);color:#fff;border-radius:8px;margin-top:12px;padding:28px 32px;display:flex;align-items:center;gap:32px}
+.app-banner .phone{width:120px;height:160px;background:linear-gradient(135deg,#FF6100,#E30000);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:60px;flex-shrink:0;border:3px solid #444}
+.app-banner h2{font-size:26px;font-weight:900;margin-bottom:6px}
+.app-banner p{font-size:14px;opacity:0.85;margin-bottom:14px}
+.app-stores{display:flex;gap:8px;flex-wrap:wrap}
+.store-btn{background:#444;padding:8px 14px;border-radius:4px;font-size:13px;display:flex;align-items:center;gap:8px}
+.store-btn .ico{font-size:20px}
+.qr{width:100px;height:100px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#000;font-weight:700;margin-left:auto;flex-shrink:0;background-image:repeating-linear-gradient(0deg,#000 0,#000 4px,#fff 4px,#fff 8px),repeating-linear-gradient(90deg,#000 0,#000 4px,#fff 4px,#fff 8px);background-blend-mode:difference}
+.app-bonus{color:#FFC107;font-weight:700;font-size:14px;margin-top:8px}
+
+/* FOOTER */
+footer{background:#2A2A2A;color:#fff;margin-top:24px;padding:32px 0 16px}
+.foot-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;max-width:1280px;margin:0 auto;padding:0 16px}
+.foot-col h4{font-size:14px;font-weight:700;margin-bottom:12px;color:#fff}
+.foot-col ul{list-style:none}
+.foot-col li{padding:4px 0;font-size:13px;color:#bbb;cursor:pointer}
+.foot-col li:hover{color:#FF6100}
+.social-row{display:flex;gap:8px;margin-top:8px}
+.social{width:32px;height:32px;background:#444;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
+.foot-bottom{border-top:1px solid #444;margin-top:24px;padding-top:16px;max-width:1280px;margin-left:auto;margin-right:auto;text-align:center;color:#888;font-size:12px;padding-left:16px;padding-right:16px}
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">Торго<span>Мир</span></div>
+    <div class="catalog-btn">☰ Каталог</div>
+    <div class="search">
+      <input placeholder="Искать на ТоргоМире">
+      <button>🔍 Найти</button>
+    </div>
+    <div class="city">
+      <div class="name">📍 Москва</div>
+      <div class="delivery">доставка завтра</div>
+    </div>
+    <div class="top-links">
+      <div class="top-link"><div class="ico">👤</div>Войти</div>
+      <div class="top-link"><div class="ico">📦</div>Заказы</div>
+      <div class="top-link"><div class="ico">♡</div>Избранное</div>
+      <div class="top-link"><div class="ico">🛒</div>Корзина<span class="badge-cart">3</span></div>
+      <div class="top-link seller"><div class="ico">💼</div>Продавать</div>
+    </div>
+  </div>
+  <!-- CATEGORY STRIP -->
+  <div class="cat-strip">
+    <div class="cat-strip-inner">
+      <a>📱 Электроника</a><a>👔 Одежда</a><a>👟 Обувь</a><a>🏡 Дом и сад</a>
+      <a>🧸 Детям</a><a>💄 Красота</a><a>⚽ Спорт</a><a>🚗 Авто</a>
+      <a>📚 Книги</a><a>🥦 Продукты</a><a>🐾 Зоотовары</a><a>💊 Аптека</a>
+      <a>💍 Ювелирка</a><a>🎨 Хобби</a><a>🔨 Стройка</a><a>✏ Канцтовары</a>
+      <a>🎲 Игрушки</a><a>🔌 Бытовая техника</a><a>🛋 Мебель</a>
+      <a class="premium">🔞 Premium 18+</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PROMO CAROUSEL -->
+  <div class="promo-row">
+    <div class="promo-main">
+      <div class="label">⚡ ТОЛЬКО 3 ДНЯ</div>
+      <h1>Чёрная Пятница</h1>
+      <div class="sub" style="font-size:24px;font-weight:900;margin-bottom:14px">Скидки до 70% на 2 000 000 товаров</div>
+      <p style="margin-bottom:20px;opacity:0.95">Смартфоны, техника, одежда, мебель — всё со скидками</p>
+      <span class="cta">Смотреть акции →</span>
+    </div>
+    <div class="promo-side purple">
+      <div>
+        <h3>Рассрочка<br>0-0-12</h3>
+        <p>от ТоргоБанк</p>
+      </div>
+      <div style="font-size:50px;text-align:center">💳</div>
+      <p style="font-size:12px;opacity:0.85">Без переплат и комиссий</p>
+    </div>
+    <div class="promo-side green">
+      <div>
+        <h3>Бесплатная<br>доставка</h3>
+        <p>при заказе от 1500₽</p>
+      </div>
+      <div style="font-size:50px;text-align:center">🚚</div>
+      <p style="font-size:12px;opacity:0.85">Завтра по Москве и МО</p>
+    </div>
+  </div>
+
+  <!-- TODAY'S DEALS -->
+  <div class="section">
+    <div class="section-head">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="section-title">🔥 Товар дня — успей за</div>
+        <div class="timer">
+          <div class="timer-blocks">
+            <span>03</span><span>42</span><span>19</span>
+          </div>
+        </div>
+      </div>
+      <a class="see-all">Все акции →</a>
+    </div>
+    <div class="grid-6">
+      <div class="card">
+        <div class="card-img bg1">📱<span class="badge">-25%</span></div>
+        <div class="price-row"><div class="price-new">14 990₽</div><div class="price-old">19 990₽</div></div>
+        <div class="bnpl">или 1 249₽ × 12 мес</div>
+        <div class="card-name">Смартфон Xiaomi Redmi Note 10 64GB Onyx Grey</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.7 (1 247)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg2">🤖<span class="badge">-43%</span></div>
+        <div class="price-row"><div class="price-new">8 499₽</div><div class="price-old">14 990₽</div></div>
+        <div class="bnpl">или 708₽ × 12 мес</div>
+        <div class="card-name">Робот-пылесос Polaris PVCR 0833 WI-FI IQ Home</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.6 (842)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg3">☕<span class="badge">-31%</span></div>
+        <div class="price-row"><div class="price-new">22 990₽</div><div class="price-old">33 490₽</div></div>
+        <div class="bnpl">или 1 915₽ × 12 мес</div>
+        <div class="card-name">Кофемашина DeLonghi ECAM 22.110.B автоматическая</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (517)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg4">📺<span class="badge">-38%</span></div>
+        <div class="price-row"><div class="price-new">31 990₽</div><div class="price-old">51 490₽</div></div>
+        <div class="bnpl">или 2 665₽ × 12 мес</div>
+        <div class="card-name">Телевизор Samsung 50" UE50AU7100U 4K UHD Smart TV</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.8 (1 932)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg5">🎧<span class="badge">-50%</span></div>
+        <div class="price-row"><div class="price-new">3 290₽</div><div class="price-old">6 590₽</div></div>
+        <div class="bnpl">или 274₽ × 12 мес</div>
+        <div class="card-name">Беспроводные наушники JBL Tune 510BT Black</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.7 (3 127)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg6">⌚<span class="badge">-22%</span></div>
+        <div class="price-row"><div class="price-new">18 990₽</div><div class="price-old">24 490₽</div></div>
+        <div class="bnpl">или 1 583₽ × 12 мес</div>
+        <div class="card-name">Смарт-часы Apple Watch SE 40mm Space Gray</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (847)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY GRID -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Популярные категории</div>
+      <a class="see-all">Все категории →</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-tile"><span class="ico">📱</span><div class="name">Смартфоны</div><div class="from">от 2 990₽</div></div>
+      <div class="cat-tile"><span class="ico">💻</span><div class="name">Ноутбуки</div><div class="from">от 19 990₽</div></div>
+      <div class="cat-tile"><span class="ico">❄</span><div class="name">Холодильники</div><div class="from">от 14 990₽</div></div>
+      <div class="cat-tile"><span class="ico">🌀</span><div class="name">Стиральные машины</div><div class="from">от 12 490₽</div></div>
+      <div class="cat-tile"><span class="ico">📺</span><div class="name">Телевизоры</div><div class="from">от 7 990₽</div></div>
+      <div class="cat-tile"><span class="ico">🧸</span><div class="name">Игрушки</div><div class="from">от 99₽</div></div>
+      <div class="cat-tile"><span class="ico">🐕</span><div class="name">Корм для животных</div><div class="from">от 149₽</div></div>
+      <div class="cat-tile"><span class="ico">👶</span><div class="name">Памперсы</div><div class="from">от 599₽</div></div>
+      <div class="cat-tile"><span class="ico">👔</span><div class="name">Мужская одежда</div><div class="from">от 399₽</div></div>
+      <div class="cat-tile"><span class="ico">👟</span><div class="name">Кроссовки</div><div class="from">от 1 290₽</div></div>
+      <div class="cat-tile"><span class="ico">💊</span><div class="name">Витамины</div><div class="from">от 199₽</div></div>
+      <div class="cat-tile"><span class="ico">🛞</span><div class="name">Шины</div><div class="from">от 2 490₽</div></div>
+      <div class="cat-tile"><span class="ico">🎮</span><div class="name">Игровые приставки</div><div class="from">от 14 990₽</div></div>
+      <div class="cat-tile"><span class="ico">🍳</span><div class="name">Посуда</div><div class="from">от 199₽</div></div>
+      <div class="cat-tile"><span class="ico">🛏</span><div class="name">Мебель</div><div class="from">от 1 990₽</div></div>
+      <div class="cat-tile"><span class="ico">💄</span><div class="name">Косметика</div><div class="from">от 99₽</div></div>
+      <div class="cat-tile"><span class="ico">📚</span><div class="name">Книги</div><div class="from">от 149₽</div></div>
+      <div class="cat-tile"><span class="ico">⚽</span><div class="name">Спорттовары</div><div class="from">от 299₽</div></div>
+      <div class="cat-tile"><span class="ico">🔧</span><div class="name">Инструменты</div><div class="from">от 199₽</div></div>
+      <div class="cat-tile"><span class="ico">🌸</span><div class="name">Дом и сад</div><div class="from">от 89₽</div></div>
+      <div class="cat-tile"><span class="ico">🚗</span><div class="name">Автотовары</div><div class="from">от 149₽</div></div>
+      <div class="cat-tile"><span class="ico">💍</span><div class="name">Ювелирка</div><div class="from">от 990₽</div></div>
+      <div class="cat-tile"><span class="ico">🥦</span><div class="name">Продукты</div><div class="from">от 19₽</div></div>
+      <div class="cat-tile"><span class="ico">🎨</span><div class="name">Хобби</div><div class="from">от 99₽</div></div>
+    </div>
+  </div>
+
+  <!-- FLASH SALE -->
+  <div class="section">
+    <div class="section-head">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div class="section-title" style="color:#E30000">⚡ Горячие предложения</div>
+        <div class="timer">
+          до конца акции:
+          <div class="timer-blocks">
+            <span>01</span><span>17</span><span>52</span>
+          </div>
+        </div>
+      </div>
+      <a class="see-all">Все →</a>
+    </div>
+    <div class="grid-5">
+      <div class="card">
+        <div class="card-img bg2">🍳<span class="badge">-60%</span><span class="badge stock">Осталось 3 шт</span></div>
+        <div class="price-row"><div class="price-new">1 990₽</div><div class="price-old">4 990₽</div></div>
+        <div class="card-name">Сковорода Tefal Ingenio Expertise 24см</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.8 (612)</div>
+        <div class="delivery">🚚 Завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg3">🧴<span class="badge">-45%</span><span class="badge stock">Осталось 7 шт</span></div>
+        <div class="price-row"><div class="price-new">549₽</div><div class="price-old">999₽</div></div>
+        <div class="card-name">Шампунь Head &amp; Shoulders Объём 900мл</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.6 (2 109)</div>
+        <div class="delivery">🚚 Завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg1">🔋<span class="badge">-52%</span><span class="badge stock">Осталось 5 шт</span></div>
+        <div class="price-row"><div class="price-new">1 290₽</div><div class="price-old">2 690₽</div></div>
+        <div class="card-name">Power Bank Xiaomi Mi 10000 мАч Black</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (4 217)</div>
+        <div class="delivery">🚚 Завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg4">👟<span class="badge">-48%</span><span class="badge stock">Осталось 2 шт</span></div>
+        <div class="price-row"><div class="price-new">3 990₽</div><div class="price-old">7 690₽</div></div>
+        <div class="card-name">Кроссовки Nike Revolution 6 NN Men’s Running</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.7 (892)</div>
+        <div class="delivery">🚚 Завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg5">📷<span class="badge">-55%</span><span class="badge stock">Осталось 4 шт</span></div>
+        <div class="price-row"><div class="price-new">590₽</div><div class="price-old">1 290₽</div></div>
+        <div class="card-name">Карта памяти SanDisk Ultra microSDXC 64GB</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (5 821)</div>
+        <div class="delivery">🚚 Завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BNPL BANNER -->
+  <div class="bnpl-banner">
+    <div class="icon-big">💸</div>
+    <div style="flex:1">
+      <h2>ТоргоПлати — покупай сейчас, плати через 30 дней</h2>
+      <p>Без процентов, без переплат, без скрытых комиссий. Одобрение за 1 минуту.</p>
+    </div>
+    <a class="btn">Подключить →</a>
+  </div>
+
+  <!-- RECOMMENDED -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">⭐ Рекомендуем вам</div>
+      <a class="see-all">Показать больше →</a>
+    </div>
+    <div class="grid-6">
+      <div class="card">
+        <div class="card-img bg5">🎧<span class="badge ad">Реклама</span></div>
+        <div class="price-row"><div class="price-new">3 290₽</div><div class="price-old">4 990₽</div></div>
+        <div class="bnpl">или 274₽ × 12 мес</div>
+        <div class="card-name">Наушники JBL Tune 510BT беспроводные</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.7 (3 127)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg3">☕</div>
+        <div class="price-row"><div class="price-new">899₽</div><div class="price-old">1 290₽</div></div>
+        <div class="card-name">Кофе Jacobs Monarch растворимый 1кг пакет</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.8 (1 042)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg2">📖</div>
+        <div class="price-row"><div class="price-new">549₽</div><div class="price-old">790₽</div></div>
+        <div class="card-name">Книга «Атомные привычки» Джеймс Клир</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (7 321)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg1">📱<span class="badge ad">Реклама</span></div>
+        <div class="price-row"><div class="price-new">67 990₽</div><div class="price-old">79 990₽</div></div>
+        <div class="bnpl">или 5 665₽ × 12 мес</div>
+        <div class="card-name">Смартфон Apple iPhone 13 128GB Midnight</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.9 (2 341)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg4">🧴</div>
+        <div class="price-row"><div class="price-new">1 290₽</div><div class="price-old">1 890₽</div></div>
+        <div class="card-name">Крем для лица Nivea увлажняющий 50мл</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.6 (823)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+      <div class="card">
+        <div class="card-img bg6">🎮</div>
+        <div class="price-row"><div class="price-new">4 290₽</div><div class="price-old">5 990₽</div></div>
+        <div class="bnpl">или 357₽ × 12 мес</div>
+        <div class="card-name">Геймпад DualSense PS5 беспроводной White</div>
+        <div class="rating"><span class="stars">★★★★★</span> 4.8 (1 547)</div>
+        <div class="delivery">🚚 Доставка завтра</div>
+        <button class="add-btn">В корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP DOWNLOAD -->
+  <div class="app-banner">
+    <div class="phone">📱</div>
+    <div style="flex:1">
+      <h2>Скачай приложение ТоргоМир</h2>
+      <p>Эксклюзивные акции в приложении, push-уведомления о скидках и быстрый поиск</p>
+      <div class="app-stores">
+        <div class="store-btn"><span class="ico"></span><div>App Store</div></div>
+        <div class="store-btn"><span class="ico">▶</span><div>Google Play</div></div>
+        <div class="store-btn"><span class="ico">📲</span><div>AppGallery</div></div>
+        <div class="store-btn"><span class="ico">🤖</span><div>RuStore</div></div>
+      </div>
+      <div class="app-bonus">🎁 Получи +500 бонусов за первый заказ в приложении</div>
+    </div>
+    <div class="qr">QR</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col">
+      <h4>Покупателям</h4>
+      <ul>
+        <li>Доставка</li>
+        <li>Возврат товара</li>
+        <li>Гарантия</li>
+        <li>Способы оплаты</li>
+        <li>Бонусы ТоргоМир</li>
+        <li>Подарочные карты</li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Продавцам</h4>
+      <ul>
+        <li>Стать продавцом</li>
+        <li>Тарифы и комиссии</li>
+        <li>Помощь продавцам</li>
+        <li>База знаний</li>
+        <li>Логистика и склад</li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Компания</h4>
+      <ul>
+        <li>О нас</li>
+        <li>Вакансии</li>
+        <li>Контакты</li>
+        <li>Пресс-центр</li>
+        <li>Реквизиты</li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Сервисы</h4>
+      <ul>
+        <li>ТоргоПлати — рассрочка</li>
+        <li>ТоргоБанк</li>
+        <li>ТоргоДоставка</li>
+        <li>Мобильное приложение</li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Мы в соцсетях</h4>
+      <div class="social-row">
+        <div class="social">ВК</div>
+        <div class="social">ОК</div>
+        <div class="social">✈</div>
+        <div class="social">🎬</div>
+      </div>
+      <h4 style="margin-top:18px">Поддержка 24/7</h4>
+      <ul>
+        <li>📞 8 800 555-35-35</li>
+        <li>📧 help@torgomir.ru</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2021 ТоргоМир — Миллионы товаров — доставка за 1 день. ИНН 7704123456. Все цены указаны в рублях РФ.</div>
+</footer>
+
+</body>
+</html>

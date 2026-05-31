@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TV & Streaming - Recaps, Reality Drama & Ratings | BuzzDish</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 16px; line-height: 1.6; color: #111; background: #FFF5FA; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.topnav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid #FF1493; }
+.nav-inner { max-width: 1280px; margin: 0 auto; height: 64px; display: flex; align-items: center; padding: 0 16px; gap: 24px; }
+.logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 30px; color: #FF1493; letter-spacing: -1px; }
+.logo span { color: #000; }
+.tagline-mini { font-family: Georgia, serif; font-style: italic; font-size: 11px; color: #777; margin-left: -16px; }
+.nav-cats { display: flex; gap: 4px; margin-left: auto; }
+.nav-cats a { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; text-transform: uppercase; padding: 8px 12px; color: #000; }
+.nav-cats a.active { background: #FF1493; color: #fff; }
+.nav-cats a:hover { color: #FF1493; }
+.nav-cats a.active:hover { color: #fff; }
+
+/* Ticker */
+.ticker { background: #1A1A1A; color: #fff; padding: 8px 0; overflow: hidden; white-space: nowrap; }
+.ticker-inner { max-width: 1280px; margin: 0 auto; padding: 0 16px; display: flex; gap: 24px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; align-items: center; }
+.ticker-label { background: #FF1493; color: #fff; padding: 4px 10px; font-weight: 900; letter-spacing: 1px; flex-shrink: 0; }
+.ticker-items { display: flex; gap: 20px; overflow: hidden; }
+.ticker-items span { display: inline-flex; align-items: center; gap: 6px; }
+.hot-badge { background: #FF0000; color: #fff; font-size: 9px; padding: 2px 5px; font-weight: 900; }
+
+/* Container */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+/* Ad slots */
+.ad { background: repeating-linear-gradient(45deg, #f5f5f5, #f5f5f5 10px, #ececec 10px, #ececec 20px); border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #999; font-family: 'Montserrat', sans-serif; }
+.ad-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 4px; }
+.ad-content { font-weight: 800; font-size: 14px; color: #666; }
+.billboard { height: 250px; margin: 16px 0; }
+.leaderboard { height: 90px; margin: 16px 0; }
+.half-page { width: 100%; height: 600px; margin-bottom: 16px; }
+
+/* Page header */
+.page-head { padding: 24px 0 12px; border-bottom: 3px solid #FF1493; margin-bottom: 16px; }
+.page-head h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 48px; text-transform: uppercase; letter-spacing: -1px; }
+.page-head p { font-family: Georgia, serif; font-style: italic; color: #777; margin-top: 4px; font-size: 15px; }
+.page-head h1 em { color: #FF1493; font-style: normal; }
+
+/* Main layout */
+.main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 24px; padding-bottom: 32px; }
+
+/* Article cards */
+.feed { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.feed > .full { grid-column: 1 / -1; }
+.recap-card { background: #fff; border: 1px solid #EEE; padding: 0; display: flex; flex-direction: column; }
+.poster { height: 200px; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 22px; text-align: center; padding: 12px; position: relative; }
+.poster .ep-badge { position: absolute; top: 8px; left: 8px; background: #000; color: #fff; font-size: 10px; padding: 4px 8px; font-weight: 800; }
+.poster .live-badge { position: absolute; top: 8px; right: 8px; background: #FF0000; color: #fff; font-size: 10px; padding: 4px 8px; font-weight: 900; letter-spacing: 1px; }
+.p-bachelor { background: linear-gradient(135deg, #d6107a, #ff1493, #ff6ec7); }
+.p-housewives { background: linear-gradient(135deg, #000, #4a0e2c, #FF1493); }
+.p-stranger { background: linear-gradient(135deg, #0a0a0a, #8b0000, #ff0000); }
+.p-bridgerton { background: linear-gradient(135deg, #6b4f8c, #c8a2c8, #FFD700); }
+.p-succession { background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #FFD700); }
+.p-loveisland { background: linear-gradient(135deg, #ff6ec7, #ffd700, #ff1493); }
+.p-survivor { background: linear-gradient(135deg, #c19a3a, #FFD700, #8b6914); }
+.p-yellowstone { background: linear-gradient(135deg, #2c1810, #8b4513, #d2691e); }
+.p-whitelotus { background: linear-gradient(135deg, #ff7e5f, #feb47b, #FFD700); }
+
+.card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+.card-meta { font-family: 'Montserrat', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 6px; }
+.card-meta .show { color: #FF1493; font-weight: 800; }
+.card-body h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.15; margin-bottom: 8px; }
+.card-body h3 a:hover { color: #FF1493; }
+.card-body p { font-family: Georgia, serif; font-size: 14px; color: #333; line-height: 1.5; margin-bottom: 10px; }
+.card-body .pink { color: #FF1493; font-weight: bold; }
+.stars { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 8px; border-top: 1px solid #EEE; }
+.stars-row { color: #FFD700; font-size: 16px; letter-spacing: 1px; }
+.stars-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; }
+.stars-label { font-size: 11px; color: #777; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+.byline { font-size: 11px; color: #999; margin-top: 4px; font-family: 'Montserrat', sans-serif; }
+
+/* Featured big recap */
+.featured-recap { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; }
+.featured-recap .poster { height: 100%; min-height: 320px; }
+.featured-recap .card-body h3 { font-size: 30px; }
+.featured-recap .card-body { padding: 20px 22px; }
+.breaking-tag { display: inline-block; background: #FF0000; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 11px; padding: 4px 8px; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* Poll widget */
+.poll { background: #fff; border: 2px solid #FF1493; padding: 18px 20px; grid-column: 1 / -1; }
+.poll-head { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 11px; color: #FF1493; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.poll h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; margin-bottom: 14px; }
+.poll-opt { margin-bottom: 8px; }
+.poll-opt-row { display: flex; justify-content: space-between; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+.bar { background: #FFE7F2; height: 24px; position: relative; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #FF1493, #D6107A); }
+.poll-meta { font-size: 11px; color: #777; margin-top: 10px; font-family: 'Montserrat', sans-serif; }
+
+/* Sponsored block in feed */
+.sponsored-inline { background: #FFF8DC; border: 1px dashed #c8a52a; padding: 14px; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; position: relative; }
+.sponsored-inline::before { content: 'SPONSORED CONTENT'; position: absolute; top: -10px; left: 14px; background: #FFD700; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 10px; padding: 3px 10px; letter-spacing: 1px; }
+.spon-card { background: #fff; padding: 10px; }
+.spon-thumb { height: 80px; background: linear-gradient(135deg, #FFD700, #ff1493); margin-bottom: 8px; }
+.spon-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; line-height: 1.2; }
+.spon-card .by { font-size: 10px; color: #999; margin-top: 4px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+
+/* Sidebar */
+.sidebar { display: flex; flex-direction: column; gap: 16px; }
+.side-box { background: #fff; border: 1px solid #EEE; padding: 16px; }
+.side-box h4 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 8px; border-bottom: 3px solid #FF1493; margin-bottom: 12px; }
+.streaming-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stream-logo { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 14px; letter-spacing: 1px; }
+.s-netflix { background: #000; color: #E50914; }
+.s-hbo { background: #0f0f1a; }
+.s-hulu { background: #1ce783; color: #000; }
+.s-disney { background: #113ccf; }
+.s-peacock { background: linear-gradient(135deg, #fa4616, #ffd200); }
+.s-paramount { background: #0064ff; }
+
+.trending-list { list-style: none; }
+.trending-list li { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #EEE; align-items: flex-start; }
+.trending-list li:last-child { border-bottom: none; }
+.t-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 26px; color: #FF1493; line-height: 1; min-width: 28px; }
+.t-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.25; }
+.t-text .meta { display: block; font-size: 10px; color: #999; font-weight: 600; margin-top: 3px; text-transform: uppercase; }
+
+.email-cap { background: linear-gradient(135deg, #FF1493, #D6107A); color: #fff; padding: 18px; }
+.email-cap h4 { color: #fff; border-color: #FFD700; }
+.email-cap p { font-size: 13px; margin-bottom: 10px; font-family: Georgia, serif; font-style: italic; }
+.email-cap input { width: 100%; padding: 10px; border: none; font-family: Georgia, serif; font-size: 13px; margin-bottom: 8px; }
+.email-cap button { width: 100%; padding: 10px; background: #FFD700; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 1px; border: none; cursor: pointer; text-transform: uppercase; }
+
+.video-ad-side { background: #000; height: 250px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #fff; position: relative; font-family: 'Montserrat', sans-serif; }
+.video-ad-side::before { content: '▶ AD PLAYING'; position: absolute; top: 8px; left: 8px; font-size: 10px; background: #FF0000; padding: 3px 8px; font-weight: 900; }
+.video-ad-side-label { font-size: 10px; color: #999; letter-spacing: 1px; margin-bottom: 8px; }
+.video-ad-side-title { font-weight: 800; font-size: 16px; text-align: center; padding: 0 16px; }
+
+/* Taboola */
+.taboola { padding: 24px 0; border-top: 4px double #FF1493; margin-top: 16px; }
+.taboola h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 20px; text-transform: uppercase; margin-bottom: 4px; }
+.taboola .promoted { font-size: 11px; color: #999; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; font-family: 'Montserrat', sans-serif; }
+.tab-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tab-card { background: #fff; border: 1px solid #EEE; }
+.tab-thumb { height: 130px; background: linear-gradient(135deg, #999, #ccc); display: flex; align-items: center; justify-content: center; font-size: 40px; color: #fff; }
+.tc1 { background: linear-gradient(135deg, #ff1493, #ffd700); }
+.tc2 { background: linear-gradient(135deg, #000, #ff0000); }
+.tc3 { background: linear-gradient(135deg, #6b4f8c, #ff1493); }
+.tc4 { background: linear-gradient(135deg, #ffd700, #ff6ec7); }
+.tab-card p { padding: 10px 12px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.2; }
+.tab-card .src { display: block; padding: 0 12px 10px; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Footer */
+footer { background: #000; color: #fff; padding: 40px 16px 20px; margin-top: 32px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 24px; border-bottom: 1px solid #333; }
+.footer-cols h5 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #FF1493; margin-bottom: 12px; }
+.footer-cols ul { list-style: none; }
+.footer-cols ul li { font-size: 13px; padding: 4px 0; color: #ccc; }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 28px; color: #FF1493; margin-bottom: 8px; }
+.footer-logo span { color: #fff; }
+.footer-cols p { font-family: Georgia, serif; font-style: italic; font-size: 13px; color: #999; }
+.footer-bottom { padding-top: 16px; display: flex; justify-content: space-between; font-size: 11px; color: #777; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+
+/* Social float */
+.social-float { position: fixed; left: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 6px; z-index: 50; }
+.social-float a { width: 38px; height: 38px; background: #fff; border: 1px solid #EEE; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; color: #FF1493; }
+.social-float a:hover { background: #FF1493; color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Social Floating -->
+<div class="social-float">
+  <a title="Facebook">f</a>
+  <a title="Twitter">𝕏</a>
+  <a title="Pinterest">P</a>
+  <a title="Email">✉</a>
+  <a title="TikTok">♪</a>
+</div>
+
+<!-- Top Nav -->
+<nav class="topnav">
+  <div class="nav-inner">
+    <div class="logo">Buzz<span>Dish</span></div>
+    <div class="tagline-mini">Hollywood's Hottest Tea, Served Daily</div>
+    <div class="nav-cats">
+      <a>Celebrity</a>
+      <a class="active">TV</a>
+      <a>Music</a>
+      <a>Movies</a>
+      <a>Style</a>
+      <a>Beauty</a>
+      <a>Royals</a>
+      <a>Viral</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-label">🔥 TRENDING</div>
+    <div class="ticker-items">
+      <span><span class="hot-badge">HOT</span> Kim K Spotted With Mystery Man at Nobu</span>
+      <span><span class="hot-badge">HOT</span> Harry Styles Concert Chaos in Austin</span>
+      <span><span class="hot-badge">HOT</span> Bachelor Finale Leak EXPOSED</span>
+      <span><span class="hot-badge">HOT</span> Adele Postpones Vegas AGAIN</span>
+      <span><span class="hot-badge">HOT</span> Britney Engagement Ring Revealed</span>
+      <span><span class="hot-badge">HOT</span> Pete & Kim Palm Springs Pics</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Billboard Ad -->
+  <div class="ad billboard">
+    <div class="ad-label">— Advertisement —</div>
+    <div class="ad-content">970 × 250 BILLBOARD • Sephora Holiday Sale</div>
+  </div>
+
+  <!-- Page header -->
+  <div class="page-head">
+    <h1>TV & <em>Streaming</em></h1>
+    <p>Reality recaps, cast drama, ratings tea, and which streaming show is actually worth your time this week.</p>
+  </div>
+
+  <div class="main-grid">
+
+    <!-- LEFT FEED -->
+    <div>
+      <div class="feed">
+
+        <!-- FEATURED -->
+        <article class="recap-card featured-recap full">
+          <div class="poster p-bachelor">
+            <span class="ep-badge">S26 · E08 RECAP</span>
+            <span class="live-badge">NEW</span>
+            <div>THE BACHELOR<br>FINALE</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">THE BACHELOR</span> · 11 MIN READ · ABC</div>
+            <span class="breaking-tag">BREAKING RECAP</span>
+            <h3>Clayton's Three-Way Meltdown: Every Cringe Moment From the Most Chaotic Finale in Bachelor History</h3>
+            <p>It was the trainwreck we all signed up for. <span class="pink">Clayton Echard</span> told not one, not two, but THREE women he was in love with them — and somehow the producers let it air. We rank every wince, every gasp, and every awkward Neil Lane ring reveal.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★★</span>
+              <span class="stars-num">4.7</span>
+              <span class="stars-label">DISH METER · 12,408 RATINGS</span>
+            </div>
+            <div class="byline">By Tara Knox · 2 hours ago</div>
+          </div>
+        </article>
+
+        <!-- Card -->
+        <article class="recap-card">
+          <div class="poster p-housewives">
+            <span class="ep-badge">RHOBH · S12 E04</span>
+            <div>REAL HOUSEWIVES</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">RHOBH</span> · 7 MIN READ · BRAVO</div>
+            <h3>Erika Jayne Storms Out of Kyle's Dinner Party — And Lisa Rinna's Reaction Is Everything</h3>
+            <p>The legal drama bleeds into the Beverly Hills group again. <span class="pink">Sutton Stracke</span> just sips her wine. We have every glance, every gasp, screencap-by-screencap.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★☆</span>
+              <span class="stars-num">4.2</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Mira Chen · 5 hours ago</div>
+          </div>
+        </article>
+
+        <article class="recap-card">
+          <div class="poster p-stranger">
+            <span class="ep-badge">S4 · VOLUME 1</span>
+            <span class="live-badge">SPOILERS</span>
+            <div>STRANGER<br>THINGS</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">STRANGER THINGS</span> · 14 MIN READ · NETFLIX</div>
+            <h3>Vecna Explained: Every Easter Egg, Every Theory, And Why That Kate Bush Scene Hit So Hard</h3>
+            <p>Running Up That Hill is back on the charts and we are not okay. <span class="pink">Millie Bobby Brown</span> talks Eleven's lab arc.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★★</span>
+              <span class="stars-num">4.9</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Devon Park · 8 hours ago</div>
+          </div>
+        </article>
+
+        <!-- POLL -->
+        <div class="poll">
+          <div class="poll-head">📊 VIEWER POLL · 48,221 VOTES</div>
+          <h4>Who Should Get the Final Rose This Season?</h4>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Susie Evans</span><span>52%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:52%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Gabby Windey</span><span>31%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:31%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Rachel Recchia</span><span>17%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:17%"></div></div>
+          </div>
+          <div class="poll-meta">Poll closes in 14h · Results update live</div>
+        </div>
+
+        <article class="recap-card">
+          <div class="poster p-bridgerton">
+            <span class="ep-badge">S2 · EP06</span>
+            <div>BRIDGERTON</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">BRIDGERTON</span> · 9 MIN READ · NETFLIX</div>
+            <h3>Kate & Anthony's Hand-Touch Scene Broke Twitter — Here's the Frame-by-Frame Breakdown</h3>
+            <p>The pall mall match. The bee. The library. <span class="pink">Simone Ashley</span> deserves every award.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★★</span>
+              <span class="stars-num">4.8</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Mira Chen · 1 day ago</div>
+          </div>
+        </article>
+
+        <article class="recap-card">
+          <div class="poster p-succession">
+            <span class="ep-badge">S3 · FINALE</span>
+            <div>SUCCESSION</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">SUCCESSION</span> · 13 MIN READ · HBO MAX</div>
+            <h3>That Italian Finale Twist: Logan's Betrayal, Tom's Snake Era, and Who Actually Won</h3>
+            <p>Every Roy sibling lost. Every Roy sibling deserved it. <span class="pink">Jeremy Strong</span> went method. Again.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★★</span>
+              <span class="stars-num">4.9</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Tara Knox · 1 day ago</div>
+          </div>
+        </article>
+
+        <!-- Sponsored inline -->
+        <div class="sponsored-inline">
+          <div class="spon-card">
+            <div class="spon-thumb"></div>
+            <h5>The $19 Streaming Stick Everyone's Buying for Christmas</h5>
+            <div class="by">Paid Partner · Walmart</div>
+          </div>
+          <div class="spon-card">
+            <div class="spon-thumb" style="background:linear-gradient(135deg,#000,#FF1493)"></div>
+            <h5>Watch Reality TV From Anywhere — VPN Hack Tested</h5>
+            <div class="by">Paid Partner · NordVPN</div>
+          </div>
+          <div class="spon-card">
+            <div class="spon-thumb" style="background:linear-gradient(135deg,#FFD700,#000)"></div>
+            <h5>Hulu + Disney+ Bundle Is Now $7.99 — Here's How</h5>
+            <div class="by">Paid Partner · Disney</div>
+          </div>
+        </div>
+
+        <article class="recap-card">
+          <div class="poster p-loveisland">
+            <span class="ep-badge">LIVE EVERY NIGHT</span>
+            <span class="live-badge">LIVE</span>
+            <div>LOVE ISLAND USA</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">LOVE ISLAND</span> · 6 MIN READ · PEACOCK</div>
+            <h3>Casa Amor Recoupling Chaos: Who Got Dumped and Who's About to Get Dumped</h3>
+            <p>Bombshell <span class="pink">Andrea</span> walked in and ruined three couples in 90 seconds. Iconic behavior, frankly.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★☆</span>
+              <span class="stars-num">3.9</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Devon Park · 12 hours ago</div>
+          </div>
+        </article>
+
+        <article class="recap-card">
+          <div class="poster p-survivor">
+            <span class="ep-badge">S42 · EP11</span>
+            <div>SURVIVOR</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">SURVIVOR</span> · 10 MIN READ · CBS</div>
+            <h3>The Tribal That Sent Strategy Twitter Into Meltdown — Hidden Idol Drama Explained</h3>
+            <p><span class="pink">Jeff Probst</span> couldn't even hide his face. The blindside was UNREAL.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★☆</span>
+              <span class="stars-num">4.1</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Tara Knox · 1 day ago</div>
+          </div>
+        </article>
+
+        <!-- Mid-feed leaderboard -->
+        <div class="full">
+          <div class="ad leaderboard">
+            <div class="ad-label">— Advertisement —</div>
+            <div class="ad-content">728 × 90 LEADERBOARD • Hulu — Now Streaming</div>
+          </div>
+        </div>
+
+        <!-- Poll 2 -->
+        <div class="poll">
+          <div class="poll-head">📊 STREAMING WAR POLL · 91,304 VOTES</div>
+          <h4>Which Streaming Service Has the BEST Originals Right Now?</h4>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>HBO Max</span><span>34%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:34%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Netflix</span><span>28%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:28%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Disney+</span><span>19%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:19%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Apple TV+</span><span>12%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:12%"></div></div>
+          </div>
+          <div class="poll-opt">
+            <div class="poll-opt-row"><span>Peacock (lol)</span><span>7%</span></div>
+            <div class="bar"><div class="bar-fill" style="width:7%"></div></div>
+          </div>
+          <div class="poll-meta">Live results · Updated every 60 seconds</div>
+        </div>
+
+        <article class="recap-card">
+          <div class="poster p-yellowstone">
+            <span class="ep-badge">S5 · EP02</span>
+            <div>YELLOWSTONE</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">YELLOWSTONE</span> · 8 MIN READ · PARAMOUNT</div>
+            <h3>Beth vs. Jamie: The Slap Heard 'Round Montana and What It Means for the Dutton Empire</h3>
+            <p><span class="pink">Kelly Reilly</span> said the line. She SAID the line. Cowboy hat Twitter has rejoiced.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★☆</span>
+              <span class="stars-num">4.4</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Hank Morrison · 3 hours ago</div>
+          </div>
+        </article>
+
+        <article class="recap-card">
+          <div class="poster p-whitelotus">
+            <span class="ep-badge">S1 · FINALE</span>
+            <div>THE WHITE LOTUS</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="show">WHITE LOTUS</span> · 11 MIN READ · HBO MAX</div>
+            <h3>Who Died at the Resort? Every Theory Ranked From 'Obvious' to 'Bonkers'</h3>
+            <p>Was it Shane? Was it Armond? Was it the suitcase that smelled funny? <span class="pink">Jennifer Coolidge</span> carried.</p>
+            <div class="stars">
+              <span class="stars-row">★★★★★</span>
+              <span class="stars-num">4.6</span>
+              <span class="stars-label">DISH METER</span>
+            </div>
+            <div class="byline">By Mira Chen · 2 days ago</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="side-box">
+        <h4>📺 Where To Watch</h4>
+        <div class="streaming-grid">
+          <div class="stream-logo s-netflix">NETFLIX</div>
+          <div class="stream-logo s-hbo">HBO MAX</div>
+          <div class="stream-logo s-hulu">hulu</div>
+          <div class="stream-logo s-disney">Disney+</div>
+          <div class="stream-logo s-peacock">peacock</div>
+          <div class="stream-logo s-paramount">P+</div>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h4>🔥 Trending Shows</h4>
+        <ul class="trending-list">
+          <li><span class="t-num">1</span><div class="t-text">Stranger Things 4<span class="meta">Netflix · +428% buzz</span></div></li>
+          <li><span class="t-num">2</span><div class="t-text">The Bachelor Finale<span class="meta">ABC · +311% buzz</span></div></li>
+          <li><span class="t-num">3</span><div class="t-text">Bridgerton S2<span class="meta">Netflix · +287% buzz</span></div></li>
+          <li><span class="t-num">4</span><div class="t-text">Succession S3<span class="meta">HBO Max · +241% buzz</span></div></li>
+          <li><span class="t-num">5</span><div class="t-text">RHOBH<span class="meta">Bravo · +198% buzz</span></div></li>
+          <li><span class="t-num">6</span><div class="t-text">Yellowstone S5<span class="meta">Paramount · +176% buzz</span></div></li>
+          <li><span class="t-num">7</span><div class="t-text">Love Island USA<span class="meta">Peacock · +142% buzz</span></div></li>
+          <li><span class="t-num">8</span><div class="t-text">Survivor S42<span class="meta">CBS · +98% buzz</span></div></li>
+          <li><span class="t-num">9</span><div class="t-text">The White Lotus<span class="meta">HBO · +87% buzz</span></div></li>
+          <li><span class="t-num">10</span><div class="t-text">RuPaul's Drag Race<span class="meta">MTV · +72% buzz</span></div></li>
+        </ul>
+      </div>
+
+      <div class="video-ad-side">
+        <div class="video-ad-side-label">— ADVERTISEMENT —</div>
+        <div class="video-ad-side-title">▶ Watch Now<br>Lancôme Lash Idôle</div>
+      </div>
+
+      <div class="email-cap">
+        <h4>📩 The Daily Dish</h4>
+        <p>Hollywood's hottest tea, delivered to your inbox every morning at 7am.</p>
+        <input type="email" placeholder="your@email.com">
+        <button>SUBSCRIBE FREE</button>
+      </div>
+
+      <!-- Half page ad -->
+      <div class="ad half-page" style="height:600px;">
+        <div class="ad-label">— Advertisement —</div>
+        <div class="ad-content">300 × 600<br>HALF PAGE</div>
+        <div style="font-size:12px;color:#999;margin-top:8px;">Geico — 15 minutes</div>
+      </div>
+
+      <div class="side-box">
+        <h4>⭐ Top Rated Shows</h4>
+        <ul class="trending-list">
+          <li><span class="t-num" style="color:#FFD700;">★</span><div class="t-text">Succession <span style="color:#FF1493;">4.9</span><span class="meta">Best Drama Currently</span></div></li>
+          <li><span class="t-num" style="color:#FFD700;">★</span><div class="t-text">Stranger Things 4 <span style="color:#FF1493;">4.9</span><span class="meta">Best Sci-Fi</span></div></li>
+          <li><span class="t-num" style="color:#FFD700;">★</span><div class="t-text">Bridgerton <span style="color:#FF1493;">4.8</span><span class="meta">Best Romance</span></div></li>
+          <li><span class="t-num" style="color:#FFD700;">★</span><div class="t-text">Bachelor Finale <span style="color:#FF1493;">4.7</span><span class="meta">Best Trainwreck</span></div></li>
+          <li><span class="t-num" style="color:#FFD700;">★</span><div class="t-text">White Lotus <span style="color:#FF1493;">4.6</span><span class="meta">Best Comedy</span></div></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- TABOOLA -->
+  <div class="taboola">
+    <h3>You May Also Like</h3>
+    <div class="promoted">Promoted Content · Recommended For You</div>
+    <div class="tab-grid">
+      <div class="tab-card">
+        <div class="tab-thumb tc1">😱</div>
+        <p>The Real Reason She Left The View — Insiders Finally Speak</p>
+        <span class="src">BuzzDish · Sponsored</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc2">🔥</div>
+        <p>15 Plastic Surgery Disasters You Completely Forgot About</p>
+        <span class="src">CelebDaily · Promoted</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc3">👀</div>
+        <p>Remember Her From the 90s? You Won't Believe How She Looks Now</p>
+        <span class="src">TabloidNow · Sponsored</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc4">💄</div>
+        <p>Doctors Stunned: This $12 Wrinkle Cream Outsells Botox</p>
+        <span class="src">DermaToday · Ad</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc2">📺</div>
+        <p>Reality Stars Who Got Fired Mid-Season — And Why</p>
+        <span class="src">BuzzDish · Sponsored</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc1">💍</div>
+        <p>25 Forbidden Bachelor Behind-The-Scenes Photos</p>
+        <span class="src">RoseRumor · Promoted</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc4">🏆</div>
+        <p>One Weird Trick Survivor Winners Use to Hide Idols</p>
+        <span class="src">TVInsider · Ad</span>
+      </div>
+      <div class="tab-card">
+        <div class="tab-thumb tc3">🎬</div>
+        <p>This Streaming Service Is Quietly Killing Netflix in 2021</p>
+        <span class="src">StreamWatch · Promoted</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div>
+        <div class="footer-logo">Buzz<span>Dish</span></div>
+        <p>Hollywood's Hottest Tea, Served Daily. Celebrity gossip, TV recaps, viral chaos and red carpet receipts since 2021.</p>
+      </div>
+      <div>
+        <h5>Sections</h5>
+        <ul>
+          <li>Celebrity</li>
+          <li>TV & Streaming</li>
+          <li>Music</li>
+          <li>Movies</li>
+          <li>Style</li>
+          <li>Beauty</li>
+          <li>Royals</li>
+          <li>Viral</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li>About BuzzDish</li>
+          <li>Editorial Team</li>
+          <li>Send a Tip</li>
+          <li>Careers</li>
+          <li>Advertise</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <ul>
+          <li>TikTok @buzzdish</li>
+          <li>Instagram</li>
+          <li>Twitter / X</li>
+          <li>YouTube</li>
+          <li>Snapchat</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Cookie Settings</li>
+          <li>Terms of Use</li>
+          <li>Do Not Sell Info</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2021 BuzzDish Media LLC · All Rights Reserved</div>
+      <div>Made with 💖 in Los Angeles</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

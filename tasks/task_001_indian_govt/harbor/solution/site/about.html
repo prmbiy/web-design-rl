@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About the Ministry | Ministry of Panchayati Raj and Rural Empowerment</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.3; color: #222; background: #fff; }
+a { color: #0066CC; text-decoration: underline; }
+a:visited { color: #551A8B; }
+a:hover { color: #CC0000; }
+
+/* Utility Bar */
+.utility-bar { background: #1A1A1A; color: #fff; font-size: 11px; padding: 4px 12px; display: flex; justify-content: space-between; align-items: center; }
+.utility-bar a { color: #fff; margin: 0 6px; }
+.utility-bar .left span, .utility-bar .right span { margin: 0 4px; }
+.font-sizer a { padding: 0 3px; border: 1px solid #555; }
+
+/* Header */
+.header { background: #FF6600; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #003366; }
+.header .brand { display: flex; align-items: center; gap: 10px; }
+.emblem { width: 60px; height: 60px; background: #003366; color: #FFCC00; display: flex; align-items: center; justify-content: center; font-size: 32px; border: 2px solid #FFCC00; }
+.brand-text h1 { font-family: 'Times New Roman', serif; font-size: 18px; color: #fff; line-height: 1.1; }
+.brand-text .hindi { font-family: 'Times New Roman', serif; font-size: 15px; color: #FFCC00; }
+.brand-text .tagline { font-size: 11px; color: #fff; font-style: italic; margin-top: 2px; }
+.header-logos { display: flex; gap: 8px; }
+.logo-box { width: 60px; height: 60px; background: #fff; border: 1px solid #003366; display: flex; align-items: center; justify-content: center; font-size: 10px; text-align: center; font-weight: bold; color: #003366; padding: 2px; }
+.logo-box.swachh { background: #008000; color: #fff; }
+.logo-box.azadi { background: linear-gradient(180deg, #FF6600 33%, #fff 33% 66%, #008000 66%); color: #000; }
+
+/* Mega Menu */
+.mega-nav { background: #003366; border-bottom: 2px solid #FFCC00; }
+.mega-nav ul { list-style: none; display: flex; max-width: 1200px; margin: 0 auto; }
+.mega-nav ul li { flex: 1; border-right: 1px solid #1a4d80; position: relative; }
+.mega-nav ul li a { display: block; padding: 8px 6px; color: #fff; font-weight: bold; font-size: 12px; text-align: center; text-decoration: none; }
+.mega-nav ul li a:hover, .mega-nav ul li.active a { background: #FF6600; color: #fff; }
+
+/* Marquee */
+.marquee-strip { background: #fff3cd; border-top: 1px solid #CC0000; border-bottom: 1px solid #CC0000; padding: 4px 0; display: flex; align-items: center; }
+.marquee-label { background: #CC0000; color: #fff; padding: 3px 10px; font-weight: bold; font-size: 11px; margin-right: 8px; }
+.marquee-text { color: #CC0000; font-size: 12px; font-weight: bold; }
+
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 8px; }
+
+/* Breadcrumb */
+.breadcrumb { background: #F5F5F5; border-bottom: 1px solid #CCCCCC; padding: 5px 12px; font-size: 11px; }
+.breadcrumb a { color: #0066CC; }
+
+/* Hero */
+.page-hero { background: linear-gradient(90deg, #003366 0%, #004080 100%); color: #fff; padding: 12px 16px; border-bottom: 3px solid #FFCC00; }
+.page-hero h2 { font-size: 16px; letter-spacing: 1px; }
+.page-hero p { font-size: 12px; color: #FFCC00; margin-top: 3px; }
+
+/* Two-column Layout */
+.layout { display: grid; grid-template-columns: 240px 1fr; gap: 10px; padding: 10px 0; }
+
+/* Sidebar */
+.sidebar { background: #F5F5F5; border: 1px solid #CCCCCC; }
+.sidebar h3 { background: #003366; color: #fff; font-size: 13px; padding: 6px 8px; text-transform: uppercase; }
+.sidebar ul { list-style: none; }
+.sidebar ul li { border-bottom: 1px dotted #CCCCCC; }
+.sidebar ul li a { display: block; padding: 5px 8px; font-size: 12px; color: #003366; text-decoration: underline; }
+.sidebar ul li a:hover { background: #FFCC00; color: #003366; }
+.sidebar ul li.active a { background: #FF6600; color: #fff; font-weight: bold; }
+.sidebar-banner { background: #FFCC00; border: 2px solid #CC0000; padding: 6px; margin-top: 8px; text-align: center; font-weight: bold; font-size: 11px; color: #CC0000; }
+.sidebar-banner span { display: block; color: #003366; font-size: 10px; margin-top: 3px; }
+
+/* Content */
+.content { background: #fff; padding: 0 4px; }
+.section-block { margin-bottom: 12px; border: 1px solid #CCCCCC; }
+.section-block h3 { background: #FF6600; color: #fff; padding: 5px 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #003366; }
+.section-block .body { padding: 8px 10px; }
+.section-block p { margin-bottom: 6px; text-align: justify; }
+
+/* History timeline */
+.timeline { border-collapse: collapse; width: 100%; font-size: 12px; }
+.timeline th { background: #003366; color: #fff; padding: 4px 6px; text-align: left; border: 1px solid #003366; }
+.timeline td { padding: 4px 6px; border: 1px solid #CCCCCC; vertical-align: top; }
+.timeline tr:nth-child(even) td { background: #F5F5F5; }
+.timeline .year { font-weight: bold; color: #CC0000; width: 80px; }
+
+/* Vision/Mission Table */
+.vm-table { border-collapse: collapse; width: 100%; }
+.vm-table th { background: #003366; color: #FFCC00; padding: 6px 8px; text-align: left; font-size: 13px; width: 120px; border: 1px solid #003366; vertical-align: top; }
+.vm-table td { padding: 6px 8px; border: 1px solid #CCCCCC; font-size: 12px; }
+
+/* Org chart */
+.org-chart { padding: 10px; background: #F5F5F5; text-align: center; }
+.org-node { background: #fff; border: 2px solid #003366; padding: 5px 8px; display: inline-block; font-size: 11px; font-weight: bold; color: #003366; min-width: 140px; margin: 2px; }
+.org-node.top { background: #FF6600; color: #fff; border-color: #CC0000; }
+.org-node.l2 { background: #FFCC00; color: #003366; }
+.org-line { width: 2px; height: 14px; background: #003366; margin: 0 auto; }
+.org-row { display: flex; justify-content: center; gap: 8px; margin: 2px 0; }
+.org-bracket { border-top: 2px solid #003366; width: 80%; margin: 0 auto; height: 6px; }
+
+/* Profiles */
+.profiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 8px; }
+.profile-card { border: 1px solid #CCCCCC; background: #F5F5F5; }
+.profile-photo { height: 110px; background: linear-gradient(135deg, #003366 0%, #FF6600 100%); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 42px; border-bottom: 2px solid #FFCC00; }
+.profile-info { padding: 6px 8px; font-size: 11px; }
+.profile-info .name { font-weight: bold; color: #003366; font-size: 12px; }
+.profile-info .desig { color: #CC0000; font-weight: bold; font-size: 11px; }
+.profile-info .meta { color: #666; font-size: 10px; margin: 2px 0; }
+.profile-info p { font-size: 11px; margin-top: 4px; line-height: 1.35; text-align: justify; }
+
+/* Allocation */
+.alloc-table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.alloc-table th { background: #003366; color: #fff; padding: 5px 8px; text-align: left; border: 1px solid #003366; }
+.alloc-table td { padding: 5px 8px; border: 1px solid #CCCCCC; vertical-align: top; }
+.alloc-table tr:nth-child(even) td { background: #F5F5F5; }
+.alloc-table .sl { width: 40px; text-align: center; font-weight: bold; }
+
+/* Timestamp */
+.timestamp { background: #FFCC00; border: 1px solid #CC0000; padding: 5px 10px; font-size: 11px; font-weight: bold; color: #003366; display: flex; justify-content: space-between; margin: 8px 0; }
+
+/* Footer */
+.footer-strip { background: #003366; color: #fff; padding: 12px; }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.footer-grid h4 { color: #FFCC00; font-size: 13px; margin-bottom: 6px; text-transform: uppercase; border-bottom: 1px solid #FFCC00; padding-bottom: 3px; }
+.footer-grid ul { list-style: none; }
+.footer-grid ul li { padding: 2px 0; }
+.footer-grid ul li a { color: #fff; font-size: 11px; }
+.footer-bottom { background: #1A1A1A; color: #ccc; padding: 6px 12px; font-size: 11px; display: flex; justify-content: space-between; }
+.social-icons span { display: inline-block; width: 22px; height: 22px; background: #FFCC00; color: #003366; text-align: center; line-height: 22px; margin-right: 3px; font-weight: bold; font-family: 'Times New Roman', serif; }
+
+.accessibility-btn { position: fixed; right: 0; top: 50%; background: #003366; color: #FFCC00; padding: 8px 4px; writing-mode: vertical-rl; font-size: 11px; font-weight: bold; border: 1px solid #FFCC00; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="left">
+    <a href="#main">Skip to Main Content</a> |
+    <a href="#sr">Screen Reader Access</a> |
+    <span class="font-sizer"><a href="#">A-</a> <a href="#">A</a> <a href="#">A+</a></span>
+  </div>
+  <div class="right">
+    <a href="#">English</a> | <a href="#">हिन्दी</a> | <a href="#">Sitemap</a> | <a href="#">Login</a>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="brand">
+    <div class="emblem">☸</div>
+    <div class="brand-text">
+      <h1>Ministry of Panchayati Raj and Rural Empowerment</h1>
+      <div class="hindi">पंचायती राज एवं ग्रामीण सशक्तिकरण मंत्रालय</div>
+      <div class="tagline">Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India</div>
+    </div>
+  </div>
+  <div class="header-logos">
+    <div class="logo-box swachh">SWACHH<br>BHARAT</div>
+    <div class="logo-box azadi">AZADI<br>KA<br>AMRIT</div>
+    <div class="logo-box">G20<br>INDIA</div>
+  </div>
+</div>
+
+<!-- Mega Nav -->
+<div class="mega-nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="active"><a href="#">About the Ministry</a></li>
+    <li><a href="#">Schemes &amp; Programs</a></li>
+    <li><a href="#">Tenders &amp; Procurement</a></li>
+    <li><a href="#">Acts &amp; Rules</a></li>
+    <li><a href="#">Publications</a></li>
+    <li><a href="#">RTI</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- Marquee -->
+<div class="marquee-strip">
+  <span class="marquee-label">★ LATEST</span>
+  <span class="marquee-text">&nbsp;&nbsp;Last date for PMAY-G beneficiary verification extended to 30-Nov-2018 &nbsp;||&nbsp; National Panchayati Raj Day celebrations on 24-Apr &nbsp;||&nbsp; Recruitment notice for 142 Consultant posts uploaded &nbsp;||&nbsp; e-Gram Swaraj portal training schedule released</span>
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="#">Home</a> &gt; <strong>About the Ministry</strong>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <h2>ABOUT THE MINISTRY</h2>
+  <p>Constituted on 27th May 2004 to oversee implementation of Part IX of the Constitution</p>
+</div>
+
+<!-- Main Layout -->
+<div class="container">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>CITIZEN SERVICES</h3>
+    <ul>
+      <li><a href="#">» Apply for PMAY-G</a></li>
+      <li><a href="#">» MGNREGA Job Card Status</a></li>
+      <li><a href="#">» e-Gram Swaraj Portal</a></li>
+      <li><a href="#">» Grievance Registration</a></li>
+      <li><a href="#">» Track Application</a></li>
+      <li><a href="#">» Beneficiary Search</a></li>
+      <li><a href="#">» DBT Status Check</a></li>
+    </ul>
+
+    <h3 style="margin-top:8px;">ABOUT MINISTRY</h3>
+    <ul>
+      <li class="active"><a href="#">» Brief History</a></li>
+      <li><a href="#">» Vision &amp; Mission</a></li>
+      <li><a href="#">» Organizational Chart</a></li>
+      <li><a href="#">» Who's Who</a></li>
+      <li><a href="#">» Allocation of Business</a></li>
+      <li><a href="#">» Annual Reports</a></li>
+      <li><a href="#">» Citizen Charter</a></li>
+    </ul>
+
+    <h3 style="margin-top:8px;">QUICK LINKS</h3>
+    <ul>
+      <li><a href="#">» MyGov.in</a></li>
+      <li><a href="#">» India.gov.in</a></li>
+      <li><a href="#">» PMO India</a></li>
+      <li><a href="#">» NIC Services</a></li>
+      <li><a href="#">» CPGRAMS</a></li>
+    </ul>
+
+    <div class="sidebar-banner">
+      📞 TOLL-FREE HELPLINE
+      <span>1800-11-6446 (Mon-Fri 09:30-18:00)</span>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content" id="main">
+
+    <!-- History -->
+    <div class="section-block">
+      <h3>HISTORICAL BACKGROUND &amp; TIMELINE</h3>
+      <div class="body">
+        <p>The Ministry of Panchayati Raj and Rural Empowerment was carved out of the erstwhile Ministry of Rural Development on <strong>27th May 2004</strong> as a separate Ministry of the Government of India to provide focused attention to the constitutional mandate enshrined in Part IX of the Constitution of India for the establishment and functioning of Panchayati Raj Institutions (PRIs). The Ministry is responsible for monitoring the implementation of constitutional provisions relating to the Panchayats and various Centrally Sponsored Schemes for strengthening rural local self-government.</p>
+        <table class="timeline">
+          <tr><th>Year</th><th>Milestone</th></tr>
+          <tr><td class="year">1957</td><td>Balwantrai Mehta Committee recommended a three-tier Panchayati Raj structure (Gram Panchayat, Panchayat Samiti, Zilla Parishad).</td></tr>
+          <tr><td class="year">1977</td><td>Ashok Mehta Committee recommended two-tier system and constitutional status for Panchayats.</td></tr>
+          <tr><td class="year">1992</td><td><strong>73rd Constitutional Amendment Act</strong> passed by Parliament; came into force on 24th April 1993, providing constitutional status to Panchayati Raj Institutions.</td></tr>
+          <tr><td class="year">2004</td><td>Ministry of Panchayati Raj constituted on 27th May 2004 as a separate Ministry under the Government of India.</td></tr>
+          <tr><td class="year">2010</td><td>National Panchayati Raj Day declared on 24th April; first observed at Vigyan Bhawan, New Delhi.</td></tr>
+          <tr><td class="year">2012</td><td>e-Panchayat Mission Mode Project launched under National e-Governance Plan (NeGP).</td></tr>
+          <tr><td class="year">2014</td><td>Saansad Adarsh Gram Yojana (SAGY) launched on 11th October 2014, the birth anniversary of Loknayak Jayaprakash Narayan.</td></tr>
+          <tr><td class="year">2018</td><td>Rashtriya Gram Swaraj Abhiyan (RGSA) restructured and launched on 24th April 2018; <strong>Digital Panchayat initiative</strong> rolled out across 2.5 Lakh Gram Panchayats.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Vision Mission -->
+    <div class="section-block">
+      <h3>VISION &amp; MISSION</h3>
+      <div class="body" style="padding:0;">
+        <table class="vm-table">
+          <tr>
+            <th>VISION</th>
+            <td>To attain decentralized and participatory local self-government through <strong>empowered, accountable and transparent Panchayats</strong> that emerge as vibrant institutions of grassroots democracy, planning, social justice and inclusive economic development of villages and rural communities across Bharat.</td>
+          </tr>
+          <tr>
+            <th>MISSION</th>
+            <td>(i) Capacity building of elected representatives and functionaries of Panchayats; (ii) Effective <strong>devolution</strong> of functions, finances and functionaries (3Fs) to PRIs by States/UTs; (iii) Mainstreaming <strong>e-governance</strong> through e-Gram Swaraj for transparent planning, accounting and monitoring; (iv) Promoting social audit, citizen engagement and Gram Sabha empowerment; (v) Strengthening the role of Panchayats in attainment of Sustainable Development Goals (SDGs) at local level.</td>
+          </tr>
+          <tr>
+            <th>OBJECTIVES</th>
+            <td>Implementation of Part IX of the Constitution; administration of Panchayats (Extension to Scheduled Areas) Act 1996 (PESA); monitoring of State Finance Commissions; coordination of Centrally Sponsored Schemes for rural local bodies.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Org Chart -->
+    <div class="section-block">
+      <h3>ORGANIZATIONAL CHART</h3>
+      <div class="body" style="padding:0;">
+        <div class="org-chart">
+          <div class="org-row"><div class="org-node top">Hon'ble Minister (MoPR)</div></div>
+          <div class="org-line"></div>
+          <div class="org-row"><div class="org-node top" style="background:#CC0000;">Hon'ble Minister of State</div></div>
+          <div class="org-line"></div>
+          <div class="org-row"><div class="org-node l2">Secretary (IAS)</div></div>
+          <div class="org-line"></div>
+          <div class="org-bracket"></div>
+          <div class="org-row">
+            <div class="org-node">Additional Secretary</div>
+            <div class="org-node">Financial Advisor</div>
+            <div class="org-node">Economic Advisor</div>
+          </div>
+          <div class="org-line"></div>
+          <div class="org-bracket"></div>
+          <div class="org-row">
+            <div class="org-node">JS (RGSA)</div>
+            <div class="org-node">JS (e-Panchayat)</div>
+            <div class="org-node">JS (Administration)</div>
+            <div class="org-node">JS (SAGY)</div>
+          </div>
+          <div class="org-line"></div>
+          <div class="org-bracket"></div>
+          <div class="org-row">
+            <div class="org-node">Director (Trg.)</div>
+            <div class="org-node">Director (IT)</div>
+            <div class="org-node">Director (Finance)</div>
+            <div class="org-node">Director (Coord.)</div>
+            <div class="org-node">Director (Vig.)</div>
+          </div>
+          <p style="font-size:10px; color:#666; margin-top:8px;">Fig. 1: Organizational hierarchy of the Ministry as on 01-Oct-2018 | <a href="#">Download detailed chart (PDF 320 KB)</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership Profiles -->
+    <div class="section-block">
+      <h3>LEADERSHIP &amp; SENIOR OFFICERS</h3>
+      <div class="profiles">
+        <div class="profile-card">
+          <div class="profile-photo">👤</div>
+          <div class="profile-info">
+            <div class="name">Shri Amarjeet Sinha</div>
+            <div class="desig">Secretary</div>
+            <div class="meta">IAS : 1983 : BH | Room 119, Sardar Patel Bhawan</div>
+            <p>An officer of the 1983 batch of the Indian Administrative Service (Bihar cadre). Holds the additional charge of Secretary, MoPR since June 2017. Has previously served as Secretary in the Ministry of Rural Development. Holds a Master's degree in Economics from Delhi School of Economics.</p>
+            <p style="margin-top:4px;"><a href="#">View full bio »</a> | <a href="#">Message</a></p>
+          </div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-photo" style="background: linear-gradient(135deg, #CC0000 0%, #FF6600 100%);">👤</div>
+          <div class="profile-info">
+            <div class="name">Smt. Sushma Singh</div>
+            <div class="desig">Additional Secretary</div>
+            <div class="meta">IAS : 1986 : UP | Room 124, Sardar Patel Bhawan</div>
+            <p>Belongs to the 1986 batch of IAS (Uttar Pradesh cadre). Currently overseeing the implementation of Rashtriya Gram Swaraj Abhiyan and Devolution Index across States/UTs. Previously Joint Secretary in Department of Land Resources.</p>
+            <p style="margin-top:4px;"><a href="#">View full bio »</a> | <a href="#">Message</a></p>
+          </div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-photo" style="background: linear-gradient(135deg, #003366 0%, #008000 100%);">👤</div>
+          <div class="profile-info">
+            <div class="name">Shri Sunil Kumar</div>
+            <div class="desig">Joint Secretary</div>
+            <div class="meta">IAS : 1991 : KL | Room 207, Sardar Patel Bhawan</div>
+            <p>Joint Secretary (e-Panchayat &amp; Capacity Building). In-charge of e-Gram Swaraj rollout, Panchayat Enterprise Suite (PES) and Mission Antyodaya convergence. M.Tech (IIT Delhi) and MPA (Harvard Kennedy School).</p>
+            <p style="margin-top:4px;"><a href="#">View full bio »</a> | <a href="#">Message</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Allocation of Business -->
+    <div class="section-block">
+      <h3>ALLOCATION OF BUSINESS RULES, 1961</h3>
+      <div class="body" style="padding:0;">
+        <table class="alloc-table">
+          <tr><th class="sl">Sl.</th><th>Subject Allocated to the Ministry</th></tr>
+          <tr><td class="sl">1.</td><td>All matters relating to the Panchayati Raj Institutions and the implementation of the provisions contained in Part IX of the Constitution of India.</td></tr>
+          <tr><td class="sl">2.</td><td>Administration of the Provisions of the Panchayats (Extension to the Scheduled Areas) Act, 1996 (40 of 1996) (PESA Act).</td></tr>
+          <tr><td class="sl">3.</td><td>Co-ordination with the State Governments and Union Territory Administrations regarding all matters relating to Panchayati Raj.</td></tr>
+          <tr><td class="sl">4.</td><td>Monitoring and review of the constitution and functioning of State Finance Commissions and devolution of powers to PRIs.</td></tr>
+          <tr><td class="sl">5.</td><td>Centrally Sponsored Schemes: Rashtriya Gram Swaraj Abhiyan (RGSA), Saansad Adarsh Gram Yojana (SAGY), Incentivisation of Panchayats.</td></tr>
+          <tr><td class="sl">6.</td><td>Capacity building, training and e-Governance initiatives for elected representatives and functionaries of Panchayats.</td></tr>
+          <tr><td class="sl">7.</td><td>Administration of National Institute of Rural Development and Panchayati Raj (NIRDPR), Hyderabad and its regional centres.</td></tr>
+          <tr><td class="sl">8.</td><td>All matters relating to the National Panchayati Raj Day (24th April) and conferment of Panchayat Sashaktikaran Puraskar.</td></tr>
+          <tr><td class="sl">9.</td><td>Liaison with the Finance Commission of India regarding grants-in-aid to Panchayats.</td></tr>
+          <tr><td class="sl">10.</td><td>Implementation of e-Panchayat Mission Mode Project under the National e-Governance Plan (NeGP).</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="timestamp">
+      <span>📅 Last Updated: 15-Oct-2018</span>
+      <span>👁 Visitor No: 12,84,772</span>
+      <span><a href="#" style="color:#003366;">Print this page</a> | <a href="#" style="color:#003366;">Email</a></span>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<!-- Social/Helpline strip -->
+<div style="background:#FFCC00; border-top:2px solid #CC0000; border-bottom:2px solid #CC0000; padding:6px 12px; display:flex; justify-content:space-between; align-items:center;">
+  <div class="social-icons">
+    <strong style="color:#003366;">FOLLOW US:</strong>
+    <span>f</span><span>t</span><span>▶</span><span>in</span><span>@</span>
+  </div>
+  <div style="color:#CC0000; font-weight:bold; font-size:13px;">📞 TOLL-FREE: 1800-11-6446 (09:30 - 18:00 hrs)</div>
+  <div><a href="#" style="background:#003366; color:#FFCC00; padding:4px 8px; text-decoration:none; font-weight:bold; font-size:11px;">♿ Accessibility</a></div>
+</div>
+
+<!-- Footer -->
+<div class="footer-strip">
+  <div class="footer-grid">
+    <div>
+      <h4>Related Links</h4>
+      <ul>
+        <li><a href="#">» MyGov.in</a></li>
+        <li><a href="#">» India.gov.in</a></li>
+        <li><a href="#">» PMO India</a></li>
+        <li><a href="#">» NIC</a></li>
+        <li><a href="#">» Digital India</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ministry Quick Links</h4>
+      <ul>
+        <li><a href="#">» e-Gram Swaraj</a></li>
+        <li><a href="#">» PMAY-Gramin</a></li>
+        <li><a href="#">» MGNREGA</a></li>
+        <li><a href="#">» SAGY Portal</a></li>
+        <li><a href="#">» NIRDPR Hyderabad</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">» Website Policy</a></li>
+        <li><a href="#">» Hyperlinking Policy</a></li>
+        <li><a href="#">» Copyright Policy</a></li>
+        <li><a href="#">» Privacy Policy</a></li>
+        <li><a href="#">» Terms of Use</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p style="font-size:11px; line-height:1.4;">Sardar Patel Bhawan,<br>Sansad Marg, New Delhi - 110001<br>EPABX: 011-23741732<br>Fax: 011-23741734<br>Email: mopr-coord@gov.in</p>
+      <p style="margin-top:6px; font-size:11px;"><strong style="color:#FFCC00;">Visitor Counter:</strong> 4,82,71,309</p>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span>© 2018 Ministry of Panchayati Raj and Rural Empowerment, Government of India. All Rights Reserved.</span>
+  <span>Content owned by MoPR | Designed, developed and hosted by NIC. Last Updated: 28-Oct-2018</span>
+</div>
+
+<div class="accessibility-btn">♿ Accessibility</div>
+
+</body>
+</html>

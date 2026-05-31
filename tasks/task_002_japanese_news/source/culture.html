@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>文化・ライフ | 朝日毎報</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; color: #1A1A1A; background: #FFFFFF; line-height: 1.5; }
+a { color: #0066CC; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============ TOP BAR ============ */
+.top-bar { background: #F7F7F7; border-bottom: 1px solid #DDDDDD; font-size: 11px; padding: 4px 0; }
+.top-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+.top-bar-left span { margin-right: 14px; color: #666666; }
+.top-bar-left .weather-pill { color: #1A1A1A; }
+.top-bar-right a { margin-left: 12px; color: #1A1A1A; }
+.top-bar-right .subscriber { background: #B8860B; color: #fff; padding: 2px 6px; }
+
+/* ============ MASTHEAD ============ */
+.masthead { border-bottom: 2px solid #CC0000; padding: 14px 0 10px; }
+.masthead-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+.masthead h1 { font-family: 'Noto Serif JP', serif; font-size: 38px; color: #CC0000; font-weight: 900; letter-spacing: 2px; }
+.masthead .english-sub { font-family: 'Noto Serif JP', serif; font-size: 12px; color: #666666; margin-top: 2px; letter-spacing: 3px; }
+.masthead-ad { width: 728px; height: 60px; background: #EEEEEE; border: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #666; position: relative; }
+.masthead-ad::before { content: "広告 / AD"; position: absolute; top: 0; left: 0; background: #EEEEEE; padding: 0 4px; font-size: 9px; }
+.masthead-ad .ad-content { font-weight: 700; color: #003366; font-size: 13px; }
+
+/* ============ CATEGORY NAV ============ */
+.cat-nav { background: #1A1A1A; border-bottom: 3px solid #CC0000; }
+.cat-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 8px; display: flex; overflow-x: auto; }
+.cat-nav a { color: #FFFFFF; padding: 9px 11px; font-size: 13px; border-right: 1px solid #333; white-space: nowrap; font-weight: 500; }
+.cat-nav a.active { background: #CC0000; color: #FFFFFF; }
+.cat-nav a:hover { background: #333; text-decoration: none; }
+.cat-nav a.active:hover { background: #CC0000; }
+
+/* ============ SUB NAV ============ */
+.sub-nav { background: #F7F7F7; border-bottom: 1px solid #DDDDDD; }
+.sub-nav-inner { max-width: 1200px; margin: 0 auto; padding: 6px 16px; font-size: 12px; }
+.sub-nav-inner a { color: #1A1A1A; margin-right: 14px; }
+.sub-nav-inner a:hover { color: #CC0000; }
+.sub-nav-inner .crumb { color: #666; margin-right: 14px; }
+
+/* ============ BREADCRUMB & PAGE TITLE ============ */
+.page-header { max-width: 1200px; margin: 0 auto; padding: 14px 16px 6px; }
+.breadcrumb { font-size: 11px; color: #666; margin-bottom: 6px; }
+.breadcrumb a { color: #666; }
+.page-title { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 900; color: #1A1A1A; border-left: 6px solid #CC0000; padding-left: 10px; }
+.page-title .en { font-size: 12px; color: #666; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; margin-left: 10px; letter-spacing: 2px; }
+
+/* ============ MAIN LAYOUT ============ */
+.container { max-width: 1200px; margin: 0 auto; padding: 12px 16px; display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
+.main-col { min-width: 0; }
+.side-col { min-width: 0; }
+
+/* ============ HERO FEATURE ============ */
+.hero { border-top: 3px double #1A1A1A; border-bottom: 1px solid #DDDDDD; padding: 14px 0; margin-bottom: 14px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
+.hero-image { aspect-ratio: 16/10; background: linear-gradient(135deg, #2a1a3a 0%, #5a2a3a 40%, #CC0000 75%, #ffaa44 100%); position: relative; overflow: hidden; }
+.hero-image::before { content: "🎭"; position: absolute; right: 20px; bottom: 14px; font-size: 70px; opacity: 0.85; }
+.hero-image::after { content: "特集 FEATURE"; position: absolute; top: 12px; left: 12px; background: #E60012; color: #fff; padding: 4px 10px; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.hero-content .kicker { display: inline-block; background: #1A1A1A; color: #fff; padding: 3px 8px; font-size: 11px; margin-bottom: 8px; letter-spacing: 1px; }
+.hero-content h2 { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 900; line-height: 1.35; margin-bottom: 10px; }
+.hero-content .lead { font-size: 13px; line-height: 1.7; color: #333; margin-bottom: 10px; }
+.hero-content .meta { font-size: 11px; color: #666; border-top: 1px solid #DDDDDD; padding-top: 8px; }
+.hero-content .meta span { margin-right: 12px; }
+.hero-content .meta .comments { color: #CC0000; }
+
+/* ============ SECTION TITLE ============ */
+.section-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; border-left: 4px solid #CC0000; padding: 2px 0 2px 8px; margin: 18px 0 10px; display: flex; justify-content: space-between; align-items: baseline; }
+.section-title .more { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; font-weight: 400; color: #0066CC; }
+.section-title .en-label { font-size: 11px; color: #666; margin-left: 8px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; letter-spacing: 2px; }
+
+/* ============ REVIEWS 3-COLUMN ============ */
+.reviews-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; border-top: 1px solid #DDDDDD; padding-top: 12px; }
+.review-card { border: 1px solid #DDDDDD; padding: 0; background: #fff; }
+.review-thumb { aspect-ratio: 3/2; position: relative; overflow: hidden; }
+.review-thumb.film { background: linear-gradient(160deg, #0a0a1a 0%, #2a1040 50%, #6a2070 100%); }
+.review-thumb.film::after { content: "🎬"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 60px; opacity: 0.7; }
+.review-thumb.music { background: linear-gradient(135deg, #003366 0%, #006699 60%, #66ccff 100%); }
+.review-thumb.music::after { content: "🎵"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 60px; opacity: 0.7; }
+.review-thumb.books { background: linear-gradient(135deg, #4a2a10 0%, #8b4513 60%, #d2a679 100%); }
+.review-thumb.books::after { content: "📚"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 60px; opacity: 0.7; }
+.review-thumb .badge { position: absolute; top: 8px; left: 8px; background: #CC0000; color: #fff; font-size: 10px; padding: 3px 7px; font-weight: 700; letter-spacing: 1px; z-index: 2; }
+.review-body { padding: 10px 12px 12px; }
+.review-cat { font-size: 10px; color: #CC0000; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.review-title { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; }
+.review-sub { font-size: 11px; color: #666; margin-bottom: 6px; }
+.stars { color: #CC0000; font-size: 14px; letter-spacing: 1px; margin-bottom: 6px; }
+.stars .num { color: #1A1A1A; font-size: 11px; margin-left: 4px; }
+.review-excerpt { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+.review-meta { font-size: 10px; color: #666; border-top: 1px dotted #CCC; padding-top: 6px; display: flex; justify-content: space-between; }
+
+/* ============ EVENT CALENDAR ============ */
+.events-section { border-top: 1px solid #DDDDDD; padding-top: 12px; }
+.events-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.events-table thead th { background: #1A1A1A; color: #fff; padding: 6px 8px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 1px; }
+.events-table tbody tr { border-bottom: 1px solid #EEE; }
+.events-table tbody tr:nth-child(even) { background: #F7F7F7; }
+.events-table tbody tr:hover { background: #FFF5F5; }
+.events-table td { padding: 7px 8px; vertical-align: top; }
+.events-table .date { font-family: 'Noto Serif JP', serif; font-weight: 700; color: #CC0000; white-space: nowrap; width: 80px; }
+.events-table .day { font-size: 10px; color: #666; display: block; }
+.events-table .event-name { font-weight: 500; }
+.events-table .event-venue { color: #666; font-size: 11px; }
+.events-table .genre-tag { display: inline-block; background: #EEE; padding: 1px 6px; font-size: 10px; }
+.events-table .genre-tag.music { background: #003366; color: #fff; }
+.events-table .genre-tag.art { background: #8b4513; color: #fff; }
+.events-table .genre-tag.theater { background: #4a2a40; color: #fff; }
+.events-table .genre-tag.festival { background: #CC0000; color: #fff; }
+
+/* ============ MID-PAGE AD ============ */
+.mid-ad { margin: 16px 0; height: 90px; background: #EEEEEE; border: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center; position: relative; }
+.mid-ad::before { content: "PR / 広告"; position: absolute; top: 2px; left: 6px; font-size: 9px; color: #666; }
+.mid-ad .ad-text { font-weight: 700; color: #0066CC; font-size: 15px; }
+.mid-ad .ad-sub { font-size: 11px; color: #666; margin-left: 12px; }
+
+/* ============ FOOD & TRAVEL STRIP ============ */
+.food-travel { border-top: 1px solid #DDDDDD; padding-top: 12px; }
+.ft-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.ft-card { font-size: 12px; }
+.ft-thumb { aspect-ratio: 1/1; position: relative; overflow: hidden; margin-bottom: 6px; }
+.ft-thumb::after { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 38px; }
+.ft-thumb.f1 { background: linear-gradient(135deg, #8b0000 0%, #cc3333 100%); } .ft-thumb.f1::after { content: "🍣"; }
+.ft-thumb.f2 { background: linear-gradient(135deg, #2d5016 0%, #6b8e23 100%); } .ft-thumb.f2::after { content: "🍵"; }
+.ft-thumb.t1 { background: linear-gradient(135deg, #4a708b 0%, #87ceeb 100%); } .ft-thumb.t1::after { content: "🗻"; }
+.ft-thumb.t2 { background: linear-gradient(135deg, #ff6347 0%, #ffd700 100%); } .ft-thumb.t2::after { content: "⛩️"; }
+.ft-thumb.l1 { background: linear-gradient(135deg, #d8bfd8 0%, #dda0dd 100%); } .ft-thumb.l1::after { content: "🌸"; }
+.ft-cat { font-size: 10px; color: #CC0000; font-weight: 700; letter-spacing: 1px; }
+.ft-title { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 700; line-height: 1.4; margin: 2px 0 3px; }
+.ft-meta { font-size: 10px; color: #666; }
+
+/* ============ SIDEBAR ============ */
+.side-box { border: 1px solid #DDDDDD; margin-bottom: 14px; background: #fff; }
+.side-box-head { background: #1A1A1A; color: #fff; padding: 6px 10px; font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; }
+.side-box-head .small { font-size: 10px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; opacity: 0.7; }
+.side-box-body { padding: 10px; }
+
+/* Bestseller list */
+.bestseller-list { list-style: none; counter-reset: bs; }
+.bestseller-list li { counter-increment: bs; padding: 8px 0; border-bottom: 1px dotted #DDD; display: flex; gap: 10px; font-size: 12px; }
+.bestseller-list li:last-child { border-bottom: 0; }
+.bestseller-list li::before { content: counter(bs); font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 900; color: #CC0000; line-height: 1; min-width: 24px; }
+.bs-info .bs-title { font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
+.bs-info .bs-author { font-size: 11px; color: #666; }
+.bs-info .bs-pub { font-size: 10px; color: #999; margin-top: 2px; }
+.bs-rank-change { font-size: 10px; margin-left: auto; padding: 1px 4px; align-self: flex-start; }
+.bs-rank-change.up { background: #FFEBEB; color: #CC0000; }
+.bs-rank-change.down { background: #E8F5E8; color: #006633; }
+.bs-rank-change.new { background: #1A1A1A; color: #fff; }
+
+/* Sidebar ad */
+.side-ad { width: 100%; height: 250px; background: #EEE; border: 1px solid #DDD; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; margin-bottom: 14px; }
+.side-ad::before { content: "広告 AD"; position: absolute; top: 2px; left: 6px; font-size: 9px; color: #666; }
+.side-ad .ad-brand { font-weight: 700; font-size: 18px; color: #004B85; margin-bottom: 6px; }
+.side-ad .ad-line { font-size: 12px; color: #333; }
+.side-ad .ad-cta { margin-top: 10px; background: #CC0000; color: #fff; padding: 6px 14px; font-size: 11px; }
+
+/* Vertical text accent */
+.vertical-accent { writing-mode: vertical-rl; font-family: 'Noto Serif JP', serif; font-size: 12px; padding: 6px 4px; background: #F7F7F7; border: 1px solid #DDDDDD; color: #1A1A1A; letter-spacing: 4px; height: 140px; display: inline-block; margin-right: 8px; }
+.editor-pick { display: flex; padding: 10px; background: #F7F7F7; border: 1px solid #DDDDDD; margin-bottom: 14px; }
+.editor-pick-text { font-size: 12px; line-height: 1.6; }
+.editor-pick-text h4 { font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.editor-pick-text p { color: #333; margin-bottom: 4px; }
+.editor-pick-text .by { font-size: 10px; color: #666; }
+
+/* Stock ticker */
+.ticker { background: #1A1A1A; color: #fff; border-top: 2px solid #CC0000; padding: 6px 0; overflow: hidden; }
+.ticker-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; gap: 18px; font-size: 11px; font-family: 'Courier New', monospace; align-items: center; }
+.ticker-label { background: #CC0000; padding: 2px 8px; font-weight: 700; }
+.ticker-item { white-space: nowrap; }
+.ticker-item .up { color: #ff6666; }
+.ticker-item .down { color: #66cc66; }
+
+/* ============ FOOTER ============ */
+footer { background: #F7F7F7; border-top: 3px solid #CC0000; margin-top: 24px; padding: 24px 0 12px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+.footer-col h5 { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #1A1A1A; border-bottom: 1px solid #CC0000; padding-bottom: 4px; }
+.footer-col ul { list-style: none; }
+.footer-col li { font-size: 11px; padding: 2px 0; }
+.footer-col a { color: #333; }
+.footer-corp { font-size: 11px; color: #666; line-height: 1.7; }
+.qr-box { width: 70px; height: 70px; background: repeating-conic-gradient(#1A1A1A 0deg 90deg, #fff 90deg 180deg) 0 0 / 10px 10px; border: 4px solid #fff; outline: 1px solid #1A1A1A; margin-bottom: 4px; }
+.footer-bottom { max-width: 1200px; margin: 18px auto 0; padding: 10px 16px 0; border-top: 1px solid #DDDDDD; font-size: 10px; color: #666; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-left">
+      <span>2020年11月18日(水)</span>
+      <span class="weather-pill">東京 8°C ☀ 晴れ</span>
+      <span>湿度 42% / PM2.5 ふつう</span>
+      <span><a href="#">紙面版を見る 📄</a></span>
+    </div>
+    <div class="top-bar-right">
+      <a href="#">English</a>
+      <a href="#">サイトマップ</a>
+      <a href="#">マイページ</a>
+      <a href="#" class="subscriber">★ 購読者 田中 様</a>
+      <a href="#">ログアウト</a>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <h1>朝日毎報</h1>
+      <div class="english-sub">ASAHI MAINPŌ — JAPAN'S TRUSTED VOICE SINCE 1968</div>
+    </div>
+    <div class="masthead-ad">
+      <div class="ad-content">🏦 三菱UFJ銀行 住宅ローン — 変動金利 0.475%〜</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#">速報</a>
+    <a href="#">政治</a>
+    <a href="#">経済</a>
+    <a href="#">国際</a>
+    <a href="#">社会</a>
+    <a href="#">スポーツ</a>
+    <a href="#" class="active">文化</a>
+    <a href="#">エンタメ</a>
+    <a href="#">科学</a>
+    <a href="#">テクノロジー</a>
+    <a href="#">ライフ</a>
+    <a href="#">教育</a>
+    <a href="#">地域</a>
+    <a href="#">気象</a>
+    <a href="#">オピニオン</a>
+    <a href="#">社説</a>
+    <a href="#">コラム</a>
+    <a href="#">書評</a>
+    <a href="#">写真</a>
+    <a href="#">動画</a>
+    <a href="#">english</a>
+    <a href="#">紙面版</a>
+  </div>
+</nav>
+
+<!-- SUB NAV -->
+<div class="sub-nav">
+  <div class="sub-nav-inner">
+    <span class="crumb">文化・ライフ ▸</span>
+    <a href="#">映画</a>
+    <a href="#">音楽</a>
+    <a href="#">書評</a>
+    <a href="#">美術</a>
+    <a href="#">舞台・演劇</a>
+    <a href="#">伝統芸能</a>
+    <a href="#">食</a>
+    <a href="#">旅</a>
+    <a href="#">ファッション</a>
+    <a href="#">住まい</a>
+    <a href="#">健康</a>
+    <a href="#">イベント</a>
+    <a href="#">アニメ・マンガ</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb"><a href="#">トップ</a> ＞ <a href="#">文化</a> ＞ 文化・ライフ総合</div>
+  <h2 class="page-title">文化・ライフ<span class="en">CULTURE &amp; LIFE</span></h2>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+  <!-- MAIN COLUMN -->
+  <div class="main-col">
+
+    <!-- HERO FEATURE -->
+    <section class="hero">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <span class="kicker">巻頭特集 ・ COVER STORY</span>
+        <h2>静寂を奏でる夜 ── 京都・南座、半世紀ぶりの新作歌舞伎『月下白狐』が問うもの</h2>
+        <p class="lead">十一月の南座に、五十年ぶりとなる完全新作歌舞伎が掛かった。脚本は劇作家・三浦真澄(58)、主演は二代目市川猿之助。古典の形式に大胆にも電子音楽を取り入れた本作は、初日から立ち見が出る盛況ぶり。日本の伝統芸能はいま、何処へ向かおうとしているのか。</p>
+        <div class="meta">
+          <span>文 ・ 文化部 山田 太郎</span>
+          <span>2020.11.18 06:00</span>
+          <span class="comments">💬 247件のコメント</span>
+          <span>★ お気に入り 1,832</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <h3 class="section-title">
+      週末レビュー<span class="en-label">WEEKEND REVIEWS</span>
+      <a href="#" class="more">過去のレビュー一覧 ▸</a>
+    </h3>
+    <div class="reviews-grid">
+
+      <!-- FILM -->
+      <div class="review-card">
+        <div class="review-thumb film"><span class="badge">FILM</span></div>
+        <div class="review-body">
+          <div class="review-cat">映画評</div>
+          <h4 class="review-title">『沈黙の海岸線』</h4>
+          <div class="review-sub">監督:藤原健司／日本／118分／11月20日公開</div>
+          <div class="stars">★★★★☆<span class="num">4.2 / 5.0</span></div>
+          <p class="review-excerpt">震災後の三陸を舞台に、ある漁師一家の十年を静謐に綴る。台詞を極限まで削ぎ落とした演出は賛否を呼ぶだろうが、海の音だけで二時間を持たせる演技力に舌を巻く。</p>
+          <div class="review-meta"><span>評・小野寺 文子</span><span>💬 84</span></div>
+        </div>
+      </div>
+
+      <!-- MUSIC -->
+      <div class="review-card">
+        <div class="review-thumb music"><span class="badge">MUSIC</span></div>
+        <div class="review-body">
+          <div class="review-cat">音楽評</div>
+          <h4 class="review-title">Aimer『Walpurgis』</h4>
+          <div class="review-sub">SME／2020年11月11日リリース／全14曲</div>
+          <div class="stars">★★★★★<span class="num">4.8 / 5.0</span></div>
+          <p class="review-excerpt">アニメ主題歌で広く知られる歌手の通算6枚目。澤野弘之、玉井健二らの編曲陣を得て、ポップとクラシカルが溶け合う独自の世界観。表題曲のストリングスは圧巻。</p>
+          <div class="review-meta"><span>評・北村 涼介</span><span>💬 156</span></div>
+        </div>
+      </div>
+
+      <!-- BOOKS -->
+      <div class="review-card">
+        <div class="review-thumb books"><span class="badge">BOOKS</span></div>
+        <div class="review-body">
+          <div class="review-cat">書評</div>
+          <h4 class="review-title">『うずまき猫のさがしかた』</h4>
+          <div class="review-sub">村山 由佳／文藝春秋／本体1,650円</div>
+          <div class="stars">★★★★☆<span class="num">4.1 / 5.0</span></div>
+          <p class="review-excerpt">老作家と迷い猫、そして遠い記憶。直木賞作家の最新長編は、コロナ禍の静かな日常に寄り添う一冊。文体の艶やかさは健在で、終盤の数十頁は涙なしでは読めない。</p>
+          <div class="review-meta"><span>評・松田 久子</span><span>💬 62</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MID AD -->
+    <div class="mid-ad">
+      <span class="ad-text">✈ ANA ウィンターキャンペーン 2020</span>
+      <span class="ad-sub">国内線 往復 ¥13,000〜 / 12月予約受付中</span>
+    </div>
+
+    <!-- EVENT CALENDAR -->
+    <section class="events-section">
+      <h3 class="section-title">
+        全国イベントカレンダー<span class="en-label">EVENTS CALENDAR</span>
+        <a href="#" class="more">カレンダー全表示 ▸</a>
+      </h3>
+      <table class="events-table">
+        <thead>
+          <tr>
+            <th>日程</th>
+            <th>分類</th>
+            <th>催事名 / 会場</th>
+            <th>料金</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date">11/19<span class="day">木曜</span></td>
+            <td><span class="genre-tag music">音楽</span></td>
+            <td><div class="event-name">N響第1921回定期公演 ― 指揮:広上淳一</div><div class="event-venue">NHKホール（東京・渋谷）／19:00開演</div></td>
+            <td>¥4,500〜</td>
+            <td>当日券あり</td>
+          </tr>
+          <tr>
+            <td class="date">11/20<span class="day">金曜</span></td>
+            <td><span class="genre-tag art">美術</span></td>
+            <td><div class="event-name">「桃山 ― 天下人の100年」特別展 開幕</div><div class="event-venue">東京国立博物館 平成館／〜2021.1.24</div></td>
+            <td>¥1,800</td>
+            <td>事前予約制</td>
+          </tr>
+          <tr>
+            <td class="date">11/21<span class="day">土曜</span></td>
+            <td><span class="genre-tag theater">演劇</span></td>
+            <td><div class="event-name">劇団四季『オペラ座の怪人』25周年記念公演</div><div class="event-venue">京都劇場／13:30 ・ 18:00</div></td>
+            <td>¥6,600〜</td>
+            <td>満席間近</td>
+          </tr>
+          <tr>
+            <td class="date">11/22<span class="day">日曜</span></td>
+            <td><span class="genre-tag festival">祭事</span></td>
+            <td><div class="event-name">第34回 大阪・天満宮 紅葉祭(オンライン同時開催)</div><div class="event-venue">大阪天満宮／10:00〜16:00</div></td>
+            <td>無料</td>
+            <td>雨天決行</td>
+          </tr>
+          <tr>
+            <td class="date">11/23<span class="day">月祝</span></td>
+            <td><span class="genre-tag music">音楽</span></td>
+            <td><div class="event-name">米津玄師 ライブツアー2020「HYPE」福岡公演</div><div class="event-venue">マリンメッセ福岡／17:00開演</div></td>
+            <td>¥8,800</td>
+            <td>抽選販売</td>
+          </tr>
+          <tr>
+            <td class="date">11/26<span class="day">木曜</span></td>
+            <td><span class="genre-tag art">美術</span></td>
+            <td><div class="event-name">クリムト展 ― ウィーンと日本1900</div><div class="event-venue">愛知県美術館／〜2021.2.7</div></td>
+            <td>¥1,600</td>
+            <td>音声ガイド有</td>
+          </tr>
+          <tr>
+            <td class="date">11/28<span class="day">土曜</span></td>
+            <td><span class="genre-tag theater">演劇</span></td>
+            <td><div class="event-name">十一月南座新作歌舞伎『月下白狐』千穐楽</div><div class="event-venue">京都四條南座／16:30</div></td>
+            <td>¥4,000〜¥27,000</td>
+            <td>立見券のみ</td>
+          </tr>
+          <tr>
+            <td class="date">12/01<span class="day">火曜</span></td>
+            <td><span class="genre-tag festival">食</span></td>
+            <td><div class="event-name">第15回 全国地酒フェスティバル 2020</div><div class="event-venue">幕張メッセ／〜12/3</div></td>
+            <td>¥3,500</td>
+            <td>20歳以上</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FOOD & TRAVEL -->
+    <section class="food-travel">
+      <h3 class="section-title">
+        食 ・ 旅 ・ 暮らし<span class="en-label">FOOD ・ TRAVEL ・ LIFESTYLE</span>
+        <a href="#" class="more">特集一覧 ▸</a>
+      </h3>
+      <div class="ft-grid">
+        <div class="ft-card">
+          <div class="ft-thumb f1"></div>
+          <div class="ft-cat">食</div>
+          <div class="ft-title">築地外市場の朝 ─ コハダ職人の手仕事</div>
+          <div class="ft-meta">2020.11.17 ・ 💬 32</div>
+        </div>
+        <div class="ft-card">
+          <div class="ft-thumb f2"></div>
+          <div class="ft-cat">食</div>
+          <div class="ft-title">宇治の新茶、二番茶の魅力を再発見する</div>
+          <div class="ft-meta">2020.11.16 ・ 💬 18</div>
+        </div>
+        <div class="ft-card">
+          <div class="ft-thumb t1"></div>
+          <div class="ft-cat">旅</div>
+          <div class="ft-title">富士河口湖、冬の絶景ロード5選</div>
+          <div class="ft-meta">2020.11.15 ・ 💬 47</div>
+        </div>
+        <div class="ft-card">
+          <div class="ft-thumb t2"></div>
+          <div class="ft-cat">旅</div>
+          <div class="ft-title">紅葉の伏見稲荷 ・ 早朝5時の千本鳥居</div>
+          <div class="ft-meta">2020.11.14 ・ 💬 89</div>
+        </div>
+        <div class="ft-card">
+          <div class="ft-thumb l1"></div>
+          <div class="ft-cat">暮らし</div>
+          <div class="ft-title">在宅一年、小さな部屋を整える7つの工夫</div>
+          <div class="ft-meta">2020.11.13 ・ 💬 124</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /main-col -->
+
+  <!-- SIDE COLUMN -->
+  <aside class="side-col">
+
+    <!-- BESTSELLERS -->
+    <div class="side-box">
+      <div class="side-box-head">週刊ベストセラー <span class="small">紀伊國屋書店調 ・ 11/16週</span></div>
+      <div class="side-box-body">
+        <ol class="bestseller-list">
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">うずまき猫のさがしかた</div>
+              <div class="bs-author">村山 由佳</div>
+              <div class="bs-pub">文藝春秋 ¥1,650</div>
+            </div>
+            <span class="bs-rank-change new">NEW</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">鬼滅の刃 公式ファンブック弐</div>
+              <div class="bs-author">吾峠 呼世晴</div>
+              <div class="bs-pub">集英社 ¥880</div>
+            </div>
+            <span class="bs-rank-change up">↑3</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">スマホ脳</div>
+              <div class="bs-author">アンデシュ・ハンセン</div>
+              <div class="bs-pub">新潮新書 ¥1,078</div>
+            </div>
+            <span class="bs-rank-change up">↑1</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">52ヘルツのクジラたち</div>
+              <div class="bs-author">町田 そのこ</div>
+              <div class="bs-pub">中央公論新社 ¥1,650</div>
+            </div>
+            <span class="bs-rank-change down">↓2</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">流浪の月</div>
+              <div class="bs-author">凪良 ゆう</div>
+              <div class="bs-pub">東京創元社 ¥1,650</div>
+            </div>
+            <span class="bs-rank-change down">↓1</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">逆ソクラテス</div>
+              <div class="bs-author">伊坂 幸太郎</div>
+              <div class="bs-pub">集英社 ¥1,650</div>
+            </div>
+            <span class="bs-rank-change up">↑2</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">ファクトフルネス</div>
+              <div class="bs-author">ハンス・ロスリング</div>
+              <div class="bs-pub">日経BP ¥1,980</div>
+            </div>
+            <span class="bs-rank-change down">↓3</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">JKハルは異世界で娼婦になった</div>
+              <div class="bs-author">平鳥 コウ</div>
+              <div class="bs-pub">早川書房 ¥1,760</div>
+            </div>
+            <span class="bs-rank-change new">NEW</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">傲慢と善良</div>
+              <div class="bs-author">辻村 深月</div>
+              <div class="bs-pub">朝日新聞出版 ¥1,870</div>
+            </div>
+            <span class="bs-rank-change down">↓4</span>
+          </li>
+          <li>
+            <div class="bs-info">
+              <div class="bs-title">熱源</div>
+              <div class="bs-author">川越 宗一</div>
+              <div class="bs-pub">文藝春秋 ¥1,925</div>
+            </div>
+            <span class="bs-rank-change down">↓2</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- VERTICAL EDITORS PICK -->
+    <div class="editor-pick">
+      <div class="vertical-accent">編集長おすすめ</div>
+      <div class="editor-pick-text">
+        <h4>今週の一本</h4>
+        <p>映画『沈黙の海岸線』は、東日本大震災から十年という節目に、観る者の心の最も柔らかいところに静かに触れる。台詞のない海の場面を、ぜひ大スクリーンで体験してほしい。</p>
+        <div class="by">─ 文化部長 ・ 渡辺 浩二</div>
+      </div>
+    </div>
+
+    <!-- SIDE AD -->
+    <div class="side-ad">
+      <div class="ad-brand">SUNTORY</div>
+      <div class="ad-line" style="font-weight:700;font-size:14px;">ザ・プレミアム・モルツ</div>
+      <div class="ad-line" style="margin-top:6px;font-size:11px;color:#666;">冬の限定 ＜香るエール＞ 新発売</div>
+      <div class="ad-cta">詳しく見る ▸</div>
+    </div>
+
+    <!-- ARCHIVE WIDGET -->
+    <div class="side-box">
+      <div class="side-box-head">この日の朝日毎報 <span class="small">ARCHIVES</span></div>
+      <div class="side-box-body" style="font-size:12px;">
+        <div style="background:#1A1A1A;color:#fff;padding:6px 8px;font-size:11px;margin-bottom:8px;">📅 1970年11月18日（50年前の本日）</div>
+        <div style="border:1px solid #DDD;padding:8px;background:#FFFEF0;">
+          <div style="font-family:'Noto Serif JP',serif;font-weight:900;font-size:14px;margin-bottom:4px;">三島由紀夫氏 「楯の会」と共に都内で示威行進</div>
+          <div style="font-size:11px;color:#666;line-height:1.6;">作家・三島由紀夫氏（45）が私的団体「楯の会」のメンバー約20名と共に、本日昼下がり都内で示威行進を行った。氏は記者団に対し「日本の精神を取り戻さねばならぬ」と語気強く語った。</div>
+        </div>
+        <div style="margin-top:8px;font-size:11px;">
+          <strong>過去の紙面を検索：</strong><br>
+          <select style="width:100%;padding:3px;margin-top:4px;font-size:11px;">
+            <option>年 - 1968〜2020</option>
+          </select>
+          <input type="text" placeholder="キーワード" style="width:100%;padding:4px;margin-top:4px;font-size:11px;border:1px solid #DDD;">
+          <button style="width:100%;background:#CC0000;color:#fff;border:0;padding:5px;margin-top:4px;font-size:11px;cursor:pointer;">アーカイブ検索</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TV SCHEDULE -->
+    <div class="side-box">
+      <div class="side-box-head">今夜のTV <span class="small">TONIGHT</span></div>
+      <div class="side-box-body" style="font-size:12px;padding:6px 10px;">
+        <div style="display:flex;border-bottom:1px dotted #DDD;padding:5px 0;align-items:center;">
+          <span style="writing-mode:vertical-rl;background:#CC0000;color:#fff;padding:3px 2px;font-size:10px;margin-right:8px;letter-spacing:2px;">N H K 総</span>
+          <div><strong>19:00</strong> NHKニュース7<br><span style="color:#666;font-size:10px;">国内・国際の主要ニュース</span></div>
+        </div>
+        <div style="display:flex;border-bottom:1px dotted #DDD;padding:5px 0;align-items:center;">
+          <span style="writing-mode:vertical-rl;background:#003366;color:#fff;padding:3px 2px;font-size:10px;margin-right:8px;letter-spacing:2px;">テレ朝</span>
+          <div><strong>21:54</strong> 報道ステーション<br><span style="color:#666;font-size:10px;">司会:富川悠太・徳永有美</span></div>
+        </div>
+        <div style="display:flex;padding:5px 0;align-items:center;">
+          <span style="writing-mode:vertical-rl;background:#006699;color:#fff;padding:3px 2px;font-size:10px;margin-right:8px;letter-spacing:2px;">T B S</span>
+          <div><strong>23:00</strong> NEWS23<br><span style="color:#666;font-size:10px;">司会:小川彩佳・小説家 星浩</span></div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /container -->
+
+<!-- STOCK TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-label">市況</span>
+    <span class="ticker-item">日経225 <strong>23,847.27</strong> <span class="up">+128.45 (+0.54%)</span></span>
+    <span class="ticker-item">TOPIX <strong>1,654.32</strong> <span class="up">+7.83</span></span>
+    <span class="ticker-item">USD/JPY <strong>104.58</strong> <span class="down">-0.12</span></span>
+    <span class="ticker-item">EUR/JPY <strong>123.91</strong> <span class="up">+0.34</span></span>
+    <span class="ticker-item">トヨタ(7203) <strong>7,128</strong> <span class="up">+45</span></span>
+    <span class="ticker-item">ソフトバンクG(9984) <strong>6,889</strong> <span class="down">-78</span></span>
+    <span class="ticker-item">ソニー(6758) <strong>9,432</strong> <span class="up">+112</span></span>
+    <span class="ticker-item">NY Dow <strong>29,950.44</strong> <span class="up">+262.95</span></span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h5>サイトマップ</h5>
+      <ul>
+        <li><a href="#">トップ</a></li>
+        <li><a href="#">速報</a></li>
+        <li><a href="#">政治</a></li>
+        <li><a href="#">経済</a></li>
+        <li><a href="#">国際</a></li>
+        <li><a href="#">社会</a></li>
+        <li><a href="#">スポーツ</a></li>
+        <li><a href="#">文化・ライフ</a></li>
+        <li><a href="#">オピニオン</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>会社情報</h5>
+      <div class="footer-corp">
+        <strong>株式会社 朝日毎報社</strong><br>
+        本社：東京都中央区<br>築地3-2-1<br>
+        TEL: 03-5540-XXXX<br>
+        創業：1968年4月<br>
+        資本金：6億5千万円
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>購読 ・ 申込</h5>
+      <ul>
+        <li><a href="#">▸ 朝刊・夕刊 購読申込</a></li>
+        <li><a href="#">▸ デジタル版（月¥3,800）</a></li>
+        <li><a href="#">▸ 学生プラン（月¥1,500）</a></li>
+        <li><a href="#">▸ 法人・図書館契約</a></li>
+        <li><a href="#">▸ お支払方法</a></li>
+        <li><a href="#">▸ 配達休止・再開</a></li>
+        <li><a href="#">▸ 紙面イメージ閲覧</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>English / 多言語</h5>
+      <ul>
+        <li><a href="#">▸ Asahi Mainpō English</a></li>
+        <li><a href="#">▸ Editorial Board</a></li>
+        <li><a href="#">▸ 中文（簡体）</a></li>
+        <li><a href="#">▸ 한국어</a></li>
+        <li><a href="#">▸ やさしい日本語</a></li>
+        <li><a href="#">▸ 海外特派員一覧</a></li>
+      </ul>
+    </div>
+    <div

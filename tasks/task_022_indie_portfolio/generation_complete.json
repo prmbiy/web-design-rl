@@ -1,0 +1,12 @@
+{
+  "dna_id": "022",
+  "dna_name": "indie_portfolio",
+  "pages": [
+    "home",
+    "work",
+    "project",
+    "writing",
+    "about"
+  ],
+  "has_animations": true
+}

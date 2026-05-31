@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>리뷰 — 도담 / Dodam Beauty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Lato','Noto Sans KR',sans-serif;
+  background:#FFFFF0;
+  color:#3D2A35;
+  font-size:16px;
+  line-height:1.6;
+}
+a { color:inherit; text-decoration:none; }
+
+/* ---------- Animations ---------- */
+@keyframes fadeInHero {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.hero-content { animation: fadeInHero 1.2s ease-out forwards; }
+.hero-content h1, .hero-content p { animation: fadeInHero 1.2s ease-out forwards; }
+.hero-content h1 { animation-delay:0.1s; }
+.hero-content p { animation-delay:0.3s; }
+
+@keyframes scrollReveal {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.reveal { animation: scrollReveal 0.9s ease-out forwards; }
+
+.product-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(200,130,154,0.18); }
+.product-card .quick-add { opacity:0; transition: opacity 0.3s ease; }
+.product-card:hover .quick-add { opacity:1; }
+
+/* ---------- Nav ---------- */
+.nav-wrap { position:sticky; top:0; z-index:100; }
+.promo-banner {
+  background:linear-gradient(90deg,#FFE4E1,#FFF5EE,#B2DFDB55);
+  text-align:center; font-size:13px; padding:8px 16px;
+  color:#C8829A; font-weight:500; letter-spacing:0.3px;
+}
+.promo-banner span { font-family:'Noto Sans KR',sans-serif; }
+nav.main {
+  height:72px;
+  background:rgba(255,255,240,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #F2DCE2;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 40px;
+}
+.logo {
+  font-family:'DM Serif Display',serif;
+  font-style:italic;
+  font-size:28px;
+  color:#C8829A;
+}
+.logo small { font-family:'Noto Sans KR',sans-serif; font-style:normal; font-size:14px; margin-left:6px; color:#9B8590; font-weight:400; }
+.nav-links { display:flex; gap:36px; }
+.nav-links a {
+  font-size:14px; font-weight:500; letter-spacing:0.8px; text-transform:uppercase;
+  color:#3D2A35; transition:color 0.2s;
+}
+.nav-links a:hover { color:#C8829A; }
+.nav-links a.active { color:#C8829A; border-bottom:1px solid #C8829A; padding-bottom:4px; }
+.nav-right { display:flex; gap:20px; align-items:center; font-size:18px; }
+.nav-right span { cursor:pointer; transition:transform 0.2s; }
+.nav-right span:hover { transform:scale(1.15); }
+.cart-badge { position:relative; }
+.cart-badge::after {
+  content:'3'; position:absolute; top:-6px; right:-8px;
+  background:#C8829A; color:#FFFFF0; font-size:10px; font-weight:700;
+  width:16px; height:16px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 20% 30%, #FFE4E1 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, #B2DFDB44 0%, transparent 55%),
+    linear-gradient(180deg,#FFFAF0,#FFF5EE);
+  padding:100px 24px 80px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; top:30px; left:8%;
+  width:160px; height:160px; border-radius:50%;
+  background:radial-gradient(circle,#FFB6C155,transparent 70%);
+  filter:blur(20px);
+}
+.hero::after {
+  content:''; position:absolute; bottom:20px; right:10%;
+  width:200px; height:200px; border-radius:50%;
+  background:radial-gradient(circle,#B2DFDB66,transparent 70%);
+  filter:blur(25px);
+}
+.hero-content { max-width:900px; margin:0 auto; position:relative; z-index:2; }
+.hero-eyebrow {
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:13px; letter-spacing:3px; text-transform:uppercase;
+  color:#C8829A; margin-bottom:20px; font-weight:500;
+}
+.hero h1 {
+  font-family:'DM Serif Display',serif;
+  font-size:64px; line-height:1.1; font-weight:400;
+  color:#3D2A35; margin-bottom:24px;
+}
+.hero h1 em { color:#C8829A; font-style:italic; }
+.hero-sub {
+  font-size:18px; color:#5d4351; max-width:600px; margin:0 auto 40px;
+}
+.hero-stats {
+  display:flex; gap:60px; justify-content:center; margin-top:50px;
+  padding-top:36px; border-top:1px solid #F2DCE2;
+}
+.hero-stats .stat strong {
+  display:block; font-family:'DM Serif Display',serif; font-size:36px; color:#C8829A; line-height:1;
+}
+.hero-stats .stat span { font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9B8590; margin-top:8px; display:block; }
+
+/* ---------- Section ---------- */
+section { padding:80px 24px; }
+.container { max-width:1280px; margin:0 auto; }
+.section-head { margin-bottom:48px; }
+.section-eyebrow {
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#C8829A; font-weight:500;
+  margin-bottom:12px;
+}
+.section-head h2 {
+  font-family:'DM Serif Display',serif;
+  font-size:40px; color:#3D2A35; line-height:1.15; font-weight:400;
+}
+.section-head .kr { font-family:'Noto Sans KR',sans-serif; font-size:16px; color:#9B8590; margin-top:8px; font-weight:400; }
+
+/* ---------- Filters ---------- */
+.filters-section { padding-top:24px; padding-bottom:32px; background:#FFFAF0; border-bottom:1px solid #F2DCE2; }
+.filter-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:18px; }
+.filter-label {
+  font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#9B8590;
+  font-weight:700; margin-right:8px; min-width:90px;
+}
+.chip {
+  padding:8px 18px;
+  border-radius:30px;
+  background:#FFFFF0;
+  border:1px solid #F2DCE2;
+  font-size:13px; font-weight:500;
+  color:#3D2A35;
+  cursor:pointer;
+  transition:all 0.25s;
+  font-family:'Lato','Noto Sans KR',sans-serif;
+}
+.chip:hover { border-color:#C8829A; color:#C8829A; }
+.chip.active { background:#FFB6C1; border-color:#FFB6C1; color:#fff; }
+.chip .kr { font-family:'Noto Sans KR',sans-serif; opacity:0.8; margin-left:4px; font-size:12px; }
+.chip.featured {
+  background:linear-gradient(90deg,#B2DFDB,#FFE4E1);
+  border-color:transparent; color:#3D2A35; font-weight:700;
+}
+.sort-row {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:24px; padding-top:18px; border-top:1px dashed #F2DCE2;
+}
+.sort-row .count { font-size:14px; color:#9B8590; }
+.sort-row .count strong { color:#C8829A; font-weight:700; }
+.sort-row select {
+  border:1px solid #F2DCE2; padding:8px 14px; border-radius:20px;
+  background:#FFFFF0; font-family:inherit; font-size:13px; color:#3D2A35;
+}
+
+/* ---------- Photo Wall (Masonry) ---------- */
+.photo-wall { padding-top:60px; }
+.masonry {
+  column-count:4;
+  column-gap:20px;
+}
+.review-card {
+  break-inside:avoid;
+  background:#FFFAF0;
+  border:1px solid #F2DCE2;
+  border-radius:16px;
+  margin-bottom:20px;
+  overflow:hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.review-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(200,130,154,0.18); }
+.review-photo {
+  width:100%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:48px;
+  color:#fff;
+  position:relative;
+}
+.review-photo .badge-top {
+  position:absolute; top:12px; left:12px;
+  background:rgba(255,255,255,0.9); color:#C8829A;
+  font-size:10px; letter-spacing:1px; font-weight:700; text-transform:uppercase;
+  padding:4px 10px; border-radius:20px;
+}
+.review-photo.h1 { height:280px; background:linear-gradient(135deg,#FFB6C1,#C8829A); }
+.review-photo.h2 { height:340px; background:linear-gradient(135deg,#B2DFDB,#FFE4E1); }
+.review-photo.h3 { height:220px; background:linear-gradient(160deg,#FFE4E1,#FFB6C1); }
+.review-photo.h4 { height:380px; background:linear-gradient(150deg,#FFFAF0,#FFB6C1); }
+.review-photo.h5 { height:260px; background:linear-gradient(145deg,#C8829A,#FFE4E1); }
+.review-photo.h6 { height:300px; background:linear-gradient(135deg,#FFF5EE,#B2DFDB); color:#C8829A; }
+.review-photo.h7 { height:320px; background:linear-gradient(135deg,#FFB6C1,#FFFAF0); color:#C8829A;}
+.review-photo.h8 { height:250px; background:linear-gradient(135deg,#D4AF3733,#FFB6C1); }
+.review-body { padding:18px 20px 22px; }
+.stars { color:#D4AF37; font-size:13px; letter-spacing:1px; margin-bottom:8px; }
+.review-product {
+  font-family:'DM Serif Display',serif;
+  font-size:17px; color:#3D2A35; margin-bottom:6px;
+}
+.review-product .kr { font-family:'Noto Sans KR',sans-serif; font-style:normal; font-size:12px; color:#9B8590; display:block; margin-top:2px; }
+.review-text {
+  font-family:'Lato',sans-serif; font-style:italic;
+  font-size:14px; color:#5d4351; margin:10px 0;
+  line-height:1.55;
+}
+.review-meta {
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:12px; color:#9B8590;
+  padding-top:12px; border-top:1px solid #F2DCE2;
+}
+.review-meta .verified { color:#7BA89E; font-weight:700; letter-spacing:0.5px; }
+.tag-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+.mini-tag {
+  font-size:10px; padding:3px 9px; border-radius:12px;
+  background:#FFE4E1; color:#C8829A; font-weight:700;
+  letter-spacing:0.5px; text-transform:uppercase;
+}
+.mini-tag.mint { background:#B2DFDB; color:#3D2A35; }
+.mini-tag.gold { background:#D4AF3722; color:#8a7128; }
+
+/* ---------- Before / After ---------- */
+.before-after-section {
+  background:linear-gradient(180deg,#FFF5EE,#FFFAF0);
+}
+.ba-grid {
+  display:grid; grid-template-columns: 1.2fr 1fr; gap:48px; align-items:center;
+}
+.ba-visual {
+  display:grid; grid-template-columns:1fr 1fr; gap:8px;
+  border-radius:24px; overflow:hidden;
+  border:1px solid #F2DCE2;
+  position:relative;
+}
+.ba-half {
+  height:480px; display:flex; align-items:flex-end; justify-content:center;
+  font-family:'DM Serif Display',serif; font-style:italic;
+  color:#fff; font-size:24px; padding:24px;
+  position:relative;
+}
+.ba-half.before { background:linear-gradient(180deg,#C8829A,#9b6178); }
+.ba-half.after { background:linear-gradient(180deg,#FFB6C1,#B2DFDB); }
+.ba-half .label {
+  position:absolute; top:18px; left:18px;
+  background:rgba(255,255,255,0.92); color:#3D2A35;
+  padding:6px 14px; border-radius:20px;
+  font-family:'Lato',sans-serif; font-style:normal;
+  font-size:11px; letter-spacing:2px; font-weight:700; text-transform:uppercase;
+}
+.ba-divider {
+  position:absolute; left:50%; top:0; bottom:0; width:2px;
+  background:#FFFFF0; transform:translateX(-50%);
+}
+.ba-divider::after {
+  content:'↔'; position:absolute; top:50%; left:50%;
+  width:44px; height:44px; border-radius:50%;
+  background:#FFFFF0; color:#C8829A;
+  display:flex; align-items:center; justify-content:center;
+  transform:translate(-50%,-50%); font-size:20px;
+  box-shadow:0 4px 14px rgba(200,130,154,0.2);
+}
+.ba-meta { padding:8px 0; }
+.ba-meta .eyebrow { font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#C8829A; font-weight:600; margin-bottom:16px; }
+.ba-meta h3 {
+  font-family:'DM Serif Display',serif;
+  font-size:36px; line-height:1.2; margin-bottom:16px; font-weight:400;
+}
+.ba-meta .kr-name { font-family:'Noto Sans KR',sans-serif; color:#9B8590; font-size:14px; margin-bottom:24px; }
+.ba-quote {
+  font-family:'DM Serif Display',serif; font-style:italic;
+  font-size:20px; color:#5d4351; line-height:1.5;
+  padding:24px 0 24px 24px;
+  border-left:3px solid #FFB6C1;
+  margin:24px 0;
+}
+.ba-details { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; }
+.ba-detail { padding:14px 16px; background:#FFFAF0; border-radius:12px; border:1px solid #F2DCE2; }
+.ba-detail strong { display:block; font-family:'DM Serif Display',serif; font-size:22px; color:#C8829A; }
+.ba-detail span { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#9B8590; }
+.ba-consent {
+  margin-top:24px; font-size:12px; color:#9B8590;
+  padding:12px 16px; background:#B2DFDB22; border-radius:10px;
+  border-left:3px solid #B2DFDB;
+}
+.ba-thumbs {
+  display:flex; gap:12px; margin-top:32px;
+}
+.ba-thumb {
+  flex:1; height:88px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#fff; font-weight:700;
+  cursor:pointer; opacity:0.6; transition:opacity 0.3s;
+}
+.ba-thumb:hover, .ba-thumb.active { opacity:1; box-shadow:0 6px 20px rgba(200,130,154,0.25); }
+.ba-thumb.t1 { background:linear-gradient(135deg,#FFB6C1,#C8829A); }
+.ba-thumb.t2 { background:linear-gradient(135deg,#B2DFDB,#FFE4E1); }
+.ba-thumb.t3 { background:linear-gradient(135deg,#FFE4E1,#FFB6C1); }
+.ba-thumb.t4 { background:linear-gradient(135deg,#C8829A,#FFFAF0); }
+
+/* ---------- Blog Cards ---------- */
+.blog-section { padding-bottom:120px; }
+.blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.blog-card {
+  background:#FFFAF0;
+  border:1px solid #F2DCE2;
+  border-radius:20px;
+  overflow:hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display:flex; flex-direction:column;
+}
+.blog-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(200,130,154,0.16); }
+.blog-img {
+  height:220px;
+  display:flex; align-items:flex-end; padding:20px;
+  position:relative;
+}
+.blog-img.b1 { background:linear-gradient(135deg,#FFB6C1 0%,#C8829A 100%); }
+.blog-img.b2 { background:linear-gradient(135deg,#B2DFDB 0%,#FFE4E1 100%); }
+.blog-img.b3 { background:linear-gradient(160deg,#FFFAF0 0%,#FFB6C1 80%); }
+.blog-cat {
+  position:absolute; top:16px; left:16px;
+  background:rgba(255,255,240,0.95);
+  padding:5px 12px; border-radius:20px;
+  font-size:10px; letter-spacing:2px; font-weight:700; text-transform:uppercase;
+  color:#C8829A;
+}
+.blog-body { padding:24px 26px 28px; flex:1; display:flex; flex-direction:column; }
+.blog-meta { font-size:12px; color:#9B8590; margin-bottom:10px; letter-spacing:0.5px; }
+.blog-title {
+  font-family:'DM Serif Display',serif;
+  font-size:22px; line-height:1.3; margin-bottom:12px; font-weight:400;
+  color:#3D2A35;
+}
+.blog-excerpt { font-size:14px; color:#5d4351; margin-bottom:18px; flex:1; }
+.blog-link {
+  color:#C8829A; font-size:13px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+}
+.blog-link::after { content:' →'; }
+
+/* ---------- Footer ---------- */
+footer {
+  background:#FFF5EE;
+  padding:80px 24px 40px;
+  border-top:1px solid #F2DCE2;
+}
+.footer-grid { display:grid; grid-template-columns: 1.5fr repeat(4,1fr); gap:40px; max-width:1280px; margin:0 auto; }
+.footer-brand .logo { font-size:32px; }
+.footer-brand p { font-size:13px; color:#9B8590; margin-top:14px; max-width:280px; line-height:1.6; }
+.footer-col h4 {
+  font-size:12px; text-transform:uppercase; letter-spacing:2px;
+  color:#C8829A; margin-bottom:16px; font-weight:700;
+}
+.footer-col a { display:block; font-size:13px; color:#5d4351; margin-bottom:10px; }
+.footer-col a:hover { color:#C8829A; }
+.footer-bottom {
+  max-width:1280px; margin:60px auto 0;
+  padding-top:28px; border-top:1px solid #F2DCE2;
+  display:flex; justify-content:space-between;
+  font-size:12px; color:#9B8590;
+}
+.footer-bottom .kr { font-family:'Noto Sans KR',sans-serif; }
+.points-badge {
+  display:inline-block; background:#D4AF3722; color:#8a7128;
+  padding:4px 10px; border-radius:14px; font-weight:700; font-size:11px;
+  letter-spacing:1px;
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <div class="promo-banner">
+    ✨ Free Heartleaf sample with every order · 무료 배송 over ₩50,000 · Take the <span>스킨 퀴즈</span> — earn 500 포인트
+  </div>
+  <nav class="main">
+    <div class="logo">Dodam<small>도담</small></div>
+    <div class="nav-links">
+      <a href="#">New</a>
+      <a href="#">Skincare</a>
+      <a href="#">Makeup</a>
+      <a href="#">Body</a>
+      <a href="#">Sets</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <span>🔍</span>
+      <span>♡</span>
+      <span class="cart-badge">🛍</span>
+    </div>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">리뷰 · Reviews</div>
+    <h1>12,847 <em>glass-skin</em><br>journeys</h1>
+    <p class="hero-sub">Real reviews from real 도담 fam — verified buyers only. Every photo, every story, consented and unfiltered.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>4.87★</strong><span>Avg Rating</span></div>
+      <div class="stat"><strong>12,847</strong><span>Total Reviews</span></div>
+      <div class="stat"><strong>3,210</strong><span>Photo Reviews</span></div>
+      <div class="stat"><strong>94%</strong><span>Would Repurchase</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section class="filters-section">
+  <div class="container">
+    <div class="filter-row">
+      <span class="filter-label">Skin Type</span>
+      <button class="chip active">All</button>
+      <button class="chip">Oily <span class="kr">지성</span></button>
+      <button class="chip">Dry <span class="kr">건성</span></button>
+      <button class="chip">Combination <span class="kr">복합성</span></button>
+      <button class="chip">Sensitive <span class="kr">민감성</span></button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Concern</span>
+      <button class="chip">Acne</button>
+      <button class="chip">Dullness</button>
+      <button class="chip">Redness</button>
+      <button class="chip">Pores</button>
+      <button class="chip">Dark Spots</button>
+      <button class="chip">Hydration</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Age Range</span>
+      <button class="chip">18–24</button>
+      <button class="chip">25–34</button>
+      <button class="chip">35–44</button>
+      <button class="chip">45+</button>
+    </div>
+    <div class="sort-row">
+      <div class="count">Showing <strong>12,847 reviews</strong> · <strong>3,210 photo reviews</strong></div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <button class="chip featured">📸 Photo Reviews First</button>
+        <select>
+          <option>Most Recent</option>
+          <option>Highest Rated</option>
+          <option>Most Helpful</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO WALL -->
+<section class="photo-wall reveal">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Community Photo Wall</div>
+      <h2>Real skin. Real results.</h2>
+      <div class="kr">도담 패밀리의 진짜 후기 · Tap any photo to read the full journey</div>
+    </div>
+
+    <div class="masonry">
+
+      <div class="review-card product-card">
+        <div class="review-photo h2">
+          <div class="badge-top">★ Top Review</div>
+          🌸
+        </div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Propolis Glow Ampoule <span class="kr">프로폴리스 글로우 앰플</span></div>
+          <p class="review-text">"After 8 weeks my dullness is gone — the gold tint to my cheeks is real. Maskne scars fading too."</p>
+          <div class="tag-row">
+            <span class="mini-tag">Dullness</span>
+            <span class="mini-tag mint">Combination</span>
+          </div>
+          <div class="review-meta">
+            <span>Minji · 27 · Seoul</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h1">🪞</div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Centella Calming Toner <span class="kr">센텔라 카밍 토너</span></div>
+          <p class="review-text">"My sensitive cheeks finally stopped burning. I use this morning and night, half a cotton pad."</p>
+          <div class="tag-row">
+            <span class="mini-tag">Redness</span>
+            <span class="mini-tag mint">Sensitive</span>
+          </div>
+          <div class="review-meta">
+            <span>Soobin · 24 · Busan</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h4">
+          <div class="badge-top">⭐ Editor's Pick</div>
+          ✨
+        </div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Rice Glow Essence 100ml <span class="kr">라이스 글로우 에센스</span></div>
+          <p class="review-text">"Layering 3-4 drops every night gave me that bouncy 유리알 (glass) finish I've chased for years. The rice scent is gentle and nostalgic."</p>
+          <div class="tag-row">
+            <span class="mini-tag">Hydration</span>
+            <span class="mini-tag gold">★ Premium</span>
+          </div>
+          <div class="review-meta">
+            <span>Hyejin · 31 · Seongsu</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h3">🌷</div>
+        <div class="review-body">
+          <div class="stars">★★★★☆</div>
+          <div class="review-product">Snow Mushroom Cream <span class="kr">설설버섯 크림</span></div>
+          <p class="review-text">"Plump and dewy without feeling greasy under SPF."</p>
+          <div class="review-meta">
+            <span>Yuna · 29 · Daegu</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h5">💖</div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Heartleaf Sun Stick SPF50+ <span class="kr">어성초 선스틱</span></div>
+          <p class="review-text">"Re-application during my Hangang picnics is now stress-free. No white cast on my deeper skin tone."</p>
+          <div class="tag-row">
+            <span class="mini-tag">SPF</span>
+            <span class="mini-tag mint">All Skin</span>
+          </div>
+          <div class="review-meta">
+            <span>Aaliyah · 26 · NYC</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h6">🍶</div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Rice Cleansing Oil <span class="kr">라이스 클렌징 오일</span></div>
+          <p class="review-text">"First step of my double cleanse since March — emulsifies milky white, leaves no residue."</p>
+          <div class="tag-row">
+            <span class="mini-tag">Hydration</span>
+          </div>
+          <div class="review-meta">
+            <span>Jiwoo · 22 · Incheon</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h7">
+          <div class="badge-top">🆕 Recent</div>
+          🌿
+        </div>
+        <div class="review-body">
+          <div class="stars">★★★★★</div>
+          <div class="review-product">Heartleaf 77% Serum <span class="kr">어성초 77% 세럼</span></div>
+          <p class="review-text">"Cystic breakouts on my jawline calmed in two weeks. Holy grail for hormonal acne, truly."</p>
+          <div class="tag-row">
+            <span class="mini-tag">Acne</span>
+            <span class="mini-tag mint">Oily</span>
+          </div>
+          <div class="review-meta">
+            <span>Eunseo · 23 · Gwangju</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card product-card">
+        <div class="review-photo h8">🌼</div>
+        <div class="review-body">
+          <div class="stars">★★★★☆</div>
+          <div class="review-product">Niacinamide 5% Brightening Pads <span class="kr">나이아신아마이드 패드</span></div>
+          <p class="review-text">"PIH spots from old acne are finally fading. 3 pads per week, exfoliating side only."</p>
+          <div class="review-meta">
+            <span>Mira · 33 · LA</span>
+            <span class="verified">✓ Verified</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="before-after-section reveal">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Featured Transformation</div>
+      <h2>Hyejin's 12-week Centella journey</h2>
+      <div class="kr">혜진님의 12주 센텔라 여정 · Shared with full written consent · Unretouched photos</div>
+    </div>
+
+    <div class="ba-grid">
+      <div class="ba-visual">
+        <div class="ba-half before">
+          <span class="label">Week 0</span>
+          Day One
+        </div>
+        <div class="ba-half after">
+          <span class="label">Week 12</span>
+          Today
+        </div>
+        <div class="ba-divider"></div>
+      </div>
+
+      <div class="ba-meta">
+        <div class="eyebrow">Sensitive · Redness · Combination</div>
+        <h3>"My cheeks no longer flush when I drink water."</h3>
+        <div class="kr-name">Hyejin · 28 · Seongsu-dong, Seoul</div>
+
+        <div class="ba-quote">
+          "I'd tried 다섯 brands before Dodam. The Centella Calming Toner + Heartleaf 77% Serum combo, twice daily for 12 weeks, brought my skin back."
+        </div>
+
+        <div class="ba-details">
+          <div class="ba-detail">
+            <strong>12 weeks</strong>
+            <span>Routine duration</span>
+          </div>
+          <div class="ba-detail">
+            <strong>−68%</strong>
+            <span>Self-reported redness</span>
+          </div>
+          <div class="ba-detail">
+            <strong>3 products</strong>
+            <span>Toner · Serum · Cream</span>
+          </div>
+          <div class="ba-detail">
+            <strong>AM + PM</strong>
+            <span>Daily use</span>
+          </div>
+        </div>
+
+        <div class="ba-consent">
+          🤍 All before/after photos shared with explicit written consent. Photos are unretouched, taken under identical bathroom daylight. Results vary — patch-test always.
+        </div>
+      </div>
+    </div>
+
+    <div class="ba-thumbs">
+      <div class="ba-thumb t1 active">Hyejin · Centella · 12wk</div>
+      <div class="ba-thumb t2">Minji · Propolis · 8wk</div>
+      <div class="ba-thumb t3">Soobin · Niacinamide · 6wk</div>
+      <div class="ba-thumb t4">Aaliyah · Heartleaf · 10wk</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / COMMUNITY JOURNEYS -->
+<section class="blog-section reveal">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Skincare Journeys · 스킨케어 다이어리</div>
+      <h2>Stories from the 도담 fam</h2>
+      <div class="kr">Long-read essays by our community, written in their own words</div>
+    </div>
+
+    <div class="blog-grid">
+
+      <div class="blog-card product-card">
+        <div class="blog-img b1">
+          <span class="blog-cat">Diary</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">Jiyoung K. · 6 min read · March 2024</div>
+          <h3 class="blog-title">My maskne recovery diary, week by week</h3>
+          <p class="blog-excerpt">A nurse's 14-week log: how Heartleaf 77% Serum and a stripped-back AM routine cleared the cystic breakouts that lockdown gave me.</p>
+          <a class="blog-link" href="#">Read the diary</a>
+        </div>
+      </div>
+
+      <div class="blog-card product-card">
+        <div class="blog-img b2">
+          <span class="blog-cat">Guide</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">Dr. Yuna Park · 8 min read · February 2024</div>
+          <h3 class="blog-title">Layering 101 for sensitive skin</h3>
+          <p class="blog-excerpt">Our founder, a Yonsei-trained dermatologist, breaks down the correct order: cleanse → toner → essence → serum → moisturizer → SPF — and what to skip when you're flaring.</p>
+          <a class="blog-link" href="#">Read the guide</a>
+        </div>
+      </div>
+
+      <div class="blog-card product-card">
+        <div class="blog-img b3">
+          <span class="blog-cat">Story</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">Aaliyah M. · 5 min read · January 2024</div>
+          <h3 class="blog-title">K-beauty from NYC: my 10-step ritual</h3>
+          <p class="blog-excerpt">An honest essay on adapting Seoul's slow beauty to a Brooklyn winter, and finding her glass-skin glow with the Rice + Snow Mushroom combo.</p>
+          <a class="blog-link" href="#">Read the story</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Dodam<small>도담</small></div>
+      <p>Glass skin, gently earned. 유리알 같은 피부, 천천히. Born in Seongsu-dong, dermatologist-formulated since 2019.</p>
+      <div style="margin-top:18px;"><span class="points-badge">★ EARN 포인트 ON EVERY ORDER</span></div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a>New Arrivals</a><a>Skincare</a><a>Makeup</a><a>Body</a><a>Sets & Kits</a>
+    </div>
+    <div class="footer-col">
+      <h4>Discover</h4>
+      <a>Routine Builder</a><a>Skin Quiz</a><a>Reviews</a><a>Ingredients</a><a>Brand Story</a>
+    </div>
+    <div class="footer-col">
+      <h4>Care</h4>
+      <a>Shipping & Returns</a><a>Free Sample</a><a>포인트 Rewards</a><a>Subscription Box</a><a>FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>도담 Fam</h4>
+      <a>@dodam.beauty</a><a>Newsletter</a><a>Press</a><a>Wholesale</a><a>Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Dodam Beauty Co., Ltd. · <span class="kr">서울시 성동구 성수동</span> · All rights reserved.</div>
+    <div>🐰 Leaping Bunny · 🌱 Vegan Society · ✓ EWG Verified</div>
+  </div>
+</footer>
+
+</body>
+</html>

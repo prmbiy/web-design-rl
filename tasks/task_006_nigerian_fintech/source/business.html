@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Business Accounts — KoboPay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'DM Sans',sans-serif;color:#1A1A1A;font-size:16px;line-height:1.5;background:#FFFFFF}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+.nav{position:sticky;top:0;background:#FFFFFF;height:72px;border-bottom:1px solid #E4EAE7;z-index:100;display:flex;align-items:center}
+.nav-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;color:#00C853}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:#00C853;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-weight:500;font-size:15px;color:#1A1A1A}
+.nav-links a.active{color:#00C853;font-weight:700}
+.nav-right{display:flex;gap:14px;align-items:center}
+.lang{font-size:13px;color:#5A6B66;border:1px solid #E4EAE7;border-radius:8px;padding:6px 10px}
+.cta-btn{background:#AEEA00;color:#1A1A1A;font-weight:700;padding:12px 20px;border-radius:12px;font-size:14px;border:none;cursor:pointer}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#FFFFFF 0%,#F5F0FA 100%);padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.hero-tag{display:inline-block;background:rgba(74,20,140,.08);color:#4A148C;font-size:12px;font-weight:700;letter-spacing:1px;padding:6px 12px;border-radius:20px;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:48px;font-weight:800;line-height:1.1;letter-spacing:-1px;color:#1A1A1A;margin-bottom:20px}
+.hero h1 span{background:linear-gradient(90deg,#4A148C,#7B1FA2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:#5A6B66;margin-bottom:28px;max-width:520px}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn-purple{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;font-weight:700;padding:14px 24px;border-radius:12px;font-size:15px;border:none;cursor:pointer}
+.btn-outline{background:transparent;border:1.5px solid #4A148C;color:#4A148C;font-weight:700;padding:14px 24px;border-radius:12px;font-size:15px;cursor:pointer}
+.hero-stats{display:flex;gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid #E4D6EE}
+.hero-stat .n{font-size:28px;font-weight:800;color:#4A148C}
+.hero-stat .l{font-size:12px;color:#5A6B66;text-transform:uppercase;letter-spacing:.5px}
+
+/* Dashboard mockup */
+.dash{background:#fff;border-radius:20px;box-shadow:0 30px 60px rgba(74,20,140,.18);padding:20px;position:relative}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.dash-biz{font-weight:700;font-size:14px}
+.dash-badge{background:#EAF8EF;color:#00C853;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px}
+.dash-balance{background:linear-gradient(135deg,#4A148C,#7B1FA2);color:#fff;padding:18px;border-radius:14px;margin-bottom:14px}
+.dash-balance .lbl{font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+.dash-balance .amt{font-size:32px;font-weight:800;margin-top:4px}
+.dash-balance .sub{font-size:11px;opacity:.7;margin-top:6px}
+.dash-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.dash-tile{background:#F5F8F6;padding:12px;border-radius:10px}
+.dash-tile .t{font-size:11px;color:#5A6B66}
+.dash-tile .v{font-size:16px;font-weight:700;margin-top:4px}
+.dash-tile .v.green{color:#00C853}
+.dash-trans{font-size:12px}
+.dash-trans .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #F0EBF6}
+.dash-trans .row:last-child{border:none}
+.dash-trans .who{font-weight:600}
+.dash-trans .meta{font-size:10px;color:#5A6B66}
+.dash-trans .amt-out{color:#1A1A1A;font-weight:700}
+
+/* SECTION HEADER */
+.section{padding:80px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.sect-head{text-align:center;margin-bottom:50px}
+.sect-eyebrow{font-size:12px;font-weight:700;color:#4A148C;letter-spacing:2px;text-transform:uppercase}
+.sect-head h2{font-size:36px;font-weight:800;margin-top:10px;letter-spacing:-.5px}
+.sect-head p{color:#5A6B66;margin-top:12px;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* FEATURE GRID */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:#fff;border:1px solid #E4EAE7;border-radius:16px;padding:28px;transition:.2s}
+.feat:hover{border-color:#4A148C;transform:translateY(-4px)}
+.feat-icon{width:48px;height:48px;border-radius:12px;background:#F5F0FA;color:#4A148C;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;font-weight:800}
+.feat h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.feat p{font-size:14px;color:#5A6B66;line-height:1.6}
+.feat .chip{display:inline-block;background:#EAF8EF;color:#00C853;font-size:11px;font-weight:700;padding:4px 8px;border-radius:6px;margin-top:14px}
+
+/* PRICING */
+.pricing-section{background:linear-gradient(180deg,#F5F0FA 0%,#FFFFFF 100%);padding:80px 24px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.tier{background:#fff;border:1px solid #E4EAE7;border-radius:18px;padding:36px 28px;position:relative}
+.tier.featured{background:linear-gradient(160deg,#4A148C,#7B1FA2);color:#fff;border:none;transform:scale(1.04);box-shadow:0 24px 50px rgba(74,20,140,.3)}
+.tier-name{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#4A148C}
+.tier.featured .tier-name{color:#AEEA00}
+.tier-price{font-size:42px;font-weight:800;margin-top:18px;letter-spacing:-1px}
+.tier-price .per{font-size:14px;font-weight:500;color:#5A6B66}
+.tier.featured .tier-price .per{color:rgba(255,255,255,.7)}
+.tier-desc{font-size:14px;color:#5A6B66;margin-top:8px;margin-bottom:24px}
+.tier.featured .tier-desc{color:rgba(255,255,255,.85)}
+.tier ul{list-style:none;margin-bottom:28px}
+.tier li{font-size:14px;padding:10px 0;border-bottom:1px solid #F0EBF6;display:flex;align-items:flex-start;gap:10px}
+.tier.featured li{border-bottom:1px solid rgba(255,255,255,.15)}
+.tier li::before{content:"✓";color:#00C853;font-weight:800;flex-shrink:0}
+.tier.featured li::before{color:#AEEA00}
+.tier-btn{width:100%;padding:14px;border-radius:12px;font-weight:700;font-size:15px;border:none;cursor:pointer;background:#F5F8F6;color:#1A1A1A}
+.tier.featured .tier-btn{background:#AEEA00;color:#1A1A1A}
+.tier-badge{position:absolute;top:-12px;right:24px;background:#AEEA00;color:#1A1A1A;font-size:11px;font-weight:800;padding:6px 12px;border-radius:20px;letter-spacing:.5px}
+
+/* CASE STUDIES */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.case{background:#fff;border:1px solid #E4EAE7;border-radius:16px;padding:28px}
+.case-logo{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:22px;margin-bottom:18px}
+.case-1 .case-logo{background:linear-gradient(135deg,#FF6B35,#F7931E)}
+.case-2 .case-logo{background:linear-gradient(135deg,#4A148C,#E91E63)}
+.case-3 .case-logo{background:linear-gradient(135deg,#1A1A1A,#5A6B66)}
+.case h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.case .sect{font-size:12px;color:#5A6B66;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px}
+.case-stat{font-size:32px;font-weight:800;color:#00C853;letter-spacing:-1px}
+.case-stat-l{font-size:13px;color:#5A6B66;margin-top:4px}
+.case-quote{font-size:13px;color:#5A6B66;margin-top:16px;padding-top:16px;border-top:1px solid #F0EBF6;line-height:1.6;font-style:italic}
+
+/* TRUST STRIP */
+.trust-strip{background:#F5F8F6;padding:30px 24px;border-top:1px solid #E4EAE7;border-bottom:1px solid #E4EAE7}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:20px}
+.trust-badge{display:flex;align-items:center;gap:10px;font-size:13px;color:#5A6B66}
+.trust-badge strong{color:#1A1A1A;font-weight:700}
+.trust-icon{width:32px;height:32px;border-radius:8px;background:#EAF8EF;color:#00C853;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+/* CONTACT CTA */
+.contact-cta{padding:80px 24px;background:#FFFFFF}
+.cta-card{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,#4A148C 0%,#7B1FA2 100%);border-radius:24px;padding:60px;color:#fff;display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:center;position:relative;overflow:hidden}
+.cta-card::before{content:"";position:absolute;right:-100px;top:-100px;width:300px;height:300px;border-radius:50%;background:rgba(174,234,0,.08)}
+.cta-card h2{font-size:36px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px;position:relative}
+.cta-card p{font-size:16px;opacity:.85;margin-bottom:24px;position:relative}
+.cta-actions{display:flex;gap:14px;position:relative}
+.btn-yellow{background:#AEEA00;color:#1A1A1A;font-weight:700;padding:14px 24px;border-radius:12px;font-size:15px;border:none;cursor:pointer}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;font-weight:700;padding:14px 24px;border-radius:12px;font-size:15px;border:1px solid rgba(255,255,255,.3);cursor:pointer}
+.cta-side{position:relative}
+.cta-stats{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px;backdrop-filter:blur(10px)}
+.cta-stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14px}
+.cta-stat:last-child{border:none}
+.cta-stat strong{color:#AEEA00;font-weight:800}
+
+/* FOOTER */
+footer{background:#0B1F14;color:#fff;padding:60px 24px 24px}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand{font-weight:800;font-size:22px;color:#00C853;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.foot-about{font-size:13px;color:#9CB0A5;line-height:1.7;margin-bottom:20px;max-width:300px}
+.foot-cbn{font-size:11px;color:#5A6B66;background:rgba(255,255,255,.04);padding:10px 12px;border-radius:8px;font-family:'JetBrains Mono',monospace;display:inline-block}
+.foot-col h5{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:#fff}
+.foot-col a{display:block;font-size:13px;color:#9CB0A5;margin-bottom:10px}
+.foot-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:#5A6B66;flex-wrap:wrap;gap:12px}
+.foot-cert{display:flex;gap:14px}
+.foot-cert span{padding:4px 10px;background:rgba(255,255,255,.05);border-radius:6px}
+
+/* WhatsApp float */
+.wa-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:99}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo"><div class="logo-mark">K</div>KoboPay</div>
+    <div class="nav-links">
+      <a href="#">Personal</a>
+      <a href="#" class="active">Business</a>
+      <a href="#">Agents</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="lang">EN ▾</span>
+      <button class="cta-btn">Open Account Free</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">★ For SMEs &amp; Enterprises</span>
+      <h1>Banking Built for <span>Naija SMEs.</span></h1>
+      <p>From mama-put to manufacturing — manage payroll, invoices and POS in one dashboard. Open a business account in under 5 minutes with your CAC.</p>
+      <div class="hero-actions">
+        <button class="btn-purple">Open Business Account →</button>
+        <button class="btn-outline">Talk to Sales</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="n">186,000+</div><div class="l">SME Accounts</div></div>
+        <div class="hero-stat"><div class="n">₦42B</div><div class="l">Monthly Volume</div></div>
+        <div class="hero-stat"><div class="n">99.98%</div><div class="l">Uptime SLA</div></div>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="dash-top">
+        <div>
+          <div class="dash-biz">Ankara Republic Ltd</div>
+          <div style="font-size:11px;color:#5A6B66">Business · 4 users</div>
+        </div>
+        <div class="dash-badge">VERIFIED</div>
+      </div>
+      <div class="dash-balance">
+        <div class="lbl">Available Balance</div>
+        <div class="amt">₦12,840,592<span style="font-size:18px;opacity:.7">.40</span></div>
+        <div class="sub">+₦2.1M this week · Settlement T+0</div>
+      </div>
+      <div class="dash-row">
+        <div class="dash-tile"><div class="t">Pending Invoices</div><div class="v">₦4.2M</div></div>
+        <div class="dash-tile"><div class="t">Payroll (28 staff)</div><div class="v green">Scheduled</div></div>
+      </div>
+      <div class="dash-trans">
+        <div class="row"><div><div class="who">Bulk Payroll — June</div><div class="meta">28 recipients · 08:30 AM</div></div><div class="amt-out">−₦3,840,000</div></div>
+        <div class="row"><div><div class="who">Invoice #INV-2204</div><div class="meta">Jara Foods · Paid</div></div><div class="amt-out" style="color:#00C853">+₦612,500</div></div>
+        <div class="row"><div><div class="who">POS Terminal LK-04</div><div class="meta">Lekki branch settle</div></div><div class="amt-out" style="color:#00C853">+₦289,140</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-badge"><div class="trust-icon">🛡</div><div><strong>CBN Licensed</strong><br>MFB/2021/0847</div></div>
+    <div class="trust-badge"><div class="trust-icon">🏦</div><div><strong>NDIC Insured</strong><br>up to ₦500,000</div></div>
+    <div class="trust-badge"><div class="trust-icon">🔒</div><div><strong>PCI-DSS Level 1</strong><br>Certified</div></div>
+    <div class="trust-badge"><div class="trust-icon">📜</div><div><strong>ISO 27001:2013</strong><br>Compliant</div></div>
+    <div class="trust-badge"><div class="trust-icon">✓</div><div><strong>NDPR Compliant</strong><br>Data Protected</div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="sect-head">
+      <div class="sect-eyebrow">Features Built for Business</div>
+      <h2>Everything your business needs, in one app.</h2>
+      <p>Six core tools that replace your accountant's spreadsheet, your bank's slow portal, and your POS vendor's clunky software.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="feat-icon">👥</div>
+        <h3>Multi-User Roles</h3>
+        <p>Add owners, accountants, and approvers with granular permissions. Set spending limits per user and require dual approval on transactions above ₦500,000.</p>
+        <span class="chip">UP TO 50 USERS</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <h3>Bulk Payments</h3>
+        <p>Upload CSV and pay up to 5,000 recipients in one transaction. Cross-bank transfers settle in seconds with full transaction receipts auto-emailed.</p>
+        <span class="chip">5,000 RECIPIENTS</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">₦</div>
+        <h3>KoboPayroll</h3>
+        <p>Run monthly salaries with automatic PAYE deduction, pension remittance to PFA, and NHF filing. Payslips delivered to staff inboxes automatically.</p>
+        <span class="chip">PAYE AUTO-DEDUCT</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📄</div>
+        <h3>Invoice Generator</h3>
+        <p>Create branded invoices with your logo, send via WhatsApp or email, and accept payment by card, transfer, or USSD. Auto-reconcile to ledger.</p>
+        <span class="chip">FREE TEMPLATES</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🏪</div>
+        <h3>POS Terminal Rental</h3>
+        <p>Bluetooth and GPRS-enabled POS terminals delivered nationwide. T+0 settlement to your KoboPay business account with no hidden charges.</p>
+        <span class="chip">₦15,000 / MONTH</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">💼</div>
+        <h3>Working Capital Loans</h3>
+        <p>Pre-approved business loans based on your transaction history. Apply in-app, get decision in 6 hours, funds disbursed same day. No collateral.</p>
+        <span class="chip">UP TO ₦10M</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="section-inner">
+    <div class="sect-head">
+      <div class="sect-eyebrow">Simple, Naira-Smart Pricing</div>
+      <h2>Pick the tier that fits your hustle.</h2>
+      <p>No setup fees, no maintenance charges. Upgrade or downgrade anytime — pro-rated to the kobo.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="tier">
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">₦0<span class="per">/month</span></div>
+        <div class="tier-desc">Perfect for sole traders, freelancers, and side hustles.</div>
+        <ul>
+          <li>1 user account</li>
+          <li>Free transfers to any bank</li>
+          <li>Basic invoice generator (10/month)</li>
+          <li>Virtual Naira card</li>
+          <li>USSD banking on *737*KOBO#</li>
+          <li>Email + WhatsApp support</li>
+        </ul>
+        <button class="tier-btn">Start Free</button>
+      </div>
+      <div class="tier featured">
+        <div class="tier-badge">MOST POPULAR</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-price">₦2,500<span class="per">/month</span></div>
+        <div class="tier-desc">For growing SMEs ready to professionalize operations.</div>
+        <ul>
+          <li>Up to 10 staff accounts</li>
+          <li>Unlimited bulk payments</li>
+          <li>KoboPayroll with PAYE automation</li>
+          <li>Unlimited invoices &amp; recurring billing</li>
+          <li>1 free POS terminal</li>
+          <li>Loan eligibility up to ₦2M</li>
+          <li>Priority phone support</li>
+        </ul>
+        <button class="tier-btn">Choose Growth</button>
+      </div>
+      <div class="tier">
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-price">₦15,000<span class="per">/month</span></div>
+        <div class="tier-desc">For established businesses with complex operations.</div>
+        <ul>
+          <li>Unlimited staff accounts</li>
+          <li>Dedicated relationship manager</li>
+          <li>Custom API &amp; webhook access</li>
+          <li>Multi-branch POS fleet management</li>
+          <li>Loan eligibility up to ₦10M</li>
+          <li>SLA-backed 99.98% uptime</li>
+          <li>24/7 dedicated support line</li>
+        </ul>
+        <button class="tier-btn">Contact Sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#FFFFFF">
+  <div class="section-inner">
+    <div class="sect-head">
+      <div class="sect-eyebrow">Trusted by Nigerian SMEs</div>
+      <h2>Real numbers from real businesses.</h2>
+      <p>From Onitsha market traders to Lagos manufacturers — see what KoboPay does for revenue and operations.</p>
+    </div>
+    <div class="cases">
+      <div class="case case-1">
+        <div class="case-logo">JF</div>
+        <h4>Jara Foods</h4>
+        <div class="sect">FMCG · Lagos</div>
+        <div class="case-stat">+38%</div>
+        <div class="case-stat-l">in collection rate within 90 days</div>
+        <div class="case-quote">"Invoice reminders and POS settlements in one app means we stopped chasing late payers."</div>
+      </div>
+      <div class="case case-2">
+        <div class="case-logo">AR</div>
+        <h4>Ankara Republic</h4>
+        <div class="sect">Fashion · Abuja</div>
+        <div class="case-stat">+₦12M</div>
+        <div class="case-stat-l">added to monthly revenue</div>
+        <div class="case-quote">"The working capital loan let us stock 3x more fabric for festive season. Paid back in 4 months."</div>
+      </div>
+      <div class="case case-3">
+        <div class="case-logo">LA</div>
+        <h4>Lekki Auto Parts</h4>
+        <div class="sect">Retail · Lagos</div>
+        <div class="case-stat">22 hrs</div>
+        <div class="case-stat-l">saved every week on admin</div>
+        <div class="case-quote">"KoboPayroll automated PAYE for our 14 staff. My accountant now focuses on growth, not paperwork."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta">
+  <div class="cta-card">
+    <div>
+      <h2>Ready to bank like your business deserves?</h2>
+      <p>Speak to our SME specialists. We'll migrate your accounting data, set up your team, and onboard your POS terminals — all within 7 days. No fees, no wahala.</p>
+      <div class="cta-actions">
+        <button class="btn-yellow">Open Business Account</button>
+        <button class="btn-ghost">📞 Book a Demo</button>
+      </div>
+    </div>
+    <div class="cta-side">
+      <div class="cta-stats">
+        <div class="cta-stat"><span>Average onboarding time</span><strong>4 days</strong></div>
+        <div class="cta-stat"><span>SME loan approval rate</span><strong>71%</strong></div>
+        <div class="cta-stat"><span>POS uptime guarantee</span><strong>99.98%</strong></div>
+        <div class="cta-stat"><span>Customer satisfaction</span><strong>4.8 / 5.0</strong></div>
+        <div class="cta-stat"><span>Sales line</span><strong>+234 901 KOBO BIZ</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand"><div class="logo-mark">K</div>KoboPay</div>
+      <div class="foot-about">Bank Smart. Spend Free. Grow Naira. KoboPay is Nigeria's free digital bank, trusted by 4.2 million Nigerians and 186,000+ businesses across all 36 states.</div>
+      <div class="foot-cbn">CBN MFB License: MFB/2021/0847</div>
+    </div>
+    <div class="foot-col">
+      <h5>Products</h5>
+      <a href="#">Personal</a>
+      <a href="#">Business</a>
+      <a href="#">Agents</a>
+      <a href="#">KoboInvest</a>
+      <a href="#">Diaspora</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Press</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="foot-col">
+      <h5>Support</h5>
+      <a href="#">Help Center</a>
+      <a href="#">Security</a>
+      <a href="#">USSD *737*KOBO#</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Report Fraud</a>
+    </div>
+    <div class="foot-col">
+      <h5>Legal</h5>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookies</a>
+      <a href="#">NDPR</a>
+      <a href="#">Complaints</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2022 KoboPay Microfinance Bank Ltd. All rights reserved.</div>
+    <div class="foot-cert">
+      <span>CBN Licensed</span>
+      <span>NDIC Member #DIB-2021-119</span>
+      <span>PCI-DSS L1</span>
+      <span>ISO 27001</span>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-float" title="Chat on WhatsApp">💬</div>
+
+</body>
+</html>

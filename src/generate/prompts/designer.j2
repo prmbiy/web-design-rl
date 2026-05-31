@@ -1,0 +1,50 @@
+You are an expert web designer. Output a concise global design system for this website. Keep it under 1500 tokens.
+
+## Site DNA
+```json
+{{ dna | tojson(indent=2) }}
+```
+
+Output ONLY valid JSON — no markdown fences:
+
+{
+  "global": {
+    "google_fonts_url": "full @import URL or null",
+    "font_heading": "CSS font-family value",
+    "font_body": "CSS font-family value",
+    "font_mono": "CSS font-family value or null",
+    "size_h1": "px",
+    "size_h2": "px",
+    "size_body": "px",
+    "size_small": "px",
+    "color_primary": "#hex",
+    "color_secondary": "#hex",
+    "color_accent": "#hex",
+    "color_bg": "#hex",
+    "color_surface": "#hex",
+    "color_text": "#hex",
+    "color_text_muted": "#hex",
+    "color_border": "#hex",
+    "border_radius": "px or 0",
+    "container_max_width": "px",
+    "section_padding": "CSS value",
+    "nav_bg": "#hex",
+    "nav_height": "px",
+    "nav_position": "fixed or sticky or static",
+    "footer_bg": "#hex",
+    "extra_colors": {"name": "#hex"},
+    "animation_specs": {
+      "animation_name": {
+        "css": "complete CSS @keyframes or transition rule",
+        "applies_to": "CSS selector",
+        "trigger": "on-load or on-hover or on-scroll or continuous"
+      }
+    }
+  },
+  "pages": {
+    "<slug>": {
+      "layout": "one sentence describing the page layout",
+      "bg": "#hex or CSS gradient"
+    }
+  }
+}

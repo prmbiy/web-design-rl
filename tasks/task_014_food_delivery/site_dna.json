@@ -1,0 +1,22 @@
+{
+  "id": "014",
+  "name": "food_delivery",
+  "source": "B",
+  "archetype": "Indian food delivery and restaurant discovery app",
+  "market": "India, urban mobile users ordering food delivery, 18-40 demographic",
+  "era": "2022",
+  "density": "High density but well-organized. The home screen is app-UI translated to web — big category icons for cuisine type, restaurant cards with photos and key metrics. Offers and discounts very prominent. Multiple food categories above the fold. Location pin and delivery time always shown.",
+  "nav_style": "Top nav with delivery location (area name with dropdown to change), 'Delivery' and 'Dining Out' toggle tabs, search bar, and login. Below: horizontal scrollable offer banners. Below that: cuisine category icons in a horizontal scroll (North Indian, South Indian, Pizza, Biryani, Chinese, etc.). Always-visible cart bubble with item count.",
+  "commercial_model": "Commission from restaurants. Delivery fee from customers. Premium 'Pro' subscription with free delivery. Advertisement for featured restaurants and 'Promoted' badges. Revenue from ads in the restaurant feed.",
+  "color_palette": "Signature orange (#FC8019) as dominant brand color — appetite stimulating, energetic. White (#FFFFFF) for card backgrounds. Grey (#686B78) for metadata text. Green (#60B246) for 'Open' status and vegetarian badges. Red (#E23744) for non-veg indicators and urgent offers. Dark (#3D4152) for headings.",
+  "typography": "ProximaNova or similar clean rounded sans-serif. Restaurant name in 16px bold dark. Rating number prominent in orange with star icon. Delivery time in smaller grey. Price for two in grey. Offer badge in contrasting bright color. Discount percentage in very large bold on offer cards.",
+  "quirks": ["veg_nonveg_indicators", "green_dot_veg_red_dot_nonveg", "delivery_time_estimate", "rating_and_review_count", "minimum_order_badge", "free_delivery_threshold", "pro_member_badge", "restaurant_distance_km", "offer_percentage_large", "cuisine_type_tags"],
+  "pages": [
+    {"slug": "home", "title": "Order Food Online", "description": "Location header. Offer carousel banners. Cuisine category icon strip. 'Top restaurants near you' section with card grid. 'What's on your mind?' quick order section. 'Popular chains' section. All new restaurants section."},
+    {"slug": "restaurant", "title": "Restaurant Menu", "description": "Restaurant header with photo, rating, delivery time, minimum order, offer badge. Menu categories as sticky left sidebar. Menu items with photo, name, price, veg/non-veg indicator, add to cart button. Bestseller badges."},
+    {"slug": "cart", "title": "Your Cart", "description": "Cart items with quantity selectors. Restaurant name header. Bill details breakdown: subtotal, delivery fee, platform fee, GST, discount applied. Total. Delivery address section. Coupon apply field. Place order CTA."},
+    {"slug": "orders", "title": "Your Orders", "description": "Order history with restaurant name, items ordered, date, total amount, and status badge (Delivered, Cancelled). Reorder button. Rate your experience prompt for recent orders. Invoice download link."},
+    {"slug": "offers", "title": "Offers & Benefits", "description": "All current offers page. Bank offer cards with discount percentage and minimum spend. First order free delivery offer. Pro membership benefits comparison. Restaurant-specific offers. Coupon codes section."}
+  ],
+  "animations": false
+}

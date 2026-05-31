@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Spaces — Kiln & Co.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #F5F0E8;
+  color: #2C2C2C;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* NAV */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  height: 72px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D5;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C2C2C;
+}
+.nav-links a.active { color: #C1603C; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.day-pass-link {
+  font-size: 13px;
+  color: #7A5C44;
+  font-weight: 500;
+}
+.btn-primary {
+  background: #C1603C;
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #A8512F; }
+.btn-secondary {
+  background: transparent;
+  color: #2C2C2C;
+  padding: 11px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #E8E0D5;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  padding: 96px 32px 64px;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B55A30;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  color: #2C2C2C;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+.hero p.sub {
+  font-size: 20px;
+  color: #7A5C44;
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+/* TOOLBAR */
+.toolbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #E8E0D5;
+  border-bottom: 1px solid #E8E0D5;
+}
+.toolbar-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7A5C44;
+  margin-right: 8px;
+}
+.btn-tour {
+  background: #2C2C2C;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-pdf {
+  background: #FFFFFF;
+  color: #2C2C2C;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #E8E0D5;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-pdf small { color: #7A5C44; font-weight: 400; }
+
+/* SPACES GRID */
+.spaces-section { padding: 64px 32px; }
+.spaces-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px;
+}
+.space-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.space-card.large { grid-column: span 4; }
+.space-card.medium { grid-column: span 3; }
+.space-card.small { grid-column: span 2; }
+
+.photo {
+  background: linear-gradient(135deg, #C1603C22, #7BA05B22), #F5F0E8;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  color: #C1603C99;
+}
+.photo.tall { height: 360px; }
+.photo.medium { height: 280px; }
+.photo.short { height: 220px; }
+.photo .badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(123, 160, 91, 0.95);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.photo .badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.photo .capacity-pill {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(44,44,44,0.85);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.card-body h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.card-meta {
+  font-size: 13px;
+  color: #B55A30;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.card-desc {
+  font-size: 15px;
+  color: #7A5C44;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+.amenities {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+.amenities li {
+  font-size: 12px;
+  color: #2C2C2C;
+  background: #F5F0E8;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #E8E0D5;
+}
+.card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #C1603C;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #E8E0D5;
+  padding-top: 16px;
+}
+
+/* VIRTUAL TOUR */
+.tour-section {
+  padding: 64px 32px;
+  background: #FFFFFF;
+  border-top: 1px solid #E8E0D5;
+  border-bottom: 1px solid #E8E0D5;
+}
+.tour-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.tour-visual {
+  background: linear-gradient(135deg, #C1603C22, #7BA05B22), #F5F0E8;
+  height: 380px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.tour-play {
+  width: 88px;
+  height: 88px;
+  background: #C1603C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28px;
+  box-shadow: 0 12px 32px rgba(193,96,60,0.4);
+}
+.tour-visual::before {
+  content: '360° MATTERPORT TOUR';
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #2C2C2C;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 3px;
+}
+.tour-text h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #2C2C2C;
+  margin-bottom: 20px;
+}
+.tour-text p {
+  font-size: 17px;
+  color: #7A5C44;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.tour-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* AMENITIES ICON GRID */
+.amenities-section { padding: 96px 32px; }
+.amenities-inner { max-width: 1280px; margin: 0 auto; }
+.amenities-header { margin-bottom: 48px; max-width: 720px; }
+.amenities-header h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.amenities-header p { font-size: 17px; color: #7A5C44; }
+.amenities-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+.amenity-tile {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 28px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.amenity-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #C1603C22, #7BA05B22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+.amenity-tile span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2C2C2C;
+  line-height: 1.3;
+}
+
+/* CTA */
+.cta-section {
+  padding: 96px 32px;
+  background: #C1603C;
+  color: #fff;
+  text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 60px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  line-height: 1.05;
+}
+.cta-section p {
+  font-size: 19px;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-buttons .btn-light {
+  background: #fff;
+  color: #C1603C;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.cta-buttons .btn-outline-light {
+  background: transparent;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* FOOTER */
+footer {
+  background: #2C2C2C;
+  color: #B8B0A4;
+  padding: 80px 32px 40px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+.footer-brand .logo { color: #fff; margin-bottom: 16px; display: block; }
+.footer-brand p { font-size: 14px; line-height: 1.6; }
+.footer-col h4 {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 14px; color: #B8B0A4; }
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Kiln &amp; Co.</a>
+    <ul class="nav-links">
+      <li><a href="/spaces" class="active">Spaces</a></li>
+      <li><a href="/membership">Membership</a></li>
+      <li><a href="/community">Community</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/day-pass" class="day-pass-link">Day Pass — $35</a>
+      <button class="btn-primary">Book a Tour</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Our Spaces — Gowanus, Brooklyn</div>
+    <h1>Six ways to work.</h1>
+    <p class="sub">From quiet focus rooms to a 200-person event hall — all under one roof in Gowanus, with exposed brick, double-height ceilings, and north-facing windows.</p>
+  </div>
+</section>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <span class="toolbar-label">Explore</span>
+  <a href="#tour" class="btn-tour">▶ Take the Virtual Tour</a>
+  <a href="#" class="btn-pdf">⬇ Download Floor Plan <small>(PDF, 2.4MB)</small></a>
+</div>
+
+<!-- SPACES GRID -->
+<section class="spaces-section">
+  <div class="spaces-grid">
+
+    <!-- Main Floor -->
+    <article class="space-card large">
+      <div class="photo tall">
+        <span class="badge">Available Now</span>
+        <span style="font-size:90px;">🏭</span>
+        <span class="capacity-pill">80 seats</span>
+      </div>
+      <div class="card-body">
+        <h3>Main Floor</h3>
+        <div class="card-meta">Open coworking · 80 seats · 9am – 6pm + 24/7 for members</div>
+        <p class="card-desc">Our flagship workspace — a 4,200 sq ft open floor with exposed brick, communal oak tables, standing desks, and north-facing skylights. Always coffee on the bar.</p>
+        <ul class="amenities">
+          <li>Standing desks</li>
+          <li>Communal tables</li>
+          <li>Natural light</li>
+          <li>Coffee bar</li>
+          <li>Power at every seat</li>
+          <li>Bookable lockers</li>
+        </ul>
+        <a href="#" class="card-link">View Details →</a>
+      </div>
+    </article>
+
+    <!-- Focus Rooms -->
+    <article class="space-card small">
+      <div class="photo short">
+        <span class="badge">Available Now</span>
+        <span style="font-size:54px;">📖</span>
+        <span class="capacity-pill">1–2 ppl</span>
+      </div>
+      <div class="card-body">
+        <h3>Focus Rooms</h3>
+        <div class="card-meta">4 rooms · 1–2 person · Deep work</div>
+        <p class="card-desc">Glass-walled, acoustically treated rooms for heads-down work or a one-on-one.</p>
+        <ul class="amenities">
+          <li>Whiteboard</li>
+          <li>Monitor</li>
+          <li>Sit-stand desk</li>
+        </ul>
+        <a href="#" class="card-link">Reserve →</a>
+      </div>
+    </article>
+
+    <!-- Phone Booths -->
+    <article class="space-card medium">
+      <div class="photo medium">
+        <span class="badge">Available Now</span>
+        <span style="font-size:60px;">📞</span>
+        <span class="capacity-pill">6 booths</span>
+      </div>
+      <div class="card-body">
+        <h3>Soundproof Phone Booths</h3>
+        <div class="card-meta">6 booths · 1 person · First come, first served</div>
+        <p class="card-desc">Acoustic-panel booths for client calls, podcast recordings, or just yelling at your Wi-Fi.</p>
+        <ul class="amenities">
+          <li>Soundproofed</li>
+          <li>Ventilation</li>
+          <li>USB-C charging</li>
+          <li>Ring light</li>
+        </ul>
+        <a href="#" class="card-link">Learn More →</a>
+      </div>
+    </article>
+
+    <!-- Meeting Rooms -->
+    <article class="space-card medium">
+      <div class="photo medium">
+        <span class="badge">Available Now</span>
+        <span style="font-size:60px;">🪑</span>
+        <span class="capacity-pill">6–12 ppl</span>
+      </div>
+      <div class="card-body">
+        <h3>Meeting Rooms</h3>
+        <div class="card-meta">4 rooms · 6–12 person · Bookable in 30-min blocks</div>
+        <p class="card-desc">Named after Brooklyn bridges — Manhattan, Williamsburg, Verrazzano, and Kosciuszko. Each with full AV and a real coffee carafe.</p>
+        <ul class="amenities">
+          <li>4K display</li>
+          <li>AV / video conf</li>
+          <li>Whiteboard wall</li>
+          <li>Conference phone</li>
+        </ul>
+        <a href="#" class="card-link">Book a Room →</a>
+      </div>
+    </article>
+
+    <!-- The Foundry -->
+    <article class="space-card large">
+      <div class="photo tall">
+        <span class="badge">By Reservation</span>
+        <span style="font-size:90px;">🎟️</span>
+        <span class="capacity-pill">200 cap</span>
+      </div>
+      <div class="card-body">
+        <h3>The Foundry Event Space</h3>
+        <div class="card-meta">Up to 200 guests · $150–400/hr · Catering optional</div>
+        <p class="card-desc">A 3,000 sq ft event hall in our former machine shop. Twenty-foot ceilings, in-house bar, full AV rig. Hosts our monthly mixers — and yours.</p>
+        <ul class="amenities">
+          <li>Stage + lighting</li>
+          <li>Sound system</li>
+          <li>Bar service</li>
+          <li>Lectern + mics</li>
+          <li>Green room</li>
+          <li>Load-in dock</li>
+        </ul>
+        <a href="#" class="card-link">Inquire About Booking →</a>
+      </div>
+    </article>
+
+    <!-- Roof Deck -->
+    <article class="space-card medium">
+      <div class="photo medium">
+        <span class="badge">Seasonal · Apr–Oct</span>
+        <span style="font-size:60px;">🌿</span>
+        <span class="capacity-pill">40 cap</span>
+      </div>
+      <div class="card-body">
+        <h3>Roof Deck</h3>
+        <div class="card-meta">40 cap · Manhattan views · Apr–Oct</div>
+        <p class="card-desc">Wood-decked roof terrace with planters, a small bar, and the best skyline view in Gowanus.</p>
+        <ul class="amenities">
+          <li>Wi-Fi extended</li>
+          <li>Outdoor seating</li>
+          <li>Bar service</li>
+          <li>String lights</li>
+        </ul>
+        <a href="#" class="card-link">View Details →</a>
+      </div>
+    </article>
+
+    <!-- Studios extra -->
+    <article class="space-card medium">
+      <div class="photo medium">
+        <span class="badge">2 Available</span>
+        <span style="font-size:60px;">🎨</span>
+        <span class="capacity-pill">3–6 ppl</span>
+      </div>
+      <div class="card-body">
+        <h3>Private Studios</h3>
+        <div class="card-meta">8 studios · 3–6 person · Lockable</div>
+        <p class="card-desc">Glass-fronted private offices along the south wall. Bring your team, your plants, your branded mugs.</p>
+        <ul class="amenities">
+          <li>Lockable door</li>
+          <li>Mail address</li>
+          <li>HVAC zone</li>
+          <li>Custom signage</li>
+        </ul>
+        <a href="#" class="card-link">See Floor Plan →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- VIRTUAL TOUR -->
+<section class="tour-section" id="tour">
+  <div class="tour-inner">
+    <div class="tour-visual">
+      <div class="tour-play">▶</div>
+    </div>
+    <div class="tour-text">
+      <div class="eyebrow">Virtual Walkthrough</div>
+      <h2>Tour every corner — without leaving your desk.</h2>
+      <p>Our Matterport-powered 360° walkthrough lets you wander the main floor, peek into a focus room, and stand on the roof deck. Or grab the floor plan PDF for the full layout with dimensions.</p>
+      <div class="tour-buttons">
+        <a href="#" class="btn-tour">▶ Launch 360° Tour</a>
+        <a href="#" class="btn-pdf">⬇ Floor Plan <small>(PDF, 2.4MB)</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES ICON GRID -->
+<section class="amenities-section">
+  <div class="amenities-inner">
+    <div class="amenities-header">
+      <div class="eyebrow">Included with Membership</div>
+      <h2>The little things, included.</h2>
+      <p>Every plan comes with the full set of house amenities — from the espresso machine to the showers after your bike commute.</p>
+    </div>
+    <div class="amenities-icon-grid">
+      <div class="amenity-tile"><div class="amenity-icon">🧍</div><span>Standing Desks</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">📋</div><span>Whiteboards</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">📺</div><span>AV &amp; Displays</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">☀️</div><span>Natural Light</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">☕</div><span>Coffee Bar</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🍺</div><span>Beer Tap</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🖨️</div><span>Printing</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🔒</div><span>Lockers</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🚲</div><span>Bike Room</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🚿</div><span>Showers</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🍼</div><span>Mother's Room</span></div>
+      <div class="amenity-tile"><div class="amenity-icon">🐕</div><span>Pet-Friendly</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Come see it in person.</h2>
+  <p>Tours run Monday through Friday, 10am–5pm. Coffee included.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-light">Book a Tour</a>
+    <a href="#" class="btn-outline-light">Day Pass — $35</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Kiln &amp; Co.</span>
+        <p>Coworking &amp; creative studios across three Brooklyn locations. 847 members building in public.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Spaces</h4>
+        <ul>
+          <li><a href="#">Williamsburg</a></li>
+          <li><a href="#">Gowanus</a></li>
+          <li><a href="#">Long Island City</a></li>
+          <li><a href="#">The Foundry</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Membership</h4>
+        <ul>
+          <li><a href="#">Day Pass</a></li>
+          <li><a href="#">Hot Desk</a></li>
+          <li><a href="#">Dedicated Desk</a></li>
+          <li><a href="#">Private Office</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Perks</a></li>
+          <li><a href="#">Slack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#">Book a Tour</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2023 Kiln &amp; Co. — Made in Brooklyn.</span>
+      <span>Privacy · Terms · Accessibility</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

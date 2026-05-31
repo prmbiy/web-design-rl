@@ -1,0 +1,207 @@
+{
+  "brand_name": "ТоргоМир",
+  "tagline": "Миллионы товаров — доставка за 1 день",
+  "primary_color_name": "Торговый Оранжевый",
+  "pages": {
+    "home": {
+      "title": "ТоргоМир — интернет-магазин: одежда, электроника, продукты",
+      "nav_items": [
+        "Электроника",
+        "Одежда",
+        "Обувь",
+        "Дом и сад",
+        "Детям",
+        "Красота",
+        "Спорт",
+        "Авто",
+        "Книги",
+        "Продукты",
+        "Зоотовары",
+        "Аптека",
+        "Ювелирка",
+        "Хобби",
+        "Стройка",
+        "Канцтовары",
+        "Игрушки",
+        "Бытовая техника",
+        "Мебель",
+        "Premium 18+"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Dark grey bar with logo ТоргоМир, search input placeholder 'Искать на ТоргоМире', city selector 'Москва — доставка завтра', links 'Войти', 'Заказы', 'Избранное', 'Корзина', 'Стать продавцом'."
+        },
+        {
+          "name": "promo_carousel",
+          "description": "Full-width banner slides: 'Чёрная Пятница — скидки до 70%', 'Рассрочка 0-0-12 от ТоргоБанк', 'Бесплатная доставка от 1500₽'."
+        },
+        {
+          "name": "todays_deals",
+          "headline": "Товар дня — успей за",
+          "subheadline": "Countdown timer 03:42:19 with 6 product cards: Xiaomi Redmi Note 10 за 14 990₽ (было 19 990₽), Робот-пылесос Polaris за 8 499₽, Кофемашина DeLonghi за 22 990₽."
+        },
+        {
+          "name": "category_grid",
+          "description": "Grid of 24 category tiles with icons: Смартфоны, Ноутбуки, Холодильники, Стиральные машины, Телевизоры, Игрушки, Корм для животных, Памперсы, Мужская одежда, Кроссовки, Витамины, Шины."
+        },
+        {
+          "name": "flash_sale",
+          "description": "Strip 'Горячие предложения' with red countdown, 8 cards showing -45%, -60% badges, 'Осталось 3 шт', delivery 'Завтра'."
+        },
+        {
+          "name": "recommended",
+          "headline": "Рекомендуем вам",
+          "subheadline": "Personalized 12-card grid: Наушники JBL Tune 510BT 3 290₽, Кофе Jacobs Monarch 1кг 899₽, Книга 'Атомные привычки' 549₽."
+        },
+        {
+          "name": "bnpl_banner",
+          "description": "Orange banner for ТоргоПлати — 'Покупай сейчас, плати через 30 дней. Без процентов.'"
+        },
+        {
+          "name": "app_download",
+          "description": "Banner with QR code and badges App Store / Google Play / AppGallery — 'Скачай приложение и получи 500 бонусов'."
+        },
+        {
+          "name": "footer",
+          "description": "Dark grey footer columns: Покупателям (Доставка, Возврат, Гарантия), Продавцам (Стать продавцом, Тарифы), Компания (О нас, Вакансии, Контакты), соцсети ВКонтакте/Одноклассники/Telegram."
+        }
+      ]
+    },
+    "catalog": {
+      "title": "Смартфоны — купить в Москве, цены от 2 990₽ | ТоргоМир",
+      "nav_items": [
+        "Электроника",
+        "Смартфоны",
+        "Apple",
+        "Samsung",
+        "Xiaomi",
+        "Realme",
+        "Honor"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumbs",
+          "description": "Главная → Электроника → Смартфоны и гаджеты → Смартфоны (12 847 товаров)."
+        },
+        {
+          "name": "filter_sidebar",
+          "description": "Filters: Бренд (Apple, Samsung, Xiaomi, Huawei), Цена от-до с ползунком, Рейтинг 4★+, Доставка завтра, Объём памяти 64/128/256ГБ, Продавец, Рассрочка доступна."
+        },
+        {
+          "name": "sort_bar",
+          "description": "Sort dropdown 'По популярности' + toggles: По цене ↑, По рейтингу, Новинки, Со скидкой; view grid/list."
+        },
+        {
+          "name": "product_grid",
+          "description": "Compact cards 4-per-row: Apple iPhone 13 128GB 67 990₽ (было 79 990₽) ★4.9 (2 341), 'Доставка завтра', 'Реклама' badge; Samsung Galaxy A52 24 990₽; Xiaomi Redmi 9C 7 490₽ 'Осталось 5 шт'."
+        },
+        {
+          "name": "pagination",
+          "description": "Numbered pagination 1 2 3 ... 247 with 'Показать ещё 60 товаров' button."
+        }
+      ]
+    },
+    "product": {
+      "title": "Смартфон Apple iPhone 13 128GB Midnight — купить | ТоргоМир",
+      "nav_items": [
+        "Описание",
+        "Характеристики",
+        "Отзывы (2 341)",
+        "Вопросы (87)",
+        "Доставка"
+      ],
+      "sections": [
+        {
+          "name": "gallery",
+          "description": "Vertical thumbnail strip + main image with zoom, video icon, 360° view badge, '18 фото'."
+        },
+        {
+          "name": "buy_box",
+          "headline": "Apple iPhone 13 128GB Midnight",
+          "subheadline": "Price block: 67 990₽ (зачёркнуто 79 990₽), -15%, 'или 5 665₽ × 12 мес ТоргоПлати', бонусов: +1 359, кнопки 'В корзину' и 'Купить сейчас'."
+        },
+        {
+          "name": "delivery_block",
+          "description": "Delivery options: 'Курьером завтра, 16 ноября — бесплатно', 'Пункт выдачи СДЭК, 15 ноября — 0₽', 'Почта России 18-22 ноября'."
+        },
+        {
+          "name": "seller_card",
+          "description": "Seller ТехноГранд ★4.8 (12 847 отзывов), на ТоргоМире с 2019, кнопки 'Все товары продавца' и 'Задать вопрос'."
+        },
+        {
+          "name": "specs_table",
+          "description": "Specifications: Диагональ 6.1\", Процессор A15 Bionic, RAM 4ГБ, Камера 12+12МП, Аккумулятор 3240мАч, IP68."
+        },
+        {
+          "name": "reviews",
+          "description": "Rating breakdown 4.9★, отзывы с фото от Анна К. ('Отличный телефон, пришёл за день'), Дмитрий М., Елена П., фильтры по оценке."
+        },
+        {
+          "name": "similar",
+          "description": "Carousel 'Похожие товары': iPhone 12, iPhone SE 2022, Samsung Galaxy S21."
+        }
+      ]
+    },
+    "cart": {
+      "title": "Корзина (3 товара) | ТоргоМир",
+      "nav_items": [
+        "Корзина",
+        "Избранное",
+        "Просмотренные"
+      ],
+      "sections": [
+        {
+          "name": "items_list",
+          "description": "Items: iPhone 13 128GB — 67 990₽ × 1, Чехол Spigen — 1 490₽ × 2, Защитное стекло — 590₽ × 1; quantity steppers, удалить, в избранное."
+        },
+        {
+          "name": "promo_code",
+          "description": "Input 'Промокод' + кнопка 'Применить', подсказка 'BLACK21 — скидка 500₽'."
+        },
+        {
+          "name": "summary",
+          "headline": "Итого: 71 560₽",
+          "subheadline": "Товары 71 560₽, доставка бесплатно, скидка -500₽, бонусов начислим +1 431; кнопка 'Перейти к оформлению'."
+        },
+        {
+          "name": "cross_sell",
+          "description": "Section 'С этим покупают': Power Bank Xiaomi 10000 1 290₽, Наушники Apple EarPods 1 990₽, Карта памяти SanDisk 64GB 590₽."
+        }
+      ]
+    },
+    "seller": {
+      "title": "ТехноГранд — официальный магазин на ТоргоМире",
+      "nav_items": [
+        "Витрина",
+        "Все товары (8 432)",
+        "Акции",
+        "Отзывы (12 847)",
+        "Контакты"
+      ],
+      "sections": [
+        {
+          "name": "seller_header",
+          "headline": "ТехноГранд",
+          "subheadline": "★4.8 · 12 847 отзывов · на ТоргоМире с марта 2019 · отвечает за 12 минут · ИП Соколов А.В., Москва."
+        },
+        {
+          "name": "ratings_breakdown",
+          "description": "Bars: Качество товара 4.9, Скорость доставки 4.8, Соответствие описанию 4.9, Общение 4.7."
+        },
+        {
+          "name": "promo_strip",
+          "description": "Banner 'Скидки до 30% на технику Apple' с countdown 2д 14ч."
+        },
+        {
+          "name": "products_grid",
+          "description": "Seller's product grid 24 cards: iPhone 13, MacBook Air M1 89 990₽, AirPods Pro 18 990₽, iPad 10.2 32 990₽ — все с '★4.8+' и 'Доставка завтра'."
+        },
+        {
+          "name": "contact_block",
+          "description": "Contact options: 'Написать продавцу', режим работы Пн-Вс 9:00-21:00, адрес склада Москва, Каширское ш. 61."
+        }
+      ]
+    }
+  }
+}

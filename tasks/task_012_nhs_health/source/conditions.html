@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Health A to Z - NHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans', Frutiger, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #212B32;
+  background: #FFFFFF;
+}
+
+a { color: #005EB8; }
+a:visited { color: #330072; }
+a:focus { outline: 4px solid #FFEB3B; outline-offset: 0; background: #FFEB3B; color: #212B32; text-decoration: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #FFEB3B;
+  color: #212B32;
+  padding: 12px 18px;
+  font-weight: 700;
+  z-index: 100;
+}
+.skip-link:focus { left: 16px; top: 8px; }
+
+/* Top nav */
+.top-bar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D8DDE0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.top-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+}
+.nhs-logo {
+  background: #005EB8;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 8px 16px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.search-container {
+  flex: 1;
+  max-width: 540px;
+  display: flex;
+}
+.search-container input {
+  flex: 1;
+  height: 48px;
+  padding: 0 14px;
+  font-size: 19px;
+  font-family: inherit;
+  border: 2px solid #4C6272;
+  border-right: 0;
+  background: #FFFFFF;
+}
+.search-container button {
+  background: #005EB8;
+  color: #FFFFFF;
+  border: 2px solid #4C6272;
+  border-left: 0;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.menu-btn {
+  margin-left: auto;
+  background: #FFFFFF;
+  border: 2px solid #005EB8;
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 19px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+/* Secondary nav */
+.subnav {
+  background: #005EB8;
+}
+.subnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+}
+.subnav-inner a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 14px 18px;
+  font-size: 17px;
+  font-weight: 400;
+  border-bottom: 4px solid transparent;
+}
+.subnav-inner a.active,
+.subnav-inner a:hover {
+  border-bottom-color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  background: #F0F4F5;
+  border-bottom: 1px solid #D8DDE0;
+}
+.breadcrumbs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #4C6272;
+}
+.breadcrumbs-inner a { text-decoration: underline; }
+.breadcrumbs-inner span.sep { margin: 0 8px; color: #4C6272; }
+
+/* Hero */
+.hero {
+  background: #005EB8;
+  color: #FFFFFF;
+  padding: 40px 0 48px;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 22px;
+  max-width: 760px;
+}
+
+/* Alphabet */
+.alphabet-band {
+  background: #F0F4F5;
+  border-bottom: 1px solid #D8DDE0;
+  padding: 24px 0;
+}
+.alphabet-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.alphabet-inner h2 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #212B32;
+}
+.alphabet-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.alphabet-list a, .alphabet-list span {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 38px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 19px;
+  background: #FFFFFF;
+  border: 2px solid #005EB8;
+  text-decoration: none;
+}
+.alphabet-list a:hover { background: #005EB8; color: #FFFFFF; }
+.alphabet-list span.disabled {
+  color: #4C6272;
+  border-color: #D8DDE0;
+  background: #F0F4F5;
+  cursor: not-allowed;
+}
+
+/* Main grid */
+.article-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+}
+
+/* On this page */
+.toc {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+}
+.toc h2 {
+  font-size: 22px;
+  border-bottom: 4px solid #005EB8;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.toc ul { list-style: none; }
+.toc li {
+  border-bottom: 1px solid #D8DDE0;
+}
+.toc li a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 17px;
+  color: #005EB8;
+}
+.toc li a:hover { text-decoration: underline; }
+
+/* Article */
+.article h2 {
+  font-size: 32px;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  color: #212B32;
+  font-weight: 700;
+}
+.article h2:first-child { margin-top: 0; }
+.article h3 {
+  font-size: 22px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.article p { margin-bottom: 18px; max-width: 720px; }
+.article ul, .article ol {
+  margin-bottom: 20px;
+  padding-left: 22px;
+  max-width: 720px;
+}
+.article ul li, .article ol li {
+  margin-bottom: 8px;
+}
+
+/* Info boxes */
+.info-box {
+  background: #E8EDEE;
+  border-left: 8px solid #005EB8;
+  padding: 20px 24px;
+  margin: 24px 0;
+  max-width: 720px;
+}
+.info-box h3 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #212B32;
+}
+.info-box p:last-child { margin-bottom: 0; }
+
+.important-box {
+  background: #E6F2EC;
+  border-left: 8px solid #007F3B;
+  padding: 20px 24px;
+  margin: 24px 0;
+  max-width: 720px;
+}
+.important-box .label {
+  color: #007F3B;
+  font-weight: 700;
+  font-size: 22px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.warning-box {
+  background: #FFF9E6;
+  border: 4px solid #FFB81C;
+  padding: 20px 24px;
+  margin: 28px 0;
+  max-width: 720px;
+}
+.warning-box .label {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #212B32;
+  margin-bottom: 10px;
+}
+.warning-box .label::before {
+  content: "⚠";
+  margin-right: 8px;
+  color: #FFB81C;
+}
+.warning-box ul { margin-bottom: 8px; }
+
+.emergency-box {
+  background: #FFFFFF;
+  border: 4px solid #DA291C;
+  padding: 20px 24px;
+  margin: 28px 0;
+  max-width: 720px;
+}
+.emergency-box .label {
+  color: #DA291C;
+  font-weight: 700;
+  font-size: 22px;
+  display: block;
+  margin-bottom: 6px;
+}
+.emergency-box .label::before { content: "● "; color: #DA291C; }
+
+/* Numbered steps */
+ol.steps {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
+}
+ol.steps li {
+  counter-increment: step;
+  padding: 14px 16px 14px 60px;
+  border-left: 4px solid #005EB8;
+  background: #F0F4F5;
+  margin-bottom: 10px;
+  position: relative;
+}
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: #005EB8;
+  color: #FFFFFF;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Last reviewed */
+.last-reviewed {
+  background: #F0F4F5;
+  border-top: 1px solid #D8DDE0;
+  margin-top: 48px;
+  padding: 18px 24px;
+  max-width: 720px;
+  font-size: 16px;
+  color: #4C6272;
+}
+.last-reviewed p { margin-bottom: 4px; max-width: none; }
+
+/* Footer */
+footer {
+  background: #F0F4F5;
+  border-top: 1px solid #D8DDE0;
+  margin-top: 0;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 24px;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 24px;
+}
+.footer-cols h3 {
+  font-size: 19px;
+  margin-bottom: 12px;
+  color: #212B32;
+}
+.footer-cols ul { list-style: none; }
+.footer-cols li { margin-bottom: 8px; }
+.footer-cols a {
+  font-size: 16px;
+  text-decoration: underline;
+}
+.footer-base {
+  border-top: 1px solid #D8DDE0;
+  padding-top: 20px;
+  font-size: 16px;
+  color: #4C6272;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Table */
+table.interactions {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+table.interactions th,
+table.interactions td {
+  border: 1px solid #4C6272;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 17px;
+  vertical-align: top;
+}
+table.interactions th {
+  background: #F0F4F5;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <div class="nhs-logo">NHS</div>
+    <form class="search-container" role="search" onsubmit="return false;">
+      <input type="search" placeholder="Search the NHS website" aria-label="Search the NHS website">
+      <button type="submit">Search</button>
+    </form>
+    <button class="menu-btn" type="button">Menu ▾</button>
+  </div>
+  <nav class="subnav" aria-label="Primary">
+    <div class="subnav-inner">
+      <a href="#" class="active">Health A to Z</a>
+      <a href="#">Mental health</a>
+      <a href="#">Care and support</a>
+      <a href="#">Pregnancy</a>
+      <a href="#">NHS services</a>
+      <a href="#">Live Well</a>
+    </div>
+  </nav>
+</header>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="breadcrumbs-inner">
+    <a href="#">Home</a><span class="sep">›</span>
+    <a href="#">Health A to Z</a><span class="sep">›</span>
+    Type 2 diabetes
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Health A to Z</h1>
+    <p>Conditions, symptoms and treatments, including what to do and when to get help</p>
+  </div>
+</section>
+
+<section class="alphabet-band" aria-label="Alphabetical index">
+  <div class="alphabet-inner">
+    <h2>Browse conditions by letter</h2>
+    <div class="alphabet-list">
+      <a href="#">A</a><a href="#">B</a><a href="#">C</a><a href="#">D</a>
+      <a href="#">E</a><a href="#">F</a><a href="#">G</a><a href="#">H</a>
+      <a href="#">I</a><a href="#">J</a><a href="#">K</a><a href="#">L</a>
+      <a href="#">M</a><a href="#">N</a><a href="#">O</a><a href="#">P</a>
+      <a href="#">Q</a><a href="#">R</a><a href="#">S</a><a href="#">T</a>
+      <a href="#">U</a><a href="#">V</a><a href="#">W</a>
+      <span class="disabled" aria-disabled="true">X</span>
+      <a href="#">Y</a><a href="#">Z</a>
+    </div>
+  </div>
+</section>
+
+<main id="main-content" class="article-wrap">
+
+  <aside class="toc" aria-label="On this page">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#symptoms">Symptoms</a></li>
+      <li><a href="#causes">Causes</a></li>
+      <li><a href="#diagnosed">Getting diagnosed</a></li>
+      <li><a href="#treatment">Treatment</a></li>
+      <li><a href="#living-with">Living with Type 2 diabetes</a></li>
+    </ul>
+  </aside>
+
+  <article class="article">
+
+    <section id="overview">
+      <h2>Overview &mdash; Type 2 diabetes</h2>
+      <p>Type 2 diabetes is a common condition that causes the level of sugar (glucose) in the blood to become too high. It's caused by problems with a chemical in the body called insulin.</p>
+      <p>It's often linked to being overweight or inactive, or having a family history of type 2 diabetes. Without treatment, it can cause serious problems with your eyes, heart and nerves.</p>
+
+      <div class="info-box">
+        <h3>What is HbA1c?</h3>
+        <p>HbA1c (sometimes called glycated haemoglobin) is a measure of your average blood glucose level over the past 2 to 3 months. A blood test result of 48 mmol/mol (6.5%) or above usually means you have type 2 diabetes.</p>
+        <p><strong>Blood glucose</strong> is the main sugar found in your blood and your body's primary source of energy.</p>
+      </div>
+    </section>
+
+    <section id="symptoms">
+      <h2>Symptoms</h2>
+      <p>Many people have type 2 diabetes without realising. This is because symptoms do not necessarily make you feel unwell.</p>
+      <p>Symptoms of type 2 diabetes include:</p>
+      <ul>
+        <li>peeing more than usual, especially at night</li>
+        <li>feeling thirsty all the time</li>
+        <li>feeling very tired</li>
+        <li>losing weight without trying to</li>
+        <li>itching around your penis or vagina, or repeatedly getting thrush</li>
+        <li>cuts or wounds taking longer to heal</li>
+        <li>blurred vision</li>
+      </ul>
+
+      <div class="warning-box" id="urgent-advice">
+        <span class="label">Urgent advice: Contact 111 if:</span>
+        <ul>
+          <li>you have symptoms of type 2 diabetes</li>
+          <li>your blood sugar level is consistently higher than 11 mmol/L</li>
+          <li>you have signs of diabetic ketoacidosis (DKA), such as feeling or being sick, deep or fast breathing, breath that smells fruity, or feeling very drowsy</li>
+        </ul>
+        <p>DKA is a serious problem that needs urgent treatment in hospital.</p>
+      </div>
+    </section>
+
+    <section id="causes">
+      <h2>Causes</h2>
+      <p>Type 2 diabetes happens when your body does not make enough insulin, or the insulin it makes does not work properly. This is known as insulin resistance.</p>
+      <p>You're more at risk of developing type 2 diabetes if you:</p>
+      <ul>
+        <li>are over 40 (or 25 for south Asian people)</li>
+        <li>have a close relative with diabetes (such as a parent, brother or sister)</li>
+        <li>are overweight or obese</li>
+        <li>are of Asian, African-Caribbean or black African origin (even if you were born in the UK)</li>
+      </ul>
+    </section>
+
+    <section id="diagnosed">
+      <h2>Getting diagnosed</h2>
+      <p>See a GP if you have any of the symptoms of type 2 diabetes, or you're worried you may have a higher risk of getting it.</p>
+      <p>You'll need a blood test, which you may have to go to your local health centre for if it cannot be done at your GP surgery.</p>
+
+      <div class="info-box">
+        <h3>The Diabetes UK risk tool</h3>
+        <p>You can use the Diabetes UK Know Your Risk tool to check your risk of type 2 diabetes. It only takes a few minutes and could be the most important thing you do today.</p>
+      </div>
+    </section>
+
+    <section id="treatment">
+      <h2>Treatment</h2>
+      <p>There's no cure for type 2 diabetes, but treatment can help keep your blood sugar levels under control.</p>
+      <p>Treatment usually involves:</p>
+      <ul>
+        <li>healthy eating &mdash; eating a wide range of foods, including some carbohydrate, fruit and vegetables</li>
+        <li>regular physical activity</li>
+        <li>losing weight if you're overweight</li>
+        <li>medicine &mdash; usually tablets such as <strong>metformin</strong></li>
+      </ul>
+      <p>Your GP may refer you to the <a href="#">NHS Diabetes Prevention Programme</a> if you're at high risk of developing type 2 diabetes. The programme can help you make lasting lifestyle changes.</p>
+
+      <div class="important-box">
+        <span class="label">Important</span>
+        <p>If you're prescribed metformin, do not stop taking it without speaking to a doctor first &mdash; even if you feel better. Stopping your medicine suddenly can cause your blood sugar to rise.</p>
+      </div>
+    </section>
+
+    <section id="living-with">
+      <h2>Living with Type 2 diabetes</h2>
+      <p>Managing type 2 diabetes is mainly down to you. These daily steps can help you stay well:</p>
+
+      <ol class="steps">
+        <li>Eat a balanced diet &mdash; include vegetables, fruit, wholegrains, beans, pulses, nuts, fish, eggs and dairy. Cut down on sugar, salt and red or processed meat.</li>
+        <li>Aim for at least <strong>150 minutes of moderate activity</strong> every week &mdash; such as brisk walking, swimming or cycling.</li>
+        <li>Take your medicine exactly as prescribed and never skip doses.</li>
+        <li>Check your feet every day for cuts, blisters or numbness, and report any changes to your GP or podiatrist.</li>
+        <li>Attend your <strong>annual diabetic eye screening</strong> appointment to check for diabetic retinopathy.</li>
+        <li>Stop smoking if you smoke &mdash; ask your GP about free NHS Stop Smoking support.</li>
+      </ol>
+
+      <div class="emergency-box">
+        <span class="label">Call 999 if you or someone you know is unconscious or having a seizure</span>
+        <p>Severe low blood sugar (hypoglycaemia) or DKA can be life-threatening and need emergency treatment.</p>
+      </div>
+
+      <h3>More resources</h3>
+      <ul>
+        <li><a href="#">NHS Diabetes Prevention Programme</a></li>
+        <li><a href="#">Diabetes UK &mdash; support and information</a></li>
+        <li><a href="#">Find a local diabetes specialist nurse</a></li>
+      </ul>
+    </section>
+
+    <div class="last-reviewed">
+      <p><strong>Page last reviewed:</strong> 14 March 2022</p>
+      <p><strong>Next review due:</strong> 14 March 2025</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div>
+        <h3>NHS sites</h3>
+        <ul>
+          <li><a href="#">NHS App</a></li>
+          <li><a href="#">NHS 111 online</a></li>
+          <li><a href="#">Find your NHS number</a></li>
+          <li><a href="#">Healthcare abroad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>About us</h3>
+        <ul>
+          <li><a href="#">About the NHS website</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Terms and conditions</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Freedom of information</a></li>
+          <li><a href="#">Editorial policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Your health, your NHS</h3>
+        <ul>
+          <li><a href="#">Give feedback</a></li>
+          <li><a href="#">Careers in the NHS</a></li>
+          <li><a href="#">Service standards</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© Crown copyright</span>
+      <span>NHS &middot; Your health, your NHS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

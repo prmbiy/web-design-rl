@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 368850,
+      "page_width": 1440,
+      "page_height": 2947
+    },
+    {
+      "slug": "join",
+      "path": "join.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 285374,
+      "page_width": 1440,
+      "page_height": 2466
+    },
+    {
+      "slug": "people",
+      "path": "people.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 446015,
+      "page_width": 1440,
+      "page_height": 4059
+    },
+    {
+      "slug": "publications",
+      "path": "publications.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 254926,
+      "page_width": 1440,
+      "page_height": 2566
+    },
+    {
+      "slug": "research",
+      "path": "research.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 341509,
+      "page_width": 1440,
+      "page_height": 3327
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

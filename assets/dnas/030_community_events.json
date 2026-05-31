@@ -1,0 +1,22 @@
+{
+  "id": "030",
+  "name": "community_events",
+  "source": "A",
+  "archetype": "Community events platform and local activities discovery site",
+  "market": "Urban dwellers 22-45 looking for local events, classes, workshops, and experiences",
+  "era": "2024",
+  "density": "Medium density. Event cards are compact but visually rich with photography. Calendar widget prominent. Category filtering important. Map view available. Social proof through attendee counts.",
+  "nav_style": "White nav with colorful logo. Explore, Host an Event, For Organizers, About. Right: location picker (city name with dropdown), search icon, login, Create Event CTA button in vibrant color.",
+  "commercial_model": "Marketplace. Revenue from ticketing fees (small % of ticket price). Featured event placements. Pro plan for organizers with advanced analytics and promotion tools. No display ads.",
+  "color_palette": "Vibrant and energetic but accessible. Cobalt blue (#2563EB) as primary brand. White (#FFFFFF) page backgrounds. Light blue (#EFF6FF) for active filter background. Warm coral (#F97316) for featured events and CTAs. Category hex codes: art (#7C3AED purple), music (#EC4899 pink), food (#F97316 orange), sports (#16A34A green), tech (#0EA5E9 sky blue), outdoors (#65A30D yellow-green), wellness (#D97706 amber). Each category chip has its own background color at 15% opacity with the full color as text. The palette communicates community energy.",
+  "typography": "Nunito or Poppins — rounded, friendly, community-feel. Event titles in 18-20px bold. Date/time in accent color. Location in grey with map pin icon. Price prominently shown. Organizer name small. Attendee count as social proof.",
+  "quirks": ["category_color_coding", "attendee_count_display", "calendar_view_option", "map_view_option", "early_bird_pricing", "organizer_profile_page", "follow_organizer_button", "event_waitlist", "share_to_social", "last_few_spots_badge"],
+  "pages": [
+    {"slug": "home", "title": "Discover Events", "description": "Location-aware event search hero. Category chips horizontal scroll: All, Music, Art, Food & Drink, Sports, Tech, Outdoors, Wellness. Featured events carousel. This weekend grid. New on the platform section. Popular organizers strip."},
+    {"slug": "explore", "title": "Explore Events", "description": "Full event search/browse page with map view toggle. Filters: date, category, price (free vs paid), distance, online/in-person. Event cards in grid with photo, title, date, location, price, attendee count."},
+    {"slug": "event", "title": "Event Page", "description": "Full event page: header photo, event title, date/time, location with map, organizer with follow button, about/description, what's included, schedule, ticket types and prices, attendee photos collage, similar events."},
+    {"slug": "organizer", "title": "Organizer Profile", "description": "Organizer public profile: name, bio, verified badge, follower count, events hosted count, average rating. Upcoming events grid. Past events with attendance stats. Reviews from attendees. Follow button."},
+    {"slug": "create", "title": "Create an Event", "description": "Event creation form for organizers. Event details: title, description, category, date/time, location or online link. Ticket types with price and quantity. Cover photo upload. Publish vs draft. Preview mode."}
+  ],
+  "animations": ["fade_in_hero", "category_chip_hover", "scroll_reveal_cards", "map_marker_pulse"]
+}

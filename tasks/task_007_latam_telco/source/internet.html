@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Internet para Casa - Volaris Móvil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: 15px;
+  color: #142A30;
+  background: #FFFFFF;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* PROMO BAR */
+.promo-bar {
+  background: #FF5722;
+  color: #fff;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.promo-bar .countdown {
+  background: #FFC107;
+  color: #142A30;
+  padding: 2px 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-weight: 800;
+}
+
+/* NAV */
+nav.main-nav {
+  background: #007B8A;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  background: #FF5722;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  list-style: none;
+}
+.nav-links a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 4px;
+  border-bottom: 3px solid transparent;
+}
+.nav-links a.active { border-bottom-color: #FFC107; }
+.nav-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.nav-actions .icon-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-login {
+  background: #FF5722;
+  padding: 10px 18px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 800;
+}
+
+/* SUB PROMO BANNER */
+.sub-banner {
+  background: linear-gradient(90deg, #FFC107, #FF5722);
+  color: #142A30;
+  padding: 12px 24px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 15px;
+}
+.sub-banner .pill {
+  background: #fff;
+  color: #FF5722;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 0 10px;
+  font-size: 13px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(120deg, #005A66 0%, #007B8A 60%, #00A8B8 100%);
+  color: #fff;
+  padding: 72px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -100px; top: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,193,7,0.25), transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: #FFC107;
+  color: #142A30;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.hero h1 .accent { color: #FFC107; }
+.hero p.subtitle {
+  font-size: 19px;
+  opacity: 0.95;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: #FF5722;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+.hero-stats .stat strong {
+  font-size: 32px;
+  font-weight: 900;
+  color: #FFC107;
+  display: block;
+  line-height: 1;
+}
+.hero-stats .stat span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* COVERAGE CARD */
+.coverage-card {
+  background: #fff;
+  color: #142A30;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  position: relative;
+}
+.coverage-card h3 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.coverage-card p.sub {
+  font-size: 14px;
+  color: #5C7079;
+  margin-bottom: 22px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-field label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #5C7079;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-field input, .form-field select {
+  background: #E0F7FA;
+  border: 1px solid #D5E5E8;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #142A30;
+  font-weight: 600;
+}
+.form-field input:focus, .form-field select:focus {
+  outline: 2px solid #007B8A;
+  background: #fff;
+}
+.coverage-card .btn-primary {
+  width: 100%;
+  margin-top: 8px;
+  justify-content: center;
+}
+.coverage-card .availability-badge {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #E0F7FA;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #005A66;
+  font-weight: 700;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #2BAE66; }
+
+/* SERVICE STATUS BAR */
+.status-strip {
+  background: #E0F7FA;
+  border-top: 1px solid #D5E5E8;
+  border-bottom: 1px solid #D5E5E8;
+  padding: 14px 24px;
+}
+.status-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.status-inner .status-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: #005A66;
+}
+.status-inner .status-text .dot { background: #2BAE66; box-shadow: 0 0 0 4px rgba(43,174,102,0.18); }
+.status-inner a { color: #007B8A; font-weight: 800; }
+.status-meta { color: #5C7079; font-size: 13px; }
+
+/* SECTION HEADERS */
+.section { padding: 64px 24px; }
+.section-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-head .kicker {
+  color: #FF5722;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-head h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.section-head p {
+  color: #5C7079;
+  font-size: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* PLAN CARDS */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.plan-card {
+  background: #E0F7FA;
+  border: 1px solid #D5E5E8;
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.plan-card.popular {
+  background: #fff;
+  border: 3px solid #FF5722;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255,87,34,0.18);
+}
+.plan-card .badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FF5722;
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+.plan-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #5C7079;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+.plan-speed {
+  font-size: 48px;
+  font-weight: 900;
+  color: #007B8A;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+.plan-speed .unit {
+  font-size: 18px;
+  color: #142A30;
+  font-weight: 800;
+  margin-left: 2px;
+}
+.plan-tech {
+  font-size: 13px;
+  color: #5C7079;
+  font-weight: 700;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+.plan-price {
+  font-size: 36px;
+  font-weight: 900;
+  color: #142A30;
+  letter-spacing: -1px;
+}
+.plan-price .per {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5C7079;
+}
+.plan-price small {
+  display: block;
+  color: #5C7079;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
+  text-decoration: line-through;
+  letter-spacing: 0.2px;
+}
+.plan-features {
+  list-style: none;
+  margin: 22px 0;
+  padding: 0;
+  border-top: 1px solid rgba(0,123,138,0.15);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plan-features li {
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 600;
+}
+.check {
+  color: #2BAE66;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.plan-card .btn-pick {
+  margin-top: auto;
+  background: #007B8A;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+.plan-card.popular .btn-pick { background: #FF5722; }
+.plan-router-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFC107;
+  color: #142A30;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+/* COMPARISON TABLE */
+.plans-table-wrap {
+  max-width: 1240px;
+  margin: 48px auto 0;
+  background: #fff;
+  border: 1px solid #D5E5E8;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.plans-table th, .plans-table td {
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid #E0F7FA;
+}
+.plans-table thead th {
+  background: #005A66;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.plans-table tbody tr:hover { background: #F4FBFC; }
+.plans-table td.center { text-align: center; }
+.tick { color: #2BAE66; font-weight: 900; }
+.cross { color: #5C7079; }
+
+/* SPEED TEST */
+.speedtest-section {
+  background: #005A66;
+  color: #fff;
+  padding: 80px 24px;
+}
+.speedtest-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+.speedtest-section h2 {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+.speedtest-section h2 span { color: #FFC107; }
+.speedtest-section p.lead {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 22px;
+}
+.speedtest-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.speedtest-section ul li {
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.speedtest-section ul li::before {
+  content: "⚡";
+  color: #FFC107;
+}
+.speedtest-widget {
+  background: #fff;
+  color: #142A30;
+  border-radius: 20px;
+  padding: 36px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.gauge-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.gauge {
+  background: #E0F7FA;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+.gauge .label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #5C7079;
+  text-transform: uppercase;
+}
+.gauge .value {
+  font-size: 30px;
+  font-weight: 900;
+  color: #007B8A;
+  line-height: 1.1;
+  margin-top: 6px;
+}
+.gauge .unit {
+  font-size: 12px;
+  color: #5C7079;
+  font-weight: 700;
+}
+.gauge-arc {
+  margin: 16px auto 0;
+  display: block;
+}
+.test-meta {
+  background: #E0F7FA;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.test-meta strong { color: #005A66; }
+.btn-test {
+  width: 100%;
+  background: #FF5722;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* INSTALL SCHEDULER */
+.install-section { background: #FFE4D6; padding: 80px 24px; }
+.install-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+  align-items: start;
+}
+.install-info h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+.install-info p { color: #5C7079; font-size: 16px; margin-bottom: 18px; }
+.install-info .badge-fast {
+  background: #FFC107;
+  color: #142A30;
+  padding: 8px 14px;
+  font-weight: 900;
+  border-radius: 30px;
+  font-size: 14px;
+  display: inline-block;
+}
+.install-info ul {
+  list-style: none;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.install-info ul li {
+  font-size: 14px;
+  font-weight: 700;
+  color: #142A30;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.install-info ul li::before {
+  content: "✓";
+  color: #2BAE66;
+  font-weight: 900;
+  background: #fff;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.scheduler {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 40px rgba(255,87,34,0.15);
+}
+.scheduler h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.cal-day-name {
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  color: #5C7079;
+  text-transform: uppercase;
+  padding: 6px 0;
+}
+.cal-day {
+  aspect-ratio: 1;
+  background: #E0F7FA;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: #142A30;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.cal-day.muted { background: transparent; color: #C9D8DC; }
+.cal-day.available { background: #fff; border-color: #D5E5E8; }
+.cal-day.selected { background: #FF5722; color: #fff; border-color: #FF5722; }
+.cal-day.full { background: #F3F3F3; color: #B5B5B5; text-decoration: line-through; cursor: not-allowed; }
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.slot {
+  background: #E0F7FA;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.slot.selected { border-color: #007B8A; background: #fff; color: #005A66; }
+.slot.busy { opacity: 0.5; }
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E0F7FA;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+.confirm-row strong { color: #005A66; }
+.btn-confirm {
+  width: 100%;
+  background: #007B8A;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* SERVICE STATUS DETAIL */
+.status-detail {
+  background: #fff;
+  padding: 64px 24px;
+}
+.status-detail-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #E0F7FA;
+  border: 1px solid #D5E5E8;
+  border-radius: 16px;
+  padding: 36px;
+}
+.status-detail h3 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+.region-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid #D5E5E8;
+}
+.region-card .city { font-weight: 800; font-size: 14px; }
+.region-card .ind {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2BAE66;
+}
+.region-card.warn .ind { color: #FF5722; }
+.region-card.warn .dot { background: #FF5722; }
+.last-updated {
+  font-size: 12px;
+  color: #5C7079;
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+/* FOOTER */
+footer {
+  background: #003D47;
+  color: #fff;
+  padding: 56px 24px 24px;
+}
+.footer-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.footer-grid h4 {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  color: #FFC107;
+}
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; opacity: 0.9; }
+.footer-grid p { font-size: 14px; opacity: 0.85; }
+.footer-bottom {
+  max-width: 1240px;
+  margin: 36px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Live Chat */
+.chat-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(37,211,102,0.45);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 90;
+  font-size: 14px;
+}
+.chat-fab .pulse {
+  width: 10px; height: 10px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="promo-bar">
+  ¡50% OFF en tu primer mes de Fibra! Promoción exclusiva online
+  <span class="countdown">⏱ 2d : 14h : 32m</span>
+</div>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-mark">V</span> Volaris Móvil</div>
+    <ul class="nav-links">
+      <li><a href="#">Móvil</a></li>
+      <li><a href="#" class="active">Internet</a></li>
+      <li><a href="#">TV</a></li>
+      <li><a href="#">Paquetes</a></li>
+      <li><a href="#">Empresa</a></li>
+      <li><a href="#">Tiendas</a></li>
+    </ul>
+    <div class="nav-actions">
+      <span class="icon-btn">❓</span>
+      <span class="icon-btn">🛒</span>
+      <a class="btn-login" href="#">Mi Cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<div class="sub-banner">
+  🎁 INSTALACIÓN GRATIS contratando en línea <span class="pill">SOLO HOY</span> + Router Wi-Fi 6 incluido sin costo
+</div>
+
+<!-- HERO + COVERAGE -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">⚡ FIBRA ÓPTICA · WI-FI 6</span>
+      <h1>Fibra óptica<br>hasta <span class="accent">500 Mbps</span><br>en su hogar</h1>
+      <p class="subtitle">Sin cargo de instalación contratando en línea. Router Wi-Fi 6 incluido y contrato flexible de 12 meses.</p>
+      <div class="hero-cta-row">
+        <button class="btn-primary">Ver planes de fibra →</button>
+        <a class="btn-secondary" href="#speed">Probar mi velocidad</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>500</strong><span>Mbps de velocidad máxima</span></div>
+        <div class="stat"><strong>48h</strong><span>Instalación en su domicilio</span></div>
+        <div class="stat"><strong>99.8%</strong><span>Disponibilidad de red</span></div>
+      </div>
+    </div>
+
+    <div class="coverage-card">
+      <h3>Verifique cobertura de fibra</h3>
+      <p class="sub">Ingrese su dirección y sabremos en segundos si su colonia tiene fibra óptica disponible.</p>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Estado</label>
+          <select>
+            <option>Ciudad de México</option>
+            <option>Jalisco</option>
+            <option>Nuevo León</option>
+            <option>Bogotá D.C.</option>
+            <option>Antioquia</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Colonia</label>
+          <select>
+            <option>Roma Norte</option>
+            <option>Polanco</option>
+            <option>Del Valle</option>
+            <option>Chapinero</option>
+            <option>El Poblado</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field" style="grid-column: span 2;">
+          <label>Calle y número</label>
+          <input type="text" placeholder="Av. Insurgentes Sur 1234, Int. 5">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Código postal</label>
+          <input type="text" placeholder="06700">
+        </div>
+        <div class="form-field">
+          <label>Teléfono de contacto</label>
+          <input type="text" placeholder="+52 55 ...">
+        </div>
+      </div>
+      <button class="btn-primary">Verificar cobertura ahora</button>
+      <div class="availability-badge">
+        <span class="dot"></span> Hasta 500 Mbps disponibles en su zona — Roma Norte, CDMX
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS STRIP -->
+<div class="status-strip">
+  <div class="status-inner">
+    <div class="status-text"><span class="dot"></span> Todos los servicios de Internet operando con normalidad en México y Colombia</div>
+    <div class="status-meta">Última actualización: hoy 09:42 · <a href="#status">Ver estado detallado →</a></div>
+  </div>
+</div>
+
+<!-- PLAN CARDS -->
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">Planes de Fibra Óptica</div>
+    <h2>Elija la velocidad ideal para su hogar</h2>
+    <p>Todos los planes incluyen router Wi-Fi 6, instalación gratuita contratando en línea y contrato de 12 meses sin permanencia oculta.</p>
+  </div>
+
+  <div class="plans-grid">
+
+    <div class="plan-card">
+      <span class="plan-router-badge">📡 Router Wi-Fi 6 incluido</span>
+      <div class="plan-name">Fibra Básica</div>
+      <div class="plan-speed">100<span class="unit">Mbps</span></div>
+      <div class="plan-tech">Simétrica · Sin tope de datos</div>
+      <div class="plan-price">$399 <span class="per">/mes</span>
+        <small>Antes $499/mes</small>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Instalación gratuita en línea</li>
+        <li><span class="check">✓</span> Router Wi-Fi 6 dual band</li>
+        <li><span class="check">✓</span> Contrato 12 meses</li>
+        <li><span class="check">✓</span> Asistencia técnica 24/7</li>
+        <li><span class="check">✓</span> Ideal: 1-3 dispositivos</li>
+      </ul>
+      <button class="btn-pick">Contratar Fibra 100</button>
+    </div>
+
+    <div class="plan-card">
+      <span class="plan-router-badge">📡 Router Wi-Fi 6 incluido</span>
+      <div class="plan-name">Fibra Plus</div>
+      <div class="plan-speed">200<span class="unit">Mbps</span></div>
+      <div class="plan-tech">Simétrica · Sin tope de datos</div>
+      <div class="plan-price">$499 <span class="per">/mes</span>
+        <small>Antes $599/mes</small>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Instalación gratuita en línea</li>
+        <li><span class="check">✓</span> Router Wi-Fi 6 dual band</li>
+        <li><span class="check">✓</span> Contrato 12 meses</li>
+        <li><span class="check">✓</span> Paramount+ por 6 meses</li>
+        <li><span class="check">✓</span> Ideal: 4-6 dispositivos</li>
+      </ul>
+      <button class="btn-pick">Contratar Fibra 200</button>
+    </div>
+
+    <div class="plan-card popular">
+      <span class="badge">⭐ MÁS POPULAR</span>
+      <span class="plan-router-badge">📡 Router Wi-Fi 6 + Mesh</span>
+      <div class="plan-name">Fibra Pro</div>
+      <div class="plan-speed">300<span class="unit">Mbps</span></div>
+      <div class="plan-tech">Simétrica · Sin tope de datos</div>
+      <div class="plan-price">$599 <span class="per">/mes</span>
+        <small>Antes $799/mes</small>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Instalación gratuita en línea</li>
+        <li><span class="check">✓</span> Router Wi-Fi 6 + 1 nodo mesh</li>
+        <li><span class="check">✓</span> Contrato 12 meses</li>
+        <li><span class="check">✓</span> Disney+ por 6 meses</li>
+        <li><span class="check">✓</span> IP fija opcional sin costo</li>
+        <li><span class="check">✓</span> Ideal: 7-12 dispositivos</li>
+      </ul>
+      <button class="btn-pick">Contratar Fibra 300</button>
+    </div>
+
+    <div class="plan-card">
+      <span class="plan-router-badge">📡 Router Wi-Fi 6 + 2 Mesh</span>
+      <div class="plan-name">Fibra Max</div>
+      <div class="plan-speed">500<span class="unit">Mbps</span></div>
+      <div class="plan-tech">Simétrica · Sin tope de datos</div>
+      <div class="plan-price">$799 <span class="per">/mes</span>
+        <small>Antes $999/mes</small>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Instalación gratuita en línea</li>
+        <li><span class="check">✓</span> Wi-Fi 6 + 2 nodos mesh</li>
+        <li><span class="check">✓</span> Contrato 12 meses</li>
+        <li><span class="check">✓</span> Netflix Estándar incluido</li>
+        <li><span class="check">✓</span> Soporte prioritario VIP</li>
+        <li><span class="check">✓</span> Ideal: 13+ dispositivos · Gaming</li>
+      </ul>
+      <button class="btn-pick">Contratar Fibra 500</button>
+    </div>
+
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="plans-table-wrap">
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Características</th>
+          <th class="center">Fibra 100</th>
+          <th class="center">Fibra 200</th>
+          <th class="center" style="background:#FF5722;">Fibra 300 ⭐</th>
+          <th class="center">Fibra 500</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Velocidad descarga / subida</td><td class="center">100/100 Mbps</td><td class="center">200/200 Mbps</td><td class="center">300/300 Mbps</td><td class="center">500/500 Mbps</td></tr>
+        <tr><td>Precio mensual</td><td class="center">$399</td><td class="center">$499</td><td class="center"><strong>$599</strong></td><td class="center">$799</td></tr>
+        <tr><td>Router Wi-Fi 6 incluido</td><td class="center"><span class="tick">✓</span></td><td class="center"><span class="tick">✓</span></td><td class="center"><span class="tick">✓ + Mesh</span></td><td class="center"><span class="tick">✓ + 2 Mesh</span></td></tr>
+        <tr><td>Cargo de instalación</td><td class="center">GRATIS en línea</td><td class="center">GRATIS en línea</td><td class="center">GRATIS en línea</td><td class="center">GRATIS en línea</td></tr>
+        <tr><td>Permanencia mínima</td><td class="center">12 meses</td><td class="center">12 meses</td><td class="center">12 meses</td><td class="center">12 meses</td></tr>
+        <tr><td>Streaming incluido</td><td class="center"><span class="cross">—</span></td><td class="center">Paramount+ 6m</td><td class="center">Disney+ 6m</td><td class="center">Netflix Estándar</td></tr>
+        <tr><td>IP fija sin costo</td><td class="center"><span class="cross">—</span></td><td class="center"><span class="cross">—</span></td><td class="center"><span class="tick">✓</span></td><td class="center"><span class="tick">✓</span></td></tr>
+        <tr><td>Soporte técnico</td><td class="center">24/7</td><td class="center">24/7</td><td class="center">24/7</td><td class="center">VIP Prioritario</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SPEED TEST -->
+<section class="speedtest-section" id="speed">
+  <div class="speedtest-inner">
+    <div>
+      <span class="hero-eyebrow">PRUEBA DE VELOCIDAD</span>
+      <h2>Mida la velocidad de su <span>internet</span> ahora mismo</h2>
+      <p class="lead">Conozca la velocidad real de descarga, subida y latencia de su conexión actual. Sin descargas, sin registros — directo desde su navegador.</p>
+      <ul>
+        <li>Servidores cercanos en CDMX, Guadalajara y Bogotá</li>
+        <li>Resultados precisos en menos de 30 segundos</li>
+        <li>Compatible con cualquier proveedor de internet</li>
+        <li>Historial de pruebas guardado en su cuenta</li>
+      </ul>
+      <button class="btn-primary">Compare con Fibra Volaris →</button>
+    </div>
+
+    <div class="speedtest-widget">
+      <div class="gauge-row">
+        <div class="gauge">
+          <div class="label">Descarga</div>
+          <div class="value">287.4</div>
+          <div class="unit">Mbps</div>
+          <svg class="gauge-arc" width="80" height="40" viewBox="0 0 80 40">
+            <path d="M5 38 A 35 35 0 0 1 75 38" stroke="#D5E5E8" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M5 38 A 35 35 0 0 1 60 12" stroke="#007B8A" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="gauge">
+          <div class="label">Subida</div>
+          <div class="value">112.8</div>
+          <div class="unit">Mbps</div>
+          <svg class="gauge-arc" width="80" height="40" viewBox="0 0 80 40">
+            <path d="M5 38 A 35 35 0 0 1 75 38" stroke="#D5E5E8" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M5 38 A 35 35 0 0 1 40 4" stroke="#FF5722" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="gauge">
+          <div class="label">Ping</div>
+          <div class="value">9</div>
+          <div class="unit">ms</div>
+          <svg class="gauge-arc" width="80" height="40" viewBox="0 0 80 40">
+            <path d="M5 38 A 35 35 0 0 1 75 38" stroke="#D5E5E8" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M5 38 A 35 35 0 0 1 20 18" stroke="#2BAE66" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="test-meta">
+        <div>Servidor: <strong>CDMX-01 · Volaris Edge</strong></div>
+        <div>IP: <strong>189.203.•••.•••</strong></div>
+      </div>
+      <div class="test-meta">
+        <div>Su ISP actual: <strong>Otro proveedor</strong></div>
+        <div>Jitter: <strong>1.4 ms</strong></div>
+      </div>
+      <button class="btn-test">▶ Iniciar nueva prueba</button>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL SCHEDULER -->
+<section class="install-section">
+  <div class="install-inner">
+    <div class="install-info">
+      <span class="badge-fast">⚡ Instalación 48–72 horas</span>
+      <h2 style="margin-top:18px;">Agende la instalación de su fibra a un clic</h2>
+      <p>Elija el día y horario que mejor le convenga. Nuestros técnicos certificados llegarán a su domicilio con todo el equipo necesario sin costo adicional.</p>
+      <ul>
+        <li>Franjas horarias matutinas y vespertinas</li>
+        <li>Confirmación por WhatsApp 24h antes</li>
+        <li>Reprograme sin costo hasta 4 horas antes</li>
+        <li>Técnico certificado con identificación Volaris</li>
+        <li>Configuración del router y prueba de velocidad incluida</li>
+      </ul>
+    </div>
+
+    <div class="scheduler">
+      <h3>📅 Seleccione fecha y horario</h3>
+
+      <div class="calendar">
+        <div class="cal-day-name">Lun</div>
+        <div class="cal-day-name">Mar</div>
+        <div class="cal-day-name">Mié</div>
+        <div class="cal-day-name">Jue</div>
+        <div class="cal-day-name">Vie</div>
+        <div class="cal-day-name">Sáb</div>
+        <div class="cal-day-name">Dom</div>
+
+        <div class="cal-day muted">27</div>
+        <div class="cal-day muted">28</div>
+        <div class="cal-day muted">29</div>
+        <div class="cal-day available">30</div>
+        <div class="cal-day full">1</div>
+        <div class="cal-day available">2</div>
+        <div class="cal-day available">3</div>
+
+        <div class="cal-day available">4</div>
+        <div class="cal-day available">5</div>
+        <div class="cal-day selected">6</div>
+        <div class="cal-day available">7</div>
+        <div class="cal-day available">8</div>
+        <div class="cal-day available">9</div>
+        <div class="cal-day full">10</div>
+
+        <div class="cal-day available">11</div>
+        <div class="cal-day available">12</div>
+        <div class="cal-day available">13</div>
+        <div class="cal-day available">14</div>
+        <div class="cal-day available">15</div>
+        <div class="cal-day available">16</div>
+        <div class="cal-day available">17</div>
+      </div>
+
+      <h3 style="font-size:16px; margin-bottom:12px;">⏰ Horario disponible · Miércoles 6 de octubre</h3>
+      <div class="time-slots">
+        <div class="slot">08:00 – 10:00</div>
+        <div class="slot busy">10:00 – 12:00</div>
+        <div class="slot selected">12:00 – 14:00</div>
+        <div class="slot">14:00 – 16:00</div>
+        <div class="slot">16:00 – 18:00</div>
+        <div class="slot busy">18:00 – 20:00</div>
+        <div class="slot">Mañana</div>
+        <div class="slot">Tarde</div>
+      </div>
+
+      <div class="confirm-row">
+        <div>Cita seleccionada</div>
+        <strong>Mié 6 Oct · 12:00 – 14:00 hs</strong>
+      </div>
+
+      <button class="btn-confirm">Confirmar instalación gratuita ✓</button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE STATUS DETAIL -->
+<section class="status-detail" id="status">
+  <div class="status-detail-inner">
+    <h3><span class="dot" style="background:#2BAE66; box-shadow:0 0 0 5px rgba(43,174,102,0.2);"></span> Estado del servicio de Internet en tiempo real</h3>
+    <p style="color:#5C7079; font-size:15px;">Monitoreo continuo de la red de fibra óptica Volaris en todas las regiones de cobertura. Reportes cada 60 segundos.</p>
+
+    <div class="regions-grid">
+      <div class="region-card">
+        <div class="city">CDMX</div>
+        <div class="ind"><span class="dot"></span> Operativo</div>
+        <small style="color:#5C7079;">99.9% uptime</small>
+      </div>
+      <div class="region-card">
+        <div class="city">Guadalajara</div>
+        <div class="ind"><span class="dot"></span> Operativo</div>
+        <small style="color:#5C7079;">99.8% uptime</small>
+      </div>
+      <div class="region-card">
+        <div class="city">Monterrey</div>
+        <div class="ind"><span class="dot"></span> Operativo</div>
+        <small style="color:#5C7079;">99.7% uptime</small>
+      </div>
+      <div class="region-card warn">
+        <div class="city">Puebla</div>
+        <div class="ind"><span class="dot"></span> Mantenimiento</div>
+        <small style="color:#5C7079;">02:00–05:00 hs</small>
+      </div>
+      <div class="region-card">
+        <div class="city">Bogotá</div>
+        <div class="ind"><span class="dot"></span> Operativo</div>
+        <small style="color:#5C7079;">99.9% uptime</small>
+      </div>
+      <div class="region-card">
+        <div class="city">Medellín</div>
+        <div class="ind"><span class="dot"></span> Operativo</div>
+        <small style="color:#5C7079;">99.8% uptime</small>
+      </div>
+    </div>
+
+    <div class="last-updated">Última actualización: hoy a las 09:42 hs · <a href="#" style="color:#007B8A;">Ver histórico completo y reportes de incidentes →</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:14px;"><span class="logo-mark">V</span> Volaris Móvil</div>
+      <p>Conecta sin límites en México y Colombia. Servicios de telefonía móvil, internet por fibra óptica y televisión para más de 12 millones de hogares.</p>
+      <p style="margin-top:14px;"><strong>📞 *611</strong> · Atención 24/7</p>
+      <p><strong>💬 WhatsApp</strong> +52 55 8000 8888</p>
+    </div>
+    <div>
+      <h4>Productos</h4>
+      <ul>
+        <li>Planes Móvil</li>
+        <li>Internet Hogar</li>
+        <li>TV con Streaming</li>
+        <li>Paquetes

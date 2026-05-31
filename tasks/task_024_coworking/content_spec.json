@@ -1,0 +1,180 @@
+{
+  "brand_name": "Kiln & Co.",
+  "tagline": "Work Better. Together.",
+  "primary_color_name": "Kiln Terracotta",
+  "pages": {
+    "home": {
+      "title": "Kiln & Co. — Coworking & Creative Studios",
+      "nav_items": [
+        "Spaces",
+        "Membership",
+        "Community",
+        "Events",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Work Better. Together.",
+          "subheadline": "Three Brooklyn locations. 847 members. One community of builders."
+        },
+        {
+          "name": "membership_tiers",
+          "description": "3-column cards for Hot Desk ($299/mo), Dedicated Desk ($499/mo, 'Most Popular'), and Private Office (from $899/mo) with 3 key perks each."
+        },
+        {
+          "name": "member_stat",
+          "description": "Editorial stat block: '847 members across 3 locations — Williamsburg, Gowanus, and Long Island City.'"
+        },
+        {
+          "name": "events_this_week",
+          "description": "2 upcoming event cards: 'Founder Office Hours w/ Priya Raman (Thu 6pm)' and 'Risograph Print Night (Sat 2pm).'"
+        },
+        {
+          "name": "member_spotlights",
+          "description": "3 testimonials in Caveat from members like Marcus Chen (Founder, Loamwork), Sofia Alvarez (Illustrator), and Devon Park (Lead Engineer, Tinroof)."
+        },
+        {
+          "name": "book_a_tour_cta",
+          "description": "Full-width terracotta CTA section with date picker stub and 'Book a Tour' button, plus 'Day Pass — $35' secondary link."
+        }
+      ]
+    },
+    "spaces": {
+      "title": "Our Spaces — Kiln & Co.",
+      "nav_items": [
+        "Spaces",
+        "Membership",
+        "Community",
+        "Events",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Six ways to work.",
+          "subheadline": "From quiet focus rooms to a 200-person event hall — all under one roof in Gowanus."
+        },
+        {
+          "name": "space_gallery",
+          "description": "Grid of 6 space cards: Main Floor (80 seats), Focus Rooms (4 rooms, 1-2 person), Soundproof Phone Booths (6 booths), The Foundry Event Space (200 cap), Roof Deck (40 cap), Meeting Rooms (4 rooms, 6-12 person) — each with amenities list and sage 'Available Now' badge."
+        },
+        {
+          "name": "virtual_tour",
+          "description": "Embedded Matterport-style virtual tour link and 'Download Floor Plan (PDF, 2.4MB)' button."
+        },
+        {
+          "name": "amenities_icon_grid",
+          "description": "12-icon grid: standing desks, whiteboards, AV, natural light, coffee bar, beer tap, printing, lockers, bike room, showers, mother's room, pet-friendly."
+        }
+      ]
+    },
+    "membership": {
+      "title": "Membership Plans — Kiln & Co.",
+      "nav_items": [
+        "Spaces",
+        "Membership",
+        "Community",
+        "Events",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Find your fit.",
+          "subheadline": "Drop in for a day or set up your studio for the year."
+        },
+        {
+          "name": "annual_monthly_toggle",
+          "description": "Toggle pill switch with 'Save 15% with annual' note in sage green."
+        },
+        {
+          "name": "pricing_cards",
+          "description": "4-column cards: Day Pass ($35), Hot Desk ($299/mo), Dedicated Desk ($499/mo — 'Most Popular' terracotta badge), Private Office (from $899/mo)."
+        },
+        {
+          "name": "feature_comparison",
+          "description": "8-row checklist grid: Access hours (9-6 / 24-7), Guest passes/mo (0/2/4/8), Meeting room credits (0/4/8/unlimited), Dedicated locker, Business mail address, Printing pages/mo (10/50/200/500), Coffee & beer tap, 40+ partner discounts."
+        },
+        {
+          "name": "faq",
+          "description": "5 collapsible FAQs covering cancellation, guest policy, after-hours access, team add-ons, and pausing membership."
+        }
+      ]
+    },
+    "community": {
+      "title": "Community — Kiln & Co.",
+      "nav_items": [
+        "Spaces",
+        "Membership",
+        "Community",
+        "Events",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "The people make the place.",
+          "subheadline": "847 founders, designers, writers, and engineers building in public."
+        },
+        {
+          "name": "member_spotlights",
+          "description": "3 featured members: Aisha Okonkwo (Founder, Mossbridge Climate), Jules Tanaka (Brand Designer, freelance), and Ravi Mehta (CTO, Pillar Health) — each with photo, one-line description, and Caveat-styled quote."
+        },
+        {
+          "name": "upcoming_events_preview",
+          "description": "4 event cards linking to Events page: Founder Roundtable, Notion Power-User Workshop, Friday Wine Hour, Risograph Print Night."
+        },
+        {
+          "name": "partner_perks",
+          "description": "Logo grid of 40+ partners with category tags and discount %: Devocion Coffee (25% off), Equinox (1 mo free), Linear (3 mo Pro), Sweetgreen (15% off), Figma (annual credit)."
+        },
+        {
+          "name": "slack_teaser",
+          "description": "Card promoting '#kiln-general — 847 members active' with channels list and screenshot mockup."
+        },
+        {
+          "name": "waitlist_form",
+          "description": "Application form: name, email, what you're building, preferred location dropdown."
+        }
+      ]
+    },
+    "events": {
+      "title": "Events — Kiln & Co.",
+      "nav_items": [
+        "Spaces",
+        "Membership",
+        "Community",
+        "Events",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Show up. Meet someone.",
+          "subheadline": "Workshops, panels, and socials hosted by members and friends of the house."
+        },
+        {
+          "name": "filter_chips",
+          "description": "5 category filter chips in sage: Networking, Workshop, Panel Discussion, Social, External Rental."
+        },
+        {
+          "name": "calendar_grid",
+          "description": "Monthly calendar (March 2023) with terracotta dots on event days and a small legend."
+        },
+        {
+          "name": "upcoming_workshops",
+          "description": "List of 6 events: 'Pricing Your Freelance Work w/ Marta Lin (Mar 14, 7pm, 8 spots left)', 'AI for Designers w/ Tom Nakashima (Mar 16, 6pm, 12 spots)', 'Founder Therapy Circle (Mar 18, 11am, 4 spots)', plus RSVP buttons."
+        },
+        {
+          "name": "past_events_strip",
+          "description": "Horizontal documentary photo strip of 8 past events with captions like 'Annual Holiday Mixer — Dec 2022, 220 attendees.'"
+        },
+        {
+          "name": "rent_the_space_cta",
+          "description": "CTA block for booking The Foundry event space ($150-400/hr) with inquiry form link."
+        }
+      ]
+    }
+  }
+}

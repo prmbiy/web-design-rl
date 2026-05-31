@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compare — NOVA Field One</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #111111;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #2A2A2A;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo::before {
+  content: '';
+  width: 10px; height: 10px;
+  background: #FF9F0A;
+  border-radius: 50%;
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a { color: #CACACA; transition: color 0.2s; }
+.nav-links a:hover { color: #FFFFFF; }
+.nav-links a.active { color: #FFFFFF; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #CACACA;
+  text-align: right;
+  line-height: 1.2;
+}
+.nav-price span { color: #FF9F0A; font-weight: 700; }
+.nav-price small { color: #888; font-size: 11px; display: block; }
+.btn-primary {
+  background: #007AFF;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover { background: #0051D5; transform: translateY(-1px); }
+.cart-icon {
+  width: 22px; height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #CACACA;
+}
+
+/* HERO */
+.hero {
+  padding: 184px 32px 80px;
+  text-align: center;
+  border-bottom: 1px solid #2A2A2A;
+}
+.hero-inner { max-width: 1280px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FF9F0A;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 20px;
+  color: #CACACA;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* COMPARISON TABLE */
+.compare-section {
+  padding: 100px 32px;
+  border-bottom: 1px solid #2A2A2A;
+}
+.compare-inner { max-width: 1280px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #2A2A2A;
+}
+.compare-table thead th {
+  padding: 32px 28px;
+  text-align: left;
+  background: #1C1C1C;
+  border-bottom: 1px solid #2A2A2A;
+  vertical-align: bottom;
+}
+.compare-table thead th.feature-col {
+  width: 28%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.compare-table thead th.product-col {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+.compare-table thead th.product-col .product-mini {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.compare-table thead th.our-product {
+  background: rgba(255,159,10,0.08);
+  border-left: 2px solid #FF9F0A;
+  border-right: 2px solid #FF9F0A;
+  border-top: 2px solid #FF9F0A;
+  position: relative;
+}
+.compare-table thead th.our-product .product-mini { color: #FF9F0A; }
+.our-badge {
+  display: inline-block;
+  background: #FF9F0A;
+  color: #111;
+  padding: 3px 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+.compare-table tbody tr { border-bottom: 1px solid #2A2A2A; }
+.compare-table tbody tr:nth-child(even) { background: #1C1C1C; }
+.compare-table tbody tr:nth-child(odd) { background: #161616; }
+.compare-table tbody td {
+  padding: 22px 28px;
+  vertical-align: middle;
+}
+.compare-table tbody td.feature-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.compare-table tbody td.cell {
+  font-size: 16px;
+  color: #CACACA;
+  font-weight: 500;
+}
+.compare-table tbody td.our-cell {
+  background: rgba(255,159,10,0.06);
+  border-left: 2px solid #FF9F0A;
+  border-right: 2px solid #FF9F0A;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.compare-table tbody tr:last-child td.our-cell {
+  border-bottom: 2px solid #FF9F0A;
+}
+
+.check, .cross {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+.check::before {
+  content: '✓';
+  display: inline-flex;
+  width: 22px; height: 22px;
+  background: rgba(48,209,88,0.15);
+  color: #30D158;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.cross::before {
+  content: '✕';
+  display: inline-flex;
+  width: 22px; height: 22px;
+  background: rgba(255,69,58,0.15);
+  color: #FF453A;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.value-big {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.value-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-top: 2px;
+}
+.price-big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+/* VALUE CALC */
+.value-calc {
+  padding: 120px 32px;
+  border-bottom: 1px solid #2A2A2A;
+  background: #0E0E0E;
+}
+.value-calc-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.value-calc h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.value-calc h2 .accent { color: #FF9F0A; }
+.value-calc p.lead {
+  color: #888;
+  font-size: 16px;
+  max-width: 640px;
+  margin-bottom: 64px;
+}
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid #2A2A2A;
+}
+.calc-cell {
+  padding: 48px 36px;
+  border-right: 1px solid #2A2A2A;
+}
+.calc-cell:last-child { border-right: none; }
+.calc-cell.ours {
+  background: rgba(255,159,10,0.07);
+  border: 2px solid #FF9F0A;
+  margin: -1px;
+  position: relative;
+}
+.calc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 14px;
+}
+.calc-cell.ours .calc-label { color: #FF9F0A; }
+.calc-product {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+}
+.calc-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 88px;
+  line-height: 0.9;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+}
+.calc-cell.ours .calc-number { color: #FF9F0A; }
+.calc-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888;
+  margin-top: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.calc-formula {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #666;
+  margin-top: 24px;
+}
+
+/* VERDICT */
+.verdict {
+  padding: 140px 32px;
+}
+.verdict-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.verdict-card {
+  border: 2px solid #FF9F0A;
+  background: rgba(255,159,10,0.04);
+  padding: 64px 56px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.verdict-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FF9F0A;
+  margin-bottom: 20px;
+}
+.verdict-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.verdict-card p {
+  color: #CACACA;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+.verdict-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 8px;
+}
+.verdict-stat .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FF9F0A;
+}
+.verdict-stat .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.verdict-cta {
+  text-align: center;
+  border-left: 1px solid #2A2A2A;
+  padding-left: 56px;
+}
+.verdict-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+}
+.verdict-price-old {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+  margin-top: 6px;
+}
+.verdict-cta .btn-primary {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 14px;
+  margin-top: 24px;
+}
+.verdict-ships {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888;
+  margin-top: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+footer {
+  background: #0A0A0A;
+  padding: 80px 32px 40px;
+  border-top: 1px solid #2A2A2A;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+.footer-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-brand::before {
+  content: '';
+  width: 10px; height: 10px;
+  background: #FF9F0A;
+  border-radius: 50%;
+}
+.footer-tag {
+  color: #888;
+  font-size: 14px;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+.footer-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #CACACA;
+  border: 1px solid #2A2A2A;
+  padding: 6px 10px;
+  border-radius: 2px;
+}
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a {
+  color: #CACACA;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #FFFFFF; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  border-top: 1px solid #2A2A2A;
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.08em;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">NOVA / FIELD ONE</div>
+    <div class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Specs</a>
+      <a href="#" class="active">Compare</a>
+      <a href="#">Story</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-price">
+        <span>$899</span> early bird
+        <small>Ships Feb 2025</small>
+      </div>
+      <button class="btn-primary">Pre-order</button>
+      <span class="cart-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h15l-2 10H8L6 6z"/><circle cx="9" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/><path d="M6 6L5 3H2"/></svg>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">// Head to Head — Updated Oct 2024</div>
+    <h1>How it stacks up.</h1>
+    <p class="hero-sub">Field One vs. Blackmagic Pocket 6K G2 vs. Sony FX3. Specs verified from manufacturer sheets. No marketing spin.</p>
+  </div>
+</section>
+
+<section class="compare-section">
+  <div class="compare-inner">
+    <div class="section-label">// The spec sheet, side by side</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="feature-col">Feature</th>
+          <th class="product-col our-product">
+            <span class="product-mini">NOVA</span>
+            Field One
+            <br><span class="our-badge">Our pick</span>
+          </th>
+          <th class="product-col">
+            <span class="product-mini">Blackmagic</span>
+            Pocket 6K G2
+          </th>
+          <th class="product-col">
+            <span class="product-mini">Sony</span>
+            FX3
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature-name">Open-gate 6K</td>
+          <td class="cell our-cell"><span class="check">Yes — 3:2 6048×4032</span></td>
+          <td class="cell"><span class="check">Yes — 6144×3456</span></td>
+          <td class="cell"><span class="cross">No — 4K max</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Internal RAW</td>
+          <td class="cell our-cell"><span class="check">NovaRAW 12-bit</span></td>
+          <td class="cell"><span class="check">BRAW 12-bit</span></td>
+          <td class="cell"><span class="cross">External only</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Weight (body)</td>
+          <td class="cell our-cell">
+            <span class="value-big">612 g</span>
+            <span class="value-sub">CNC alu + magnesium</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">1,200 g</span>
+            <span class="value-sub">Polycarbonate</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">715 g</span>
+            <span class="value-sub">Magnesium</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-name">Dynamic range</td>
+          <td class="cell our-cell"><span class="value-big">14 stops</span></td>
+          <td class="cell"><span class="value-big">13 stops</span></td>
+          <td class="cell"><span class="value-big">15+ stops</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Max frame rate</td>
+          <td class="cell our-cell">
+            <span class="value-big">4K ProRes 120p</span>
+            <span class="value-sub">6K up to 60p</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">4K 60p</span>
+            <span class="value-sub">6K up to 50p</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">4K 120p</span>
+            <span class="value-sub">FHD 240p</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-name">Interchangeable mount</td>
+          <td class="cell our-cell"><span class="check">L / EF / PL — &lt;8s swap</span></td>
+          <td class="cell"><span class="cross">EF only</span></td>
+          <td class="cell"><span class="cross">E-mount only</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Screen brightness</td>
+          <td class="cell our-cell">
+            <span class="value-big">1,500 nit</span>
+            <span class="value-sub">4.3" HDR tilt</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">1,500 nit</span>
+            <span class="value-sub">5" fixed</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">~500 nit</span>
+            <span class="value-sub">3" vari-angle</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-name">32-bit float audio</td>
+          <td class="cell our-cell"><span class="check">Via NovaGrip XLR</span></td>
+          <td class="cell"><span class="cross">No</span></td>
+          <td class="cell"><span class="check">Via XLR handle</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Battery</td>
+          <td class="cell our-cell">
+            <span class="value-big">4,200 mAh</span>
+            <span class="value-sub">95 min 6K30 • NP-F compat</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">NP-F570</span>
+            <span class="value-sub">~45 min</span>
+          </td>
+          <td class="cell">
+            <span class="value-big">NP-FZ100</span>
+            <span class="value-sub">~95 min</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="feature-name">SDI out</td>
+          <td class="cell our-cell"><span class="check">3G-SDI</span></td>
+          <td class="cell"><span class="cross">HDMI only</span></td>
+          <td class="cell"><span class="cross">HDMI only</span></td>
+        </tr>
+        <tr>
+          <td class="feature-name">Price (body)</td>
+          <td class="cell our-cell">
+            <span class="price-big">$899</span>
+            <span class="value-sub">early bird • reg $1,199</span>
+          </td>
+          <td class="cell">
+            <span class="price-big">$1,995</span>
+            <span class="value-sub">street price</span>
+          </td>
+          <td class="cell">
+            <span class="price-big">$3,899</span>
+            <span class="value-sub">MSRP</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="value-calc">
+  <div class="value-calc-inner">
+    <div class="section-label">// Value calculation</div>
+    <h2>Cost per stop of dynamic range: <span class="accent">$64</span></h2>
+    <p class="lead">Take the price of the body, divide by the rated stops of dynamic range. A simple, honest number. The Field One delivers more captured latitude per dollar than anything else in its weight class.</p>
+
+    <div class="calc-grid">
+      <div class="calc-cell ours">
+        <div class="calc-label">NOVA</div>
+        <div class="calc-product">Field One</div>
+        <div class="calc-number">$64</div>
+        <div class="calc-unit">per stop</div>
+        <div class="calc-formula">$899 ÷ 14 stops</div>
+      </div>
+      <div class="calc-cell">
+        <div class="calc-label">Blackmagic</div>
+        <div class="calc-product">Pocket 6K G2</div>
+        <div class="calc-number">$142</div>
+        <div class="calc-unit">per stop</div>
+        <div class="calc-formula">$1,995 ÷ 13 stops</div>
+      </div>
+      <div class="calc-cell">
+        <div class="calc-label">Sony</div>
+        <div class="calc-product">FX3</div>
+        <div class="calc-number">$278</div>
+        <div class="calc-unit">per stop</div>
+        <div class="calc-formula">$3,899 ÷ 15 stops</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="verdict">
+  <div class="verdict-inner">
+    <div class="verdict-card">
+      <div>
+        <div class="verdict-eyebrow">// The verdict</div>
+        <h3>Field One wins on weight, price, and mount flexibility.</h3>
+        <p>The FX3 has the edge on log latitude. The Pocket 6K G2 matches us on internal RAW. But neither is half the weight, swaps mounts in under eight seconds, or comes in under $900. For run-and-gun cinema, the math is one-sided.</p>
+        <div class="verdict-stats">
+          <div class="verdict-stat">
+            <div class="num">−49%</div>
+            <div class="lbl">Lighter than BMPCC 6K</div>
+          </div>
+          <div class="verdict-stat">
+            <div class="num">−77%</div>
+            <div class="lbl">Cheaper than FX3</div>
+          </div>
+          <div class="verdict-stat">
+            <div class="num">3</div>
+            <div class="lbl">Mounts, one body</div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict-cta">
+        <div class="verdict-price">$899</div>
+        <div class="verdict-price-old">Regular $1,199</div>
+        <button class="btn-primary">Pre-order Field One</button>
+        <div class="verdict-ships">Ships Feb 2025 · $99 deposit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">NOVA / FIELD ONE</div>
+      <p class="footer-tag">The pocket cinema camera, reimagined for creators who shoot first.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">★ Kickstarter 412%</span>
+        <span class="footer-badge">Made in Taiwan 🇹🇼</span>
+        <span class="footer-badge">Ships Feb 2025</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Specs</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Press Kit (ZIP, 240MB)</a></li>
+        <li><a href="#">Reviewers Hub</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">30-day refund policy</a></li>
+        <li><a href="#">Pre-order terms</a></li>
+        <li><a href="#">Warranty</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 NOVA IMAGING CO., LTD · HSINCHU, TAIWAN</span>
+    <span>REV. 027 / FIELD ONE v1.2</span>
+  </div>
+</footer>
+
+</body>
+</html>

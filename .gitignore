@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Environment / secrets
+.env
+
+# Docs (internal planning notes)
+docs/
+
+# Job outputs (ephemeral run results)
+jobs/
+eval_results/
+
+# OS
+.DS_Store

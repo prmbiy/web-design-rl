@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>People — Yale NLP & Reasoning Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Crimson Text', serif;
+  font-size: 16px;
+  color: #000;
+  background: #FFFFFF;
+  line-height: 1.55;
+}
+
+a { color: #00356B; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:visited { color: #5A2B7A; }
+a:hover { color: #A8132A; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D9D9D9;
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Crimson Text', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #00356B;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+.nav-brand:visited { color: #00356B; }
+.nav-brand small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: #555;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links a.active { color: #00356B; border-bottom: 2px solid #00356B; padding-bottom: 4px; }
+.nav-links a:hover { color: #A8132A; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.uni-badge {
+  width: 38px; height: 38px;
+  background: #00356B;
+  color: #fff;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 56px 24px 36px;
+  border-bottom: 1px solid #D9D9D9;
+}
+.hero h1 {
+  font-family: 'Crimson Text', 'Times New Roman', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #00356B;
+  margin-bottom: 8px;
+}
+.hero .sub {
+  font-size: 17px;
+  color: #555;
+  font-style: italic;
+}
+
+/* ===== SECTION ===== */
+section.block { padding: 48px 24px; border-bottom: 1px solid #D9D9D9; }
+section.block.alt { background: #F5F5F5; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #00356B;
+  padding-bottom: 8px;
+}
+.section-head h2 {
+  font-family: 'Crimson Text', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #00356B;
+}
+.section-head .meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ===== PI CARD ===== */
+.pi-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.portrait {
+  width: 220px;
+  height: 260px;
+  background: linear-gradient(135deg, #00356B 0%, #1a4d8c 100%);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Crimson Text', serif;
+  font-size: 64px;
+  font-weight: 700;
+  font-style: italic;
+  border: 1px solid #00356B;
+}
+.pi-info h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+.pi-info .role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #A8132A;
+  margin-bottom: 16px;
+}
+.pi-info p { margin-bottom: 12px; color: #1a1a1a; }
+.pi-info .interests {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 16px;
+}
+.pi-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.pi-links a {
+  text-decoration: none;
+  border-bottom: 1px solid #00356B;
+  padding-bottom: 1px;
+}
+
+/* ===== PEOPLE GRID ===== */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 32px;
+}
+.person {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.person .ph {
+  width: 96px;
+  height: 116px;
+  background: linear-gradient(135deg, #00356B, #2a5a8c);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 600;
+  border: 1px solid #D9D9D9;
+}
+.person.alt-ph .ph { background: linear-gradient(135deg, #4a4a4a, #1a1a1a); }
+.person.alt2 .ph { background: linear-gradient(135deg, #A8132A, #6b0d1a); }
+.person h4 {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 2px;
+}
+.person .year {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+.person .int {
+  font-size: 14px;
+  color: #1a1a1a;
+  font-style: italic;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.person .feat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.45;
+}
+.person .feat a { font-family: 'JetBrains Mono', monospace; }
+
+/* ===== SPOTLIGHT ===== */
+.spotlight {
+  background: #FFF8C5;
+  border-left: 4px solid #B8860B;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+}
+.spotlight .badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  background: #B8860B;
+  color: #fff;
+  padding: 3px 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.spotlight .ph {
+  width: 140px;
+  height: 170px;
+  background: linear-gradient(135deg, #00356B, #2a5a8c);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 48px;
+  font-weight: 600;
+  border-radius: 2px;
+}
+.spotlight h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 22px;
+  color: #00356B;
+  margin-bottom: 8px;
+}
+.spotlight blockquote {
+  font-style: italic;
+  color: #1a1a1a;
+  border-left: 2px solid #B8860B;
+  padding-left: 14px;
+  margin: 14px 0;
+  font-size: 15px;
+}
+.spotlight .paper {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555;
+}
+
+/* ===== POSTDOC / RS GRID ===== */
+.dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.single-card { max-width: 540px; }
+
+/* ===== VISITING ===== */
+.visiting-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.visit-card {
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  padding: 20px 22px;
+  border-left: 3px solid #00356B;
+}
+.visit-card h4 {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 4px;
+}
+.visit-card .aff {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.visit-card .term {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A8132A;
+}
+
+/* ===== ALUMNI TABLE ===== */
+table.alumni {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+table.alumni thead th {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #00356B;
+  padding: 10px 12px;
+  border-bottom: 2px solid #00356B;
+}
+table.alumni td {
+  padding: 12px;
+  border-bottom: 1px solid #D9D9D9;
+  vertical-align: top;
+}
+table.alumni tbody tr:nth-child(even) { background: #F5F5F5; }
+table.alumni .name { font-style: italic; }
+table.alumni .grad {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #555;
+  white-space: nowrap;
+}
+table.alumni .placement { color: #1a1a1a; }
+table.alumni .placement strong { color: #00356B; font-weight: 600; font-style: normal; }
+
+/* ===== COLLAB NETWORK ===== */
+.collab-diagram {
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+.collab-svg { max-width: 720px; width: 100%; height: auto; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #F5F5F5;
+  padding: 40px 24px 28px;
+  border-top: 1px solid #D9D9D9;
+}
+.foot-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 36px;
+}
+.foot-col h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #00356B;
+  margin-bottom: 10px;
+}
+.foot-col p, .foot-col li {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  list-style: none;
+}
+.foot-col a { font-family: 'Inter', sans-serif; font-size: 14px; }
+.foot-brand {
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  color: #00356B;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.foot-bottom {
+  max-width: 1080px;
+  margin: 28px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #D9D9D9;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      Yale NLP & Reasoning Lab
+      <small>Department of Computer Science · Yale University</small>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/research">Research</a></li>
+      <li><a href="/people" class="active">People</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/code">Code &amp; Data</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/join">Join Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="uni-badge">Y</span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1>People</h1>
+    <p class="sub">Faculty, students, postdocs, and alumni of YNRL.</p>
+  </div>
+</header>
+
+<!-- PI -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <h2>Principal Investigator</h2>
+      <span class="meta">Lab Director</span>
+    </div>
+    <div class="pi-card">
+      <div class="portrait">AR</div>
+      <div class="pi-info">
+        <h3>Prof. Aditi Ramaswamy</h3>
+        <div class="role">Associate Professor of Computer Science · Yale University</div>
+        <p>Aditi directs YNRL, with research spanning faithful reasoning in large language models, mechanistic interpretability of transformer circuits, and the design of trustworthy evaluation protocols. Prior to Yale, she was a research scientist at Google Brain and earned her PhD from Stanford in 2017.</p>
+        <p class="interests"><strong style="font-style:normal;color:#00356B">Interests:</strong> reasoning, interpretability, robust evaluation, multimodal grounding.</p>
+        <div class="pi-links">
+          <a href="#">Featured paper: Chain-of-Verification Decoding (NeurIPS 2023) →</a>
+          <a href="#">aditi.cs.yale.edu</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">ramaswamy@cs.yale.edu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PhD Students -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>PhD Students</h2>
+      <span class="meta">6 current</span>
+    </div>
+    <div class="people-grid">
+      <div class="person">
+        <div class="ph">JL</div>
+        <div>
+          <h4>Jordan Liu</h4>
+          <div class="year">3rd-year PhD · NSF GRFP</div>
+          <div class="int">Faithful reasoning, chain-of-thought verification, calibration.</div>
+          <div class="feat">→ <a href="#">Chain-of-Verification Decoding</a><br>NeurIPS 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+      <div class="person alt-ph">
+        <div class="ph">HP</div>
+        <div>
+          <h4>Hana Park</h4>
+          <div class="year">4th-year PhD · Apple AI/ML Fellow</div>
+          <div class="int">Mechanistic interpretability, attention circuit analysis.</div>
+          <div class="feat">→ <a href="#">Probing Refusal Circuits in 7B LMs</a><br>EMNLP 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+      <div class="person alt2">
+        <div class="ph">DA</div>
+        <div>
+          <h4>Diego Alvarez</h4>
+          <div class="year">2nd-year PhD</div>
+          <div class="int">Vision-language grounding, pixel-faithful alignment.</div>
+          <div class="feat">→ <a href="#">GroundCLIP</a><br>ICCV 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+      <div class="person">
+        <div class="ph">EM</div>
+        <div>
+          <h4>Elena Marchetti</h4>
+          <div class="year">3rd-year PhD · Google PhD Fellow</div>
+          <div class="int">Adversarial robustness, prompt injection defense.</div>
+          <div class="feat">→ <a href="#">PromptArmor</a><br>USENIX Security 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+      <div class="person alt-ph">
+        <div class="ph">KO</div>
+        <div>
+          <h4>Kenji Otsuka</h4>
+          <div class="year">5th-year PhD</div>
+          <div class="int">Sparse mixture-of-experts, efficient training at scale.</div>
+          <div class="feat">→ <a href="#">Sparse Attention Routing for 70B Models</a><br>ICML 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+      <div class="person alt2">
+        <div class="ph">PB</div>
+        <div>
+          <h4>Priya Bhatnagar</h4>
+          <div class="year">1st-year PhD</div>
+          <div class="int">Temporal scene graphs, video question answering.</div>
+          <div class="feat">→ <a href="#">VideoQA via Temporal Scene Graphs</a><br>CVPR 2023 · <a href="#">site</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Spotlight -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <h2>PhD Spotlight</h2>
+      <span class="meta">Featured this quarter</span>
+    </div>
+    <div class="spotlight">
+      <div class="ph">HP</div>
+      <div>
+        <span class="badge">★ Spotlight</span>
+        <h3>Hana Park · 4th-year PhD</h3>
+        <p>Hana's recent work isolates the narrow set of attention heads that mediate refusal behavior in instruction-tuned 7B language models, opening a path toward editable safety mechanisms. Her ICLR 2024 paper extends this analysis across model scales.</p>
+        <blockquote>"What surprised us is that 'refusal' isn't a diffuse property — it lives in a handful of heads. That's good news, and slightly terrifying news, all at once."</blockquote>
+        <p class="paper">→ <a href="#">Scaling Refusal Circuits: A Cross-Model Study</a> · ICLR 2024 · <a href="#">arXiv:2401.10882</a> · <a href="#">code</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Postdocs -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Postdoctoral Researchers</h2>
+      <span class="meta">2 current</span>
+    </div>
+    <div class="dual-grid">
+      <div class="person">
+        <div class="ph">WL</div>
+        <div>
+          <h4>Dr. Wen Liu</h4>
+          <div class="year">Postdoc · joined Fall 2023 · PhD Carnegie Mellon</div>
+          <div class="int">Mechanistic interpretability, sparse autoencoders, feature attribution.</div>
+          <div class="feat">→ <a href="#">Dictionary Learning for Transformer Features</a><br>NeurIPS 2023 · <a href="#">wenliu.dev</a></div>
+        </div>
+      </div>
+      <div class="person alt-ph">
+        <div class="ph">SO</div>
+        <div>
+          <h4>Dr. Sara Okafor</h4>
+          <div class="year">Postdoc · 2nd year · PhD ETH Zürich</div>
+          <div class="int">Multimodal robustness, distribution shift in vision-language systems.</div>
+          <div class="feat">→ <a href="#">Robust VL Models Under Compositional Shift</a><br>ICML 2023 · <a href="#">saraokafor.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Scientist -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <h2>Research Scientists</h2>
+      <span class="meta">1 current</span>
+    </div>
+    <div class="single-card">
+      <div class="person alt2">
+        <div class="ph">MF</div>
+        <div>
+          <h4>Dr. Marcus Feldman</h4>
+          <div class="year">Research Scientist · joined 2021</div>
+          <div class="int">Evaluation infrastructure, benchmark design, reproducibility tooling for large-scale LM experiments.</div>
+          <div class="feat">→ <a href="#">REASON-Bench: A Reproducible Suite for LM Reasoning</a><br>TMLR 2023 · <a href="#">mfeldman.cs.yale.edu</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visiting -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Visiting Researchers</h2>
+      <span class="meta">2023 — 2024</span>
+    </div>
+    <div class="visiting-list">
+      <div class="visit-card">
+        <h4>Prof. Yuki Tanaka</h4>
+        <div class="aff">Associate Professor, Kyoto University</div>
+        <p style="font-size:14px;color:#1a1a1a;margin-bottom:10px;">Visiting on sabbatical to collaborate on cross-lingual reasoning benchmarks and Japanese LM evaluation.</p>
+        <div class="term">Spring 2024 · 5 months</div>
+      </div>
+      <div class="visit-card">
+        <h4>Yael Cohen</h4>
+        <div class="aff">PhD Candidate, Technion — Israel Institute of Technology</div>
+        <p style="font-size:14px;color:#1a1a1a;margin-bottom:10px;">Collaborated with the interpretability group on causal mediation analysis for transformer circuits.</p>
+        <div class="term">Fall 2023 · 4 months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Alumni -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <h2>Alumni</h2>
+      <span class="meta">Placement record</span>
+    </div>
+    <table class="alumni">
+      <thead>
+        <tr>
+          <th style="width:28%">Name</th>
+          <th style="width:18%">Graduated</th>
+          <th>Placement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">Maya Chen</td><td class="grad">PhD · 2023</td><td class="placement">Research Scientist, <strong>Anthropic</strong> — alignment team</td></tr>
+        <tr><td class="name">Rahul Mehta</td><td class="grad">PhD · 2022</td><td class="placement">Assistant Professor, <strong>UT Austin</strong>, Department of Computer Science</td></tr>
+        <tr><td class="name">Lin Zhao</td><td class="grad">Postdoc · 2021</td><td class="placement">Senior Research Scientist, <strong>Google DeepMind</strong> (London)</td></tr>
+        <tr><td class="name">Sofia Reyes</td><td class="grad">PhD · 2022</td><td class="placement">Research Scientist, <strong>Microsoft Research</strong> — Redmond</td></tr>
+        <tr><td class="name">Daniel Whitford</td><td class="grad">PhD · 2021</td><td class="placement">Assistant Professor, <strong>University of Michigan</strong>, EECS</td></tr>
+        <tr><td class="name">Aisha Bello</td><td class="grad">PhD · 2020</td><td class="placement">Founding Researcher, <strong>Cohere</strong></td></tr>
+        <tr><td class="name">Tomáš Novák</td><td class="grad">Postdoc · 2020</td><td class="placement">Assistant Professor, <strong>EPFL</strong>, School of Computer and Communication Sciences</td></tr>
+        <tr><td class="name">Hannah Goldberg</td><td class="grad">PhD · 2019</td><td class="placement">Staff Research Scientist, <strong>Meta FAIR</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Collaboration Network -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Collaboration Network</h2>
+      <span class="meta">Active partner groups</span>
+    </div>
+    <div class="collab-diagram">
+      <svg class="collab-svg" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- edges -->
+        <line x1="360" y1="160" x2="150" y2="80"  stroke="#00356B" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="360" y1="160" x2="570" y2="80"  stroke="#00356B" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="360" y1="160" x2="150" y2="240" stroke="#00356B" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="360" y1="160" x2="570" y2="240" stroke="#00356B" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+        <!-- center node -->
+        <circle cx="360" cy="160" r="56" fill="#00356B"/>
+        <text x="360" y="155" text-anchor="middle" fill="#FFFFFF" font-family="Crimson Text, serif" font-style="italic" font-weight="700" font-size="20">YNRL</text>
+        <text x="360" y="178" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10" letter-spacing="1">YALE · CS</text>
+
+        <!-- partner nodes -->
+        <g font-family="Crimson Text, serif" font-size="14" fill="#1a1a1a">
+          <circle cx="150" cy="80" r="42" fill="#FFFFFF" stroke="#A8132A" stroke-width="2"/>
+          <text x="150" y="77" text-anchor="middle" font-weight="700">Stanford</text>
+          <text x="150" y="93" text-anchor="middle" font-size="11" fill="#555">CRFM</text>
+
+          <circle cx="570" cy="80" r="42" fill="#FFFFFF" stroke="#A8132A" stroke-width="2"/>
+          <text x="570" y="77" text-anchor="middle" font-weight="700">MIT</text>
+          <text x="570" y="93" text-anchor="middle" font-size="11" fill="#555">CSAIL</text>
+
+          <circle cx="150" cy="240" r="42" fill="#FFFFFF" stroke="#A8132A" stroke-width="2"/>
+          <text x="150" y="237" text-anchor="middle" font-weight="700">Princeton</text>
+          <text x="150" y="253" text-anchor="middle" font-size="11" fill="#555">NLP Group</text>
+
+          <circle cx="570" cy="240" r="42" fill="#FFFFFF" stroke="#A8132A" stroke-width="2"/>
+          <text x="570" y="237" text-anchor="middle" font-weight="700">Allen AI</text>
+          <text x="570" y="253" text-anchor="middle" font-size="11" fill="#555">AI2 · Seattle</text>
+        </g>
+
+        <text x="360" y="305" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#555">
+          Active joint papers, co-advised students, and shared infrastructure (2022–2024).
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">Yale NLP &amp; Reasoning Lab</div>
+      <p style="color:#555;font-size:14px;">Building language models that reason, explain, and remain robust.</p>
+      <p style="margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#555;">
+        AKW Hall, 51 Prospect St.<br>
+        New Haven, CT 06511
+      </p>
+    </div>
+    <div class="foot-col">
+      <h5>Lab</h5>
+      <ul>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/people">People</a></li>
+        <li><a href="/publications">Publications</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="/code">Code &amp; Data</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/join">Join Us</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>External</h5>
+      <ul>
+        <li><a href="#">Google Scholar</a></li>
+        <li><a href="#">GitHub: yale-ynrl</a></li>
+        <li><a href="#">Yale CS Department</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2024 Yale NLP &amp; Reasoning Lab · Yale University</span>
+    <span>Supported by NSF, DARPA SAFRON, Google, Apple, Microsoft</span>
+  </div>
+</footer>
+
+</body>
+</html>

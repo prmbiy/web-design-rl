@@ -1,0 +1,22 @@
+{
+  "id": "016",
+  "name": "saas_dark",
+  "source": "B",
+  "archetype": "Modern developer-focused SaaS product with dark mode interface",
+  "market": "Global, B2B SaaS, software developers and engineering teams, $50-500/month price point",
+  "era": "2023",
+  "density": "Clean and generous with whitespace, but information-rich in a structured way. Feature grids with icon+headline+description cards. Comparison tables. Testimonial carousels. Pricing tier cards side-by-side. Code snippet showcases. Integration logos grid.",
+  "nav_style": "Dark sticky nav with logo on left, center nav links: Product, Features, Pricing, Docs, Blog. Right: GitHub stars badge, 'Sign in' ghost button, 'Start free' filled CTA button. On scroll: nav gains a subtle border-bottom glow.",
+  "commercial_model": "Freemium SaaS. Three-tier pricing: Free, Pro, Team/Enterprise. Monthly/annual toggle with annual showing 20% discount. Enterprise has 'Contact sales' instead of price.",
+  "color_palette": "Very dark grey (#0F1117) or near-black background. Electric blue (#4F6BFF) as primary accent. Light purple (#A78BFA) for secondary highlights. White (#FFFFFF) for primary text, light grey (#94A3B8) for secondary text. Green (#22C55E) for success states and 'active' badges. A true dark-mode-first design.",
+  "typography": "Inter for UI text. Geist Mono or JetBrains Mono for code blocks. Headings in 48-64px for hero. Feature section headings at 32px. Body at 16px with generous line-height on dark backgrounds. Gradient text on hero headline using blue-to-purple gradient.",
+  "quirks": ["dark_mode_only", "github_star_badge", "code_snippet_showcase", "integration_logos_grid", "pricing_annual_toggle", "free_tier_available", "cli_install_command", "api_key_display_mock", "status_page_link", "changelog_section"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Dark hero with gradient text headline, subhead, two CTAs (Start Free + View Docs). Social proof: GitHub stars, companies using it logos strip. Feature overview grid 3 columns. Code snippet demo. Testimonial carousel. Pricing preview. Footer."},
+    {"slug": "features", "title": "Features", "description": "Full features breakdown organized by category. Each feature has an illustration/diagram. Comparison with competitors in subtle table. Video demo embed placeholder. Integration section with 50+ partner logos."},
+    {"slug": "pricing", "title": "Pricing", "description": "Monthly/Annual toggle. Three pricing cards: Free, Pro ($29/mo), Team ($99/mo). Feature comparison checklist per tier. Enterprise custom pricing CTA. FAQ accordion below. Usage-based pricing explanation."},
+    {"slug": "docs", "title": "Documentation", "description": "Docs landing page. Quick start guide with terminal commands. SDK installation tabs (npm, pip, cargo). API reference overview. Authentication guide. Webhooks guide. Community help link. Changelog."},
+    {"slug": "blog", "title": "Blog & Changelog", "description": "Engineering blog with technical articles. Changelog entries with version numbers and feature descriptions. Subscribe to updates email form. Categories: Engineering, Product, Company. Author profiles."}
+  ],
+  "animations": ["fade_in_hero", "hover_card_lift", "gradient_border_glow", "counter_animation_stats"]
+}

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "ask",
+      "path": "ask.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 194131,
+      "page_width": 1440,
+      "page_height": 1111
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 210163,
+      "page_width": 1440,
+      "page_height": 1062
+    },
+    {
+      "slug": "jobs",
+      "path": "jobs.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 179463,
+      "page_width": 1440,
+      "page_height": 1066
+    },
+    {
+      "slug": "new",
+      "path": "new.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 195021,
+      "page_width": 1440,
+      "page_height": 1016
+    },
+    {
+      "slug": "show",
+      "path": "show.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 223356,
+      "page_width": 1440,
+      "page_height": 1178
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

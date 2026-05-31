@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Longwave Audio — Independent Podcasts on Tech & Culture</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Karla', system-ui, sans-serif;
+  font-size: 16px;
+  background: #1A0F2E;
+  color: #F5F0E8;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: rgba(26, 15, 46, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #3D2C5C;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B, #3C1F6B 70%);
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px solid #F5F0E8;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a {
+  color: #F5F0E8;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #FF6B6B; }
+
+.mini-player {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 8px 14px 8px 8px;
+  min-width: 280px;
+}
+.mini-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #1A0F2E;
+  font-size: 11px;
+}
+.mini-meta { flex: 1; min-width: 0; }
+.mini-show {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.mini-title {
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+}
+
+.support-btn {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s, background 0.2s;
+}
+.support-btn:hover { background: #ff8585; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(180deg, #1A0F2E 0%, #2A1A47 60%, #1A0F2E 100%);
+  padding: 120px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(107, 75, 168, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FF6B6B;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: #FF6B6B;
+}
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  max-width: 900px;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: #F5B544;
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: 20px;
+  color: #A89BB8;
+  max-width: 640px;
+  line-height: 1.55;
+  margin-bottom: 56px;
+}
+
+/* NOW PLAYING WIDGET */
+.now-playing {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  max-width: 880px;
+}
+.np-art {
+  width: 96px;
+  height: 96px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #3C1F6B 0%, #FF6B6B 100%);
+  position: relative;
+  overflow: hidden;
+}
+.np-art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 6px, rgba(245, 240, 232, 0.08) 6px 7px),
+    radial-gradient(circle at 50% 50%, rgba(245, 240, 232, 0.15) 0%, transparent 60%);
+}
+.np-art::after {
+  content: 'SD';
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #F5F0E8;
+}
+.np-info { min-width: 0; }
+.np-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FF6B6B;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+}
+.np-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.np-host { font-size: 13px; color: #A89BB8; margin-bottom: 14px; }
+.np-bar {
+  height: 4px;
+  background: #3D2C5C;
+  border-radius: 2px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.np-progress {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 32%;
+  background: #FF6B6B;
+  border-radius: 2px;
+}
+.np-progress::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  background: #F5F0E8;
+  border-radius: 50%;
+}
+.np-times {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+}
+.np-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: grid;
+  place-items: center;
+  color: #1A0F2E;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.np-play:hover { transform: scale(1.05); }
+
+/* SECTIONS */
+.section {
+  padding: 96px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  border-bottom: 1px solid #3D2C5C;
+  padding-bottom: 24px;
+}
+.section-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.section-header .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* SHOW GRID */
+.show-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.show-card {
+  display: block;
+  transition: transform 0.2s;
+}
+.show-card:hover { transform: translateY(-4px); }
+.show-art {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid #3D2C5C;
+}
+.show-art-label {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  right: 24px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  color: #F5F0E8;
+  letter-spacing: -0.02em;
+  z-index: 2;
+}
+.show-art-num {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+.art-1 { background: linear-gradient(135deg, #3C1F6B, #FF6B6B); }
+.art-1::before { content:''; position:absolute; inset:0; background: repeating-linear-gradient(0deg, transparent 0 12px, rgba(245,240,232,0.06) 12px 13px); }
+.art-2 { background: linear-gradient(135deg, #F5B544, #3C1F6B); }
+.art-2::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 70% 30%, rgba(245,240,232,0.2) 0%, transparent 50%); }
+.art-3 { background: linear-gradient(135deg, #1A0F2E, #6B4BA8); }
+.art-3::before { content:''; position:absolute; inset:0; background: repeating-linear-gradient(45deg, transparent 0 20px, rgba(255,107,107,0.1) 20px 22px); }
+.art-4 { background: linear-gradient(135deg, #6B4BA8, #F5F0E8); }
+.art-4::before { content:''; position:absolute; bottom:30%; left:0; right:0; height:1px; background:#1A0F2E; box-shadow: 0 -8px 0 #1A0F2E, 0 -16px 0 #1A0F2E, 0 -24px 0 #1A0F2E; }
+.art-5 { background: linear-gradient(135deg, #FF6B6B, #F5B544); }
+.art-5::before { content:''; position:absolute; inset:0; background: repeating-linear-gradient(90deg, transparent 0 4px, rgba(26,15,46,0.15) 4px 5px); }
+.art-6 { background: linear-gradient(135deg, #2A1A47, #FF6B6B); }
+.art-6::before { content:''; position:absolute; inset:20%; border: 2px solid #F5F0E8; border-radius: 50%; }
+.art-7 { background: linear-gradient(135deg, #3C1F6B, #6B4BA8); }
+.art-7::before { content:''; position:absolute; inset:0; background:
+  radial-gradient(circle at 20% 30%, #F5B544 2px, transparent 3px),
+  radial-gradient(circle at 60% 70%, #FF6B6B 2px, transparent 3px),
+  radial-gradient(circle at 80% 20%, #F5F0E8 1px, transparent 2px),
+  radial-gradient(circle at 30% 80%, #F5F0E8 1px, transparent 2px); }
+
+.show-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.show-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.show-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+}
+.show-desc {
+  color: #A89BB8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* FEATURED EPISODE */
+.featured {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 24px;
+}
+.featured-art {
+  width: 280px;
+  height: 280px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #1A0F2E, #6B4BA8);
+  position: relative;
+  overflow: hidden;
+}
+.featured-art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0 20px, rgba(255,107,107,0.1) 20px 22px);
+}
+.featured-art::after {
+  content: 'FORKBOMB';
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #FF6B6B;
+  letter-spacing: -0.01em;
+}
+.featured-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #F5B544;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.featured-eyebrow::after {
+  content: 'EDITOR\'S PICK';
+}
+.featured-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  margin-bottom: 10px;
+}
+.featured h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.featured-desc {
+  color: #A89BB8;
+  font-size: 15.5px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 540px;
+}
+.featured-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.play-pill {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 12px 22px 12px 18px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.02em;
+}
+.play-pill::before {
+  content: '';
+  width: 0; height: 0;
+  border-left: 9px solid #1A0F2E;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+.featured-stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+}
+
+/* NEWSLETTER STRIP */
+.newsletter {
+  background: #2A1A47;
+  border-top: 1px solid #3D2C5C;
+  border-bottom: 1px solid #3D2C5C;
+  padding: 72px 32px;
+}
+.newsletter-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.newsletter-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FF6B6B;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.newsletter h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.newsletter h2 em { font-style: italic; color: #F5B544; }
+.newsletter p {
+  color: #A89BB8;
+  font-size: 15px;
+  max-width: 480px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  background: #1A0F2E;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 6px;
+}
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #F5F0E8;
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+.newsletter-form input::placeholder { color: #A89BB8; }
+.newsletter-form button {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.newsletter-stat {
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+}
+.newsletter-stat strong { color: #F5F0E8; }
+
+/* SUPPORT BLOCK */
+.support-block {
+  padding: 96px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.support-block h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.support-block h2 em { font-style: italic; color: #FF6B6B; }
+.support-block p {
+  color: #A89BB8;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.support-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 18px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+.support-cta::after { content: '→'; font-size: 18px; }
+
+.support-stat-card {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 40px;
+  text-align: center;
+}
+.support-stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 88px;
+  font-weight: 600;
+  color: #F5B544;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+.support-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+}
+.support-stat-divider {
+  height: 1px;
+  background: #3D2C5C;
+  margin: 28px 0;
+}
+.support-stat-small {
+  font-size: 13px;
+  color: #A89BB8;
+  line-height: 1.6;
+}
+
+/* ABOUT BLURB */
+.about-strip {
+  background: #0F0820;
+  padding: 72px 32px;
+  border-top: 1px solid #3D2C5C;
+}
+.about-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.about-strip p {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #F5F0E8;
+  letter-spacing: -0.01em;
+}
+.about-strip p em { font-style: italic; color: #F5B544; }
+
+/* FOOTER */
+footer {
+  background: #0F0820;
+  padding: 64px 32px 32px;
+  border-top: 1px solid #3D2C5C;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.footer-tag {
+  color: #A89BB8;
+  font-size: 14px;
+  max-width: 320px;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FF6B6B;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: #A89BB8;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #F5F0E8; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid #3D2C5C;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+  letter-spacing: 0.06em;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      Longwave
+    </div>
+    <div class="nav-links">
+      <a href="#">Shows</a>
+      <a href="#">Episodes</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Support Us</a>
+    </div>
+    <div class="mini-player">
+      <div class="mini-play-btn">▶</div>
+      <div class="mini-meta">
+        <div class="mini-show">Now Playing · Signal Drift</div>
+        <div class="mini-title">Ep. 142 — The Last Search Engine</div>
+      </div>
+      <div class="mini-time">47:22</div>
+    </div>
+    <a href="#" class="support-btn">Become a Member</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Longwave Audio · Est. Oakland 2021</div>
+    <h1>Independent audio for the <em>curious mind.</em></h1>
+    <p class="hero-sub">Seven shows on technology, culture, and the strange shape of the future — funded by listeners, not algorithms.</p>
+
+    <div class="now-playing">
+      <div class="np-art"></div>
+      <div class="np-info">
+        <div class="np-label">Latest Episode · Signal Drift</div>
+        <div class="np-title">Ep. 142: The Last Search Engine</div>
+        <div class="np-host">hosted by Maya Okafor · with guest Aanya Krishnan</div>
+        <div class="np-bar"><div class="np-progress"></div></div>
+        <div class="np-times"><span>15:08</span><span>47:22</span></div>
+      </div>
+      <div class="np-play">▶</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOW GRID -->
+<section class="section">
+  <div class="section-header">
+    <h2>The Shows</h2>
+    <div class="meta">07 / Seven productions</div>
+  </div>
+  <div class="show-grid">
+    <a href="#" class="show-card">
+      <div class="show-art art-1">
+        <div class="show-art-num">N°01</div>
+        <div class="show-art-label">Signal<br>Drift</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Signal Drift</div>
+        <div class="show-count">142 EPS</div>
+      </div>
+      <div class="show-desc">Weekly dispatches from the edges of the internet.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-2">
+        <div class="show-art-num">N°02</div>
+        <div class="show-art-label">The<br>Annotated<br>Web</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">The Annotated Web</div>
+        <div class="show-count">89 EPS</div>
+      </div>
+      <div class="show-desc">Close readings of the documents that built the internet.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-3">
+        <div class="show-art-num">N°03</div>
+        <div class="show-art-label">Forkbomb</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Forkbomb</div>
+        <div class="show-count">88 EPS</div>
+      </div>
+      <div class="show-desc">Long-form interviews with the people writing the software.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-4">
+        <div class="show-art-num">N°04</div>
+        <div class="show-art-label">Slow<br>Computer</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Slow Computer</div>
+        <div class="show-count">64 EPS</div>
+      </div>
+      <div class="show-desc">A show about technology that didn't catch on.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-5">
+        <div class="show-art-num">N°05</div>
+        <div class="show-art-label">Liner Notes<br>from Nowhere</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Liner Notes from Nowhere</div>
+        <div class="show-count">31 EPS</div>
+      </div>
+      <div class="show-desc">Music, memory, and the obsessions of working musicians.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-6">
+        <div class="show-art-num">N°06</div>
+        <div class="show-art-label">Cold<br>Open</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Cold Open</div>
+        <div class="show-count">47 EPS</div>
+      </div>
+      <div class="show-desc">Narrative documentaries about subcultures and rituals.</div>
+    </a>
+
+    <a href="#" class="show-card">
+      <div class="show-art art-7">
+        <div class="show-art-num">N°07</div>
+        <div class="show-art-label">Field<br>Recordings</div>
+      </div>
+      <div class="show-meta">
+        <div class="show-title">Field Recordings</div>
+        <div class="show-count">22 EPS</div>
+      </div>
+      <div class="show-desc">Ambient essays composed from places we've been.</div>
+    </a>
+  </div>
+</section>
+
+<!-- FEATURED EPISODE -->
+<section class="section" style="padding-top:0;">
+  <div class="section-header">
+    <h2>Editor's Pick</h2>
+    <div class="meta">Recommended this week</div>
+  </div>
+  <div class="featured">
+    <div class="featured-art"></div>
+    <div class="featured-body">
+      <div class="featured-eyebrow"></div>
+      <div class="featured-num">FORKBOMB · EPISODE 088 · 1H 12M</div>
+      <h3>Inside the Linux Kernel Mailing List Wars</h3>
+      <p class="featured-desc">Alex Tanaka spent six months reading two decades of LKML threads. He joins the show to talk about the personalities, the protocols, and the petty grudges that quietly shape the operating system running half the world's servers — and why open-source governance is mostly just people typing angrily at each other.</p>
+      <div class="featured-controls">
+        <a href="#" class="play-pill">Play episode</a>
+        <span class="featured-stat">Released Nov 7, 2024 · 12,840 plays</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div>
+      <div class="newsletter-eyebrow">The Longwave Dispatch · Fridays</div>
+      <h2>A short letter, every <em>Friday morning.</em></h2>
+      <p>Episode picks from the producers, marginalia from the hosts, and the occasional link we couldn't stop thinking about. No tracking, no sponsors in the body.</p>
+    </div>
+    <div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="your@email.com">
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="newsletter-stat"><strong>18,400</strong> subscribers · unsubscribe anytime</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT BLOCK -->
+<section class="support-block">
+  <div>
+    <h2>Listener-supported,<br>ad-light, <em>ours.</em></h2>
+    <p>Seventy-six percent of Longwave's budget comes directly from members. No private equity, no ad networks scraping your listening habits — just the people who hit play, keeping the lights on.</p>
+    <a href="#" class="support-cta">Become a Supporter</a>
+  </div>
+  <div class="support-stat-card">
+    <div class="support-stat-num">4,212</div>
+    <div class="support-stat-label">Listeners support<br>Longwave directly</div>
+    <div class="support-stat-divider"></div>
+    <div class="support-stat-small">Memberships start at $7/month and include ad-free feeds, bonus episodes, and 48-hour early access to every release across the network.</div>
+  </div>
+</section>
+
+<!-- ABOUT BLURB -->
+<section class="about-strip">
+  <div class="about-inner">
+    <div class="about-eyebrow">About the network</div>
+    <p>Longwave Audio was founded in <em>Oakland in 2021</em> by three former public radio producers who wanted to make the kind of shows that don't fit cleanly into a programming grid. We've been independent ever since.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Longwave Audio</div>
+      <div class="footer-tag">Independent podcasts for the curious mind. Made in Oakland, California, and broadcast everywhere there's a feed reader.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="#">All Shows</a></li>
+        <li><a href="#">Latest Episodes</a></li>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Become a Member</a></li>
+        <li><a href="#">Patreon</a></li>
+        <li><a href="#">One-time Donation</a></li>
+        <li><a href="#">Merch Shop</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Subscribe</h4>
+      <ul>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Overcast</a></li>
+        <li><a href="#">RSS Feeds</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 LONGWAVE AUDIO LLC</div>
+    <div>OAKLAND, CA · MADE WITH PATIENCE</div>
+  </div>
+</footer>
+
+</body>
+</html>

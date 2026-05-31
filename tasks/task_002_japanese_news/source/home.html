@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>朝日毎報 - トップページ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  font-size: 14px;
+  color: #1A1A1A;
+  background: #F7F7F7;
+  line-height: 1.5;
+}
+a { color: #0066CC; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1200px; margin: 0 auto; background: #FFFFFF; }
+
+/* Utility Bar */
+.utility-bar {
+  background: #F7F7F7;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 11px;
+  color: #666;
+}
+.utility-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+}
+.utility-left span { margin-right: 14px; }
+.utility-left .date { color: #1A1A1A; font-weight: 500; }
+.utility-right a { margin-left: 12px; color: #1A1A1A; }
+.subscriber-badge {
+  background: #B8860B; color: #fff; padding: 2px 6px; font-size: 10px; margin-left: 8px;
+}
+
+/* Masthead */
+.masthead {
+  background: #FFFFFF;
+  border-bottom: 3px solid #CC0000;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.masthead-left { display: flex; align-items: baseline; }
+.brand-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 38px;
+  color: #CC0000;
+  letter-spacing: 2px;
+}
+.brand-en {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: #666;
+  margin-left: 14px;
+  font-style: italic;
+}
+.tagline {
+  font-size: 11px;
+  color: #666;
+  margin-left: 14px;
+  border-left: 1px solid #DDD;
+  padding-left: 14px;
+}
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.search-box {
+  border: 1px solid #999;
+  padding: 5px 8px;
+  font-size: 12px;
+  width: 200px;
+}
+.search-btn {
+  background: #CC0000;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.print-edition {
+  font-size: 11px;
+  border: 1px solid #CC0000;
+  color: #CC0000;
+  padding: 4px 8px;
+}
+
+/* Category Tabs */
+.category-tabs {
+  background: #1A1A1A;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.category-tabs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+.category-tabs a {
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-right: 1px solid #333;
+  display: inline-block;
+  font-weight: 500;
+}
+.category-tabs a:hover { background: #CC0000; text-decoration: none; }
+.category-tabs a.active { background: #CC0000; }
+
+/* Breaking Banner */
+.breaking-banner {
+  background: #E60012;
+  color: #fff;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.breaking-label {
+  background: #fff;
+  color: #E60012;
+  font-weight: 700;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin-right: 12px;
+  font-family: 'Noto Serif JP', serif;
+}
+.breaking-headline {
+  font-weight: 700;
+  flex: 1;
+}
+.breaking-time { font-size: 11px; opacity: 0.9; margin-left: 12px; }
+
+/* Stock Ticker */
+.stock-ticker {
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 16px;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+}
+.ticker-label { color: #999; font-weight: 700; }
+.ticker-up { color: #FF4444; }
+.ticker-down { color: #44CC88; }
+.ticker-item { display: inline-block; }
+
+/* Main Grid */
+.main-wrap { display: flex; padding: 16px; gap: 16px; background: #fff; }
+.main-content { flex: 1; min-width: 0; }
+.sidebar { width: 300px; flex-shrink: 0; }
+
+/* Ad Leaderboard */
+.ad-leaderboard {
+  background: linear-gradient(135deg, #003366, #0066CC);
+  height: 90px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.ad-leaderboard::before {
+  content: 'PR';
+  position: absolute;
+  top: 0; left: 0;
+  background: #EEEEEE;
+  color: #666;
+  font-size: 9px;
+  padding: 1px 4px;
+}
+.ad-leaderboard .ad-title { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; }
+.ad-leaderboard .ad-sub { font-size: 12px; opacity: 0.9; }
+
+/* Top Carousel */
+.top-carousel {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 18px;
+}
+.carousel-main, .carousel-side {
+  position: relative;
+}
+.carousel-img {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.carousel-main .carousel-img {
+  height: 280px;
+  background: linear-gradient(135deg, #2c3e50, #4a6580 60%, #CC0000);
+  position: relative;
+}
+.carousel-main .carousel-img::after {
+  content: '🏛';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  opacity: 0.4;
+}
+.carousel-side .carousel-img {
+  height: 130px;
+}
+.carousel-side:nth-child(2) .carousel-img {
+  background: linear-gradient(135deg, #1a4d80, #5599cc);
+  position: relative;
+}
+.carousel-side:nth-child(2) .carousel-img::after {
+  content: '🏟';
+  position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-size: 50px; opacity: 0.5;
+}
+.carousel-side:nth-child(3) .carousel-img {
+  background: linear-gradient(135deg, #6a3030, #cc6644);
+  position: relative;
+}
+.carousel-side:nth-child(3) .carousel-img::after {
+  content: '📈';
+  position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-size: 50px; opacity: 0.6;
+}
+.carousel-main h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 8px 0 4px;
+  color: #1A1A1A;
+  font-weight: 900;
+}
+.carousel-side h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 6px 0 2px;
+  font-weight: 700;
+}
+.carousel-meta {
+  font-size: 11px;
+  color: #666;
+}
+.comment-count {
+  color: #CC0000;
+  margin-left: 6px;
+}
+.carousel-main p {
+  font-size: 13px;
+  color: #333;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* Section Title */
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #1A1A1A;
+  border-left: 5px solid #CC0000;
+  padding-left: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title .more { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; font-weight: 400; }
+
+/* Five Column Grid */
+.five-col-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.news-card {
+  border-bottom: 1px dotted #DDD;
+  padding-bottom: 8px;
+}
+.news-thumb {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: rgba(255,255,255,0.6);
+}
+.thumb1 { background: linear-gradient(135deg, #4a5568, #718096); }
+.thumb2 { background: linear-gradient(135deg, #2d3748, #4a5568); }
+.thumb3 { background: linear-gradient(135deg, #742a2a, #c53030); }
+.thumb4 { background: linear-gradient(135deg, #234e52, #38a169); }
+.thumb5 { background: linear-gradient(135deg, #2c5282, #3182ce); }
+.thumb6 { background: linear-gradient(135deg, #553c9a, #805ad5); }
+.thumb7 { background: linear-gradient(135deg, #744210, #d69e2e); }
+.thumb8 { background: linear-gradient(135deg, #1a365d, #2c5282); }
+.thumb9 { background: linear-gradient(135deg, #702459, #b83280); }
+.thumb10 { background: linear-gradient(135deg, #22543d, #2f855a); }
+.news-card .category {
+  font-size: 10px;
+  background: #CC0000;
+  color: #fff;
+  padding: 1px 5px;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.news-card h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 4px;
+  color: #1A1A1A;
+}
+.news-card .meta {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Category Quicklinks */
+.quicklinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: #F7F7F7;
+  padding: 14px;
+  border: 1px solid #DDDDDD;
+  margin-bottom: 18px;
+}
+.quicklink-block {
+  background: #fff;
+  padding: 10px 12px;
+  border-top: 3px solid #CC0000;
+}
+.quicklink-block h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 4px;
+}
+.quicklink-block ul { list-style: none; }
+.quicklink-block li {
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #EEE;
+  line-height: 1.4;
+}
+.quicklink-block li::before {
+  content: '▸ ';
+  color: #CC0000;
+  font-size: 10px;
+}
+
+/* Interstitial Ad */
+.ad-interstitial {
+  background: linear-gradient(90deg, #003a5d, #006bb3);
+  height: 100px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+.ad-interstitial::before {
+  content: 'PR / ANA';
+  position: absolute; top: 0; left: 0;
+  background: #EEEEEE; color: #666;
+  font-size: 9px; padding: 1px 4px;
+}
+.ad-interstitial-text { text-align: center; }
+.ad-interstitial-text .t1 { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 700; }
+.ad-interstitial-text .t2 { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+
+/* Opinion Columns */
+.opinion-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+  border-top: 2px solid #1A1A1A;
+  padding-top: 14px;
+}
+.opinion-card {
+  border-right: 1px solid #DDD;
+  padding-right: 14px;
+}
+.opinion-card:last-child { border-right: none; }
+.opinion-label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  color: #CC0000;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.opinion-card h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  line-height: 1.45;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.opinion-card p {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.55;
+}
+.opinion-author {
+  font-size: 11px;
+  color: #666;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* Archive Widget */
+.archive-widget {
+  background: #F7F7F7;
+  border: 1px solid #DDDDDD;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.archive-left { flex: 0 0 200px; }
+.archive-left h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.archive-left p { font-size: 11px; color: #666; margin-bottom: 8px; }
+.archive-input {
+  border: 1px solid #999;
+  padding: 4px 6px;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+.archive-right { flex: 1; display: flex; gap: 10px; align-items: center; background: #fff; padding: 10px; border: 1px solid #DDD; }
+.archive-thumb {
+  width: 90px; height: 110px;
+  background: linear-gradient(180deg, #f4ecd8 0%, #d4c9a8 100%);
+  border: 1px solid #aa9966;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  color: #663300;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+.archive-info h4 { font-family: 'Noto Serif JP', serif; font-size: 14px; margin-bottom: 4px; }
+.archive-info p { font-size: 11px; color: #555; line-height: 1.5; }
+
+/* Sidebar */
+.sidebar-box {
+  border: 1px solid #DDDDDD;
+  margin-bottom: 14px;
+  background: #fff;
+}
+.sidebar-header {
+  background: #1A1A1A;
+  color: #fff;
+  padding: 6px 10px;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar-header .update { font-size: 10px; opacity: 0.7; font-weight: 400; }
+.sidebar-body { padding: 10px; }
+
+/* Weather */
+.weather-today {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px dotted #DDD;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.weather-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+.weather-temp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #CC0000;
+}
+.weather-loc { font-size: 12px; color: #666; }
+.weather-cond { font-size: 13px; font-weight: 700; }
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+  font-size: 10px;
+}
+.weather-forecast div { padding: 3px 0; }
+.weather-forecast .day { font-weight: 700; }
+.weather-forecast .ico { font-size: 16px; }
+.weather-forecast .t { color: #CC0000; }
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 10px;
+  font-size: 10px;
+  background: #DDD;
+}
+.weather-grid div {
+  background: #fff;
+  padding: 3px 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.typhoon-link {
+  display: block;
+  background: #FFEEEE;
+  color: #CC0000;
+  font-size: 11px;
+  padding: 5px 8px;
+  margin-top: 8px;
+  border-left: 3px solid #CC0000;
+  font-weight: 700;
+}
+
+/* Sports */
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dotted #DDD;
+  font-size: 12px;
+}
+.score-row:last-child { border-bottom: none; }
+.score-league {
+  font-size: 10px;
+  background: #1A1A1A;
+  color: #fff;
+  padding: 1px 4px;
+  margin-right: 6px;
+  font-weight: 700;
+}
+.score-teams { flex: 1; }
+.score-final {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #CC0000;
+}
+.sumo-note {
+  background: #FFF8E1;
+  padding: 6px 8px;
+  font-size: 11px;
+  margin-top: 6px;
+  border-left: 3px solid #B8860B;
+}
+
+/* TV Schedule */
+.tv-row {
+  display: flex;
+  padding: 6px 0;
+  border-bottom: 1px dotted #DDD;
+  font-size: 12px;
+  align-items: flex-start;
+}
+.tv-channel {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Noto Serif JP', serif;
+  background: #CC0000;
+  color: #fff;
+  padding: 4px 2px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 8px;
+  letter-spacing: 1px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.tv-info { flex: 1; }
+.tv-time { font-weight: 700; color: #1A1A1A; font-size: 11px; }
+.tv-title { font-size: 12px; line-height: 1.4; }
+
+/* Sidebar Ad */
+.ad-sidebar {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(180deg, #1a0000 0%, #4d1f00 50%, #cc6600 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  margin-bottom: 14px;
+}
+.ad-sidebar::before {
+  content: 'PR';
+  position: absolute; top: 0; left: 0;
+  background: #EEEEEE; color: #666;
+  font-size: 9px; padding: 1px 4px;
+}
+.ad-sidebar .at1 { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 900; }
+.ad-sidebar .at2 { font-size: 13px; margin-top: 6px; opacity: 0.95; }
+.ad-sidebar .at3 { font-size: 11px; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 6px; }
+
+/* Vertical accent */
+.vertical-accent {
+  writing-mode: vertical-rl;
+  font-family: 'Noto Serif JP', serif;
+  position: absolute;
+  right: 6px; top: 6px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 2px;
+}
+
+/* Footer */
+footer {
+  background: #F7F7F7;
+  border-top: 3px solid #CC0000;
+  padding: 24px 16px 12px;
+  margin-top: 0;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  font-size: 12px;
+}
+.footer-col h5 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: #CC0000;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #CC0000;
+  padding-bottom: 4px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { padding: 3px 0; font-size: 11px; }
+.footer-col a { color: #333; }
+.qr-code {
+  width: 70px; height: 70px;
+  background:
+    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
+    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
+    #fff;
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  border: 2px solid #000;
+  margin-top: 6px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 14px auto 0;
+  padding-top: 12px;
+  border-top: 1px solid #DDD;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #666;
+}
+.corporate-info { font-size: 11px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="utility-inner">
+    <div class="utility-left">
+      <span class="date">2020年12月8日(火) 令和2年</span>
+      <span>東京 8°C ☀ 晴れ</span>
+      <span>大阪 10°C ⛅</span>
+      <span>札幌 -2°C ❄</span>
+    </div>
+    <div class="utility-right">
+      <a href="#">English</a>
+      <a href="#">紙面版</a>
+      <a href="#">購読申込</a>
+      <a href="#">マイページ</a>
+      <a href="#">山田様 ログイン中</a>
+      <span class="subscriber-badge">★ プレミアム会員</span>
+    </div>
+  </div>
+</div>
+
+<!-- Masthead -->
+<div style="background:#fff;">
+<div class="masthead" style="max-width:1200px;margin:0 auto;">
+  <div class="masthead-left">
+    <div>
+      <div class="brand-jp">朝日毎報</div>
+    </div>
+    <div class="brand-en">Asahi Mainpō</div>
+    <div class="tagline">信頼される日本の声<br>Japan's Trusted Voice Since 1968</div>
+  </div>
+  <div class="masthead-right">
+    <input type="text" class="search-box" placeholder="記事検索 — キーワードを入力">
+    <button class="search-btn">検索</button>
+    <a href="#" class="print-edition">📰 紙面版</a>
+  </div>
+</div>
+</div>
+
+<!-- Category Tabs -->
+<div class="category-tabs">
+  <div class="category-tabs-inner">
+    <a href="#" class="active">速報</a>
+    <a href="#">政治</a>
+    <a href="#">経済</a>
+    <a href="#">国際</a>
+    <a href="#">社会</a>
+    <a href="#">スポーツ</a>
+    <a href="#">文化</a>
+    <a href="#">エンタメ</a>
+    <a href="#">科学</a>
+    <a href="#">テクノロジー</a>
+    <a href="#">ライフ</a>
+    <a href="#">教育</a>
+    <a href="#">地域</a>
+    <a href="#">気象</a>
+    <a href="#">オピニオン</a>
+    <a href="#">社説</a>
+    <a href="#">コラム</a>
+    <a href="#">書評</a>
+    <a href="#">写真</a>
+    <a href="#">動画</a>
+    <a href="#">english</a>
+    <a href="#">紙面版</a>
+  </div>
+</div>
+
+<!-- Breaking Banner -->
+<div class="breaking-banner">
+  <span class="breaking-label">速報 BREAKING</span>
+  <span class="breaking-headline">【速報】日銀、追加金融緩和策を発表 政策金利据え置き</span>
+  <span class="breaking-time">本日14:32更新 — 黒田総裁が記者会見で詳細説明</span>
+</div>
+
+<!-- Stock Ticker -->
+<div class="stock-ticker">
+  <span class="ticker-item"><span class="ticker-label">日経225</span> 23,847.27 <span class="ticker-up">▲+128.45 (+0.54%)</span></span>
+  <span class="ticker-item"><span class="ticker-label">TOPIX</span> 1,654.32 <span class="ticker-up">▲+8.91</span></span>
+  <span class="ticker-item"><span class="ticker-label">USD/JPY</span> 104.58 <span class="ticker-down">▼-0.23</span></span>
+  <span class="ticker-item"><span class="ticker-label">EUR/JPY</span> 126.87 <span class="ticker-up">▲+0.15</span></span>
+  <span class="ticker-item"><span class="ticker-label">7203 トヨタ</span> 7,234 <span class="ticker-up">▲+58</span></span>
+  <span class="ticker-item"><span class="ticker-label">9984 SoftBank</span> 7,489 <span class="ticker-down">▼-32</span></span>
+  <span class="ticker-item"><span class="ticker-label">6758 ソニー</span> 9,876 <span class="ticker-up">▲+142</span></span>
+  <span class="ticker-item"><span class="ticker-label">NY DOW</span> 30,069 <span class="ticker-up">▲+248</span></span>
+  <span class="ticker-item"><span class="ticker-label">金 g</span> ¥6,547 <span class="ticker-up">▲+12</span></span>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+<div class="main-wrap">
+
+<!-- Main Content -->
+<div class="main-content">
+
+  <!-- Ad Leaderboard -->
+  <div class="ad-leaderboard">
+    <div>
+      <div class="ad-title">三菱UFJ銀行 住宅ローン</div>
+      <div class="ad-sub">変動金利 年0.475%〜 | 最短即日審査 | 来店不要でお申込み</div>
+    </div>
+  </div>
+
+  <!-- Top Carousel -->
+  <div class="top-carousel">
+    <div class="carousel-main">
+      <div class="carousel-img"><span class="vertical-accent">独占</span></div>
+      <h2>菅内閣支持率41%に急落 コロナ対応「評価せず」56% 朝日毎報世論調査</h2>
+      <p>朝日毎報社が5、6両日に実施した全国世論調査によると、菅内閣の支持率は前回11月調査から15ポイント下落し41%となった。新型コロナウイルス対応への厳しい評価が背景にあるとみられ、第三波拡大の中で政権運営の行方が注目される。</p>
+      <div class="carousel-meta">2020年12月8日 09:15 政治部 <span class="comment-count">💬 487件</span></div>
+    </div>
+    <div class="carousel-side">
+      <div class="carousel-img"></div>
+      <h3>東京五輪、来夏開催を正式決定 IOC・政府が共同声明</h3>
+      <div class="carousel-meta">12月8日 11:02 <span class="comment-count">💬 312件</span></div>
+    </div>
+    <div class="carousel-side">
+      <div class="carousel-img"></div>
+      <h3>日経平均、24,000円台目前 29年ぶりの高値圏</h3>
+      <div class="carousel-meta">12月8日 15:00 <span class="comment-count">💬 156件</span></div>
+    </div>
+  </div>
+
+  <!-- Five Column Grid -->
+  <div class="section-title">速報ヘッドライン <span class="more">もっと見る ▸</span></div>
+  <div class="five-col-grid">
+    <div class="news-card">
+      <div class="news-thumb thumb1">🏛</div>
+      <span class="category">政治</span>
+      <h4>補正予算案、衆院通過 19兆円規模で過去最大</h4>
+      <div class="meta">14:20 <span class="comment-count">💬82</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb2">🎮</div>
+      <span class="category">経済</span>
+      <h4>PS5発売1か月で国内100万台突破 ソニー発表</h4>
+      <div class="meta">13:45 <span class="comment-count">💬234</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb3">🗻</div>
+      <span class="category">社会</span>
+      <h4>富士山噴火想定の大規模避難訓練 9都県で実施</h4>
+      <div class="meta">12:30 <span class="comment-count">💬67</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb4">❄</div>
+      <span class="category">気象</span>
+      <h4>北海道に大雪警報 道東で積雪80cm予想</h4>
+      <div class="meta">11:55 <span class="comment-count">💬45</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb5">🌐</div>
+      <span class="category">国際</span>
+      <h4>米バイデン氏、新政権の閣僚人事を発表</h4>
+      <div class="meta">10:42 <span class="comment-count">💬189</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb6">📱</div>
+      <span class="category">テクノロジー</span>
+      <h4>NTTドコモ、新料金プラン「ahamo」を発表</h4>
+      <div class="meta">10:15 <span class="comment-count">💬521</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb7">⚾</div>
+      <span class="category">スポーツ</span>
+      <h4>阪神、FA田中将大獲得へ 12年ぶりの大型補強</h4>
+      <div class="meta">09:50 <span class="comment-count">💬392</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb8">🏥</div>
+      <span class="category">社会</span>
+      <h4>都内コロナ新規感染352人 重症者最多更新</h4>
+      <div class="meta">09:30 <span class="comment-count">💬278</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb9">🎭</div>
+      <span class="category">文化</span>
+      <h4>第163回直木賞に西村京太郎氏「終着駅」</h4>
+      <div class="meta">08:55 <span class="comment-count">💬54</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb10">🔬</div>
+      <span class="category">科学</span>
+      <h4>はやぶさ2カプセル分析開始 太陽系の謎に迫る</h4>
+      <div class="meta">08:20 <span class="comment-count">💬167</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb1">🏫</div>
+      <span class="category">教育</span>
+      <h4>共通テスト1月実施 受験生53万人を対象に</h4>
+      <div class="meta">07:45 <span class="comment-count">💬38</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb5">🚄</div>
+      <span class="category">地域</span>
+      <h4>リニア中央新幹線、静岡工区で再協議へ</h4>
+      <div class="meta">07:20 <span class="comment-count">💬112</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb3">🎬</div>
+      <span class="category">エンタメ</span>
+      <h4>「鬼滅の刃」興行収入300億円突破 国内記録更新</h4>
+      <div class="meta">06:55 <span class="comment-count">💬678</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb8">🏛</div>
+      <span class="category">政治</span>
+      <h4>自民党総裁選への布石か 二階幹事長が地方行脚</h4>
+      <div class="meta">06:30 <span class="comment-count">💬91</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb6">💴</div>
+      <span class="category">経済</span>
+      <h4>トヨタQ3決算、純利益5,090億円 V字回復鮮明</h4>
+      <div class="meta">06:00 <span class="comment-count">💬143</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb4">🍣</div>
+      <span class="category">ライフ</span>
+      <h4>築地場外市場、年末年始の混雑緩和策発表</h4>
+      <div class="meta">05:30 <span class="comment-count">💬27</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb2">🚗</div>
+      <span class="category">経済</span>
+      <h4>ホンダ、2040年までに全車EV化を発表</h4>
+      <div class="meta">05:00 <span class="comment-count">💬421</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb7">🌏</div>
+      <span class="category">国際</span>
+      <h4>中国GDP、第3四半期4.9%増 コロナから回復</h4>
+      <div class="meta">04:30 <span class="comment-count">💬198</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb9">📚</div>
+      <span class="category">書評</span>
+      <h4>今週の書評：村上春樹「一人称単数」を読む</h4>
+      <div class="meta">04:00 <span class="comment-count">💬63</span></div>
+    </div>
+    <div class="news-card">
+      <div class="news-thumb thumb10">🎌</div>
+      <span class="category">社説</span>
+      <h4>社説：学術会議任命拒否問題 説明責任を果たせ</h4>
+      <div class="meta">03:30 <span class="comment-count">💬872</span></div>
+    </div>
+  </div>
+
+  <!-- Category Quicklinks -->
+  <div class="section-title">主要セクション <span class="more">全カテゴリー ▸</span></div>
+  <div class="quicklinks">
+    <div class="quicklink-block">
+      <h3>政治 Politics</h3>
+      <ul>
+        <li>自民党総裁選、岸田氏出馬を正式表明</li>
+        <li>公明党との連立協議、選挙制度改革で平行線</li>
+        <li>立憲・国民の合流新党、代表選を14日に</li>
+        <li>沖縄知事、辺野古移設で再び国を提訴</li>
+      </ul>
+    </div>
+    <div class="quicklink-block">
+      <h3>経済 Economy</h3>
+      <ul>
+        <li>トヨタQ3決算 営業利益5,090億円</li>
+        <li>円ドル相場、1ドル104円58銭で推移</li>
+        <li>ソフトバンクG、Arm売却益で過去最高益</li>
+        <li>東京都心オフィス空室率3.5%に上昇</li>
+      </ul>
+    </div>
+    <div class="quicklink-block">
+      <h3>スポーツ Sports</h3>
+      <ul>
+        <li>阪神タイガース、FA田中将大獲得を発表</li>
+        <li>ジャイアンツ、菅野の残留が決定的に</li>
+        <li>大相撲九州場所、白鵬が9日目で全勝守る</li>
+        <li>J1浦和、新監督にロドリゲス氏就任</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Interstitial Ad -->
+  <div class="ad-interstitial">
+    <div class="ad-interstitial-text">
+      <div class="t1">ANA 冬の早期予約キャンペーン</div>
+      <div class="t2">国内線・国際線 最大40%オフ | 1月31日まで | マイル3倍進呈</div>
+    </div>
+  </div>
+
+  <!-- Opinion Section -->
+  <div class="section-title" style="border-left-color:#1A1A1A;">オピニオン・コラム</div>
+  <div class="opinion-section">
+    <div class="opinion-card">
+      <div class="opinion-label">▎社説 EDITORIAL</div>
+      <h4>社説：コロナ第三波への備え 医療体制の崩壊回避が急務</h4>
+      <p>感染拡大の第三波が現実のものとなり、東京・大阪を中心に医療現場は再び逼迫しつつある。政府と自治体は経済との両立を模索しながらも、命を守る体制の堅持を最優先課題として取り組むべきだ。GoToキャンペーンの一律実施には限界が見えている……</p>
+      <div class="opinion-author">論説委員室</div>
+    </div>
+    <div class="opinion-card">
+      <div class="opinion-label">▎コラム COLUMN</div>
+      <h4>米大統領選後の世界 — 分断の修復は可能か</h4>
+      <p>バイデン次期大統領の勝利が確定したが、米国社会の分断はかつてないほど深い。対中政策、気候変動、TPP復帰の可能性など、日本にとっても影響は計り知れない。新政権の100日間を注視する必要がある。</p>
+      <div class="opinion-author">山田太郎(国際担当編集委員)</div>
+    </div>
+    <div class="opinion-card">
+      <div class="opinion-label">▎投書欄 READERS' VOICE</div>
+      <h4>読者の声：オンライン授業1年 — 子どもたちの本音</h4>
+      <p>「先生の顔は見えるけど、友達の表情がわからない」中学生の娘がこぼした言葉が忘れられません。コロナ禍の教育は何を残し、何を奪ったのか。各地から寄せられた38通の投書を紹介します。</p>
+      <div class="opinion-author">投書欄編集部</div>
+    </div>
+  </div>
+
+  <!-- Archive Widget -->
+  <div class="archive-widget">
+    <div class="archive-left">
+      <h3>📰 過去記事アーカイブ</h3>
+      <p>1968年創刊号からの全記事を検索できます</p>
+      <input type="text" class="archive-input" placeholder="キーワード">
+      <input type="date" class="archive-input" value="1970-12-08">
+    </div>
+    <div class="archive-right">
+      <div class="archive-thumb">
+        朝<br>日<br>毎<br>報<br>──<br>1970<br>12.8
+      </div>
+      <div class="archive-info">
+        <h4>この日の朝日毎報 — 50年前の本日</h4>
+        <p><strong>1970年12月8日朝刊</strong><br>「三島由紀夫氏事件 自衛隊と政治の関係に波紋」<br>「大阪万博閉幕 半年で6,400万人来場」<br>「アポロ14号、来年1月打ち上げ決定」</p>
+        <a href="#" style="font-size:11px;">▸ この日の紙面を見る(PDF)</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <!-- Weather -->
+  <div class="sidebar-box">
+    <div class="sidebar-header">☀ 天気予報 <span class="update">14:00更新</span></div>
+    <div class="sidebar-body">
+      <div class="weather-today">
+        <div class="weather-icon">☀</div>
+        <div>
+          <div class="weather-loc">東京 千代田区</div>
+          <div class="weather-temp">8°C / 2°C</div>
+          <div class="weather-cond">晴れ 時々曇り</div>
+        </div>
+      </div>
+      <div class="weather-forecast">
+        <div><div class="day">火</div><div class="ico">☀</div><div class="t">8/2</div></div>
+        <div><div class="day">水</div><div class="ico">⛅</div><div class="t">9/3</div></div>
+        <div><div class="day">木</div><div class="ico">☁</div><div class="t">7/4</div></div>
+        <div><div class="day">金</div><div class="ico">🌧</div><div class="t">6/3</div></div>
+        <div><div class="day">土</div><div class="ico">🌧</div><div class="t">5/2</div></div>
+        <div><div class="day">日</div><div class="ico">⛅</div><div class="t">7/1</div></div>
+        <div><div class="day">月</div><div class="ico">☀</div><div class="t">9/2</div></div>
+      </div>
+      <div class="weather-grid">
+        <div><span>札幌</span><span>-2°</span></div>
+        <div><span>仙台</span><span>5°</span></div>
+        <div><span>東京</span><span>8°</span></div>
+        <div><span>名古屋</span><span>9°</span></div>
+        <div><span>大阪</span><span>10°</span></div>
+        <div><span>広島</span><span>11°</span></div>
+        <div><span>福岡</span><span>12°</span></div>
+        <div><span>那覇</span><span>20°</span></div>
+      </div>
+      <a href="#" class="typhoon-link">⚠ 全国47都道府県 詳細予報 ▸</a>
+    </div>
+  </div>
+
+  <!-- Sidebar Ad -->
+  <div class="ad-sidebar">
+    <div class="at1">SUNTORY</div>
+    <div class="at2">ザ・プレミアム・モルツ</div>
+    <div class="at3">神泡で乾杯。冬の味わい新登場</div>
+  </div>
+
+  <!-- Sports Scores -->
+  <div class="sidebar-box">
+    <div class="sidebar-header">⚾ スポーツ速報 <span class="update">LIVE</span></div>
+    <div class="sidebar-body">
+      <div class="score-row">
+        <span class="score-league">NPB</span>
+        <span class="score-teams">巨人 vs 広島</span>
+        <span class="score-final">4 - 2</span>
+      </div>
+      <div class="score-row">
+        <span class="score-league">NPB</span>
+        <span class="score-teams">阪神 vs ヤクルト</span>
+        <span class="score-final">7 - 3</span>
+      </div>
+      <div class="score-row">
+        <span class="score-league">J1</span>
+        <span class="score-teams">浦和 vs 鹿島</span>
+        <span class="score-final">1 - 1</span>
+      </div>
+      <div class="score-row">
+        <span class="score-league">J1</span>
+        <span class="score-teams">川崎F vs 横浜FM</span>
+        <span class="score-final">2 - 0</span>
+      </div>
+      <div class="score-row">
+        <span class="score-league">Bリーグ</span>
+        <span class="score-teams">A東京 vs 千葉J</span>
+        <span class="score-final">82 - 78</span>
+      </div>
+      <div class="sumo-note">
+        <strong>🌸 大相撲九州場所 9日目</strong><br>
+        白鵬9連勝で全勝守る — 通算1100勝目前
+      </div>
+    </div>
+  </div>
+
+  <!-- TV Schedule -->
+  <div class="sidebar-box">
+    <div class="sidebar-header">📺 今夜のテレビ <span class="update">19:00〜</span></div>
+    <div class="sidebar-body">
+      <div class="tv-row">
+        <div class="tv-channel">NHK総合</div>
+        <div class="tv-info">
+          <div class="tv-time">19:00 - 19:30</div>
+          <div class="tv-title">ニュース7 — 日銀緩和策の詳報、コロナ最新情報</div>
+        </div>
+      </div>
+      <div class="tv-row">
+        <div class="tv-channel">テレビ朝日</div>
+        <div class="tv-info">
+          <div class="tv-time">21:54 - 23:10</div>
+          <div class="tv-title">報道ステーション — 富川悠太キャスター</div>
+        </div>
+      </div>
+      <div class="tv-row">
+        <div class="tv-channel">TBS</div>
+        <div class="tv-info">
+          <div class="tv-time">23:00 - 23:56</div>
+          <div class="tv-title">NEWS23 — 小川彩佳・星浩</div>
+        </div>
+      </div>
+      <div class="tv-row">
+        <div class="tv-channel">フジ系</div>
+        <div class="tv-info">
+          <div class="tv-time">23:40 - 24:35</div>
+          <div class="tv-title">FNN Live News α</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</div>

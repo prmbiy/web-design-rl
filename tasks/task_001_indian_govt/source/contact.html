@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us | Ministry of Panchayati Raj and Rural Empowerment</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, Helvetica, sans-serif; font-size:12px; line-height:1.3; color:#222; background:#FFFFFF; }
+a { color:#0066CC; text-decoration:underline; }
+a:visited { color:#551A8B; }
+a:hover { color:#CC0000; }
+.container { max-width:1200px; margin:0 auto; padding:0 8px; }
+
+/* Utility Bar */
+.utility-bar { background:#1A1A1A; color:#fff; font-size:11px; padding:4px 0; }
+.utility-bar .container { display:flex; justify-content:space-between; align-items:center; }
+.utility-bar a { color:#FFCC00; text-decoration:underline; margin:0 6px; }
+.utility-left span { margin-right:8px; }
+.font-sizer a { padding:0 3px; border:1px solid #555; margin:0 1px; text-decoration:none; }
+.lang-toggle { color:#FFCC00; }
+
+/* Header */
+.header { background:#FF6600; border-bottom:3px solid #003366; padding:8px 0; }
+.header .container { display:flex; align-items:center; justify-content:space-between; }
+.header-left { display:flex; align-items:center; gap:12px; }
+.emblem { width:60px; height:70px; background:#FFFFFF; border:1px solid #003366; display:flex; align-items:center; justify-content:center; font-size:38px; color:#003366; font-weight:bold; }
+.ministry-name h1 { color:#fff; font-family:'Times New Roman',serif; font-size:18px; line-height:1.2; }
+.ministry-name .hindi { color:#FFCC00; font-size:13px; font-family:'Times New Roman',serif; }
+.ministry-name .tagline { color:#fff; font-size:11px; font-style:italic; margin-top:2px; }
+.header-right { display:flex; gap:8px; }
+.header-logo { width:64px; height:64px; background:#fff; border:1px solid #003366; display:flex; align-items:center; justify-content:center; text-align:center; font-size:9px; color:#003366; font-weight:bold; padding:2px; line-height:1.1; }
+
+/* Main Nav */
+.main-nav { background:#003366; border-bottom:2px solid #FFCC00; }
+.main-nav ul { list-style:none; display:flex; }
+.main-nav li { border-right:1px solid #FF6600; }
+.main-nav li:first-child { border-left:1px solid #FF6600; }
+.main-nav a { display:block; padding:8px 14px; color:#fff; text-decoration:none; font-size:12px; font-weight:bold; text-transform:uppercase; }
+.main-nav a:hover, .main-nav a.active { background:#FF6600; color:#fff; }
+
+/* Marquee */
+.marquee-bar { background:#FFE5CC; border-bottom:1px solid #FF6600; padding:4px 0; display:flex; align-items:center; }
+.marquee-label { background:#CC0000; color:#fff; padding:3px 10px; font-weight:bold; font-size:11px; margin-right:8px; flex-shrink:0; }
+.marquee-text { color:#CC0000; font-size:12px; font-weight:bold; white-space:nowrap; overflow:hidden; }
+
+/* Breadcrumb */
+.breadcrumb { background:#F5F5F5; padding:6px 0; border-bottom:1px solid #CCCCCC; font-size:11px; }
+.breadcrumb a { color:#003366; }
+
+/* Hero */
+.page-hero { background:linear-gradient(90deg,#003366 0%,#004080 100%); color:#fff; padding:14px 12px; border-bottom:3px solid #FF6600; }
+.page-hero h2 { font-size:16px; text-transform:uppercase; font-family:'Times New Roman',serif; letter-spacing:1px; }
+.page-hero p { font-size:12px; margin-top:3px; color:#FFCC00; }
+
+/* Layout wrap */
+.content-wrap { display:grid; grid-template-columns:200px 1fr; gap:10px; padding:10px 0; }
+
+/* Sidebar */
+.sidebar { background:#F5F5F5; border:1px solid #CCCCCC; }
+.sidebar h3 { background:#003366; color:#fff; font-size:12px; padding:6px 8px; text-transform:uppercase; }
+.sidebar ul { list-style:none; }
+.sidebar li { border-bottom:1px dotted #CCCCCC; }
+.sidebar a { display:block; padding:5px 8px; font-size:11px; text-decoration:underline; color:#0066CC; background:#fff; }
+.sidebar a:before { content:"▸ "; color:#FF6600; text-decoration:none; }
+.sidebar a:hover { background:#FFE5CC; }
+.sidebar-banner { margin-top:6px; background:#FFCC00; border:1px solid #CC9900; padding:8px; text-align:center; font-size:11px; font-weight:bold; color:#003366; }
+.sidebar-banner small { display:block; font-weight:normal; margin-top:3px; }
+
+/* Main */
+.main-content { min-width:0; }
+.section-block { border:1px solid #CCCCCC; margin-bottom:10px; }
+.section-block h3 { background:#FF6600; color:#fff; padding:6px 10px; font-size:13px; text-transform:uppercase; font-family:'Times New Roman',serif; border-bottom:2px solid #003366; }
+.section-block .inner { padding:8px 10px; background:#fff; }
+
+/* Head Office */
+.head-office { display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:12px; }
+.head-office .block { border-left:3px solid #FF6600; padding-left:8px; }
+.head-office .block strong { color:#003366; display:block; margin-bottom:3px; font-size:12px; }
+.head-office .label { color:#666; display:inline-block; width:80px; }
+
+/* Tables */
+table { width:100%; border-collapse:collapse; font-size:11px; }
+th { background:#003366; color:#fff; padding:6px 6px; text-align:left; font-size:11px; text-transform:uppercase; border:1px solid #003366; }
+td { padding:5px 6px; border:1px solid #CCCCCC; vertical-align:top; }
+tbody tr:nth-child(even) { background:#F5F5F5; }
+tbody tr:hover { background:#FFE5CC; }
+td a { font-size:11px; }
+
+/* Map */
+.map-placeholder { height:240px; background:
+  linear-gradient(45deg, #DCE8D5 25%, transparent 25%),
+  linear-gradient(-45deg, #DCE8D5 25%, transparent 25%),
+  linear-gradient(45deg, transparent 75%, #C8D9BD 75%),
+  linear-gradient(-45deg, transparent 75%, #C8D9BD 75%),
+  #E8F0E0;
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0;
+  border:1px solid #999; position:relative; display:flex; align-items:center; justify-content:center;
+}
+.map-pin { background:#fff; border:2px solid #CC0000; padding:8px 12px; font-size:11px; box-shadow:2px 2px 4px rgba(0,0,0,0.3); }
+.map-pin:before { content:"📍 "; font-size:14px; }
+.map-roads { position:absolute; inset:0; pointer-events:none; }
+.map-attribution { position:absolute; bottom:2px; right:4px; font-size:9px; color:#666; background:rgba(255,255,255,0.7); padding:1px 4px; }
+
+/* Form */
+.grievance-form { padding:12px; background:#FFFEF5; border:2px solid #FF6600; }
+.form-title { background:#003366; color:#fff; margin:-12px -12px 10px -12px; padding:8px 12px; font-size:13px; font-family:'Times New Roman',serif; text-transform:uppercase; }
+.form-note { background:#FFCC00; padding:5px 8px; font-size:11px; margin-bottom:10px; border-left:3px solid #CC0000; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px; }
+.form-group { display:flex; flex-direction:column; }
+.form-group.full { grid-column:1/-1; }
+.form-group label { font-size:11px; color:#003366; font-weight:bold; margin-bottom:3px; }
+.req { color:#CC0000; }
+.form-group input, .form-group select, .form-group textarea {
+  border:1px solid #999; padding:5px 6px; font-family:Arial,sans-serif; font-size:12px; background:#fff;
+}
+.form-group textarea { resize:vertical; min-height:70px; }
+.captcha-row { display:grid; grid-template-columns:120px 1fr; gap:10px; align-items:end; }
+.captcha-box { background:repeating-linear-gradient(45deg,#eee,#eee 4px,#ddd 4px,#ddd 8px); border:1px solid #999; padding:8px; font-family:'Courier New',monospace; font-size:18px; font-weight:bold; letter-spacing:4px; text-align:center; color:#003366; text-decoration:line-through; }
+.form-actions { margin-top:10px; display:flex; gap:8px; }
+.btn { padding:6px 18px; font-family:Arial,sans-serif; font-size:12px; font-weight:bold; cursor:pointer; border:1px solid #003366; }
+.btn-primary { background:#FF6600; color:#fff; }
+.btn-secondary { background:#F5F5F5; color:#003366; }
+
+/* Helpline strip */
+.helpline-strip { background:#FFCC00; border:2px solid #CC9900; padding:10px 14px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
+.helpline-strip .label { font-weight:bold; color:#003366; font-size:13px; }
+.helpline-strip .phone { font-family:'Times New Roman',serif; font-size:20px; font-weight:bold; color:#CC0000; }
+.helpline-strip .hours { font-size:11px; color:#222; }
+.helpline-strip a { color:#003366; font-weight:bold; }
+
+/* Timestamp */
+.timestamp { background:#F5F5F5; border-top:1px solid #CCC; border-bottom:1px solid #CCC; padding:5px 10px; font-size:11px; color:#666; text-align:right; font-style:italic; }
+.timestamp strong { color:#003366; }
+
+/* Social helpline strip */
+.social-helpline { background:#003366; padding:8px 0; color:#fff; font-size:11px; }
+.social-helpline .container { display:flex; justify-content:space-between; align-items:center; }
+.social-icons span { display:inline-block; width:24px; height:24px; background:#FF6600; text-align:center; line-height:24px; margin-right:4px; border-radius:2px; }
+.access-btn { background:#FFCC00; color:#003366; padding:4px 10px; font-weight:bold; cursor:pointer; border:1px solid #fff; }
+
+/* Footer */
+footer { background:#003366; color:#fff; padding:14px 0; border-top:4px solid #FF6600; font-size:11px; }
+.footer-cols { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.footer-cols h4 { color:#FFCC00; font-size:12px; text-transform:uppercase; margin-bottom:6px; border-bottom:1px solid #FF6600; padding-bottom:3px; }
+.footer-cols ul { list-style:none; }
+.footer-cols li { padding:2px 0; }
+.footer-cols a { color:#fff; text-decoration:underline; font-size:11px; }
+.footer-bottom { border-top:1px solid #FF6600; margin-top:10px; padding-top:8px; display:flex; justify-content:space-between; font-size:11px; }
+.footer-bottom .counter { background:#000; color:#FFCC00; padding:2px 8px; font-family:'Courier New',monospace; }
+
+/* Reg office address cell */
+.addr-block { font-size:11px; line-height:1.35; }
+.addr-block strong { color:#003366; }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <span><a href="#main">Skip to Main Content</a></span>
+      <span><a href="#">Screen Reader Access</a></span>
+      <span class="font-sizer">Font: <a href="#">A-</a><a href="#">A</a><a href="#">A+</a></span>
+    </div>
+    <div class="utility-right">
+      <a href="#" class="lang-toggle">English</a> | <a href="#" class="lang-toggle">हिन्दी</a> &nbsp;|&nbsp;
+      <a href="#">Sitemap</a> | <a href="#">Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="header-left">
+      <div class="emblem" title="National Emblem of India">⚙</div>
+      <div class="ministry-name">
+        <h1>Ministry of Panchayati Raj and Rural Empowerment</h1>
+        <div class="hindi">पंचायती राज एवं ग्रामीण सशक्तिकरण मंत्रालय</div>
+        <div class="tagline">Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-logo">SWACHH<br>BHARAT</div>
+      <div class="header-logo">AZADI KA<br>AMRIT<br>MAHOTSAV</div>
+      <div class="header-logo">DIGITAL<br>INDIA</div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Nav -->
+<nav class="main-nav">
+  <div class="container">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About the Ministry</a></li>
+      <li><a href="#">Schemes &amp; Programs</a></li>
+      <li><a href="#">Tenders &amp; Procurement</a></li>
+      <li><a href="#">Acts &amp; Rules</a></li>
+      <li><a href="#">Publications</a></li>
+      <li><a href="#">RTI</a></li>
+      <li><a href="#" class="active">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Marquee -->
+<div class="marquee-bar">
+  <div class="container" style="display:flex; align-items:center; width:100%;">
+    <span class="marquee-label">★ LATEST</span>
+    <div class="marquee-text">Last date for PMAY-G beneficiary verification extended to 30-Nov-2018 &nbsp; ★ &nbsp; National Panchayati Raj Day celebrations on 24-Apr &nbsp; ★ &nbsp; Recruitment notice for 142 Consultant posts uploaded &nbsp; ★ &nbsp; CPGRAMS portal upgraded — citizens advised to register grievances online</div>
+  </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="#">Home</a> &gt; <strong>Contact Us</strong>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h2>CONTACT THE MINISTRY</h2>
+    <p>Sardar Patel Bhawan, Sansad Marg, New Delhi - 110001</p>
+  </div>
+</div>
+
+<div class="container content-wrap" id="main">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>Citizen Services</h3>
+    <ul>
+      <li><a href="#">Apply for PMAY-G</a></li>
+      <li><a href="#">MGNREGA Job Card Status</a></li>
+      <li><a href="#">e-Gram Swaraj Portal</a></li>
+      <li><a href="#">Grievance Registration</a></li>
+      <li><a href="#">Track Application</a></li>
+      <li><a href="#">RTI Online Portal</a></li>
+      <li><a href="#">CPGRAMS Login</a></li>
+      <li><a href="#">National Panchayat Directory</a></li>
+      <li><a href="#">Audit Online (AuditOnline)</a></li>
+      <li><a href="#">PRIA Soft</a></li>
+    </ul>
+    <div class="sidebar-banner">
+      📞 TOLL-FREE<br>1800-11-6446
+      <small>Mon–Fri 09:30–18:00</small>
+    </div>
+    <div class="sidebar-banner" style="background:#CC0000; color:#fff; border-color:#900;">
+      ⚠ EMERGENCY<br>GRIEVANCE
+      <small style="color:#FFCC00;">CPGRAMS 24x7</small>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+
+    <!-- Helpline strip top -->
+    <div class="helpline-strip">
+      <div>
+        <div class="label">☎ Toll-Free Helpline</div>
+        <div class="phone">1800-11-6446</div>
+        <div class="hours">Mon–Fri 09:30 to 18:00 hrs (excluding gazetted holidays)</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="label">Online Grievance Portal</div>
+        <div><a href="https://pgportal.gov.in">▸ CPGRAMS — pgportal.gov.in</a></div>
+        <div><a href="#">▸ Twitter Seva @mopr_goi</a></div>
+      </div>
+    </div>
+
+    <!-- Head Office -->
+    <div class="section-block">
+      <h3>Ministry Head Office</h3>
+      <div class="inner">
+        <div class="head-office">
+          <div class="block">
+            <strong>POSTAL ADDRESS</strong>
+            Ministry of Panchayati Raj and<br>
+            Rural Empowerment,<br>
+            Government of India,<br>
+            11th Floor, Sardar Patel Bhawan,<br>
+            Sansad Marg, New Delhi - 110001<br>
+            INDIA
+          </div>
+          <div class="block">
+            <strong>COMMUNICATION</strong>
+            <div><span class="label">EPABX:</span> 011-23741732, 23741733</div>
+            <div><span class="label">Fax:</span> 011-23741734</div>
+            <div><span class="label">Email:</span> <a href="mailto:mopr-coord@gov.in">mopr-coord@gov.in</a></div>
+            <div><span class="label">Web:</span> <a href="#">www.panchayat.gov.in</a></div>
+            <div><span class="label">Office Hrs:</span> 09:30 — 18:00 (Mon–Fri)</div>
+            <div><span class="label">Holidays:</span> All Gazetted Holidays</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory Table -->
+    <div class="section-block">
+      <h3>Directory of Senior Officers</h3>
+      <div class="inner" style="padding:0;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:30px;">Sl.</th>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Room No.</th>
+              <th>Phone</th>
+              <th>Fax</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Shri Narendra Singh Tomar</td>
+              <td>Hon'ble Minister</td>
+              <td>101, SPB</td>
+              <td>011-23070404</td>
+              <td>011-23070405</td>
+              <td><a href="mailto:minister-mopr@gov.in">minister-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Shri Ram Kripal Yadav</td>
+              <td>Minister of State</td>
+              <td>105, SPB</td>
+              <td>011-23070501</td>
+              <td>011-23070502</td>
+              <td><a href="mailto:mos-mopr@gov.in">mos-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td>Shri Amarjeet Sinha, IAS:1983:BH</td>
+              <td>Secretary</td>
+              <td>119, Sardar Patel Bhawan</td>
+              <td>011-23741098</td>
+              <td>011-23741099</td>
+              <td><a href="mailto:secy-mopr@gov.in">secy-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td>Smt. Sushma Singh, IAS:1986:UP</td>
+              <td>Additional Secretary</td>
+              <td>117, SPB</td>
+              <td>011-23741110</td>
+              <td>011-23741112</td>
+              <td><a href="mailto:as-mopr@gov.in">as-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>Shri Sunil Kumar, IAS:1991:KL</td>
+              <td>Joint Secretary (RGSA)</td>
+              <td>211, SPB</td>
+              <td>011-23741245</td>
+              <td>011-23741247</td>
+              <td><a href="mailto:js-rgsa@gov.in">js-rgsa@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>6.</td>
+              <td>Dr. Bijaya Kumar Behera</td>
+              <td>Joint Secretary (e-Panchayat)</td>
+              <td>215, SPB</td>
+              <td>011-23741301</td>
+              <td>011-23741303</td>
+              <td><a href="mailto:js-ep@gov.in">js-ep@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>7.</td>
+              <td>Shri Rakesh Srivastava</td>
+              <td>Economic Adviser</td>
+              <td>302, SPB</td>
+              <td>011-23741420</td>
+              <td>011-23741421</td>
+              <td><a href="mailto:ea-mopr@gov.in">ea-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>8.</td>
+              <td>Smt. Anita Karwal</td>
+              <td>Director (Coordination)</td>
+              <td>309, SPB</td>
+              <td>011-23741512</td>
+              <td>011-23741513</td>
+              <td><a href="mailto:dir-coord@gov.in">dir-coord@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>9.</td>
+              <td>Shri Mahesh Chand</td>
+              <td>Director (Finance)</td>
+              <td>312, SPB</td>
+              <td>011-23741540</td>
+              <td>011-23741541</td>
+              <td><a href="mailto:dir-fin@gov.in">dir-fin@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>10.</td>
+              <td>Shri Vivek Bhardwaj</td>
+              <td>Director (Training)</td>
+              <td>402, SPB</td>
+              <td>011-23741601</td>
+              <td>011-23741603</td>
+              <td><a href="mailto:dir-trg@gov.in">dir-trg@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>11.</td>
+              <td>Smt. Reena Sinha Puri</td>
+              <td>Public Relations Officer</td>
+              <td>108, SPB</td>
+              <td>011-23741080</td>
+              <td>011-23741081</td>
+              <td><a href="mailto:pro-mopr@gov.in">pro-mopr@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>12.</td>
+              <td>Shri D.K. Saraswat</td>
+              <td>CPIO &amp; Under Secretary</td>
+              <td>114, SPB</td>
+              <td>011-23741155</td>
+              <td>011-23741157</td>
+              <td><a href="mailto:cpio-mopr@gov.in">cpio-mopr@gov.in</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Regional Offices (NIRD branches) -->
+    <div class="section-block">
+      <h3>National Institute of Rural Development &amp; Panchayati Raj — Regional Branches</h3>
+      <div class="inner" style="padding:0;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:30px;">Sl.</th>
+              <th>Branch</th>
+              <th>Address</th>
+              <th>STD Code</th>
+              <th>Phone</th>
+              <th>Fax</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td><strong>NIRDPR Headquarters</strong><br>Hyderabad</td>
+              <td class="addr-block">Rajendranagar,<br>Hyderabad - 500030,<br>Telangana</td>
+              <td>040</td>
+              <td>040-24008526</td>
+              <td>040-24015277</td>
+              <td><a href="mailto:dg.nird@gov.in">dg.nird@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td><strong>NERC — North Eastern Regional Centre</strong><br>Guwahati</td>
+              <td class="addr-block">Jawaharnagar, Khanapara,<br>Guwahati - 781022,<br>Assam</td>
+              <td>0361</td>
+              <td>0361-2304060</td>
+              <td>0361-2304070</td>
+              <td><a href="mailto:nerc.nird@gov.in">nerc.nird@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td><strong>ERC — Eastern Regional Centre</strong><br>Patna</td>
+              <td class="addr-block">Kankarbagh Main Road,<br>Patna - 800020,<br>Bihar</td>
+              <td>0612</td>
+              <td>0612-2354437</td>
+              <td>0612-2354438</td>
+              <td><a href="mailto:erc.nird@gov.in">erc.nird@gov.in</a></td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td><strong>WRC — Western Regional Centre</strong><br>Pune (Liaison)</td>
+              <td class="addr-block">YASHADA Campus, Rajbhavan Complex,<br>Baner Road, Pune - 411007,<br>Maharashtra</td>
+              <td>020</td>
+              <td>020-25608100</td>
+              <td>020-25608105</td>
+              <td><a href="mailto:wrc.nird@gov.in">wrc.nird@gov.in</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="section-block">
+      <h3>Location Map — Sardar Patel Bhawan, New Delhi</h3>
+      <div class="inner" style="padding:0;">
+        <div class="map-placeholder">
+          <svg class="map-roads" viewBox="0 0 800 240" preserveAspectRatio="none">
+            <line x1="0" y1="80" x2="800" y2="100" stroke="#fff" stroke-width="8"/>
+            <line x1="0" y1="180" x2="800" y2="160" stroke="#fff" stroke-width="6"/>
+            <line x1="200" y1="0" x2="220" y2="240" stroke="#fff" stroke-width="6"/>
+            <line x1="500" y1="0" x2="490" y2="240" stroke="#fff" stroke-width="8"/>
+            <line x1="0" y1="80" x2="800" y2="100" stroke="#FFCC00" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="60" y="75" font-size="10" fill="#333">Sansad Marg</text>
+            <text x="540" y="155" font-size="10" fill="#333">Rajpath</text>
+            <text x="230" y="40" font-size="10" fill="#333">Parliament St</text>
+          </svg>
+          <div class="map-pin">Sardar Patel Bhawan, Sansad Marg, New Delhi - 110001</div>
+          <div class="map-attribution">Map data © NIC GIS Cell, 2018 | Not to scale</div>
+        </div>
+        <div style="padding:6px 10px; background:#F5F5F5; font-size:11px; border-top:1px solid #CCC;">
+          <strong>Nearest Metro:</strong> Patel Chowk (Yellow Line) — 350m &nbsp; | &nbsp;
+          <strong>Nearest Bus Stop:</strong> Sansad Marg DTC &nbsp; | &nbsp;
+          <a href="#">Get Directions »</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grievance Form -->
+    <div class="section-block">
+      <h3>Online Grievance Registration</h3>
+      <div class="inner" style="padding:0;">
+        <form class="grievance-form" onsubmit="return false;">
+          <div class="form-title">Citizen Grievance Form</div>
+          <div class="form-note">
+            <strong>Note:</strong> Fields marked with <span class="req">*</span> are mandatory. For escalated grievances, please use the
+            <a href="https://pgportal.gov.in">CPGRAMS portal</a>. Aadhaar is optional and used only for verification.
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" placeholder="As per official records">
+            </div>
+            <div class="form-group">
+              <label>Aadhaar Number (Optional)</label>
+              <input type="text" placeholder="XXXX-XXXX-XXXX" maxlength="14">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mobile Number <span class="req">*</span></label>
+              <input type="text" placeholder="10 digit mobile no.">
+            </div>
+            <div class="form-group">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>State <span class="req">*</span></label>
+              <select>
+                <option>-- Select State --</option>
+                <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
+                <option>Chhattisgarh</option><option>Gujarat</option><option>Haryana</option>
+                <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+                <option>Madhya Pradesh</option><option>Maharashtra</option><option>Odisha</option>
+                <option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option>
+                <option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>District <span class="req">*</span></label>
+              <select>
+                <option>-- Select District --</option>
+                <option>(populated after State selection)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Grievance Category <span class="req">*</span></label>
+              <select>
+                <option>-- Select Category --</option>
+                <option>PMAY-G (Pradhan Mantri Awaas Yojana - Gramin)</option>
+                <option>MGNREGA</option>
+                <option>Rashtriya Gram Swaraj Abhiyan (RGSA)</option>
+                <option>SAGY (Saansad Adarsh Gram Yojana)</option>
+                <option>e-Gram Swaraj / e-Panchayat</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Gram Panchayat / Block</label>
+              <input type="text" placeholder="Name of GP / Block">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label>Grievance Details <span class="req">*</span></label>
+              <textarea placeholder="Please describe your grievance in detail (max 2000 characters). Include relevant dates, application/reference numbers, and names of officials if applicable."></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label>Supporting Document (PDF/JPG, max 2MB)</label>
+              <input type="file">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Enter Captcha <span class="req">*</span></label>
+              <div class="captcha-row">
+                <div class="captcha-box">7Kp9X2</div>
+                <input type="text" placeholder="Type the characters shown">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <label style="font-weight:normal; font-size:11px;">
+                <input type="checkbox"> I declare that the information provided is true to the best of my knowledge.
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">SUBMIT GRIEVANCE</button>
+            <button class="btn btn-secondary" type="reset">RESET FORM</button>
+            <button class="btn btn-secondary" type="button">PRINT ACKNOWLEDGEMENT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Timestamp -->
+    <div class="timestamp">
+      <strong>Last Updated:</strong> 25-Oct-2018 &nbsp;|&nbsp; <strong>Visitor No:</strong> 12,84,995 &nbsp;|&nbsp; <strong>Content Owned &amp; Maintained by:</strong> Coordination Division, MoPR
+    </div>
+
+  </main>
+</div>
+
+<!-- Social Helpline strip -->
+<div class="social-helpline">
+  <div class="container">
+    <div class="social-icons">
+      <span title="Twitter">𝕏</span>
+      <span title="Facebook">f</span>
+      <span title="YouTube">▶</span>
+      <span title="Instagram">◉</span>
+      Follow us on Social Media | <a href="#" style="color:#FFCC00;">@mopr_goi</a>
+    </div>
+    <div>📞 Toll-Free: <strong style="color:#FFCC00;">1800-11-6446</strong></div>
+    <div><span class="access-btn">♿ Accessibility</span></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>Related Links</h4>
+        <ul>
+          <li><a href="#">MyGov.in</a></li>
+          <li><a href="#">India.gov.in (National Portal)</a></li>
+          <li><a href="#">Prime Minister's Office</a></li>
+          <li><a href="#">NIC — National Informatics Centre</a></li>
+          <li><a href="#">Digital India</a></li>
+          <li><a href="#">Make in India</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministry Quick Links</h4>
+        <ul>
+          <li><a href="#">About the Ministry</a></li>
+          <li><a href="#">Schemes &amp; Programs</a></li>
+          <li><a href="#">Tenders &amp; Procurement</a></li>
+          <li><a href="#">Acts &amp; Rules</a></li>
+          <li><a href="#">Publications</a></li>
+          <li><a href="#">RTI</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Citizen Corner</h4>
+        <ul>
+          <li><a href="#">PMAY-G Application</a></li>
+          <li><a href="#">MGNREGA Job Card</a></li>
+          <li><a href="#">e-Gram Swaraj</a></li>
+          <li><a href="#">CPGRAMS Grievance</a></li>
+          <li><a href="#">National Panchayat Directory</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Statistics</h4>
+        <ul>
+          <li>Visitor Counter: <span class="footer-bottom" style="display:inline; border:none; padding:0;"><span style="background:#000; color:#FFCC00; padding:1px 6px; font-family:'Courier New',monospace;">4,82,71,309</span></span></li>
+          <li>Last Updated: <strong style="color:#FFCC00;">25-Oct-2018</strong></li>
+          <li>Best viewed in 1024x768 resolution</li>
+          <li>Compatible with IE 9+, Firefox, Chrome</li>
+          <li><a href="#">Terms of Use</a> | <a href="#">Privacy</a></li>
+          <li><a href="#">Copyright Policy</a> | <a href="#">Hyperlink Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2018 Ministry of Panchayati Raj and Rural Empowerment, Government of India. All Rights Reserved.</div>
+      <div>Designed, Developed &amp; Hosted by NIC | Content owned by MoPR</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

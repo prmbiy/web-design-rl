@@ -1,0 +1,12 @@
+{
+  "dna_id": "012",
+  "dna_name": "nhs_health",
+  "pages": [
+    "home",
+    "conditions",
+    "service_finder",
+    "medicines",
+    "mental_health"
+  ],
+  "has_animations": false
+}

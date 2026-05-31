@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quillforge 2.4 Documentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2C3E50;
+  background: #FFFFFF;
+}
+
+a { color: #2980B9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Top Nav */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #2980B9;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.topnav .logo {
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+}
+.topnav .logo-mark {
+  width: 26px; height: 26px;
+  background: #fff;
+  color: #2980B9;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+.version-selector {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.25);
+  margin-right: 24px;
+}
+.topnav .search {
+  flex: 1;
+  max-width: 480px;
+  position: relative;
+}
+.topnav .search input {
+  width: 100%;
+  padding: 7px 12px 7px 34px;
+  background: rgba(255,255,255,0.95);
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #2C3E50;
+}
+.topnav .search::before {
+  content: "🔍";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+}
+.topnav .right-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.topnav .right-links a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.topnav .gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 220px;
+  margin-top: 56px;
+  min-height: calc(100vh - 56px);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left Sidebar */
+.sidebar {
+  background: #EEF2F6;
+  border-right: 1px solid #D9E2EC;
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6B7C8E;
+  padding: 12px 20px 6px;
+  font-weight: 900;
+}
+.sidebar ul { list-style: none; }
+.sidebar li a {
+  display: block;
+  padding: 6px 20px 6px 28px;
+  font-size: 14px;
+  color: #2C3E50;
+  border-left: 3px solid transparent;
+}
+.sidebar li a:hover { background: #DDE6EE; text-decoration: none; }
+.sidebar li a.active {
+  background: #2980B9;
+  color: #fff;
+  border-left-color: #1B5A8A;
+  font-weight: 700;
+}
+.sidebar li.nested a { padding-left: 40px; font-size: 13px; color: #6B7C8E; }
+.sidebar .sponsor {
+  margin: 24px 20px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #6B7C8E;
+}
+.sponsor strong { color: #2C3E50; display: block; margin-bottom: 6px; }
+.sponsor-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 8px;
+}
+.sponsor-logo {
+  height: 30px;
+  background: linear-gradient(135deg, #EEF2F6, #DDE6EE);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #6B7C8E;
+  font-weight: 700;
+}
+
+/* Main Content */
+.content {
+  padding: 32px 40px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-bottom: 12px;
+}
+.content h1 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #2C3E50;
+}
+.content .lead {
+  font-size: 17px;
+  color: #6B7C8E;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #D9E2EC;
+}
+.content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 36px 0 14px;
+  padding-top: 8px;
+  color: #2C3E50;
+  border-bottom: 1px solid #D9E2EC;
+  padding-bottom: 6px;
+}
+.content h2 .anchor {
+  color: #2980B9;
+  font-size: 18px;
+  margin-left: 6px;
+  opacity: 0;
+}
+.content h2:hover .anchor { opacity: 1; }
+.content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+}
+.content p { margin-bottom: 14px; }
+
+/* Install tabs */
+.tabs {
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  margin: 16px 0 24px;
+  overflow: hidden;
+}
+.tab-headers {
+  display: flex;
+  background: #F4F7FA;
+  border-bottom: 1px solid #D9E2EC;
+}
+.tab-header {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-right: 1px solid #D9E2EC;
+  color: #6B7C8E;
+}
+.tab-header.active {
+  background: #fff;
+  color: #2980B9;
+  border-bottom: 2px solid #2980B9;
+  margin-bottom: -1px;
+}
+
+/* Code blocks */
+.code-block {
+  position: relative;
+  background: #2E3440;
+  color: #D8DEE9;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  padding: 16px 20px;
+  border-radius: 0 0 3px 3px;
+  overflow-x: auto;
+  line-height: 1.55;
+}
+.code-block.standalone {
+  border-radius: 3px;
+  margin: 16px 0;
+}
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.08);
+  color: #D8DEE9;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: 'Lato', sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.copy-btn:hover { background: rgba(255,255,255,0.15); }
+.kw { color: #81A1C1; }
+.str { color: #A3BE8C; }
+.num { color: #D08770; }
+.com { color: #6B7C8E; font-style: italic; }
+.fn { color: #88C0D0; }
+.dec { color: #EBCB8B; }
+
+/* Section cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 18px 20px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.card:hover { border-color: #2980B9; box-shadow: 0 2px 6px rgba(41,128,185,0.08); }
+.card h4 {
+  font-size: 16px;
+  color: #2980B9;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-icon {
+  width: 28px; height: 28px;
+  background: #EEF2F6;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.card p { font-size: 14px; color: #6B7C8E; margin: 0; }
+
+/* Features table */
+table.features {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+table.features th, table.features td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid #D9E2EC;
+}
+table.features th {
+  background: #F4F7FA;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #6B7C8E;
+}
+table.features td.check { color: #27AE60; font-weight: 700; width: 130px; }
+table.features td code {
+  background: #EEF2F6;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  color: #1B5A8A;
+}
+
+/* Note boxes */
+.note {
+  border-left: 4px solid #27AE60;
+  background: #E8F5E9;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 0 3px 3px 0;
+  font-size: 14px;
+}
+.note strong { color: #1B5A8A; }
+
+/* Community */
+.community {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+.community a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #2C3E50;
+}
+.community a:hover { border-color: #2980B9; text-decoration: none; background: #F4F7FA; }
+.community .emoji { font-size: 20px; }
+
+/* Pro CTA */
+.pro-cta {
+  background: linear-gradient(135deg, #2980B9, #1B5A8A);
+  color: #fff;
+  padding: 24px 28px;
+  border-radius: 3px;
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.pro-cta h3 { color: #fff; font-size: 20px; margin-bottom: 4px; }
+.pro-cta p { color: rgba(255,255,255,0.85); font-size: 14px; margin: 0; }
+.pro-cta .btn {
+  background: #fff;
+  color: #2980B9;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Right TOC */
+.toc {
+  padding: 32px 20px;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  border-left: 1px solid #D9E2EC;
+  font-size: 13px;
+}
+.toc h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6B7C8E;
+  margin-bottom: 12px;
+  font-weight: 900;
+}
+.toc ul { list-style: none; }
+.toc li a {
+  display: block;
+  padding: 4px 8px;
+  color: #6B7C8E;
+  border-left: 2px solid #D9E2EC;
+  margin-bottom: 2px;
+}
+.toc li a.active { color: #2980B9; border-left-color: #2980B9; font-weight: 700; }
+.toc li a:hover { color: #2980B9; text-decoration: none; }
+.toc .edit-link {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #D9E2EC;
+  font-size: 13px;
+}
+
+/* Footer */
+.footer {
+  background: #EEF2F6;
+  border-top: 1px solid #D9E2EC;
+  padding: 24px 40px;
+  font-size: 13px;
+  color: #6B7C8E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .build-info { font-family: 'Source Code Pro', monospace; font-size: 12px; }
+
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="logo">
+    <span class="logo-mark">Q</span>
+    Quillforge
+  </div>
+  <div class="version-selector">v2.4 ▾</div>
+  <div class="search">
+    <input type="text" placeholder="Search docs (Ctrl+K)" />
+  </div>
+  <div class="right-links">
+    <a href="#">Tutorials</a>
+    <a href="#">Blog</a>
+    <a href="#" class="gh">⭐ GitHub <span style="opacity:.8">14.2k</span></a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h4>Getting Started</h4>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Installation</a></li>
+      <li><a href="#">Quick Start</a></li>
+      <li><a href="#">Core Concepts</a></li>
+    </ul>
+    <h4>User Guide</h4>
+    <ul>
+      <li><a href="#">Tasks &amp; Decorators</a></li>
+      <li><a href="#">Pipelines &amp; DAGs</a></li>
+      <li><a href="#">Workers</a></li>
+      <li class="nested"><a href="#">Concurrency Models</a></li>
+      <li class="nested"><a href="#">Backpressure</a></li>
+      <li><a href="#">Scheduling</a></li>
+      <li><a href="#">Error Handling &amp; Retries</a></li>
+      <li><a href="#">Observability</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="#">API Reference</a></li>
+      <li class="nested"><a href="#">quill.core</a></li>
+      <li class="nested"><a href="#">quill.runtime</a></li>
+      <li class="nested"><a href="#">quill.scheduler</a></li>
+      <li><a href="#">Configuration</a></li>
+      <li><a href="#">CLI Reference</a></li>
+    </ul>
+    <h4>Deployment</h4>
+    <ul>
+      <li><a href="#">Docker</a></li>
+      <li><a href="#">Kubernetes (Helm)</a></li>
+      <li><a href="#">Quillforge Cloud</a></li>
+    </ul>
+    <h4>Community</h4>
+    <ul>
+      <li><a href="#">Contributing</a></li>
+      <li><a href="#">Changelog</a></li>
+      <li><a href="#">RFC Process</a></li>
+    </ul>
+
+    <div class="sponsor">
+      <strong>Sponsored by</strong>
+      Independent open-source project.
+      <div class="sponsor-logos">
+        <div class="sponsor-logo">NORDIC.IO</div>
+        <div class="sponsor-logo">PYCONF</div>
+        <div class="sponsor-logo">REDPANE</div>
+        <div class="sponsor-logo">+ 24 more</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb">Docs › Home</div>
+    <h1>Quillforge 2.4 Documentation</h1>
+    <p class="lead">Build resilient async task pipelines in pure Python. Stable release: 2.4.1 (Oct 2023).</p>
+
+    <p>Quillforge is a lightweight, async-first task orchestration framework for Python. Define tasks with a single decorator, compose them into pipelines, and run them on a fleet of distributed workers — all without leaving idiomatic <code>asyncio</code>.</p>
+
+    <h2>Installation <span class="anchor">¶</span></h2>
+    <p>Quillforge is published on PyPI and conda-forge. Pick your package manager:</p>
+
+    <div class="tabs">
+      <div class="tab-headers">
+        <div class="tab-header active">pip</div>
+        <div class="tab-header">Poetry</div>
+        <div class="tab-header">Conda</div>
+        <div class="tab-header">uv</div>
+      </div>
+      <div class="code-block">
+<button class="copy-btn">📋 Copy</button><span class="com"># Install the latest stable release</span>
+$ pip install quillforge
+
+<span class="com"># With Redis + OpenTelemetry extras</span>
+$ pip install <span class="str">"quillforge[redis,otel]"</span></div>
+    </div>
+
+    <h2>Quick Example <span class="anchor">¶</span></h2>
+    <p>A minimal pipeline that fetches a list of users, transforms them, and writes the result. Save as <code>demo.py</code> and run with <code>python demo.py</code>.</p>
+
+    <div class="code-block standalone">
+<button class="copy-btn">📋 Copy</button><span class="com"># demo.py — your first Quillforge pipeline</span>
+<span class="kw">import</span> quill
+<span class="kw">from</span> quill <span class="kw">import</span> Pipeline, TaskContext
+
+<span class="dec">@quill.task</span>(retries=<span class="num">3</span>, timeout=<span class="num">10.0</span>)
+<span class="kw">async def</span> <span class="fn">fetch_users</span>(ctx: TaskContext) -&gt; <span class="kw">list</span>[<span class="kw">dict</span>]:
+    <span class="kw">async with</span> ctx.http.get(<span class="str">"https://api.example.com/users"</span>) <span class="kw">as</span> r:
+        <span class="kw">return await</span> r.json()
+
+<span class="dec">@quill.task</span>
+<span class="kw">async def</span> <span class="fn">enrich</span>(users: <span class="kw">list</span>[<span class="kw">dict</span>]) -&gt; <span class="kw">list</span>[<span class="kw">dict</span>]:
+    <span class="kw">return</span> [{**u, <span class="str">"active"</span>: <span class="kw">True</span>} <span class="kw">for</span> u <span class="kw">in</span> users]
+
+pipeline = Pipeline([fetch_users, enrich], name=<span class="str">"users-etl"</span>)
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    quill.run(pipeline.run(), workers=<span class="num">4</span>)</div>
+
+    <div class="note">
+      <strong>📘 Note &nbsp;</strong> Quillforge infers the DAG from the type signatures of your tasks — no manual wiring required. See <a href="#">DAG inference</a> for details.
+    </div>
+
+    <h2>Explore the Docs <span class="anchor">¶</span></h2>
+
+    <div class="cards-grid">
+      <a href="#" class="card">
+        <h4><span class="card-icon">🚀</span> Tutorials</h4>
+        <p>Build your first pipeline in 5 minutes. Step-by-step CSV → Postgres ETL with retries and metrics.</p>
+      </a>
+      <a href="#" class="card">
+        <h4><span class="card-icon">🧠</span> Core Concepts</h4>
+        <p>Understand Tasks, Workers, Schedulers, and how the runtime coordinates them across processes.</p>
+      </a>
+      <a href="#" class="card">
+        <h4><span class="card-icon">📖</span> API Reference</h4>
+        <p>Full reference for <code style="background:#EEF2F6;padding:1px 5px;border-radius:2px;font-family:'Source Code Pro',monospace;font-size:13px;color:#1B5A8A">quill.core</code>, <code style="background:#EEF2F6;padding:1px 5px;border-radius:2px;font-family:'Source Code Pro',monospace;font-size:13px;color:#1B5A8A">quill.runtime</code> and friends.</p>
+      </a>
+      <a href="#" class="card">
+        <h4><span class="card-icon">☁️</span> Deployment</h4>
+        <p>Ship to production with Docker, the official Kubernetes Helm chart, or Quillforge Cloud.</p>
+      </a>
+    </div>
+
+    <h2>Features at a Glance <span class="anchor">¶</span></h2>
+
+    <table class="features">
+      <thead>
+        <tr><th>Feature</th><th>Status</th><th>Since</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Async backend (<code>asyncio</code> &amp; <code>trio</code>)</td><td class="check">✓ Supported</td><td>1.0</td></tr>
+        <tr><td>Declarative retry policies with exponential backoff</td><td class="check">✓ Supported</td><td>1.2</td></tr>
+        <tr><td>Distributed workers (Redis / NATS brokers)</td><td class="check">✓ Supported</td><td>2.0</td></tr>
+        <tr><td>Pipeline DAG inference from type hints</td><td class="check">✓ Supported</td><td>2.1</td></tr>
+        <tr><td>OpenTelemetry tracing &amp; Prometheus metrics</td><td class="check">✓ Supported</td><td>2.2</td></tr>
+        <tr><td>Cron, interval &amp; calendar-based schedulers</td><td class="check">✓ Supported</td><td>2.3</td></tr>
+        <tr><td>Hot-reload of configuration (experimental)</td><td class="check">✓ Supported</td><td>2.4</td></tr>
+        <tr><td>Graceful shutdown &amp; checkpointing</td><td class="check">✓ Supported</td><td>2.4</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Community &amp; Support <span class="anchor">¶</span></h2>
+
+    <div class="community">
+      <a href="#"><span class="emoji">💬</span><div><strong>Discord</strong><div style="font-size:12px;color:#6B7C8E">#quillforge — 3.4k members</div></div></a>
+      <a href="#"><span class="emoji">🐙</span><div><strong>GitHub Discussions</strong><div style="font-size:12px;color:#6B7C8E">Q&amp;A and RFCs</div></div></a>
+      <a href="#"><span class="emoji">🐘</span><div><strong>Mastodon</strong><div style="font-size:12px;color:#6B7C8E">@quillforge@fosstodon</div></div></a>
+      <a href="#"><span class="emoji">📧</span><div><strong>Newsletter</strong><div style="font-size:12px;color:#6B7C8E">Monthly digest</div></div></a>
+    </div>
+
+    <div class="pro-cta">
+      <div>
+        <h3>Quillforge Cloud — hosted pipelines, zero ops</h3>
+        <p>Managed brokers, autoscaling workers, and a one-click deploy from your repo. Free for projects under 10k tasks/month.</p>
+      </div>
+      <a href="#" class="btn">Try Cloud Pro →</a>
+    </div>
+
+  </main>
+
+  <aside class="toc">
+    <h5>On this page</h5>
+    <ul>
+      <li><a href="#" class="active">Installation</a></li>
+      <li><a href="#">Quick Example</a></li>
+      <li><a href="#">Explore the Docs</a></li>
+      <li><a href="#">Features at a Glance</a></li>
+      <li><a href="#">Community &amp; Support</a></li>
+    </ul>
+    <div class="edit-link">
+      <a href="#">✏️ Edit on GitHub</a>
+      <div style="margin-top:6px;color:#6B7C8E;font-size:12px;">docs/index.rst</div>
+    </div>
+  </aside>
+
+</div>
+
+<footer class="footer">
+  <div>© 2023 Quillforge contributors · Licensed under Apache 2.0 · Made with ☕ and asyncio</div>
+  <div class="build-info">v2.4.1 · build 5a3f9c1 · Sphinx 7.2 · last updated 2023-10-14</div>
+</footer>
+
+</body>
+</html>

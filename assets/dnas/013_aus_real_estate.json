@@ -1,0 +1,22 @@
+{
+  "id": "013",
+  "name": "aus_real_estate",
+  "source": "B",
+  "archetype": "Australian residential real estate listings portal",
+  "market": "Australia, property buyers and renters, all ages, major metro and regional markets",
+  "era": "2023",
+  "density": "Medium density, property-photo-forward. The listings grid prioritizes the property photography. Each card shows a large image, then price, bedrooms/bathrooms/parking icons, suburb, agent logo, and days on market. Map view toggle is prominent. Suburb median price data widgets appear throughout.",
+  "nav_style": "Full-width white sticky nav. Left: portal logo. Center: tabbed search for Buy / Rent / Sold / New Homes / Estimate. Below tabs: inline search filters for location, price range, bedrooms, property type, and a 'More filters' button. Right: Agents, News & Insights, login. Primary CTA: 'List a property' button.",
+  "commercial_model": "Two-sided marketplace. Agents pay for listings and featured placement. Revenue from lead generation to agents. Suburb and auction reporting data subscriptions. Mortgage calculator with bank partner affiliates.",
+  "color_palette": "Deep teal (#006E6E) as primary brand color. White (#FFFFFF) for card backgrounds and page. Warm grey (#F5F5F5) for page background. Orange (#FF6700) for price highlights and auction badges. Green (#2E7D32) for 'For Sale' tags. Red (#C62828) for 'Under Offer' and 'Sold' badges.",
+  "typography": "Clean modern sans-serif stack — Inter or similar. Property prices in bold 22px dark teal. Address in 16px. Bedroom/bathroom/parking in compact icon+number layout. Agent name smaller. Suburb heading as page title in 28px. Descriptive body copy at 16px.",
+  "quirks": ["price_guide_display", "auction_date_badge", "days_on_market_counter", "suburb_median_data", "floorplan_download", "open_for_inspection_schedule", "agent_photo_on_card", "map_view_toggle", "suburb_profile_pages", "auction_results_history"],
+  "pages": [
+    {"slug": "home", "title": "Real Estate Australia", "description": "Hero search with Buy/Rent/Sold tabs. Featured suburb market reports. Auction results from last weekend. First home buyer guide. Property news feed. Suburb spotlight articles. App download section."},
+    {"slug": "search", "title": "Property Search Results", "description": "Grid/list/map view of 24 properties per page. Filter sidebar: price, bedrooms, bathrooms, land size, property type, features (pool, garage, etc), inspection times. Sort by: newest, price, date modified."},
+    {"slug": "listing", "title": "Property Listing", "description": "Full property page. Photo gallery carousel. Price, address, bedroom/bathroom/parking counts. Inspection times. Agent contact form. Floorplan image. Property description. Suburb profile widget. Nearby schools and transport."},
+    {"slug": "suburb", "title": "Suburb Profile", "description": "Suburb data page. Median house and unit prices with trend chart. Days on market average. Auction clearance rate. Demographics. Distance to CBD. Schools map. Recent sales table. For sale now listings grid."},
+    {"slug": "agents", "title": "Find an Agent", "description": "Agent directory with suburb specialization filter. Agent cards with photo, recent sales count, median sale price, and agency logo. Agent profile link. Request appraisal CTA. Top agents by suburb leaderboard."}
+  ],
+  "animations": false
+}

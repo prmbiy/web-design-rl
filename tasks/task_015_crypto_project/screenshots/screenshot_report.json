@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "community",
+      "path": "community.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 497218,
+      "page_width": 1440,
+      "page_height": 4476
+    },
+    {
+      "slug": "developers",
+      "path": "developers.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 627664,
+      "page_width": 1440,
+      "page_height": 4108
+    },
+    {
+      "slug": "ecosystem",
+      "path": "ecosystem.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 637647,
+      "page_width": 1440,
+      "page_height": 3565
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 702627,
+      "page_width": 1440,
+      "page_height": 4413
+    },
+    {
+      "slug": "technology",
+      "path": "technology.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1193102,
+      "page_width": 1440,
+      "page_height": 4246
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

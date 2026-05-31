@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservations | Maison Verleux Hospitality</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Lato', -apple-system, sans-serif;
+  font-size: 16px;
+  color: #3D3D3D;
+  background: #FDF8F0;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 84px;
+  background: rgba(253,248,240,0.96);
+  border-bottom: 1px solid #B8892F;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: #4A1040;
+  letter-spacing: 0.04em;
+}
+.wordmark span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: #B8892F;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3D3D3D;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #4A1040; }
+
+.nav-cta {
+  background: #4A1040;
+  color: #FDF8F0 !important;
+  padding: 12px 22px;
+  border-radius: 2px;
+  font-size: 12px !important;
+  letter-spacing: 0.18em !important;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #2E0A28; }
+
+.hours-indicator {
+  font-size: 12px;
+  color: #7A6A6A;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 8px;
+}
+.hours-indicator::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #B85C3A;
+  display: inline-block;
+}
+
+/* HERO */
+.hero {
+  padding: 96px 32px 64px;
+  text-align: center;
+  background: linear-gradient(180deg, #FDF8F0 0%, #F5EDD8 100%);
+  border-bottom: 1px solid #B8892F;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,248,225,0.15);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: #4A1040;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.hero .sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #3D3D3D;
+  font-weight: 400;
+}
+.gold-flourish {
+  width: 80px;
+  height: 1px;
+  background: #B8892F;
+  margin: 32px auto 0;
+  position: relative;
+}
+.gold-flourish::before {
+  content: '◆';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F5EDD8;
+  color: #B8892F;
+  font-size: 10px;
+  padding: 0 8px;
+}
+
+/* MAIN GRID */
+.main-section {
+  padding: 80px 32px 48px;
+}
+.main-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+
+/* FORM */
+.form-card {
+  background: #FFFFFF;
+  border: 1px solid #B8892F;
+  border-radius: 2px;
+  padding: 56px 56px 48px;
+  box-shadow: 0 4px 24px rgba(74,16,64,0.12);
+}
+.form-card h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: #4A1040;
+  margin-bottom: 8px;
+}
+.form-card .form-sub {
+  font-size: 13px;
+  color: #7A6A6A;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #B8892F;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+.form-field { display: flex; flex-direction: column; }
+.form-field.full { grid-column: 1 / -1; }
+
+.form-field label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4A1040;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.form-field select,
+.form-field input,
+.form-field textarea {
+  background: #FDF8F0;
+  border: 1px solid #B8892F;
+  border-radius: 2px;
+  padding: 14px 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  color: #3D3D3D;
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-field select:focus,
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #4A1040;
+  background: #FFFFFF;
+}
+.form-field textarea { resize: vertical; min-height: 100px; font-family: 'Lato', sans-serif; }
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+.slot {
+  background: #FDF8F0;
+  border: 1px solid #B8892F;
+  border-radius: 2px;
+  padding: 10px 4px;
+  text-align: center;
+  font-size: 13px;
+  color: #3D3D3D;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-variant-numeric: tabular-nums;
+}
+.slot:hover { background: #F5EDD8; }
+.slot.active {
+  background: #4A1040;
+  color: #FDF8F0;
+  border-color: #4A1040;
+}
+.slot.unavailable {
+  color: #C5BBA8;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background: #4A1040;
+  color: #FDF8F0;
+  border: none;
+  padding: 18px 32px;
+  border-radius: 2px;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  transition: background 0.2s;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.submit-btn:hover { background: #2E0A28; }
+
+.resy-tag {
+  text-align: center;
+  font-size: 11px;
+  color: #7A6A6A;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.resy-tag span { color: #B8892F; font-weight: 700; }
+
+/* RIGHT COLUMN */
+.right-col { display: flex; flex-direction: column; gap: 28px; }
+
+.side-card {
+  background: #FFFFFF;
+  border: 1px solid #B8892F;
+  border-radius: 2px;
+  padding: 36px 32px;
+}
+
+.side-card .card-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.side-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #4A1040;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.side-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #3D3D3D;
+  margin-bottom: 14px;
+}
+
+.policy-list {
+  list-style: none;
+  margin-top: 18px;
+}
+.policy-list li {
+  font-size: 14px;
+  color: #3D3D3D;
+  padding: 14px 0;
+  border-top: 1px solid rgba(184,137,47,0.35);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.policy-list li:last-child { border-bottom: 1px solid rgba(184,137,47,0.35); }
+.policy-list .label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #4A1040;
+  flex-shrink: 0;
+  width: 110px;
+  font-size: 15.5px;
+}
+
+/* LARGE PARTY CARD - plum */
+.large-party-card {
+  background: #4A1040;
+  color: #FDF8F0;
+  border: 1px solid #B8892F;
+  position: relative;
+  overflow: hidden;
+}
+.large-party-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 40%;
+  background: linear-gradient(135deg, rgba(184,137,47,0.18), transparent 60%);
+  pointer-events: none;
+}
+.large-party-card .card-eyebrow { color: #D4A85A; }
+.large-party-card h3 { color: #FDF8F0; }
+.large-party-card p { color: rgba(253,248,240,0.85); }
+
+.coordinator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0 20px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(184,137,47,0.4);
+  border-bottom: 1px solid rgba(184,137,47,0.4);
+}
+.coord-avatar {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #B8892F, #D4A85A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #2E0A28;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.coord-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: #FDF8F0;
+}
+.coord-role {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #D4A85A;
+  margin-top: 3px;
+}
+.coord-phone {
+  font-size: 14px;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.outline-btn {
+  display: inline-block;
+  border: 1px solid #B8892F;
+  color: #FDF8F0;
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+.outline-btn:hover { background: rgba(184,137,47,0.18); }
+
+/* WIDGET EMBED CENTER BELOW */
+.widget-section {
+  max-width: 1240px;
+  margin: 24px auto 0;
+  padding: 0 32px 80px;
+}
+.widget {
+  background: #FFFFFF;
+  border: 1px solid #B8892F;
+  border-radius: 2px;
+  padding: 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.widget::before, .widget::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background: #B8892F;
+  top: 24px; bottom: 24px;
+}
+.widget::before { left: 24px; }
+.widget::after { right: 24px; }
+
+.widget .eyebrow { margin-bottom: 12px; }
+.widget h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #4A1040;
+  margin-bottom: 16px;
+}
+.widget .widget-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #7A6A6A;
+  margin-bottom: 40px;
+}
+
+.widget-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.widget-card {
+  background: #FDF8F0;
+  border: 1px solid rgba(184,137,47,0.4);
+  border-radius: 2px;
+  padding: 28px 20px;
+  text-align: left;
+}
+.widget-card .wc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: #4A1040;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+.widget-card .wc-neigh {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 18px;
+}
+.widget-card .wc-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.widget-card .wc-slot {
+  background: #FFFFFF;
+  border: 1px solid #B8892F;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+  color: #4A1040;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.widget-card .wc-slot:hover { background: #4A1040; color: #FDF8F0; }
+.widget-card .wc-empty {
+  font-size: 12px;
+  font-style: italic;
+  color: #7A6A6A;
+  padding: 6px 0;
+}
+
+/* FOOTER */
+footer {
+  background: #4A1040;
+  color: #FDF8F0;
+  padding: 72px 32px 32px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+footer h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+footer .ftag {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: #D4A85A;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+footer p, footer li {
+  font-size: 13.5px;
+  color: rgba(253,248,240,0.78);
+  line-height: 1.8;
+}
+footer ul { list-style: none; }
+footer li a:hover { color: #D4A85A; }
+.foot-head {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.footer-bottom {
+  max-width: 1240px;
+  margin: 56px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(184,137,47,0.35);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(253,248,240,0.55);
+  letter-spacing: 0.08em;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">
+      Maison Verleux
+      <span>Hospitality</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Restaurants</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#" style="color:#4A1040;font-weight:700;">Reservations</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gift Cards</a></li>
+      <li class="hours-indicator">Now Seating</li>
+      <li><a href="#" class="nav-cta">Reserve Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Bookings &amp; Tables</div>
+    <h1>Reserve Your Table</h1>
+    <p class="sub">Bookings open 30 days in advance at 9:00 AM ET.</p>
+    <div class="gold-flourish"></div>
+  </div>
+</section>
+
+<section class="main-section">
+  <div class="main-grid">
+
+    <!-- LEFT: FORM -->
+    <div class="form-card">
+      <h2>Find a Table</h2>
+      <p class="form-sub">Select your restaurant, party size, and preferred service. Confirmation arrives within minutes.</p>
+
+      <form>
+        <div class="form-row">
+          <div class="form-field full">
+            <label>Restaurant</label>
+            <select>
+              <option>Atelier Hudson — Modern American, Hudson NY</option>
+              <option>Le Petit Verleux — French Bistro, Cobble Hill</option>
+              <option>Bar Maribel — Spanish Small Plates, Williamsburg</option>
+              <option>Otsu by Verleux — Kaiseki, Tribeca</option>
+              <option>Verleux Pasta Bar — Fort Greene</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Date</label>
+            <input type="text" value="Friday, 8 November 2024" />
+          </div>
+          <div class="form-field">
+            <label>Party Size</label>
+            <select>
+              <option>1 guest</option>
+              <option>2 guests</option>
+              <option selected>3 guests</option>
+              <option>4 guests</option>
+              <option>5 guests</option>
+              <option>6 guests</option>
+              <option>7 guests</option>
+              <option>8 guests</option>
+              <option>9+ — Use Large Party Form</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field full" style="margin-bottom: 22px;">
+          <label>Available Times — 15-min Increments</label>
+          <div class="time-slots">
+            <div class="slot">5:30 PM</div>
+            <div class="slot">5:45 PM</div>
+            <div class="slot unavailable">6:00 PM</div>
+            <div class="slot">6:15 PM</div>
+            <div class="slot">6:30 PM</div>
+            <div class="slot active">6:45 PM</div>
+            <div class="slot">7:00 PM</div>
+            <div class="slot unavailable">7:15 PM</div>
+            <div class="slot unavailable">7:30 PM</div>
+            <div class="slot">7:45 PM</div>
+            <div class="slot">8:00 PM</div>
+            <div class="slot">8:30 PM</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" placeholder="Camille" />
+          </div>
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Beaumont" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-field">
+            <label>Phone</label>
+            <input type="tel" placeholder="(212) 555-0140" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field full">
+            <label>Special Requests &amp; Allergies</label>
+            <textarea placeholder="Anniversary, dietary restrictions, accessibility needs, seating preference…"></textarea>
+          </div>
+        </div>
+
+        <button type="button" class="submit-btn">Confirm Reservation</button>
+        <p class="resy-tag">Booking powered by <span>Resy</span> · Secure credit card hold required</p>
+      </form>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <div class="side-card large-party-card">
+        <div class="card-eyebrow">Parties of 9 or More</div>
+        <h3>Private Dining Inquiry</h3>
+        <p>Larger gatherings are routed directly to our private dining team to ensure the right room, the right menu, and the right pacing for your evening.</p>
+
+        <div class="coordinator">
+          <div class="coord-avatar">ML</div>
+          <div>
+            <div class="coord-name">Margaux Lévy</div>
+            <div class="coord-role">Private Dining Coordinator</div>
+            <div class="coord-phone">(718) 555-0144</div>
+          </div>
+        </div>
+
+        <a href="#" class="outline-btn">Begin Private Dining Inquiry →</a>
+      </div>
+
+      <div class="side-card">
+        <div class="card-eyebrow">Cancellation Policy</div>
+        <h3>House Rules, Quietly Kept</h3>
+
+        <ul class="policy-list">
+          <li>
+            <span class="label">Cancellation</span>
+            <span>Reservations may be modified or cancelled up to <strong>48 hours</strong> prior to your seating at no charge.</span>
+          </li>
+          <li>
+            <span class="label">No-Shows</span>
+            <span>A <strong>$50 per seat</strong> fee applies to no-shows at Otsu by Verleux. Other restaurants charge $25 per seat after the first occurrence.</span>
+          </li>
+          <li>
+            <span class="label">Card Hold</span>
+            <span>A valid credit card is required to secure all reservations. No charge is placed unless cancellation terms are not met.</span>
+          </li>
+          <li>
+            <span class="label">Late Arrivals</span>
+            <span>After a 15-minute grace period, tables may be released. Please call ahead if delayed.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WIDGET EMBED CENTERED BELOW -->
+<section class="widget-section">
+  <div class="widget">
+    <div class="eyebrow">Tonight's Availability</div>
+    <h2>Five Tables, One Pantry</h2>
+    <p class="widget-sub">Live windows across the family for tonight's service.</p>
+
+    <div class="widget-grid">
+      <div class="widget-card">
+        <div class="wc-name">Le Petit Verleux</div>
+        <div class="wc-neigh">Cobble Hill · Bistro</div>
+        <div class="wc-slots">
+          <div class="wc-slot">6:00</div>
+          <div class="wc-slot">6:30</div>
+          <div class="wc-slot">8:45</div>
+          <div class="wc-slot">9:15</div>
+        </div>
+      </div>
+      <div class="widget-card">
+        <div class="wc-name">Bar Maribel</div>
+        <div class="wc-neigh">Williamsburg · Spanish</div>
+        <div class="wc-slots">
+          <div class="wc-slot">5:45</div>
+          <div class="wc-slot">7:00</div>
+          <div class="wc-slot">7:30</div>
+          <div class="wc-slot">10:15</div>
+        </div>
+      </div>
+      <div class="widget-card">
+        <div class="wc-name">Otsu by Verleux</div>
+        <div class="wc-neigh">Tribeca · Kaiseki</div>
+        <div class="wc-empty">Waitlist only — single seating at 7:30 PM</div>
+      </div>
+      <div class="widget-card">
+        <div class="wc-name">Verleux Pasta Bar</div>
+        <div class="wc-neigh">Fort Greene · Counter</div>
+        <div class="wc-slots">
+          <div class="wc-slot">6:15</div>
+          <div class="wc-slot">6:45</div>
+          <div class="wc-slot">7:45</div>
+          <div class="wc-slot">9:00</div>
+          <div class="wc-slot">9:30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Maison Verleux</h4>
+      <div class="ftag">Five tables. One philosophy.</div>
+      <p>A small family of restaurants by Chef Elise Verleux, sharing one pantry and one obsession with provenance across Brooklyn and the Hudson Valley.</p>
+    </div>
+    <div>
+      <div class="foot-head">Restaurants</div>
+      <ul>
+        <li><a href="#">Atelier Hudson</a></li>
+        <li><a href="#">Le Petit Verleux</a></li>
+        <li><a href="#">Bar Maribel</a></li>
+        <li><a href="#">Otsu by Verleux</a></li>
+        <li><a href="#">Verleux Pasta Bar</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-head">Visit</div>
+      <ul>
+        <li><a href="#">Reservations</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Events &amp; Private Dining</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-head">Contact</div>
+      <ul>
+        <li>events@maisonverleux.com</li>
+        <li>press@maisonverleux.com</li>
+        <li>(718) 555-0144</li>
+        <li style="margin-top:14px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:16px;">— Sign up for the seasonal letter —</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Maison Verleux Hospitality LLC</span>
+    <span>Brooklyn · Hudson Valley</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>NHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 19px; }
+body {
+  font-family: 'Noto Sans', Frutiger, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #212B32;
+  background: #FFFFFF;
+}
+
+a { color: #005EB8; text-decoration: underline; }
+a:hover { text-decoration: none; color: #003087; }
+a:visited { color: #330072; }
+a:focus { outline: 4px solid #FFEB3B; outline-offset: 0; background: #FFEB3B; color: #212B32; text-decoration: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: #003087;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 999;
+}
+
+/* NHS Top Header */
+.nhs-header {
+  background: #005EB8;
+  border-bottom: 4px solid #003087;
+}
+.nhs-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nhs-logo {
+  background: #fff;
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 28px;
+  padding: 6px 14px;
+  letter-spacing: 1px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+.nhs-logo:visited { color: #005EB8; }
+
+.header-search {
+  flex: 1;
+  display: flex;
+  max-width: 560px;
+  margin-left: 24px;
+}
+.header-search input {
+  flex: 1;
+  border: 4px solid #fff;
+  border-right: none;
+  padding: 10px 14px;
+  font-size: 19px;
+  font-family: inherit;
+}
+.header-search button {
+  background: #fff;
+  border: 4px solid #fff;
+  color: #005EB8;
+  padding: 0 18px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 19px;
+}
+.header-search button:hover { background: #f0f4f5; }
+
+.menu-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 19px;
+  cursor: pointer;
+  margin-left: auto;
+}
+.menu-btn::after { content: " ▾"; }
+
+/* Sub nav */
+.subnav {
+  background: #fff;
+  border-bottom: 1px solid #D8DDE0;
+}
+.subnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.subnav-inner a {
+  padding: 16px 20px 16px 0;
+  margin-right: 20px;
+  color: #005EB8;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  border-bottom: 4px solid transparent;
+  margin-bottom: -1px;
+}
+.subnav-inner a:hover { text-decoration: underline; }
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  background: #005EB8;
+  color: #fff;
+  padding: 56px 0 64px;
+}
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 12px;
+  max-width: 780px;
+}
+.hero p.lede {
+  font-size: 22px;
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+/* Main search */
+.main-search {
+  background: #fff;
+  border: 4px solid #fff;
+  display: flex;
+  max-width: 720px;
+}
+.main-search label {
+  position: absolute;
+  left: -9999px;
+}
+.main-search input {
+  flex: 1;
+  border: none;
+  padding: 14px 16px;
+  font-size: 19px;
+  font-family: inherit;
+  color: #212B32;
+}
+.main-search input:focus { outline: 4px solid #FFEB3B; }
+.main-search button {
+  background: #007F3B;
+  color: #fff;
+  border: none;
+  padding: 0 28px;
+  font-weight: 700;
+  font-size: 19px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.main-search button:hover { background: #006b32; }
+
+.search-examples {
+  margin-top: 14px;
+  font-size: 17px;
+  color: #fff;
+}
+.search-examples strong { font-weight: 700; }
+
+/* Section */
+section.block {
+  padding: 56px 0;
+  border-bottom: 1px solid #D8DDE0;
+}
+section.block h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #212B32;
+}
+section.block > .container > p.intro {
+  font-size: 19px;
+  color: #4C6272;
+  margin-bottom: 28px;
+  max-width: 760px;
+}
+
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.service-card {
+  background: #fff;
+  border: 1px solid #D8DDE0;
+  border-bottom: 4px solid #003087;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.service-card .icon {
+  width: 56px;
+  height: 56px;
+  background: #005EB8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.service-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.service-card h3 a {
+  color: #005EB8;
+  text-decoration: underline;
+}
+.service-card p {
+  color: #4C6272;
+  font-size: 18px;
+  flex: 1;
+}
+.service-card .chev {
+  color: #005EB8;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.service-card .chev::after { content: " ›"; }
+
+/* 111 status */
+.status-111 {
+  background: #F0F4F5;
+  border-left: 8px solid #007F3B;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 16px;
+}
+.status-111 h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.status-111 .live {
+  display: inline-block;
+  background: #007F3B;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+.status-111 p { color: #4C6272; }
+.status-111 strong.wait { color: #212B32; }
+.btn-green {
+  display: inline-block;
+  background: #007F3B;
+  color: #fff !important;
+  padding: 14px 22px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 4px solid #00592a;
+  font-size: 19px;
+}
+.btn-green:hover { background: #006b32; text-decoration: underline; }
+.btn-green:visited { color: #fff; }
+
+/* NHS App promo */
+.app-promo {
+  background: #003087;
+  color: #fff;
+  padding: 48px 0;
+}
+.app-promo-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.app-promo h2 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.app-promo p.app-intro {
+  font-size: 19px;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+.app-promo ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+.app-promo ul li {
+  padding: 8px 0 8px 32px;
+  position: relative;
+  font-size: 18px;
+}
+.app-promo ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: #5BC236;
+  font-weight: 700;
+  font-size: 22px;
+}
+.app-badges {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.app-badge {
+  background: #000;
+  color: #fff;
+  padding: 10px 18px;
+  border: 1px solid #fff;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app-badge:visited { color: #fff; }
+.app-badge .b-icon { font-size: 28px; }
+.app-badge small { display: block; font-size: 11px; opacity: 0.8; }
+.app-badge strong { display: block; font-size: 16px; font-weight: 700; }
+
+.phone-mock {
+  background: linear-gradient(160deg, #005EB8 0%, #003087 100%);
+  border: 12px solid #1a1a1a;
+  border-radius: 28px;
+  aspect-ratio: 9/16;
+  max-width: 260px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.phone-mock .ph-header {
+  background: #fff;
+  color: #005EB8;
+  font-weight: 700;
+  padding: 8px 10px;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.phone-mock .ph-tile {
+  background: rgba(255,255,255,0.12);
+  padding: 12px;
+  font-size: 14px;
+  border-left: 4px solid #5BC236;
+}
+
+/* Top topics carousel */
+.topics-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.topic-card {
+  border: 1px solid #D8DDE0;
+  padding: 20px;
+  background: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 160px;
+}
+.topic-card .tcat {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #4C6272;
+}
+.topic-card .ttitle {
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 19px;
+  text-decoration: underline;
+  margin-top: auto;
+}
+.topic-card:hover .ttitle { text-decoration: none; }
+.topic-card.cat-info { border-top: 6px solid #005EB8; }
+.topic-card.cat-vacc { border-top: 6px solid #007F3B; }
+.topic-card.cat-alert { border-top: 6px solid #FFB81C; }
+
+.carousel-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.carousel-controls button {
+  background: #fff;
+  border: 2px solid #005EB8;
+  color: #005EB8;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.carousel-controls button:hover { background: #005EB8; color: #fff; }
+
+/* Health A-Z block */
+.az-block {
+  background: #005EB8;
+  color: #fff;
+  padding: 48px 0;
+}
+.az-block h2 { color: #fff; margin-bottom: 12px; }
+.az-block p { margin-bottom: 20px; font-size: 19px; }
+.az-block a.az-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 8px;
+}
+.az-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.az-examples a {
+  background: #fff;
+  color: #005EB8 !important;
+  padding: 8px 16px;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 17px;
+}
+.az-examples a:hover { background: #003087; color: #fff !important; }
+
+/* Emergency callout */
+.emergency-callout {
+  border: 4px solid #DA291C;
+  background: #FBE9E8;
+  padding: 28px 32px;
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.emergency-callout .ec-icon {
+  width: 56px;
+  height: 56px;
+  background: #DA291C;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.emergency-callout h2 {
+  color: #DA291C;
+  margin-bottom: 8px;
+  font-size: 26px;
+}
+.emergency-callout .ec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 12px;
+}
+.emergency-callout .ec-grid div {
+  border-left: 4px solid #DA291C;
+  padding-left: 16px;
+}
+.emergency-callout .ec-num {
+  font-size: 32px;
+  font-weight: 700;
+  color: #DA291C;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.emergency-callout p { font-size: 18px; }
+
+/* Covid info */
+.covid-info {
+  background: #F0F4F5;
+}
+.covid-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+.covid-card {
+  background: #fff;
+  padding: 28px;
+  border-left: 8px solid #005EB8;
+}
+.covid-card.vacc { border-left-color: #007F3B; }
+.covid-card h3 { font-size: 22px; margin-bottom: 10px; }
+.covid-card h3 a { color: #005EB8; }
+.covid-card ul { margin: 14px 0 0 20px; }
+.covid-card ul li { margin-bottom: 6px; }
+.covid-card ul li a { font-weight: 600; }
+
+/* Footer */
+footer {
+  background: #F0F4F5;
+  border-top: 1px solid #D8DDE0;
+  padding: 48px 0 32px;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.footer-grid h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #212B32;
+}
+.footer-grid ul { list-style: none; }
+.footer-grid ul li { margin-bottom: 8px; font-size: 17px; }
+.footer-grid ul li a { color: #005EB8; }
+.footer-bottom {
+  border-top: 1px solid #D8DDE0;
+  margin-top: 36px;
+  padding-top: 24px;
+  font-size: 16px;
+  color: #4C6272;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#maincontent">Skip to main content</a>
+
+<!-- NHS Header -->
+<header class="nhs-header" role="banner">
+  <div class="nhs-header-inner">
+    <a href="/" class="nhs-logo" aria-label="NHS homepage">NHS</a>
+    <form class="header-search" role="search" action="#" onsubmit="return false;">
+      <label for="header-q" class="visually-hidden" style="position:absolute;left:-9999px;">Search the NHS website</label>
+      <input id="header-q" type="search" placeholder="Search the NHS website" />
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+    <button class="menu-btn" type="button" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<!-- Sub navigation -->
+<nav class="subnav" aria-label="Primary">
+  <div class="subnav-inner">
+    <a href="/conditions">Health A to Z</a>
+    <a href="/mental-health">Mental health</a>
+    <a href="#">Care and support</a>
+    <a href="#">Pregnancy</a>
+    <a href="/services">NHS services</a>
+    <a href="#">Live Well</a>
+  </div>
+</nav>
+
+<main id="maincontent">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="container">
+      <h1 id="hero-h">Health information you can trust</h1>
+      <p class="lede">Find conditions, services and advice from the UK's National Health Service</p>
+      <form class="main-search" action="#" onsubmit="return false;" role="search">
+        <label for="main-q">Search the NHS website</label>
+        <input id="main-q" type="search" placeholder="Search e.g. tonsillitis, find a GP, paracetamol" />
+        <button type="submit">Search</button>
+      </form>
+      <p class="search-examples"><strong>Popular searches:</strong> tonsillitis · find a GP · paracetamol · COVID-19 symptoms</p>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="block" aria-labelledby="services-h">
+    <div class="container">
+      <h2 id="services-h">Get medical help and advice</h2>
+      <p class="intro">Find the right NHS service for you. Use the options below to find a local GP or pharmacy, or to book an appointment.</p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">🏥</div>
+          <h3><a href="/services?type=gp">Find a GP</a></h3>
+          <p>Search for a GP surgery near you, see what services they offer and read patient reviews.</p>
+          <a href="/services?type=gp" class="chev">Find a GP near you</a>
+        </article>
+
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">℞</div>
+          <h3><a href="/services?type=pharmacy">Find a pharmacy</a></h3>
+          <p>Find a pharmacy in your area, including those open late and at weekends, for advice and prescriptions.</p>
+          <a href="/services?type=pharmacy" class="chev">Find a pharmacy</a>
+        </article>
+
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">📅</div>
+          <h3><a href="#">Book or manage an appointment</a></h3>
+          <p>Book, check and cancel appointments with your GP, nurse or other healthcare professional online.</p>
+          <a href="#" class="chev">Book an appointment</a>
+        </article>
+      </div>
+
+      <!-- 111 status -->
+      <div class="status-111" role="status" aria-live="polite">
+        <div>
+          <h3><span class="live">Live</span>NHS 111 online — get help now</h3>
+          <p>Tell us your symptoms and we'll tell you what to do next. <strong class="wait">Average wait: 4 minutes</strong>. Available 24 hours a day.</p>
+        </div>
+        <a class="btn-green" href="#">Get help from 111 online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NHS App promo -->
+  <section class="app-promo" aria-labelledby="app-h">
+    <div class="container app-promo-grid">
+      <div>
+        <h2 id="app-h">The NHS App — your health in your pocket</h2>
+        <p class="app-intro">A simple and secure way to access a range of NHS services on your smartphone or tablet.</p>
+        <ul>
+          <li>Order repeat prescriptions</li>
+          <li>View your GP health record</li>
+          <li>Book appointments with your GP</li>
+          <li>Get health advice from 111 online</li>
+          <li>View your NHS COVID-19 vaccination record</li>
+        </ul>
+        <div class="app-badges">
+          <a class="app-badge" href="#" aria-label="Download on the App Store">
+            <span class="b-icon"></span>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="app-badge" href="#" aria-label="Get it on Google Play">
+            <span class="b-icon">▶</span>
+            <span><small>GET IT ON</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+      </div>
+      <div class="phone-mock" aria-hidden="true">
+        <div class="ph-header">NHS</div>
+        <div class="ph-tile">Your health record</div>
+        <div class="ph-tile">Order prescriptions</div>
+        <div class="ph-tile">Book GP appointment</div>
+        <div class="ph-tile">111 online</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top topics -->
+  <section class="block" aria-labelledby="topics-h">
+    <div class="container">
+      <h2 id="topics-h">Top health topics</h2>
+      <p class="intro">The most viewed health topics right now on nhs.uk</p>
+      <div class="topics-row">
+        <a class="topic-card cat-info" href="#">
+          <span class="tcat">Health advice</span>
+          <span class="ttitle">Coronavirus (COVID-19)</span>
+        </a>
+        <a class="topic-card cat-vacc" href="#">
+          <span class="tcat">Vaccinations</span>
+          <span class="ttitle">Get your flu jab</span>
+        </a>
+        <a class="topic-card cat-alert" href="#">
+          <span class="tcat">Conditions</span>
+          <span class="ttitle">Monkeypox</span>
+        </a>
+        <a class="topic-card cat-alert" href="#">
+          <span class="tcat">Children's health</span>
+          <span class="ttitle">Strep A in children</span>
+        </a>
+        <a class="topic-card cat-info" href="#">
+          <span class="tcat">Live Well</span>
+          <span class="ttitle">Cost of living and your health</span>
+        </a>
+      </div>
+      <div class="carousel-controls" aria-label="Carousel controls">
+        <button type="button" aria-label="Previous topics">‹</button>
+        <button type="button" aria-label="Next topics">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Health A-Z link block -->
+  <section class="az-block" aria-labelledby="az-h">
+    <div class="container">
+      <h2 id="az-h">Health A to Z</h2>
+      <p>Conditions, symptoms and treatments, including what to do and when to get help.</p>
+      <div class="az-examples">
+        <a href="/conditions#asthma">Asthma</a>
+        <a href="/conditions#back-pain">Back pain</a>
+        <a href="/conditions#chickenpox">Chickenpox</a>
+        <a href="/conditions#diabetes">Type 2 diabetes</a>
+        <a href="/conditions#eczema">Eczema</a>
+        <a href="/conditions#flu">Flu</a>
+      </div>
+      <a class="az-link" href="/conditions">Go to the Health A to Z ›</a>
+    </div>
+  </section>
+
+  <!-- Emergency callout -->
+  <section aria-labelledby="emerg-h">
+    <div class="container">
+      <div class="emergency-callout">
+        <div class="ec-icon" aria-hidden="true">!</div>
+        <div>
+          <h2 id="emerg-h">In an emergency</h2>
+          <p>If you or someone else needs urgent help, call the right number for the right service.</p>
+          <div class="ec-grid">
+            <div>
+              <div class="ec-num">999</div>
+              <p><strong>Life-threatening emergencies.</strong> Call for severe bleeding, chest pain, loss of consciousness, severe allergic reactions or stroke symptoms.</p>
+            </div>
+            <div>
+              <div class="ec-num">111</div>
+              <p><strong>Urgent but not life-threatening.</strong> Call or go to 111 online when you need help fast but it's not a 999 emergency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVID and vaccination info -->
+  <section class="block covid-info" aria-labelledby="covid-h">
+    <div class="container">
+      <h2 id="covid-h">Coronavirus (COVID-19) and vaccinations</h2>
+      <p class="intro">Get the latest NHS advice on COVID-19, the autumn booster programme and other routine vaccinations.</p>
+
+      <div class="covid-grid">
+        <article class="covid-card">
+          <h3><a href="#">Coronavirus (COVID-19) advice</a></h3>
+          <p>Find current guidance on symptoms, testing, self-isolation, treatments and long COVID.</p>
+          <ul>
+            <li><a href="#">COVID-19 symptoms and what to do</a></li>
+            <li><a href="#">How to treat COVID-19 at home</a></li>
+            <li><a href="#">Long-term effects (long COVID)</a></li>
+            <li><a href="#">COVID-19 in children</a></li>
+          </ul>
+        </article>
+
+        <article class="covid-card vacc">
+          <h3><a href="#">NHS vaccinations and when to have them</a></h3>
+          <p>Check who is eligible for the COVID-19 autumn booster, flu vaccine and routine NHS vaccinations.</p>
+          <ul>
+            <li><a href="#">Book or manage a COVID-19 vaccination</a></li>
+            <li><a href="#">Get your free flu jab on the NHS</a></li>
+            <li><a href="#">Childhood vaccination schedule</a></li>
+            <li><a href="#">Shingles vaccine for adults over 70</a></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>NHS sites</h4>
+        <ul>
+          <li><a href="#">NHS App</a></li>
+          <li><a href="#">NHS Digital</a></li>
+          <li><a href="#">NHS England</a></li>
+          <li><a href="#">Healthcareers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About us</h4>
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Our policies</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular services</h4>
+        <ul>
+          <li><a href="/services?type=gp">Find a GP</a></li>
+          <li><a href="/services?type=pharmacy">Find a pharmacy</a></li>
+          <li><a href="/conditions">Health A to Z</a></li>
+          <li><a href="/mental-health">Mental health</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tagline</h4>
+        <ul>
+          <li><strong>Your health, your NHS</strong></li>
+          <li><a href="#">Give us feedback</a></li>
+          <li><a href="#">Help with the website</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Crown copyright</span>
+      <span>NHS England — public health information for the United Kingdom</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

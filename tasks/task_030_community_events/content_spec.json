@@ -1,0 +1,187 @@
+{
+  "brand_name": "Blockparty",
+  "tagline": "Find your people, find your night.",
+  "primary_color_name": "Blockparty Cobalt",
+  "pages": {
+    "home": {
+      "title": "Discover Events in Brooklyn",
+      "nav_items": [
+        "Explore",
+        "Host an Event",
+        "For Organizers",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "What's happening in Brooklyn this week?",
+          "subheadline": "Search 2,400+ events, classes, and meetups happening near you."
+        },
+        {
+          "name": "category_chips",
+          "description": "Horizontal scrollable category chips with icons: All, Music, Art, Food & Drink, Sports, Tech, Outdoors, Wellness, each in its own brand color at 15% opacity."
+        },
+        {
+          "name": "featured_carousel",
+          "description": "Coral-bordered featured events carousel with 3 large cards like 'Sunset Rooftop Vinyl Night @ Westlight', 'Bushwick Open Studios 2024', and 'Brooklyn Night Bazaar: Lunar Edition'."
+        },
+        {
+          "name": "this_weekend",
+          "description": "Grid of 6 weekend event cards with photo, date pill, and attendee count, e.g. 'Prospect Park Drum Circle' (Sat, 142 going), 'Sourdough 101 with Anna' (Sun, 18 going), 'McCarren Park 5K Fun Run' (Sat, 380 going)."
+        },
+        {
+          "name": "new_on_platform",
+          "description": "Strip of newly listed events with a 'NEW' badge, like 'Analog Photography Walk in DUMBO', 'Korean Tea Ceremony Workshop', and 'Founders & Coffee at Devoción'."
+        },
+        {
+          "name": "popular_organizers",
+          "description": "Horizontal strip of organizer avatars with follower counts, e.g. 'House of Yes' (24.1k), 'Brooklyn Brainery' (18.7k), 'Ridgewood Market' (9.3k)."
+        },
+        {
+          "name": "footer",
+          "description": "Footer with city picker (currently Brooklyn, NY), links to Help Center, Organizer Resources, Trust & Safety, plus social icons."
+        }
+      ]
+    },
+    "explore": {
+      "title": "Explore Events",
+      "nav_items": [
+        "Explore",
+        "Host an Event",
+        "For Organizers",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "search_bar",
+          "headline": "Find events in Brooklyn, NY",
+          "subheadline": "Toggle between List and Map view."
+        },
+        {
+          "name": "filter_sidebar",
+          "description": "Left sidebar with collapsible filters: Date (Today/Tomorrow/This Weekend/Custom), Category checkboxes, Price (Free / Under $25 / $25+), Distance slider (0–15 mi), Format (In-person / Online)."
+        },
+        {
+          "name": "results_grid",
+          "description": "Grid of 12 event cards with photo, category color tag, title, date in coral, venue with pin icon, price, and attendee count, e.g. 'Latin Night at Casa Pública' ($15, 89 going), 'Free Yoga in Domino Park' (Free, 210 going), 'Indie Game Devs Meetup' ($5, 'Last 4 spots' badge)."
+        },
+        {
+          "name": "map_view",
+          "description": "Toggleable Mapbox-style map with pulsing cobalt markers clustered around Williamsburg and Bushwick, with a hover preview card for the selected event."
+        }
+      ]
+    },
+    "event": {
+      "title": "Sunset Rooftop Vinyl Night",
+      "nav_items": [
+        "Explore",
+        "Host an Event",
+        "For Organizers",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero_header",
+          "headline": "Sunset Rooftop Vinyl Night — Jazz & Soul Edition",
+          "subheadline": "Sat, Oct 12 · 6:00–10:00 PM · Westlight, Williamsburg"
+        },
+        {
+          "name": "event_meta_bar",
+          "description": "Sticky bar with date pill, location with pin, organizer name 'Wax & Wine Co.' with follow button, share icon, and coral 'Get Tickets' CTA."
+        },
+        {
+          "name": "about",
+          "description": "Short description block describing the rooftop vinyl listening session with featured DJs Marcus Ellis and Lina Park, plus highlights like skyline views and natural wine bar."
+        },
+        {
+          "name": "whats_included",
+          "description": "Checklist of inclusions like '1 welcome drink', 'Access to listening lounge', 'Vinyl raffle entry'."
+        },
+        {
+          "name": "schedule",
+          "description": "Vertical timeline: 6:00 PM Doors, 6:30 PM Marcus Ellis set, 8:00 PM Lina Park set, 9:30 PM Open decks."
+        },
+        {
+          "name": "tickets",
+          "description": "Ticket type cards: 'Early Bird' $28 (sold out), 'General' $38 (47 left), 'VIP Lounge' $75 with 'Last few spots' coral badge."
+        },
+        {
+          "name": "location_map",
+          "description": "Embedded map with single pulsing marker at 111 N 12th St, plus subway lines L/G nearby."
+        },
+        {
+          "name": "attendee_collage",
+          "description": "Collage of 24 attendee avatars with '+312 going' counter and 'Invite friends' link."
+        },
+        {
+          "name": "similar_events",
+          "description": "3 similar event cards like 'Brooklyn Soul Sundays', 'Greenpoint Listening Bar Pop-up', 'Bushwick Block Disco'."
+        }
+      ]
+    },
+    "organizer": {
+      "title": "Wax & Wine Co.",
+      "nav_items": [
+        "Explore",
+        "Host an Event",
+        "For Organizers",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "profile_header",
+          "headline": "Wax & Wine Co.",
+          "subheadline": "Vinyl-forward rooftop nights across NYC · Verified Organizer"
+        },
+        {
+          "name": "stats_strip",
+          "description": "Row of stats: 4.9★ avg rating, 12.4k followers, 86 events hosted, 9,200 attendees served, with a coral 'Follow' button."
+        },
+        {
+          "name": "upcoming_events",
+          "description": "Grid of 4 upcoming events like 'Sunset Rooftop Vinyl Night', 'Bossa Nova Brunch', 'Halloween Disco Inferno'."
+        },
+        {
+          "name": "past_events",
+          "description": "List of past events with attendance bar charts, e.g. 'Summer Soul Series' (sold out, 412 attended), 'Spring Jazz Picnic' (340 attended)."
+        },
+        {
+          "name": "reviews",
+          "description": "Snippet reviews from attendees Jess T., Diego R., and Priya M. with star ratings and event tags."
+        }
+      ]
+    },
+    "create": {
+      "title": "Create an Event",
+      "nav_items": [
+        "Explore",
+        "Host an Event",
+        "For Organizers",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "form_header",
+          "headline": "Let's get your event live",
+          "subheadline": "Takes about 5 minutes. Save as draft anytime."
+        },
+        {
+          "name": "basics_step",
+          "description": "Form fields for Event title, Description (rich text), Category dropdown with color chips, Date/time pickers, and Location autocomplete or Online link toggle."
+        },
+        {
+          "name": "tickets_step",
+          "description": "Repeatable ticket rows like 'Early Bird $20 · qty 50', 'General $30 · qty 150', 'VIP $60 · qty 20' with a 'Add ticket type' button."
+        },
+        {
+          "name": "media_step",
+          "description": "Cover photo uploader with 16:9 crop guide and recommended dimensions 1600x900, plus optional gallery of up to 6 images."
+        },
+        {
+          "name": "preview_publish",
+          "description": "Right-side sticky preview card showing how the event will appear in search, with 'Save Draft' and coral 'Publish Event' buttons."
+        }
+      ]
+    }
+  }
+}

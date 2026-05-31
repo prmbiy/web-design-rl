@@ -1,0 +1,22 @@
+{
+  "id": "018",
+  "name": "luxury_fashion",
+  "source": "B",
+  "archetype": "European luxury fashion house editorial website",
+  "market": "Global high-net-worth individuals, fashion industry professionals, aspirational fashion audience",
+  "era": "2023",
+  "density": "Minimal to the point of feeling almost empty. Extreme whitespace. Images are given absolute breathing room. Navigation is invisible until hovered. Product pricing is understated. The luxury is communicated through restraint and silence.",
+  "nav_style": "Ultra-minimal. House name as wordmark centered at top of page in small caps. Below it: a horizontal line. Navigation appears on hover of the wordmark: four or five categories slide in or fade in. No visual clutter. Shopping bag icon as only persistent UI element.",
+  "commercial_model": "Direct luxury e-commerce. Six-figure handbags and ready-to-wear. No price ever appears large — prices shown small and without emphasis. 'Reserve' rather than 'Add to cart'. Private client services. Fashion show livestream.",
+  "color_palette": "White (#FFFFFF) and cream (#FAF7F2) backgrounds exclusively. Black (#1A1A1A) for all text and lines. Perhaps one warm sand (#C4A882) or pale gold for extremely subtle accents. Zero saturation. The absence of color IS the palette — you can smell the $8,000 handbags through the restraint.",
+  "typography": "Didot or Playfair Display for the house name and editorial headings — the elongated thin-stroke contrast serifs of high fashion. Garamond or similar for body text in small but perfectly spaced 14px. Letter-spacing very open (+0.15em) on headings. All caps for section labels. Everything feels unhurried.",
+  "quirks": ["no_price_emphasis", "editorial_photography", "seasonal_collection_names", "made_in_france_italy", "heritage_founding_year", "fashion_show_section", "private_client_services", "extremely_slow_hover_transitions", "full_bleed_runway_photos", "model_name_not_shown"],
+  "pages": [
+    {"slug": "home", "title": "Maison", "description": "Full-screen seasonal campaign image. House name appears as overlay in small white type. Scroll reveals collection name in large italic serif. Then a brief editorial statement. Then product grid — three items per row with maximum breathing room."},
+    {"slug": "collection", "title": "Collection", "description": "Season collection page. Full-bleed lookbook images alternating with product cards. Product cards: one clean product photo, name, price (small). Click opens product. Category filter in minimal type at top."},
+    {"slug": "product", "title": "Product", "description": "Product page with two columns: full-height image gallery left, minimal product info right. Name in 18px. Price barely visible. Care instructions. Materials. Made in. Reserve/Add to bag. Related styles below."},
+    {"slug": "heritage", "title": "Maison & Heritage", "description": "Brand heritage page. Founded year large. Founding story in long-form elegant prose. Atelier photos in black and white. Artisan craftsmanship video. House codes and signatures. Archive pieces."},
+    {"slug": "contact", "title": "Contact & Boutiques", "description": "Boutique locator with minimal map. Store addresses in clean typography. Private appointment booking form — understated, formal. Client services contact details. Fashion show invitation request form."}
+  ],
+  "animations": ["fade_in_hero", "extremely_slow_image_crossfade", "hover_underline_slide", "scroll_reveal_product_cards"]
+}

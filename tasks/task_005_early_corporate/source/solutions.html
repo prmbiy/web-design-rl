@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solutions by Industry - Verisys</title>
+<style>
+body { margin:0; padding:0; font-family: Verdana, Arial, sans-serif; font-size:12px; color:#333333; background:#FFFFFF; }
+a { color:#0033CC; text-decoration:underline; }
+a:visited { color:#660099; }
+table { border-collapse: collapse; }
+
+/* Top header bar */
+.header-bar { background-color:#002060; color:#FFFFFF; padding:6px 12px; font-size:11px; }
+.header-bar .brand { font-size:16px; font-weight:bold; color:#FFFFFF; }
+.header-bar .tagline { font-style:italic; color:#DDEEFF; font-size:11px; margin-left:8px; }
+.header-bar .util { float:right; font-size:11px; margin-top:6px; }
+.header-bar .util a { color:#DDEEFF; }
+
+/* Top nav */
+.top-nav { background-color:#003087; height:28px; line-height:28px; padding:0 12px; border-bottom:1px solid #999999; }
+.top-nav a { color:#FFFFFF; text-decoration:underline; padding:4px 10px; transition: background-color 0.15s linear; font-size:12px; }
+.top-nav a:hover { background-color:#FF6600; color:#FFFFFF; }
+.top-nav .sep { color:#FFFFFF; }
+
+/* Breadcrumb */
+.breadcrumb { background-color:#F0F4FA; border-bottom:1px solid #999999; padding:5px 12px; font-size:11px; color:#4A4A4A; }
+.breadcrumb a { color:#0033CC; }
+
+/* Main layout */
+.container { width:1440px; margin:0 auto; }
+.layout { width:100%; }
+.layout td { vertical-align:top; }
+.left-col { width:180px; background-color:#F0F4FA; border-right:1px solid #999999; padding:10px; }
+.main-col { padding:12px; }
+
+/* Tree nav */
+.tree-nav { font-size:12px; }
+.tree-nav .tree-title { background-color:#003087; color:#FFFFFF; padding:4px 6px; font-weight:bold; font-size:11px; text-transform:uppercase; margin-bottom:6px; }
+.tree-nav ul { list-style:none; padding-left:12px; margin:0; }
+.tree-nav > ul { padding-left:0; }
+.tree-nav li { padding:2px 0; }
+.tree-nav li.parent > span { font-weight:bold; color:#003087; cursor:pointer; display:block; padding:2px 0; }
+.tree-nav li.parent > span:before { content:"\229E"; margin-right:4px; color:#4A4A4A; }
+.tree-nav li ul { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+.tree-nav li.parent:hover > ul { max-height:500px; }
+.tree-nav li a { text-decoration:underline; color:#0033CC; font-size:11px; }
+
+/* Hero banner */
+.hero-banner { background-color:#003087; color:#FFFFFF; padding:22px 20px; border:1px solid #002060; margin-bottom:12px; overflow:hidden; animation: heroSlide 0.8s ease-out 1; position:relative; }
+@keyframes heroSlide { 0% { transform: translateX(-100%); opacity:0; } 100% { transform: translateX(0); opacity:1; } }
+.hero-banner h1 { margin:0 0 6px 0; font-size:18px; color:#FFFFFF; }
+.hero-banner .sub { font-size:13px; color:#DDEEFF; }
+.hero-banner .ribbon { position:absolute; right:-30px; top:10px; background-color:#FF6600; color:#FFFFFF; padding:3px 40px; font-size:10px; transform:rotate(35deg); font-weight:bold; }
+
+/* Section headings */
+h2.section { font-size:16px; color:#003087; border-bottom:2px solid #003087; padding-bottom:3px; margin:16px 0 10px 0; text-transform:uppercase; }
+h3 { font-size:13px; color:#003087; margin:0 0 6px 0; }
+
+/* Industry grid */
+.industry-grid { width:100%; border-collapse:separate; border-spacing:8px; }
+.industry-grid td { width:33%; vertical-align:top; }
+.feature-box { border:1px solid #999999; background-color:#FFFFFF; padding:0; animation: featureAppear 0.6s ease-out both; }
+@keyframes featureAppear { 0% { opacity:0; transform: translateY(8px);} 100% { opacity:1; transform: translateY(0);} }
+.feature-box:nth-child(1) { animation-delay:0.1s; }
+.feature-box .fb-header { background-color:#003087; color:#FFFFFF; padding:5px 8px; font-weight:bold; font-size:12px; text-transform:uppercase; }
+.fb-icon { background-color:#DDEEFF; height:60px; border-bottom:1px solid #999999; text-align:center; line-height:60px; font-size:32px; color:#003087; }
+.fb-body { padding:8px; font-size:11px; }
+.quote-block { background-color:#F0F4FA; border-left:3px solid #FF6600; padding:6px 8px; font-style:italic; font-size:11px; color:#4A4A4A; margin:6px 0; }
+.quote-block .cite { display:block; font-style:normal; color:#003087; font-size:10px; margin-top:4px; font-weight:bold; }
+.fb-link { display:block; padding:6px 8px; background-color:#F0F4FA; border-top:1px solid #CCCCCC; font-size:11px; }
+
+/* Regulatory box */
+.reg-box { background-color:#DDEEFF; border:1px solid #003087; padding:10px; margin-top:14px; }
+.reg-box h3 { margin-top:0; }
+.reg-box table { width:100%; }
+.reg-box td { padding:4px 6px; font-size:11px; vertical-align:top; width:33%; border-right:1px dotted #4A4A4A; }
+.reg-box td:last-child { border-right:none; }
+.reg-box .reg-label { font-weight:bold; color:#003087; display:block; margin-bottom:3px; text-transform:uppercase; font-size:11px; }
+
+/* CTA strip */
+.cta-strip { margin-top:14px; padding:12px; background-color:#F0F4FA; border:1px solid #999999; text-align:center; }
+.btn-cta { display:inline-block; background-color:#FF6600; color:#FFFFFF; border:1px solid #993D00; padding:6px 14px; font-weight:bold; text-decoration:none; font-size:12px; transition: background-color 0.2s; margin:0 6px; }
+.btn-cta:hover { background-color:#CC5200; color:#FFFFFF; }
+.btn-cta:visited { color:#FFFFFF; }
+.cta-strip .cta-text { font-size:12px; color:#003087; font-weight:bold; margin-bottom:8px; }
+
+/* Footer */
+.footer { background-color:#003087; color:#FFFFFF; margin-top:20px; padding:14px 20px; font-size:11px; }
+.footer table { width:100%; }
+.footer td { vertical-align:top; padding:0 10px; color:#DDEEFF; }
+.footer .col-title { font-weight:bold; color:#FFFFFF; text-transform:uppercase; font-size:11px; border-bottom:1px solid #4A6FB0; padding-bottom:3px; margin-bottom:5px; display:block; }
+.footer a { color:#DDEEFF; text-decoration:underline; display:block; padding:2px 0; font-size:11px; }
+.footer .copyright { border-top:1px solid #4A6FB0; margin-top:12px; padding-top:8px; text-align:center; color:#DDEEFF; font-size:11px; }
+
+/* Sidebar (right) on solutions */
+.right-col { width:180px; padding:10px; border-left:1px solid #999999; background-color:#F0F4FA; }
+.sidebar-box { border:1px solid #999999; background-color:#FFFFFF; margin-bottom:10px; }
+.sidebar-box .sb-h { background-color:#003087; color:#FFFFFF; padding:4px 6px; font-size:11px; text-transform:uppercase; font-weight:bold; }
+.sidebar-box .sb-body { padding:6px; font-size:11px; }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <span class="brand">Verisys Enterprise Solutions, Inc.</span>
+  <span class="tagline">Mission-Critical Software for the Global Enterprise</span>
+  <span class="util"><a href="#">Investor Relations</a> | <a href="#">Careers</a> | <a href="#">Site Map</a> | NASDAQ: VRSY</span>
+  <div style="clear:both;"></div>
+</div>
+
+<div class="top-nav">
+  <a href="#">Home</a><span class="sep">|</span>
+  <a href="#">Products</a><span class="sep">|</span>
+  <a href="#">Solutions</a><span class="sep">|</span>
+  <a href="#">Partners</a><span class="sep">|</span>
+  <a href="#">Support</a><span class="sep">|</span>
+  <a href="#">About</a><span class="sep">|</span>
+  <a href="#">Contact</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="#">Home</a> &gt; <a href="#">Solutions</a> &gt; Solutions by Industry
+</div>
+
+<table class="layout" cellspacing="0" cellpadding="0">
+<tr>
+<td class="left-col">
+  <div class="tree-nav">
+    <div class="tree-title">Navigation</div>
+    <ul>
+      <li class="parent"><span>Products</span>
+        <ul>
+          <li><a href="#">VeriSuite ERP</a></li>
+          <li><a href="#">VeriFlow BPM</a></li>
+          <li><a href="#">VeriVault Data Warehouse</a></li>
+          <li><a href="#">VeriPortal 4.0</a></li>
+          <li><a href="#">VeriConnect EAI</a></li>
+        </ul>
+      </li>
+      <li class="parent"><span>Solutions</span>
+        <ul>
+          <li><a href="#">Financial Services</a></li>
+          <li><a href="#">Healthcare</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Government</a></li>
+          <li><a href="#">Retail</a></li>
+        </ul>
+      </li>
+      <li class="parent"><span>Resources</span>
+        <ul>
+          <li><a href="#">White Papers</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="#">Analyst Reports</a></li>
+        </ul>
+      </li>
+      <li class="parent"><span>Support</span>
+        <ul>
+          <li><a href="#">Knowledge Base</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Premier Support</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-top:14px; border:1px solid #999999; background:#FFFFFF; padding:6px;">
+    <div style="font-weight:bold; color:#003087; font-size:11px; text-transform:uppercase; border-bottom:1px solid #999; padding-bottom:3px; margin-bottom:5px;">Quick Links</div>
+    <a href="#" style="font-size:11px;">Request a Demo</a><br>
+    <a href="#" style="font-size:11px;">Contact Sales</a><br>
+    <a href="#" style="font-size:11px;">Find a Partner</a><br>
+    <a href="#" style="font-size:11px;">Customer Login</a>
+  </div>
+</td>
+
+<td class="main-col">
+
+  <div class="hero-banner">
+    <div class="ribbon">NEW FOR 2003</div>
+    <h1>Industry-Specific Solutions</h1>
+    <div class="sub">Pre-configured VeriSuite implementations for your vertical.</div>
+  </div>
+
+  <h2 class="section">Solutions by Industry Vertical</h2>
+  <p style="font-size:12px; color:#4A4A4A; margin:4px 0 12px 0;">Verisys delivers domain-tailored implementations of VeriSuite 7.2 for the most demanding regulated industries. Each industry solution includes pre-built process templates, data models, and integration adapters certified by leading systems integrators.</p>
+
+  <table class="industry-grid" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Financial Services</div>
+          <div class="fb-icon">&#x1F3E6;</div>
+          <div class="fb-body">
+            Straight-through processing, AML compliance, and risk analytics for global banks and asset managers.
+            <div class="quote-block">
+              &ldquo;VeriSuite reduced our trade reconciliation cycle by 64% and gave us a real-time view across 18 trading desks.&rdquo;
+              <span class="cite">&mdash; CIO, Northern Trust Corporation</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Healthcare</div>
+          <div class="fb-icon">&#x2695;</div>
+          <div class="fb-body">
+            HIPAA-compliant patient data integration, claims processing, and clinical workflow management.
+            <div class="quote-block">
+              &ldquo;Verisys helped us consolidate 23 legacy systems into a single member services platform serving 8.4M lives.&rdquo;
+              <span class="cite">&mdash; VP IT, Kaiser Permanente</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Manufacturing</div>
+          <div class="fb-icon">&#x2699;</div>
+          <div class="fb-body">
+            Lean supply chain, MES integration, and discrete/process manufacturing planning at global scale.
+            <div class="quote-block">
+              &ldquo;Inventory carrying costs are down 22% and our supplier on-time delivery improved 31 points.&rdquo;
+              <span class="cite">&mdash; SVP Operations, Archer Daniels Midland</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Government</div>
+          <div class="fb-icon">&#x1F3DB;</div>
+          <div class="fb-body">
+            FISMA-certified, Section 508-compliant solutions for federal, state, and defense agencies. GSA Schedule 70.
+            <div class="quote-block">
+              &ldquo;The VeriCore J2EE Platform satisfied our most stringent DoD security requirements without customization.&rdquo;
+              <span class="cite">&mdash; Program Manager, Lockheed Martin IS&amp;GS</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Retail</div>
+          <div class="fb-icon">&#x1F6D2;</div>
+          <div class="fb-body">
+            Multi-channel merchandising, POS integration, and customer loyalty analytics across thousands of stores.
+            <div class="quote-block">
+              &ldquo;We deployed VeriFlow BPM across 1,247 stores in under nine months &mdash; on time and on budget.&rdquo;
+              <span class="cite">&mdash; CTO, National Retail Group (Fortune 100)</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+      <td>
+        <div class="feature-box">
+          <div class="fb-header">Insurance</div>
+          <div class="fb-icon">&#x1F4C8;</div>
+          <div class="fb-body">
+            Policy administration, claims management, and actuarial data warehousing for P&amp;C and life carriers.
+            <div class="quote-block">
+              &ldquo;Underwriting cycle time fell from 6 days to 11 hours after our VeriSuite deployment.&rdquo;
+              <span class="cite">&mdash; SVP Technology, Prudential Financial</span>
+            </div>
+          </div>
+          <a class="fb-link" href="#">&raquo; Read the Case Study (PDF)</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="reg-box">
+    <h3>REGULATORY COMPLIANCE ACCELERATORS</h3>
+    <p style="margin:4px 0 8px 0; font-size:11px;">Verisys includes pre-built accelerator packs that dramatically reduce time-to-compliance for the regulations governing your industry. All accelerators are validated by Deloitte &amp; Touche LLP.</p>
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <span class="reg-label">&#x2713; HIPAA</span>
+          PHI protection, audit trails, role-based access, and EDI 837/835 transaction support out of the box.
+        </td>
+        <td>
+          <span class="reg-label">&#x2713; Sarbanes-Oxley</span>
+          Section 302 &amp; 404 controls, segregation of duties, and automated SOX certification workflow.
+        </td>
+        <td>
+          <span class="reg-label">&#x2713; FDA 21 CFR Part 11</span>
+          Electronic signatures, validated audit trails, and GxP-ready system documentation templates.
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 class="section">Customer Success Snapshot</h2>
+  <table cellpadding="6" cellspacing="0" style="width:100%; border:1px solid #999999; font-size:11px;">
+    <tr style="background-color:#003087; color:#FFFFFF;">
+      <td style="font-weight:bold;">Industry</td>
+      <td style="font-weight:bold;">Customer</td>
+      <td style="font-weight:bold;">Solution</td>
+      <td style="font-weight:bold;">Documented ROI</td>
+    </tr>
+    <tr style="background-color:#FFFFFF;">
+      <td>Financial Services</td><td>Northern Trust</td><td>VeriSuite ERP + VeriVault</td><td>$14.2M / 3 years</td>
+    </tr>
+    <tr style="background-color:#F0F4FA;">
+      <td>Healthcare</td><td>Kaiser Permanente</td><td>VeriFlow BPM</td><td>$22.7M / 3 years</td>
+    </tr>
+    <tr style="background-color:#FFFFFF;">
+      <td>Manufacturing</td><td>Archer Daniels Midland</td><td>VeriSuite ERP (SCM)</td><td>$31.0M / 3 years</td>
+    </tr>
+    <tr style="background-color:#F0F4FA;">
+      <td>Government</td><td>Lockheed Martin IS&amp;GS</td><td>VeriConnect EAI Server</td><td>Classified Engagement</td>
+    </tr>
+    <tr style="background-color:#FFFFFF;">
+      <td>Insurance</td><td>Prudential Financial</td><td>VeriPortal 4.0</td><td>$9.8M / 2 years</td>
+    </tr>
+  </table>
+
+  <div class="cta-strip">
+    <div class="cta-text">Ready to learn how Verisys can transform your industry operations?</div>
+    <a href="#" class="btn-cta">REQUEST A DEMO &raquo;</a>
+    <a href="#" class="btn-cta">CONTACT AN INDUSTRY SPECIALIST &raquo;</a>
+  </div>
+
+</td>
+
+<td class="right-col">
+  <div class="sidebar-box">
+    <div class="sb-h">Analyst Recognition</div>
+    <div class="sb-body">
+      <strong style="color:#003087;">Gartner Magic Quadrant 2003</strong><br>
+      Verisys named a Leader in Integrated Enterprise Suites.<br>
+      <a href="#" style="font-size:11px;">Download report (email required)</a>
+    </div>
+  </div>
+
+  <div class="sidebar-box">
+    <div class="sb-h">Upcoming Webinar</div>
+    <div class="sb-body">
+      <strong>Nov 18, 2003 &middot; 2:00pm EST</strong><br>
+      "SOX Section 404: A Practical Roadmap for the Fortune 1000"<br>
+      Featuring Deloitte &amp; Touche LLP<br>
+      <a href="#" style="font-size:11px;">Register Now &raquo;</a>
+    </div>
+  </div>
+
+  <div class="sidebar-box">
+    <div class="sb-h">Featured White Papers</div>
+    <div class="sb-body">
+      &middot; <a href="#">HIPAA Privacy Rule &amp; EAI</a><br>
+      &middot; <a href="#">J2EE vs. .NET in Financial Services</a><br>
+      &middot; <a href="#">Retail Multi-Channel ROI Study</a><br>
+      &middot; <a href="#">FDA 21 CFR Part 11 Validation</a>
+    </div>
+  </div>
+
+  <div class="sidebar-box">
+    <div class="sb-h">Trusted By</div>
+    <div class="sb-body" style="text-align:center; line-height:1.8;">
+      <div style="border:1px solid #999; padding:3px; margin-bottom:4px; background:#F0F4FA; font-weight:bold; color:#003087; font-size:10px;">PRUDENTIAL</div>
+      <div style="border:1px solid #999; padding:3px; margin-bottom:4px; background:#F0F4FA; font-weight:bold; color:#003087; font-size:10px;">LOCKHEED MARTIN</div>
+      <div style="border:1px solid #999; padding:3px; margin-bottom:4px; background:#F0F4FA; font-weight:bold; color:#003087; font-size:10px;">KAISER PERMANENTE</div>
+      <div style="border:1px solid #999; padding:3px; background:#F0F4FA; font-weight:bold; color:#003087; font-size:10px;">ARCHER DANIELS MIDLAND</div>
+    </div>
+  </div>
+</td>
+</tr>
+</table>
+
+<div class="footer">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <span class="col-title">Products</span>
+        <a href="#">VeriSuite ERP</a>
+        <a href="#">VeriFlow BPM</a>
+        <a href="#">VeriVault DW</a>
+        <a href="#">VeriPortal 4.0</a>
+        <a href="#">VeriConnect EAI</a>
+      </td>
+      <td>
+        <span class="col-title">Solutions</span>
+        <a href="#">Financial Services</a>
+        <a href="#">Healthcare</a>
+        <a href="#">Manufacturing</a>
+        <a href="#">Government</a>
+        <a href="#">Retail</a>
+      </td>
+      <td>
+        <span class="col-title">Partners</span>
+        <a href="#">Find a Partner</a>
+        <a href="#">Become a Partner</a>
+        <a href="#">Partner Portal Login</a>
+        <a href="#">ISV Program</a>
+      </td>
+      <td>
+        <span class="col-title">Support</span>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Downloads &amp; Patches</a>
+        <a href="#">Premier Support</a>
+        <a href="#">Open a Case</a>
+      </td>
+      <td>
+        <span class="col-title">About</span>
+        <a href="#">Company Overview</a>
+        <a href="#">Executive Team</a>
+        <a href="#">Press Releases</a>
+        <a href="#">Careers</a>
+      </td>
+      <td>
+        <span class="col-title">Investor Relations</span>
+        <a href="#">NASDAQ: VRSY</a>
+        <a href="#">SEC Filings</a>
+        <a href="#">Annual Report 2002</a>
+        <a href="#">Earnings Call Replay</a>
+      </td>
+    </tr>
+  </table>
+  <div class="copyright">
+    Copyright &copy; 2003 Verisys Enterprise Solutions, Inc. All rights reserved. &nbsp;|&nbsp;
+    <a href="#" style="display:inline; color:#DDEEFF;">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="#" style="display:inline; color:#DDEEFF;">Terms of Use</a> &nbsp;|&nbsp;
+    11700 Plaza America Drive, Reston, VA 20190 &nbsp;|&nbsp; Tel: 703.555.8400 &nbsp; Fax: 703.555.8401
+  </div>
+</div>
+
+</body>
+</html>

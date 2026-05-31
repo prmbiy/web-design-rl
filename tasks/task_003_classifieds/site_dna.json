@@ -1,0 +1,22 @@
+{
+  "id": "003",
+  "name": "classifieds",
+  "source": "B",
+  "archetype": "Craigslist-style local classifieds board",
+  "market": "United States, mid-sized metro area, pragmatic internet users",
+  "era": "2019",
+  "density": "Intentionally minimalist to the point of seeming broken to modern eyes. Plain blue hyperlinks on white backgrounds. No images on listing pages. Bullet-point lists of categories. No CSS grid or flexbox — old-school HTML structure. The entire page fits above the fold with no scrolling needed on desktop.",
+  "nav_style": "No persistent navigation. The homepage IS the navigation — a two-column list of all categories. Each category links to a flat listing page. Search bar at the very top. Post listing button prominent.",
+  "commercial_model": "Free for most listings. Paid for job postings and apartment listings in major markets. No display ads. No tracking pixels. The business model is visible through a simple fee schedule page.",
+  "color_palette": "Pure white (#FFFFFF) background. Standard hyperlink blue (#0000EE) for unvisited links, purple (#551A8B) for visited. Black (#000000) text. Zero decorative color. Occasionally a light green (#D3FFD3) row highlight for featured listings.",
+  "typography": "System default serif: Times New Roman on Windows, Times on Mac. No font declarations — pure browser default. Small text, 13px. No web fonts, no Google Fonts, no icon fonts.",
+  "quirks": ["hyperlink_only_design", "no_images_on_listing_index", "two_column_category_list", "no_javascript_required", "extremely_fast_load", "date_stamps_on_every_listing", "flagging_system_visible", "geographic_sub_areas_listed", "plain_text_listing_pages", "forum_style_community_boards"],
+  "pages": [
+    {"slug": "home", "title": "Local Classifieds", "description": "Two-column category list covering housing, jobs, for sale, services, community, gigs, and discussion forums. Search bar at top. City selection."},
+    {"slug": "housing", "title": "Housing", "description": "Apartment listings as plain text list. Each entry: price, bedrooms, neighborhood, date. No images on index page. Pagination at bottom."},
+    {"slug": "jobs", "title": "Jobs", "description": "Job listings sorted by category: accounting, admin, education, food, retail, tech, etc. Plain text list with date and area."},
+    {"slug": "forsale", "title": "For Sale", "description": "Items for sale in sub-categories: furniture, electronics, bikes, clothing, free stuff, barter. Very dense plain text list."},
+    {"slug": "community", "title": "Community", "description": "Community boards: local news, lost & found, missed connections, rants & raves, volunteers, activities, rideshare. Discussion forum layout."}
+  ],
+  "animations": false
+}

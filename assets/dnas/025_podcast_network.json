@@ -1,0 +1,22 @@
+{
+  "id": "025",
+  "name": "podcast_network",
+  "source": "A",
+  "archetype": "Independent podcast network for technology and culture",
+  "market": "Podcast listeners, tech and culture audience, 25-45, subscription audio",
+  "era": "2024",
+  "density": "Medium. Show artwork is the visual hero — large square podcast cover art in a grid. Episode descriptions brief. Audio player embed at top. Subscribe links for all podcast platforms. Clean and audio-first.",
+  "nav_style": "Minimal nav with network name logo. Shows, Episodes, Newsletter, Support Us. Right: mini audio player widget always visible showing currently playing (or latest) episode. Patreon or membership CTA button.",
+  "commercial_model": "Listener-supported. Premium subscription removes ads, gives bonus episodes and early access. Patreon integration. Ad spots within shows (described but not played). Occasional sponsor acknowledgments. Network-branded merchandise.",
+  "color_palette": "Deep purple (#3C1F6B) as primary — audio, night, intellectual. Cream (#F5F0E8) for readable backgrounds. Coral accent (#FF6B6B) for CTAs and new episode badges. Episode artwork colors bleed through with CSS filters creating warm ambient color variation. Dark mode as default.",
+  "typography": "Freight Display for show names — editorial, authoritative. Karla or Source Sans Pro for episode titles and descriptions. Mono font for episode numbers. Time stamps in small tabular figures. Transcript text in clean serif for readability.",
+  "quirks": ["show_artwork_grid", "audio_player_embed", "transcript_link", "podcast_platform_links", "patreon_cta", "episode_number_display", "show_notes_format", "chapters_navigation", "host_photo_bio", "listener_count_stat"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Network hero with tagline. Show grid with large cover art. Latest episode player widget. Featured episode highlight. Newsletter signup. Support the network donation section. About the network blurb."},
+    {"slug": "shows", "title": "All Shows", "description": "Show directory grid. Each show card: cover art, show title, one-line description, episode count, subscribe links for Apple Podcasts / Spotify / RSS. Genre/category filter."},
+    {"slug": "episodes", "title": "Latest Episodes", "description": "Episode feed across all shows. Episode cards: show artwork thumbnail, episode title, show name, date, duration, play button. Filter by show. Search by keyword. Pagination."},
+    {"slug": "episode", "title": "Episode Page", "description": "Full episode page: embedded audio player, episode title, show name, date, description, show notes with time-stamped chapters, guests bio, links mentioned, transcript link, share buttons."},
+    {"slug": "support", "title": "Support the Network", "description": "Listener support page. What your support does section. Membership tiers: Free, Plus ($7/mo), Supporter ($15/mo) with benefits comparison. Patreon embed. One-time donation option. Merchandise shop preview."}
+  ],
+  "animations": false
+}

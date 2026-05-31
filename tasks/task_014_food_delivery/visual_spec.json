@@ -1,0 +1,60 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap",
+    "font_heading": "'Nunito', system-ui, sans-serif",
+    "font_body": "'Nunito', system-ui, sans-serif",
+    "font_mono": null,
+    "size_h1": "32px",
+    "size_h2": "22px",
+    "size_body": "15px",
+    "size_small": "13px",
+    "color_primary": "#FC8019",
+    "color_secondary": "#3D4152",
+    "color_accent": "#60B246",
+    "color_bg": "#F8F8F8",
+    "color_surface": "#FFFFFF",
+    "color_text": "#3D4152",
+    "color_text_muted": "#686B78",
+    "color_border": "#E9E9EB",
+    "border_radius": "8px",
+    "container_max_width": "1200px",
+    "section_padding": "32px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#1B1F25",
+    "extra_colors": {
+      "veg_green": "#60B246",
+      "nonveg_red": "#E23744",
+      "rating_green": "#48C479",
+      "offer_yellow": "#FFE1B3",
+      "promoted_blue": "#02060CBF",
+      "soft_orange_bg": "#FFF3E9",
+      "discount_pink": "#E94E77",
+      "heading_dark": "#3D4152"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky top nav with location + search, horizontal offer carousel banners, scrollable cuisine icon strip, then stacked sections (Top restaurants, What's on your mind, Popular chains, All restaurants) as responsive card grids.",
+      "bg": "#FFFFFF"
+    },
+    "restaurant": {
+      "layout": "Restaurant hero header with photo, rating, delivery info; two-column body with sticky left menu category sidebar and right-side menu item list cards with add buttons.",
+      "bg": "#FFFFFF"
+    },
+    "cart": {
+      "layout": "Centered single-column with restaurant header, cart item list with qty steppers, coupon input, bill details breakdown card, delivery address block, and sticky place-order CTA at bottom.",
+      "bg": "#F8F8F8"
+    },
+    "orders": {
+      "layout": "Single-column list of order history cards showing restaurant, items, date, total, status badge, and Reorder/Rate/Invoice actions.",
+      "bg": "#F8F8F8"
+    },
+    "offers": {
+      "layout": "Grid of offer cards (3-col desktop, 1-col mobile) showing large discount percentages, bank offers, Pro membership comparison section, and coupon codes list.",
+      "bg": "linear-gradient(180deg, #FFF3E9 0%, #F8F8F8 320px)"
+    }
+  }
+}

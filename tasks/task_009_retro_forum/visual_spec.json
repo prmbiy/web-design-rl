@@ -1,0 +1,66 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "Arial, Helvetica, sans-serif",
+    "font_body": "Tahoma, Arial, sans-serif",
+    "font_mono": "'Courier New', monospace",
+    "size_h1": "22px",
+    "size_h2": "16px",
+    "size_body": "13px",
+    "size_small": "11px",
+    "color_primary": "#003366",
+    "color_secondary": "#336699",
+    "color_accent": "#FF6600",
+    "color_bg": "#E1E4F2",
+    "color_surface": "#FFFFFF",
+    "color_text": "#333333",
+    "color_text_muted": "#777777",
+    "color_border": "#B8C4D9",
+    "border_radius": "2px",
+    "container_max_width": "1000px",
+    "section_padding": "8px 12px",
+    "nav_bg": "#003366",
+    "nav_height": "auto",
+    "nav_position": "static",
+    "footer_bg": "#003366",
+    "extra_colors": {
+      "category_header": "#336699",
+      "row_alt": "#F2F2F2",
+      "row_base": "#FFFFFF",
+      "sticky_bg": "#FFF8DC",
+      "quote_bg": "#F5F5F5",
+      "quote_border": "#CCCCCC",
+      "sig_color": "#666699",
+      "rep_green": "#339933",
+      "mod_red": "#CC0000",
+      "link_blue": "#22229C",
+      "link_visited": "#551A8B",
+      "subnav_bg": "#DCE2EF",
+      "table_header_grad_top": "#4477AA",
+      "table_header_grad_bot": "#2D5A87"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "index": {
+      "layout": "Header banner with logo, horizontal nav bar, breadcrumb toolbar, then stacked category tables listing sub-forums with icon/title/desc, threads, posts, last post columns; right sidebar shows online users, birthdays, and a banner ad.",
+      "bg": "#E1E4F2"
+    },
+    "subforum": {
+      "layout": "Breadcrumb and New Thread button on top, then a wide table of threads with columns for icon, title+starter, replies, views, last post; sticky threads pinned at top with cream background, pagination at bottom.",
+      "bg": "#E1E4F2"
+    },
+    "thread": {
+      "layout": "Breadcrumb plus Reply/New Thread buttons, then a vertical stack of 15 post cards each with a left sidebar (avatar, username, rank, post count, join date, rep) and right post body with quotes, images, and italic signature divided by hr.",
+      "bg": "#E1E4F2"
+    },
+    "profile": {
+      "layout": "Two-column profile page: left column with large avatar, username, rank, contact buttons; right column with tabbed stats panel, about me, recent posts list, and awards/infractions grid.",
+      "bg": "#E1E4F2"
+    },
+    "search": {
+      "layout": "Centered search form panel with keyword, username, date range, forum selector, and sort radio buttons, followed by quick-link buttons for Today's Posts and New Posts, then a results table styled like the subforum thread list.",
+      "bg": "#E1E4F2"
+    }
+  }
+}

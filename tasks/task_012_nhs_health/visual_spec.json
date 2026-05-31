@@ -1,0 +1,62 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap",
+    "font_heading": "'Noto Sans', Frutiger, Arial, sans-serif",
+    "font_body": "'Noto Sans', Frutiger, Arial, sans-serif",
+    "font_mono": null,
+    "size_h1": "48px",
+    "size_h2": "32px",
+    "size_body": "19px",
+    "size_small": "16px",
+    "color_primary": "#003087",
+    "color_secondary": "#005EB8",
+    "color_accent": "#007F3B",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F0F4F5",
+    "color_text": "#212B32",
+    "color_text_muted": "#4C6272",
+    "color_border": "#D8DDE0",
+    "border_radius": "0",
+    "container_max_width": "1200px",
+    "section_padding": "32px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "80px",
+    "nav_position": "sticky",
+    "footer_bg": "#F0F4F5",
+    "extra_colors": {
+      "warning_yellow": "#FFB81C",
+      "emergency_red": "#DA291C",
+      "info_box_bg": "#E8EDEE",
+      "important_green_bg": "#E6F2EC",
+      "warning_yellow_bg": "#FFF9E6",
+      "emergency_red_bg": "#FBE9E8",
+      "link_blue": "#005EB8",
+      "link_visited": "#330072",
+      "focus_yellow": "#FFEB3B",
+      "dark_text": "#212B32"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Blue NHS header strip with logo and search; hero with three-column services grid (Find GP, Find pharmacy, Book appointment), followed by NHS App promo banner, top health topics carousel, Health A-Z link block, and COVID/vaccination info section.",
+      "bg": "#FFFFFF"
+    },
+    "conditions": {
+      "layout": "Breadcrumb top, A-Z alphabetical filter band, then featured Type 2 Diabetes article with left sidebar 'on this page' TOC and main content column containing colored info/warning/important boxes, bullet lists, and last reviewed date footer.",
+      "bg": "#FFFFFF"
+    },
+    "service_finder": {
+      "layout": "Tool header with service-type tabs, prominent postcode input form with radius selector, then two-column results: filter sidebar left and list of service cards (distance, hours, ratings, Book CTA) right.",
+      "bg": "#FFFFFF"
+    },
+    "medicines": {
+      "layout": "Breadcrumb, medicine title and overview, sidebar TOC, main column with numbered dosage steps, bulleted side effects, yellow warning boxes, interactions table, and red 'when to get urgent help' callout.",
+      "bg": "#FFFFFF"
+    },
+    "mental_health": {
+      "layout": "Red crisis support callout pinned top with Samaritans 116 123, hero intro, grid of condition cards (depression, anxiety, OCD, PTSD), self-referral CTA panel, and carers support section below.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

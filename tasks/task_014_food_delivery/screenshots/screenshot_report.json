@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "cart",
+      "path": "cart.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 109475,
+      "page_width": 1440,
+      "page_height": 1450
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1419880,
+      "page_width": 1440,
+      "page_height": 3543
+    },
+    {
+      "slug": "offers",
+      "path": "offers.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 444403,
+      "page_width": 1440,
+      "page_height": 2781
+    },
+    {
+      "slug": "orders",
+      "path": "orders.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 263608,
+      "page_width": 1440,
+      "page_height": 2329
+    },
+    {
+      "slug": "restaurant",
+      "path": "restaurant.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 334104,
+      "page_width": 1440,
+      "page_height": 2655
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

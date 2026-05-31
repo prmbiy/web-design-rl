@@ -1,0 +1,177 @@
+{
+  "brand_name": "도담 / Dodam Beauty",
+  "tagline": "Glass skin, gently earned. 유리알 같은 피부, 천천히.",
+  "primary_color_name": "Dodam Petal Pink",
+  "pages": {
+    "home": {
+      "title": "홈",
+      "nav_items": [
+        "New",
+        "Skincare",
+        "Makeup",
+        "Body",
+        "Sets",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "유리알 피부, 도담하게",
+          "subheadline": "Discover your 10-step ritual — dermatologist-tested, made in Seongsu-dong."
+        },
+        {
+          "name": "new_arrivals_grid",
+          "description": "Six-product grid with hover-lift cards featuring 'Rice Glow Essence 100ml ₩32,000', 'Centella Calming Toner 200ml ₩24,000', and 'Heartleaf Sun Stick SPF50+ ₩19,000', each with mint 'NEW' badge."
+        },
+        {
+          "name": "routine_guide",
+          "description": "Editorial banner introducing the 'AM/PM 10-Step Glass Skin Routine' with a CTA to take the 60-second Skin Quiz."
+        },
+        {
+          "name": "bestsellers",
+          "description": "Top-rated products with star ratings and review counts like 'Snow Mushroom Cream — 4.9★ (2,341 reviews)' and 'Propolis Ampoule — 4.8★ (1,872 reviews)'."
+        },
+        {
+          "name": "brand_story",
+          "description": "Soft-toned bilingual block on Dodam's philosophy of '느린 미용 (slow beauty)' founded by Seoul dermatology lab Kim & Park Clinical in 2019."
+        },
+        {
+          "name": "instagram_mosaic",
+          "description": "9-tile Instagram feed @dodam.beauty featuring user shelfies, K-pop idol mentions, and Seongsu cafe lifestyle shots."
+        }
+      ]
+    },
+    "skincare": {
+      "title": "스킨케어",
+      "nav_items": [
+        "New",
+        "Skincare",
+        "Makeup",
+        "Body",
+        "Sets",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Your skin, your ritual",
+          "subheadline": "Filter by skin type and concern — every formula is hypoallergenic-tested."
+        },
+        {
+          "name": "skin_type_filter",
+          "description": "Pill-shaped filter row with 'Oily 지성', 'Dry 건성', 'Combination 복합성', 'Sensitive 민감성' plus concern tags 'Acne', 'Dullness', 'Redness'."
+        },
+        {
+          "name": "category_tabs",
+          "description": "Horizontal scroll tabs for Cleansers (12), Toners (8), Essences (6), Serums (14), Moisturizers (10), SPF (5)."
+        },
+        {
+          "name": "product_grid",
+          "description": "Grid of 24 product cards with hero ingredient callouts like '5% Niacinamide + Rice Bran', 'Centella 77% + Madecassoside', each with 'Sample Included' and 'Dermatologist Tested' badges."
+        }
+      ]
+    },
+    "routine": {
+      "title": "루틴 빌더",
+      "nav_items": [
+        "New",
+        "Skincare",
+        "Makeup",
+        "Body",
+        "Sets",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Build your 10-step ritual",
+          "subheadline": "Toggle AM ☀ / PM 🌙 — add the full routine in one tap."
+        },
+        {
+          "name": "am_pm_toggle",
+          "description": "Sticky toggle switching between AM (7 steps) and PM (10 steps) routine flows with running total price."
+        },
+        {
+          "name": "step_carousel",
+          "description": "Numbered steps 1–10 each with one recommended product and a 1-line explainer, e.g. 'Step 4: Essence — Rice Glow Essence for hydration layering'."
+        },
+        {
+          "name": "quiz_cta",
+          "description": "Pastel card promoting 'Take the 도담 Skin Quiz' with 60-second promise and 500 포인트 reward on completion."
+        },
+        {
+          "name": "add_all_bar",
+          "description": "Sticky bottom bar showing 'Add full routine — ₩187,000 (save ₩23,000)' with bundle discount note."
+        }
+      ]
+    },
+    "about": {
+      "title": "브랜드 스토리",
+      "nav_items": [
+        "New",
+        "Skincare",
+        "Makeup",
+        "Body",
+        "Sets",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Born in Seongsu, made for the world",
+          "subheadline": "도담 means 'healthy and lovely growth' in Korean."
+        },
+        {
+          "name": "founder_story",
+          "description": "Bilingual narrative about founder Dr. Yuna Park, Yonsei dermatologist, launching Dodam in 2019 with founder portrait shot in the Seongsu-dong studio."
+        },
+        {
+          "name": "lab_facility",
+          "description": "Photo gallery of the GMP-certified Anseong manufacturing lab and ingredient sourcing from Jeju heartleaf farms."
+        },
+        {
+          "name": "certifications",
+          "description": "Badge row featuring 'Leaping Bunny Cruelty-Free', 'Vegan Society Certified', 'EWG Verified', 'CDFA K-Beauty Export Award 2022'."
+        },
+        {
+          "name": "press",
+          "description": "Logo wall with pull-quotes from Vogue Korea, Allure US, Refinery29, and Dazed Korea."
+        }
+      ]
+    },
+    "reviews": {
+      "title": "리뷰",
+      "nav_items": [
+        "New",
+        "Skincare",
+        "Makeup",
+        "Body",
+        "Sets",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "12,847 glass-skin journeys",
+          "subheadline": "Real reviews from real 도담 fam — verified buyers only."
+        },
+        {
+          "name": "review_filters",
+          "description": "Filter chips for skin type, concern, and age range, plus sort by 'Photo Reviews First' (3,210 photos)."
+        },
+        {
+          "name": "photo_wall",
+          "description": "Masonry grid of customer photo reviews with star ratings and short captions like 'Minji, 27, Combination — 8 weeks of Propolis Ampoule'."
+        },
+        {
+          "name": "before_after",
+          "description": "Featured before/after carousel with consent captions, e.g. 'Hyejin's 12-week Centella journey — redness reduced'."
+        },
+        {
+          "name": "community_blog",
+          "description": "Three blog cards linking to skincare journey essays like 'My maskne recovery diary' and 'Layering 101 for sensitive skin'."
+        }
+      ]
+    }
+  }
+}

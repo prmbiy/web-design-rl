@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Work — VANTBLACK/STUDIO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #FFFFFF;
+  color: #000;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Cursor */
+.cursor-dot {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  background: #FFE500;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  top: 50vh; left: 50vw;
+}
+
+/* Page transitions */
+@keyframes pageFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageFade 0.8s cubic-bezier(0.77, 0, 0.175, 1) both; }
+
+/* Scramble */
+@keyframes scramble {
+  0%,100% { letter-spacing: 0; }
+  25% { letter-spacing: 0.05em; transform: skewX(-2deg); }
+  50% { letter-spacing: -0.02em; }
+  75% { letter-spacing: 0.03em; transform: skewX(1deg); }
+}
+.scramble:hover, nav a:hover { animation: scramble 0.4s steps(4) both; display: inline-block; }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+
+/* Nav — left fixed column */
+.side-nav {
+  position: fixed;
+  left: 0; top: 0;
+  width: 72px;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  border-right: 3px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0;
+  z-index: 100;
+}
+.side-nav .brand {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+.side-nav .nav-links {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: flex;
+  gap: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.side-nav .nav-links a.active { color: #FFE500; }
+.side-nav .page-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #FFE500;
+  letter-spacing: 0.1em;
+}
+
+main {
+  margin-left: 72px;
+  width: calc(100% - 72px);
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 3px solid #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.top-bar .dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  background: #FFE500;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Hero */
+.hero {
+  padding: 80px 48px 60px;
+  border-bottom: 3px solid #000;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 220px;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  margin-bottom: 40px;
+}
+.hero h1 .em {
+  font-style: italic;
+  color: #FFE500;
+  -webkit-text-stroke: 3px #000;
+}
+.hero .sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #000;
+  padding-top: 24px;
+  margin-top: 20px;
+}
+.hero .sub p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  max-width: 540px;
+  line-height: 1.3;
+}
+.hero .sub .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+.hero .sub .meta span { display: block; }
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 48px;
+  border-bottom: 3px solid #000;
+  background: #FFE500;
+}
+.filter-bar .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.filter-bar .filters {
+  display: flex;
+  gap: 36px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.filter-bar .filters a {
+  position: relative;
+  padding-bottom: 4px;
+}
+.filter-bar .filters a.on {
+  border-bottom: 3px solid #000;
+}
+.filter-bar .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* Case grid — asymmetric brutalist */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 80px;
+  border-bottom: 3px solid #000;
+  position: relative;
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000;
+}
+.work-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.77,0,0.175,1);
+  z-index: 3;
+}
+.work-item:hover::after { transform: translateY(0); }
+.work-item .reveal-title {
+  opacity: 0;
+  transition: opacity 0.4s 0.2s;
+  z-index: 4;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: #FFE500;
+  text-align: center;
+}
+.work-item:hover .reveal-title { opacity: 1; }
+.work-item .reveal-title h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 0.9;
+  margin-bottom: 24px;
+}
+.work-item .reveal-title p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  max-width: 320px;
+}
+.work-item .reveal-title .view {
+  margin-top: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FFE500;
+  letter-spacing: 0.2em;
+  border: 1px solid #FFE500;
+  padding: 10px 20px;
+}
+
+.work-item .img-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.work-item .overlay-text {
+  position: absolute;
+  z-index: 2;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  pointer-events: none;
+}
+.work-item .meta-tag {
+  position: absolute;
+  z-index: 2;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Individual items with mixed sizes */
+.item-01 { grid-column: 1 / 8; grid-row: 1 / 8; }
+.item-01 .img-bg {
+  background:
+    radial-gradient(circle at 70% 30%, #FFE500 0%, transparent 35%),
+    linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+}
+.item-01 .overlay-text {
+  bottom: 28px; left: 28px;
+  font-size: 140px;
+  color: #FFE500;
+  -webkit-text-stroke: 2px #000;
+}
+.item-01 .meta-tag.tl { top: 28px; left: 28px; color: #fff; }
+.item-01 .meta-tag.tr { top: 28px; right: 28px; color: #FFE500; }
+
+.item-02 { grid-column: 8 / 13; grid-row: 1 / 5; }
+.item-02 .img-bg {
+  background:
+    repeating-linear-gradient(45deg, #6b3410 0px, #6b3410 8px, #4a2208 8px, #4a2208 16px);
+}
+.item-02 .overlay-text {
+  bottom: 20px; left: 24px;
+  font-size: 72px;
+  color: #FFE500;
+  font-style: italic;
+}
+.item-02 .meta-tag { bottom: 20px; right: 24px; color: #FFE500; }
+
+.item-03 { grid-column: 8 / 13; grid-row: 5 / 8; }
+.item-03 .img-bg {
+  background:
+    linear-gradient(180deg, #00FFFF 0%, #0088aa 50%, #000 100%);
+}
+.item-03 .overlay-text {
+  top: 20px; left: 24px;
+  font-size: 56px;
+  color: #000;
+}
+.item-03 .meta-tag { bottom: 16px; left: 24px; color: #fff; }
+
+.item-04 { grid-column: 1 / 5; grid-row: 8 / 14; }
+.item-04 .img-bg {
+  background:
+    conic-gradient(from 45deg at 50% 50%, #FF1A1A 0%, #000 25%, #FF1A1A 50%, #000 75%, #FF1A1A 100%);
+}
+.item-04 .overlay-text {
+  bottom: 28px; left: 24px;
+  font-size: 64px;
+  color: #fff;
+}
+.item-04 .meta-tag { top: 20px; left: 24px; color: #fff; }
+
+.item-05 { grid-column: 5 / 10; grid-row: 8 / 13; }
+.item-05 .img-bg {
+  background:
+    linear-gradient(90deg, #F4F4F1 0%, #F4F4F1 50%, #000 50%, #000 100%);
+}
+.item-05 .overlay-text {
+  top: 32px; right: -8px;
+  font-size: 96px;
+  color: #FFE500;
+  text-align: right;
+  -webkit-text-stroke: 1px #000;
+}
+.item-05 .meta-tag.bl { bottom: 24px; left: 24px; color: #000; }
+.item-05 .meta-tag.br { bottom: 24px; right: 24px; color: #fff; }
+
+.item-06 { grid-column: 10 / 13; grid-row: 8 / 11; }
+.item-06 .img-bg {
+  background:
+    radial-gradient(circle at 30% 70%, #FFE500 0%, transparent 50%),
+    #000;
+}
+.item-06 .overlay-text {
+  bottom: 16px; left: 18px;
+  font-size: 38px;
+  color: #FFE500;
+}
+.item-06 .meta-tag { top: 18px; left: 18px; color: #fff; }
+
+.item-07 { grid-column: 10 / 13; grid-row: 11 / 14; }
+.item-07 .img-bg {
+  background:
+    linear-gradient(135deg, #2d4a2d 0%, #1a3a1a 50%, #0a1a0a 100%);
+}
+.item-07 .overlay-text {
+  top: 20px; left: 18px;
+  font-size: 42px;
+  color: #FFE500;
+  font-style: italic;
+}
+.item-07 .meta-tag { bottom: 18px; right: 18px; color: #fff; }
+
+.item-08 { grid-column: 5 / 10; grid-row: 13 / 18; }
+.item-08 .img-bg {
+  background:
+    repeating-linear-gradient(0deg, #000 0px, #000 4px, #fff 4px, #fff 8px);
+}
+.item-08 .overlay-text {
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 88px;
+  color: #FFE500;
+  background: #000;
+  padding: 20px 40px;
+}
+.item-08 .meta-tag.tl { top: 20px; left: 24px; color: #000; background: #fff; padding: 4px 8px; }
+.item-08 .meta-tag.br { bottom: 20px; right: 24px; color: #000; background: #fff; padding: 4px 8px; }
+
+.item-09 { grid-column: 1 / 5; grid-row: 14 / 18; }
+.item-09 .img-bg {
+  background:
+    linear-gradient(220deg, #fff 0%, #fff 40%, #FFE500 40%, #FFE500 70%, #000 70%, #000 100%);
+}
+.item-09 .overlay-text {
+  bottom: 24px; left: 24px;
+  font-size: 56px;
+  color: #000;
+}
+.item-09 .meta-tag { top: 20px; right: 24px; color: #000; }
+
+.item-10 { grid-column: 10 / 13; grid-row: 14 / 18; }
+.item-10 .img-bg {
+  background:
+    radial-gradient(ellipse at center, #FF1A1A 0%, #800000 60%, #000 100%);
+}
+.item-10 .overlay-text {
+  bottom: 20px; left: 18px;
+  font-size: 44px;
+  color: #FFE500;
+}
+.item-10 .meta-tag { top: 18px; left: 18px; color: #fff; }
+
+/* Awards / Manifesto strip */
+.strip {
+  padding: 100px 48px;
+  border-bottom: 3px solid #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.strip h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.strip h2 em { color: #666; }
+.strip .right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+.strip .right .big {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  line-height: 1;
+  color: #FFE500;
+  -webkit-text-stroke: 2px #000;
+  display: block;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+/* Marquee — client ticker */
+.ticker {
+  background: #000;
+  color: #fff;
+  border-bottom: 3px solid #000;
+  padding: 28px 0;
+  overflow: hidden;
+}
+.ticker .marquee-track span {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 48px;
+  padding: 0 40px;
+  letter-spacing: -0.02em;
+}
+.ticker .marquee-track .sep {
+  color: #FFE500;
+  font-size: 36px;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 48px 40px;
+}
+footer .top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #333;
+}
+footer h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 88px;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+footer h3 .y { color: #FFE500; }
+footer .col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+  color: #FFE500;
+}
+footer .col a, footer .col p {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+footer .bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #888;
+}
+
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+
+<!-- Side nav -->
+<nav class="side-nav">
+  <div class="brand">VANTBLACK/STUDIO</div>
+  <div class="nav-links">
+    <a href="#" class="scramble">Index</a>
+    <a href="#" class="scramble active">Work</a>
+    <a href="#" class="scramble">Studio</a>
+    <a href="#" class="scramble">Contact</a>
+  </div>
+  <div class="page-num">02<br>—<br>05</div>
+</nav>
+
+<main class="page-enter">
+
+  <div class="top-bar">
+    <div><span class="dot"></span> CURRENTLY ACCEPTING BRIEFS — Q1 2024</div>
+    <div>BERLIN 14:32 / NYC 08:32 / SEOUL 22:32</div>
+    <div>WORK / INDEX</div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>SELECTED<br>WORK <em class="em">2019—2023</em></h1>
+    <div class="sub">
+      <p>47 projects. 12 industries. Zero compromises. We don't make decks, we make brands that refuse to be ignored.</p>
+      <div class="meta">
+        <span>↳ FILED UNDER</span>
+        <span>IDENTITY · DIGITAL · EDITORIAL</span>
+        <span>SPATIAL · MOTION · PACKAGING</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="label">↳ FILTER BY DISCIPLINE</div>
+    <div class="filters">
+      <a href="#" class="scramble on">All</a>
+      <a href="#" class="scramble">Identity</a>
+      <a href="#" class="scramble">Digital</a>
+      <a href="#" class="scramble">Editorial</a>
+      <a href="#" class="scramble">Spatial</a>
+      <a href="#" class="scramble">Motion</a>
+      <a href="#" class="scramble">Packaging</a>
+    </div>
+    <div class="count">[ 010 / 047 SHOWN ]</div>
+  </div>
+
+  <!-- Case Grid -->
+  <section class="case-grid">
+
+    <article class="work-item item-01">
+      <div class="img-bg"></div>
+      <div class="meta-tag tl">001 / KORUNA HODINÁŘSTVÍ</div>
+      <div class="meta-tag tr">2023 · IDENTITY + E-COM</div>
+      <div class="overlay-text">KORUNA</div>
+      <div class="reveal-title">
+        <h3>KORUNA — Mechanical Watchmaker Rebrand</h3>
+        <p>Rebranding a 94-year-old Czech watchmaker for a generation that doesn't wear watches.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-02">
+      <div class="img-bg"></div>
+      <div class="meta-tag">002 · 2023 · D2C PLATFORM</div>
+      <div class="overlay-text">HALDER</div>
+      <div class="reveal-title">
+        <h3>HALDER — D2C Coffee Platform</h3>
+        <p>A specialty coffee subscription that ships flavour notes, not packaging.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-03">
+      <div class="img-bg"></div>
+      <div class="meta-tag">003 · 2023 · DIGITAL + MOTION</div>
+      <div class="overlay-text">NEMESIS XR</div>
+      <div class="reveal-title">
+        <h3>NEMESIS XR — Headset Launch Site</h3>
+        <p>A WebGL launch site for a headset that bends reality. Awarded FWA Site of the Day.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-04">
+      <div class="img-bg"></div>
+      <div class="meta-tag">004 · 2022 · IDENTITY</div>
+      <div class="overlay-text">ATLAS<br>DENIM</div>
+      <div class="reveal-title">
+        <h3>ATLAS DENIM — Heritage Workwear Rebrand</h3>
+        <p>A 47-year-old Portuguese denim mill reborn for the post-fast-fashion buyer.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-05">
+      <div class="img-bg"></div>
+      <div class="meta-tag bl">005 · EDITORIAL</div>
+      <div class="meta-tag br">2022</div>
+      <div class="overlay-text">FRACTAL/Q</div>
+      <div class="reveal-title">
+        <h3>FRACTAL QUARTERLY — Print Journal Design</h3>
+        <p>A 240-page journal on architecture and dissent. Type Directors Club Winner 2022.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-06">
+      <div class="img-bg"></div>
+      <div class="meta-tag">006 · 2022 · MOTION</div>
+      <div class="overlay-text">OBSCURA</div>
+      <div class="reveal-title">
+        <h3>OBSCURA FILM FEST — Identity & Motion</h3>
+        <p>A title sequence system for an independent film festival in Lisbon.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-07">
+      <div class="img-bg"></div>
+      <div class="meta-tag">007 · 2021 · PACKAGING</div>
+      <div class="overlay-text">VERDE/SOLO</div>
+      <div class="reveal-title">
+        <h3>VERDE SOLO — Olive Oil Packaging</h3>
+        <p>Cold-pressed single-estate olive oil. Pentawards Gold 2021.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-08">
+      <div class="img-bg"></div>
+      <div class="meta-tag tl">008 · IDENTITY</div>
+      <div class="meta-tag br">2021</div>
+      <div class="overlay-text">UTILITY</div>
+      <div class="reveal-title">
+        <h3>UTILITY BANK — Challenger Bank Identity</h3>
+        <p>An anti-fintech for tradespeople. Brand New Awards Winner 2022.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-09">
+      <div class="img-bg"></div>
+      <div class="meta-tag">009 · 2020 · SPATIAL</div>
+      <div class="overlay-text">SAUVAGE</div>
+      <div class="reveal-title">
+        <h3>SAUVAGE — Flagship Store Wayfinding</h3>
+        <p>Spatial identity and signage system for a Paris fragrance flagship.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+    <article class="work-item item-10">
+      <div class="img-bg"></div>
+      <div class="meta-tag">010 · 2019 · DIGITAL</div>
+      <div class="overlay-text">VALKYRIE</div>
+      <div class="reveal-title">
+        <h3>VALKYRIE — Editorial Platform Launch</h3>
+        <p>A long-form journalism platform with a custom variable typeface.</p>
+        <div class="view">→ VIEW CASE STUDY</div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Strip -->
+  <section class="strip">
+    <h2>Forty-seven projects.<br><em>Thirty-six clients.</em><br>One studio.</h2>
+    <div class="right">
+      <span class="big">+312%</span>
+      AVG. DIRECT SALES UPLIFT ACROSS COMMERCE PROJECTS<br><br>
+      ↳ MEASURED 12 MONTHS POST-LAUNCH<br>
+      ↳ INDEPENDENT THIRD-PARTY AUDIT (SHOPIFY ANALYTICS)<br>
+      ↳ 23 OF 24 COMMERCE PROJECTS EXCEEDED PRE-LAUNCH BENCHMARKS
+    </div>
+  </section>
+
+  <!-- Client Ticker -->
+  <div class="ticker">
+    <div class="marquee-track">
+      <span>ACNE STUDIOS</span><span class="sep">✦</span>
+      <span>RAPHA</span><span class="sep">✦</span>
+      <span>PATAGONIA</span><span class="sep">✦</span>
+      <span>NOTION</span><span class="sep">✦</span>
+      <span>A24</span><span class="sep">✦</span>
+      <span>AESOP</span><span class="sep">✦</span>
+      <span>BOTTEGA VENETA</span><span class="sep">✦</span>
+      <span>LINEAR</span><span class="sep">✦</span>
+      <span>ON RUNNING</span><span class="sep">✦</span>
+      <span>ACNE STUDIOS</span><span class="sep">✦</span>
+      <span>RAPHA</span><span class="sep">✦</span>
+      <span>PATAGONIA</span><span class="sep">✦</span>
+      <span>NOTION</span><span class="sep">✦</span>
+      <span>A24</span><span class="sep">✦</span>
+      <span>AESOP</span><span class="sep">✦</span>
+      <span>BOTTEGA VENETA</span><span class="sep">✦</span>
+      <span>LINEAR</span><span class="sep">✦</span>
+      <span>ON RUNNING</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="top">
+      <div>
+        <h3>WE MAKE<br>BRANDS THAT<br>REFUSE TO BE<br><span class="y">IGNORED.</span></h3>
+      </div>
+      <div class="col">
+        <h4>CONTACT</h4>
+        <a href="#" class="scramble">hello@vantblack.studio</a>
+        <a href="#" class="scramble">press@vantblack.studio</a>
+        <a href="#" class="scramble">careers@vantblack.studio</a>
+      </div>
+      <div class="col">
+        <h4>STUDIOS</h4>
+        <p>Köpenicker Str. 187 — Berlin</p>
+        <p>55 Walker St — New York</p>
+        <p>14 Itaewon-ro — Seoul</p>
+      </div>
+      <div class="col">
+        <h4>ELSEWHERE</h4>
+        <a href="#" class="scramble">Instagram ↗</a>
+        <a href="#" class="scramble">Are.na ↗</a>
+        <a href="#" class="scramble">Read.cv ↗</a>
+        <a href="#" class="scramble">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© VANTBLACK/STUDIO MMXXIV — INDEPENDENT &amp; UNREPRESENTED</div>
+      <div>FOUNDED 2017 — BERLIN</div>
+      <div>02 / 05 — WORK</div>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

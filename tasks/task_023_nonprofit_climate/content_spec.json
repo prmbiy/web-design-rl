@@ -1,0 +1,229 @@
+{
+  "brand_name": "Climate Horizon Collective",
+  "tagline": "Science. Justice. Action. Before 2030.",
+  "primary_color_name": "Horizon Forest Green",
+  "pages": {
+    "home": {
+      "title": "Home — Climate Horizon Collective",
+      "nav_items": [
+        "Our Work",
+        "The Science",
+        "Take Action",
+        "Stories",
+        "About",
+        "Donate"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "5 years, 7 months to limit warming to 1.5°C",
+          "subheadline": "We mobilize science, communities, and policy to cut emissions in half by 2030."
+        },
+        {
+          "name": "climate_clock",
+          "description": "Live countdown showing time remaining in the 1.5°C carbon budget alongside current CO2 at 422.8 ppm and global temp anomaly +1.24°C."
+        },
+        {
+          "name": "key_stats",
+          "description": "Three-stat band: 422.8 ppm atmospheric CO2, +1.24°C above pre-industrial, 47 state-level climate bills passed in 2024."
+        },
+        {
+          "name": "campaigns",
+          "description": "Three featured campaigns: 'Coal-Free Grid by 2030', 'Methane Watch: Permian Basin', and 'Youth Climate Lobby Day 2025'."
+        },
+        {
+          "name": "impact_numbers",
+          "description": "Impact dashboard: 2.4M tons CO2e prevented, 184 communities supported, 312,000 petition signatures, $18.7M directed to frontline groups."
+        },
+        {
+          "name": "stories_preview",
+          "description": "Three story cards: Pine Ridge solar microgrid, Louisiana shrimpers vs. LNG terminal, Mumbai heat-resilient schools."
+        },
+        {
+          "name": "monthly_giving",
+          "description": "Monthly vs one-time donation toggle with suggested tiers ($15/$35/$75/mo) and impact equivalents like '$35/mo funds one community organizer for a week'."
+        },
+        {
+          "name": "newsletter",
+          "description": "Signup for 'The Horizon Brief' weekly climate news digest with 240,000 subscribers."
+        }
+      ]
+    },
+    "science": {
+      "title": "The Science",
+      "nav_items": [
+        "Our Work",
+        "The Science",
+        "Take Action",
+        "Stories",
+        "About",
+        "Donate"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "The data is unambiguous.",
+          "subheadline": "What 13,000+ peer-reviewed studies and the IPCC AR6 report tell us about where we stand."
+        },
+        {
+          "name": "consensus_quote",
+          "description": "Pull quote in italic serif from Dr. Friederike Otto, Imperial College, on attribution science and the 2024 heat dome."
+        },
+        {
+          "name": "temperature_chart",
+          "description": "SVG line chart of global mean temperature anomaly 1880–2024 with red dashed threshold line at +1.5°C and labeled 2023 record at +1.45°C."
+        },
+        {
+          "name": "extreme_weather_chart",
+          "description": "Bar chart comparing extreme weather events per decade: 1980s (711 events) vs 2020s projected (3,165 events), sourced to EM-DAT database."
+        },
+        {
+          "name": "sea_level_timeline",
+          "description": "Horizontal CSS timeline showing observed sea level rise (1900: 0cm, 1950: 6cm, 2000: 15cm, 2024: 23cm) and projections to 2100 under SSP2-4.5 and SSP5-8.5."
+        },
+        {
+          "name": "ipcc_findings",
+          "description": "Plain-language breakdown of five key AR6 findings on tipping points, carbon budgets, and adaptation limits."
+        },
+        {
+          "name": "faq_accordion",
+          "description": "Eight expandable misconceptions: 'Isn't climate always changing?', 'What about volcanoes?', 'Will tech save us?', etc."
+        },
+        {
+          "name": "sources",
+          "description": "Cited references list: IPCC AR6 WG1, NOAA GML, NASA GISTEMP, EM-DAT CRED, Copernicus C3S 2024 bulletin."
+        }
+      ]
+    },
+    "action": {
+      "title": "Take Action",
+      "nav_items": [
+        "Our Work",
+        "The Science",
+        "Take Action",
+        "Stories",
+        "About",
+        "Donate"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Pick your power.",
+          "subheadline": "Six ways to push the needle this week — from 30 seconds to 30 hours."
+        },
+        {
+          "name": "action_counter",
+          "description": "Live counter showing 487,213 actions taken this year across petitions, calls, and volunteer hours."
+        },
+        {
+          "name": "petition",
+          "description": "Featured petition 'Stop the CP2 LNG Export Terminal' with signature widget showing 142,388 of 250,000 goal."
+        },
+        {
+          "name": "contact_rep",
+          "description": "Zip-code lookup tool generating scripted call/email to representatives about the Clean Electricity Performance Standard."
+        },
+        {
+          "name": "carbon_calculator",
+          "description": "Interactive carbon footprint calculator with sliders for diet, transport, home energy, returning tons CO2e/year vs US average of 16t."
+        },
+        {
+          "name": "local_action_map",
+          "description": "US map with pins for 184 local chapters and upcoming events like 'Boston Climate Strike Oct 12' and 'Denver Heat Pump Workshop'."
+        },
+        {
+          "name": "volunteer_signup",
+          "description": "Form to join volunteer roster with role options: phone banker, data analyst, community organizer, translator."
+        },
+        {
+          "name": "share",
+          "description": "Social share kit with pre-written posts, downloadable graphics, and the #HorizonBy2030 hashtag."
+        }
+      ]
+    },
+    "stories": {
+      "title": "Stories of Change",
+      "nav_items": [
+        "Our Work",
+        "The Science",
+        "Take Action",
+        "Stories",
+        "About",
+        "Donate"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Frontlines, firsthand.",
+          "subheadline": "Long-form reporting from the communities, scientists, and organizers shaping the transition."
+        },
+        {
+          "name": "featured_story",
+          "description": "Cover story 'The Shrimpers of Plaquemines Parish' with hero photo and 12-min read on Louisiana LNG resistance."
+        },
+        {
+          "name": "story_grid",
+          "description": "Six story cards mixing formats: 'How Texas Built 40GW of Solar' (data essay), 'A Day with the Sunrise Movement' (photo essay), 'Inside COP29 Negotiations' (dispatch)."
+        },
+        {
+          "name": "video_testimonials",
+          "description": "Three embedded video portraits: Quechua farmer in Peru on glacial retreat, German coal-region apprentice retraining, Kenyan geothermal engineer."
+        },
+        {
+          "name": "impact_map",
+          "description": "World map plotting 47 reported stories from 2024 across six continents, color-coded by topic."
+        },
+        {
+          "name": "newsletter",
+          "description": "Subscribe prompt for monthly long-form 'Horizon Dispatch' edited by former Guardian climate editor Amelia Tate."
+        }
+      ]
+    },
+    "about": {
+      "title": "About & Team",
+      "nav_items": [
+        "Our Work",
+        "The Science",
+        "Take Action",
+        "Stories",
+        "About",
+        "Donate"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Founded in 2011. Independent. Science-led.",
+          "subheadline": "A 501(c)(3) coalition of scientists, organizers, and storytellers working in 31 countries."
+        },
+        {
+          "name": "mission",
+          "description": "Three-pillar mission statement: rigorous science communication, frontline community support, structural policy change."
+        },
+        {
+          "name": "advisory_board",
+          "description": "Six scientific advisors with credentials: Dr. Kate Marvel (climate modeler), Dr. Saleemul Huq (adaptation, ICCCAD), Dr. Robert Bullard (environmental justice)."
+        },
+        {
+          "name": "exec_team",
+          "description": "Five executive bios with photos: Executive Director Maya Okonkwo, Policy Director Jordan Chen, Science Director Dr. Priya Raman."
+        },
+        {
+          "name": "financials",
+          "description": "Pie chart of 2023 spending: 71% Programs, 14% Advocacy, 9% Fundraising, 6% Operations, with $24.3M total revenue."
+        },
+        {
+          "name": "ratings",
+          "description": "Trust badges: Charity Navigator 4-star, Candid Platinum Seal, BBB Wise Giving Alliance accredited."
+        },
+        {
+          "name": "press",
+          "description": "Logo strip of recent mentions: New York Times, BBC, The Atlantic, Grist, ProPublica."
+        },
+        {
+          "name": "annual_report",
+          "description": "Download CTA for 2023 Annual Report PDF and link to IRS Form 990."
+        }
+      ]
+    }
+  }
+}

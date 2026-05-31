@@ -1,0 +1,22 @@
+{
+  "id": "001",
+  "name": "indian_govt",
+  "source": "B",
+  "archetype": "Indian central government ministry portal",
+  "market": "India, tier-1 central government agency",
+  "era": "2018",
+  "density": "Extremely cramped. Every pixel is occupied. Multiple competing visual hierarchies fight for attention. Navigation alone has 40+ links spread across mega-menus, sidebars, and a top utility bar. Marquee text scrolls important announcements across the top. Tables are the primary layout tool. Multiple banner ads for government schemes compete with the main content.",
+  "nav_style": "Fixed top utility bar with language selector and accessibility links. Below it a full-width orange header with ministry logo. Below that a 8-category mega-menu where each category has 8-12 dropdown items. Also a left sidebar with citizen service quick-links. Also a breadcrumb trail on every interior page.",
+  "commercial_model": "Public service. Zero ads. But the visual density of government scheme banners, helpline numbers, and social media buttons makes it feel cluttered regardless.",
+  "color_palette": "Sarkari orange (#FF6600) and dark navy blue (#003366) are dominant. White page backgrounds. Red (#CC0000) for urgent alerts and notices. Yellow (#FFCC00) accent for highlighted schemes. Light grey (#F5F5F5) for alternating table rows.",
+  "typography": "Arial and Times New Roman only — no web fonts allowed by government IT policy. Body text at 12px. Headings at 14-16px bold. Link text underlined everywhere. Dense line-height of 1.3.",
+  "quirks": ["marquee_text_announcements", "sarkari_orange_and_navy", "table_heavy_layout", "multiple_scheme_banners", "zero_whitespace", "citizen_service_sidebar", "accessibility_widget_button", "last_updated_timestamp_on_every_page", "national_emblem_prominently_placed", "all_caps_section_headings"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Ministry landing page with scrolling announcements marquee, featured government schemes grid, latest tenders sidebar, quick citizen service links, and important contacts"},
+    {"slug": "about", "title": "About the Ministry", "description": "Ministry history since independence, organizational chart, minister and secretary profile photos with bios, vision and mission statements in tables"},
+    {"slug": "schemes", "title": "Schemes & Programs", "description": "Full listing of active government schemes in a dense table with scheme name, launch date, budget allocation, beneficiary count, and status badges"},
+    {"slug": "tenders", "title": "Tenders & Procurement", "description": "Active tenders table with tender ID, department, value, submission deadline, and download link columns. Separate section for archived tenders."},
+    {"slug": "contact", "title": "Contact Us", "description": "Multi-column table of all department offices with address, phone, fax, email. Embedded Google Maps placeholder. Grievance registration form."}
+  ],
+  "animations": false
+}

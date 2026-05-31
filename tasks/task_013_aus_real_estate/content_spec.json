@@ -1,0 +1,224 @@
+{
+  "brand_name": "PropertyNest",
+  "tagline": "Find your place in Australia",
+  "primary_color_name": "Nest Teal",
+  "pages": {
+    "home": {
+      "title": "Real Estate Australia | PropertyNest",
+      "nav_items": [
+        "Buy",
+        "Rent",
+        "Sold",
+        "New Homes",
+        "Estimate",
+        "Agents",
+        "News & Insights",
+        "Sign in",
+        "List a property"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Find your next home across Australia",
+          "subheadline": "Over 482,000 properties for sale and rent — from Bondi to Broome."
+        },
+        {
+          "name": "featured_suburb_reports",
+          "description": "Carousel of three suburb market report cards with median price, YoY change and clearance rate — e.g. Brunswick VIC, Paddington NSW, New Farm QLD."
+        },
+        {
+          "name": "weekend_auction_results",
+          "description": "Table summary of last weekend's auctions showing clearance rates by capital city, e.g. Sydney 68%, Melbourne 64%, Adelaide 81% with link to full results."
+        },
+        {
+          "name": "first_home_buyer_guide",
+          "description": "Three-card guide block covering First Home Owner Grant 2023, stamp duty calculator, and deposit savings tips."
+        },
+        {
+          "name": "property_news_feed",
+          "description": "Four article tiles with headlines like 'RBA holds cash rate at 4.10%', 'Where Aussies are moving in 2023', and 'Off-the-plan apartments rebound in Brisbane'."
+        },
+        {
+          "name": "suburb_spotlight",
+          "description": "Long-form spotlight teaser on a featured suburb such as Coburg VIC with median price, lifestyle blurb, and three listings."
+        },
+        {
+          "name": "app_download",
+          "description": "Side-by-side promo for iOS App Store and Google Play with QR code and screenshot of saved searches."
+        }
+      ]
+    },
+    "search": {
+      "title": "Houses for Sale in Melbourne VIC | PropertyNest",
+      "nav_items": [
+        "Buy",
+        "Rent",
+        "Sold",
+        "New Homes",
+        "Estimate",
+        "Agents",
+        "News & Insights",
+        "Sign in",
+        "List a property"
+      ],
+      "sections": [
+        {
+          "name": "search_header",
+          "headline": "Houses for sale in Melbourne, VIC",
+          "subheadline": "1,847 properties found"
+        },
+        {
+          "name": "filter_sidebar",
+          "description": "Vertical filter panel with price range ($400k–$3M+), beds 1–5+, baths, land size, property type (House/Apartment/Townhouse/Land), features checkboxes (Pool, Garage, Air con, Study), and inspection time picker."
+        },
+        {
+          "name": "view_toggle_sort",
+          "description": "Top bar with Grid/List/Map toggle, sort dropdown (Newest, Lowest Price, Highest Price, Date Modified), and saved-search bell icon."
+        },
+        {
+          "name": "listings_grid",
+          "description": "24 property cards each with hero photo, price or guide (e.g. '$1,250,000' or 'Auction Sat 18 Nov'), 3/2/2 icons, address like '47 Maribyrnong St, Footscray VIC 3011', Ray White agent badge, and 'Listed 12 days ago'."
+        },
+        {
+          "name": "suburb_median_widget",
+          "description": "Inline widget midway through grid showing Footscray house median $920,000, units $510,000, with link to suburb profile."
+        },
+        {
+          "name": "pagination",
+          "description": "Numbered pagination 1–77 with per-page selector and 'Save this search' CTA."
+        }
+      ]
+    },
+    "listing": {
+      "title": "12 Acacia Avenue, Hawthorn VIC 3122 | PropertyNest",
+      "nav_items": [
+        "Buy",
+        "Rent",
+        "Sold",
+        "New Homes",
+        "Estimate",
+        "Agents",
+        "News & Insights",
+        "Sign in",
+        "List a property"
+      ],
+      "sections": [
+        {
+          "name": "gallery",
+          "description": "Photo carousel with 28 images, floorplan tab, video tour tab, and 3D walkthrough tab."
+        },
+        {
+          "name": "headline_block",
+          "headline": "$1,650,000 — $1,750,000",
+          "subheadline": "12 Acacia Avenue, Hawthorn VIC 3122 · 4 bed · 2 bath · 2 car · 612m²"
+        },
+        {
+          "name": "auction_inspection",
+          "description": "Auction badge 'Auction Sat 25 Nov 11:00am' plus two open-for-inspection slots (Wed 6:00–6:30pm, Sat 10:00–10:30am)."
+        },
+        {
+          "name": "description",
+          "description": "Property description block describing renovated Edwardian with polished floorboards, north-facing rear garden and zoning to Auburn High."
+        },
+        {
+          "name": "agent_contact",
+          "description": "Sticky contact card with agent photo of Sarah Chen from Jellis Craig Hawthorn, phone reveal, enquiry form, and 'Request a private inspection' button."
+        },
+        {
+          "name": "floorplan",
+          "description": "Embedded floorplan image with download PDF link and total internal area 218m²."
+        },
+        {
+          "name": "suburb_profile_widget",
+          "description": "Compact Hawthorn data card with median house $2.35M, days on market 32, 6.2km to Melbourne CBD."
+        },
+        {
+          "name": "schools_transport",
+          "description": "List of nearby amenities: Auburn South Primary (0.6km), Hawthorn Station (0.8km), Glenferrie Road tram stop (0.4km)."
+        }
+      ]
+    },
+    "suburb": {
+      "title": "Hawthorn VIC 3122 Suburb Profile | PropertyNest",
+      "nav_items": [
+        "Buy",
+        "Rent",
+        "Sold",
+        "New Homes",
+        "Estimate",
+        "Agents",
+        "News & Insights",
+        "Sign in",
+        "List a property"
+      ],
+      "sections": [
+        {
+          "name": "suburb_header",
+          "headline": "Hawthorn, VIC 3122",
+          "subheadline": "Inner east Melbourne · 6.2km from CBD · Population 23,488"
+        },
+        {
+          "name": "median_price_chart",
+          "description": "Dual-line trend chart of houses ($2.35M) vs units ($685k) over 10 years with +4.2% YoY indicator."
+        },
+        {
+          "name": "market_stats",
+          "description": "Stat tiles: Days on market 32, Auction clearance 71%, Rental yield 2.8%, Vendor discount -3.1%."
+        },
+        {
+          "name": "demographics",
+          "description": "Donut charts showing owner-occupier 58% / renters 42%, age profile peaking 25–34, household income median $112,000."
+        },
+        {
+          "name": "schools_map",
+          "description": "Map with pinned catchment zones for Auburn High, Hawthorn West Primary, and Methodist Ladies' College."
+        },
+        {
+          "name": "recent_sales_table",
+          "description": "Table of 10 recent sales with address, beds, sale price and sale date, e.g. '8/55 Burwood Rd — 2 bed — $612,000 — 14 Oct 2023'."
+        },
+        {
+          "name": "for_sale_now",
+          "description": "Grid of 8 current Hawthorn listings linking to listing pages."
+        }
+      ]
+    },
+    "agents": {
+      "title": "Find a Real Estate Agent | PropertyNest",
+      "nav_items": [
+        "Buy",
+        "Rent",
+        "Sold",
+        "New Homes",
+        "Estimate",
+        "Agents",
+        "News & Insights",
+        "Sign in",
+        "List a property"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Find the right agent for your suburb",
+          "subheadline": "Compare 41,000+ agents by sales, suburb and price range."
+        },
+        {
+          "name": "search_filters",
+          "description": "Filter row with suburb autocomplete, agency dropdown (Ray White, Belle Property, McGrath), property type, and 'Sold in last 12 months' toggle."
+        },
+        {
+          "name": "agent_grid",
+          "description": "Cards for agents like Sarah Chen (Jellis Craig Hawthorn, 47 sales, median $2.1M), James Patel (Ray White Carlton, 62 sales, median $1.35M), Olivia Tran (Belle Property Balwyn, 38 sales, median $2.8M)."
+        },
+        {
+          "name": "top_agents_leaderboard",
+          "description": "Ranked leaderboard 'Top 10 agents in Hawthorn 2023' with rank number, photo, sales count and total value sold."
+        },
+        {
+          "name": "request_appraisal",
+          "description": "Full-width CTA banner inviting sellers to request a free property appraisal from up to 3 local agents."
+        }
+      ]
+    }
+  }
+}

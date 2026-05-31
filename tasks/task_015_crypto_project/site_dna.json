@@ -1,0 +1,22 @@
+{
+  "id": "015",
+  "name": "crypto_project",
+  "source": "B",
+  "archetype": "Layer-1 blockchain project and cryptocurrency landing page",
+  "market": "Global crypto-native audience, developers, DeFi traders, crypto investors",
+  "era": "2022",
+  "density": "Medium density with full-screen sections. Each section tells one part of the story. Dark backgrounds throughout with glowing neon elements — implement glows as CSS box-shadow and text-shadow using rgba(0,212,255,0.6) cyan or rgba(123,47,190,0.6) purple at 20-40px blur radius. Stats displayed large (TPS in 80px monospace). Particle network in hero: 60-80 small white/cyan dots connected by thin lines, slow drift animation.",
+  "nav_style": "Transparent sticky nav that gains backdrop-filter: blur(20px) + dark bg on scroll. Logo on left. Center nav: Technology, Ecosystem, Developers, Community, Blog. Right: 'Launch App' button with gradient border (border: 1px solid transparent; background: linear-gradient(#0D1B2A,#0D1B2A) padding-box, linear-gradient(90deg,#7B2FBE,#00D4FF) border-box), and GitHub icon. Mobile: slide-out menu overlay.",
+  "commercial_model": "Native token monetization. 'Buy token' CTA. Validator staking section. Developer grants program. Foundation treasury. No ads. Revenue model is token appreciation and ecosystem growth.",
+  "color_palette": "Deep black (#0A0A0A) base. Electric purple (#7B2FBE) and cyan (#00D4FF) as neon accent pair. Gradient: linear-gradient(135deg, #7B2FBE 0%, #00D4FF 100%) for primary CTAs and gradient text. White (#FFFFFF) for primary text, #94A3B8 for secondary. Code blocks in terminal green (#00FF41) on #0D1100 background. Glow values: cyan glow = '0 0 20px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2)'; purple glow = '0 0 20px rgba(123,47,190,0.5)'. Gradient text: -webkit-background-clip: text; -webkit-text-fill-color: transparent applied to the purple→cyan gradient.",
+  "typography": "Space Grotesk (Google Fonts) for headings — geometric, futuristic. JetBrains Mono for code snippets and technical stats. Key metrics in 80px JetBrains Mono bold (TPS, TVL). Body copy in Inter at 16px. All headings use gradient text treatment. Section labels in 11px uppercase tracked cyan.",
+  "quirks": ["particle_network_hero", "gradient_text_headings", "technical_stats_80px_mono", "token_ticker_display", "audit_badge", "github_star_count", "developer_docs_link", "validator_node_section", "defi_tvl_metric", "roadmap_timeline"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-screen dark hero (#0A0A0A) with CSS particle network animation as background. Chain name in 72px gradient text. Tagline at 20px. Two CTAs: 'Launch App' (gradient border button) + 'Read Docs' (ghost). Network stats strip below hero: TPS / Active Validators / TVL in 80px mono. Technology overview 3-column cards. Ecosystem partners logo grid (12 logos). Developer section with terminal code snippet. Community links section. Footer."},
+    {"slug": "technology", "title": "Technology", "description": "Technical architecture deep dive. Consensus mechanism explanation with SVG flow diagram. Parallelism throughput section. Comparison table vs Ethereum/Solana/Avalanche: TPS, finality time, gas fees, EVM compatibility. Security and audit section with CertiK/Halborn audit badges."},
+    {"slug": "ecosystem", "title": "Ecosystem", "description": "DeFi protocols built on the chain: DEXes, lending protocols, NFT marketplaces, cross-chain bridges. Each protocol card: name, category badge (DeFi/NFT/Bridge), TVL in large text, brief description. Total ecosystem TVL stat at top. Ecosystem fund CTA for builders."},
+    {"slug": "developers", "title": "Build on Chain", "description": "Developer landing with terminal code window showing SDK import + basic transaction. EVM compatible badge. SDKs available: JavaScript, Python, Rust, Go. Developer grants program: $2M fund, application process, past grantees. Testnet faucet widget. Documentation link."},
+    {"slug": "community", "title": "Community", "description": "Community hub. Social links as large icon cards: Discord (450K members), Twitter/X (280K), Telegram (120K), Reddit (85K), Forum. Governance section: recent proposals with vote counts and status (passed/active/failed). Ambassador program. Community grants. Hackathon calendar."}
+  ],
+  "animations": ["particle_network_drift", "gradient_text_pulse", "stat_counter_tick_up", "scroll_reveal_glow_cards"]
+}

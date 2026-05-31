@@ -1,0 +1,166 @@
+{
+  "brand_name": "MidCity List",
+  "tagline": "local classifieds for Dayton and surrounding areas",
+  "primary_color_name": "Hyperlink Blue",
+  "pages": {
+    "home": {
+      "title": "midcity.list / dayton",
+      "nav_items": [
+        "post to classifieds",
+        "my account",
+        "search",
+        "help",
+        "safety",
+        "avoid scams",
+        "terms",
+        "about"
+      ],
+      "sections": [
+        {
+          "name": "header_bar",
+          "description": "Tiny top strip with site name 'midcity.list', a plain search input with a 'search' button, and a dropdown for category filter (e.g. 'for sale', 'housing', 'jobs')."
+        },
+        {
+          "name": "subarea_links",
+          "description": "Inline list of nearby subareas as blue links: 'dayton / kettering / huber heights / centerville / springfield / xenia / beavercreek'."
+        },
+        {
+          "name": "community_column",
+          "description": "Left column listing community boards as bullet links: activities, artists, childcare, local news, lost+found, missed connections, rants & raves, rideshare, volunteers."
+        },
+        {
+          "name": "housing_column",
+          "description": "Second column with housing subcategories: apts/housing, rooms/shared, sublets/temporary, housing wanted, office/commercial, parking/storage, real estate for sale."
+        },
+        {
+          "name": "jobs_column",
+          "description": "Third column listing job categories: accounting, admin/office, education, food/bev/hosp, general labor, healthcare, retail/wholesale, software/qa/dba, skilled trades, transport."
+        },
+        {
+          "name": "forsale_column",
+          "description": "Fourth column with for-sale subcategories: appliances, bikes, books, cars+trucks, electronics, free, furniture, garage sales, tools, tickets."
+        },
+        {
+          "name": "city_picker",
+          "description": "Bottom small-text list of other Ohio cities: cincinnati, columbus, cleveland, toledo, akron, youngstown."
+        },
+        {
+          "name": "footer",
+          "description": "Single line of links: help, safety, privacy, terms, about, system status, © 2019 midcity.list."
+        }
+      ]
+    },
+    "housing": {
+      "title": "apts / housing for rent in dayton",
+      "nav_items": [
+        "dayton",
+        "all",
+        "owner",
+        "dealer",
+        "search",
+        "post",
+        "favorites"
+      ],
+      "sections": [
+        {
+          "name": "filter_bar",
+          "headline": "apts / housing for rent",
+          "subheadline": "showing 1-100 of 847 — sort: newest | price asc | price desc"
+        },
+        {
+          "name": "listing_rows",
+          "description": "Plain text rows, one per line: 'Nov 4  $895 / 2br - 850ft² - Quiet Oakwood duplex, dogs ok (Oakwood)', 'Nov 4  $1,250 / 3br - Renovated bungalow near UD (South Park)', 'Nov 3  $675 / 1br - Downtown loft w/ parking (Webster Station)' with the price/title as a blue link and area in parentheses."
+        },
+        {
+          "name": "featured_row",
+          "description": "Two or three rows highlighted with light green background (#D3FFD3) marked 'featured' next to listings like 'Nov 4  $1,400 / 2br - Brand new Water Street apartments (Downtown)'."
+        },
+        {
+          "name": "pagination",
+          "description": "Plain '< prev   next >' links plus 'page 1 2 3 4 5 ... 9' at the bottom."
+        }
+      ]
+    },
+    "jobs": {
+      "title": "jobs in dayton",
+      "nav_items": [
+        "dayton",
+        "all jobs",
+        "full-time",
+        "part-time",
+        "contract",
+        "telecommute",
+        "post",
+        "search"
+      ],
+      "sections": [
+        {
+          "name": "category_index",
+          "headline": "jobs",
+          "subheadline": "choose a category or browse all 312 recent postings"
+        },
+        {
+          "name": "listing_rows",
+          "description": "Date-stamped plain text lines: 'Nov 4  Line Cook - The Pine Club (Kettering)', 'Nov 4  RN, Med-Surg - Kettering Health Network (Centerville)', 'Nov 3  Junior .NET Developer - Reynolds & Reynolds (Dayton)'."
+        },
+        {
+          "name": "fee_notice",
+          "description": "Small italic note: 'Job postings in Dayton are $25 each. See fee schedule.'"
+        },
+        {
+          "name": "pagination",
+          "description": "Simple prev/next text links and numbered pages."
+        }
+      ]
+    },
+    "forsale": {
+      "title": "for sale in dayton",
+      "nav_items": [
+        "dayton",
+        "all for sale",
+        "by owner",
+        "by dealer",
+        "free",
+        "wanted",
+        "post"
+      ],
+      "sections": [
+        {
+          "name": "subcategory_grid",
+          "description": "Two-column bullet list of subcategories with counts: 'furniture (412)', 'electronics (287)', 'bikes (54)', 'tools (133)', 'free stuff (61)', 'barter (12)'."
+        },
+        {
+          "name": "listing_rows",
+          "description": "Dense plain text rows: 'Nov 4  $40  IKEA Malm dresser, white (Beavercreek)', 'Nov 4  $0   Free moving boxes — must take all (Oakwood)', 'Nov 3  $325 Trek 520 touring bike, 56cm (Riverside)'."
+        },
+        {
+          "name": "flag_hint",
+          "description": "Tiny gray text at bottom of list: 'see a problem? flag listing as: miscategorized | prohibited | spam | best of'."
+        }
+      ]
+    },
+    "community": {
+      "title": "community in dayton",
+      "nav_items": [
+        "dayton",
+        "all community",
+        "post",
+        "search"
+      ],
+      "sections": [
+        {
+          "name": "boards_index",
+          "description": "Bullet list of forum-style boards with last-post timestamps: 'missed connections — last post Nov 4 9:12pm', 'rants & raves — last post Nov 4 8:47pm', 'lost & found — last post Nov 4 6:30pm', 'rideshare — last post Nov 4 5:02pm'."
+        },
+        {
+          "name": "thread_list",
+          "description": "Forum-style listing of recent threads: 'You at Dorothy Lane Market Saturday morning - m4w (Oakwood)  Nov 4', 'Lost orange tabby near Triangle Park  Nov 3', 'Rideshare Dayton -> Columbus Friday afternoon  Nov 3'."
+        },
+        {
+          "name": "pagination",
+          "description": "Plain prev/next navigation and numbered pages 1-12."
+        }
+      ]
+    }
+  }
+}

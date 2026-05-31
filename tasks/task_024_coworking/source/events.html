@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — Kiln & Co.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  color: #2C2C2C;
+  background: #F5F0E8;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D5;
+  height: 72px;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2C2C2C;
+}
+.nav-links a:hover { color: #C1603C; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.day-pass-link {
+  font-size: 13px;
+  color: #7A5C44;
+  font-weight: 500;
+}
+.btn-primary {
+  background: #C1603C;
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-primary:hover { background: #B55A30; }
+
+/* HERO */
+.hero {
+  padding: 96px 32px 64px;
+  text-align: center;
+  background: #F5F0E8;
+  border-bottom: 1px solid #E8E0D5;
+}
+.hero-inner { max-width: 880px; margin: 0 auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #2C2C2C;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 20px;
+  color: #7A5C44;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #C1603C;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* FILTER CHIPS */
+.filters {
+  padding: 48px 32px 32px;
+}
+.filter-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.chip {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2C2C2C;
+  cursor: pointer;
+}
+.chip.active {
+  background: rgba(123, 160, 91, 0.13);
+  border-color: #7BA05B;
+  color: #5A7A40;
+}
+.chip:hover { border-color: #7BA05B; }
+
+/* SECTION */
+section { padding: 64px 32px; }
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #E8E0D5;
+  padding-bottom: 20px;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #2C2C2C;
+}
+.section-meta { font-size: 13px; color: #7A5C44; }
+
+/* CALENDAR */
+.calendar-wrap {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 32px;
+}
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.cal-month {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+.cal-nav { display: flex; gap: 8px; }
+.cal-nav button {
+  width: 36px; height: 36px;
+  border: 1px solid #E8E0D5;
+  background: #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #2C2C2C;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #E8E0D5;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.cal-dayname {
+  background: #F5F0E8;
+  padding: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7A5C44;
+  font-weight: 600;
+  text-align: center;
+}
+.cal-day {
+  background: #FFFFFF;
+  padding: 14px 12px;
+  min-height: 92px;
+  font-size: 14px;
+  color: #2C2C2C;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cal-day.muted { color: #C4B8A6; background: #FAF6EE; }
+.cal-day.today {
+  background: rgba(193, 96, 60, 0.06);
+  font-weight: 600;
+}
+.dot {
+  width: 6px; height: 6px;
+  background: #C1603C;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.sage { background: #7BA05B; }
+.dot.brick { background: #B55A30; }
+.dots { display: flex; gap: 4px; margin-top: auto; }
+.cal-legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #7A5C44;
+}
+.cal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* EVENTS LIST */
+.events-list { display: flex; flex-direction: column; gap: 16px; }
+.event-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.event-date {
+  text-align: center;
+  border-right: 1px solid #E8E0D5;
+  padding-right: 32px;
+}
+.event-month {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #C1603C;
+  font-weight: 600;
+}
+.event-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  color: #2C2C2C;
+  margin: 4px 0;
+}
+.event-time { font-size: 13px; color: #7A5C44; }
+.event-body { display: flex; gap: 20px; align-items: center; }
+.facil-photo {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(193, 96, 60, 0.4), rgba(123, 160, 91, 0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: #2C2C2C;
+  font-weight: 600;
+  flex-shrink: 0;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #E8E0D5;
+}
+.event-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: #2C2C2C;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.event-info .facil {
+  font-size: 13px;
+  color: #7A5C44;
+  margin-bottom: 6px;
+}
+.event-info .facil strong { color: #2C2C2C; font-weight: 600; }
+.event-info p {
+  font-size: 14px;
+  color: #7A5C44;
+  max-width: 460px;
+}
+.event-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.spots {
+  font-size: 12px;
+  color: #5A7A40;
+  background: rgba(123, 160, 91, 0.13);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.spots.low { color: #B55A30; background: rgba(181, 90, 48, 0.1); }
+.category-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7A5C44;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* PAST EVENTS STRIP */
+.past-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.past-card { }
+.past-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, rgba(193, 96, 60, 0.22), rgba(123, 160, 91, 0.22)), #F5F0E8;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #E8E0D5;
+}
+.past-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(44,44,44,0.08), transparent 50%);
+}
+.past-photo.alt { background: linear-gradient(135deg, rgba(181, 90, 48, 0.25), rgba(122, 92, 68, 0.18)), #F5F0E8; }
+.past-photo.alt2 { background: linear-gradient(135deg, rgba(123, 160, 91, 0.28), rgba(193, 96, 60, 0.15)), #F5F0E8; }
+.past-photo.alt3 { background: linear-gradient(135deg, rgba(122, 92, 68, 0.25), rgba(193, 96, 60, 0.2)), #F5F0E8; }
+.past-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #2C2C2C;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+.past-meta {
+  font-size: 12px;
+  color: #7A5C44;
+  margin-top: 4px;
+}
+
+/* RENT CTA */
+.rent-cta {
+  background: #C1603C;
+  color: #FFFFFF;
+  padding: 80px 64px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.rent-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.rent-cta p {
+  font-size: 17px;
+  opacity: 0.92;
+  max-width: 460px;
+}
+.rent-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.btn-light {
+  background: #FFFFFF;
+  color: #C1603C;
+  padding: 16px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-block;
+}
+.rent-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+.rent-price small {
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+/* FOOTER */
+footer {
+  background: #2C2C2C;
+  color: #C4B8A6;
+  padding: 80px 32px 40px;
+  margin-top: 64px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #F5F0E8;
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #C4B8A6;
+  margin-bottom: 24px;
+}
+.footer-col h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #F5F0E8;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 14px; color: #C4B8A6; }
+.footer-col a:hover { color: #F5F0E8; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 64px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #7A5C44;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">Kiln &amp; Co.</a>
+    <ul class="nav-links">
+      <li><a href="/spaces">Spaces</a></li>
+      <li><a href="/membership">Membership</a></li>
+      <li><a href="/community">Community</a></li>
+      <li><a href="/events" style="color: #C1603C;">Events</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/day-pass" class="day-pass-link">Day Pass — $35</a>
+      <a href="/tour" class="btn-primary">Book a Tour</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Events &amp; Workshops</div>
+    <h1>Show up. Meet someone.</h1>
+    <p>Workshops, panels, and socials hosted by members and friends of the house.</p>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="container">
+    <div class="filter-row">
+      <button class="chip active">All Events</button>
+      <button class="chip">Networking</button>
+      <button class="chip">Workshop</button>
+      <button class="chip">Panel Discussion</button>
+      <button class="chip">Social</button>
+      <button class="chip">External Rental</button>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 16px;">
+  <div class="container">
+    <div class="section-header">
+      <h2>March 2023</h2>
+      <div class="section-meta">14 events scheduled this month</div>
+    </div>
+
+    <div class="calendar-wrap">
+      <div class="cal-head">
+        <div class="cal-month">March 2023</div>
+        <div class="cal-nav">
+          <button>‹</button>
+          <button>Today</button>
+          <button>›</button>
+        </div>
+      </div>
+      <div class="cal-grid">
+        <div class="cal-dayname">Sun</div>
+        <div class="cal-dayname">Mon</div>
+        <div class="cal-dayname">Tue</div>
+        <div class="cal-dayname">Wed</div>
+        <div class="cal-dayname">Thu</div>
+        <div class="cal-dayname">Fri</div>
+        <div class="cal-dayname">Sat</div>
+
+        <div class="cal-day muted">26</div>
+        <div class="cal-day muted">27</div>
+        <div class="cal-day muted">28</div>
+        <div class="cal-day">1</div>
+        <div class="cal-day">2<div class="dots"><span class="dot sage"></span></div></div>
+        <div class="cal-day">3<div class="dots"><span class="dot brick"></span></div></div>
+        <div class="cal-day">4</div>
+
+        <div class="cal-day">5</div>
+        <div class="cal-day">6<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day">7</div>
+        <div class="cal-day">8<div class="dots"><span class="dot"></span><span class="dot sage"></span></div></div>
+        <div class="cal-day">9</div>
+        <div class="cal-day">10<div class="dots"><span class="dot brick"></span></div></div>
+        <div class="cal-day">11</div>
+
+        <div class="cal-day">12</div>
+        <div class="cal-day">13</div>
+        <div class="cal-day today">14<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day">15</div>
+        <div class="cal-day">16<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day">17<div class="dots"><span class="dot brick"></span></div></div>
+        <div class="cal-day">18<div class="dots"><span class="dot sage"></span></div></div>
+
+        <div class="cal-day">19</div>
+        <div class="cal-day">20</div>
+        <div class="cal-day">21<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day">22</div>
+        <div class="cal-day">23<div class="dots"><span class="dot sage"></span></div></div>
+        <div class="cal-day">24<div class="dots"><span class="dot brick"></span></div></div>
+        <div class="cal-day">25</div>
+
+        <div class="cal-day">26</div>
+        <div class="cal-day">27</div>
+        <div class="cal-day">28<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day">29</div>
+        <div class="cal-day">30<div class="dots"><span class="dot sage"></span></div></div>
+        <div class="cal-day">31<div class="dots"><span class="dot"></span></div></div>
+        <div class="cal-day muted">1</div>
+      </div>
+      <div class="cal-legend">
+        <span><span class="dot"></span> Workshop</span>
+        <span><span class="dot sage"></span> Social</span>
+        <span><span class="dot brick"></span> Panel / Networking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2>Upcoming this month</h2>
+      <div class="section-meta">All times Eastern · Members free unless noted</div>
+    </div>
+
+    <div class="events-list">
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">14</div>
+          <div class="event-time">Tue · 7:00pm</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">ML</div>
+          <div class="event-info">
+            <div class="category-tag">Workshop</div>
+            <h3>Pricing Your Freelance Work</h3>
+            <div class="facil">with <strong>Marta Lin</strong> · Independent strategist, ex-Pentagram</div>
+            <p>An honest workshop on rate-setting, scope creep, and the awkward client conversation. Bring a current proposal — we'll workshop it together.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots low">8 spots left</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">16</div>
+          <div class="event-time">Thu · 6:00pm</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">TN</div>
+          <div class="event-info">
+            <div class="category-tag">Workshop</div>
+            <h3>AI for Designers — A Practical Primer</h3>
+            <div class="facil">with <strong>Tom Nakashima</strong> · Design Lead, Loamwork</div>
+            <p>What's actually useful, what's hype, and how to integrate generative tools into a real design workflow. Bring a laptop and a project.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots">12 spots left</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">18</div>
+          <div class="event-time">Sat · 11:00am</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">PR</div>
+          <div class="event-info">
+            <div class="category-tag">Networking</div>
+            <h3>Founder Therapy Circle</h3>
+            <div class="facil">hosted by <strong>Priya Raman</strong> · Founder, Tinroof</div>
+            <p>A peer group for early-stage founders working through the hard parts in private. Confidential, no pitching, coffee provided.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots low">4 spots left</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">21</div>
+          <div class="event-time">Tue · 7:30pm</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">AO</div>
+          <div class="event-info">
+            <div class="category-tag">Panel Discussion</div>
+            <h3>Climate Tech in NYC — What's Next</h3>
+            <div class="facil">moderated by <strong>Aisha Okonkwo</strong> · Founder, Mossbridge Climate</div>
+            <p>Three founders on what they're actually building, what's broken in the funding stack, and who NYC needs to attract next.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots">22 spots left</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">24</div>
+          <div class="event-time">Fri · 5:00pm</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">K&amp;</div>
+          <div class="event-info">
+            <div class="category-tag">Social</div>
+            <h3>Friday Wine Hour on the Roof Deck</h3>
+            <div class="facil">hosted by <strong>Kiln &amp; Co.</strong> · Open to all members + 1 guest</div>
+            <p>Natural wine from Henry &amp; the Wolf in Greenpoint, snacks from Sweetgreen. No agenda — just the people you've been Slack-ing all week.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots">Open RSVP</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="event-month">Mar</div>
+          <div class="event-day">30</div>
+          <div class="event-time">Thu · 7:00pm</div>
+        </div>
+        <div class="event-body">
+          <div class="facil-photo">JT</div>
+          <div class="event-info">
+            <div class="category-tag">Social</div>
+            <h3>Risograph Print Night</h3>
+            <div class="facil">with <strong>Jules Tanaka</strong> · Brand Designer, freelance</div>
+            <p>Bring a single-color illustration or piece of type and we'll print an edition together on the Riso. Beer included, ink stains likely.</p>
+          </div>
+        </div>
+        <div class="event-action">
+          <span class="spots low">6 spots left</span>
+          <a href="#" class="btn-primary">RSVP</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2>From the archives</h2>
+      <div class="section-meta">A look back at recent gatherings</div>
+    </div>
+
+    <div class="past-strip">
+      <div class="past-card">
+        <div class="past-photo"></div>
+        <div class="past-caption">Annual Holiday Mixer</div>
+        <div class="past-meta">Dec 2022 · 220 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt"></div>
+        <div class="past-caption">Type Crit with Sofia Alvarez</div>
+        <div class="past-meta">Nov 2022 · 28 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt2"></div>
+        <div class="past-caption">Founders' Office Hours Vol. 04</div>
+        <div class="past-meta">Nov 2022 · 42 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt3"></div>
+        <div class="past-caption">Rooftop Cider Tasting</div>
+        <div class="past-meta">Oct 2022 · 65 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt2"></div>
+        <div class="past-caption">Brand &amp; Identity Panel</div>
+        <div class="past-meta">Oct 2022 · 90 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo"></div>
+        <div class="past-caption">First Friday Member Show</div>
+        <div class="past-meta">Sep 2022 · 140 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt"></div>
+        <div class="past-caption">Summer Block Party</div>
+        <div class="past-meta">Aug 2022 · 310 attendees</div>
+      </div>
+      <div class="past-card">
+        <div class="past-photo alt3"></div>
+        <div class="past-caption">Notion Power-User Workshop</div>
+        <div class="past-meta">Jul 2022 · 36 attendees</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="rent-cta">
+      <div>
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; opacity: 0.8; margin-bottom: 18px; font-weight: 600;">The Foundry · Event Space</div>
+        <h2>Host your launch, panel, or dinner under the brick arches.</h2>
+        <p>200-person capacity. Full AV, restored maple floors, a working freight elevator, and a beer tap that pours something local. Catering &amp; staffing optional.</p>
+      </div>
+      <div class="rent-actions">
+        <div class="rent-price">$150–400 <small>/ hour</small></div>
+        <a href="#" class="btn-light">Submit an Inquiry →</a>
+        <div style="font-size: 13px; opacity: 0.85;">Or email <strong style="color: #FFFFFF;">events@kilnco.nyc</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Kiln &amp; Co.</div>
+      <div class="footer-tag">Work Better. Together.</div>
+      <div style="font-size: 13px; line-height: 1.7;">
+        Williamsburg · Gowanus · Long Island City<br>
+        847 members and counting.
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="/spaces">Our Spaces</a></li>
+        <li><a href="/tour">Book a Tour</a></li>
+        <li><a href="/day-pass">Day Pass</a></li>
+        <li><a href="/locations">Locations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Join</h4>
+      <ul>
+        <li><a href="/membership">Membership</a></li>
+        <li><a href="/teams">Team Suites</a></li>
+        <li><a href="/community">Community</a></li>
+        <li><a href="/perks">Member Perks</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="/events">Events Calendar</a></li>
+        <li><a href="/foundry">The Foundry</a></li>
+        <li><a href="/blog">Blog &amp; Field Notes</a></li>
+        <li><a href="/newsletter">Newsletter</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@kilnco.nyc">hello@kilnco.nyc</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2023 Kiln &amp; Co. Brooklyn, NY.</div>
+    <div>Privacy · Terms · Accessibility</div>
+  </div>
+</footer>
+
+</body>
+</html>

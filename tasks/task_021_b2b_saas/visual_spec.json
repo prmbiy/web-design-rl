@@ -1,0 +1,62 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+    "font_heading": "'Inter', system-ui, sans-serif",
+    "font_body": "'Inter', system-ui, sans-serif",
+    "font_mono": "'Inter', monospace",
+    "size_h1": "56px",
+    "size_h2": "36px",
+    "size_body": "16px",
+    "size_small": "14px",
+    "color_primary": "#1E3A5F",
+    "color_secondary": "#4F6BFF",
+    "color_accent": "#F97316",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F8FAFC",
+    "color_text": "#1A202C",
+    "color_text_muted": "#4A5568",
+    "color_border": "#E2E8F0",
+    "border_radius": "6px",
+    "container_max_width": "1200px",
+    "section_padding": "96px 48px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#1E3A5F",
+    "extra_colors": {
+      "chart_blue": "#4F6BFF",
+      "chart_orange": "#F97316",
+      "chart_green": "#22C55E",
+      "chart_red": "#EF4444",
+      "chart_purple": "#A78BFA",
+      "chart_teal": "#06B6D4",
+      "success": "#22C55E",
+      "row_alt": "#F8FAFC",
+      "sidebar_dark": "#1E3A5F",
+      "ticker_bg": "#F1F5F9"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky white nav with customer ticker, 2-col hero (headline+CTA left, dashboard mockup right), logo strip, 3-col feature grid, ROI stats row, testimonial, integration logo wall, footer CTA",
+      "bg": "#FFFFFF"
+    },
+    "platform": {
+      "layout": "Hero intro, 4 horizontal tabs with full-width dark-bg product screenshot + bullets + quote per tab, security/compliance badge grid section",
+      "bg": "#FFFFFF"
+    },
+    "solutions": {
+      "layout": "Hero, 4 industry vertical tab grid with pain point + 3 use cases + customer proof per tab, company size segmentation cards",
+      "bg": "#F8FAFC"
+    },
+    "pricing": {
+      "layout": "Hero with monthly/annual toggle, 3 tier cards (middle highlighted), feature comparison checklist table, 2-col ROI calculator widget, implementation timeline table",
+      "bg": "#FFFFFF"
+    },
+    "resources": {
+      "layout": "Hero, resource type tabs, featured Gartner report card, 3-col webinar cards, 4-col blog article grid, 5-thumbnail video library row",
+      "bg": "#F8FAFC"
+    }
+  }
+}

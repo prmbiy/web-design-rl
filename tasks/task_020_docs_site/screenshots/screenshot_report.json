@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "api",
+      "path": "api.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 423182,
+      "page_width": 1440,
+      "page_height": 4321
+    },
+    {
+      "slug": "configuration",
+      "path": "configuration.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 552305,
+      "page_width": 1440,
+      "page_height": 5571
+    },
+    {
+      "slug": "index",
+      "path": "index.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 324218,
+      "page_width": 1440,
+      "page_height": 2415
+    },
+    {
+      "slug": "installation",
+      "path": "installation.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 404196,
+      "page_width": 1440,
+      "page_height": 3799
+    },
+    {
+      "slug": "quickstart",
+      "path": "quickstart.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 357005,
+      "page_width": 1440,
+      "page_height": 3550
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

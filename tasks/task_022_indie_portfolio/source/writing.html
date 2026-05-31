@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Writing — kaiwa.dev</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --border: #1F1F1F;
+  --text: #E8E8E8;
+  --muted: #6B7280;
+  --accent: #39FF14;
+  --comment: #555555;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+.nav-logo .dot { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active { color: var(--accent); }
+.theme-toggle {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* MAIN */
+main {
+  padding-top: 64px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* HERO */
+.page-hero {
+  padding: 96px 32px 48px;
+}
+.page-hero .container { padding: 0; }
+
+.hero-item {
+  opacity: 0;
+  animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-item:nth-child(1){animation-delay:0.1s}
+.hero-item:nth-child(2){animation-delay:0.3s}
+.hero-item:nth-child(3){animation-delay:0.5s}
+
+@keyframes fade_up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.prompt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.prompt .green { color: var(--accent); }
+
+.page-h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 1.6s steps(7,end) forwards;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: -2px;
+  margin-left: 6px;
+  animation: cursor_blink 1s steps(1) infinite;
+}
+@keyframes cursor_blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.page-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+/* TAG FILTER */
+.tag-section {
+  padding: 32px 32px 8px;
+}
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.tag-label {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--comment);
+  font-size: 12px;
+  margin-right: 8px;
+}
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+.tag:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.tag.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(57,255,20,0.08);
+}
+
+/* PINNED POST */
+.pinned-section {
+  padding: 32px 32px 16px;
+}
+.pinned-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--comment);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.pinned-card {
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(57,255,20,0.04) 0%, rgba(20,20,20,0) 80%);
+  padding: 28px 32px;
+  border-radius: 0 4px 4px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  opacity: 0;
+  animation: slide_in 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+@keyframes slide_in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.pinned-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pinned-meta .pin-icon { font-size: 11px; }
+.pinned-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+.pinned-title:hover { color: var(--accent); }
+.pinned-excerpt {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 640px;
+}
+.pinned-info {
+  display: flex;
+  gap: 18px;
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--comment);
+}
+.pinned-info span.dot { color: var(--accent); }
+
+.pinned-aside {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+.pinned-aside .arrow {
+  display: block;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+/* POST LIST */
+.posts-section {
+  padding: 48px 32px 64px;
+}
+.section-h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--comment);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.post-list {
+  list-style: none;
+  margin-top: 24px;
+}
+.post-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  gap: 32px;
+  padding: 24px 8px;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  opacity: 0;
+  animation: slide_in 0.5s ease-out forwards;
+  transition: background 0.2s ease;
+}
+.post-row:hover { background: rgba(57,255,20,0.02); }
+.post-row:nth-child(1) { animation-delay: 0.05s; }
+.post-row:nth-child(2) { animation-delay: 0.1s; }
+.post-row:nth-child(3) { animation-delay: 0.15s; }
+.post-row:nth-child(4) { animation-delay: 0.2s; }
+.post-row:nth-child(5) { animation-delay: 0.25s; }
+.post-row:nth-child(6) { animation-delay: 0.3s; }
+.post-row:nth-child(7) { animation-delay: 0.35s; }
+.post-row:nth-child(8) { animation-delay: 0.4s; }
+.post-row:nth-child(9) { animation-delay: 0.45s; }
+.post-row:nth-child(10) { animation-delay: 0.5s; }
+.post-row:nth-child(11) { animation-delay: 0.55s; }
+.post-row:nth-child(12) { animation-delay: 0.6s; }
+
+.post-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.post-content { min-width: 0; }
+.post-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.post-title:hover { color: var(--accent); }
+.post-excerpt {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.post-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.post-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  padding: 2px 8px;
+  background: rgba(57,255,20,0.08);
+  border-radius: 3px;
+}
+
+.post-read {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--comment);
+  text-align: right;
+  padding-top: 4px;
+}
+
+/* RSS NOTE */
+.rss-note {
+  padding: 40px 32px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rss-note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.rss-note .chev { color: var(--accent); }
+
+/* FOOTER */
+footer {
+  margin-top: 96px;
+  border-top: 1px solid var(--border);
+  padding: 48px 32px 32px;
+  background: var(--bg);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 48px;
+  align-items: start;
+}
+.footer-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.footer-brand .name { color: var(--text); font-weight: 700; }
+.footer-brand .green { color: var(--accent); }
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--comment);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-col a {
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--comment);
+}
+.footer-bottom .easter {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 10px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">kaiwa<span class="dot">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="#">Work</a></li>
+      <li><a href="#" class="active">Writing</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><span class="theme-toggle">◐</span></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-item prompt">
+        <span class="green">kai@kaiwa</span>:<span style="color:#61DAFB">~/posts</span>$ ls -la
+      </div>
+      <h1 class="hero-item page-h1">
+        <span class="typewriter">Writing</span><span class="cursor"></span>
+      </h1>
+      <p class="hero-item page-sub">
+        Notes on systems, careers, and shipping software. Powered by markdown and stubbornness.
+      </p>
+    </div>
+  </section>
+
+  <!-- TAG FILTER -->
+  <section class="tag-section">
+    <div class="container">
+      <div class="tag-filter">
+        <span class="tag-label">// filter:</span>
+        <button class="tag active">All</button>
+        <button class="tag">React</button>
+        <button class="tag">Systems</button>
+        <button class="tag">Career</button>
+        <button class="tag">Open Source</button>
+        <button class="tag">Rust</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PINNED -->
+  <section class="pinned-section">
+    <div class="container">
+      <div class="pinned-label">★ Pinned</div>
+      <article class="pinned-card">
+        <div>
+          <div class="pinned-meta">
+            <span class="pin-icon">◆</span> FEATURED · Jan 4, 2024
+          </div>
+          <a href="#" style="color:inherit"><h2 class="pinned-title">The indie developer's guide to staying solvent in 2024</h2></a>
+          <p class="pinned-excerpt">
+            Two years into working for myself, here's what I've learned about pricing freelance work, building products on the side, surviving the dry months, and not burning out when there's no manager to tell you to stop.
+          </p>
+          <div class="pinned-info">
+            <span>22 min read</span>
+            <span class="dot">·</span>
+            <span>Career</span>
+            <span class="dot">·</span>
+            <span>3,402 reads</span>
+          </div>
+        </div>
+        <div class="pinned-aside">
+          read →
+          <span class="arrow">→</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section class="posts-section">
+    <div class="container">
+      <h2 class="section-h2">// recent posts</h2>
+      <ul class="post-list">
+
+        <li class="post-row">
+          <div class="post-date">Mar 18</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Why I stopped using Redux in 2024</div></a>
+            <p class="post-excerpt">After three years and four production apps, I finally rewrote everything with signals. Here's what convinced me, and the migration path I followed without a full rewrite...</p>
+            <div class="post-tags"><span class="post-tag">react</span><span class="post-tag">state</span></div>
+          </div>
+          <div class="post-read">8 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Mar 02</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Building a CRDT from scratch in Rust</div></a>
+            <p class="post-excerpt">I built a small last-writer-wins CRDT to understand the math, then realized why every production sync engine reaches for Yjs instead. A walkthrough of the prototype and where it falls apart...</p>
+            <div class="post-tags"><span class="post-tag">rust</span><span class="post-tag">systems</span></div>
+          </div>
+          <div class="post-read">14 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Feb 21</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Local-first apps are still hard, and that's okay</div></a>
+            <p class="post-excerpt">Everyone wants offline support until they have to think about conflict resolution. A pragmatic taxonomy of the four kinds of local-first you might actually want, and which one to pick...</p>
+            <div class="post-tags"><span class="post-tag">systems</span><span class="post-tag">architecture</span></div>
+          </div>
+          <div class="post-read">11 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Feb 09</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">How I review PRs as a staff engineer</div></a>
+            <p class="post-excerpt">A loose checklist I run through that has saved me from approving things I shouldn't have approved. Mostly about asking the right questions before nitpicking variable names...</p>
+            <div class="post-tags"><span class="post-tag">career</span></div>
+          </div>
+          <div class="post-read">6 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Jan 28</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Tinybase v2: rewriting in TypeScript, lessons learned</div></a>
+            <p class="post-excerpt">After 18 months of growing pains in JS, I ate the rewrite cost. The migration took six weeks, broke three dependents, and was unambiguously worth it. Here's the boring detailed log...</p>
+            <div class="post-tags"><span class="post-tag">open source</span><span class="post-tag">typescript</span></div>
+          </div>
+          <div class="post-read">12 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Jan 15</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Notes on switching from VS Code to Neovim, finally</div></a>
+            <p class="post-excerpt">I held out for six years. LazyVim made the difference. A short post for people who keep almost making the switch and bouncing off. Plus my full config and the three plugins I actually use...</p>
+            <div class="post-tags"><span class="post-tag">tools</span></div>
+          </div>
+          <div class="post-read">5 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Dec 22</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">A year of maintaining an open source library</div></a>
+            <p class="post-excerpt">4,200 stars, 312 issues, 47 contributors, and one minor breakdown. What I'd do differently if I started Tinybase today, and the rituals that have kept the project alive...</p>
+            <div class="post-tags"><span class="post-tag">open source</span><span class="post-tag">career</span></div>
+          </div>
+          <div class="post-read">15 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Dec 04</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Server components are not the enemy</div></a>
+            <p class="post-excerpt">A measured take from someone who shipped React Server Components in production for nine months. The wins are real but the DX is still painful in specific, fixable places...</p>
+            <div class="post-tags"><span class="post-tag">react</span></div>
+          </div>
+          <div class="post-read">9 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Nov 18</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Moving from SF to Lisbon as a remote engineer</div></a>
+            <p class="post-excerpt">D7 visa, NHR taxes, finding an apartment without speaking Portuguese, and the unexpected loneliness of being a digital nomad in a city full of them. The honest version...</p>
+            <div class="post-tags"><span class="post-tag">career</span></div>
+          </div>
+          <div class="post-read">18 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Oct 30</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Postgres is enough (for almost everything you're building)</div></a>
+            <p class="post-excerpt">A semi-annual reminder. Vector search, full-text search, queues, pub/sub, time-series. Stop adding services. With benchmarks showing where Postgres actually breaks down at scale...</p>
+            <div class="post-tags"><span class="post-tag">systems</span></div>
+          </div>
+          <div class="post-read">10 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Oct 11</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Reading list: five books that changed how I write code</div></a>
+            <p class="post-excerpt">Designing Data-Intensive Applications, Pragmatic Programmer, Shape Up, Working in Public, and A Philosophy of Software Design. Why each one mattered and when to read them...</p>
+            <div class="post-tags"><span class="post-tag">career</span></div>
+          </div>
+          <div class="post-read">7 min</div>
+        </li>
+
+        <li class="post-row">
+          <div class="post-date">Sep 24</div>
+          <div class="post-content">
+            <a href="#"><div class="post-title">Shipping Linear's new sync engine: what we learned</div></a>
+            <p class="post-excerpt">An engineering retro on the new transactional sync layer we shipped last quarter. The week the production system briefly turned into a write amplification bomb, and how we crawled out...</p>
+            <div class="post-tags"><span class="post-tag">systems</span><span class="post-tag">career</span></div>
+          </div>
+          <div class="post-read">16 min</div>
+        </li>
+
+      </ul>
+
+      <div class="rss-note">
+        <span>// stay subscribed</span>
+        <a href="/feed.xml"><span class="chev">›</span> Subscribe via RSS</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="name">kaiwa<span class="green">.</span>dev</div>
+      <div style="margin-top:8px;">console.log('building things on the internet')</div>
+      <div style="margin-top:16px;">Kai Watanabe · Lisbon, Portugal</div>
+      <div style="margin-top:4px; color: var(--comment);">// crafted in neovim, deployed on a tuesday</div>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Writing</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Elsewhere</h4>
+      <ul>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Mastodon</a></li>
+        <li><a href="#">Bluesky</a></li>
+        <li><a href="/feed.xml">RSS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Kai Watanabe — MIT for the code, CC BY for the words.</div>
+    <div><span class="easter">◆</span> &nbsp; v2.4.1 · built with astro</div>
+  </div>
+</footer>
+
+</body>
+</html>

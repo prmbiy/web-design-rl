@@ -1,0 +1,22 @@
+{
+  "id": "006",
+  "name": "nigerian_fintech",
+  "source": "B",
+  "archetype": "Nigerian mobile-first fintech and digital banking app",
+  "market": "Nigeria and West Africa, 18-35 urban tech-savvy users, smartphone-first",
+  "era": "2022",
+  "density": "Clean and modern but with high information density in a trust-building way. Every screen shows multiple product features because the audience needs convincing that this digital bank is legitimate. Security badges prominent. CBN license number displayed. Partnership logos from major banks and telcos. Social proof through user count statistics displayed prominently.",
+  "nav_style": "Sticky top nav with vibrant green brand logo. Navigation links: Personal, Business, Agents, About, Blog. Large 'Open Account Free' CTA button in yellow-green. Mobile-first burger menu that slides in from the right with full-screen overlay. WhatsApp support button floating bottom-right.",
+  "commercial_model": "Free consumer digital bank. Revenue from float, FX fees, business accounts, and USSD fees. App download CTAs everywhere. No display ads. Trust signals: CBN license, NDIC insurance badge, PCI-DSS compliance icon.",
+  "color_palette": "Vibrant green (#00C853) as primary brand color — money, growth, trust. Deep purple (#4A148C) as secondary for premium/business features. White (#FFFFFF) backgrounds. Yellow-green (#AEEA00) for CTAs and highlights. Black (#1A1A1A) for body text. The palette reads as energetic, modern African fintech.",
+  "typography": "Inter or DM Sans — clean, modern, highly legible on mobile screens. Headlines bold at 32-48px. Body at 16px. Feature stats in huge 60-72px numbers. Trust badges in small 10px labels. Yoruba/Igbo/Hausa language toggle available.",
+  "quirks": ["cbn_license_badge", "ussd_code_prominent", "app_store_badges", "whatsapp_support_button", "user_count_statistic", "transfer_fee_zero_callout", "agent_network_section", "diaspora_remittance_feature", "naira_symbol_throughout", "security_certification_strip"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Hero with phone mockup showing the app UI. Three trust badges: CBN Licensed, NDIC Insured, PCI-DSS. Feature highlights: free transfers, instant account opening, USSD banking. User testimonials strip. App download section."},
+    {"slug": "personal", "title": "Personal Banking", "description": "Personal account features: virtual debit card, savings goals, airtime & data purchase, bill payment, investment options. Benefit comparison table vs traditional banks."},
+    {"slug": "business", "title": "Business Accounts", "description": "SME banking: multi-user accounts, bulk payments, payroll, invoicing, POS terminals, business loans. Pricing table for different business tiers."},
+    {"slug": "agents", "title": "Agent Banking", "description": "POS agent network signup. Commission structure table. Territory map of agent density. Requirements to become an agent. Success stories from existing agents."},
+    {"slug": "security", "title": "Security & Trust", "description": "Security features: biometric login, transaction PIN, real-time fraud alerts. Regulatory compliance page with all license numbers and certifications displayed. How we protect your money section."}
+  ],
+  "animations": false
+}

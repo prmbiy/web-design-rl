@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meghana Foods, Indiranagar | Chatori</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Nunito',system-ui,sans-serif; font-size:15px; color:#3D4152; background:#FFFFFF; line-height:1.5; }
+a { text-decoration:none; color:inherit; }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:100; background:#FFFFFF; height:72px; border-bottom:1px solid #E9E9EB; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.nav-inner { max-width:1200px; margin:0 auto; height:100%; display:flex; align-items:center; gap:48px; padding:0 24px; }
+.logo { font-size:26px; font-weight:900; color:#FC8019; letter-spacing:-0.5px; }
+.logo span { color:#3D4152; }
+.location-mini { display:flex; align-items:center; gap:8px; font-size:13px; color:#686B78; padding-right:24px; border-right:1px solid #E9E9EB; }
+.location-mini b { color:#3D4152; font-weight:700; border-bottom:2px solid #3D4152; padding-bottom:2px; }
+.nav-links { display:flex; gap:36px; margin-left:auto; align-items:center; font-weight:600; font-size:15px; color:#3D4152; }
+.nav-links a:hover { color:#FC8019; }
+.nav-links .cart-link { display:flex; align-items:center; gap:6px; }
+.cart-bubble { background:#FC8019; color:white; font-size:11px; padding:2px 7px; border-radius:10px; font-weight:700; }
+
+/* RESTAURANT HEADER */
+.breadcrumb { max-width:1200px; margin:0 auto; padding:24px 24px 8px; font-size:12px; color:#93959F; }
+.breadcrumb a:hover { color:#FC8019; }
+.rest-header { max-width:1200px; margin:0 auto; padding:16px 24px 24px; display:grid; grid-template-columns:1fr 200px; gap:32px; align-items:start; border-bottom:1px solid #E9E9EB; }
+.rest-info h1 { font-size:32px; font-weight:800; color:#3D4152; margin-bottom:8px; }
+.rest-info .cuisine { color:#686B78; font-size:15px; margin-bottom:4px; }
+.rest-info .area { color:#686B78; font-size:14px; }
+.rest-photo { width:200px; height:140px; border-radius:12px; background:linear-gradient(135deg,#FC8019 0%,#E94E77 100%); display:flex; align-items:center; justify-content:center; font-size:54px; box-shadow:0 4px 12px rgba(252,128,25,0.25); }
+
+/* INFO BAR */
+.info-bar { max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; gap:32px; align-items:center; flex-wrap:wrap; border-bottom:1px solid #E9E9EB; }
+.info-item { display:flex; flex-direction:column; gap:2px; font-size:13px; color:#686B78; font-weight:600; }
+.info-item .val { font-size:15px; color:#3D4152; font-weight:800; display:flex; align-items:center; gap:5px; }
+.info-item .star { color:#48C479; }
+.info-item .rating-num { color:#48C479; }
+.pro-badge { background:linear-gradient(135deg,#1D2C40,#3D4152); color:#FFD79A; padding:6px 12px; border-radius:6px; font-size:12px; font-weight:800; letter-spacing:0.3px; }
+
+/* OFFER STRIP */
+.offer-strip { max-width:1200px; margin:0 auto; padding:24px; display:flex; gap:16px; overflow-x:auto; }
+.offer-card { min-width:340px; background:#FFFFFF; border:1px solid #E9E9EB; border-radius:8px; padding:14px 16px; display:flex; gap:12px; align-items:center; }
+.offer-icon { width:36px; height:36px; background:#FFF3E9; color:#FC8019; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; flex-shrink:0; }
+.offer-card .title { font-size:15px; font-weight:800; color:#3D4152; }
+.offer-card .code { font-size:12px; color:#686B78; font-weight:600; margin-top:2px; }
+
+/* MAIN MENU LAYOUT */
+.menu-wrap { max-width:1200px; margin:0 auto; padding:24px; display:grid; grid-template-columns:240px 1fr; gap:48px; }
+.menu-sidebar { position:sticky; top:96px; align-self:start; padding:8px 0; }
+.menu-sidebar h3 { font-size:13px; font-weight:800; color:#3D4152; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:16px; }
+.menu-sidebar ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.menu-sidebar li { padding:10px 14px; border-radius:6px; font-size:14px; color:#686B78; cursor:pointer; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
+.menu-sidebar li:hover { background:#FFF3E9; color:#3D4152; }
+.menu-sidebar li.active { background:#FFF3E9; color:#FC8019; font-weight:800; border-left:3px solid #FC8019; padding-left:11px; }
+.menu-sidebar li span { font-size:12px; color:#93959F; }
+
+.menu-section { margin-bottom:40px; }
+.menu-section h2 { font-size:22px; font-weight:800; color:#3D4152; margin-bottom:4px; }
+.menu-section .count { color:#686B78; font-size:14px; font-weight:600; margin-bottom:24px; }
+.menu-list { display:flex; flex-direction:column; }
+
+.menu-item { display:grid; grid-template-columns:1fr 156px; gap:24px; padding:24px 0; border-bottom:1px solid #E9E9EB; align-items:start; }
+.veg-dot { width:14px; height:14px; border:1.5px solid #60B246; display:inline-flex; align-items:center; justify-content:center; margin-bottom:8px; }
+.veg-dot::after { content:''; width:6px; height:6px; background:#60B246; border-radius:50%; }
+.veg-dot.nonveg { border-color:#E23744; }
+.veg-dot.nonveg::after { background:#E23744; }
+.bestseller { display:inline-flex; align-items:center; gap:4px; color:#E08F00; font-size:12px; font-weight:800; margin-bottom:6px; }
+.bestseller::before { content:'⭐'; }
+.item-name { font-size:17px; font-weight:700; color:#3D4152; margin-bottom:6px; }
+.item-price { font-size:15px; font-weight:600; color:#3D4152; margin-bottom:10px; }
+.item-rating { font-size:13px; color:#686B78; margin-bottom:8px; font-weight:600; }
+.item-rating .stars { color:#48C479; font-weight:800; }
+.item-desc { font-size:13px; color:#686B78; line-height:1.55; }
+
+.item-photo-wrap { position:relative; }
+.item-photo { width:156px; height:144px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:48px; }
+.bg-1 { background:linear-gradient(135deg,#FFD0A1,#FC8019); }
+.bg-2 { background:linear-gradient(135deg,#FFE1B3,#E08F00); }
+.bg-3 { background:linear-gradient(135deg,#F8C8B8,#E23744); }
+.bg-4 { background:linear-gradient(135deg,#D4EDC9,#60B246); }
+.bg-5 { background:linear-gradient(135deg,#F4D5A5,#B8741F); }
+.bg-6 { background:linear-gradient(135deg,#FFCFB8,#E94E77); }
+.add-btn { position:absolute; bottom:-16px; left:50%; transform:translateX(-50%); background:#FFFFFF; color:#60B246; border:1px solid #D4D5D9; padding:9px 28px; border-radius:8px; font-size:14px; font-weight:800; letter-spacing:1.5px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+.add-btn:hover { background:#60B246; color:white; border-color:#60B246; }
+
+/* FOOTER */
+.footer { background:#1B1F25; color:#93959F; padding:48px 24px 24px; margin-top:64px; }
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr 1fr; gap:40px; padding-bottom:32px; border-bottom:1px solid #2C313A; }
+.footer h4 { color:white; font-size:14px; font-weight:800; margin-bottom:18px; letter-spacing:0.5px; }
+.footer ul { list-style:none; display:flex; flex-direction:column; gap:10px; font-size:13px; }
+.footer ul a:hover { color:#FC8019; }
+.footer .brand-col .logo { margin-bottom:12px; }
+.footer .brand-col p { font-size:13px; max-width:240px; line-height:1.6; }
+.footer-bottom { padding-top:20px; display:flex; justify-content:space-between; font-size:12px; }
+.app-badges { display:flex; gap:10px; margin-top:14px; }
+.app-badge { background:#2C313A; color:white; padding:8px 14px; border-radius:6px; font-size:11px; font-weight:700; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">chat<span>ori</span>.</a>
+    <div class="location-mini">📍 <b>Indiranagar</b>, Bengaluru ▾</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">🔍 Search</a>
+      <a href="#">% Offers</a>
+      <a href="#">Help</a>
+      <a href="#">👤 Sign In</a>
+      <a href="#" class="cart-link">🛒 Cart <span class="cart-bubble">3</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="#">Home</a> / <a href="#">Bengaluru</a> / <a href="#">Indiranagar</a> / Meghana Foods
+</div>
+
+<section class="rest-header">
+  <div class="rest-info">
+    <h1>Meghana Foods</h1>
+    <div class="cuisine">Biryani, Andhra, North Indian</div>
+    <div class="area">Indiranagar, Bengaluru</div>
+  </div>
+  <div class="rest-photo">🍛</div>
+</section>
+
+<section class="info-bar">
+  <div class="info-item">
+    <div class="val"><span class="star">●</span> <span class="rating-num">4.4</span></div>
+    <div>10K+ ratings</div>
+  </div>
+  <div class="info-item">
+    <div class="val">35–40 min</div>
+    <div>Delivery Time</div>
+  </div>
+  <div class="info-item">
+    <div class="val">₹500 for two</div>
+    <div>Cost for two</div>
+  </div>
+  <div class="info-item">
+    <div class="val">1.8 km</div>
+    <div>Distance</div>
+  </div>
+  <div style="margin-left:auto;"><span class="pro-badge">★ PRO • FREE DELIVERY</span></div>
+</section>
+
+<section class="offer-strip">
+  <div class="offer-card">
+    <div class="offer-icon">%</div>
+    <div>
+      <div class="title">50% OFF up to ₹100</div>
+      <div class="code">USE CODE WELCOME50</div>
+    </div>
+  </div>
+  <div class="offer-card">
+    <div class="offer-icon">%</div>
+    <div>
+      <div class="title">Flat ₹125 OFF</div>
+      <div class="code">ON ORDERS ABOVE ₹249</div>
+    </div>
+  </div>
+  <div class="offer-card">
+    <div class="offer-icon">🛵</div>
+    <div>
+      <div class="title">Free delivery on ₹199+</div>
+      <div class="code">NO COUPON NEEDED</div>
+    </div>
+  </div>
+</section>
+
+<div class="menu-wrap">
+
+  <aside class="menu-sidebar">
+    <h3>Menu</h3>
+    <ul>
+      <li class="active">Recommended <span>12</span></li>
+      <li>Boneless Biryani <span>6</span></li>
+      <li>Chicken Biryani <span>8</span></li>
+      <li>Mutton Specials <span>5</span></li>
+      <li>Starters <span>14</span></li>
+      <li>Breads <span>7</span></li>
+      <li>Desserts <span>4</span></li>
+      <li>Beverages <span>9</span></li>
+    </ul>
+  </aside>
+
+  <main>
+    <div class="menu-section">
+      <h2>Recommended</h2>
+      <div class="count">12 ITEMS</div>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot nonveg"></div>
+            <div class="bestseller">Bestseller</div>
+            <div class="item-name">Chicken Boneless Biryani</div>
+            <div class="item-price">₹360</div>
+            <div class="item-rating"><span class="stars">★ 4.5</span> (2.4K ratings)</div>
+            <div class="item-desc">Aromatic long-grain basmati rice cooked with juicy boneless chicken pieces, signature Meghana spices, fried onions and saffron. Served with raita and salan.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-1">🍚</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot"></div>
+            <div class="bestseller">Bestseller</div>
+            <div class="item-name">Paneer Butter Masala</div>
+            <div class="item-price">₹280</div>
+            <div class="item-rating"><span class="stars">★ 4.3</span> (1.8K ratings)</div>
+            <div class="item-desc">Soft cottage cheese cubes simmered in a rich, creamy tomato gravy with butter, cashews and a hint of kasuri methi. A North Indian classic.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-2">🍲</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot nonveg"></div>
+            <div class="bestseller">Bestseller</div>
+            <div class="item-name">Andhra Mutton Biryani</div>
+            <div class="item-price">₹420</div>
+            <div class="item-rating"><span class="stars">★ 4.6</span> (3.1K ratings)</div>
+            <div class="item-desc">Tender mutton chunks dum-cooked with fragrant basmati rice in fiery Andhra spices. Served with mirchi ka salan and onion raita.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-3">🍛</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot"></div>
+            <div class="item-name">Paneer 65</div>
+            <div class="item-price">₹260</div>
+            <div class="item-rating"><span class="stars">★ 4.2</span> (920 ratings)</div>
+            <div class="item-desc">Crispy fried paneer cubes tossed in tangy South Indian style spice mix with curry leaves, green chillies and ginger garlic.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-4">🧀</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot nonveg"></div>
+            <div class="item-name">Chicken 65</div>
+            <div class="item-price">₹290</div>
+            <div class="item-rating"><span class="stars">★ 4.4</span> (1.5K ratings)</div>
+            <div class="item-desc">Spicy, deep-fried boneless chicken bites marinated in red chilli, ginger and yogurt — a Hyderabadi pub-style favourite.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-5">🍗</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot"></div>
+            <div class="item-name">Gulab Jamun (2 pcs)</div>
+            <div class="item-price">₹80</div>
+            <div class="item-rating"><span class="stars">★ 4.5</span> (640 ratings)</div>
+            <div class="item-desc">Soft khoya dumplings deep-fried golden and soaked in warm cardamom-rose sugar syrup. Best served warm.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-6">🍮</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot"></div>
+            <div class="item-name">Butter Naan</div>
+            <div class="item-price">₹50</div>
+            <div class="item-rating"><span class="stars">★ 4.1</span> (480 ratings)</div>
+            <div class="item-desc">Soft tandoor-baked Indian flatbread brushed generously with melted butter. Perfect with curries.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-2">🫓</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div>
+            <div class="veg-dot nonveg"></div>
+            <div class="item-name">Mutton Pepper Fry</div>
+            <div class="item-price">₹380</div>
+            <div class="item-rating"><span class="stars">★ 4.3</span> (520 ratings)</div>
+            <div class="item-desc">Bone-in mutton slow cooked with crushed black pepper, curry leaves and coconut bits in a dry semi-gravy style.</div>
+          </div>
+          <div class="item-photo-wrap">
+            <div class="item-photo bg-3">🥘</div>
+            <button class="add-btn">ADD</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="brand-col">
+        <div class="logo">chat<span style="color:white">ori</span>.</div>
+        <p>Bhookh lagi? Order kar! India's tastiest food delivery, right to your doorstep.</p>
+        <div class="app-badges">
+          <div class="app-badge">📱 App Store</div>
+          <div class="app-badge">▶ Play Store</div>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Team</a></li><li><a href="#">Chatori Pro</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="#">Help & Support</a></li><li><a href="#">Partner with us</a></li><li><a href="#">Ride with us</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">Cookies</a></li><li><a href="#">Refunds</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2022 Chatori Limited. All rights reserved.</div>
+      <div>Made with 🧡 in Bengaluru</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

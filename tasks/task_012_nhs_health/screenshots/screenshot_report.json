@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "conditions",
+      "path": "conditions.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 521546,
+      "page_width": 1440,
+      "page_height": 5283
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 392960,
+      "page_width": 1440,
+      "page_height": 4027
+    },
+    {
+      "slug": "medicines",
+      "path": "medicines.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 606006,
+      "page_width": 1440,
+      "page_height": 5989
+    },
+    {
+      "slug": "mental_health",
+      "path": "mental_health.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 347153,
+      "page_width": 1440,
+      "page_height": 3492
+    },
+    {
+      "slug": "service_finder",
+      "path": "service_finder.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 399240,
+      "page_width": 1440,
+      "page_height": 3083
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

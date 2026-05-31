@@ -1,0 +1,14 @@
+{
+  "name": "web-design-rl-renderer",
+  "version": "0.1.0",
+  "description": "Node.js Playwright renderer for web-design-rl pipeline",
+  "private": true,
+  "scripts": {
+    "screenshot": "node src/generate/steps/screenshot_capture.js",
+    "screenrecording": "node src/generate/steps/screenrecording_capture.js",
+    "install-browsers": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0"
+  }
+}

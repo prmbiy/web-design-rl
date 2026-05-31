@@ -1,0 +1,12 @@
+{
+  "dna_id": "018",
+  "dna_name": "luxury_fashion",
+  "pages": [
+    "home",
+    "collection",
+    "product",
+    "heritage",
+    "contact"
+  ],
+  "has_animations": true
+}

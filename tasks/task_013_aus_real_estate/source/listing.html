@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>12 Acacia Avenue, Hawthorn VIC 3122 | PropertyNest</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; color: #1A2A2A; background: #FFFFFF; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: #FFFFFF; border-bottom: 1px solid #E1E5E5; }
+.nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.nav-top { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-weight: 800; font-size: 22px; color: #006E6E; display: flex; align-items: center; gap: 6px; }
+.logo-icon { width: 28px; height: 28px; background: #006E6E; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; }
+.nav-right { display: flex; gap: 20px; align-items: center; font-size: 14px; font-weight: 500; }
+.nav-right a:hover { color: #006E6E; }
+.btn-primary { background: #006E6E; color: #fff; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
+.btn-primary:hover { background: #004D4D; }
+.btn-outline { background: #fff; color: #006E6E; border: 1px solid #006E6E; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; }
+.nav-tabs { display: flex; gap: 4px; height: 56px; align-items: flex-end; }
+.nav-tab { padding: 12px 20px; font-size: 14px; font-weight: 600; color: #6B7878; background: #F0F4F4; border-radius: 6px 6px 0 0; cursor: pointer; }
+.nav-tab.active { background: #006E6E; color: #fff; }
+
+/* Breadcrumb */
+.breadcrumb { max-width: 1280px; margin: 0 auto; padding: 16px 24px; font-size: 13px; color: #6B7878; }
+.breadcrumb a:hover { color: #006E6E; }
+.breadcrumb span { margin: 0 6px; }
+
+/* Gallery */
+.gallery { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.gallery-tabs { display: flex; gap: 0; margin-bottom: 12px; border-bottom: 1px solid #E1E5E5; }
+.gallery-tab { padding: 10px 20px; font-size: 14px; font-weight: 600; color: #6B7878; cursor: pointer; border-bottom: 3px solid transparent; }
+.gallery-tab.active { color: #006E6E; border-bottom-color: #006E6E; }
+.gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 8px; border-radius: 6px; overflow: hidden; }
+.gallery-main { grid-row: 1 / 3; background: linear-gradient(135deg, #5a8a8a 0%, #2d5555 50%, #1a3a3a 100%); position: relative; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+.gallery-cell { background: linear-gradient(135deg, #8aa8a8 0%, #5a7878 100%); display: flex; align-items: center; justify-content: center; font-size: 42px; position: relative; }
+.gallery-cell.c2 { background: linear-gradient(135deg, #c8b89a 0%, #8a7858 100%); }
+.gallery-cell.c3 { background: linear-gradient(135deg, #a8b8c8 0%, #586878 100%); }
+.gallery-cell.c4 { background: linear-gradient(135deg, #d8c8b0 0%, #98785a 100%); }
+.gallery-cell.c5 { background: linear-gradient(135deg, #b8a890 0%, #786858 100%); position: relative; }
+.photo-count { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+.gallery-badges { position: absolute; top: 16px; left: 16px; display: flex; gap: 8px; z-index: 2; }
+.badge { padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+.badge-sale { background: #2E7D32; }
+.badge-auction { background: #FF6700; }
+
+/* Main layout */
+.container { max-width: 1280px; margin: 0 auto; padding: 32px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 32px; }
+.main-col { min-width: 0; }
+.side-col { }
+
+/* Headline block */
+.headline-block { padding-bottom: 24px; border-bottom: 1px solid #E1E5E5; margin-bottom: 24px; }
+.price { font-size: 32px; font-weight: 800; color: #006E6E; margin-bottom: 8px; }
+.price-tag { display: inline-block; font-size: 12px; font-weight: 600; color: #6B7878; background: #F0F4F4; padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+.address { font-size: 18px; color: #1A2A2A; margin-bottom: 16px; font-weight: 500; }
+.spec-row { display: flex; gap: 24px; align-items: center; }
+.spec { display: flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 600; color: #1A2A2A; }
+.spec-icon { font-size: 20px; }
+.spec-divider { color: #E1E5E5; }
+
+/* Auction inspection */
+.section { background: #F5F5F5; border-radius: 6px; padding: 24px; margin-bottom: 24px; }
+.section-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #1A2A2A; }
+.auction-banner { background: #FFF1E5; border-left: 4px solid #FF6700; padding: 16px 20px; border-radius: 6px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.auction-icon { width: 40px; height: 40px; background: #FF6700; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.auction-text strong { display: block; font-size: 15px; color: #1A2A2A; }
+.auction-text span { font-size: 13px; color: #6B7878; }
+.inspection-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.inspection { background: #fff; padding: 14px 16px; border-radius: 6px; border: 1px solid #E1E5E5; }
+.inspection-day { font-size: 13px; color: #6B7878; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.inspection-time { font-size: 16px; font-weight: 700; color: #1A2A2A; margin: 4px 0; }
+.inspection-add { font-size: 13px; color: #006E6E; font-weight: 600; }
+
+/* Description */
+.description-block { padding: 24px 0; border-bottom: 1px solid #E1E5E5; margin-bottom: 24px; }
+.description-block h2 { font-size: 24px; margin-bottom: 16px; }
+.description-block p { font-size: 16px; color: #1A2A2A; margin-bottom: 12px; line-height: 1.7; }
+.feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-top: 16px; }
+.feature-list li { list-style: none; font-size: 14px; padding: 6px 0; color: #1A2A2A; }
+.feature-list li::before { content: "✓"; color: #006E6E; font-weight: 700; margin-right: 8px; }
+
+/* Floorplan */
+.floorplan-block { padding: 24px 0; border-bottom: 1px solid #E1E5E5; margin-bottom: 24px; }
+.floorplan-block h2 { font-size: 24px; margin-bottom: 16px; }
+.floorplan-image { background: #FAFAFA; border: 1px solid #E1E5E5; border-radius: 6px; height: 360px; position: relative; overflow: hidden; }
+.fp-svg { width: 100%; height: 100%; }
+.floorplan-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 14px; }
+.fp-area { color: #6B7878; }
+.fp-download { color: #006E6E; font-weight: 600; }
+
+/* Suburb profile widget */
+.suburb-widget { background: linear-gradient(135deg, #006E6E 0%, #004D4D 100%); color: #fff; border-radius: 6px; padding: 28px; margin-bottom: 24px; }
+.suburb-widget h2 { font-size: 22px; margin-bottom: 4px; }
+.suburb-widget .sub { font-size: 14px; opacity: 0.85; margin-bottom: 20px; }
+.suburb-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.suburb-stat { background: rgba(255,255,255,0.1); padding: 16px; border-radius: 6px; }
+.suburb-stat-label { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.suburb-stat-value { font-size: 22px; font-weight: 700; }
+.suburb-stat-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+.suburb-link { display: inline-block; margin-top: 20px; color: #fff; font-weight: 600; border-bottom: 2px solid rgba(255,255,255,0.4); padding-bottom: 2px; font-size: 14px; }
+
+/* Schools/transport */
+.amenities-block { padding-bottom: 24px; }
+.amenities-block h2 { font-size: 24px; margin-bottom: 16px; }
+.amenity-cats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.amenity-cat h3 { font-size: 14px; font-weight: 700; color: #006E6E; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.amenity { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #F0F4F4; font-size: 14px; }
+.amenity-name { font-weight: 500; }
+.amenity-dist { color: #6B7878; font-size: 13px; }
+
+/* Agent card sticky */
+.agent-card { background: #fff; border: 1px solid #E1E5E5; border-radius: 6px; padding: 24px; position: sticky; top: 140px; box-shadow: 0 2px 12px rgba(0,40,40,0.08); }
+.agency-bar { background: #1A2A2A; color: #fff; margin: -24px -24px 20px; padding: 12px 24px; border-radius: 6px 6px 0 0; display: flex; align-items: center; gap: 10px; }
+.agency-logo { width: 36px; height: 36px; background: #006E6E; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+.agency-name { font-size: 14px; font-weight: 600; }
+.agent-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.agent-photo { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #006E6E, #004D4D); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 22px; flex-shrink: 0; }
+.agent-name { font-size: 16px; font-weight: 700; }
+.agent-title { font-size: 13px; color: #6B7878; }
+.agent-stars { color: #FF6700; font-size: 13px; margin-top: 4px; }
+.phone-btn { display: block; width: 100%; background: #006E6E; color: #fff; padding: 14px; border-radius: 6px; font-weight: 700; font-size: 15px; text-align: center; margin-bottom: 12px; border: none; cursor: pointer; }
+.phone-btn:hover { background: #004D4D; }
+.phone-reveal { font-size: 12px; opacity: 0.85; display: block; font-weight: 500; margin-top: 2px; }
+
+.enquiry-form { display: flex; flex-direction: column; gap: 10px; }
+.enquiry-form input, .enquiry-form textarea { width: 100%; padding: 10px 12px; border: 1px solid #E1E5E5; border-radius: 6px; font-family: inherit; font-size: 14px; }
+.enquiry-form textarea { resize: vertical; min-height: 80px; }
+.enquiry-form input:focus, .enquiry-form textarea:focus { outline: none; border-color: #006E6E; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.checkbox-row { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: #6B7878; margin: 4px 0; }
+.submit-btn { background: #FF6700; color: #fff; padding: 14px; border-radius: 6px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; }
+.submit-btn:hover { background: #e55a00; }
+.private-inspect { display: block; text-align: center; padding: 12px; background: #F0F4F4; color: #006E6E; border-radius: 6px; font-weight: 600; font-size: 14px; margin-top: 10px; }
+
+/* DOM counter */
+.dom-counter { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #6B7878; margin-top: 16px; padding-top: 16px; border-top: 1px solid #E1E5E5; }
+.dom-counter strong { color: #1A2A2A; }
+
+/* Footer */
+footer { background: #003838; color: #fff; padding: 48px 24px 24px; margin-top: 48px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-brand h3 { font-size: 22px; margin-bottom: 8px; }
+.footer-brand p { font-size: 14px; opacity: 0.7; }
+.footer-col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; opacity: 0.85; }
+.footer-col a { display: block; font-size: 14px; opacity: 0.7; padding: 5px 0; }
+.footer-col a:hover { opacity: 1; }
+.footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; opacity: 0.6; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-top">
+      <a href="#" class="logo"><span class="logo-icon">🏠</span> PropertyNest</a>
+      <div class="nav-right">
+        <a href="#">Agents</a>
+        <a href="#">News & Insights</a>
+        <a href="#">Sign in</a>
+        <button class="btn-primary">List a property</button>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <div class="nav-tab active">Buy</div>
+      <div class="nav-tab">Rent</div>
+      <div class="nav-tab">Sold</div>
+      <div class="nav-tab">New Homes</div>
+      <div class="nav-tab">Estimate</div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="#">Buy</a><span>›</span><a href="#">VIC</a><span>›</span><a href="#">Hawthorn 3122</a><span>›</span>12 Acacia Avenue
+</div>
+
+<section class="gallery">
+  <div class="gallery-tabs">
+    <div class="gallery-tab active">📷 Photos (28)</div>
+    <div class="gallery-tab">📐 Floorplan</div>
+    <div class="gallery-tab">▶ Video tour</div>
+    <div class="gallery-tab">🧭 3D walkthrough</div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-main">
+      <div class="gallery-badges">
+        <span class="badge badge-sale">For Sale</span>
+        <span class="badge badge-auction">Auction 25 Nov</span>
+      </div>
+      🏡
+    </div>
+    <div class="gallery-cell c2">🛋️</div>
+    <div class="gallery-cell c3">🍳</div>
+    <div class="gallery-cell c4">🛏️</div>
+    <div class="gallery-cell c5">
+      🌳
+      <div class="photo-count">+24 photos</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="main-col">
+
+    <div class="headline-block">
+      <div class="price">$1,650,000 — $1,750,000 <span class="price-tag">Price Guide</span></div>
+      <div class="address">12 Acacia Avenue, Hawthorn VIC 3122</div>
+      <div class="spec-row">
+        <div class="spec"><span class="spec-icon">🛏️</span> 4 <span style="font-weight:400;color:#6B7878;font-size:14px;">bed</span></div>
+        <div class="spec-divider">|</div>
+        <div class="spec"><span class="spec-icon">🛁</span> 2 <span style="font-weight:400;color:#6B7878;font-size:14px;">bath</span></div>
+        <div class="spec-divider">|</div>
+        <div class="spec"><span class="spec-icon">🚗</span> 2 <span style="font-weight:400;color:#6B7878;font-size:14px;">car</span></div>
+        <div class="spec-divider">|</div>
+        <div class="spec"><span class="spec-icon">📐</span> 612m² <span style="font-weight:400;color:#6B7878;font-size:14px;">land</span></div>
+        <div class="spec-divider">|</div>
+        <div class="spec" style="color:#006E6E;"><span class="spec-icon">🏠</span> House</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Auction & Inspection times</div>
+      <div class="auction-banner">
+        <div class="auction-icon">🔨</div>
+        <div class="auction-text">
+          <strong>Auction — Saturday 25 November, 11:00am</strong>
+          <span>On-site auction · Add to calendar · View auction terms</span>
+        </div>
+      </div>
+      <div class="inspection-list">
+        <div class="inspection">
+          <div class="inspection-day">Wednesday 22 Nov</div>
+          <div class="inspection-time">6:00 – 6:30pm</div>
+          <div class="inspection-add">+ Add to calendar</div>
+        </div>
+        <div class="inspection">
+          <div class="inspection-day">Saturday 25 Nov</div>
+          <div class="inspection-time">10:00 – 10:30am</div>
+          <div class="inspection-add">+ Add to calendar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="description-block">
+      <h2>Renovated Edwardian charm in coveted Auburn High zone</h2>
+      <p>Behind a classic tessellated tile veranda lies a beautifully renovated four-bedroom Edwardian residence, blending period elegance with thoughtful contemporary updates. Polished Tasmanian oak floorboards, soaring 3.3m ceilings, leadlight windows and ornate cornices run through the formal lounge and central hallway.</p>
+      <p>A light-filled open-plan kitchen, meals and family room opens onto the deep north-facing rear garden — perfect for entertaining year-round. Stone benchtops, integrated Miele appliances and a butler's pantry complete the chef's kitchen.</p>
+      <p>Four generous bedrooms include a sumptuous main with walk-in robe and ensuite. Zoning to Auburn High and walking distance to Glenferrie Road shops, cafés and Hawthorn Station make this an exceptional family opportunity.</p>
+      <ul class="feature-list">
+        <li>Ducted heating & refrigerated cooling</li>
+        <li>North-facing rear garden</li>
+        <li>Auto double garage with rear ROW</li>
+        <li>Hydronic heating in bathrooms</li>
+        <li>Auburn High & Hawthorn West PS zones</li>
+        <li>Solar panels (6.6kW system)</li>
+        <li>Cellar / wine storage</li>
+        <li>Period features retained throughout</li>
+      </ul>
+    </div>
+
+    <div class="floorplan-block">
+      <h2>Floorplan</h2>
+      <div class="floorplan-image">
+        <svg class="fp-svg" viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="660" height="320" fill="none" stroke="#1A2A2A" stroke-width="3"/>
+          <!-- Living -->
+          <line x1="20" y1="160" x2="340" y2="160" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="340" y1="20" x2="340" y2="340" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="170" y1="20" x2="170" y2="160" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="340" y1="180" x2="680" y2="180" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="510" y1="180" x2="510" y2="340" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="510" y1="260" x2="680" y2="260" stroke="#1A2A2A" stroke-width="2"/>
+          <line x1="170" y1="250" x2="340" y2="250" stroke="#1A2A2A" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="95" y="95" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">BED 1</text>
+          <text x="95" y="110" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B7878">3.6 x 4.2</text>
+          <text x="255" y="95" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">BED 2</text>
+          <text x="255" y="110" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B7878">3.4 x 3.8</text>
+          <text x="180" y="215" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">LIVING</text>
+          <text x="180" y="230" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B7878">5.2 x 4.6</text>
+          <text x="255" y="300" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">BED 3</text>
+          <text x="425" y="100" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">KITCHEN</text>
+          <text x="425" y="115" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B7878">4.8 x 3.6</text>
+          <text x="595" y="100" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">DINING</text>
+          <text x="425" y="260" text-anchor="middle" font-family="Inter" font-size="12" font-weight="600" fill="#1A2A2A">MAIN BED</text>
+          <text x="425" y="275" text-anchor="middle" font-family="Inter" font-size="10" fill="#6B7878">4.2 x 5.0</text>
+          <text x="595" y="225" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#1A2A2A">BATH</text>
+          <text x="595" y="305" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="#1A2A2A">ENS</text>
+          <!-- North arrow -->
+          <circle cx="640" cy="50" r="18" fill="none" stroke="#006E6E" stroke-width="2"/>
+          <text x="640" y="55" text-anchor="middle" font-family="Inter" font-size="14" font-weight="700" fill="#006E6E">N</text>
+        </svg>
+      </div>
+      <div class="floorplan-actions">
+        <span class="fp-area">Total internal area: <strong style="color:#1A2A2A;">218m²</strong></span>
+        <a href="#" class="fp-download">⬇ Download floorplan PDF</a>
+      </div>
+    </div>
+
+    <div class="suburb-widget">
+      <h2>Hawthorn VIC 3122</h2>
+      <div class="sub">Inner east Melbourne · A leafy, established family suburb</div>
+      <div class="suburb-stats">
+        <div class="suburb-stat">
+          <div class="suburb-stat-label">Median house</div>
+          <div class="suburb-stat-value">$2.35M</div>
+          <div class="suburb-stat-sub">▲ +4.2% YoY</div>
+        </div>
+        <div class="suburb-stat">
+          <div class="suburb-stat-label">Days on market</div>
+          <div class="suburb-stat-value">32</div>
+          <div class="suburb-stat-sub">Average for houses</div>
+        </div>
+        <div class="suburb-stat">
+          <div class="suburb-stat-label">Distance to CBD</div>
+          <div class="suburb-stat-value">6.2km</div>
+          <div class="suburb-stat-sub">15 min by train</div>
+        </div>
+      </div>
+      <a href="#" class="suburb-link">View full Hawthorn suburb profile →</a>
+    </div>
+
+    <div class="amenities-block">
+      <h2>Schools & transport nearby</h2>
+      <div class="amenity-cats">
+        <div class="amenity-cat">
+          <h3>🎓 Schools</h3>
+          <div class="amenity"><span class="amenity-name">Auburn South Primary</span><span class="amenity-dist">0.6 km</span></div>
+          <div class="amenity"><span class="amenity-name">Hawthorn West Primary</span><span class="amenity-dist">1.1 km</span></div>
+          <div class="amenity"><span class="amenity-name">Auburn High School</span><span class="amenity-dist">1.4 km</span></div>
+          <div class="amenity"><span class="amenity-name">Methodist Ladies' College</span><span class="amenity-dist">1.8 km</span></div>
+        </div>
+        <div class="amenity-cat">
+          <h3>🚆 Transport</h3>
+          <div class="amenity"><span class="amenity-name">Hawthorn Station</span><span class="amenity-dist">0.8 km</span></div>
+          <div class="amenity"><span class="amenity-name">Glenferrie Rd tram (Rt 16)</span><span class="amenity-dist">0.4 km</span></div>
+          <div class="amenity"><span class="amenity-name">Auburn Station</span><span class="amenity-dist">1.2 km</span></div>
+          <div class="amenity"><span class="amenity-name">Bus 612 stop</span><span class="amenity-dist">0.3 km</span></div>
+        </div>
+        <div class="amenity-cat">
+          <h3>🛍️ Shops & lifestyle</h3>
+          <div class="amenity"><span class="amenity-name">Glenferrie Rd Village</span><span class="amenity-dist">0.7 km</span></div>
+          <div class="amenity"><span class="amenity-name">Coles Hawthorn</span><span class="amenity-dist">0.9 km</span></div>
+          <div class="amenity"><span class="amenity-name">Central Gardens</span><span class="amenity-dist">0.5 km</span></div>
+          <div class="amenity"><span class="amenity-name">Yarra River trail</span><span class="amenity-dist">1.3 km</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="side-col">
+    <div class="agent-card">
+      <div class="agency-bar">
+        <div class="agency-logo">JC</div>
+        <div class="agency-name">Jellis Craig Hawthorn</div>
+      </div>
+      <div class="agent-row">
+        <div class="agent-photo">SC</div>
+        <div>
+          <div class="agent-name">Sarah Chen</div>
+          <div class="agent-title">Senior Sales Consultant</div>
+          <div class="agent-stars">★★★★★ <span style="color:#6B7878;">47 sales · $2.1M median</span></div>
+        </div>
+      </div>
+
+      <button class="phone-btn">
+        📞 03 9810 ••••
+        <span class="phone-reveal">Click to reveal phone number</span>
+      </button>
+
+      <form class="enquiry-form">
+        <div class="form-row">
+          <input type="text" placeholder="First name">
+          <input type="text" placeholder="Last name">
+        </div>
+        <input type="email" placeholder="Email address">
+        <input type="tel" placeholder="Phone number">
+        <textarea placeholder="Hi Sarah, I'm interested in 12 Acacia Avenue and would like to know more about…"></textarea>
+        <div class="checkbox-row">
+          <input type="checkbox" id="ch1" checked>
+          <label for="ch1">Email me similar properties in Hawthorn 3122</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="ch2">
+          <label for="ch2">Send me a free property appraisal of my home</label>
+        </div>
+        <button type="submit" class="submit-btn">Send enquiry</button>
+      </form>
+
+      <a href="#" class="private-inspect">📅 Request a private inspection</a>
+
+      <div class="dom-counter">
+        🕒 <span><strong>Listed 14 days ago</strong> · Updated yesterday</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🏠 PropertyNest</h3>
+        <p>Find your place in Australia. Over 482,000 properties for sale and rent nationwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Buyers</h4>
+        <a href="#">Buy</a>
+        <a href="#">Sold prices</a>
+        <a href="#">New homes</a>
+        <a href="#">Home estimate</a>
+      </div>
+      <div class="footer-col">
+        <h4>Renters</h4>
+        <a href="#">Rent</a>
+        <a href="#">Rental guides</a>
+        <a href="#">Share houses</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sellers & agents</h4>
+        <a href="#">List a property</a>
+        <a href="#">Find an agent</a>
+        <a href="#">Agent admin</a>
+        <a href="#">Appraisal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About us</a>
+        <a href="#">News & Insights</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2023 PropertyNest Pty Ltd · ABN 12 345 678 901</span>
+      <span>Privacy · Terms · Cookie preferences</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

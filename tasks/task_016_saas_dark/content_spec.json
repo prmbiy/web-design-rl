@@ -1,0 +1,208 @@
+{
+  "brand_name": "Flexor",
+  "tagline": "Feature flags and experimentation built for engineering velocity",
+  "primary_color_name": "Flexor Electric",
+  "pages": {
+    "home": {
+      "title": "Flexor — Ship faster with feature flags",
+      "nav_items": [
+        "Product",
+        "Features",
+        "Pricing",
+        "Docs",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Ship features without shipping bugs",
+          "subheadline": "Flexor gives engineering teams instant feature flags, gradual rollouts, and A/B experiments with sub-50ms edge evaluation."
+        },
+        {
+          "name": "social_proof_logos",
+          "description": "Strip of grayscale logos showing companies using Flexor: Linear, Vercel, Supabase, Resend, PlanetScale, Clerk. Includes 'Trusted by 4,200+ teams' label and a GitHub stars badge showing 18.4k stars."
+        },
+        {
+          "name": "feature_overview_grid",
+          "description": "3-column grid of cards with icons covering: Targeted Rollouts (percentage-based release rules), Realtime Experiments (Bayesian stats engine), and Edge SDKs (10ms p99 evaluation via Cloudflare Workers)."
+        },
+        {
+          "name": "code_snippet_demo",
+          "description": "Tabbed code showcase in JetBrains Mono showing TypeScript, Python, and Go SDK examples — e.g. `flexor.evaluate('checkout-v2', user)` returning a boolean with an inline mocked terminal output."
+        },
+        {
+          "name": "stats_counters",
+          "description": "Animated counters showing '2.1B flag evaluations/day', '99.999% uptime', and '< 50ms global p99 latency'."
+        },
+        {
+          "name": "testimonial_carousel",
+          "description": "Rotating quotes from engineers: Sarah Chen (Staff Eng @ Linear), Marcus Webb (Platform Lead @ Retool), and Priya Krishnan (CTO @ Cal.com) with avatar circles."
+        },
+        {
+          "name": "pricing_preview",
+          "description": "Compact 3-card preview of Free, Pro $29/mo, and Team $99/mo tiers with a 'See full pricing' link."
+        },
+        {
+          "name": "footer",
+          "description": "4-column footer with Product/Resources/Company/Legal links, status page link (status.flexor.dev), SOC 2 badge, and changelog link."
+        }
+      ]
+    },
+    "features": {
+      "title": "Features — Flexor",
+      "nav_items": [
+        "Product",
+        "Features",
+        "Pricing",
+        "Docs",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Everything you need to ship with confidence",
+          "subheadline": "From kill switches to multivariate experiments, Flexor covers the full release lifecycle."
+        },
+        {
+          "name": "category_targeting",
+          "description": "Feature category block for 'Targeting & Rollouts' with diagram showing rules like 'user.plan == pro AND region in [us-east, eu-west]' and gradual percentage rollouts."
+        },
+        {
+          "name": "category_experiments",
+          "description": "Feature category block for 'Experiments' explaining Bayesian analysis, sample ratio mismatch detection, and Stats Engine v2."
+        },
+        {
+          "name": "category_observability",
+          "description": "Feature category block for 'Observability' showing Datadog, Sentry, and Honeycomb integrations with flag-change event streams."
+        },
+        {
+          "name": "competitor_comparison_table",
+          "description": "Subtle dark comparison table pitting Flexor vs LaunchDarkly vs Statsig vs Unleash on rows like Edge latency, Bayesian stats, Self-hosted, and Starting price."
+        },
+        {
+          "name": "video_demo",
+          "description": "Embedded 2-minute product walkthrough placeholder with play button overlay on a dashboard screenshot."
+        },
+        {
+          "name": "integrations_grid",
+          "description": "6x9 grid of 50+ integration logos including GitHub, GitLab, Slack, PagerDuty, Datadog, Segment, Amplitude, Mixpanel, Vercel, AWS, GCP, Terraform."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pricing — Flexor",
+      "nav_items": [
+        "Product",
+        "Features",
+        "Pricing",
+        "Docs",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Simple pricing that scales with you",
+          "subheadline": "Start free, upgrade when your team grows. Annual saves 20%."
+        },
+        {
+          "name": "billing_toggle",
+          "description": "Monthly/Annual pill toggle with 'Save 20%' badge on annual."
+        },
+        {
+          "name": "pricing_cards",
+          "description": "Three side-by-side cards: Free ($0, 1 seat, 50k MAU, 10 flags), Pro ($29/mo, 5 seats, 250k MAU, unlimited flags, marked 'Most Popular' with gradient border glow), Team ($99/mo, 20 seats, 1M MAU, SSO, audit logs)."
+        },
+        {
+          "name": "enterprise_cta",
+          "description": "Full-width dark card for Enterprise with 'Contact sales' button, mentioning SOC 2 Type II, SAML SSO, dedicated support, and on-prem deployment."
+        },
+        {
+          "name": "feature_comparison_matrix",
+          "description": "Detailed checklist table comparing all four tiers across 24 features like SDKs, Experiments, Audit Logs, RBAC, and Uptime SLA."
+        },
+        {
+          "name": "usage_pricing_explainer",
+          "description": "Section explaining overage pricing at $0.50 per additional 10k MAU and how flag evaluations are uncapped."
+        },
+        {
+          "name": "faq_accordion",
+          "description": "Eight collapsed FAQ items including 'What counts as an MAU?', 'Can I self-host?', 'Do you offer startup discounts?', and 'Is there a free trial of Pro?'."
+        }
+      ]
+    },
+    "docs": {
+      "title": "Documentation — Flexor",
+      "nav_items": [
+        "Product",
+        "Features",
+        "Pricing",
+        "Docs",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Build with Flexor in under 5 minutes",
+          "subheadline": "Quickstarts, SDK references, and guides for every stack."
+        },
+        {
+          "name": "cli_install",
+          "description": "Prominent dark code block with copy button showing `npx flexor init` and a mocked API key like `flx_live_sk_a8f2…9c4d`."
+        },
+        {
+          "name": "sdk_tabs",
+          "description": "Tabbed install commands for npm (`npm i @flexor/node`), pip (`pip install flexor`), and cargo (`cargo add flexor`)."
+        },
+        {
+          "name": "guide_cards",
+          "description": "3x2 grid of guide cards: Quickstart, Authentication (API keys + JWT), Webhooks, Targeting Rules, Experiments Setup, Self-Hosted Relay."
+        },
+        {
+          "name": "api_reference",
+          "description": "Sidebar-style preview of REST endpoints like `GET /v1/flags`, `POST /v1/evaluate`, `PATCH /v1/flags/:key`."
+        },
+        {
+          "name": "community_changelog",
+          "description": "Two side-by-side cards linking to Discord community (3.2k members) and the latest changelog entry v2.14.0 — 'Edge SDK GA'."
+        }
+      ]
+    },
+    "blog": {
+      "title": "Blog & Changelog — Flexor",
+      "nav_items": [
+        "Product",
+        "Features",
+        "Pricing",
+        "Docs",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Engineering, product, and release notes",
+          "subheadline": "Deep dives from the Flexor team plus every shipped change."
+        },
+        {
+          "name": "category_filters",
+          "description": "Pill filter row with Engineering, Product, Company, and Changelog tags."
+        },
+        {
+          "name": "featured_posts",
+          "description": "3-column grid of recent posts with cover images: 'How we cut p99 evaluation to 11ms with Cloudflare Workers' (Engineering), 'Introducing Stats Engine v2' (Product), 'Series B: $40M to build the developer platform' (Company)."
+        },
+        {
+          "name": "changelog_feed",
+          "description": "Vertical timeline of versioned releases like v2.14.0 (Edge SDK GA), v2.13.2 (PagerDuty integration), v2.13.0 (Bulk flag import) with date stamps and active green badges."
+        },
+        {
+          "name": "newsletter_signup",
+          "description": "Inline dark card with email input and 'Subscribe' button — 'Get monthly engineering deep dives. 12k devs subscribed.'"
+        },
+        {
+          "name": "author_profiles",
+          "description": "Row of circular author avatars for Sarah Chen, Marcus Webb, and Priya Krishnan with role labels."
+        }
+      ]
+    }
+  }
+}

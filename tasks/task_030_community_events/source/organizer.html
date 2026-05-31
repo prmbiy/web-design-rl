@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wax & Wine Co. — Blockparty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Nunito',sans-serif;font-size:16px;color:#0F172A;background:#F8FAFC;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:#fff;height:72px;border-bottom:1px solid #E2E8F0}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:32px}
+.logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:8px}
+.logo-mark{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 0deg,#EC4899,#F97316,#16A34A,#2563EB,#7C3AED,#EC4899);position:relative}
+.logo-mark::after{content:"";position:absolute;inset:6px;background:#fff;border-radius:5px}
+.nav-links{display:flex;gap:28px;font-weight:700;color:#0F172A}
+.nav-links a{position:relative;padding:6px 0;font-size:15px}
+.nav-links a:hover{color:#2563EB}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:18px}
+.loc-picker{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;cursor:pointer;padding:8px 12px;border-radius:10px}
+.loc-picker:hover{background:#EFF6FF}
+.icon-btn{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#64748B}
+.icon-btn:hover{background:#F1F5F9;color:#0F172A}
+.btn-login{font-weight:700;font-size:14px;cursor:pointer}
+.btn-cta{background:#F97316;color:#fff;font-weight:800;padding:10px 18px;border-radius:12px;font-size:14px;cursor:pointer;border:none;box-shadow:0 4px 14px rgba(249,115,22,0.35)}
+.btn-cta:hover{background:#ea580c}
+
+/* PROFILE HEADER */
+.profile-hero{background:#fff;border-bottom:1px solid #E2E8F0}
+.cover{height:200px;background:linear-gradient(120deg,#2563EB 0%,#7C3AED 50%,#EC4899 100%);position:relative;overflow:hidden}
+.cover::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.18) 0,transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.15) 0,transparent 35%);}
+.cover::after{content:"♫ ♪ ♬ ♩";position:absolute;font-size:120px;color:rgba(255,255,255,0.08);top:30px;left:50%;transform:translateX(-50%);letter-spacing:30px;font-family:serif}
+.profile-hero .container{position:relative}
+.profile-header{padding:0 24px 32px;display:flex;gap:28px;align-items:flex-end;margin-top:-60px;position:relative}
+.avatar{width:140px;height:140px;border-radius:24px;background:linear-gradient(135deg,#EC4899,#F97316);border:6px solid #fff;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:900;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,0.12);flex-shrink:0}
+.profile-info{flex:1;padding-bottom:10px}
+.profile-name-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.profile-name{font-size:36px;font-weight:900;letter-spacing:-0.5px}
+.verified{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#2563EB;color:#fff;border-radius:50%;font-size:14px;font-weight:900}
+.profile-bio{color:#64748B;font-size:16px;font-weight:600;margin-bottom:6px}
+.profile-tags{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;background:#EFF6FF;color:#2563EB;text-transform:uppercase;letter-spacing:0.4px}
+.profile-actions{display:flex;gap:10px;padding-bottom:10px}
+.btn-follow{background:#F97316;color:#fff;font-weight:800;padding:12px 26px;border-radius:12px;font-size:15px;cursor:pointer;border:none;box-shadow:0 4px 14px rgba(249,115,22,0.35)}
+.btn-follow:hover{background:#ea580c}
+.btn-secondary{background:#fff;color:#0F172A;font-weight:700;padding:12px 18px;border-radius:12px;font-size:15px;cursor:pointer;border:1.5px solid #E2E8F0}
+.btn-secondary:hover{border-color:#2563EB;color:#2563EB}
+
+/* STATS */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:24px;margin:24px 24px 0}
+.stat{text-align:center;padding:8px 16px;border-right:1px solid #E2E8F0}
+.stat:last-child{border-right:none}
+.stat-val{font-size:28px;font-weight:900;color:#0F172A;display:flex;align-items:center;justify-content:center;gap:6px}
+.stat-val .star{color:#F59E0B}
+.stat-label{font-size:13px;color:#64748B;font-weight:700;margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* TABS */
+.tabs{display:flex;gap:6px;padding:24px 24px 0;border-bottom:1px solid #E2E8F0;margin-top:24px}
+.tab{padding:14px 22px;font-weight:800;color:#64748B;cursor:pointer;border-bottom:3px solid transparent;font-size:15px;transition:all 0.2s ease}
+.tab.active{color:#2563EB;border-bottom-color:#2563EB}
+.tab:hover{color:#2563EB}
+.tab-count{display:inline-block;margin-left:6px;background:#EFF6FF;color:#2563EB;font-size:12px;padding:2px 8px;border-radius:999px;font-weight:800}
+
+/* SECTIONS */
+section{padding:48px 0}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding:0 24px}
+.section-head h2{font-size:26px;font-weight:900;letter-spacing:-0.4px}
+.section-head a{color:#2563EB;font-weight:800;font-size:14px}
+
+/* CHIPS */
+.chip-row{display:flex;gap:10px;padding:0 24px 24px;flex-wrap:wrap}
+.chip{padding:8px 16px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer;background:#EFF6FF;color:#2563EB;transition:transform 0.2s ease, box-shadow 0.2s ease;border:none}
+.chip:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 6px 18px rgba(37,99,235,0.18)}
+.chip.music{background:rgba(236,72,153,0.15);color:#EC4899}
+.chip.art{background:rgba(124,58,237,0.15);color:#7C3AED}
+.chip.food{background:rgba(249,115,22,0.15);color:#F97316}
+
+/* EVENT GRID */
+.event-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 24px}
+.event-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #E2E8F0;cursor:pointer;transition:transform 0.2s ease, box-shadow 0.2s ease;animation:revealCard 0.6s ease-out both}
+.event-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(15,23,42,0.08)}
+.event-card:nth-child(1){animation-delay:0.05s}
+.event-card:nth-child(2){animation-delay:0.15s}
+.event-card:nth-child(3){animation-delay:0.25s}
+.event-card:nth-child(4){animation-delay:0.35s}
+.event-photo{height:160px;position:relative;display:flex;align-items:center;justify-content:center;font-size:48px}
+.photo-1{background:linear-gradient(135deg,#F97316,#EC4899)}
+.photo-2{background:linear-gradient(135deg,#7C3AED,#2563EB)}
+.photo-3{background:linear-gradient(135deg,#0F172A,#7C3AED)}
+.photo-4{background:linear-gradient(135deg,#EC4899,#F59E0B)}
+.cat-tag{position:absolute;top:12px;left:12px;background:rgba(236,72,153,0.95);color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:0.5px}
+.event-body{padding:16px}
+.event-date{color:#F97316;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.event-title{font-size:18px;font-weight:800;line-height:1.3;margin-bottom:8px;color:#0F172A}
+.event-meta-row{display:flex;align-items:center;gap:6px;color:#64748B;font-size:13px;font-weight:600;margin-bottom:4px}
+.event-meta-row .pin{color:#94A3B8}
+.event-foot{display:flex;justify-content:space-between;align-items:center;padding-top:10px;margin-top:10px;border-top:1px solid #F1F5F9}
+.event-price{font-weight:900;color:#0F172A;font-size:15px}
+.event-going{font-size:12px;color:#64748B;font-weight:700}
+
+/* PAST EVENTS */
+.past-list{padding:0 24px;display:flex;flex-direction:column;gap:14px}
+.past-row{background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:20px;display:grid;grid-template-columns:80px 1fr 200px 140px;gap:24px;align-items:center}
+.past-thumb{width:80px;height:80px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;font-weight:900}
+.t1{background:linear-gradient(135deg,#F97316,#F59E0B)}
+.t2{background:linear-gradient(135deg,#7C3AED,#EC4899)}
+.t3{background:linear-gradient(135deg,#16A34A,#0EA5E9)}
+.t4{background:linear-gradient(135deg,#0F172A,#2563EB)}
+.past-info h4{font-size:17px;font-weight:800;margin-bottom:6px}
+.past-info .past-meta{color:#64748B;font-size:13px;font-weight:600}
+.past-bar{display:flex;flex-direction:column;gap:6px}
+.past-bar-label{display:flex;justify-content:space-between;font-size:12px;color:#64748B;font-weight:700}
+.bar-track{height:8px;background:#F1F5F9;border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#2563EB,#7C3AED);border-radius:999px}
+.past-status{text-align:right}
+.status-pill{display:inline-block;background:#16A34A;color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.status-pill.warm{background:#F97316}
+.past-attended{font-size:13px;font-weight:800;color:#0F172A}
+.past-attended small{display:block;color:#64748B;font-weight:600;font-size:11px;margin-top:2px}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 24px}
+.review-card{background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:24px}
+.review-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:16px}
+.a1{background:linear-gradient(135deg,#EC4899,#F97316)}
+.a2{background:linear-gradient(135deg,#0EA5E9,#7C3AED)}
+.a3{background:linear-gradient(135deg,#16A34A,#0EA5E9)}
+.review-name{font-weight:800;font-size:15px}
+.review-stars{color:#F59E0B;font-size:13px;font-weight:700}
+.review-text{color:#334155;font-size:14px;line-height:1.55;margin-bottom:14px}
+.review-event{font-size:12px;color:#64748B;font-weight:700;display:flex;align-items:center;gap:6px}
+.review-event::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#EC4899}
+
+/* MAP */
+.map-section{padding:0 24px}
+.map-card{background:#fff;border:1px solid #E2E8F0;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 320px}
+.map-canvas{height:280px;background:
+  linear-gradient(135deg,#EFF6FF 0%,#DBEAFE 100%);
+  background-image:
+    linear-gradient(rgba(37,99,235,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,0.06) 1px,transparent 1px);
+  background-size:30px 30px;
+  position:relative}
+.map-canvas::before{content:"";position:absolute;top:40%;left:25%;width:200px;height:60px;background:rgba(101,163,13,0.18);border-radius:30px;transform:rotate(-12deg)}
+.map-canvas::after{content:"";position:absolute;bottom:20%;right:20%;width:160px;height:80px;background:rgba(14,165,233,0.15);border-radius:40px}
+.map-marker{position:absolute;width:18px;height:18px;background:#2563EB;border:3px solid #fff;border-radius:50%;animation:markerPulse 2s infinite;cursor:pointer}
+.m1{top:35%;left:32%}
+.m2{top:55%;left:48%}
+.m3{top:25%;left:62%}
+.m4{top:65%;left:72%}
+.map-side{padding:24px}
+.map-side h3{font-size:18px;font-weight:900;margin-bottom:6px}
+.map-side p{color:#64748B;font-size:14px;font-weight:600;line-height:1.5;margin-bottom:14px}
+
+/* ANIMATIONS */
+@keyframes fadeInHero{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero > *{animation:fadeInHero 0.7s ease-out both}
+@keyframes revealCard{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes markerPulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,0.6)}70%{box-shadow:0 0 0 16px rgba(37,99,235,0)}100%{box-shadow:0 0 0 0 rgba(37,99,235,0)}}
+
+/* FOOTER */
+footer{background:#0F172A;color:#CBD5E1;padding:64px 24px 32px;margin-top:64px}
+.foot-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px}
+.foot-brand .logo{color:#fff;margin-bottom:14px}
+.foot-tag{color:#94A3B8;font-size:14px;line-height:1.6;max-width:280px;margin-bottom:16px}
+.foot-city{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;font-weight:700;color:#fff;font-size:13px}
+.foot-col h5{color:#fff;font-weight:900;font-size:14px;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px}
+.foot-col a{display:block;font-size:14px;color:#94A3B8;padding:5px 0;font-weight:600}
+.foot-col a:hover{color:#fff}
+.foot-socials{display:flex;gap:10px;margin-top:14px}
+.soc{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.foot-bottom{max-width:1240px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;color:#64748B;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-mark"></span> Blockparty</a>
+    <div class="nav-links">
+      <a href="#">Explore</a>
+      <a href="#">Host an Event</a>
+      <a href="#">For Organizers</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="loc-picker">📍 Brooklyn, NY ▾</div>
+      <div class="icon-btn">🔍</div>
+      <div class="btn-login">Log in</div>
+      <button class="btn-cta">+ Create Event</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PROFILE HERO -->
+<section class="profile-hero hero" style="padding:0">
+  <div class="cover"></div>
+  <div class="container">
+    <div class="profile-header">
+      <div class="avatar">W&amp;W</div>
+      <div class="profile-info">
+        <div class="profile-name-row">
+          <h1 class="profile-name">Wax &amp; Wine Co.</h1>
+          <span class="verified" title="Verified Organizer">✓</span>
+        </div>
+        <p class="profile-bio">Vinyl-forward rooftop nights across NYC · Verified Organizer</p>
+        <div class="profile-tags">
+          <span class="tag">Music</span>
+          <span class="tag">Nightlife</span>
+          <span class="tag">Brooklyn</span>
+          <span class="tag">Since 2019</span>
+        </div>
+      </div>
+      <div class="profile-actions">
+        <button class="btn-secondary">↗ Share</button>
+        <button class="btn-follow">+ Follow</button>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-val"><span class="star">★</span> 4.9</div>
+        <div class="stat-label">Avg Rating</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">12.4k</div>
+        <div class="stat-label">Followers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">86</div>
+        <div class="stat-label">Events Hosted</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">9,200</div>
+        <div class="stat-label">Attendees Served</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active">Upcoming <span class="tab-count">4</span></div>
+      <div class="tab">Past Events <span class="tab-count">82</span></div>
+      <div class="tab">Reviews <span class="tab-count">1.2k</span></div>
+      <div class="tab">About</div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section style="padding:48px 0 24px">
+  <div class="container" style="padding:0">
+    <div class="section-head">
+      <h2>Upcoming events</h2>
+      <a href="#">View all →</a>
+    </div>
+
+    <div class="chip-row">
+      <button class="chip">All</button>
+      <button class="chip music">♪ Music</button>
+      <button class="chip art">🎨 Art</button>
+      <button class="chip food">🍷 Food &amp; Drink</button>
+    </div>
+
+    <div class="event-grid">
+      <article class="event-card">
+        <div class="event-photo photo-1">
+          <span class="cat-tag">Music</span>
+          🎧
+        </div>
+        <div class="event-body">
+          <div class="event-date">Sat, Oct 12 · 6:00 PM</div>
+          <h3 class="event-title">Sunset Rooftop Vinyl Night — Jazz &amp; Soul Edition</h3>
+          <div class="event-meta-row"><span class="pin">📍</span> Westlight, Williamsburg</div>
+          <div class="event-foot">
+            <span class="event-price">$38</span>
+            <span class="event-going">👥 312 going</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-photo photo-2">
+          <span class="cat-tag" style="background:rgba(124,58,237,0.95)">Music</span>
+          🎷
+        </div>
+        <div class="event-body">
+          <div class="event-date">Sun, Oct 20 · 12:00 PM</div>
+          <h3 class="event-title">Bossa Nova Brunch on the Rooftop</h3>
+          <div class="event-meta-row"><span class="pin">📍</span> Westlight, Williamsburg</div>
+          <div class="event-foot">
+            <span class="event-price">$45</span>
+            <span class="event-going">👥 124 going</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-photo photo-3">
+          <span class="cat-tag" style="background:rgba(249,115,22,0.95)">Music</span>
+          🕺
+        </div>
+        <div class="event-body">
+          <div class="event-date">Thu, Oct 31 · 9:00 PM</div>
+          <h3 class="event-title">Halloween Disco Inferno</h3>
+          <div class="event-meta-row"><span class="pin">📍</span> The Brooklyn Mirage</div>
+          <div class="event-foot">
+            <span class="event-price">$55</span>
+            <span class="event-going">👥 488 going</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-photo photo-4">
+          <span class="cat-tag" style="background:rgba(217,119,6,0.95)">Music</span>
+          🍷
+        </div>
+        <div class="event-body">
+          <div class="event-date">Fri, Nov 8 · 7:00 PM</div>
+          <h3 class="event-title">Natural Wine &amp; B-Sides Listening Lounge</h3>
+          <div class="event-meta-row"><span class="pin">📍</span> Greenpoint Loft</div>
+          <div class="event-foot">
+            <span class="event-price">$32</span>
+            <span class="event-going">👥 76 going</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PAST EVENTS -->
+<section>
+  <div class="container" style="padding:0">
+    <div class="section-head">
+      <h2>Past events</h2>
+      <a href="#">See full history →</a>
+    </div>
+    <div class="past-list">
+      <div class="past-row">
+        <div class="past-thumb t1">☀</div>
+        <div class="past-info">
+          <h4>Summer Soul Series — Volume IV</h4>
+          <div class="past-meta">Aug 24, 2024 · Westlight, Williamsburg · 4 DJs</div>
+        </div>
+        <div class="past-bar">
+          <div class="past-bar-label"><span>Capacity 412</span><span>100%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="past-status">
+          <div class="status-pill">Sold out</div>
+          <div class="past-attended">412 attended<small>★ 4.9 · 287 reviews</small></div>
+        </div>
+      </div>
+
+      <div class="past-row">
+        <div class="past-thumb t2">🎺</div>
+        <div class="past-info">
+          <h4>Spring Jazz Picnic</h4>
+          <div class="past-meta">May 18, 2024 · Prospect Park Bandshell · Live + Vinyl</div>
+        </div>
+        <div class="past-bar">
+          <div class="past-bar-label"><span>Capacity 400</span><span>85%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="past-status">
+          <div class="status-pill warm">Near full</div>
+          <div class="past-attended">340 attended<small>★ 4.8 · 198 reviews</small></div>
+        </div>
+      </div>
+
+      <div class="past-row">
+        <div class="past-thumb t3">🌸</div>
+        <div class="past-info">
+          <h4>Cherry Blossom Listening Bar</h4>
+          <div class="past-meta">Apr 6, 2024 · Greenpoint Loft · Japanese Hi-Fi</div>
+        </div>
+        <div class="past-bar">
+          <div class="past-bar-label"><span>Capacity 180</span><span>100%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="past-status">
+          <div class="status-pill">Sold out</div>
+          <div class="past-attended">180 attended<small>★ 5.0 · 142 reviews</small></div>
+        </div>
+      </div>
+
+      <div class="past-row">
+        <div class="past-thumb t4">🌙</div>
+        <div class="past-info">
+          <h4>New Year's Eve: Disco Until Dawn</h4>
+          <div class="past-meta">Dec 31, 2023 · The Brooklyn Mirage · 6 DJs · All night</div>
+        </div>
+        <div class="past-bar">
+          <div class="past-bar-label"><span>Capacity 600</span><span>96%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:96%"></div></div>
+        </div>
+        <div class="past-status">
+          <div class="status-pill">Sold out</div>
+          <div class="past-attended">578 attended<small>★ 4.9 · 412 reviews</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES MAP -->
+<section>
+  <div class="container" style="padding:0">
+    <div class="section-head">
+      <h2>Where they host</h2>
+      <a href="#">Open map view →</a>
+    </div>
+    <div class="map-section">
+      <div class="map-card">
+        <div class="map-canvas">
+          <div class="map-marker m1"></div>
+          <div class="map-marker m2"></div>
+          <div class="map-marker m3"></div>
+          <div class="map-marker m4"></div>
+        </div>
+        <div class="map-side">
+          <h3>4 venues across Brooklyn</h3>
+          <p>Wax &amp; Wine Co. partners with rooftops and listening bars in Williamsburg, Greenpoint, Bushwick, and East Williamsburg.</p>
+          <div class="profile-tags">
+            <span class="tag">Westlight</span>
+            <span class="tag">Greenpoint Loft</span>
+            <span class="tag">Brooklyn Mirage</span>
+            <span class="tag">House of Yes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <div class="container" style="padding:0">
+    <div class="section-head">
+      <h2>What attendees are saying</h2>
+      <a href="#">Read all 1,247 reviews →</a>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-avatar a1">JT</div>
+          <div>
+            <div class="review-name">Jess T.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"Hands down the best rooftop night I've been to in Brooklyn. The vinyl selection was immaculate, the wine was actually good, and Marcus Ellis closed with a Stevie Wonder set that made me cry. Already bought tickets to the next one."</p>
+        <div class="review-event">Sunset Rooftop Vinyl Night — Aug 2024</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-avatar a2">DR</div>
+          <div>
+            <div class="review-name">Diego R.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"Wax &amp; Wine consistently delivers. I've been to four of their events now and the curation is always thoughtful — they care about sound quality and vibe more than any other promoter in NYC. The Bossa Nova brunch was sublime."</p>
+        <div class="review-event">Bossa Nova Brunch — Sept 2024</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-head">
+          <div class="review-avatar a3">PM</div>
+          <div>
+            <div class="review-name">Priya M.</div>
+            <div class="review-stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="review-text">"Came alone, left with three new friends. The crowd is always warm and the staff actually checks in on you. Only knock — the line for drinks got long around 8pm. Still, easily worth the price. Following for life."</p>
+        <div class="review-event">Summer Soul Series Vol. IV — Aug 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo"><span class="logo-mark"></span> Blockparty</div>
+      <p class="foot-tag">Find your people, find your night. Discover 2,400+ events, classes, and meetups happening near you.</p>
+      <div class="foot-city">📍 Brooklyn, NY ▾</div>
+      <div class="foot-socials">
+        <div class="soc">𝕏</div>
+        <div class="soc">ig</div>
+        <div class="soc">in</div>
+        <div class="soc">tt</div>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Discover</h5>
+      <a href="#">Explore</a>
+      <a href="#">This Weekend</a>
+      <a href="#">Free Events</a>
+      <a href="#">Categories</a>
+      <a href="#">Map View</a>
+    </div>
+    <div class="foot-col">
+      <h5>Organizers</h5>
+      <a href="#">Host an Event</a>
+      <a href="#">Pro Plan</a>
+      <a href="#">Organizer Resources</a>
+      <a href="#">Analytics</a>
+      <a href="#">Promotion Tools</a>
+    </div>
+    <div class="foot-col">
+      <h5>Support</h5>
+      <a href="#">Help Center</a>
+      <a href="#">Trust &amp; Safety</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Press</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2024 Blockparty, Inc. All rights reserved.</span>
+    <span>Made with ♥ in Brooklyn</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Shows — Longwave Audio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1A0F2E;
+  color: #F5F0E8;
+  font-family: 'Karla', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: rgba(26, 15, 46, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #3D2C5C;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B 0%, #3C1F6B 60%, #1A0F2E 100%);
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px solid #F5B544;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+.nav-links a { color: #F5F0E8; opacity: 0.8; transition: opacity 0.2s; }
+.nav-links a:hover { opacity: 1; color: #FF6B6B; }
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mini-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 6px 12px 6px 6px;
+  max-width: 320px;
+}
+.mini-art {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #FF6B6B 0%, #3C1F6B 100%);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.mini-art::after {
+  content: 'SD';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #F5F0E8;
+}
+.mini-info { font-size: 12px; line-height: 1.3; min-width: 0; }
+.mini-info .ep-label { color: #A89BB8; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+.mini-info .ep-title { color: #F5F0E8; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+.play-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #1A0F2E;
+  font-size: 10px;
+}
+.support-btn {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.support-btn:hover { background: #ff8585; }
+
+/* HERO */
+.hero {
+  padding: 96px 32px 48px;
+  border-bottom: 1px solid #3D2C5C;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #F5B544;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 24px;
+}
+h1.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+.hero-sub {
+  font-size: 20px;
+  color: #A89BB8;
+  max-width: 640px;
+}
+
+/* FILTER */
+.filter-section {
+  padding: 32px 32px 16px;
+  border-bottom: 1px solid #3D2C5C;
+}
+.filter-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 8px;
+}
+.pill {
+  padding: 8px 16px;
+  border: 1px solid #3D2C5C;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #F5F0E8;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: #6B4BA8; }
+.pill.active {
+  background: #F5F0E8;
+  color: #1A0F2E;
+  border-color: #F5F0E8;
+  font-weight: 700;
+}
+
+/* SHOWS GRID */
+.shows-section {
+  padding: 64px 32px 96px;
+}
+.shows-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.shows-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #A89BB8;
+}
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 28px;
+}
+.show-card {
+  display: flex;
+  flex-direction: column;
+}
+.show-art {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.show-art .art-num {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: 0.1em;
+}
+.show-art .art-title {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #F5F0E8;
+}
+.show-art .art-deco {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(245, 240, 232, 0.4);
+  border-radius: 50%;
+}
+.show-art .art-deco::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: rgba(245, 240, 232, 0.6);
+  border-radius: 50%;
+}
+
+/* Cover art variants */
+.art-1 { background:
+  radial-gradient(circle at 30% 70%, #FF6B6B 0%, transparent 50%),
+  radial-gradient(circle at 80% 20%, #F5B544 0%, transparent 40%),
+  linear-gradient(135deg, #3C1F6B 0%, #1A0F2E 100%);
+}
+.art-2 { background:
+  repeating-linear-gradient(45deg, #2A1A47 0px, #2A1A47 6px, #3C1F6B 6px, #3C1F6B 12px),
+  #2A1A47;
+}
+.art-2::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(245, 181, 68, 0.5) 0%, transparent 60%);
+}
+.art-3 { background:
+  linear-gradient(180deg, #FF6B6B 0%, #FF6B6B 35%, #3C1F6B 35%, #3C1F6B 100%);
+}
+.art-3::before {
+  content: '>_'; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace; font-size: 48px; color: #1A0F2E; font-weight: 700;
+}
+.art-4 { background:
+  conic-gradient(from 180deg at 50% 50%, #6B4BA8, #3C1F6B, #1A0F2E, #6B4BA8);
+}
+.art-5 { background:
+  linear-gradient(135deg, #F5B544 0%, #FF6B6B 50%, #3C1F6B 100%);
+}
+.art-5::before {
+  content: ''; position: absolute; inset: 20% 15%;
+  border: 2px solid rgba(26, 15, 46, 0.4);
+  border-radius: 4px;
+}
+.art-6 { background:
+  radial-gradient(ellipse at center, #F5F0E8 0%, #F5F0E8 8%, transparent 9%),
+  linear-gradient(135deg, #1A0F2E 0%, #3C1F6B 100%);
+}
+.art-6 .art-title, .art-6 .art-num { color: #F5F0E8; }
+.art-7 { background:
+  linear-gradient(180deg, #2A1A47 0%, #3C1F6B 60%, #6B4BA8 100%);
+}
+.art-7::before {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 40%;
+  background:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(245, 181, 68, 0.3) 8px, rgba(245, 181, 68, 0.3) 10px);
+}
+
+.show-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.show-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #F5B544;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.show-eps {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+}
+.show-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.show-desc {
+  font-size: 14px;
+  color: #A89BB8;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+.subscribe-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #3D2C5C;
+}
+.sub-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 4px;
+}
+.plat-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #F5F0E8;
+  transition: all 0.2s;
+}
+.plat-icon:hover { background: #FF6B6B; color: #1A0F2E; border-color: #FF6B6B; }
+
+/* FOOTER */
+footer {
+  background: #0F0820;
+  padding: 64px 32px 32px;
+  border-top: 1px solid #3D2C5C;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-tag {
+  color: #A89BB8;
+  font-size: 14px;
+  max-width: 280px;
+  margin-bottom: 16px;
+}
+.footer-loc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+}
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #F5B544;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; font-size: 14px; }
+.footer-col a { color: #A89BB8; transition: color 0.2s; }
+.footer-col a:hover { color: #F5F0E8; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid #3D2C5C;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      Longwave Audio
+    </a>
+    <ul class="nav-links">
+      <li><a href="/shows">Shows</a></li>
+      <li><a href="/episodes">Episodes</a></li>
+      <li><a href="/newsletter">Newsletter</a></li>
+      <li><a href="/support">Support Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="mini-player">
+        <div class="mini-art"></div>
+        <div class="mini-info">
+          <div class="ep-label">NOW PLAYING · EP 142</div>
+          <div class="ep-title">The Last Search Engine</div>
+        </div>
+        <div class="play-btn">▶</div>
+      </div>
+      <a href="/support" class="support-btn">Become a Supporter</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Network Directory · 07 Shows</div>
+    <h1 class="hero-title">Seven shows.<br>One network.</h1>
+    <p class="hero-sub">Filter by category or browse the full catalog. Every show on Longwave is independently produced and listener-funded.</p>
+  </div>
+</section>
+
+<section class="filter-section">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="pill active">All</button>
+    <button class="pill">Technology</button>
+    <button class="pill">Culture</button>
+    <button class="pill">Interview</button>
+    <button class="pill">Narrative</button>
+    <button class="pill">Music</button>
+    <button class="pill">Essay</button>
+  </div>
+</section>
+
+<section class="shows-section">
+  <div class="shows-inner">
+    <div class="shows-meta">
+      <span>SHOWING 07 OF 07 SHOWS</span>
+      <span>SORTED BY · MOST RECENT EPISODE</span>
+    </div>
+
+    <div class="shows-grid">
+
+      <article class="show-card">
+        <div class="show-art art-1">
+          <span class="art-num">SHOW 01</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Signal<br>Drift</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Technology</span>
+          <span class="show-eps">142 EPISODES</span>
+        </div>
+        <h3 class="show-title">Signal Drift</h3>
+        <p class="show-desc">Weekly dispatches from the edges of the internet, hosted by Maya Okafor.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-2">
+          <span class="art-num">SHOW 02</span>
+          <span class="art-deco"></span>
+          <span class="art-title">The Annotated Web</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Essay</span>
+          <span class="show-eps">98 EPISODES</span>
+        </div>
+        <h3 class="show-title">The Annotated Web</h3>
+        <p class="show-desc">Close readings of overlooked websites, half-forgotten forums, and digital marginalia.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-3">
+          <span class="art-num">SHOW 03</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Forkbomb</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Technology</span>
+          <span class="show-eps">88 EPISODES</span>
+        </div>
+        <h3 class="show-title">Forkbomb</h3>
+        <p class="show-desc">Inside the messy, brilliant world of open source, hosted by Alex Tanaka.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-4">
+          <span class="art-num">SHOW 04</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Slow<br>Computer</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Technology</span>
+          <span class="show-eps">64 EPISODES</span>
+        </div>
+        <h3 class="show-title">Slow Computer</h3>
+        <p class="show-desc">A show about technology that didn't catch on — and what we lost when it didn't.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-5">
+          <span class="art-num">SHOW 05</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Liner Notes from Nowhere</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Music</span>
+          <span class="show-eps">31 EPISODES</span>
+        </div>
+        <h3 class="show-title">Liner Notes from Nowhere</h3>
+        <p class="show-desc">Stories behind records that never quite found their audience.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-6">
+          <span class="art-num">SHOW 06</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Cold<br>Open</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Interview</span>
+          <span class="show-eps">52 EPISODES</span>
+        </div>
+        <h3 class="show-title">Cold Open</h3>
+        <p class="show-desc">Long-form conversations with the writers, makers, and thinkers we keep returning to.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+      <article class="show-card">
+        <div class="show-art art-7">
+          <span class="art-num">SHOW 07</span>
+          <span class="art-deco"></span>
+          <span class="art-title">Field<br>Recordings</span>
+        </div>
+        <div class="show-meta-row">
+          <span class="show-category">Narrative</span>
+          <span class="show-eps">24 EPISODES</span>
+        </div>
+        <h3 class="show-title">Field Recordings</h3>
+        <p class="show-desc">Audio documentary from places where the internet meets the ground.</p>
+        <div class="subscribe-row">
+          <span class="sub-label">Sub:</span>
+          <a class="plat-icon" title="Apple Podcasts"></a>
+          <a class="plat-icon" title="Spotify"></a>
+          <a class="plat-icon" title="Overcast"></a>
+          <a class="plat-icon" title="RSS">⌁</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        Longwave Audio
+      </div>
+      <p class="footer-tag">Independent podcasts for the curious mind. Funded by listeners, not algorithms.</p>
+      <p class="footer-loc">Oakland, CA · Est. 2021</p>
+    </div>
+    <div class="footer-col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="/shows">All Shows</a></li>
+        <li><a href="/episodes">Latest Episodes</a></li>
+        <li><a href="/newsletter">Newsletter</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="/support">Become a Supporter</a></li>
+        <li><a href="/support#patreon">Patreon</a></li>
+        <li><a href="/support#donate">One-Time Gift</a></li>
+        <li><a href="/shop">Merchandise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Listen</h4>
+      <ul>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Overcast</a></li>
+        <li><a href="#">RSS Feeds</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 LONGWAVE AUDIO COOPERATIVE</span>
+    <span>BUILT IN OAKLAND · HOSTED ON TRANSISTOR</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us - Verisys Enterprise Solutions</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  background-color: #FFFFFF;
+}
+a { color: #0033CC; text-decoration: underline; }
+a:visited { color: #660099; }
+
+/* Top Header */
+.header-bar {
+  background-color: #002060;
+  color: #FFFFFF;
+  padding: 8px 20px;
+  border-bottom: 2px solid #FF6600;
+}
+.header-bar table { width: 100%; }
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.brand-tagline {
+  font-size: 11px;
+  color: #DDEEFF;
+  font-style: italic;
+  margin-top: 2px;
+}
+.header-utility {
+  text-align: right;
+  font-size: 11px;
+  color: #DDEEFF;
+}
+.header-utility a {
+  color: #DDEEFF;
+  margin-left: 8px;
+}
+
+/* Top Nav */
+.top-nav {
+  background-color: #003087;
+  height: 28px;
+  padding: 0 20px;
+  border-bottom: 1px solid #999999;
+}
+.top-nav ul { list-style: none; }
+.top-nav ul li {
+  float: left;
+  line-height: 28px;
+}
+.top-nav ul li.sep {
+  color: #6688CC;
+  padding: 0 2px;
+}
+.top-nav a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  padding: 4px 10px;
+  display: inline-block;
+  line-height: 20px;
+  transition: background-color 0.15s linear;
+  font-size: 12px;
+}
+.top-nav a:hover {
+  background-color: #FF6600;
+  color: #FFFFFF;
+}
+.top-nav:after { content:""; display:block; clear:both; }
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: #F0F4FA;
+  padding: 5px 20px;
+  font-size: 11px;
+  color: #666666;
+  border-bottom: 1px solid #CCCCCC;
+}
+.breadcrumb a { color: #0033CC; }
+
+/* Page container */
+.page-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Layout table */
+.layout-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.layout-table > tbody > tr > td {
+  vertical-align: top;
+  padding: 0;
+}
+.col-left { width: 180px; padding-right: 10px !important; }
+.col-main { padding-left: 10px !important; }
+
+/* Left Tree Nav */
+.tree-nav {
+  border: 1px solid #999999;
+  background-color: #F0F4FA;
+}
+.tree-nav .tree-header {
+  background-color: #003087;
+  color: #FFFFFF;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tree-nav ul { list-style: none; }
+.tree-nav > ul {
+  padding: 4px 0;
+}
+.tree-nav > ul > li {
+  border-bottom: 1px dotted #99AACC;
+}
+.tree-nav > ul > li > span.node {
+  display: block;
+  padding: 4px 8px 4px 16px;
+  font-weight: bold;
+  color: #003087;
+  font-size: 11px;
+  cursor: pointer;
+  position: relative;
+}
+.tree-nav > ul > li > span.node:before {
+  content: "▸";
+  position: absolute;
+  left: 5px;
+  font-size: 9px;
+  transition: transform 0.2s;
+}
+.tree-nav > ul > li:hover > span.node:before {
+  content: "▾";
+}
+.tree-nav ul ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #FFFFFF;
+}
+.tree-nav > ul > li:hover > ul {
+  max-height: 500px;
+}
+.tree-nav ul ul li a {
+  display: block;
+  padding: 3px 8px 3px 28px;
+  font-size: 11px;
+  text-decoration: none;
+  color: #0033CC;
+  border-bottom: 1px dotted #DDEEFF;
+}
+.tree-nav ul ul li a:hover {
+  background-color: #DDEEFF;
+  text-decoration: underline;
+}
+
+.left-promo {
+  margin-top: 10px;
+  border: 1px solid #999999;
+  background-color: #DDEEFF;
+  padding: 8px;
+  font-size: 11px;
+}
+.left-promo h4 {
+  color: #003087;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.btn-cta {
+  display: inline-block;
+  background-color: #FF6600;
+  color: #FFFFFF !important;
+  border: 1px solid #993D00;
+  padding: 5px 12px;
+  font-weight: bold;
+  text-decoration: none !important;
+  font-size: 11px;
+  margin-top: 6px;
+  transition: background-color 0.2s;
+}
+.btn-cta:hover {
+  background-color: #CC5200;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background-color: #003087;
+  color: #FFFFFF;
+  padding: 22px 24px;
+  border: 1px solid #002060;
+  position: relative;
+  overflow: hidden;
+  animation: heroSlide 0.8s ease-out 1;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,0.04) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,0.04) 39px 40px);
+}
+@keyframes heroSlide {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.hero-banner h1 {
+  font-size: 22px;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.hero-banner .sub {
+  font-size: 13px;
+  color: #DDEEFF;
+}
+.hero-banner .ticker {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background-color: #FF6600;
+  color: #FFFFFF;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid #993D00;
+}
+
+/* Section heading */
+.section {
+  margin-top: 14px;
+  border: 1px solid #999999;
+}
+.section-title {
+  background-color: #003087;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.section-body {
+  padding: 12px;
+  background-color: #FFFFFF;
+}
+
+/* Mission Statement */
+.mission-box {
+  background-color: #DDEEFF;
+  border: 1px solid #99AACC;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #003087;
+}
+.mission-box strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Timeline Table */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+table.data-table th {
+  background-color: #003087;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 5px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border: 1px solid #002060;
+}
+table.data-table td {
+  padding: 6px 8px;
+  border: 1px solid #CCCCCC;
+  vertical-align: top;
+}
+table.data-table tr:nth-child(even) td {
+  background-color: #F0F4FA;
+}
+table.data-table tr.alt td {
+  background-color: #DDEEFF;
+}
+.year-cell {
+  font-weight: bold;
+  color: #003087;
+  width: 80px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+/* Executive Grid */
+table.exec-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.exec-grid td {
+  width: 33.33%;
+  vertical-align: top;
+  padding: 8px;
+  border: 1px solid #CCCCCC;
+  background-color: #F0F4FA;
+}
+.exec-photo {
+  width: 70px;
+  height: 80px;
+  background-color: #003087;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #002060;
+  float: left;
+  margin-right: 10px;
+  font-family: Verdana, sans-serif;
+}
+.exec-info {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.exec-name {
+  font-weight: bold;
+  color: #003087;
+  font-size: 12px;
+}
+.exec-title {
+  color: #4A4A4A;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.exec-bio {
+  color: #666666;
+  font-size: 10px;
+}
+
+/* Feature box (animated) */
+.feature-box {
+  opacity: 0;
+  animation: featureAppear 0.6s ease-out forwards;
+}
+@keyframes featureAppear {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.feature-box:nth-child(1) { animation-delay: 0.1s; }
+.feature-box:nth-child(2) { animation-delay: 0.25s; }
+.feature-box:nth-child(3) { animation-delay: 0.4s; }
+.feature-box:nth-child(4) { animation-delay: 0.55s; }
+.feature-box:nth-child(5) { animation-delay: 0.7s; }
+.feature-box:nth-child(6) { animation-delay: 0.85s; }
+
+/* Press releases */
+.press-list { list-style: none; }
+.press-list li {
+  padding: 8px 0;
+  border-bottom: 1px dotted #999999;
+}
+.press-list li:last-child { border-bottom: none; }
+.press-date {
+  font-family: 'Courier New', monospace;
+  color: #FF6600;
+  font-weight: bold;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 2px;
+}
+.press-title {
+  font-weight: bold;
+  font-size: 12px;
+  color: #003087;
+}
+.press-summary {
+  font-size: 11px;
+  color: #4A4A4A;
+  margin: 3px 0;
+  line-height: 1.5;
+}
+
+/* Awards Badges */
+.awards-strip table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.awards-strip td {
+  width: 33.33%;
+  text-align: center;
+  padding: 10px;
+  vertical-align: top;
+  border: 1px solid #CCCCCC;
+  background-color: #F0F4FA;
+}
+.badge {
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  border: 3px double #003087;
+  background-color: #FFFFFF;
+  color: #003087;
+  text-align: center;
+  padding: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1.3;
+  position: relative;
+}
+.badge.gold { border-color: #D4A017; color: #4A4A4A; }
+.badge.gold .badge-sym { color: #D4A017; }
+.badge.silver { border-color: #A8A8A8; }
+.badge-sym {
+  display: block;
+  font-size: 32px;
+  margin: 6px 0 4px;
+  color: #003087;
+}
+.badge-name {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 9px;
+  color: #4A4A4A;
+}
+.badge-year {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #FF6600;
+  margin-top: 3px;
+}
+
+/* Contact block */
+.contact-block table { width: 100%; }
+.contact-block td { vertical-align: top; padding: 4px 10px; font-size: 12px; }
+.contact-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #003087;
+  font-size: 10px;
+  width: 130px;
+}
+.contact-block .addr-block {
+  background-color: #DDEEFF;
+  border: 1px solid #99AACC;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background-color: #003087;
+  color: #DDEEFF;
+  padding: 18px 20px;
+  margin-top: 20px;
+  font-size: 11px;
+  border-top: 2px solid #FF6600;
+}
+.footer table { width: 100%; }
+.footer td {
+  vertical-align: top;
+  padding: 0 10px;
+  width: 16.66%;
+}
+.footer h5 {
+  color: #FFFFFF;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #FF6600;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 2px 0; }
+.footer a {
+  color: #DDEEFF;
+  text-decoration: underline;
+  font-size: 11px;
+}
+.footer a:hover { color: #FF6600; }
+.footer-bottom {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #002060;
+  text-align: center;
+  font-size: 10px;
+  color: #99AACC;
+}
+
+.clearfix:after { content:""; display:block; clear:both; }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header-bar">
+  <table>
+    <tr>
+      <td>
+        <div class="brand-name">VERISYS Enterprise Solutions, Inc.</div>
+        <div class="brand-tagline">Mission-Critical Software for the Global Enterprise</div>
+      </td>
+      <td class="header-utility">
+        NASDAQ: VRSY &nbsp;|&nbsp; <a href="#">Investor Relations</a> &nbsp;|&nbsp; <a href="#">Worldwide Offices</a> &nbsp;|&nbsp; <a href="#">Search</a><br>
+        <span style="font-size:10px;">1-800-VERISYS &nbsp;&middot;&nbsp; Fax: (703) 555-0142</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- Top Nav -->
+<div class="top-nav">
+  <ul>
+    <li><a href="#">Home</a></li><li class="sep">|</li>
+    <li><a href="#">Products</a></li><li class="sep">|</li>
+    <li><a href="#">Solutions</a></li><li class="sep">|</li>
+    <li><a href="#">Partners</a></li><li class="sep">|</li>
+    <li><a href="#">Support</a></li><li class="sep">|</li>
+    <li><a href="#">About</a></li><li class="sep">|</li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="#">Home</a> &gt; <a href="#">About Us</a> &gt; Company Overview
+</div>
+
+<div class="page-container">
+<table class="layout-table">
+<tr>
+
+<!-- LEFT COLUMN -->
+<td class="col-left">
+  <div class="tree-nav">
+    <div class="tree-header">About Verisys</div>
+    <ul>
+      <li>
+        <span class="node">Company</span>
+        <ul>
+          <li><a href="#">Overview</a></li>
+          <li><a href="#">Mission &amp; Values</a></li>
+          <li><a href="#">History &amp; Timeline</a></li>
+          <li><a href="#">Locations</a></li>
+        </ul>
+      </li>
+      <li>
+        <span class="node">Leadership</span>
+        <ul>
+          <li><a href="#">Executive Team</a></li>
+          <li><a href="#">Board of Directors</a></li>
+          <li><a href="#">Advisory Board</a></li>
+        </ul>
+      </li>
+      <li>
+        <span class="node">Newsroom</span>
+        <ul>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">In the News</a></li>
+          <li><a href="#">Media Contacts</a></li>
+        </ul>
+      </li>
+      <li>
+        <span class="node">Investors</span>
+        <ul>
+          <li><a href="#">SEC Filings</a></li>
+          <li><a href="#">Earnings Calls</a></li>
+          <li><a href="#">Stock Quote (VRSY)</a></li>
+        </ul>
+      </li>
+      <li>
+        <span class="node">Careers</span>
+        <ul>
+          <li><a href="#">Job Openings</a></li>
+          <li><a href="#">Benefits</a></li>
+          <li><a href="#">University Recruiting</a></li>
+        </ul>
+      </li>
+      <li>
+        <span class="node">Corporate Responsibility</span>
+        <ul>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Environment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="left-promo">
+    <h4>Request a Demo</h4>
+    See VeriSuite 7.2 in action with a personalized walkthrough from a Verisys solutions engineer.
+    <br><a href="#" class="btn-cta">REQUEST DEMO &raquo;</a>
+  </div>
+
+  <div class="left-promo" style="background-color:#F0F4FA;">
+    <h4>Annual Report 2002</h4>
+    Download the Verisys 2002 Annual Report (PDF, 2.4 MB).<br>
+    <a href="#">» Download Now</a>
+  </div>
+</td>
+
+<!-- MAIN COLUMN -->
+<td class="col-main">
+
+  <!-- Hero -->
+  <div class="hero-banner">
+    <div class="ticker">VRSY ▲ $34.82</div>
+    <h1>About Verisys</h1>
+    <div class="sub">Founded 1997 in Reston, Virginia. &nbsp;|&nbsp; NASDAQ: VRSY &nbsp;|&nbsp; 2,400+ employees worldwide</div>
+  </div>
+
+  <!-- Mission Statement -->
+  <div class="section feature-box">
+    <div class="section-title">Our Mission</div>
+    <div class="section-body">
+      <div class="mission-box">
+        <strong>Empowering the Global Enterprise</strong>
+        Verisys Enterprise Solutions exists to empower Fortune 1000 organizations through reliable, scalable
+        software infrastructure that integrates mission-critical business processes across heterogeneous IT
+        environments. We deliver measurable return on investment through proven J2EE technology, world-class
+        professional services, and an unwavering commitment to customer success.
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Timeline -->
+  <div class="section feature-box">
+    <div class="section-title">Company Timeline &mdash; A History of Innovation</div>
+    <div class="section-body">
+      <table class="data-table">
+        <tr>
+          <th style="width:90px;">Year</th>
+          <th>Milestone</th>
+        </tr>
+        <tr>
+          <td class="year-cell">1997</td>
+          <td><strong>Verisys Founded.</strong> Robert J. Chen and three former Oracle engineers incorporate Verisys
+          Enterprise Solutions, Inc. in Reston, Virginia, with seed funding from Sequoia Capital and NEA.</td>
+        </tr>
+        <tr>
+          <td class="year-cell">1998</td>
+          <td><strong>VeriSuite 1.0 Released.</strong> First commercial release of the VeriSuite ERP platform.
+          Signs first Fortune 500 customer, Prudential Financial.</td>
+        </tr>
+        <tr>
+          <td class="year-cell">1999</td>
+          <td><strong>IPO on NASDAQ.</strong> Verisys completes initial public offering on October 12, 1999 under
+          ticker symbol VRSY. Opens European headquarters in Reading, United Kingdom.</td>
+        </tr>
+        <tr>
+          <td class="year-cell">2000</td>
+          <td><strong>VeriCore J2EE Platform.</strong> Launches industry-first J2EE-native application framework.
+          Achieves 187% year-over-year revenue growth.</td>
+        </tr>
+        <tr>
+          <td class="year-cell">2001</td>
+          <td><strong>Acquired DataLogix Corp.</strong> Completes $284M cash-and-stock acquisition of DataLogix
+          Corp., adding data warehousing capabilities now branded as VeriVault.</td>
+        </tr>
+        <tr>
+          <td class="year-cell">2002</td>
+          <td><strong>APAC Expansion.</strong> Opens regional offices in Tokyo, Singapore, and Sydney.
+          Achieves ISO 9001:2000 certification across all engineering operations.</td>
+        </tr>
+        <tr class="alt">
+          <td class="year-cell">2003</td>
+          <td><strong>Launched VeriSuite 7.2.</strong> Latest release delivers Sarbanes-Oxley compliance reporting,
+          enhanced .NET interoperability, and 99.999% uptime SLA. Named to Gartner Leaders Quadrant.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Executive Team -->
+  <div class="section feature-box">
+    <div class="section-title">Executive Leadership Team</div>
+    <div class="section-body">
+      <table class="exec-grid">
+        <tr>
+          <td>
+            <div class="exec-photo">RC</div>
+            <div class="exec-info">
+              <div class="exec-name">Robert J. Chen</div>
+              <div class="exec-title">Chairman &amp; CEO</div>
+              <div class="exec-bio">Co-founder. Formerly VP Engineering, Oracle Corporation. M.S. Computer Science, Stanford.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+          <td>
+            <div class="exec-photo">PH</div>
+            <div class="exec-info">
+              <div class="exec-name">Patricia Hollings</div>
+              <div class="exec-title">Chief Financial Officer</div>
+              <div class="exec-bio">Joined 2000. Previously CFO at PeopleSoft Federal. CPA. M.B.A. Wharton.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+          <td>
+            <div class="exec-photo">MS</div>
+            <div class="exec-info">
+              <div class="exec-name">Mark Steinberg</div>
+              <div class="exec-title">Chief Technology Officer</div>
+              <div class="exec-bio">Co-founder. Architect of VeriCore J2EE Platform. Ph.D. EECS, MIT.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="exec-photo">LP</div>
+            <div class="exec-info">
+              <div class="exec-name">Linda Park</div>
+              <div class="exec-title">EVP, Worldwide Sales</div>
+              <div class="exec-bio">Joined 2001. Formerly SVP at Siebel Systems. B.S. Business, USC.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+          <td>
+            <div class="exec-photo">DO</div>
+            <div class="exec-info">
+              <div class="exec-name">David Okonkwo</div>
+              <div class="exec-title">EVP, Engineering</div>
+              <div class="exec-bio">Joined 1998. Leads global engineering organization of 850+ developers. Ph.D. Carnegie Mellon.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+          <td>
+            <div class="exec-photo">SW</div>
+            <div class="exec-info">
+              <div class="exec-name">Susan Whitfield</div>
+              <div class="exec-title">SVP &amp; General Counsel</div>
+              <div class="exec-bio">Joined 2002. Previously Partner at Wilson Sonsini. J.D. Georgetown Law.</div>
+            </div>
+            <div class="clearfix"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Press Releases -->
+  <div class="section feature-box">
+    <div class="section-title">Recent Press Releases</div>
+    <div class="section-body">
+      <ul class="press-list">
+        <li>
+          <span class="press-date">OCT 21, 2003</span>
+          <span class="press-title">Verisys Reports Strong Third Quarter 2003 Financial Results</span>
+          <div class="press-summary">Q3 revenue increased 34% year-over-year to $187.4 million. License revenue
+          grew 41%. GAAP net income of $0.18 per diluted share exceeded analyst consensus estimates.</div>
+          <a href="#">» Read full release</a> &nbsp;|&nbsp; <a href="#">» Earnings call replay</a>
+        </li>
+        <li>
+          <span class="press-date">OCT 14, 2003</span>
+          <span class="press-title">Verisys and IBM Global Services Announce Strategic Alliance</span>
+          <div class="press-summary">Verisys and IBM Global Services today announced a multi-year strategic
+          alliance to jointly deliver VeriSuite 7.2 implementation services to mutual Fortune 500 customers.</div>
+          <a href="#">» Read full release</a> &nbsp;|&nbsp; <a href="#">» Joint solution brief (PDF)</a>
+        </li>
+        <li>
+          <span class="press-date">SEP 30, 2003</span>
+          <span class="press-title">Lockheed Martin Selects VeriSuite ERP for $42M Multi-Year Deployment</span>
+          <div class="press-summary">Lockheed Martin Information Technology will deploy VeriSuite ERP 7.2 across
+          its Federal Services division, supporting financial consolidation for 28,000 users worldwide.</div>
+          <a href="#">» Read full release</a> &nbsp;|&nbsp; <a href="#">» Customer case study</a>
+        </li>
+      </ul>
+      <div style="text-align:right; margin-top:8px; font-size:11px;">
+        <a href="#">View all press releases »</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Awards -->
+  <div class="section feature-box">
+    <div class="section-title">Awards &amp; Certifications</div>
+    <div class="section-body awards-strip">
+      <table>
+        <tr>
+          <td>
+            <div class="badge gold">
+              <span class="badge-sym">★</span>
+              <div class="badge-name">Gartner Group<br>Leaders Quadrant</div>
+              <div class="badge-year">2003</div>
+            </div>
+            <div style="margin-top:8px; font-size:11px; color:#4A4A4A;">
+              Named a Leader in the 2003 Gartner Magic Quadrant for Enterprise Resource Planning Suites.
+            </div>
+          </td>
+          <td>
+            <div class="badge">
+              <span class="badge-sym">100</span>
+              <div class="badge-name">InfoWorld 100<br>Award Winner</div>
+              <div class="badge-year">2003</div>
+            </div>
+            <div style="margin-top:8px; font-size:11px; color:#4A4A4A;">
+              Recognized for the Lockheed Martin VeriSuite deployment as one of the year's most innovative IT projects.
+            </div>
+          </td>
+          <td>
+            <div class="badge silver">
+              <span class="badge-sym">✓</span>
+              <div class="badge-name">ISO 9001:2000<br>Certified</div>
+              <div class="badge-year">SINCE 2002</div>
+            </div>
+            <div style="margin-top:8px; font-size:11px; color:#4A4A4A;">
+              Global engineering and professional services organizations certified to ISO 9001:2000 quality standards.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section feature-box contact-block">
+    <div class="section-title">Corporate Headquarters &amp; Contact</div>
+    <div class="section-body">
+      <table>
+        <tr>
+          <td style="width:50%;">
+            <div class="addr-block">
+Verisys Enterprise Solutions, Inc.<br>
+11700 Plaza America Drive<br>
+Suite 800<br>
+Reston, VA 20190-4778<br>
+United States of America
+            </div>
+          </td>
+          <td style="width:50%;">
+            <table style="width:100%;">
+              <tr><td class="contact-label">Main Phone:</td><td>+1 (703) 555-8700</td></tr>
+              <tr><td class="contact-label">Toll-Free:</td><td>1-800-VERISYS (837-4797)</td></tr>
+              <tr><td class="contact-label">Facsimile:</td><td>+1 (703) 555-8742</td></tr>
+              <tr><td class="contact-label">Investor Relations:</td><td><a href="mailto:ir@verisys.com">ir@verisys.com</a></td></tr>
+              <tr><td class="contact-label">Press &amp; Media:</td><td><a href="mailto:press@verisys.com">press@verisys.com</a></td></tr>
+              <tr><td class="contact-label">General Inquiries:</td><td><a href="mailto:info@verisys.com">info@verisys.com</a></td></tr>
+            </table>
+            <div style="margin-top:14px;">
+              <a href="#" class="btn-cta">CONTACT SALES &raquo;</a>
+              &nbsp;
+              <a href="#" class="btn-cta" style="background-color:#003087; border-color:#002060;">REQUEST A DEMO &raquo;</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</td>
+</tr>
+</table>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <table>
+    <tr>
+      <td>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#">VeriSuite ERP</a></li>
+          <li><a href="#">VeriFlow BPM</a></li>
+          <li><a href="#">VeriVault DW</a></li>
+          <li><a href="#">VeriPortal 4.0</a></li>
+          <li><a href="#">VeriConnect EAI</a></li>
+        </ul>
+      </td>
+      <td>
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#">Financial Services</a></li>
+          <li><a href="#">Healthcare</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Government</a></li>
+          <li><a href="#">Retail</a></li>
+        </ul>
+      </td>
+      <td>
+        <h5>Partners</h5>
+        <ul>
+          <li><a href="#">Partner Directory</a></li>
+          <li><a href="#">Become a Partner</a></li>
+          <li><a href="#">Partner Login</a></li>
+          <li><a href="#">Co-Marketing</a></li>
+        </ul>
+      </td>
+      <td>
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Knowledge Base</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Training</a></li>
+          <li><a href="#">Open Ticket</a></li>
+        </ul>
+      </td>
+      <td>
+        <h5>About</h5>
+        <ul>
+          <li><a href="#">Company Overview</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </td>
+      <td>
+        <h5>Investor Relations</h5>
+        <ul>
+          <li><a href="#">Stock Quote (VRSY)</a></li>
+          <li><a href="#">SEC Filings</a></li>
+          <li><a href="#">Annual Reports</a></li>
+          <li><a href="#">Earnings Calls</a></li>
+          <li><a href="#">Email Alerts</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <div class="footer-bottom">
+    Copyright &copy; 2003 Verisys Enterprise Solutions, Inc. All rights reserved. &nbsp;|&nbsp;
+    <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="#">Site Map</a> &nbsp;|&nbsp; <a href="#">Trademarks</a><br>
+    VeriSuite, VeriCore, VeriFlow, VeriVault, VeriPortal and VeriConnect are registered trademarks of Verisys Enterprise Solutions, Inc.
+    Other product and company names mentioned herein may be trademarks of their respective owners.<br>
+    <span style="font-family:'Courier New',monospace;">Best viewed at 1024x768 resolution with Microsoft Internet Explorer 5.5 or higher.</span>
+  </div>
+</div>
+
+</body>
+</html>

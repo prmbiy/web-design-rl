@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 459908,
+      "page_width": 1440,
+      "page_height": 2206
+    },
+    {
+      "slug": "contact",
+      "path": "contact.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 416215,
+      "page_width": 1440,
+      "page_height": 2395
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 398586,
+      "page_width": 1440,
+      "page_height": 1373
+    },
+    {
+      "slug": "schemes",
+      "path": "schemes.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 419167,
+      "page_width": 1440,
+      "page_height": 1676
+    },
+    {
+      "slug": "tenders",
+      "path": "tenders.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 474030,
+      "page_width": 1440,
+      "page_height": 2316
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

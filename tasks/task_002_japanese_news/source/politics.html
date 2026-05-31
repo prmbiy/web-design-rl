@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>政治 - 朝日毎報 Asahi Mainpō</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  font-size: 14px;
+  color: #1A1A1A;
+  background: #FFFFFF;
+  line-height: 1.55;
+}
+a { color: #0066CC; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* TOP UTILITY BAR */
+.utility-bar {
+  background: #F7F7F7;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 11px;
+  color: #666;
+}
+.utility-bar .inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 4px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.utility-bar .left span { margin-right: 12px; }
+.utility-bar .right span { margin-left: 10px; }
+.utility-bar .right a { margin-left: 10px; }
+.sub-badge {
+  background: #B8860B; color: #fff; padding: 1px 6px;
+  font-weight: 700; font-size: 10px;
+}
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 2px solid #CC0000;
+  padding: 12px 16px;
+  display: grid; grid-template-columns: 200px 1fr 728px;
+  gap: 24px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.logo {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: #CC0000;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.logo .en {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 10px;
+  color: #666;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+.tagline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px;
+  color: #666;
+}
+.tagline strong { color: #1A1A1A; display: block; font-size: 13px; margin-bottom: 2px;}
+.leaderboard-ad {
+  width: 728px; height: 60px;
+  background: linear-gradient(90deg, #003366 0%, #0066CC 100%);
+  color: #fff;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px;
+  font-size: 13px;
+  position: relative;
+}
+.leaderboard-ad::before {
+  content: 'AD';
+  position: absolute; top: 0; left: 0;
+  background: #EEEEEE; color: #666;
+  font-size: 9px; padding: 1px 4px;
+  font-weight: 700;
+}
+.leaderboard-ad .ad-title { font-weight: 700; }
+.leaderboard-ad .ad-sub { font-size: 11px; opacity: 0.9; }
+
+/* CATEGORY NAV */
+.cat-nav {
+  background: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  border-top: 1px solid #DDDDDD;
+}
+.cat-nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.cat-nav a {
+  display: inline-block;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #1A1A1A;
+  border-right: 1px solid #EEE;
+  font-weight: 500;
+}
+.cat-nav a.active {
+  background: #CC0000; color: #FFFFFF; font-weight: 700;
+}
+.cat-nav a:hover:not(.active) { background: #F7F7F7; text-decoration: none; }
+
+/* BREAKING BANNER */
+.breaking {
+  background: #E60012; color: #fff;
+  padding: 8px 0;
+}
+.breaking-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 12px; }
+.breaking-label {
+  background: #fff; color: #E60012;
+  font-weight: 700; font-size: 11px;
+  padding: 2px 8px;
+}
+.breaking-text { font-size: 14px; font-weight: 700; font-family: 'Noto Serif JP', serif; }
+.breaking-time { font-size: 11px; margin-left: auto; opacity: 0.9; }
+
+/* SUB NAV (politics sub-tabs) */
+.sub-nav {
+  background: #F7F7F7;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 6px 0;
+}
+.sub-nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 16px;
+  font-size: 12px;
+}
+.sub-nav-inner span.label {
+  font-weight: 700; color: #CC0000; margin-right: 8px;
+}
+.sub-nav-inner a { margin-right: 14px; color: #1A1A1A; }
+.sub-nav-inner a:hover { color: #CC0000; }
+
+/* BREADCRUMB */
+.breadcrumb {
+  max-width: 1200px; margin: 0 auto; padding: 8px 16px;
+  font-size: 11px; color: #666;
+}
+.breadcrumb a { color: #666; }
+.breadcrumb .sep { margin: 0 6px; }
+
+/* MAIN LAYOUT */
+.main-wrap {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  padding: 0 16px 32px;
+}
+
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1A1A1A;
+  border-bottom: 3px solid #CC0000;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+.section-title .en {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11px; font-weight: 500; color: #666; letter-spacing: 2px;
+}
+
+/* LEAD STORY */
+.lead-story {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #DDDDDD;
+  margin-bottom: 16px;
+}
+.lead-photo {
+  width: 100%; height: 240px;
+  background: linear-gradient(135deg, #1a2640 0%, #34495e 50%, #5d6d7e 100%);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.lead-photo::after {
+  content: '国会議事堂';
+  font-family: 'Noto Serif JP', serif;
+  color: rgba(255,255,255,0.4);
+  font-size: 24px;
+  font-weight: 700;
+}
+.lead-photo .photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.7); color: #fff;
+  font-size: 11px; padding: 4px 8px;
+}
+.lead-meta {
+  font-size: 11px; color: #666;
+  margin-bottom: 6px;
+}
+.lead-meta .cat-tag {
+  background: #CC0000; color: #fff;
+  padding: 2px 6px; font-weight: 700;
+  margin-right: 8px;
+}
+.lead-headline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  color: #1A1A1A;
+}
+.lead-headline a { color: inherit; }
+.lead-sub {
+  font-size: 13px; color: #444; margin-bottom: 10px;
+  line-height: 1.6;
+}
+.lead-byline {
+  font-size: 11px; color: #666;
+  display: flex; gap: 12px; align-items: center;
+  border-top: 1px solid #EEE;
+  padding-top: 6px;
+}
+.byline-author { font-weight: 700; color: #1A1A1A; }
+.comment-count {
+  background: #F7F7F7; padding: 1px 6px;
+  border: 1px solid #DDD;
+  color: #0066CC;
+}
+.comment-count::before { content: '💬 '; }
+
+/* DATED ARTICLE LIST */
+.date-group {
+  margin-bottom: 24px;
+}
+.date-header {
+  background: #F7F7F7;
+  border-left: 4px solid #CC0000;
+  padding: 6px 10px;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.date-header .day-en { font-size: 10px; color: #666; margin-left: 8px; font-weight: 400; }
+
+.article-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dotted #DDDDDD;
+  align-items: flex-start;
+}
+.article-thumb {
+  width: 120px; height: 80px;
+  background: #1a2640;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 24px;
+  position: relative;
+}
+.article-thumb.t2 { background: linear-gradient(135deg, #4a2c2a, #8b3a3a); }
+.article-thumb.t3 { background: linear-gradient(135deg, #2c3e50, #4a6b8a); }
+.article-thumb.t4 { background: linear-gradient(135deg, #3a4a3a, #5d7a5d); }
+.article-thumb.t5 { background: linear-gradient(135deg, #5d4e75, #8b7ba1); }
+.article-thumb.t6 { background: linear-gradient(135deg, #6b4423, #a87c52); }
+.article-thumb.t7 { background: linear-gradient(135deg, #1a3a52, #4a7ba8); }
+.article-thumb.t8 { background: linear-gradient(135deg, #44424a, #6a6878); }
+
+.article-body .a-meta {
+  font-size: 10px; color: #666; margin-bottom: 4px;
+}
+.article-body .a-meta .tag {
+  background: #EEEEEE; color: #333;
+  padding: 1px 5px; margin-right: 6px;
+  font-weight: 700;
+}
+.article-body h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.article-body h3 a { color: #1A1A1A; }
+.article-body h3 a:visited { color: #663366; }
+.article-body .a-excerpt {
+  font-size: 12px; color: #444;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.article-body .a-foot {
+  font-size: 10px; color: #666;
+  display: flex; gap: 10px;
+}
+.article-body .a-foot .author { color: #1A1A1A; font-weight: 700; }
+.article-body .a-foot .comm { color: #0066CC; }
+.article-side {
+  font-size: 10px; color: #999;
+  text-align: right;
+  min-width: 50px;
+}
+.article-side .vert {
+  writing-mode: vertical-rl;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  color: #CC0000;
+  font-weight: 700;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+/* OPINION COLUMN STRIP */
+.opinion-strip {
+  background: #FAF7F0;
+  border: 1px solid #DDD;
+  border-left: 4px solid #B8860B;
+  padding: 12px;
+  margin: 20px 0;
+}
+.opinion-strip h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #B8860B;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #E0D5B7;
+  padding-bottom: 4px;
+}
+.opinion-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+.op-item .op-author {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px; color: #666;
+  margin-bottom: 4px;
+}
+.op-item .op-author .name { color: #CC0000; font-weight: 700; font-size: 12px; }
+.op-item h5 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.op-item h5 a { color: #1A1A1A; }
+.op-item .op-snip { font-size: 11px; color: #555; }
+
+/* PAGINATION */
+.pagination {
+  display: flex; justify-content: center; gap: 4px;
+  margin-top: 16px; font-size: 12px;
+}
+.pagination a, .pagination span {
+  padding: 6px 10px;
+  border: 1px solid #DDD;
+  color: #1A1A1A;
+}
+.pagination .current { background: #CC0000; color: #fff; border-color: #CC0000; }
+
+/* SIDEBAR */
+.sidebar { font-size: 12px; }
+.side-box {
+  border: 1px solid #DDDDDD;
+  margin-bottom: 16px;
+}
+.side-box h3 {
+  background: #1A1A1A;
+  color: #fff;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.side-box h3 .en { font-size: 9px; color: #ccc; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 1px; }
+.side-box .side-body { padding: 8px 10px; }
+
+/* Politician index */
+.pol-item {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dotted #DDD;
+  align-items: center;
+}
+.pol-item:last-child { border-bottom: none; }
+.pol-photo {
+  width: 36px; height: 36px;
+  background: #CC0000;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 14px;
+}
+.pol-photo.ldp { background: #1a3a52; }
+.pol-photo.cdp { background: #006633; }
+.pol-photo.komei { background: #B8860B; }
+.pol-photo.ishin { background: #6b4423; }
+.pol-info .pol-name { font-weight: 700; font-size: 12px; }
+.pol-info .pol-party { font-size: 10px; color: #666; }
+.pol-stat {
+  font-size: 10px; color: #CC0000; font-weight: 700;
+}
+
+/* Election widget */
+.elect-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px; font-weight: 700;
+  margin-bottom: 6px;
+}
+.elect-meta { font-size: 10px; color: #666; margin-bottom: 8px; }
+.poll-row { margin-bottom: 8px; }
+.poll-row .label {
+  display: flex; justify-content: space-between;
+  font-size: 11px; margin-bottom: 2px;
+}
+.poll-row .label .name { font-weight: 700; }
+.poll-bar {
+  height: 14px; background: #EEE; position: relative;
+}
+.poll-bar .fill { height: 100%; }
+.poll-bar.ldp .fill { background: #1a3a52; width: 38%; }
+.poll-bar.cdp .fill { background: #006633; width: 14%; }
+.poll-bar.komei .fill { background: #B8860B; width: 6%; }
+.poll-bar.ishin .fill { background: #6b4423; width: 9%; }
+.poll-bar.jcp .fill { background: #CC0000; width: 4%; }
+.poll-bar.other .fill { background: #999; width: 29%; }
+
+/* Sidebar ad */
+.side-ad {
+  width: 300px; height: 250px;
+  background: linear-gradient(135deg, #2c1810 0%, #5d3a1a 50%, #8b5a2b 100%);
+  color: #fff;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+}
+.side-ad::before {
+  content: 'AD'; position: absolute; top: 0; left: 0;
+  background: #EEEEEE; color: #666;
+  font-size: 9px; padding: 1px 4px; font-weight: 700;
+}
+.side-ad .brand {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px; font-weight: 900; margin-bottom: 8px;
+}
+.side-ad .copy { font-size: 12px; opacity: 0.9; padding: 0 16px; }
+.side-ad .cta {
+  margin-top: 12px;
+  border: 1px solid #fff; padding: 4px 12px;
+  font-size: 11px;
+}
+
+.side-ad.bank {
+  background: linear-gradient(135deg, #003366 0%, #0066CC 100%);
+}
+.side-ad.bank .brand { font-size: 18px; }
+
+/* Stock ticker */
+.ticker {
+  background: #1A1A1A;
+  color: #fff;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  font-size: 12px;
+  padding: 6px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 16px;
+  display: flex; gap: 24px; align-items: center;
+}
+.ticker .lbl { color: #999; font-size: 10px; font-weight: 700; }
+.ticker .sym { font-weight: 700; margin-right: 4px; }
+.ticker .val { color: #fff; }
+.ticker .up { color: #FF4444; }
+.ticker .down { color: #44CC66; }
+.ticker .pipe { color: #444; }
+
+/* FOOTER */
+footer {
+  background: #F7F7F7;
+  border-top: 3px solid #CC0000;
+  margin-top: 32px;
+  padding: 24px 0 0;
+  font-size: 12px;
+  color: #444;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 16px;
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+.footer-col h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: #CC0000;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 4px;
+}
+.footer-col a { display: block; color: #444; padding: 2px 0; font-size: 11px;}
+.footer-col .qr {
+  width: 80px; height: 80px;
+  background:
+    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%) 0 0/12px 12px,
+    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%) 6px 6px/12px 12px,
+    #fff;
+  border: 4px solid #fff;
+  outline: 1px solid #DDD;
+  margin-bottom: 4px;
+}
+.footer-bottom {
+  background: #1A1A1A;
+  color: #999;
+  margin-top: 24px;
+  padding: 12px 0;
+  font-size: 10px;
+}
+.footer-bottom-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 16px;
+  display: flex; justify-content: space-between;
+}
+.footer-bottom a { color: #ccc; margin-left: 12px; }
+
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="inner">
+    <div class="left">
+      <span>2020年12月11日(金) 旧暦十月廿七</span>
+      <span>🌤 東京 8°C / 晴れ</span>
+      <span>大気汚染指数: 42 (良)</span>
+    </div>
+    <div class="right">
+      <span class="sub-badge">購読者</span>
+      <span>こんにちは、田中様</span>
+      <a href="#">マイページ</a>
+      <a href="#">ログアウト</a>
+      <a href="#">📱 アプリ</a>
+      <a href="#">📰 紙面版</a>
+      <a href="#">ENGLISH</a>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="logo">
+    朝日毎報
+    <span class="en">ASAHI MAINPŌ · EST. 1968</span>
+  </div>
+  <div class="tagline">
+    <strong>信頼される日本の声</strong>
+    Japan's Trusted Voice Since 1968 — 創刊52周年
+  </div>
+  <div class="leaderboard-ad">
+    <div>
+      <div class="ad-title">三菱UFJ銀行 住宅ローン</div>
+      <div class="ad-sub">変動金利 年0.475% — 12月末まで事務手数料半額キャンペーン</div>
+    </div>
+    <div style="font-size: 32px;">🏦</div>
+  </div>
+</div>
+
+<!-- BREAKING -->
+<div class="breaking">
+  <div class="breaking-inner">
+    <span class="breaking-label">速報</span>
+    <span class="breaking-text">日銀、追加金融緩和策を発表 政策金利据え置き</span>
+    <span class="breaking-time">本日14:32更新 — 黒田総裁が記者会見で詳細説明</span>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#">速報</a>
+    <a href="#" class="active">政治</a>
+    <a href="#">経済</a>
+    <a href="#">国際</a>
+    <a href="#">社会</a>
+    <a href="#">スポーツ</a>
+    <a href="#">文化</a>
+    <a href="#">エンタメ</a>
+    <a href="#">科学</a>
+    <a href="#">テクノロジー</a>
+    <a href="#">ライフ</a>
+    <a href="#">教育</a>
+    <a href="#">地域</a>
+    <a href="#">気象</a>
+    <a href="#">オピニオン</a>
+    <a href="#">社説</a>
+    <a href="#">コラム</a>
+    <a href="#">書評</a>
+    <a href="#">写真</a>
+    <a href="#">動画</a>
+    <a href="#">english</a>
+    <a href="#">紙面版</a>
+  </div>
+</div>
+
+<!-- SUB NAV -->
+<div class="sub-nav">
+  <div class="sub-nav-inner">
+    <span class="label">政治 ›</span>
+    <a href="#">国会</a>
+    <a href="#">首相動静</a>
+    <a href="#">自民党</a>
+    <a href="#">立憲民主党</a>
+    <a href="#">公明党</a>
+    <a href="#">維新の会</a>
+    <a href="#">共産党</a>
+    <a href="#">選挙</a>
+    <a href="#">外交</a>
+    <a href="#">安全保障</a>
+    <a href="#">行政</a>
+    <a href="#">地方自治</a>
+    <a href="#">政治コラム</a>
+    <a href="#">永田町手帖</a>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">トップ</a><span class="sep">›</span>
+  <a href="#">政治</a><span class="sep">›</span>
+  <span>国会・政党ニュース</span>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- MAIN COLUMN -->
+  <main>
+    <div class="section-title">
+      政治
+      <span class="en">POLITICS · 国会・政党・選挙・外交</span>
+    </div>
+
+    <!-- LEAD STORY -->
+    <article class="lead-story">
+      <div class="lead-photo">
+        <div class="photo-caption">写真：国会議事堂前で会見する菅首相（11日午後、永田町）撮影／本社写真部</div>
+      </div>
+      <div>
+        <div class="lead-meta">
+          <span class="cat-tag">国会</span>
+          2020年12月11日 13:45 配信
+        </div>
+        <h2 class="lead-headline">
+          <a href="#">菅内閣支持率、41%に急落 GoToトラベル全国一時停止の影響鮮明</a>
+        </h2>
+        <p class="lead-sub">
+          本紙が9〜10日に実施した全国世論調査によると、菅義偉内閣の支持率は前月比16ポイント減の41%となり、9月の発足以来最低を記録した。新型コロナウイルス感染再拡大を受けたGoToトラベル全国一時停止の判断について「遅すぎた」との回答が67%に達し、政府のコロナ対応への不満が支持率低下の主因とみられる。一方、不支持率は38%(前月比+15)に上昇した。
+        </p>
+        <div class="lead-byline">
+          <span class="byline-author">政治部 / 中村 健一郎 記者</span>
+          <span>調査対象: 全国18歳以上 1,847人</span>
+          <span class="comment-count">コメント 2,341</span>
+          <span style="margin-left:auto;">📤 シェア 4.2万</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- DATE GROUP: TODAY -->
+    <div class="date-group">
+      <div class="date-header">
+        12月11日（金）<span class="day-en">Friday · DEC 11, 2020</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t2">🏛</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">自民党</span>
+            14:18配信
+          </div>
+          <h3><a href="#">自民党総裁選 二階幹事長「来年9月実施が原則」 党内には前倒し論も</a></h3>
+          <p class="a-excerpt">自民党の二階俊博幹事長は11日午前、党本部で記者団に対し、次期総裁選について「来年9月の任期満了に伴う実施が原則」と述べた。一方、岸田文雄前政調会長を支持するグループからは衆院解散・総選挙との関連で前倒し論も浮上している…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 佐藤 美咲</span>
+            <span class="comm">💬 487</span>
+            <span>📤 1,203</span>
+          </div>
+        </div>
+        <div class="article-side">
+          <div>13:00</div>
+          <div class="vert">注目</div>
+        </div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t3">🗳</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">国会</span>
+            12:55配信
+          </div>
+          <h3><a href="#">第三次補正予算案、19兆円規模で閣議決定 コロナ対策・脱炭素投資を柱に</a></h3>
+          <p class="a-excerpt">政府は11日午前の閣議で、2020年度第三次補正予算案を決定した。総額19兆1761億円で、新型コロナ対策に4兆3000億円、ポストコロナを見据えた経済構造転換に11兆7000億円を計上。年明けの通常国会で審議入りする予定…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 山本 浩二</span>
+            <span class="comm">💬 1,089</span>
+            <span>📤 2,455</span>
+          </div>
+        </div>
+        <div class="article-side">
+          <div>12:55</div>
+        </div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t4">🇯🇵</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">公明党</span>
+            11:30配信
+          </div>
+          <h3><a href="#">公明・山口代表「現金一律給付の再実施を」 連立協議で要求へ</a></h3>
+          <p class="a-excerpt">公明党の山口那津男代表は11日午前の記者会見で、新型コロナ感染拡大を受けた追加経済対策として、特別定額給付金の再支給を政府に求める考えを示した。連立与党の自民党との調整は難航が予想される…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 鈴木 由香里</span>
+            <span class="comm">💬 3,421</span>
+            <span>📤 5,890</span>
+          </div>
+        </div>
+        <div class="article-side">
+          <div>11:30</div>
+          <div class="vert">話題</div>
+        </div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t5">📋</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">立民</span>
+            10:42配信
+          </div>
+          <h3><a href="#">立憲・枝野代表、内閣不信任案提出を検討 「コロナ無策、看過できぬ」</a></h3>
+          <p class="a-excerpt">立憲民主党の枝野幸男代表は10日夜のBSフジ番組で、菅内閣に対する不信任決議案の提出を検討していることを明らかにした。臨時国会の会期末である16日までの提出を視野に、他の野党との調整を急ぐ…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 高橋 健太</span>
+            <span class="comm">💬 892</span>
+            <span>📤 1,567</span>
+          </div>
+        </div>
+        <div class="article-side">
+          <div>10:42</div>
+        </div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t6">🌐</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">外交</span>
+            09:15配信
+          </div>
+          <h3><a href="#">日米首脳電話会談 バイデン次期大統領と初の意見交換 同盟強化で一致</a></h3>
+          <p class="a-excerpt">菅首相は11日早朝、米国のバイデン次期大統領と就任前として初めて電話で会談した。約30分間の会談で両首脳は「自由で開かれたインド太平洋」の実現に向け、日米同盟をさらに強化することで一致。尖閣諸島が日米安全保障条約第5条の適用対象であることも確認した…</p>
+          <div class="a-foot">
+            <span class="author">外務省担当 / 渡辺 真一</span>
+            <span class="comm">💬 2,108</span>
+            <span>📤 8,234</span>
+          </div>
+        </div>
+        <div class="article-side">
+          <div>09:15</div>
+          <div class="vert">速報</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPINION STRIP -->
+    <div class="opinion-strip">
+      <h4>◆ 政治オピニオン・コラム — POLITICAL COMMENTARY</h4>
+      <div class="opinion-grid">
+        <div class="op-item">
+          <div class="op-author">社説 ／ <span class="name">本社論説委員会</span></div>
+          <h5><a href="#">社説：コロナ第三波への備え、政府は司令塔機能の再構築を急げ</a></h5>
+          <div class="op-snip">感染再拡大の局面で、官邸と厚労省、自治体の連携不全が露呈している…</div>
+        </div>
+        <div class="op-item">
+          <div class="op-author">コラム ／ <span class="name">山田 太郎</span> 編集委員</div>
+          <h5><a href="#">米大統領選後の世界秩序——日本外交が直面する三つの試練</a></h5>
+          <div class="op-snip">バイデン政権の発足を控え、対中政策、TPP、気候変動の三正面で…</div>
+        </div>
+        <div class="op-item">
+          <div class="op-author">投書欄 ／ <span class="name">読者の声</span></div>
+          <h5><a href="#">「政治家の言葉が軽くなった」 — 70代主婦・東京</a></h5>
+          <div class="op-snip">国会中継を毎日見ているが、答弁のすれ違いに失望する日々が続く…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATE GROUP: YESTERDAY -->
+    <div class="date-group">
+      <div class="date-header">
+        12月10日（木）<span class="day-en">Thursday · DEC 10, 2020</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t7">⚖</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">国会</span>
+            12月10日 22:48配信
+          </div>
+          <h3><a href="#">桜を見る会問題 安倍前首相、衆参両院議長に再聴取を申し入れ承諾</a></h3>
+          <p class="a-excerpt">「桜を見る会」前夜祭の費用補填問題をめぐり、安倍晋三前首相は10日夜、衆参両院議長に対し、改めて国会で説明する意向を伝えた。野党側は予算委員会での集中審議を求めており…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 木村 直樹</span>
+            <span class="comm">💬 5,672</span>
+            <span>📤 12,440</span>
+          </div>
+        </div>
+        <div class="article-side"><div>22:48</div></div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t8">🏯</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">地方政治</span>
+            12月10日 19:30配信
+          </div>
+          <h3><a href="#">大阪都構想の否決から1カ月 — 維新、戦略練り直し 松井市長続投表明</a></h3>
+          <p class="a-excerpt">11月の住民投票で僅差で否決された大阪都構想から1カ月。日本維新の会の松井一郎代表（大阪市長）は10日、市役所で記者団の取材に応じ、来年4月の任期満了まで市長職を全うする考えを示した…</p>
+          <div class="a-foot">
+            <span class="author">大阪支局 / 井上 千鶴</span>
+            <span class="comm">💬 1,856</span>
+            <span>📤 3,109</span>
+          </div>
+        </div>
+        <div class="article-side"><div>19:30</div></div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t2">🛡</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">安保</span>
+            12月10日 16:12配信
+          </div>
+          <h3><a href="#">防衛省、宇宙作戦隊を新編 来年度予算案で人員2倍へ 中露の衛星攻撃に対応</a></h3>
+          <p class="a-excerpt">岸信夫防衛相は10日の会見で、航空自衛隊の宇宙作戦隊を来年度に拡充し、要員を現在の20人から40人に倍増する方針を明らかにした。米宇宙軍との連携強化も視野に…</p>
+          <div class="a-foot">
+            <span class="author">防衛省担当 / 加藤 弘樹</span>
+            <span class="comm">💬 743</span>
+            <span>📤 2,011</span>
+          </div>
+        </div>
+        <div class="article-side"><div>16:12</div></div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t3">📜</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">行政</span>
+            12月10日 14:00配信
+          </div>
+          <h3><a href="#">デジタル庁、来年9月発足で正式決定 平井大臣「縦割り打破の象徴に」</a></h3>
+          <p class="a-excerpt">政府は10日、デジタル改革関連法案を閣議決定し、デジタル庁を2021年9月1日に発足させる方針を固めた。職員は500人規模で、うち民間出身者を100人以上採用する…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 林 美穂</span>
+            <span class="comm">💬 1,122</span>
+            <span>📤 4,567</span>
+          </div>
+        </div>
+        <div class="article-side"><div>14:00</div></div>
+      </div>
+    </div>
+
+    <!-- DATE GROUP: TWO DAYS AGO -->
+    <div class="date-group">
+      <div class="date-header">
+        12月9日（水）<span class="day-en">Wednesday · DEC 9, 2020</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t4">📊</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">選挙</span>
+            12月9日 20:55配信
+          </div>
+          <h3><a href="#">解散総選挙、来年秋の任期満了選挙が有力 自民党選対委員長が言及</a></h3>
+          <p class="a-excerpt">自民党の山口泰明選対委員長は9日夜、東京都内で講演し、次期衆院選について「コロナの状況を見極めれば、任期満了に近い来年10月が妥当ではないか」と述べた…</p>
+          <div class="a-foot">
+            <span class="author">政治部 / 中村 健一郎</span>
+            <span class="comm">💬 2,890</span>
+            <span>📤 6,712</span>
+          </div>
+        </div>
+        <div class="article-side"><div>20:55</div></div>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb t5">🇨🇳</div>
+        <div class="article-body">
+          <div class="a-meta">
+            <span class="tag">外交</span>
+            12月9日 17:22配信
+          </div>
+          <h3><a href="#">日中外相会談 王毅外相が来日 尖閣・香港問題で隔たり鮮明</a></h3>
+          <p class="a-excerpt">茂木敏充外相は9日、来日した中国の王毅外相と東京・飯倉公館で会談した。約1時間45分の会談で、東シナ海情勢について「深刻な懸念」を改めて伝達。一方、コロナ後の経済交流再開では合意…</p>
+          <div class="a-foot">
+            <span class="author">外務省担当 / 渡辺 真一</span>
+            <span class="comm">💬 4,233</span>
+            <span>📤 7,889</span>
+          </div>
+        </div>
+        <div class="article-side"><div>17:22</div></div>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      <span class="current">1</span>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span>…</span>
+      <a href="#">487</a>
+      <a href="#">次へ ›</a>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- POLITICIAN INDEX -->
+    <div class="side-box">
+      <h3>政治家インデックス <span class="en">POLITICIANS</span></h3>
+      <div class="side-body">
+        <div class="pol-item">
+          <div class="pol-photo ldp">菅</div>
+          <div class="pol-info">
+            <div class="pol-name">菅 義偉</div>
+            <div class="pol-party">自民党・第99代首相</div>
+          </div>
+          <div class="pol-stat">+312</div>
+        </div>
+        <div class="pol-item">
+          <div class="pol-photo ldp">二</div>
+          <div class="pol-info">
+            <div class="pol-name">二階 俊博</div>
+            <div class="pol-party">自民党 幹事長</div>
+          </div>
+          <div class="pol-stat">+89</div>
+        </div>
+        <div class="pol-item">
+          <div class="pol-photo cdp">枝</div>
+          <div class="pol-info">
+            <div class="pol-name">枝野 幸男</div>
+            <div class="pol-party">立憲民主党 代表</div>
+          </div>
+          <div class="pol-stat">+156</div>
+        </div>
+        <div class="pol-item">
+          <div class="pol-photo komei">山</div>
+          <div class="pol-info">
+            <div class="pol-name">山口 那津男</div>
+            <div class="pol-party">公明党 代表</div>
+          </div>
+          <div class="pol-stat">+47</div>
+        </div>
+        <div class="pol-item">
+          <div class="pol-photo ishin">松</div>
+          <div class="pol-info">
+            <div class="pol-name">松井 一郎</div>
+            <div class="pol-party">日本維新の会 代表</div>
+          </div>
+          <div class="pol-stat">+72</div>
+        </div>
+        <div class="pol-item">
+          <div class="pol-photo ldp">岸</div>
+          <div class="pol-info">
+            <div class="pol-name">岸田 文雄</div>
+            <div class="pol-party">自民党 前政調会長</div>
+          </div>
+          <div class="pol-stat">+108</div>
+        </div>
+        <div style="text-align: right; padding-top: 4px;">
+          <a href="#" style="font-size: 11px;">全議員リストへ ›</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ELECTION WIDGET -->
+    <div class="side-box">
+      <h3>選挙・世論調査 <span class="en">ELECTION POLL</span></h3>
+      <div class="side-body">
+        <div class="elect-title">次期衆院選 政党支持率</div>
+        <div class="elect-meta">本社世論調査 (12/9-10) · 回答1,847人</div>
+
+        <div class="poll-row">
+          <div class="label"><span class="name">自由民主党</span><span>38.2%</span></div>
+          <div class="poll-bar ldp"><div class="fill"></div></div>
+        </div>
+        <div class="poll-row">
+          <div class="label"><span class="name">立憲民主党</span><span>14.1%</span></div>
+          <div class="poll-bar cdp"><div class="fill"></div></div>
+        </div>
+        <div class="poll-row">
+          <div class="label"><span class="name">日本維新の会</span><span>9.3%</span></div>
+          <div class="poll-bar ishin"><div class="fill"></div></div>
+        </div>
+        <div class="poll-row">
+          <div class="label"><span class="name">公明党</span><span>6.4%</span></div>
+          <div class="poll-bar komei"><div class="fill"></div></div>
+        </div>
+        <div class="poll-row">
+          <div class="label"><span class="name">共産党</span><span>3.8%</span></div>
+          <div class="poll-bar jcp"><div class="fill"></div></div>
+        </div>
+        <div class="poll-row">
+          <div class="label"><span class="name">支持なし／その他</span><span>28.2%</span></div>
+          <div class="poll-bar other"><div class="fill"></div></div>
+        </div>
+
+        <div style="border-top:1px solid #DDD; margin-top: 8px; padding-top: 8px;">
+          <div style="font-size: 11px; color: #666;">📅 次回調査: 2021年1月8-9日</div>
+          <a href="#" style="font-size: 11px;">調査の詳細・推移グラフ ›</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR AD 1 -->
+    <div class="side-ad">
+      <div class="brand">SUNTORY</div>
+      <div style="font-size: 14px; font-weight: 700; margin-bottom: 4px; font-family: 'Noto Serif JP', serif;">ザ・プレミアム・モルツ</div>
+      <div class="copy">一日の終わりに、ご褒美のひとときを。</div>
+      <div class="cta">商品情報を見る ›</div>
+    </div>
+
+    <!-- DIET SCHEDULE -->
+    <div class="side-box">
+      <h3>本日の国会日程 <span class="en">DIET TODAY</span></h3>
+      <div class="side-body" style="font-size: 11px;">
+        <div style="padding: 4px 0; border-bottom: 1px dotted #DDD;">
+          <strong style="color:#CC0000;">09:00</strong> 衆院本会議<br>
+          <span style="color:#666;">補正予算案 趣旨説明</span>
+        </div>
+        <div style="padding: 4px 0; border-bottom: 1px dotted #DDD;">
+          <strong style="color:#CC0000;">10:30</strong> 参院予算委<br>
+          <span style="color:#666;">首相出席・コロナ集中審議</span>
+        </div>
+        <div style="padding: 4px 0; border-bottom: 1px dotted #DDD;">
+          <strong style="color:#CC0000;">13:00</strong> 衆院厚労委<br>
+          <span style="color:#666;">ワクチン接種法案 採決</span>
+        </div>
+        <div style="padding: 4px 0; border-bottom: 1px dotted #DDD;">
+          <strong style="color:#CC0000;">15:00</strong> 衆院外務委<br>
+          <span style="color:#666;">RCEP承認案 質疑</span>
+        </div>
+        <div style="padding: 4px 0;">
+          <strong style="color:#CC0000;">17:00</strong> 自民党政調全体会<br>
+          <span style="color:#666;">三

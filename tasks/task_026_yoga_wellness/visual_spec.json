@@ -1,0 +1,76 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap",
+    "font_heading": "'Cormorant Garamond', serif",
+    "font_body": "'Lato', sans-serif",
+    "font_mono": null,
+    "size_h1": "64px",
+    "size_h2": "42px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#88A47C",
+    "color_secondary": "#D4B896",
+    "color_accent": "#C5848A",
+    "color_bg": "#FAFAF7",
+    "color_surface": "#F5ECD7",
+    "color_text": "#5C5C52",
+    "color_text_muted": "#9E9E8E",
+    "color_border": "#E8E2D5",
+    "border_radius": "2px",
+    "container_max_width": "1240px",
+    "section_padding": "120px 40px",
+    "nav_bg": "rgba(250,250,247,0.85)",
+    "nav_height": "84px",
+    "nav_position": "fixed",
+    "footer_bg": "#F5ECD7",
+    "extra_colors": {
+      "terracotta": "#B87355",
+      "deep_sage": "#5F7256",
+      "warm_white": "#FDFCF8"
+    },
+    "animation_specs": {
+      "fade_in_hero": {
+        "css": "@keyframes fade_in_hero { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } } .hero, .hero h1, .hero p { animation: fade_in_hero 1.6s ease-out both; }",
+        "applies_to": ".hero, .hero h1, .hero p",
+        "trigger": "on-load"
+      },
+      "scroll_reveal_cards": {
+        "css": "@keyframes scroll_reveal_cards { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } } .card, .class-card, .teacher-card { animation: scroll_reveal_cards 1s ease-out both; }",
+        "applies_to": ".card, .class-card, .teacher-card",
+        "trigger": "on-scroll"
+      },
+      "soft_hover_image_zoom": {
+        "css": ".img-zoom { overflow: hidden; } .img-zoom img { transition: transform 1.2s ease; } .img-zoom:hover img { transform: scale(1.05); }",
+        "applies_to": ".img-zoom img",
+        "trigger": "on-hover"
+      },
+      "breath_pulse": {
+        "css": "@keyframes breath_pulse { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } } .breath { animation: breath_pulse 4s ease-in-out infinite; }",
+        "applies_to": ".breath",
+        "trigger": "continuous"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed hero photo with thin serif headline center-left, followed by three-column class type cards, a horizontal weekly schedule preview, single teacher spotlight with portrait, and a quiet membership banner.",
+      "bg": "#FAFAF7"
+    },
+    "schedule": {
+      "layout": "Day-tab navigation atop a clean 7-column calendar grid with class cards stacked by time; left sidebar holds filters for style, teacher, and virtual toggle.",
+      "bg": "#FDFCF8"
+    },
+    "teachers": {
+      "layout": "Asymmetric editorial grid of portrait cards alternating left/right with name in italic, certifications below, and expandable bio panel.",
+      "bg": "#FAFAF7"
+    },
+    "workshops": {
+      "layout": "Vertical stack of full-width event blocks with large imagery on alternating sides, title in serif, date/location meta line, and gentle 'Investment' price with reserve button.",
+      "bg": "linear-gradient(180deg, #FAFAF7 0%, #F5ECD7 100%)"
+    },
+    "about": {
+      "layout": "Long-form narrative single-column with oversized serif pull quotes, full-bleed studio photo interludes, testimonial carousel, and final FAQ accordion.",
+      "bg": "#FAFAF7"
+    }
+  }
+}

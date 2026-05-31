@@ -1,0 +1,77 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap",
+    "font_heading": "'Inter', system-ui, sans-serif",
+    "font_body": "'Inter', system-ui, sans-serif",
+    "font_mono": "'JetBrains Mono', ui-monospace, monospace",
+    "size_h1": "60px",
+    "size_h2": "32px",
+    "size_body": "16px",
+    "size_small": "14px",
+    "color_primary": "#4F6BFF",
+    "color_secondary": "#A78BFA",
+    "color_accent": "#22C55E",
+    "color_bg": "#0F1117",
+    "color_surface": "#171923",
+    "color_text": "#FFFFFF",
+    "color_text_muted": "#94A3B8",
+    "color_border": "#252836",
+    "border_radius": "12px",
+    "container_max_width": "1200px",
+    "section_padding": "96px 24px",
+    "nav_bg": "rgba(15,17,23,0.85)",
+    "nav_height": "64px",
+    "nav_position": "sticky",
+    "footer_bg": "#0A0C12",
+    "extra_colors": {
+      "gradient_start": "#4F6BFF",
+      "gradient_end": "#A78BFA",
+      "code_bg": "#0A0C12",
+      "badge_bg": "#1E293B"
+    },
+    "animation_specs": {
+      "fade_in_hero": {
+        "css": "@keyframes fade_in_hero { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } .hero-content { animation: fade_in_hero 0.8s ease-out forwards; }",
+        "applies_to": ".hero-content, .hero h1, .hero p, .hero-cta",
+        "trigger": "on-load"
+      },
+      "hover_card_lift": {
+        "css": ".feature-card, .pricing-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; } .feature-card:hover, .pricing-card:hover { transform: translateY(-4px); border-color: #4F6BFF; box-shadow: 0 12px 32px rgba(79,107,255,0.15); }",
+        "applies_to": ".feature-card, .pricing-card",
+        "trigger": "on-hover"
+      },
+      "gradient_border_glow": {
+        "css": "@keyframes gradient_border_glow { 0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); } 50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); } } .glow-border { animation: gradient_border_glow 3s ease-in-out infinite; border: 1px solid transparent; background-image: linear-gradient(#171923,#171923), linear-gradient(135deg,#4F6BFF,#A78BFA); background-origin: border-box; background-clip: padding-box, border-box; }",
+        "applies_to": ".pricing-card.featured, .cta-primary, .glow-border",
+        "trigger": "continuous"
+      },
+      "counter_animation_stats": {
+        "css": "@keyframes counter_animation_stats { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } } .stat-number { animation: counter_animation_stats 1s ease-out forwards; display: inline-block; }",
+        "applies_to": ".stat-number, .github-stars-count",
+        "trigger": "on-scroll"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Centered dark hero with gradient text headline and dual CTAs, followed by logo strip, 3-column feature grid, code snippet demo block, testimonial carousel, and pricing preview.",
+      "bg": "radial-gradient(ellipse at top, #1A1D2E 0%, #0F1117 60%)"
+    },
+    "features": {
+      "layout": "Stacked feature category sections alternating left/right with illustrations, comparison table, video embed, and 6-column integration logos grid.",
+      "bg": "#0F1117"
+    },
+    "pricing": {
+      "layout": "Centered monthly/annual toggle above three side-by-side pricing tier cards with feature checklists, followed by enterprise CTA banner and FAQ accordion.",
+      "bg": "linear-gradient(180deg, #0F1117 0%, #131625 100%)"
+    },
+    "docs": {
+      "layout": "Two-column layout with left sidebar navigation and main content area containing quick start, tabbed SDK install snippets, and linked guide cards.",
+      "bg": "#0F1117"
+    },
+    "blog": {
+      "layout": "Category filter bar above two-column grid of article cards with author avatars, separate changelog timeline section, and email subscribe form.",
+      "bg": "#0F1117"
+    }
+  }
+}

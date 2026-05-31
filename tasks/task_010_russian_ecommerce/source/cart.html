@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Корзина (3 товара) | ТоргоМир</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1A1A1A; background: #F2F2F2; line-height: 1.4; }
+a { color: inherit; text-decoration: none; }
+
+/* TOP BAR */
+.topbar { background: #333; color: #fff; height: 56px; display: flex; align-items: center; padding: 0 24px; gap: 16px; position: sticky; top: 0; z-index: 100; }
+.logo { font-size: 22px; font-weight: 900; color: #FF6100; white-space: nowrap; }
+.logo span { color: #fff; }
+.catalog-btn { background: #FF6100; color: #fff; border: none; padding: 10px 18px; border-radius: 4px; font-weight: 700; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.search-wrap { flex: 0 0 40%; display: flex; height: 38px; }
+.search-wrap input { flex: 1; border: none; border-radius: 4px 0 0 4px; padding: 0 12px; font-size: 14px; outline: none; }
+.search-wrap button { background: #FF6100; color: #fff; border: none; padding: 0 18px; border-radius: 0 4px 4px 0; font-weight: 700; cursor: pointer; }
+.city { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #ddd; }
+.city b { color: #fff; }
+.top-links { display: flex; gap: 18px; margin-left: auto; align-items: center; font-size: 12px; }
+.top-link { display: flex; flex-direction: column; align-items: center; color: #ddd; cursor: pointer; min-width: 48px; }
+.top-link .icon { font-size: 18px; margin-bottom: 2px; }
+.top-link.active, .top-link:hover { color: #FF6100; }
+.cart-badge { position: relative; }
+.cart-badge::after { content: "3"; position: absolute; top: -4px; right: -6px; background: #FF6100; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 8px; }
+
+/* CATEGORY STRIP */
+.cat-strip { background: #444; color: #fff; padding: 0 24px; display: flex; gap: 18px; overflow-x: auto; font-size: 13px; white-space: nowrap; height: 40px; align-items: center; }
+.cat-strip a { padding: 4px 0; color: #e8e8e8; }
+.cat-strip a:hover { color: #FF6100; }
+.cat-strip a.premium { color: #FFC107; }
+
+/* LOCATION BAR */
+.loc-bar { background: #fff; border-bottom: 1px solid #E0E0E0; padding: 8px 24px; font-size: 12px; color: #555; display: flex; gap: 16px; }
+.loc-bar b { color: #00A857; }
+
+/* CONTAINER */
+.container { max-width: 1280px; margin: 0 auto; padding: 16px 24px 40px; }
+
+/* BREADCRUMBS */
+.crumbs { font-size: 12px; color: #7A7A7A; margin-bottom: 12px; }
+.crumbs a:hover { color: #FF6100; }
+
+.page-title { font-size: 28px; font-weight: 900; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: #7A7A7A; margin-bottom: 16px; }
+
+/* CART TABS */
+.cart-tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 2px solid #E0E0E0; }
+.cart-tabs a { padding: 10px 16px; font-size: 14px; font-weight: 700; color: #7A7A7A; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.cart-tabs a.active { color: #1A1A1A; border-bottom-color: #FF6100; }
+.cart-tabs .count { color: #7A7A7A; font-weight: 400; margin-left: 4px; }
+
+/* LAYOUT */
+.cart-grid { display: grid; grid-template-columns: 1fr 360px; gap: 20px; align-items: start; }
+
+/* LEFT */
+.cart-card { background: #fff; border-radius: 4px; padding: 16px; margin-bottom: 12px; border: 1px solid #E0E0E0; }
+.seller-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #F0F0F0; margin-bottom: 12px; }
+.seller-head .left { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.seller-head .check-all { width: 16px; height: 16px; border: 2px solid #FF6100; background: #FF6100; border-radius: 3px; position: relative; }
+.seller-head .check-all::after { content: "✓"; position: absolute; color: #fff; font-size: 12px; font-weight: 900; top: -3px; left: 2px; }
+.seller-head a { color: #FF6100; font-size: 12px; }
+.seller-badge { background: #00A857; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 700; }
+
+.item { display: grid; grid-template-columns: 20px 88px 1fr 160px 140px; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #F0F0F0; }
+.item:last-child { border-bottom: none; }
+.cb { width: 16px; height: 16px; border: 2px solid #FF6100; background: #FF6100; border-radius: 3px; position: relative; }
+.cb::after { content: "✓"; position: absolute; color: #fff; font-size: 11px; font-weight: 900; top: -3px; left: 2px; }
+.thumb { width: 88px; height: 88px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #999; }
+.thumb.phone { background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4a 100%); color: #fff; }
+.thumb.case { background: linear-gradient(135deg, #2c2c2c 0%, #444 100%); color: #ccc; }
+.thumb.glass { background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%); color: #0277bd; }
+
+.item-info .name { font-size: 14px; font-weight: 400; color: #1A1A1A; margin-bottom: 6px; line-height: 1.3; }
+.item-info .name:hover { color: #FF6100; }
+.item-info .seller-line { font-size: 12px; color: #7A7A7A; margin-bottom: 6px; }
+.item-info .meta { display: flex; gap: 10px; font-size: 12px; color: #7A7A7A; flex-wrap: wrap; }
+.item-info .delivery { color: #00A857; font-weight: 700; }
+.item-info .stock-low { color: #E30000; font-weight: 700; }
+.item-actions { display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+.item-actions a { color: #7A7A7A; }
+.item-actions a:hover { color: #FF6100; }
+
+.stepper { display: inline-flex; border: 1px solid #E0E0E0; border-radius: 4px; overflow: hidden; background: #fff; }
+.stepper button { width: 32px; height: 32px; background: #F7F7F7; border: none; font-size: 18px; cursor: pointer; color: #333; }
+.stepper input { width: 40px; height: 32px; border: none; text-align: center; font-size: 14px; font-weight: 700; outline: none; border-left: 1px solid #E0E0E0; border-right: 1px solid #E0E0E0; }
+
+.item-price { text-align: right; }
+.item-price .new { font-size: 20px; font-weight: 900; color: #1A1A1A; white-space: nowrap; }
+.item-price .old { font-size: 12px; color: #999; text-decoration: line-through; }
+.item-price .per { font-size: 11px; color: #7A7A7A; margin-top: 2px; }
+.bnpl-mini { display: inline-block; background: #f4f0ff; color: #6E4FE0; font-size: 10px; padding: 2px 5px; border-radius: 3px; margin-top: 4px; font-weight: 700; }
+
+/* PROMO CODE CARD */
+.promo-card { display: flex; gap: 8px; align-items: center; }
+.promo-card .promo-icon { width: 36px; height: 36px; background: #FFF0E5; color: #FF6100; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.promo-card .promo-text { flex: 1; }
+.promo-card .promo-text b { display: block; font-size: 13px; }
+.promo-card .promo-text span { font-size: 11px; color: #7A7A7A; }
+.promo-card input { flex: 1; border: 1px solid #E0E0E0; border-radius: 4px; padding: 10px 12px; font-size: 13px; outline: none; }
+.promo-card input:focus { border-color: #FF6100; }
+.promo-card button { background: #fff; color: #FF6100; border: 1px solid #FF6100; padding: 10px 18px; border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 13px; }
+.promo-hint { font-size: 11px; color: #00A857; margin-top: 8px; padding-left: 44px; }
+
+/* RIGHT SIDEBAR */
+.summary { background: #fff; border-radius: 4px; padding: 16px; border: 1px solid #E0E0E0; position: sticky; top: 110px; }
+.summary h3 { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+.summary .saved { color: #00A857; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+.checkout-btn { width: 100%; background: #FF6100; color: #fff; border: none; padding: 14px; border-radius: 4px; font-size: 16px; font-weight: 900; cursor: pointer; margin-bottom: 10px; }
+.checkout-btn:hover { background: #e85800; }
+.installment-btn { width: 100%; background: #fff; color: #6E4FE0; border: 1px solid #6E4FE0; padding: 11px; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; margin-bottom: 14px; }
+.summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; }
+.summary-row.total { padding-top: 12px; margin-top: 8px; border-top: 1px dashed #E0E0E0; font-weight: 900; font-size: 16px; }
+.summary-row .label { color: #555; }
+.summary-row .val { font-weight: 700; }
+.summary-row .val.discount { color: #00A857; }
+.summary-row .val.free { color: #00A857; }
+.bonus-line { background: linear-gradient(90deg, #FFF0F6 0%, #FFE6EE 100%); padding: 10px 12px; border-radius: 4px; margin: 12px 0; display: flex; align-items: center; gap: 10px; }
+.bonus-icon { width: 28px; height: 28px; background: #F0257A; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; }
+.bonus-line b { color: #F0257A; }
+.bonus-line span { font-size: 12px; color: #444; }
+.delivery-box { border: 1px solid #E0E0E0; border-radius: 4px; padding: 10px; margin-top: 12px; }
+.delivery-box .dtitle { font-size: 12px; color: #7A7A7A; margin-bottom: 6px; }
+.delivery-opt { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 12px; }
+.radio { width: 14px; height: 14px; border: 2px solid #FF6100; border-radius: 50%; position: relative; flex-shrink: 0; }
+.radio.checked::after { content: ""; width: 6px; height: 6px; background: #FF6100; border-radius: 50%; position: absolute; top: 2px; left: 2px; }
+.delivery-opt .price { margin-left: auto; font-weight: 700; }
+.delivery-opt .price.free { color: #00A857; }
+.policy { font-size: 10px; color: #7A7A7A; margin-top: 12px; line-height: 1.4; }
+.policy a { color: #FF6100; }
+
+/* CROSS SELL */
+.cross-sell { margin-top: 28px; }
+.cross-sell h2 { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+.cs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.cs-card { background: #fff; border-radius: 4px; padding: 12px; border: 1px solid #E0E0E0; position: relative; }
+.cs-card .cs-img { width: 100%; height: 140px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 8px; }
+.cs-img.pb { background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); color: #FF6100; }
+.cs-img.ep { background: linear-gradient(135deg, #fafafa 0%, #e8e8e8 100%); color: #888; }
+.cs-img.sd { background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%); color: #fff; }
+.cs-img.kb { background: linear-gradient(135deg, #263238 0%, #455a64 100%); color: #fff; }
+.cs-img.mc { background: linear-gradient(135deg, #FFE082 0%, #FFB300 100%); color: #5d4037; }
+.cs-card .cs-price { font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+.cs-card .cs-name { font-size: 13px; color: #1A1A1A; margin-bottom: 6px; line-height: 1.3; min-height: 34px; }
+.cs-card .cs-rating { font-size: 11px; color: #7A7A7A; margin-bottom: 6px; }
+.cs-card .cs-rating .stars { color: #FF6100; font-weight: 700; }
+.cs-card .cs-deliv { font-size: 11px; color: #00A857; font-weight: 700; margin-bottom: 8px; }
+.cs-card .cs-cart { width: 100%; background: #FF6100; color: #fff; border: none; padding: 8px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.cs-card .ad-badge { position: absolute; top: 8px; right: 8px; background: #FFC107; color: #000; font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 3px; }
+
+/* RECENTLY VIEWED */
+.rv { margin-top: 28px; }
+.rv h2 { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+.rv-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.rv-card { background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 10px; }
+.rv-card .img { height: 100px; border-radius: 4px; background: linear-gradient(135deg, #f0f0f0, #ddd); margin-bottom: 6px; display: flex; align-items: center; justify-content: center; font-size: 36px; }
+.rv-card .p { font-size: 14px; font-weight: 900; }
+.rv-card .n { font-size: 11px; color: #555; margin-top: 2px; line-height: 1.3; }
+
+/* TRUST STRIP */
+.trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 16px; }
+.trust-item { display: flex; gap: 10px; align-items: flex-start; }
+.trust-item .ti-icon { width: 36px; height: 36px; background: #FFF0E5; color: #FF6100; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.trust-item b { display: block; font-size: 13px; margin-bottom: 2px; }
+.trust-item span { font-size: 11px; color: #7A7A7A; }
+
+/* FOOTER */
+footer { background: #2A2A2A; color: #ccc; padding: 32px 24px 20px; margin-top: 40px; }
+.foot-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1.2fr; gap: 24px; }
+.foot-col h4 { color: #fff; font-size: 13px; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.foot-col a { display: block; font-size: 12px; color: #aaa; padding: 4px 0; }
+.foot-col a:hover { color: #FF6100; }
+.foot-brand .logo { font-size: 24px; margin-bottom: 8px; }
+.foot-brand p { font-size: 12px; color: #aaa; margin-bottom: 12px; max-width: 240px; }
+.socials { display: flex; gap: 8px; }
+.socials span { width: 32px; height: 32px; background: #444; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; font-weight: 700; }
+.foot-bottom { max-width: 1280px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid #444; font-size: 11px; color: #777; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">Торго<span>Мир</span></div>
+  <button class="catalog-btn">☰ Каталог</button>
+  <div class="search-wrap">
+    <input type="text" placeholder="Искать на ТоргоМире — миллионы товаров">
+    <button>🔍</button>
+  </div>
+  <div class="city">📍 <b>Москва</b> · доставка завтра</div>
+  <div class="top-links">
+    <div class="top-link"><span class="icon">📦</span>Заказы</div>
+    <div class="top-link"><span class="icon">♡</span>Избранное</div>
+    <div class="top-link"><span class="icon">👤</span>Войти</div>
+    <div class="top-link active cart-badge"><span class="icon">🛒</span>Корзина</div>
+  </div>
+</div>
+
+<div class="cat-strip">
+  <a href="#">Электроника</a><a href="#">Одежда</a><a href="#">Обувь</a><a href="#">Дом и сад</a>
+  <a href="#">Детям</a><a href="#">Красота</a><a href="#">Спорт</a><a href="#">Авто</a>
+  <a href="#">Книги</a><a href="#">Продукты</a><a href="#">Зоотовары</a><a href="#">Аптека</a>
+  <a href="#">Ювелирка</a><a href="#">Хобби</a><a href="#">Стройка</a><a href="#">Канцтовары</a>
+  <a href="#">Игрушки</a><a href="#">Бытовая техника</a><a href="#">Мебель</a><a href="#" class="premium">Premium 18+</a>
+</div>
+
+<div class="loc-bar">
+  <span>🚚 <b>Бесплатная доставка</b> от 1 500₽</span>
+  <span>💳 Рассрочка 0-0-12 от ТоргоБанк</span>
+  <span>🎁 Бонусов на счёте: <b>2 487</b></span>
+  <span style="margin-left:auto">Пн-Вс 24/7 · 8 800 555-31-21</span>
+</div>
+
+<div class="container">
+  <div class="crumbs"><a href="#">Главная</a> / <a href="#">Корзина</a></div>
+  <h1 class="page-title">Корзина</h1>
+  <div class="page-sub">3 товара · оформление займёт не более 2 минут</div>
+
+  <div class="cart-tabs">
+    <a href="#" class="active">Корзина <span class="count">3</span></a>
+    <a href="#">Избранное <span class="count">14</span></a>
+    <a href="#">Просмотренные <span class="count">62</span></a>
+  </div>
+
+  <div class="cart-grid">
+    <!-- LEFT -->
+    <div>
+      <!-- Seller group 1 -->
+      <div class="cart-card">
+        <div class="seller-head">
+          <div class="left">
+            <div class="check-all"></div>
+            <span>Продавец: <a href="#" style="font-weight:700">ТехноГранд</a></span>
+            <span class="seller-badge">★ 4.8 · 12 847</span>
+            <span style="color:#00A857;font-weight:700">🚚 Доставка завтра — бесплатно</span>
+          </div>
+          <a href="#">Удалить всё</a>
+        </div>
+
+        <div class="item">
+          <div class="cb"></div>
+          <div class="thumb phone">📱</div>
+          <div class="item-info">
+            <div class="name">Смартфон Apple iPhone 13 128GB Midnight</div>
+            <div class="seller-line">Артикул: 78231 · Цвет: Тёмная ночь · Память: 128 ГБ</div>
+            <div class="meta">
+              <span class="delivery">🚚 Доставка завтра, 16 ноября</span>
+              <span>★ 4.9 (2 341)</span>
+              <span style="color:#00A857">✓ В наличии</span>
+            </div>
+            <div class="bnpl-mini">💜 5 665₽ × 12 мес · ТоргоПлати</div>
+          </div>
+          <div class="stepper">
+            <button>−</button>
+            <input value="1">
+            <button>+</button>
+          </div>
+          <div class="item-price">
+            <div class="new">67 990 ₽</div>
+            <div class="old">79 990 ₽</div>
+            <div class="per">экономия 12 000₽</div>
+            <div class="item-actions" style="flex-direction:row;justify-content:flex-end;gap:12px;margin-top:6px">
+              <a href="#">♡ В избранное</a>
+              <a href="#">✕</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="cb"></div>
+          <div class="thumb case">📲</div>
+          <div class="item-info">
+            <div class="name">Чехол Spigen Ultra Hybrid для iPhone 13 прозрачный</div>
+            <div class="seller-line">Артикул: 90122 · Цвет: Crystal Clear</div>
+            <div class="meta">
+              <span class="delivery">🚚 Доставка завтра, 16 ноября</span>
+              <span>★ 4.7 (1 482)</span>
+              <span class="stock-low">⚠ Осталось 4 шт</span>
+            </div>
+          </div>
+          <div class="stepper">
+            <button>−</button>
+            <input value="2">
+            <button>+</button>
+          </div>
+          <div class="item-price">
+            <div class="new">1 490 ₽</div>
+            <div class="old">1 990 ₽</div>
+            <div class="per">за 1 шт</div>
+            <div class="item-actions" style="flex-direction:row;justify-content:flex-end;gap:12px;margin-top:6px">
+              <a href="#">♡ В избранное</a>
+              <a href="#">✕</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="cb"></div>
+          <div class="thumb glass">🔲</div>
+          <div class="item-info">
+            <div class="name">Защитное стекло для iPhone 13 9H полноэкранное</div>
+            <div class="seller-line">Артикул: 33871 · Толщина 0.33 мм</div>
+            <div class="meta">
+              <span class="delivery">🚚 Доставка завтра, 16 ноября</span>
+              <span>★ 4.6 (892)</span>
+              <span style="color:#00A857">✓ В наличии</span>
+            </div>
+          </div>
+          <div class="stepper">
+            <button>−</button>
+            <input value="1">
+            <button>+</button>
+          </div>
+          <div class="item-price">
+            <div class="new">590 ₽</div>
+            <div class="old">890 ₽</div>
+            <div class="per">за 1 шт</div>
+            <div class="item-actions" style="flex-direction:row;justify-content:flex-end;gap:12px;margin-top:6px">
+              <a href="#">♡ В избранное</a>
+              <a href="#">✕</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promo code -->
+      <div class="cart-card">
+        <div class="promo-card">
+          <div class="promo-icon">🎟</div>
+          <div class="promo-text" style="flex:0 0 auto">
+            <b>Промокод</b>
+            <span>Введите код купона</span>
+          </div>
+          <input type="text" placeholder="Например, BLACK21">
+          <button>Применить</button>
+        </div>
+        <div class="promo-hint">💡 BLACK21 — скидка 500₽ на заказ от 5 000₽</div>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <div class="ti-icon">🚚</div>
+          <div><b>Доставка завтра</b><span>Курьером по Москве — бесплатно</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-icon">↩</div>
+          <div><b>Возврат 14 дней</b><span>Без объяснения причин</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-icon">🛡</div>
+          <div><b>Гарантия качества</b><span>Только проверенные продавцы</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="ti-icon">💳</div>
+          <div><b>Безопасная оплата</b><span>Картой, СБП или при получении</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div>
+      <div class="summary">
+        <h3>Итого: 71 560 ₽</h3>
+        <div class="saved">Вы экономите 13 300 ₽ 🎉</div>
+
+        <button class="checkout-btn">Перейти к оформлению →</button>
+        <button class="installment-btn">💜 Купить в рассрочку 5 964₽ × 12 мес</button>
+
+        <div class="summary-row"><span class="label">Товары (3 шт)</span><span class="val">72 060 ₽</span></div>
+        <div class="summary-row"><span class="label">Скидка по акции</span><span class="val discount">−12 800 ₽</span></div>
+        <div class="summary-row"><span class="label">Промокод BLACK21</span><span class="val discount">−500 ₽</span></div>
+        <div class="summary-row"><span class="label">Доставка</span><span class="val free">бесплатно</span></div>
+        <div class="summary-row total"><span>К оплате</span><span>71 560 ₽</span></div>
+
+        <div class="bonus-line">
+          <div class="bonus-icon">Б</div>
+          <div>
+            <b>+1 431 бонусов</b>
+            <span style="display:block">начислим после получения</span>
+          </div>
+        </div>
+
+        <div class="delivery-box">
+          <div class="dtitle">Способ доставки</div>
+          <div class="delivery-opt">
+            <div class="radio checked"></div>
+            <span>🚚 Курьер, завтра 16 ноября</span>
+            <span class="price free">0 ₽</span>
+          </div>
+          <div class="delivery-opt">
+            <div class="radio"></div>
+            <span>📦 Пункт выдачи СДЭК, 15 ноября</span>
+            <span class="price free">0 ₽</span>
+          </div>
+          <div class="delivery-opt">
+            <div class="radio"></div>
+            <span>✉ Почта России, 18-22 ноября</span>
+            <span class="price">199 ₽</span>
+          </div>
+        </div>
+
+        <div class="policy">
+          Нажимая «Перейти к оформлению», вы соглашаетесь с <a href="#">условиями</a> и <a href="#">политикой обработки данных</a>. Цена действительна на момент оформления.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS SELL -->
+  <div class="cross-sell">
+    <h2>С этим покупают</h2>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <span class="ad-badge">Реклама</span>
+        <div class="cs-img pb">🔋</div>
+        <div class="cs-price">1 290 ₽</div>
+        <div class="cs-name">Power Bank Xiaomi Mi Power Bank 3 10000 мАч</div>
+        <div class="cs-rating"><span class="stars">★ 4.8</span> · 5 421 отзыв</div>
+        <div class="cs-deliv">🚚 Доставка завтра</div>
+        <button class="cs-cart">В корзину</button>
+      </div>
+      <div class="cs-card">
+        <div class="cs-img ep">🎧</div>
+        <div class="cs-price">1 990 ₽</div>
+        <div class="cs-name">Наушники Apple EarPods 3.5 mm проводные</div>
+        <div class="cs-rating"><span class="stars">★ 4.7</span> · 3 187 отзывов</div>
+        <div class="cs-deliv">🚚 Доставка завтра</div>
+        <button class="cs-cart">В корзину</button>
+      </div>
+      <div class="cs-card">
+        <div class="cs-img sd">💾</div>
+        <div class="cs-price">590 ₽</div>
+        <div class="cs-name">Карта памяти SanDisk Ultra microSDXC 64GB</div>
+        <div class="cs-rating"><span class="stars">★ 4.9</span> · 8 902 отзыва</div>
+        <div class="cs-deliv">🚚 Доставка завтра</div>
+        <button class="cs-cart">В корзину</button>
+      </div>
+      <div class="cs-card">
+        <span class="ad-badge">Реклама</span>
+        <div class="cs-img kb">⌨</div>
+        <div class="cs-price">2 490 ₽</div>
+        <div class="cs-name">Кабель USB-C Lightning Apple 1м оригинал</div>
+        <div class="cs-rating"><span class="stars">★ 4.8</span> · 1 274 отзыва</div>
+        <div class="cs-deliv">🚚 Доставка завтра</div>
+        <button class="cs-cart">В корзину</button>
+      </div>
+      <div class="cs-card">
+        <div class="cs-img mc">🔌</div>
+        <div class="cs-price">1 790 ₽</div>
+        <div class="cs-name">Сетевое зарядное устройство Apple 20W USB-C</div>
+        <div class="cs-rating"><span class="stars">★ 4.9</span> · 2 156 отзывов</div>
+        <div class="cs-deliv">🚚 Доставка завтра</div>
+        <button class="cs-cart">В корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECENTLY VIEWED -->
+  <div class="rv">
+    <h2>Вы недавно смотрели</h2>
+    <div class="rv-strip">
+      <div class="rv-card"><div class="img">📱</div><div class="p">79 990 ₽</div><div class="n">Samsung Galaxy S22 128GB</div></div>
+      <div class="rv-card"><div class="img">💻</div><div class="p">89 990 ₽</div><div class="n">MacBook Air M1 256GB Gold</div></div>
+      <div class="rv-card"><div class="img">🎧</div><div class="p">18 990 ₽</div><div class="n">AirPods Pro 2-го поколения</div></div>
+      <div class="rv-card"><div class="img">📺</div><div class="p">32 990 ₽</div><div class="n">iPad 10.2 32GB Wi-Fi Silver</div></div>
+      <div class="rv-card"><div class="img">⌚</div><div class="p">24 990 ₽</div><div class="n">Apple Watch SE 40mm</div></div>
+      <div class="rv-card"><div class="img">📱</div><div class="p">14 990 ₽</div><div class="n">Xiaomi Redmi Note 10 128GB</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col foot-brand">
+      <div class="logo">Торго<span style="color:#fff">Мир</span></div>
+      <p>Миллионы товаров — доставка за 1 день. Маркетплейс №1 в России.</p>
+      <div class="socials">
+        <span>ВК</span><span>ОК</span><span>TG</span><span>YT</span>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Покупателям</h4>
+      <a href="#">Доставка</a><a href="#">Возврат</a><a href="#">Гарантия</a>
+      <a href="#">Способы оплаты</a><a href="#">Бонусная программа</a><a href="#">FAQ</a>
+    </div>
+    <div class="foot-col">
+      <h4>Продавцам</h4>
+      <a href="#">Стать продавцом</a><a href="#">Тарифы и комиссии</a>
+      <a href="#">База знаний</a><a href="#">Логистика ТоргоМир</a>
+    </div>
+    <div class="foot-col">
+      <h4>Компания</h4>
+      <a href="#">О нас</a><a href="#">Вакансии</a><a href="#">Контакты</a>
+      <a href="#">Пресс-центр</a><a href="#">Реквизиты</a>
+    </div>
+    <div class="foot-col">
+      <h4>Сервисы</h4>
+      <a href="#">ТоргоПлати — BNPL</a><a href="#">ТоргоБанк</a>
+      <a href="#">ТоргоПремиум</a><a href="#">Подарочные карты</a>
+    </div>
+    <div class="foot-col">
+      <h4>Поддержка 24/7</h4>
+      <a href="#" style="font-size:16px;font-weight:900;color:#fff">8 800 555-31-21</a>
+      <a href="#">support@torgomir.ru</a>
+      <a href="#">Чат с оператором</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2021 ООО «ТоргоМир». ОГРН 1167746000000. Все права защищены.</span>
+    <span>Цены могут отличаться в зависимости от региона доставки</span>
+  </div>
+</footer>
+
+</body>
+</html>

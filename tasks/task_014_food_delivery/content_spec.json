@@ -1,0 +1,191 @@
+{
+  "brand_name": "Chatori",
+  "tagline": "Bhookh lagi? Order kar!",
+  "primary_color_name": "Chatori Orange",
+  "pages": {
+    "home": {
+      "title": "Order Food Online from Restaurants Near You | Chatori",
+      "nav_items": [
+        "Delivery",
+        "Dining Out",
+        "Chatori Pro",
+        "Offers",
+        "Sign In",
+        "Cart (2)"
+      ],
+      "sections": [
+        {
+          "name": "location_header",
+          "description": "Top bar showing delivery location with dropdown (e.g. 'Indiranagar, Bengaluru - 560038'), search bar with placeholder 'Search for restaurants and food', and a 'Get Chatori Pro' button."
+        },
+        {
+          "name": "offer_carousel",
+          "description": "Horizontal scroll of 3 promotional banner cards: 'HDFC Bank: 20% OFF up to ₹120', 'First Order Free Delivery', 'Chatori Pro: Flat ₹75 OFF'."
+        },
+        {
+          "name": "cuisine_categories",
+          "description": "Horizontal icon strip of cuisine types with circular food images: Biryani, Pizza, North Indian, South Indian, Chinese, Burger, Rolls, Cake, Shawarma, Dosa."
+        },
+        {
+          "name": "top_restaurants",
+          "headline": "Top restaurants to explore",
+          "description": "Grid of 8 restaurant cards each showing photo, name (e.g. 'Meghana Foods', 'Truffles', 'Empire Restaurant'), rating like '4.4 ★', delivery time '30-35 min', cuisine tags, price-for-two '₹400 for two', and offer ribbon '50% OFF up to ₹100'."
+        },
+        {
+          "name": "whats_on_your_mind",
+          "headline": "What's on your mind?",
+          "description": "Horizontal scroll of round food category tiles: Biryani, Thali, Paratha, Chai, Ice Cream, Momos, Dosa, Pasta."
+        },
+        {
+          "name": "popular_chains",
+          "headline": "Popular brands to explore",
+          "description": "Card grid of chain restaurants: KFC, Domino's Pizza, McDonald's, Behrouz Biryani, Faasos, Wow! Momo with delivery time and offer badge."
+        },
+        {
+          "name": "all_restaurants",
+          "headline": "All restaurants nearby",
+          "description": "Filterable list with filters 'Pro', 'Rating 4.0+', 'Pure Veg', 'Fast Delivery', 'Offers' showing full restaurant cards with distance like '1.2 km'."
+        },
+        {
+          "name": "footer",
+          "description": "Footer with columns for Company (About, Careers, Team), Contact (Help & Support, Partner with us), Legal, app store badges, and social icons."
+        }
+      ]
+    },
+    "restaurant": {
+      "title": "Meghana Foods, Indiranagar | Chatori",
+      "nav_items": [
+        "Home",
+        "Search",
+        "Offers",
+        "Help",
+        "Sign In",
+        "Cart"
+      ],
+      "sections": [
+        {
+          "name": "restaurant_header",
+          "headline": "Meghana Foods",
+          "subheadline": "Biryani, Andhra, North Indian • Indiranagar, Bengaluru"
+        },
+        {
+          "name": "info_bar",
+          "description": "Strip showing '4.4 ★ (10K+ ratings)', '35-40 min', '₹500 for two', distance '1.8 km', and Pro free delivery badge."
+        },
+        {
+          "name": "offer_strip",
+          "description": "Horizontal cards: '50% OFF up to ₹100 USE WELCOME50', 'Flat ₹125 OFF on orders above ₹249', 'Free delivery on ₹199+'."
+        },
+        {
+          "name": "menu_sidebar",
+          "description": "Sticky left sidebar with menu category links: Recommended (12), Boneless Biryani, Chicken Biryani, Mutton Specials, Starters, Breads, Desserts, Beverages."
+        },
+        {
+          "name": "menu_items",
+          "description": "List of menu item rows each with green/red veg indicator dot, 'Bestseller' tag, name (e.g. 'Chicken Boneless Biryani ₹360', 'Paneer Butter Masala ₹280', 'Andhra Mutton Biryani ₹420'), description, rating, photo, and ADD button."
+        }
+      ]
+    },
+    "cart": {
+      "title": "Your Cart | Chatori",
+      "nav_items": [
+        "Home",
+        "Search",
+        "Offers",
+        "Help",
+        "Sign In",
+        "Cart (3)"
+      ],
+      "sections": [
+        {
+          "name": "cart_header",
+          "headline": "Meghana Foods",
+          "subheadline": "Indiranagar, Bengaluru | 35 min delivery"
+        },
+        {
+          "name": "cart_items",
+          "description": "List of 3 items with veg/non-veg dot, name, quantity stepper, and price (e.g. 'Chicken Boneless Biryani x1 ₹360', 'Paneer 65 x2 ₹520', 'Gulab Jamun x1 ₹80')."
+        },
+        {
+          "name": "coupon_section",
+          "description": "Apply coupon input field with suggestion chips 'WELCOME50', 'CHATORIPRO', 'HDFC20'."
+        },
+        {
+          "name": "delivery_address",
+          "description": "Saved address card showing 'Home - 402, Brigade Apartments, 12th Main Indiranagar' with Change button."
+        },
+        {
+          "name": "bill_details",
+          "description": "Itemised breakdown: Item Total ₹960, Delivery Fee ₹39, Platform Fee ₹4, GST & Charges ₹48, Coupon Discount -₹100, Grand Total ₹951."
+        },
+        {
+          "name": "place_order_cta",
+          "description": "Sticky bottom bar with total amount and orange 'Place Order' button, plus payment method selector 'Pay using UPI / Cards / COD'."
+        }
+      ]
+    },
+    "orders": {
+      "title": "Your Orders | Chatori",
+      "nav_items": [
+        "Home",
+        "Search",
+        "Offers",
+        "Profile",
+        "Cart"
+      ],
+      "sections": [
+        {
+          "name": "page_header",
+          "headline": "Past Orders",
+          "subheadline": "Manage your orders and reorder your favourites"
+        },
+        {
+          "name": "order_list",
+          "description": "Stacked order cards each showing restaurant name (e.g. 'Truffles, Koramangala'), items summary 'All American Cheese Burger, Choco Lava', date '12 Mar 2022, 8:42 PM', total '₹645', status badge 'Delivered' in green, with 'REORDER', 'Rate your order', and 'Download Invoice' links."
+        },
+        {
+          "name": "empty_state_helper",
+          "description": "Bottom helper card with 'Looking for an older order?' and a 'View All Orders' link."
+        }
+      ]
+    },
+    "offers": {
+      "title": "Offers & Benefits | Chatori",
+      "nav_items": [
+        "Home",
+        "Search",
+        "Offers",
+        "Chatori Pro",
+        "Cart"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Offers for You",
+          "subheadline": "Save more with bank offers, coupons and Chatori Pro"
+        },
+        {
+          "name": "bank_offers",
+          "description": "Grid of bank offer cards with large discount percentages: 'HDFC Bank Credit Card 20% OFF up to ₹120 min ₹400', 'ICICI Debit 15% OFF', 'Amazon Pay ₹75 cashback'."
+        },
+        {
+          "name": "first_order_offer",
+          "description": "Highlight card 'WELCOME50 - 50% OFF up to ₹100 on your first order' with copy code button."
+        },
+        {
+          "name": "pro_benefits",
+          "headline": "Chatori Pro - ₹299 for 3 months",
+          "description": "Comparison table showing Pro vs Non-Pro benefits: Free Delivery, Extra 10% OFF, Priority Support, Early access to new restaurants."
+        },
+        {
+          "name": "restaurant_offers",
+          "description": "List of restaurant-specific offers: 'Domino's: Buy 1 Get 1 FREE on Medium Pizzas', 'Behrouz: 60% OFF on Biryani Combos', 'Faasos: Flat ₹125 OFF on ₹249'."
+        },
+        {
+          "name": "coupon_codes",
+          "description": "Grid of copyable coupon code cards: 'CHATORI50', 'NEWUSER', 'BIRYANI100', 'WEEKEND20' each with terms and copy button."
+        }
+      ]
+    }
+  }
+}

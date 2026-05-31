@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Teachers — Stillwater Yoga & Wellness</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FAFAF7;
+  color: #5C5C52;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #5C5C52; letter-spacing: 0.01em; }
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 84px;
+  background: rgba(250,250,247,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E8E2D5;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #5F7256;
+  letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 42px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5C5C52;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: #88A47C; }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.cart {
+  font-size: 18px;
+  color: #5C5C52;
+  position: relative;
+}
+.book-btn {
+  background: #88A47C;
+  color: #FDFCF8;
+  padding: 12px 26px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.4s;
+}
+.book-btn:hover { background: #5F7256; }
+
+/* HERO */
+.hero {
+  padding: 200px 40px 100px;
+  max-width: 1240px;
+  margin: 0 auto;
+  text-align: center;
+}
+@keyframes fade_in_hero { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero, .hero h1, .hero p { animation: fade_in_hero 1.6s ease-out both; }
+.hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #88A47C;
+  margin-bottom: 30px;
+}
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 400;
+  max-width: 820px;
+  margin: 0 auto 28px;
+  letter-spacing: -0.01em;
+}
+.hero p {
+  font-size: 18px;
+  color: #9E9E8E;
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto;
+  animation-delay: 0.2s;
+}
+
+.divider {
+  width: 1px;
+  height: 80px;
+  background: #E8E2D5;
+  margin: 0 auto;
+}
+
+/* TEACHER GRID — asymmetric editorial */
+.teachers-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 100px 80px 60px;
+}
+
+.teacher-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  margin-bottom: 140px;
+}
+.teacher-row:nth-child(even) .teacher-portrait { order: 2; }
+.teacher-row:nth-child(even) .teacher-info { order: 1; padding-right: 40px; }
+.teacher-row:nth-child(odd) .teacher-info { padding-left: 40px; }
+
+@keyframes scroll_reveal_cards { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+.teacher-card, .card, .class-card { animation: scroll_reveal_cards 1s ease-out both; }
+.teacher-row:nth-child(2) .teacher-card { animation-delay: 0.05s; }
+.teacher-row:nth-child(3) .teacher-card { animation-delay: 0.1s; }
+.teacher-row:nth-child(4) .teacher-card { animation-delay: 0.15s; }
+
+.teacher-portrait {
+  position: relative;
+}
+.img-zoom { overflow: hidden; border-radius: 2px; }
+.img-zoom img { transition: transform 1.2s ease; display: block; }
+
+.portrait-frame {
+  aspect-ratio: 4/5;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.portrait-1 {
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(255,235,210,0.5) 0%, transparent 55%),
+    linear-gradient(160deg, #D4B896 0%, #B87355 60%, #5F7256 100%);
+}
+.portrait-2 {
+  background:
+    radial-gradient(ellipse at 45% 30%, rgba(245,236,215,0.55) 0%, transparent 50%),
+    linear-gradient(200deg, #C5848A 0%, #D4B896 50%, #88A47C 100%);
+}
+.portrait-3 {
+  background:
+    radial-gradient(ellipse at 55% 40%, rgba(255,250,240,0.4) 0%, transparent 55%),
+    linear-gradient(170deg, #5F7256 0%, #88A47C 55%, #D4B896 100%);
+}
+.portrait-4 {
+  background:
+    radial-gradient(ellipse at 40% 35%, rgba(250,240,225,0.5) 0%, transparent 50%),
+    linear-gradient(220deg, #B87355 0%, #C5848A 50%, #9E9E8E 100%);
+}
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(92,92,82,0.18) 100%);
+}
+.portrait-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: #FDFCF8;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.teacher-info .number {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #C5848A;
+  font-size: 16px;
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+.teacher-info h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: #5C5C52;
+}
+.teacher-info .specialty {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #88A47C;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 30px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #E8E2D5;
+}
+.cert {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #9E9E8E;
+  padding: 4px 12px;
+  border: 1px solid #E8E2D5;
+  border-radius: 2px;
+}
+.teacher-info .bio {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #5C5C52;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.meta-row {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 36px;
+}
+.meta-item .label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9E9E8E;
+  margin-bottom: 6px;
+}
+.meta-item .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #5F7256;
+}
+.teacher-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.teacher-links a {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5C5C52;
+  border-bottom: 1px solid #88A47C;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+.teacher-links a:hover { color: #88A47C; }
+.ig {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #C5848A;
+  border: none !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+}
+
+/* Featured detail */
+.featured-section {
+  background: #F5ECD7;
+  padding: 120px 40px;
+  margin-top: 60px;
+}
+.featured-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+.featured-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #B87355;
+  margin-bottom: 20px;
+}
+.featured-section h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.featured-section h2 em { color: #5F7256; font-weight: 400; }
+.featured-intro {
+  font-size: 17px;
+  color: #5C5C52;
+  margin-bottom: 50px;
+  max-width: 460px;
+  line-height: 1.8;
+}
+.upcoming-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #5F7256;
+  margin-bottom: 24px;
+}
+.class-list {
+  list-style: none;
+}
+.class-list li {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(94,124,86,0.18);
+}
+.class-list .when {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #5F7256;
+  font-style: italic;
+}
+.class-list .what {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #5C5C52;
+}
+.class-list .what small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9E9E8E;
+  margin-top: 4px;
+}
+.class-list .reserve {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #88A47C;
+  border-bottom: 1px solid #88A47C;
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+.class-list .reserve:hover { color: #5F7256; }
+
+.featured-portrait {
+  position: sticky;
+  top: 120px;
+}
+.featured-portrait .portrait-frame {
+  aspect-ratio: 3/4;
+}
+.featured-quote {
+  margin-top: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #5C5C52;
+  padding-left: 24px;
+  border-left: 1px solid #B87355;
+}
+.featured-handle {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #9E9E8E;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.featured-handle em { color: #C5848A; }
+
+/* CTA join */
+.join-section {
+  padding: 140px 40px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.join-section .small-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #88A47C;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+.join-section h3 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+.join-section p {
+  color: #9E9E8E;
+  font-size: 16px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.join-cta {
+  display: inline-block;
+  background: #88A47C;
+  color: #FDFCF8;
+  padding: 16px 38px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.4s;
+}
+.join-cta:hover { background: #5F7256; }
+
+/* FOOTER */
+footer {
+  background: #F5ECD7;
+  padding: 90px 40px 40px;
+  border-top: 1px solid #E8E2D5;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  color: #5F7256;
+  margin-bottom: 16px;
+}
+.footer-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #9E9E8E;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 280px;
+}
+footer h4 {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #5F7256;
+  margin-bottom: 22px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 12px; font-size: 14px; color: #5C5C52; }
+footer ul li a:hover { color: #88A47C; }
+.newsletter-input {
+  display: flex;
+  border-bottom: 1px solid #9E9E8E;
+  padding-bottom: 8px;
+  margin-top: 12px;
+}
+.newsletter-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #5C5C52;
+}
+.newsletter-input button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #5F7256;
+}
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid #E8E2D5;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9E9E8E;
+  letter-spacing: 0.06em;
+}
+.footer-bottom a { margin-left: 24px; }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">Stillwater</a>
+    <ul class="nav-links">
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#" class="active">Teachers</a></li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="cart">⊙</a>
+      <a href="#" class="book-btn">Book Class</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Our Teachers</div>
+  <h1>The hands that hold the practice.</h1>
+  <p>Twelve teachers, one shared commitment to slow, honest movement.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="teachers-section">
+
+  <!-- Teacher 1 -->
+  <article class="teacher-row teacher-card">
+    <div class="teacher-portrait">
+      <div class="img-zoom">
+        <div class="portrait-frame portrait-1">
+          <img alt="" style="width:100%;height:100%;display:block;" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"/>
+          <span class="portrait-tag">Brooklyn, NY</span>
+        </div>
+      </div>
+    </div>
+    <div class="teacher-info">
+      <div class="number">— No. 01</div>
+      <h2>Amara Okafor</h2>
+      <div class="specialty">Slow Flow Vinyasa · Breath</div>
+      <div class="certs">
+        <span class="cert">E-RYT 500</span>
+        <span class="cert">Yoga Medicine</span>
+        <span class="cert">Pranayama Cert.</span>
+      </div>
+      <p class="bio">Amara teaches breath first, posture second. Her Slow Flow draws from twelve years of Ashtanga refined into something quieter — a practice she calls "moving meditation with bones."</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <div class="label">Practicing</div>
+          <div class="value">14 years</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Teaching since</div>
+          <div class="value">2014</div>
+        </div>
+      </div>
+      <div class="teacher-links">
+        <a href="#">View Schedule</a>
+        <a href="#" class="ig">@amara.breathes</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Teacher 2 -->
+  <article class="teacher-row teacher-card">
+    <div class="teacher-portrait">
+      <div class="img-zoom">
+        <div class="portrait-frame portrait-2">
+          <img alt="" style="width:100%;height:100%;display:block;" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"/>
+          <span class="portrait-tag">Trained in Milan</span>
+        </div>
+      </div>
+    </div>
+    <div class="teacher-info">
+      <div class="number">— No. 02</div>
+      <h2>Ines Marchetti</h2>
+      <div class="specialty">Yin · Restorative · Yoga Nidra</div>
+      <div class="certs">
+        <span class="cert">RYT 500</span>
+        <span class="cert">Yin Insights</span>
+        <span class="cert">iRest Level 1</span>
+      </div>
+      <p class="bio">Ines holds the room like a long exhale. Her candlelit Yin sessions are built around fascia, stillness, and the unhurried art of being undone gently. She also leads our winter immersions.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <div class="label">Practicing</div>
+          <div class="value">18 years</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Teaching since</div>
+          <div class="value">2011</div>
+        </div>
+      </div>
+      <div class="teacher-links">
+        <a href="#">View Schedule</a>
+        <a href="#" class="ig">@ines.stillness</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Teacher 3 -->
+  <article class="teacher-row teacher-card">
+    <div class="teacher-portrait">
+      <div class="img-zoom">
+        <div class="portrait-frame portrait-3">
+          <img alt="" style="width:100%;height:100%;display:block;" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"/>
+          <span class="portrait-tag">Bengaluru → Brooklyn</span>
+        </div>
+      </div>
+    </div>
+    <div class="teacher-info">
+      <div class="number">— No. 03</div>
+      <h2>Devan Rao</h2>
+      <div class="specialty">Pranayama · Backbends · Meditation</div>
+      <div class="certs">
+        <span class="cert">E-RYT 500</span>
+        <span class="cert">Iyengar Level 2</span>
+        <span class="cert">Ayurveda Counselor</span>
+      </div>
+      <p class="bio">Devan studied at the Krishnamacharya Yoga Mandiram for nine years before relocating to New York. His Breathwork Circle on Saturdays remains the studio's quietest, most attended class.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <div class="label">Practicing</div>
+          <div class="value">22 years</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Teaching since</div>
+          <div class="value">2008</div>
+        </div>
+      </div>
+      <div class="teacher-links">
+        <a href="#">View Schedule</a>
+        <a href="#" class="ig">@devan.rao.breath</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Teacher 4 -->
+  <article class="teacher-row teacher-card">
+    <div class="teacher-portrait">
+      <div class="img-zoom">
+        <div class="portrait-frame portrait-4">
+          <img alt="" style="width:100%;height:100%;display:block;" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"/>
+          <span class="portrait-tag">Kyoto lineage</span>
+        </div>
+      </div>
+    </div>
+    <div class="teacher-info">
+      <div class="number">— No. 04</div>
+      <h2>Yuki Tanabe</h2>
+      <div class="specialty">Prenatal · Gentle Hatha · Tea Ceremony</div>
+      <div class="certs">
+        <span class="cert">RYT 500</span>
+        <span class="cert">Prenatal Cert.</span>
+        <span class="cert">Urasenke Tea</span>
+      </div>
+      <p class="bio">Yuki carries the slow rhythm of her Kyoto training into every class. She leads our prenatal sequence and the monthly tea ceremony at the studio's wooden bar after Sunday Karma Class.</p>
+      <div class="meta-row">
+        <div class="meta-item">
+          <div class="label">Practicing</div>
+          <div class="value">11 years</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Teaching since</div>
+          <div class="value">2016</div>
+        </div>
+      </div>
+      <div class="teacher-links">
+        <a href="#">View Schedule</a>
+        <a href="#" class="ig">@yuki.quiethours</a>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- Featured -->
+<section class="featured-section">
+  <div class="featured-inner">
+    <div>
+      <div class="featured-label">This Month's Feature</div>
+      <h2>Amara Okafor on <em>returning to the breath.</em></h2>
+      <p class="featured-intro">An invitation into Amara's morning practice. Her schedule this week below — most sessions still hold open mats for newcomers.</p>
+
+      <div class="upcoming-title">Upcoming classes</div>
+      <ul class="class-list">
+        <li>
+          <span class="when">Tue · 7:00am</span>
+          <span class="what">Morning Flow<small>60 min · All Levels · In Studio</small></span>
+          <a href="#" class="reserve">Reserve</a>
+        </li>
+        <li>
+          <span class="when">Wed · 12:15pm</span>
+          <span class="what">Slow Flow & Breath<small>45 min · All Levels · Online</small></span>
+          <a href="#" class="reserve">Reserve</a>
+        </li>
+        <li>
+          <span class="when">Fri · 6:30am</span>
+          <span class="what">Sunrise Vinyasa<small>60 min · Intermediate · In Studio</small></span>
+          <a href="#" class="reserve">Reserve</a>
+        </li>
+        <li>
+          <span class="when">Sun · 10:30am</span>
+          <span class="what">Karma Class — donation based<small>75 min · All Levels · In Studio</small></span>
+          <a href="#" class="reserve">Reserve</a>
+        </li>
+      </ul>
+    </div>
+    <div class="featured-portrait">
+      <div class="img-zoom">
+        <div class="portrait-frame portrait-1" style="aspect-ratio:3/4;">
+          <img alt="" style="width:100%;height:100%;display:block;" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>"/>
+          <span class="portrait-tag">Photographed at 147 Wythe</span>
+        </div>
+      </div>
+      <p class="featured-quote">"The breath was always there. We only forgot to listen. Practice, for me, is the act of listening back."</p>
+      <div class="featured-handle">
+        <span>Follow her practice notes —</span>
+        <em>@amara.breathes</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="join-section">
+  <div class="small-mark">— a quiet invitation</div>
+  <h3>Curious about teaching with us?</h3>
+  <p>We open applications for our 200-hour Teacher Training each spring. If you've practiced steadily for two years and feel the pull toward teaching, we'd love to hear from you.</p>
+  <a href="#" class="join-cta">Learn About Training</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Stillwater</div>
+      <p class="footer-tag">A quiet practice in the heart of the city.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>147 Wythe Ave</li>
+        <li>Brooklyn, NY 11249</li>
+        <li>Mon–Fri · 6am–9pm</li>
+        <li>Sat–Sun · 8am–6pm</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Practice</h4>
+      <ul>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="#">Teachers</a></li>
+        <li><a href="#">Workshops</a></li>
+        <li><a href="#">Stillwater Stream</a></li>
+        <li><a href="#">Memberships</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Our seasonal letter</h4>
+      <p style="font-size:13px;color:#9E9E8E;">Quiet notes on practice, four times a year.</p>
+      <div class="newsletter-input">
+        <input type="email" placeholder="your email">
+        <button>→</button>
+      </div>
+      <div style="margin-top:24px;display:flex;gap:18px;font-size:13px;">
+        <a href="#">Instagram</a>
+        <a href="#">Spotify</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Stillwater Yoga & Wellness</span>
+    <div>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Studio Etiquette</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

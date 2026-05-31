@@ -1,0 +1,78 @@
+{
+  "global": {
+    "google_fonts_url": "@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');",
+    "font_heading": "'Source Serif Pro', Georgia, serif",
+    "font_body": "'Inter', system-ui, sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "56px",
+    "size_h2": "38px",
+    "size_body": "17px",
+    "size_small": "14px",
+    "color_primary": "#2D6A4F",
+    "color_secondary": "#C62828",
+    "color_accent": "#E07A5F",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#E9F5E9",
+    "color_text": "#1B2E20",
+    "color_text_muted": "#5A6B5F",
+    "color_border": "#D5E3D8",
+    "border_radius": "4px",
+    "container_max_width": "1200px",
+    "section_padding": "96px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#1B2E20",
+    "extra_colors": {
+      "sky_blue": "#74C0FC",
+      "light_green": "#B7E4C7",
+      "urgent_red": "#C62828",
+      "deep_forest": "#1B4332",
+      "sand": "#F4EFE6"
+    },
+    "animation_specs": {
+      "clock_tick": {
+        "css": "@keyframes clock_tick { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }",
+        "applies_to": ".climate-clock .sep",
+        "trigger": "continuous"
+      },
+      "sea_rise": {
+        "css": "@keyframes sea_rise { 0% { transform: translateY(100%); } 100% { transform: translateY(20%); } } .sea-rise-fill { animation: sea_rise 6s ease-in-out infinite alternate; }",
+        "applies_to": ".sea-rise-fill",
+        "trigger": "continuous"
+      },
+      "btn_hover": {
+        "css": ".btn-primary { transition: background 0.2s ease, transform 0.2s ease; } .btn-primary:hover { background: #1B4332; transform: translateY(-1px); }",
+        "applies_to": ".btn-primary",
+        "trigger": "on-hover"
+      },
+      "counter_pulse": {
+        "css": "@keyframes counter_pulse { 0%, 100% { color: #C62828; } 50% { color: #E07A5F; } }",
+        "applies_to": ".petition-counter .num",
+        "trigger": "continuous"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed photographic hero with climate clock overlay, stat strip, three campaign cards, impact numbers band on sage, stories grid, monthly giving CTA on terra cotta.",
+      "bg": "#FFFFFF"
+    },
+    "science": {
+      "layout": "Editorial single-column with embedded SVG temperature line chart, decade-comparison bar chart, animated sea level visualization, and FAQ accordion below.",
+      "bg": "#FFFFFF"
+    },
+    "action": {
+      "layout": "Grid of action pathway cards (donate, petition, contact rep, volunteer) with prominent petition signature counter and embedded local action map.",
+      "bg": "#E9F5E9"
+    },
+    "stories": {
+      "layout": "Long-form journalism feed with large photography, pull quotes, video testimonial blocks, and an impact location map at top.",
+      "bg": "#FFFFFF"
+    },
+    "about": {
+      "layout": "Mission statement, team grid with bios, financial transparency pie chart, press logo strip, and annual report download CTA.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Configuration — Quillforge 2.4 Documentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2C3E50;
+  background: #FFFFFF;
+}
+
+a { color: #2980B9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Top Nav */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #2980B9;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.topnav .brand {
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  margin-right: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.topnav .brand-mark {
+  width: 28px; height: 28px;
+  background: #fff;
+  border-radius: 3px;
+  color: #2980B9;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.topnav .version {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.topnav .search {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+}
+.topnav .search input {
+  width: 100%;
+  height: 34px;
+  border-radius: 3px;
+  border: none;
+  padding: 0 12px 0 34px;
+  font-family: inherit;
+  font-size: 14px;
+  background: rgba(255,255,255,0.95);
+}
+.topnav .search::before {
+  content: "🔍";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  opacity: 0.6;
+}
+.topnav .right-links {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.topnav .right-links a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 230px;
+  margin-top: 56px;
+  min-height: calc(100vh - 56px);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left Sidebar */
+.sidebar {
+  background: #EEF2F6;
+  border-right: 1px solid #D9E2EC;
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar .section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6B7C8E;
+  font-weight: 700;
+  padding: 12px 24px 6px;
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li a {
+  display: block;
+  padding: 6px 24px;
+  font-size: 14px;
+  color: #2C3E50;
+  border-left: 3px solid transparent;
+}
+.sidebar li a:hover {
+  background: #DDE6EE;
+  text-decoration: none;
+}
+.sidebar li a.active {
+  color: #2980B9;
+  font-weight: 700;
+  border-left-color: #2980B9;
+  background: #fff;
+}
+.sidebar li.nested a {
+  padding-left: 40px;
+  font-size: 13.5px;
+}
+.sidebar li.nested a.sub-active {
+  color: #2980B9;
+  font-weight: 700;
+}
+.sidebar .sponsors {
+  margin-top: 32px;
+  padding: 16px 24px;
+  border-top: 1px solid #D9E2EC;
+}
+.sidebar .sponsors h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6B7C8E;
+  margin-bottom: 10px;
+}
+.sponsor-logo {
+  display: block;
+  background: #fff;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #6B7C8E;
+}
+
+/* Main */
+.main {
+  padding: 32px 40px;
+  min-width: 0;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-bottom: 16px;
+}
+.breadcrumb a { color: #6B7C8E; }
+.breadcrumb .crumb-current { color: #2C3E50; }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #D9E2EC;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #2C3E50;
+  line-height: 1.2;
+}
+.page-header .github-edit {
+  font-size: 13px;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #EEF2F6;
+  scroll-margin-top: 70px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  scroll-margin-top: 70px;
+}
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+p { margin-bottom: 14px; }
+.lead {
+  font-size: 17px;
+  color: #2C3E50;
+  margin-bottom: 18px;
+}
+
+/* Table */
+.options-table-wrap { overflow-x: auto; margin: 18px 0 24px; }
+table.options {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border: 1px solid #D9E2EC;
+}
+table.options th {
+  background: #F4F7FA;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #D9E2EC;
+  font-weight: 700;
+  color: #2C3E50;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+table.options td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #EEF2F6;
+  vertical-align: top;
+}
+table.options tr:last-child td { border-bottom: none; }
+table.options tr:nth-child(even) td { background: #FBFCFD; }
+table.options code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  background: #EEF2F6;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #1B5A8A;
+}
+table.options .col-key { width: 24%; }
+table.options .col-type { width: 16%; color: #6B7C8E; }
+table.options .col-default { width: 20%; }
+table.options .col-desc { width: 40%; }
+
+/* Code blocks */
+.code-block {
+  position: relative;
+  background: #2E3440;
+  color: #D8DEE9;
+  border-radius: 3px;
+  margin: 14px 0 22px;
+  overflow: hidden;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.code-block .code-header {
+  background: #272C36;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: #9AA4B6;
+  border-bottom: 1px solid #1f242c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.code-block .copy-btn {
+  background: rgba(255,255,255,0.08);
+  color: #D8DEE9;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  padding: 2px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.code-block pre {
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+.k { color: #81A1C1; }   /* keyword */
+.s { color: #A3BE8C; }   /* string */
+.n { color: #D08770; }   /* number */
+.c { color: #6B7C8E; font-style: italic; } /* comment */
+.fn { color: #88C0D0; }
+.t { color: #EBCB8B; }   /* table header [section] */
+
+/* Two column env vars */
+.env-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  margin: 14px 0 24px;
+  font-size: 14px;
+}
+.env-grid .head {
+  background: #F4F7FA;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-bottom: 1px solid #D9E2EC;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.env-grid .head + .head { border-left: 1px solid #D9E2EC; }
+.env-grid .cell {
+  padding: 9px 14px;
+  border-bottom: 1px solid #EEF2F6;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+}
+.env-grid .cell.right {
+  border-left: 1px solid #EEF2F6;
+  color: #1B5A8A;
+}
+.env-grid .cell:nth-last-child(-n+2) { border-bottom: none; }
+
+/* Boxes */
+.box {
+  border-left: 4px solid;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 3px;
+  font-size: 14.5px;
+}
+.box .box-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.box.note { background: #E8F5E9; border-color: #27AE60; }
+.box.note .box-title { color: #1f8d4d; }
+.box.warning { background: #FFF8E1; border-color: #F39C12; }
+.box.warning .box-title { color: #b6720a; }
+.box.danger { background: #FDECEA; border-color: #E74C3C; }
+.box.danger .box-title { color: #b03020; }
+
+/* Right TOC */
+.toc {
+  padding: 32px 20px;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  font-size: 13px;
+  border-left: 1px solid #EEF2F6;
+}
+.toc h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6B7C8E;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.toc ul { list-style: none; }
+.toc li a {
+  display: block;
+  padding: 4px 0 4px 10px;
+  border-left: 2px solid #EEF2F6;
+  color: #6B7C8E;
+}
+.toc li a:hover { color: #2980B9; text-decoration: none; }
+.toc li a.active {
+  color: #2980B9;
+  border-left-color: #2980B9;
+  font-weight: 700;
+}
+.toc li.sub a { padding-left: 24px; font-size: 12.5px; }
+
+/* Pagination */
+.pager {
+  margin-top: 48px;
+  border-top: 1px solid #D9E2EC;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.pager a {
+  flex: 1;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-size: 14px;
+  background: #fff;
+}
+.pager a:hover { border-color: #2980B9; text-decoration: none; }
+.pager .pager-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6B7C8E;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.pager .pager-next { text-align: right; }
+.pager .pager-title { color: #2980B9; font-weight: 700; }
+
+/* Footer */
+footer {
+  background: #EEF2F6;
+  border-top: 1px solid #D9E2EC;
+  padding: 24px 40px;
+  font-size: 13px;
+  color: #6B7C8E;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer a { color: #6B7C8E; }
+footer a:hover { color: #2980B9; }
+
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="brand">
+    <div class="brand-mark">Q</div>
+    Quillforge
+  </div>
+  <div class="version">v2.4 ▾</div>
+  <div class="search">
+    <input type="text" placeholder="Search the docs… (Press / to focus)">
+  </div>
+  <div class="right-links">
+    <a href="#">Guides</a>
+    <a href="#">API</a>
+    <a href="#">⭐ GitHub</a>
+    <a href="#">Cloud Pro →</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="section-title">Getting Started</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="installation.html">Installation Guide</a></li>
+      <li><a href="quickstart.html">Quick Start Tutorial</a></li>
+    </ul>
+
+    <div class="section-title">Reference</div>
+    <ul>
+      <li><a href="api.html">API Reference</a></li>
+      <li class="nested"><a href="#">quill.core</a></li>
+      <li class="nested"><a href="#">quill.runtime</a></li>
+      <li class="nested"><a href="#">quill.scheduler</a></li>
+      <li><a href="configuration.html" class="active">Configuration</a></li>
+      <li class="nested"><a href="#quill-toml" class="sub-active">quill.toml</a></li>
+      <li class="nested"><a href="#options-reference" class="sub-active">Options Reference</a></li>
+      <li class="nested"><a href="#env-vars" class="sub-active">Environment Variables</a></li>
+      <li class="nested"><a href="#profiles" class="sub-active">Profiles</a></li>
+      <li class="nested"><a href="#advanced" class="sub-active">Advanced Patterns</a></li>
+    </ul>
+
+    <div class="section-title">Operating</div>
+    <ul>
+      <li><a href="#">Deployment</a></li>
+      <li><a href="#">Observability</a></li>
+      <li><a href="#">Security Model</a></li>
+      <li><a href="#">Release Notes</a></li>
+    </ul>
+
+    <div class="sponsors">
+      <h4>Sponsors</h4>
+      <div class="sponsor-logo">◆ Acme Cloud</div>
+      <div class="sponsor-logo">▲ Vector Labs</div>
+      <div class="sponsor-logo">◉ Lattice.io</div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="breadcrumb">
+      <a href="index.html">Docs</a> › <a href="#">Reference</a> › <span class="crumb-current">Configuration</span>
+    </div>
+
+    <div class="page-header">
+      <h1>Configuration</h1>
+      <a class="github-edit" href="#">✎ Edit on GitHub</a>
+    </div>
+
+    <p class="lead"><strong>Configuring Quillforge.</strong> All settings can be set via <code>quill.toml</code>, environment variables, or a programmatic <code>Config()</code> object. Settings are resolved in that order, with environment variables overriding the file and explicit Python overriding both.</p>
+
+    <div class="box note">
+      <div class="box-title">Resolution order</div>
+      Defaults &lt; <code>quill.toml</code> &lt; <code>QUILL_*</code> env vars &lt; <code>Config(...)</code> kwargs &lt; CLI flags.
+    </div>
+
+    <h2 id="quill-toml">quill.toml</h2>
+    <p>The canonical configuration source. Quillforge looks for <code>quill.toml</code> in the working directory, then walks parent directories until it reaches the repo root or a directory containing <code>pyproject.toml</code>.</p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span>quill.toml</span>
+        <button class="copy-btn">Copy</button>
+      </div>
+<pre><span class="c"># Quillforge 2.4 — production profile</span>
+<span class="t">[broker]</span>
+url        = <span class="s">"redis://cache.internal:6379/2"</span>
+namespace  = <span class="s">"quillforge.prod"</span>
+ssl        = <span class="k">true</span>
+
+<span class="t">[workers]</span>
+concurrency      = <span class="n">16</span>
+prefetch         = <span class="n">4</span>
+graceful_timeout = <span class="n">30.0</span>
+queues           = [<span class="s">"default"</span>, <span class="s">"etl"</span>, <span class="s">"reports"</span>]
+
+<span class="t">[scheduler]</span>
+tick_interval = <span class="n">1.0</span>
+timezone      = <span class="s">"UTC"</span>
+
+<span class="t">[telemetry]</span>
+otlp_endpoint = <span class="s">"https://otel.acme.io:4318"</span>
+service_name  = <span class="s">"quillforge-prod"</span>
+log_level     = <span class="s">"INFO"</span>
+
+<span class="t">[experimental]</span>
+hot_reload = <span class="k">false</span></pre>
+    </div>
+
+    <h2 id="options-reference">Options Reference</h2>
+    <p>A complete list of options recognised by <code>quill.toml</code>. Keys use dotted paths to indicate TOML section nesting.</p>
+
+    <div class="options-table-wrap">
+      <table class="options">
+        <thead>
+          <tr>
+            <th class="col-key">Key</th>
+            <th class="col-type">Type</th>
+            <th class="col-default">Default</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>broker.url</code></td>
+            <td>str</td>
+            <td><code>redis://localhost:6379</code></td>
+            <td>Connection URL for the message broker. Supports <code>redis://</code>, <code>rediss://</code>, and <code>nats://</code>.</td>
+          </tr>
+          <tr>
+            <td><code>broker.namespace</code></td>
+            <td>str</td>
+            <td><code>"quillforge"</code></td>
+            <td>Key prefix used for all broker entries. Useful for sharing a Redis instance across environments.</td>
+          </tr>
+          <tr>
+            <td><code>broker.ssl</code></td>
+            <td>bool</td>
+            <td><code>false</code></td>
+            <td>Enable TLS on the broker connection. Requires server-side certificates.</td>
+          </tr>
+          <tr>
+            <td><code>workers.concurrency</code></td>
+            <td>int</td>
+            <td><code>8</code></td>
+            <td>Number of concurrent task coroutines per worker process.</td>
+          </tr>
+          <tr>
+            <td><code>workers.prefetch</code></td>
+            <td>int</td>
+            <td><code>2</code></td>
+            <td>Tasks pulled from the broker per fetch cycle. Higher reduces latency but inflates memory.</td>
+          </tr>
+          <tr>
+            <td><code>workers.graceful_timeout</code></td>
+            <td>float</td>
+            <td><code>15.0</code></td>
+            <td>Seconds the worker waits for in-flight tasks during shutdown before forced cancellation.</td>
+          </tr>
+          <tr>
+            <td><code>workers.queues</code></td>
+            <td>list[str]</td>
+            <td><code>["default"]</code></td>
+            <td>Queues this worker subscribes to. Tasks dispatched to other queues are ignored.</td>
+          </tr>
+          <tr>
+            <td><code>scheduler.tick_interval</code></td>
+            <td>float</td>
+            <td><code>1.0</code></td>
+            <td>Seconds between scheduler evaluation cycles for cron and interval triggers.</td>
+          </tr>
+          <tr>
+            <td><code>scheduler.timezone</code></td>
+            <td>str</td>
+            <td><code>"UTC"</code></td>
+            <td>IANA timezone applied to all cron expressions unless overridden per-trigger.</td>
+          </tr>
+          <tr>
+            <td><code>telemetry.otlp_endpoint</code></td>
+            <td>str | None</td>
+            <td><code>None</code></td>
+            <td>OTLP/HTTP endpoint for traces, metrics, and logs. When unset, telemetry is exported to stdout.</td>
+          </tr>
+          <tr>
+            <td><code>telemetry.service_name</code></td>
+            <td>str</td>
+            <td><code>"quillforge"</code></td>
+            <td>OpenTelemetry service.name resource attribute applied to all signals.</td>
+          </tr>
+          <tr>
+            <td><code>telemetry.log_level</code></td>
+            <td>str</td>
+            <td><code>"INFO"</code></td>
+            <td>Root log level. One of <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>.</td>
+          </tr>
+          <tr>
+            <td><code>experimental.hot_reload</code></td>
+            <td>bool</td>
+            <td><code>false</code></td>
+            <td>Watch <code>quill.toml</code> for changes and apply mutable settings without restart. See note below.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="env-vars">Environment Variables</h2>
+    <p>Every TOML key has an equivalent environment variable. Names are derived by uppercasing the dotted path, replacing dots with underscores, and prefixing with <code>QUILL_</code>. Lists are comma-separated.</p>
+
+    <div class="env-grid">
+      <div class="head">TOML key</div>
+      <div class="head">Environment variable</div>
+
+      <div class="cell">broker.url</div>
+      <div class="cell right">QUILL_BROKER_URL</div>
+
+      <div class="cell">broker.namespace</div>
+      <div class="cell right">QUILL_BROKER_NAMESPACE</div>
+
+      <div class="cell">broker.ssl</div>
+      <div class="cell right">QUILL_BROKER_SSL</div>
+
+      <div class="cell">workers.concurrency</div>
+      <div class="cell right">QUILL_WORKERS_CONCURRENCY</div>
+
+      <div class="cell">workers.prefetch</div>
+      <div class="cell right">QUILL_WORKERS_PREFETCH</div>
+
+      <div class="cell">workers.queues</div>
+      <div class="cell right">QUILL_WORKERS_QUEUES</div>
+
+      <div class="cell">scheduler.timezone</div>
+      <div class="cell right">QUILL_SCHEDULER_TIMEZONE</div>
+
+      <div class="cell">telemetry.otlp_endpoint</div>
+      <div class="cell right">QUILL_TELEMETRY_OTLP_ENDPOINT</div>
+
+      <div class="cell">telemetry.log_level</div>
+      <div class="cell right">QUILL_LOG_LEVEL</div>
+
+      <div class="cell">experimental.hot_reload</div>
+      <div class="cell right">QUILL_EXPERIMENTAL_HOT_RELOAD</div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span>shell</span>
+        <button class="copy-btn">Copy</button>
+      </div>
+<pre><span class="c"># Override broker and log level at runtime</span>
+<span class="fn">export</span> QUILL_BROKER_URL=<span class="s">"rediss://cache.internal:6380/0"</span>
+<span class="fn">export</span> QUILL_WORKERS_CONCURRENCY=<span class="n">32</span>
+<span class="fn">export</span> QUILL_LOG_LEVEL=<span class="s">"DEBUG"</span>
+quill run pipelines/invoices.py</pre>
+    </div>
+
+    <h2 id="profiles">Profiles</h2>
+    <p>Profiles let you keep environment-specific overrides in a single file. Activate one via <code>--profile</code> on the CLI or the <code>QUILL_PROFILE</code> env var.</p>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span>quill.toml — profiles</span>
+        <button class="copy-btn">Copy</button>
+      </div>
+<pre><span class="t">[profile.dev]</span>
+broker.url            = <span class="s">"redis://localhost:6379/0"</span>
+workers.concurrency   = <span class="n">2</span>
+telemetry.log_level   = <span class="s">"DEBUG"</span>
+
+<span class="t">[profile.staging]</span>
+broker.url            = <span class="s">"redis://staging-cache:6379/1"</span>
+workers.concurrency   = <span class="n">8</span>
+
+<span class="t">[profile.prod]</span>
+broker.url            = <span class="s">"rediss://cache.internal:6380/0"</span>
+broker.ssl            = <span class="k">true</span>
+workers.concurrency   = <span class="n">16</span>
+telemetry.otlp_endpoint = <span class="s">"https://otel.acme.io:4318"</span></pre>
+    </div>
+
+    <h3>Selecting a profile</h3>
+    <div class="code-block">
+      <div class="code-header"><span>shell</span><button class="copy-btn">Copy</button></div>
+<pre>quill run pipelines/etl.py --profile staging
+<span class="c"># or</span>
+<span class="fn">export</span> QUILL_PROFILE=prod &amp;&amp; quill worker</pre>
+    </div>
+
+    <h2 id="advanced">Advanced Patterns</h2>
+
+    <h3>Dynamic configuration with Vault</h3>
+    <p>For secrets like broker credentials and TLS keys, prefer a secret manager over committing values to <code>quill.toml</code>. Quillforge ships a Vault loader that resolves <code>vault://</code> URIs at startup:</p>
+
+    <div class="code-block">
+      <div class="code-header"><span>python</span><button class="copy-btn">Copy</button></div>
+<pre><span class="k">from</span> quill <span class="k">import</span> Config
+<span class="k">from</span> quill.secrets <span class="k">import</span> VaultResolver
+
+cfg = <span class="fn">Config</span>.<span class="fn">from_file</span>(
+    <span class="s">"quill.toml"</span>,
+    resolvers=[<span class="fn">VaultResolver</span>(addr=<span class="s">"https://vault.acme.io"</span>)],
+)
+<span class="c"># Any value of the form vault://secret/data/quill#field is resolved.</span></pre>
+    </div>
+
+    <h3>Programmatic overrides</h3>
+    <p>You can construct <code>Config</code> entirely in code, which is convenient for tests and notebooks.</p>
+
+    <div class="code-block">
+      <div class="code-header"><span>python</span><button class="copy-btn">Copy</button></div>
+<pre><span class="k">from</span> quill <span class="k">import</span> Config, Pipeline
+
+cfg = <span class="fn">Config</span>(
+    broker_url=<span class="s">"memory://"</span>,
+    workers_concurrency=<span class="n">1</span>,
+    telemetry_log_level=<span class="s">"WARNING"</span>,
+)
+pipeline = <span class="fn">Pipeline</span>([load_csv, clean_rows], config=cfg)</pre>
+    </div>
+
+    <div class="box note">
+      <div class="box-title">Note — Hot reload</div>
+      When <code>experimental.hot_reload = true</code>, Quillforge watches <code>quill.toml</code> with <code>watchfiles</code> and re-applies <em>mutable</em> settings (log level, queues, telemetry endpoint) without restarting workers. Immutable settings such as <code>broker.url</code> still require a restart.
+    </div>
+
+    <div class="box warning">
+      <div class="box-title">Warning — Environment shadowing</div>
+      A stray <code>QUILL_BROKER_URL</code> in your shell will silently override the profile selected with <code>--profile prod</code>. Use <code>quill config print</code> to inspect the effective configuration before deploying.
+    </div>
+
+    <div class="box danger">
+      <div class="box-title">Danger — Secrets in TOML</div>
+      Never commit broker passwords, TLS private keys, or OTLP auth headers to <code>quill.toml</code> in version control. Use <code>vault://</code> references or <code>QUILL_*</code> env vars sourced from your secret manager.
+    </div>
+
+    <h3>Inspecting effective config</h3>
+    <div class="code-block">
+      <div class="code-header"><span>shell</span><button class="copy-btn">Copy</button></div>
+<pre>$ quill config print --profile prod
+broker.url            = <span class="s">"rediss://cache.internal:6380/0"</span>     <span class="c"># env</span>
+broker.ssl            = <span class="k">true</span>                                  <span class="c"># profile.prod</span>
+workers.concurrency   = <span class="n">16</span>                                    <span class="c"># profile.prod</span>
+workers.queues        = [<span class="s">"default"</span>, <span class="s">"etl"</span>]                  <span class="c"># default</span>
+telemetry.otlp_endpoint = <span class="s">"https://otel.acme.io:4318"</span>        <span class="c"># profile.prod</span>
+telemetry.log_level   = <span class="s">"INFO"</span>                                <span class="c"># default</span></pre>
+    </div>
+
+    <div class="pager">
+      <a href="api.html">
+        <span class="pager-label">← Previous</span>
+        <span class="pager-title">API Reference — quill.core</span>
+      </a>
+      <a class="pager-next" href="#">
+        <span class="pager-label">Next →</span>
+        <span class="pager-title">Deployment Guide</span>
+      </a>
+    </div>
+
+  </main>
+
+  <aside class="toc">
+    <h5>On this page</h5>
+    <ul>
+      <li><a href="#quill-toml" class="active">quill.toml</a></li>
+      <li><a href="#options-reference">Options Reference</a></li>
+      <li><a href="#env-vars">Environment Variables</a></li>
+      <li><a href="#profiles">Profiles</a></li>
+      <li class="sub"><a href="#profiles">Selecting a profile</a></li>
+      <li><a href="#advanced">Advanced Patterns</a></li>
+      <li class="sub"><a href="#advanced">Vault resolver</a></li>
+      <li class="sub"><a href="#advanced">Programmatic overrides</a></li>
+      <li class="sub"><a href="#advanced">Hot reload</a></li>
+    </ul>
+
+    <h5 style="margin-top:24px;">Page meta</h5>
+    <ul>
+      <li><a href="#">✎ Edit on GitHub</a></li>
+      <li><a href="#">⚠ Report an issue</a></li>
+      <li><a href="#">★ Permalink to v2.4</a></li>
+    </ul>
+  </aside>
+
+</div>
+
+<footer>
+  <div>
+    © 2023 Quillforge Project · <a href="#">License (Apache 2.0)</a> · <a href="#">Code of Conduct</a> · <a href="#">Security</a>
+  </div>
+  <div>
+    <a href="#">Discord #quillforge</a> · <a href="#">GitHub Discussions</a> · <a href="#">@quillforge on Mastodon</a> · <a href="#">Quillforge Cloud Pro →</a>
+  </div>
+</footer>
+
+</body>
+</html>

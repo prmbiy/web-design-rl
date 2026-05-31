@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YC Jobs | Hacker News</title>
+<style>
+  body {
+    background: #F6F6EF;
+    color: #000000;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    background: #F6F6EF;
+  }
+  /* Top Bar */
+  .topbar {
+    background: #FF6600;
+    padding: 2px 6px;
+    height: 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+  }
+  .topbar .logo {
+    border: 1px solid #FFFFFF;
+    background: #FF6600;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, sans-serif;
+    margin-right: 4px;
+    font-size: 13px;
+  }
+  .topbar .brand {
+    color: #000000;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  .topbar .nav a {
+    color: #000000;
+    margin-right: 2px;
+  }
+  .topbar .nav .sep {
+    color: #000000;
+    margin: 0 2px;
+  }
+  .topbar .nav .current {
+    font-weight: bold;
+  }
+  .topbar .login {
+    margin-left: auto;
+    color: #000000;
+  }
+  /* Jobs List */
+  .jobs-list {
+    padding: 8px 6px 4px 6px;
+  }
+  .job-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+  .rank {
+    color: #828282;
+    text-align: right;
+    min-width: 28px;
+    padding-right: 4px;
+    font-size: 10px;
+  }
+  .title-wrap {
+    flex: 1;
+  }
+  .title-link {
+    color: #000000;
+    font-size: 10px;
+  }
+  .title-link:visited {
+    color: #828282;
+  }
+  .domain {
+    color: #828282;
+    font-size: 8px;
+    margin-left: 4px;
+  }
+  .domain a {
+    color: #828282;
+  }
+  .subtext {
+    color: #828282;
+    font-size: 7pt;
+    padding-left: 32px;
+    margin-bottom: 6px;
+  }
+  .subtext a {
+    color: #828282;
+  }
+  /* Pagination */
+  .pagination {
+    padding-left: 32px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    font-size: 10px;
+  }
+  .pagination a {
+    color: #000000;
+  }
+  /* Footer */
+  .footer-divider {
+    border-top: 2px solid #FF6600;
+    margin: 8px 6px 0 6px;
+  }
+  .footer {
+    text-align: center;
+    padding: 8px 6px 14px 6px;
+    font-size: 8pt;
+    color: #828282;
+  }
+  .footer a {
+    color: #828282;
+  }
+  .footer .links {
+    margin-bottom: 8px;
+  }
+  .footer .search {
+    margin-top: 6px;
+  }
+  .footer input[type="text"] {
+    border: 1px solid #828282;
+    font-family: Verdana, sans-serif;
+    font-size: 10px;
+    padding: 1px 3px;
+    background: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span class="logo">Y</span>
+    <a href="#" class="brand">Hacker News</a>
+    <span class="nav">
+      <a href="#">new</a><span class="sep">|</span>
+      <a href="#">past</a><span class="sep">|</span>
+      <a href="#">comments</a><span class="sep">|</span>
+      <a href="#">ask</a><span class="sep">|</span>
+      <a href="#">show</a><span class="sep">|</span>
+      <a href="#" class="current">jobs</a><span class="sep">|</span>
+      <a href="#">submit</a>
+    </span>
+    <a href="#" class="login">login</a>
+  </div>
+
+  <!-- Jobs List -->
+  <div class="jobs-list">
+
+    <div class="job-row"><div class="rank">1.</div><div class="title-wrap"><a class="title-link" href="#">Retool (YC W17) Is Hiring a Senior Backend Engineer — San Francisco</a> <span class="domain">(<a href="#">retool.com</a>)</span></div></div>
+    <div class="subtext">5 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">2.</div><div class="title-wrap"><a class="title-link" href="#">Pave (YC S19) Is Hiring a Founding Designer — Remote (US)</a> <span class="domain">(<a href="#">pave.com</a>)</span></div></div>
+    <div class="subtext">7 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">3.</div><div class="title-wrap"><a class="title-link" href="#">Speak (YC W17) Is Hiring iOS Engineers — Seoul / SF</a> <span class="domain">(<a href="#">speak.com</a>)</span></div></div>
+    <div class="subtext">9 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">4.</div><div class="title-wrap"><a class="title-link" href="#">Vercel (YC S20) Is Hiring a Staff Software Engineer, Edge — Remote (Global)</a> <span class="domain">(<a href="#">vercel.com</a>)</span></div></div>
+    <div class="subtext">11 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">5.</div><div class="title-wrap"><a class="title-link" href="#">Substack (YC W18) Is Hiring a Senior Product Engineer — San Francisco (remote ok)</a> <span class="domain">(<a href="#">substack.com</a>)</span></div></div>
+    <div class="subtext">13 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">6.</div><div class="title-wrap"><a class="title-link" href="#">Replit (YC W18) Is Hiring AI Infrastructure Engineers — Foster City / Remote</a> <span class="domain">(<a href="#">replit.com</a>)</span></div></div>
+    <div class="subtext">14 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">7.</div><div class="title-wrap"><a class="title-link" href="#">Cresta (YC S17) Is Hiring Senior ML Engineers — Mountain View (on-site)</a> <span class="domain">(<a href="#">cresta.com</a>)</span></div></div>
+    <div class="subtext">16 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">8.</div><div class="title-wrap"><a class="title-link" href="#">PostHog (YC W20) Is Hiring a Full-Stack Engineer — Remote (Worldwide)</a> <span class="domain">(<a href="#">posthog.com</a>)</span></div></div>
+    <div class="subtext">17 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">9.</div><div class="title-wrap"><a class="title-link" href="#">Mixpanel (YC S09) Is Hiring a Principal Data Engineer — San Francisco (remote ok)</a> <span class="domain">(<a href="#">mixpanel.com</a>)</span></div></div>
+    <div class="subtext">18 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">10.</div><div class="title-wrap"><a class="title-link" href="#">Airbyte (YC W20) Is Hiring Connector Engineers — Remote (EMEA)</a> <span class="domain">(<a href="#">airbyte.com</a>)</span></div></div>
+    <div class="subtext">19 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">11.</div><div class="title-wrap"><a class="title-link" href="#">Mercury (YC S17) Is Hiring a Senior Software Engineer, Banking — Remote (US/Canada)</a> <span class="domain">(<a href="#">mercury.com</a>)</span></div></div>
+    <div class="subtext">20 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">12.</div><div class="title-wrap"><a class="title-link" href="#">Rippling (YC W17) Is Hiring Engineering Managers — San Francisco (on-site)</a> <span class="domain">(<a href="#">rippling.com</a>)</span></div></div>
+    <div class="subtext">22 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">13.</div><div class="title-wrap"><a class="title-link" href="#">Modal (YC S20) Is Hiring Distributed Systems Engineers — New York / Remote</a> <span class="domain">(<a href="#">modal.com</a>)</span></div></div>
+    <div class="subtext">23 hours ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">14.</div><div class="title-wrap"><a class="title-link" href="#">Supabase (YC S20) Is Hiring a Postgres Engineer — Remote (Worldwide)</a> <span class="domain">(<a href="#">supabase.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">15.</div><div class="title-wrap"><a class="title-link" href="#">Flexport (YC W14) Is Hiring a Staff Backend Engineer, Logistics — San Francisco / Bellevue</a> <span class="domain">(<a href="#">flexport.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">16.</div><div class="title-wrap"><a class="title-link" href="#">Webflow (YC S13) Is Hiring a Senior Frontend Engineer — Remote (US)</a> <span class="domain">(<a href="#">webflow.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">17.</div><div class="title-wrap"><a class="title-link" href="#">Lattice (YC W16) Is Hiring a Senior Platform Engineer — San Francisco / New York (remote ok)</a> <span class="domain">(<a href="#">lattice.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">18.</div><div class="title-wrap"><a class="title-link" href="#">Brex (YC W17) Is Hiring Senior Engineers, Payments — São Paulo / Remote (Brazil)</a> <span class="domain">(<a href="#">brex.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">19.</div><div class="title-wrap"><a class="title-link" href="#">Standard Metrics (YC W17) Is Hiring a Founding Product Designer — Remote (US)</a> <span class="domain">(<a href="#">standardmetrics.io</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">20.</div><div class="title-wrap"><a class="title-link" href="#">Whatnot (YC W20) Is Hiring Senior Mobile Engineers — Los Angeles / Remote (US)</a> <span class="domain">(<a href="#">whatnot.com</a>)</span></div></div>
+    <div class="subtext">1 day ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">21.</div><div class="title-wrap"><a class="title-link" href="#">Hightouch (YC S19) Is Hiring Sales Engineers — Remote (US/Canada)</a> <span class="domain">(<a href="#">hightouch.com</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">22.</div><div class="title-wrap"><a class="title-link" href="#">Mintlify (YC W22) Is Hiring Founding Engineers — San Francisco (on-site)</a> <span class="domain">(<a href="#">mintlify.com</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">23.</div><div class="title-wrap"><a class="title-link" href="#">Anrok (YC W21) Is Hiring a Staff Backend Engineer, Tax Engine — Remote (US)</a> <span class="domain">(<a href="#">anrok.com</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">24.</div><div class="title-wrap"><a class="title-link" href="#">Pulley (YC S20) Is Hiring a Senior Full-Stack Engineer — San Francisco (remote ok)</a> <span class="domain">(<a href="#">pulley.com</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">25.</div><div class="title-wrap"><a class="title-link" href="#">Fly.io (YC W20) Is Hiring Edge Infrastructure Engineers — Remote (Worldwide)</a> <span class="domain">(<a href="#">fly.io</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">26.</div><div class="title-wrap"><a class="title-link" href="#">Census (YC S19) Is Hiring a Senior Data Engineer — Remote (US)</a> <span class="domain">(<a href="#">getcensus.com</a>)</span></div></div>
+    <div class="subtext">2 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">27.</div><div class="title-wrap"><a class="title-link" href="#">Tactic (YC W22) Is Hiring a Founding AI Engineer — London (on-site)</a> <span class="domain">(<a href="#">tactic.so</a>)</span></div></div>
+    <div class="subtext">3 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">28.</div><div class="title-wrap"><a class="title-link" href="#">Vouch (YC W20) Is Hiring a Senior Rails Engineer — Remote (US)</a> <span class="domain">(<a href="#">vouch.us</a>)</span></div></div>
+    <div class="subtext">3 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">29.</div><div class="title-wrap"><a class="title-link" href="#">Pilot (YC S17) Is Hiring a Senior Software Engineer, Bookkeeping — San Francisco / Nashville (remote ok)</a> <span class="domain">(<a href="#">pilot.com</a>)</span></div></div>
+    <div class="subtext">3 days ago | <a href="#">hide</a></div>
+
+    <div class="job-row"><div class="rank">30.</div><div class="title-wrap"><a class="title-link" href="#">Athelas (YC W19) Is Hiring Machine Learning Engineers, Healthcare — Mountain View (on-site)</a> <span class="domain">(<a href="#">athelas.com</a>)</span></div></div>
+    <div class="subtext">3 days ago | <a href="#">hide</a></div>
+
+    <div class="pagination">
+      <a href="#">More</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-divider"></div>
+  <div class="footer">
+    <div class="links">
+      <a href="#">Guidelines</a> | <a href="#">FAQ</a> | <a href="#">Lists</a> | <a href="#">API</a> | <a href="#">Security</a> | <a href="#">Legal</a> | <a href="#">Apply to YC</a> | <a href="#">Contact</a>
+    </div>
+    <div class="search">
+      Search: <input type="text" value="">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

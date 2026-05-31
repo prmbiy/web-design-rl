@@ -1,0 +1,22 @@
+{
+  "id": "020",
+  "name": "docs_site",
+  "source": "B",
+  "archetype": "Developer documentation site in ReadTheDocs / Sphinx style",
+  "market": "Global, software developers using an open-source framework or library",
+  "era": "2023",
+  "density": "Medium density with clear structure. Left sidebar is permanent and comprehensive — all doc sections listed. Main content area is text-heavy with code blocks, note boxes, and API reference tables. Right sidebar has 'On this page' anchor navigation. Search is critical and prominent.",
+  "nav_style": "Fixed top nav with project name/logo, version selector dropdown, GitHub link, search bar that opens to full-screen search overlay. Below on every page: left sidebar with collapsible doc sections tree. The sidebar is the primary navigation and is 250px wide fixed.",
+  "commercial_model": "Open source project docs. Sponsor logos in sidebar footer. Cloud/hosted version 'pro' CTA. Commercial support offered. The docs themselves generate enterprise leads.",
+  "color_palette": "ReadTheDocs blue (#2980B9) for links and active sidebar items. White (#FFFFFF) main content background. Light blue-grey (#EEF2F6) sidebar background. Dark text (#2C3E50) for body copy. Code blocks in dark background (#2E3440) with syntax highlighting (keywords in blue, strings in green, numbers in orange). Green (#27AE60) for note boxes, yellow for warnings, red for danger.",
+  "typography": "Lato or Source Sans Pro for prose — clean and readable for long-form reading. Source Code Pro or JetBrains Mono for all code samples. 16px body text with 1.65 line-height for reading comfort. Headings create clear H1-H4 hierarchy with visible nesting in sidebar.",
+  "quirks": ["left_sidebar_permanent", "right_sidebar_toc", "code_block_copy_button", "version_selector", "search_overlay", "note_warning_danger_boxes", "api_reference_tables", "github_edit_link", "breadcrumb_navigation", "previous_next_page_links"],
+  "pages": [
+    {"slug": "index", "title": "Documentation Home", "description": "Getting started overview. Installation instructions with pip/npm/cargo tabs. Quick start code example. Links to major documentation sections. Features overview table. Community links."},
+    {"slug": "installation", "title": "Installation Guide", "description": "Detailed installation instructions for each OS. Prerequisites section. Package manager commands in copy-able code blocks. Virtual environment setup. Verification step with expected output. Troubleshooting note boxes."},
+    {"slug": "quickstart", "title": "Quick Start Tutorial", "description": "Step-by-step first project tutorial. Numbered steps with code blocks after each. Expected output shown. Note boxes explaining concepts. 'Next steps' section at the bottom pointing to more advanced topics."},
+    {"slug": "api", "title": "API Reference", "description": "Complete API reference. Function/class signatures with parameter types. Parameter tables with name, type, required, description columns. Return value specification. Code examples for each method. Deprecated notices."},
+    {"slug": "configuration", "title": "Configuration", "description": "Configuration options reference. Options table with key, type, default, description. Example configuration files in code blocks. Environment variable alternatives. Advanced configuration patterns section."}
+  ],
+  "animations": false
+}

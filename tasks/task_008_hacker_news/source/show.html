@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Show | Hacker News</title>
+<style>
+  body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    background-color: #F6F6EF;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    width: 85%;
+    margin: 0 auto;
+    background-color: #F6F6EF;
+  }
+  /* Top bar */
+  .topbar {
+    background-color: #FF6600;
+    padding: 2px 6px;
+    height: 18px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+  }
+  .topbar a {
+    color: #000000;
+    font-size: 10px;
+  }
+  .logo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #FFFFFF;
+    background-color: #FF6600;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .topbar-left {
+    flex: 1;
+  }
+  .topbar-left .brand {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  .topbar-left .sep {
+    margin: 0 2px;
+  }
+  .topbar-right {
+    margin-left: auto;
+  }
+  .topbar .emph {
+    font-weight: bold;
+  }
+
+  /* Intro line */
+  .intro {
+    background-color: #F6F6EF;
+    padding: 6px 8px 4px 8px;
+    font-size: 10px;
+    color: #000000;
+  }
+  .intro a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  /* Story list */
+  .stories {
+    padding: 4px 0 8px 0;
+  }
+  .story-row {
+    display: flex;
+    padding: 0 6px;
+    margin-bottom: 4px;
+  }
+  .rank {
+    width: 28px;
+    text-align: right;
+    color: #828282;
+    font-size: 10px;
+    padding-right: 2px;
+    line-height: 14px;
+  }
+  .vote {
+    width: 12px;
+    text-align: center;
+    padding-right: 4px;
+    line-height: 14px;
+  }
+  .vote .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 6px solid #999999;
+    cursor: pointer;
+  }
+  .vote .triangle:hover {
+    border-bottom-color: #FF6600;
+  }
+  .story-content {
+    flex: 1;
+    line-height: 14px;
+  }
+  .story-title a {
+    color: #000000;
+    font-size: 10px;
+  }
+  .story-title a:visited {
+    color: #828282;
+  }
+  .domain {
+    color: #828282;
+    font-size: 8pt;
+  }
+  .subtext {
+    color: #828282;
+    font-size: 7pt;
+    margin-top: 1px;
+  }
+  .subtext a {
+    color: #828282;
+    font-size: 7pt;
+  }
+  .subtext a:hover {
+    text-decoration: underline;
+  }
+
+  /* Pagination */
+  .pagination {
+    padding: 8px 6px 16px 40px;
+    font-size: 10px;
+  }
+  .pagination a {
+    color: #000000;
+    font-weight: bold;
+  }
+
+  /* Footer */
+  .footer-divider {
+    border-top: 1px solid #FF6600;
+    margin: 8px 6px 0 6px;
+  }
+  .footer {
+    text-align: center;
+    padding: 8px 6px 16px 6px;
+    font-size: 8pt;
+    color: #828282;
+  }
+  .footer a {
+    color: #828282;
+  }
+  .footer .links {
+    margin-bottom: 8px;
+  }
+  .footer .search {
+    margin-top: 6px;
+  }
+  .footer input[type="text"] {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    padding: 1px 3px;
+    border: 1px solid #828282;
+    background-color: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="logo">Y</span>
+      <a href="#" class="brand">Hacker News</a>
+      <a href="#">new</a><span class="sep">|</span>
+      <a href="#">past</a><span class="sep">|</span>
+      <a href="#">comments</a><span class="sep">|</span>
+      <a href="#">ask</a><span class="sep">|</span>
+      <a href="#" class="emph">show</a><span class="sep">|</span>
+      <a href="#">jobs</a><span class="sep">|</span>
+      <a href="#">submit</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#">login</a>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    Please read the <a href="#">rules</a>. You can also browse the <a href="#">newest</a> Show HNs or <a href="#">all-time top</a>.
+  </div>
+
+  <!-- Story list -->
+  <div class="stories">
+
+    <div class="story-row">
+      <div class="rank">1.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Tldraw – an infinite canvas SDK</a> <span class="domain">(tldraw.com)</span></div>
+        <div class="subtext">842 points by <a href="#">steveruizok</a> 4 hours ago | <a href="#">hide</a> | <a href="#">312&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">2.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I replaced Zapier with 200 lines of Deno</a> <span class="domain">(github.com/marko)</span></div>
+        <div class="subtext">615 points by <a href="#">marko</a> 5 hours ago | <a href="#">hide</a> | <a href="#">248&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">3.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Offline-first Markdown editor for iPad</a> <span class="domain">(ergojot.app)</span></div>
+        <div class="subtext">487 points by <a href="#">ergojot</a> 6 hours ago | <a href="#">hide</a> | <a href="#">156&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">4.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I built a local-first Postgres GUI in Rust</a> <span class="domain">(github.com/pgwave)</span></div>
+        <div class="subtext">412 points by <a href="#">pgwave_dev</a> 7 hours ago | <a href="#">hide</a> | <a href="#">189&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">5.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Whisper.cpp now runs on a Raspberry Pi Zero 2</a> <span class="domain">(github.com/ggerganov)</span></div>
+        <div class="subtext">389 points by <a href="#">ggerganov</a> 8 hours ago | <a href="#">hide</a> | <a href="#">124&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">6.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Fjord – a TUI for managing AWS without the console</a> <span class="domain">(fjord.dev)</span></div>
+        <div class="subtext">356 points by <a href="#">awscli_hater</a> 9 hours ago | <a href="#">hide</a> | <a href="#">102&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">7.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A self-hosted alternative to Linktree in 80kb</a> <span class="domain">(littlelink.dev)</span></div>
+        <div class="subtext">298 points by <a href="#">tinybuilder</a> 10 hours ago | <a href="#">hide</a> | <a href="#">87&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">8.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Type-safe SQL queries for TypeScript without an ORM</a> <span class="domain">(github.com/pgtyped)</span></div>
+        <div class="subtext">276 points by <a href="#">adelsz</a> 11 hours ago | <a href="#">hide</a> | <a href="#">142&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">9.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I made a CLI that turns logs into ASCII flame graphs</a> <span class="domain">(github.com/flamelog)</span></div>
+        <div class="subtext">264 points by <a href="#">flamelog</a> 12 hours ago | <a href="#">hide</a> | <a href="#">73&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">10.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Pebble – a minimalist habit tracker that runs on a Pi Pico</a> <span class="domain">(pebble-track.io)</span></div>
+        <div class="subtext">241 points by <a href="#">solderhead</a> 13 hours ago | <a href="#">hide</a> | <a href="#">58&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">11.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Open-source Calendly clone with no signup</a> <span class="domain">(cal.com)</span></div>
+        <div class="subtext">228 points by <a href="#">peer_richelsen</a> 14 hours ago | <a href="#">hide</a> | <a href="#">91&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">12.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A search engine for academic papers using local embeddings</a> <span class="domain">(papersearch.local)</span></div>
+        <div class="subtext">212 points by <a href="#">phdgrind</a> 15 hours ago | <a href="#">hide</a> | <a href="#">64&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">13.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I built a browser entirely in Zig (it renders HN)</a> <span class="domain">(github.com/ziggybrowser)</span></div>
+        <div class="subtext">198 points by <a href="#">ziggybrowser</a> 16 hours ago | <a href="#">hide</a> | <a href="#">115&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">14.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Excalidraw plugin that turns sketches into React components</a> <span class="domain">(sketch2react.io)</span></div>
+        <div class="subtext">184 points by <a href="#">drawingboard</a> 17 hours ago | <a href="#">hide</a> | <a href="#">42&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">15.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: My weekend project: a vintage receipt printer for git commits</a> <span class="domain">(commitprinter.fun)</span></div>
+        <div class="subtext">172 points by <a href="#">paperjam</a> 18 hours ago | <a href="#">hide</a> | <a href="#">38&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">16.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: KaTeX-style math rendering in 6kB of JS</a> <span class="domain">(github.com/mathlite)</span></div>
+        <div class="subtext">159 points by <a href="#">mathlite</a> 19 hours ago | <a href="#">hide</a> | <a href="#">51&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">17.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Tinygrad now runs on the Apple Neural Engine</a> <span class="domain">(github.com/tinygrad)</span></div>
+        <div class="subtext">147 points by <a href="#">geohot</a> 20 hours ago | <a href="#">hide</a> | <a href="#">88&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">18.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A static site generator that ships zero JavaScript by default</a> <span class="domain">(eleventy.dev)</span></div>
+        <div class="subtext">136 points by <a href="#">zachleat</a> 21 hours ago | <a href="#">hide</a> | <a href="#">47&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">19.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Privacy-respecting analytics that runs on a single SQLite file</a> <span class="domain">(plausibly.dev)</span></div>
+        <div class="subtext">128 points by <a href="#">no_cookies</a> 22 hours ago | <a href="#">hide</a> | <a href="#">62&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">20.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I wrote a tiny operating system in 1000 lines of C</a> <span class="domain">(github.com/nuta/os1k)</span></div>
+        <div class="subtext">119 points by <a href="#">nuta</a> 23 hours ago | <a href="#">hide</a> | <a href="#">31&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">21.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A Figma plugin that generates Tailwind from selections</a> <span class="domain">(figtail.app)</span></div>
+        <div class="subtext">112 points by <a href="#">figtail</a> 1 day ago | <a href="#">hide</a> | <a href="#">29&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">22.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Open-source Loom alternative using WebCodecs</a> <span class="domain">(screen.studio)</span></div>
+        <div class="subtext">104 points by <a href="#">recordbutton</a> 1 day ago | <a href="#">hide</a> | <a href="#">36&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">23.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Convert any website into an LLM-friendly text document</a> <span class="domain">(jina.ai/reader)</span></div>
+        <div class="subtext">96 points by <a href="#">jina</a> 1 day ago | <a href="#">hide</a> | <a href="#">44&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">24.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: I built a self-hosted Spotify with Subsonic + Jellyfin</a> <span class="domain">(github.com/sonicbox)</span></div>
+        <div class="subtext">89 points by <a href="#">audiomancer</a> 1 day ago | <a href="#">hide</a> | <a href="#">27&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">25.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: An end-to-end encrypted Google Forms replacement</a> <span class="domain">(cryptee.forms)</span></div>
+        <div class="subtext">82 points by <a href="#">cryptee</a> 1 day ago | <a href="#">hide</a> | <a href="#">19&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">26.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A drop-in replacement for Cron written in Go</a> <span class="domain">(github.com/gocron)</span></div>
+        <div class="subtext">76 points by <a href="#">gocron</a> 1 day ago | <a href="#">hide</a> | <a href="#">23&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">27.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: VSCode extension that explains regex with diagrams</a> <span class="domain">(regexplain.dev)</span></div>
+        <div class="subtext">71 points by <a href="#">regexplain</a> 2 days ago | <a href="#">hide</a> | <a href="#">18&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">28.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A peer-to-peer file share with no servers, just QR codes</a> <span class="domain">(pairdrop.net)</span></div>
+        <div class="subtext">65 points by <a href="#">qrshare</a> 2 days ago | <a href="#">hide</a> | <a href="#">21&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">29.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: A terminal-based Twitter client (works with Mastodon too)</a> <span class="domain">(github.com/rainbowstream)</span></div>
+        <div class="subtext">58 points by <a href="#">rainbowstream</a> 2 days ago | <a href="#">hide</a> | <a href="#">25&nbsp;comments</a></div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="rank">30.</div>
+      <div class="vote"><span class="triangle"></span></div>
+      <div class="story-content">
+        <div class="story-title"><a href="#">Show HN: Hand-drawn diagrams in Markdown via a custom Pandoc filter</a> <span class="domain">(github.com/sketchmark)</span></div>
+        <div class="subtext">52 points by <a href="#">sketchmark</a> 2 days ago | <a href="#">hide</a> | <a href="#">14&nbsp;comments</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <a href="#">More</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-divider"></div>
+  <div class="footer">
+    <div class="links">
+      <a href="#">Guidelines</a> | <a href="#">FAQ</a> | <a href="#">Lists</a> | <a href="#">API</a> | <a href="#">Security</a> | <a href="#">Legal</a> | <a href="#">Apply to YC</a> | <a href="#">Contact</a>
+    </div>
+    <div class="search">
+      Search: <input type="text" value="">
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Volaris Móvil — Inicio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 15px; color: #142A30; background: #FFFFFF; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== TOP UTILITY BAR ===== */
+.utility-bar { background: #003D47; color: #E0F7FA; font-size: 13px; padding: 8px 0; }
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; }
+.utility-left span { margin-right: 18px; }
+.status-dot { display: inline-block; width: 9px; height: 9px; background: #2BAE66; border-radius: 50%; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 0 3px rgba(43,174,102,.25); }
+.utility-right a { margin-left: 18px; }
+
+/* ===== NAV ===== */
+.nav { background: #007B8A; height: 72px; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 0 rgba(0,0,0,.05); }
+.nav .container { height: 100%; display: flex; align-items: center; gap: 32px; }
+.logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 900; font-size: 22px; letter-spacing: -.5px; }
+.logo-mark { width: 36px; height: 36px; background: #FF5722; border-radius: 50%; display: grid; place-items: center; font-size: 18px; color: #fff; font-weight: 900; box-shadow: inset 0 -4px 0 rgba(0,0,0,.15); }
+.nav-links { display: flex; gap: 4px; flex: 1; justify-content: center; }
+.nav-links a { color: #fff; font-weight: 700; font-size: 15px; padding: 10px 16px; border-radius: 8px; }
+.nav-links a.active, .nav-links a:hover { background: rgba(255,255,255,.12); }
+.nav-right { display: flex; gap: 14px; align-items: center; }
+.nav-right a { color: #fff; font-weight: 700; font-size: 14px; padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; }
+.nav-right .mi-cuenta { background: #FF5722; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; background: rgba(255,255,255,.1); border-radius: 50%; }
+
+/* ===== PROMO CAROUSEL ===== */
+.promo-carousel { background: linear-gradient(90deg, #FF5722 0%, #FF7A4D 50%, #FFC107 100%); color: #fff; padding: 22px 0; position: relative; overflow: hidden; }
+.promo-carousel .container { display: flex; align-items: center; gap: 28px; }
+.promo-tag { background: #fff; color: #FF5722; font-weight: 900; padding: 6px 12px; border-radius: 6px; font-size: 13px; letter-spacing: .5px; }
+.promo-headline { font-size: 28px; font-weight: 900; letter-spacing: -.5px; flex: 1; }
+.promo-headline span { color: #142A30; }
+.countdown { display: flex; gap: 8px; align-items: center; }
+.countdown-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: .9; margin-right: 6px; }
+.cd-box { background: #142A30; color: #FFC107; padding: 8px 10px; border-radius: 6px; font-weight: 900; font-size: 20px; min-width: 46px; text-align: center; line-height: 1; }
+.cd-box small { display: block; font-size: 10px; color: #fff; opacity: .7; font-weight: 700; margin-top: 4px; letter-spacing: .5px; }
+.carousel-dots { display: flex; gap: 6px; justify-content: center; margin-top: 12px; }
+.carousel-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4); }
+.carousel-dots span.active { background: #fff; width: 22px; border-radius: 4px; }
+
+/* ===== HERO ===== */
+.hero { background: linear-gradient(135deg, #007B8A 0%, #005A66 70%, #003D47 100%); color: #fff; padding: 72px 0 88px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; right: -120px; top: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(255,193,7,.18), transparent 65%); }
+.hero::after { content: ""; position: absolute; left: 40%; bottom: -180px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,87,34,.25), transparent 65%); }
+.hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+.hero-eyebrow { display: inline-block; background: #FFC107; color: #142A30; font-weight: 900; padding: 6px 14px; border-radius: 6px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.hero h1 { font-size: 52px; font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 18px; }
+.hero h1 .price { color: #FFC107; }
+.hero-sub { font-size: 18px; opacity: .9; max-width: 540px; margin-bottom: 28px; }
+.hero-actions { display: flex; gap: 14px; }
+.btn { display: inline-block; padding: 14px 26px; border-radius: 10px; font-weight: 800; font-size: 15px; cursor: pointer; border: none; }
+.btn-primary { background: #FF5722; color: #fff; }
+.btn-outline { background: transparent; color: #fff; border: 2px solid #fff; padding: 12px 24px; }
+.btn-yellow { background: #FFC107; color: #142A30; }
+
+.hero-card { background: #fff; color: #142A30; border-radius: 16px; padding: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.25); position: relative; }
+.hero-card .badge-5g { position: absolute; top: -14px; right: 24px; background: #FF5722; color: #fff; font-weight: 900; padding: 6px 14px; border-radius: 6px; font-size: 13px; letter-spacing: 1px; }
+.hero-card h3 { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+.hero-card .plan-sub { color: #5C7079; font-size: 14px; margin-bottom: 18px; }
+.hero-card .big-price { font-size: 56px; font-weight: 900; color: #007B8A; line-height: 1; letter-spacing: -2px; }
+.hero-card .big-price small { font-size: 18px; color: #5C7079; font-weight: 700; }
+.hero-card .price-strike { color: #5C7079; text-decoration: line-through; font-size: 16px; margin-left: 8px; }
+.hero-card ul { list-style: none; margin: 20px 0; }
+.hero-card ul li { padding: 8px 0; border-bottom: 1px dashed #D5E5E8; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+.hero-card ul li::before { content: "✓"; color: #2BAE66; font-weight: 900; }
+.hero-card .btn { width: 100%; text-align: center; }
+
+/* ===== CATEGORY TABS ===== */
+.tabs-section { padding: 56px 0 16px; }
+.section-title { text-align: center; margin-bottom: 28px; }
+.section-title h2 { font-size: 36px; font-weight: 900; letter-spacing: -1px; }
+.section-title p { color: #5C7079; margin-top: 8px; font-size: 16px; }
+.cat-tabs { display: flex; justify-content: center; gap: 0; border-bottom: 2px solid #D5E5E8; max-width: 720px; margin: 0 auto; }
+.cat-tab { flex: 1; text-align: center; padding: 16px 18px; font-weight: 800; font-size: 16px; color: #5C7079; cursor: pointer; border-bottom: 4px solid transparent; margin-bottom: -2px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.cat-tab.active { color: #007B8A; border-bottom-color: #FF5722; }
+.cat-tab .ic { font-size: 18px; }
+
+/* ===== FEATURED PLANS ===== */
+.plans-section { background: #E0F7FA; padding: 56px 0 80px; }
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+.plan-card { background: #fff; border-radius: 16px; padding: 32px 26px; border: 2px solid transparent; position: relative; box-shadow: 0 4px 12px rgba(0,123,138,.08); }
+.plan-card.popular { border-color: #FF5722; transform: translateY(-10px); box-shadow: 0 18px 40px rgba(255,87,34,.18); }
+.popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #FF5722; color: #fff; font-weight: 900; padding: 6px 18px; border-radius: 6px; font-size: 12px; letter-spacing: 1.5px; }
+.plan-card .data-pill { display: inline-block; background: #E0F7FA; color: #007B8A; font-weight: 900; padding: 6px 12px; border-radius: 6px; font-size: 13px; letter-spacing: .5px; margin-bottom: 12px; }
+.plan-card h3 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+.plan-card .plan-desc { color: #5C7079; font-size: 13px; margin-bottom: 18px; }
+.plan-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+.plan-price .currency { font-size: 22px; font-weight: 800; color: #142A30; }
+.plan-price .amount { font-size: 58px; font-weight: 900; color: #007B8A; letter-spacing: -2px; line-height: 1; }
+.plan-price .per { font-size: 14px; color: #5C7079; font-weight: 700; }
+.plan-card .double-data { background: #FFC107; color: #142A30; font-weight: 900; font-size: 12px; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-bottom: 14px; letter-spacing: .5px; }
+.plan-features { list-style: none; margin: 18px 0; }
+.plan-features li { padding: 10px 0; border-bottom: 1px solid #E0F7FA; font-size: 14px; display: flex; gap: 10px; align-items: center; }
+.plan-features li::before { content: "✓"; color: #2BAE66; font-weight: 900; width: 18px; }
+.plan-features li.muted::before { content: "—"; color: #B0BEC5; }
+.plan-features li.muted { color: #8FA0A8; }
+.plan-card .btn { width: 100%; text-align: center; margin-top: 6px; }
+.plan-card.popular .btn { background: #FF5722; }
+.plan-card:not(.popular) .btn { background: #007B8A; color: #fff; }
+
+/* ===== STREAMING PARTNERS ===== */
+.streaming-strip { padding: 48px 0; background: #fff; border-top: 1px solid #E0F7FA; border-bottom: 1px solid #E0F7FA; }
+.streaming-strip h4 { text-align: center; font-size: 14px; font-weight: 800; color: #5C7079; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.partners-row { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; }
+.partner-logo { background: #142A30; color: #fff; font-weight: 900; padding: 16px 28px; border-radius: 10px; font-size: 18px; letter-spacing: .5px; min-width: 140px; text-align: center; }
+.partner-logo.netflix { background: #000; color: #E50914; }
+.partner-logo.disney { background: #0E2148; color: #fff; font-family: 'Nunito Sans', cursive; }
+.partner-logo.hbo { background: #000; color: #B535F6; }
+.partner-logo.paramount { background: #0064FF; color: #fff; }
+.partner-logo.amazon { background: #232F3E; color: #FF9900; }
+
+/* ===== RECHARGE WIDGET ===== */
+.recharge-section { background: linear-gradient(120deg, #007B8A 0%, #005A66 100%); padding: 64px 0; color: #fff; }
+.recharge-wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; }
+.recharge-wrap h2 { font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -1px; margin-bottom: 14px; }
+.recharge-wrap p { opacity: .9; font-size: 16px; max-width: 380px; }
+.recharge-wrap .pay-methods { margin-top: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
+.pay-chip { background: rgba(255,255,255,.12); padding: 8px 14px; border-radius: 6px; font-weight: 700; font-size: 13px; }
+.recharge-card { background: #fff; color: #142A30; border-radius: 16px; padding: 32px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
+.recharge-card h3 { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+.recharge-card .step { color: #5C7079; font-size: 13px; margin-bottom: 20px; }
+.form-row { margin-bottom: 18px; }
+.form-row label { display: block; font-weight: 800; font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; color: #5C7079; }
+.phone-input { display: flex; gap: 0; border: 2px solid #D5E5E8; border-radius: 10px; overflow: hidden; }
+.phone-input .country { background: #E0F7FA; padding: 14px 14px; font-weight: 800; color: #007B8A; }
+.phone-input input { flex: 1; border: none; padding: 14px; font-size: 16px; font-family: inherit; outline: none; font-weight: 700; }
+.amount-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.amount-chip { border: 2px solid #D5E5E8; padding: 16px 6px; border-radius: 10px; text-align: center; font-weight: 900; font-size: 18px; color: #142A30; cursor: pointer; }
+.amount-chip.selected { border-color: #FF5722; background: #FFE4D6; color: #FF5722; }
+.amount-chip small { display: block; font-size: 10px; font-weight: 700; color: #5C7079; margin-top: 2px; }
+.amount-chip.selected small { color: #FF5722; }
+.recharge-card .btn { width: 100%; text-align: center; margin-top: 8px; padding: 16px; font-size: 16px; }
+
+/* ===== DOUBLE DATA PROMO ===== */
+.double-data-band { background: #FF5722; color: #fff; padding: 36px 0; position: relative; overflow: hidden; }
+.double-data-band::before { content: "2X"; position: absolute; right: -20px; top: -40px; font-size: 280px; font-weight: 900; opacity: .08; letter-spacing: -10px; }
+.double-data-band .container { display: flex; align-items: center; justify-content: space-between; gap: 28px; position: relative; }
+.dd-text { display: flex; align-items: center; gap: 22px; }
+.dd-icon { width: 76px; height: 76px; background: #FFC107; color: #142A30; border-radius: 16px; display: grid; place-items: center; font-size: 32px; font-weight: 900; flex-shrink: 0; }
+.dd-text h3 { font-size: 30px; font-weight: 900; letter-spacing: -.5px; }
+.dd-text p { opacity: .9; font-size: 15px; margin-top: 4px; }
+
+/* ===== PORTABILITY ===== */
+.portability { padding: 72px 0; background: #fff; }
+.portability-wrap { background: #FFE4D6; border-radius: 20px; padding: 48px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; position: relative; overflow: hidden; border: 2px solid #FFCAB0; }
+.portability h2 { font-size: 36px; font-weight: 900; color: #142A30; letter-spacing: -1px; margin-bottom: 10px; }
+.portability h2 .hl { color: #FF5722; }
+.portability p { color: #5C7079; font-size: 16px; margin-bottom: 20px; }
+.carrier-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
+.carrier-chip { background: #fff; border: 2px solid #fff; padding: 10px 18px; border-radius: 10px; font-weight: 800; color: #142A30; font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,.05); }
+.arrow { font-size: 22px; color: #FF5722; font-weight: 900; }
+.port-side { background: #fff; border-radius: 16px; padding: 28px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.port-side .bonus { font-size: 64px; font-weight: 900; color: #FF5722; line-height: 1; letter-spacing: -3px; }
+.port-side .bonus small { font-size: 20px; color: #142A30; }
+.port-side .lbl { font-weight: 800; color: #142A30; margin: 8px 0 18px; }
+.port-side .btn { width: 100%; }
+
+/* ===== STORE LOCATOR ===== */
+.store-locator { background: #005A66; color: #fff; padding: 64px 0; }
+.store-locator .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
+.store-locator h2 { font-size: 36px; font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
+.store-locator p { opacity: .9; font-size: 16px; margin-bottom: 22px; max-width: 420px; }
+.cities-list { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.city-chip { background: rgba(255,255,255,.12); padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+.map-placeholder { background: linear-gradient(135deg, #E0F7FA 0%, #B5E2E8 100%); border-radius: 16px; height: 320px; position: relative; overflow: hidden; box-shadow: inset 0 0 0 4px rgba(0,0,0,.05); }
+.map-placeholder svg { width: 100%; height: 100%; }
+.map-pin { position: absolute; width: 28px; height: 28px; background: #FF5722; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.map-pin::after { content: ""; position: absolute; top: 6px; left: 6px; width: 10px; height: 10px; background: #fff; border-radius: 50%; }
+.pin-label { position: absolute; background: #142A30; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+
+/* ===== FOOTER ===== */
+.service-status-band { background: #2BAE66; color: #fff; padding: 14px 0; }
+.service-status-band .container { display: flex; justify-content: center; align-items: center; gap: 14px; font-weight: 700; font-size: 14px; }
+.service-status-band .dot { width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,.3); }
+.service-status-band a { text-decoration: underline; font-weight: 800; }
+
+footer { background: #003D47; color: #B5D2D8; padding: 64px 0 24px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+.foot-col h5 { color: #fff; font-weight: 900; font-size: 15px; margin-bottom: 14px; letter-spacing: .5px; }
+.foot-col ul { list-style: none; }
+.foot-col li { padding: 5px 0; font-size: 14px; }
+.foot-col a:hover { color: #FFC107; }
+.foot-brand .logo { color: #fff; margin-bottom: 14px; }
+.foot-brand p { font-size: 14px; max-width: 280px; margin-bottom: 16px; }
+.socials { display: flex; gap: 10px; }
+.socials span { width: 36px; height: 36px; background: rgba(255,255,255,.1); border-radius: 50%; display: grid; place-items: center; color: #fff; }
+.legal { border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px; display: flex; justify-content: space-between; font-size: 13px; }
+
+/* ===== LIVE CHAT FLOAT ===== */
+.live-chat { position: fixed; bottom: 22px; right: 22px; background: #FF5722; color: #fff; padding: 14px 22px; border-radius: 50px; font-weight: 800; font-size: 14px; box-shadow: 0 12px 28px rgba(255,87,34,.45); z-index: 100; display: flex; align-items: center; gap: 10px; }
+.live-chat .chat-dot { width: 10px; height: 10px; background: #2BAE66; border-radius: 50%; box-shadow: 0 0 0 4px rgba(43,174,102,.35); }
+.whatsapp-float { position: fixed; bottom: 22px; right: 220px; background: #25D366; color: #fff; padding: 14px 18px; border-radius: 50px; font-weight: 800; font-size: 13px; box-shadow: 0 12px 28px rgba(37,211,102,.4); z-index: 100; display: flex; align-items: center; gap: 8px; }
+
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <span><span class="status-dot"></span>Todos los servicios operando con normalidad</span>
+      <span>📞 *611 desde su Volaris</span>
+      <span>🇲🇽 México · 🇨🇴 Colombia</span>
+    </div>
+    <div class="utility-right">
+      <a href="#">Estado del servicio</a>
+      <a href="#">Sucursales</a>
+      <a href="#">Español ▾</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container">
+    <a href="#" class="logo">
+      <span class="logo-mark">V</span>
+      Volaris Móvil
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Móvil</a>
+      <a href="#">Internet</a>
+      <a href="#">TV</a>
+      <a href="#">Paquetes</a>
+      <a href="#">Empresa</a>
+      <a href="#">Tiendas</a>
+    </div>
+    <div class="nav-right">
+      <span class="icon-btn">❔</span>
+      <span class="icon-btn">🛒</span>
+      <a href="#" class="mi-cuenta">👤 Mi Cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Promo carousel -->
+<div class="promo-carousel">
+  <div class="container">
+    <span class="promo-tag">OFERTA RELÁMPAGO</span>
+    <div class="promo-headline">¡50% OFF en tu primer mes! <span>Plan Pro 80GB desde $199</span></div>
+    <div class="countdown">
+      <span class="countdown-label">Termina en</span>
+      <div class="cd-box">02<small>DÍAS</small></div>
+      <div class="cd-box">14<small>HRS</small></div>
+      <div class="cd-box">32<small>MIN</small></div>
+      <div class="cd-box">07<small>SEG</small></div>
+    </div>
+  </div>
+  <div class="carousel-dots">
+    <span class="active"></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="hero-eyebrow">🚀 RED 5G ULTRA</span>
+      <h1>Plan Ilimitado Volaris 5G por <span class="price">$349/mes</span></h1>
+      <p class="hero-sub">Incluye Netflix Estándar y Disney+ sin costo extra los primeros 6 meses. Datos ilimitados, llamadas y SMS sin límite a México, Colombia, USA y Canadá.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Contratar ahora</a>
+        <a href="#" class="btn btn-outline">Ver detalles del plan</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="badge-5g">5G INCLUIDO</span>
+      <h3>Plan Ilimitado Volaris</h3>
+      <p class="plan-sub">Pospago · Sin contrato forzoso</p>
+      <div class="big-price">$349<small>/mes</small></div>
+      <div><span class="price-strike">$549/mes</span></div>
+      <ul>
+        <li>Datos ilimitados en red 5G</li>
+        <li>Minutos y SMS ilimitados</li>
+        <li>Netflix + Disney+ por 6 meses</li>
+        <li>Roaming gratis en USA y Canadá</li>
+      </ul>
+      <a href="#" class="btn btn-primary">Quiero este plan</a>
+    </div>
+  </div>
+</section>
+
+<!-- Category tabs -->
+<section class="tabs-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Encuentra el plan ideal para usted</h2>
+      <p>Más de 8.4 millones de clientes confían en Volaris en México y Colombia</p>
+    </div>
+    <div class="cat-tabs">
+      <div class="cat-tab active"><span class="ic">📱</span> Móvil</div>
+      <div class="cat-tab"><span class="ic">📡</span> Internet Hogar</div>
+      <div class="cat-tab"><span class="ic">📺</span> TV con Streaming</div>
+    </div>
+  </div>
+</section>
+
+<!-- Plans grid -->
+<section class="plans-section">
+  <div class="container">
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <span class="data-pill">📶 30 GB</span>
+        <h3>Plan Esencial</h3>
+        <p class="plan-desc">Ideal para uso diario, redes sociales y mensajería.</p>
+        <div class="plan-price"><span class="currency">$</span><span class="amount">249</span><span class="per">/mes</span></div>
+        <span class="double-data">⚡ FIN DE SEMANA: DATOS DOBLES</span>
+        <ul class="plan-features">
+          <li>30 GB de datos 4G LTE</li>
+          <li>Minutos y SMS ilimitados</li>
+          <li>Apps sociales sin consumo</li>
+          <li class="muted">Streaming incluido</li>
+          <li class="muted">Roaming en USA</li>
+        </ul>
+        <a href="#" class="btn">Contratar Esencial</a>
+      </div>
+
+      <div class="plan-card popular">
+        <span class="popular-badge">★ MÁS POPULAR</span>
+        <span class="data-pill">📶 80 GB</span>
+        <h3>Plan Pro</h3>
+        <p class="plan-desc">Streaming, videollamadas y gaming sin pausa.</p>
+        <div class="plan-price"><span class="currency">$</span><span class="amount">399</span><span class="per">/mes</span></div>
+        <span class="double-data">⚡ FIN DE SEMANA: DATOS DOBLES</span>
+        <ul class="plan-features">
+          <li>80 GB de datos 4G/5G</li>
+          <li>Minutos y SMS ilimitados</li>
+          <li>Netflix Básico incluido</li>
+          <li>Amazon Music sin consumo</li>
+          <li>Roaming USA 5GB incluido</li>
+        </ul>
+        <a href="#" class="btn">Contratar Pro</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="data-pill">📶 ILIMITADO 5G</span>
+        <h3>Plan Ilimitado 5G</h3>
+        <p class="plan-desc">Datos sin límite, máxima velocidad y entretenimiento total.</p>
+        <div class="plan-price"><span class="currency">$</span><span class="amount">549</span><span class="per">/mes</span></div>
+        <span class="double-data">★ INCLUYE 4 STREAMINGS</span>
+        <ul class="plan-features">
+          <li>Datos ilimitados en 5G</li>
+          <li>Minutos y SMS ilimitados</li>
+          <li>Netflix + Disney+ + HBO Max</li>
+          <li>Paramount+ y Amazon Music</li>
+          <li>Roaming USA y Canadá ilimitado</li>
+        </ul>
+        <a href="#" class="btn">Contratar Ilimitado</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Streaming partners -->
+<section class="streaming-strip">
+  <div class="container">
+    <h4>SERVICIOS DE STREAMING INCLUIDOS EN PLANES SELECCIONADOS</h4>
+    <div class="partners-row">
+      <div class="partner-logo netflix">NETFLIX</div>
+      <div class="partner-logo disney">Disney+</div>
+      <div class="partner-logo hbo">HBO Max</div>
+      <div class="partner-logo paramount">Paramount+</div>
+      <div class="partner-logo amazon">amazon music</div>
+    </div>
+  </div>
+</section>
+
+<!-- Recharge widget -->
+<section class="recharge-section">
+  <div class="container recharge-wrap">
+    <div>
+      <h2>Recarga su Volaris Amigo en segundos</h2>
+      <p>Sin comisiones, sin registro. Recargue desde cualquier dispositivo y reciba el saldo de inmediato.</p>
+      <div class="pay-methods">
+        <span class="pay-chip">💳 Visa</span>
+        <span class="pay-chip">💳 Mastercard</span>
+        <span class="pay-chip">🏪 OXXO Pay</span>
+        <span class="pay-chip">🅿️ PayPal</span>
+        <span class="pay-chip">📲 Mercado Pago</span>
+      </div>
+    </div>
+    <div class="recharge-card">
+      <h3>Recarga rápida</h3>
+      <p class="step">Paso 1 de 2 · Toma menos de 30 segundos</p>
+      <div class="form-row">
+        <label>Número de teléfono</label>
+        <div class="phone-input">
+          <span class="country">🇲🇽 +52</span>
+          <input type="text" placeholder="55 1234 5678" value="55 8412 7903">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Selecciona el monto</label>
+        <div class="amount-grid">
+          <div class="amount-chip">$50<small>1 día</small></div>
+          <div class="amount-chip">$100<small>7 días</small></div>
+          <div class="amount-chip selected">$200<small>15 días</small></div>
+          <div class="amount-chip">$500<small>30 días</small></div>
+        </div>
+      </div>
+      <a href="#" class="btn btn-primary">Recargar Ahora →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Double data band -->
+<section class="double-data-band">
+  <div class="container">
+    <div class="dd-text">
+      <div class="dd-icon">2X</div>
+      <div>
+        <h3>Fines de Semana de Datos Dobles</h3>
+        <p>Para clientes pospago Volaris. Válido sábados y domingos de septiembre a diciembre 2021. Sin necesidad de activación.</p>
+      </div>
+    </div>
+    <a href="#" class="btn btn-yellow">Ver términos</a>
+  </div>
+</section>
+
+<!-- Portability CTA -->
+<section class="portability">
+  <div class="container">
+    <div class="portability-wrap">
+      <div>
+        <h2>Trae tu número y recibe <span class="hl">$200</span> de saldo de bonificación</h2>
+        <p>Cámbiate a Volaris desde tu compañía actual y conserva tu número. Proceso 100% online en 24 horas, sin papeleo y sin visitar tienda.</p>
+        <div class="carrier-row">
+          <span class="carrier-chip">Telcel</span>
+          <span class="carrier-chip">Movistar</span>
+          <span class="carrier-chip">AT&T</span>
+          <span class="carrier-chip">Claro</span>
+          <span class="arrow">→</span>
+          <span class="carrier-chip" style="background:#FF5722;color:#fff;border-color:#FF5722;">Volaris</span>
+        </div>
+        <a href="#" class="btn btn-primary">Iniciar portabilidad</a>
+      </div>
+      <div class="port-side">
+        <div class="bonus"><small>$</small>200</div>
+        <div class="lbl">de saldo gratis al cambiarte</div>
+        <a href="#" class="btn btn-yellow">Verifica tu número</a>
+        <p style="font-size:12px;color:#5C7079;margin-top:14px;">Aplica para nuevos clientes. Vigencia hasta el 31 de diciembre 2021.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Store locator -->
+<section class="store-locator">
+  <div class="container">
+    <div>
+      <h2>1,240+ tiendas Volaris cerca de usted</h2>
+      <p>Visite una sucursal para activar SIM, cambiar de plan, recibir asesoría técnica o adquirir equipos en CDMX, Guadalajara, Bogotá, Medellín y muchas ciudades más.</p>
+      <div class="cities-list">
+        <span class="city-chip">📍 CDMX · 412 tiendas</span>
+        <span class="city-chip">📍 Guadalajara · 187</span>
+        <span class="city-chip">📍 Monterrey · 142</span>
+        <span class="city-chip">📍 Bogotá · 268</span>
+        <span class="city-chip">📍 Medellín · 154</span>
+        <span class="city-chip">📍 Cali · 77</span>
+      </div>
+      <a href="#" class="btn btn-yellow">Buscar tienda en el mapa →</a>
+    </div>
+    <div class="map-placeholder">
+      <svg viewBox="0 0 600 320" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9FC9D0" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="600" height="320" fill="url(#grid)"/>
+        <path d="M 0 180 Q 150 120, 300 160 T 600 140" stroke="#5BA8B3" stroke-width="3" fill="none" opacity=".5"/>
+        <path d="M 100 280 Q 200 220, 350 240 T 600 220" stroke="#5BA8B3" stroke-width="3" fill="none" opacity=".5"/>
+        <circle cx="120" cy="140" r="60" fill="#FFE4D6" opacity=".6"/>
+        <circle cx="380" cy="200" r="80" fill="#FFE4D6" opacity=".5"/>
+        <circle cx="500" cy="100" r="50" fill="#FFE4D6" opacity=".55"/>
+      </svg>
+      <div class="map-pin" style="top:38%; left:18%;"></div>
+      <div class="pin-label" style="top:30%; left:14%;">CDMX</div>
+      <div class="map-pin" style="top:60%; left:58%;"></div>
+      <div class="pin-label" style="top:52%; left:56%;">Bogotá</div>
+      <div class="map-pin" style="top:26%; left:78%;"></div>
+      <div class="pin-label" style="top:18%; left:74%;">Medellín</div>
+      <div class="map-pin" style="top:70%; left:34%;"></div>
+      <div class="pin-label" style="top:80%; left:30%;">Guadalajara</div>
+    </div>
+  </div>
+</section>
+
+<!-- Service status -->
+<div class="service-status-band">
+  <div class="container">
+    <span class="dot"></span>
+    Todos los servicios operando con normalidad — última actualización hace 2 minutos · <a href="#">Ver página de estado detallado</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><span class="logo-mark">V</span> Volaris Móvil</a>
+        <p>Conecta sin límites en México y Colombia. Telecomunicaciones para todos.</p>
+        <div class="socials">
+          <span>f</span><span>𝕏</span><span>📷</span><span>▶</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#">Planes Móvil</a></li>
+          <li><a href="#">Internet Hogar</a></li>
+          <li><a href="#">TV con Streaming</a></li>
+          <li><a href="#">Paquetes Combinados</a></li>
+          <li><a href="#">Empresarial</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Atención</h5>
+        <ul>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Estado del servicio</a></li>
+          <li><a href="#">Reportar falla</a></li>
+          <li><a href="#">WhatsApp: +52 55 8000 8888</a></li>
+          <li><a href="#">Email: atencion@volaris.mx</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Mi Cuenta</h5>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Pagar factura</a></li>
+          <li><a href="#">Recargar saldo</a></li>
+          <li><a href="#">Portabilidad</a></li>
+          <li><a href="#">Activar SIM</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Volaris</h5>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Inversionistas</a></li>
+          <li><a href="#">Sustentabilidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2021 Volaris Móvil S.A. de C.V. Todos los derechos reservados.</span>
+      <span><a href="#">Aviso de Privacidad</a> · <a href="#">Términos</a> · <a href="#">IFT</a> · <a href="#">CRC Colombia</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating widgets -->
+<div class="whatsapp-float">💬 WhatsApp +52 55 8000 8888</div>
+<div class="live-chat"><span class="chat-dot"></span> Habla con Vola · Chat 24/7</div>
+
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kiln & Co. — Coworking & Creative Studios</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  color: #7A5C44;
+  background: #F5F0E8;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; color: #2C2C2C; font-weight: 500; }
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* NAV */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E0D5;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2C2C2C;
+  letter-spacing: -0.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  color: #2C2C2C;
+  font-weight: 500;
+}
+.nav-links a:hover { color: #C1603C; }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.day-pass-link {
+  font-size: 13px;
+  color: #7A5C44;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #C1603C;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: #A8512F; }
+.btn-outline {
+  background: transparent;
+  color: #2C2C2C;
+  border: 1px solid #2C2C2C;
+}
+
+/* HERO */
+.hero {
+  height: 85vh;
+  min-height: 640px;
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(44,44,44,0.55) 0%, rgba(44,44,44,0.25) 60%, rgba(181,90,48,0.35) 100%),
+    linear-gradient(115deg, #8a6f5a 0%, #b88862 30%, #C1603C 55%, #7A5C44 85%, #2C2C2C 100%);
+  overflow: hidden;
+}
+.hero::before {
+  /* exposed brick texture */
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 38px, rgba(0,0,0,0.18) 38px 40px),
+    repeating-linear-gradient(90deg, transparent 0 78px, rgba(0,0,0,0.15) 78px 80px);
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+.hero::after {
+  /* warm light wash */
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(255,220,170,0.35), transparent 55%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 96px;
+}
+.hero h1 {
+  font-size: 96px;
+  line-height: 1.0;
+  color: #F5F0E8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.hero p.sub {
+  margin-top: 28px;
+  font-size: 20px;
+  color: #F5F0E8;
+  max-width: 560px;
+  font-weight: 400;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  font-weight: 600;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(245,240,232,0.5);
+  width: fit-content;
+}
+
+/* Silhouettes of members in hero */
+.hero-figures {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 5%;
+  opacity: 0.35;
+}
+.figure {
+  background: #2C2C2C;
+  border-radius: 50% 50% 8px 8px / 60% 60% 8px 8px;
+  width: 60px;
+}
+.figure.f1 { height: 180px; }
+.figure.f2 { height: 220px; }
+.figure.f3 { height: 200px; }
+.figure.f4 { height: 240px; }
+.figure.f5 { height: 190px; }
+.figure.f6 { height: 215px; }
+.figure.f7 { height: 175px; }
+
+/* SECTIONS */
+section { padding: 96px 32px; }
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B55A30;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: 48px;
+  line-height: 1.1;
+  color: #2C2C2C;
+  font-weight: 500;
+  max-width: 720px;
+  letter-spacing: -0.01em;
+}
+.section-intro {
+  font-size: 18px;
+  color: #7A5C44;
+  max-width: 620px;
+  margin-top: 16px;
+}
+
+/* MEMBERSHIP TIERS */
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 64px;
+}
+.tier-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 40px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.tier-card.featured {
+  border-color: #C1603C;
+  border-width: 2px;
+}
+.badge-popular {
+  position: absolute;
+  top: -12px;
+  left: 36px;
+  background: #C1603C;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.tier-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2C2C2C;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  color: #2C2C2C;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.tier-price .per {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #7A5C44;
+  margin-left: 4px;
+}
+.tier-desc {
+  margin-top: 16px;
+  color: #7A5C44;
+  font-size: 14px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #E8E0D5;
+}
+.tier-perks {
+  list-style: none;
+  margin-top: 28px;
+  flex: 1;
+}
+.tier-perks li {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #2C2C2C;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.tier-perks li::before {
+  content: "✓";
+  color: #7BA05B;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.tier-card .btn { margin-top: 32px; text-align: center; }
+
+/* STAT BAND */
+.stat-band {
+  background: #2C2C2C;
+  color: #F5F0E8;
+  padding: 80px 32px;
+}
+.stat-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.stat-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  line-height: 1;
+  color: #F5F0E8;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.stat-big .small {
+  font-size: 24px;
+  color: #C1603C;
+  display: block;
+  margin-top: 12px;
+  font-style: italic;
+}
+.stat-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #F5F0E8;
+  font-weight: 400;
+}
+.stat-text em { color: #C1603C; font-style: italic; }
+.stat-locs {
+  margin-top: 28px;
+  display: flex;
+  gap: 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E8E0D5;
+}
+.stat-locs span { padding-left: 14px; border-left: 2px solid #C1603C; }
+
+/* EVENTS PREVIEW */
+.events-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 56px;
+}
+.event-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.event-date {
+  text-align: center;
+  padding: 18px 0;
+  background: linear-gradient(135deg, rgba(193,96,60,0.13), rgba(123,160,91,0.13));
+  border-radius: 4px;
+}
+.event-date .month {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B55A30;
+  font-weight: 600;
+}
+.event-date .day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  color: #2C2C2C;
+  line-height: 1;
+  margin-top: 4px;
+}
+.event-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7BA05B;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: #2C2C2C;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.event-time {
+  font-size: 13px;
+  color: #7A5C44;
+}
+.event-rsvp {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #C1603C;
+  font-weight: 600;
+  border-bottom: 1px solid #C1603C;
+  padding-bottom: 2px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: #FFFFFF;
+  padding: 96px 32px;
+  border-top: 1px solid #E8E0D5;
+  border-bottom: 1px solid #E8E0D5;
+}
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 64px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.t-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.t-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(193,96,60,0.5), rgba(123,160,91,0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 500;
+}
+.t-quote {
+  font-family: 'Caveat', cursive;
+  font-size: 26px;
+  color: #2C2C2C;
+  line-height: 1.35;
+  font-weight: 400;
+}
+.t-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: #2C2C2C;
+  font-weight: 600;
+}
+.t-role {
+  font-size: 13px;
+  color: #7A5C44;
+  margin-top: 2px;
+}
+
+/* CTA */
+.cta-section {
+  background: #C1603C;
+  padding: 112px 32px;
+  color: #F5F0E8;
+}
+.cta-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.cta-section h2 {
+  font-size: 64px;
+  line-height: 1.05;
+  color: #F5F0E8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.cta-section p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: rgba(245,240,232,0.85);
+  max-width: 460px;
+}
+.cta-form {
+  background: #F5F0E8;
+  padding: 36px;
+  border-radius: 4px;
+}
+.cta-form-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B55A30;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.date-stub {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  margin-bottom: 24px;
+}
+.date-stub .date-box {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid #E8E0D5;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #2C2C2C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date-stub .date-box span:last-child { color: #7A5C44; }
+.cta-form .btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  background: #2C2C2C;
+}
+.cta-form .btn:hover { background: #000; }
+.cta-secondary {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #7A5C44;
+}
+.cta-secondary a {
+  color: #C1603C;
+  font-weight: 600;
+  border-bottom: 1px solid #C1603C;
+}
+
+/* FOOTER */
+footer {
+  background: #2C2C2C;
+  color: #E8E0D5;
+  padding: 80px 32px 40px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 64px;
+}
+.footer-brand .logo { color: #F5F0E8; display: block; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: #A89886; max-width: 280px; }
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #C1603C;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a { font-size: 14px; color: #E8E0D5; }
+.footer-col a:hover { color: #C1603C; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 64px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid #4a4a4a;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #A89886;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="logo">Kiln &amp; Co.</div>
+    <ul class="nav-links">
+      <li><a href="/spaces">Spaces</a></li>
+      <li><a href="/membership">Membership</a></li>
+      <li><a href="/community">Community</a></li>
+      <li><a href="/events">Events</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/day-pass" class="day-pass-link">Day Pass — $35</a>
+      <a href="/tour" class="btn">Book a Tour</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-figures">
+    <div class="figure f1"></div>
+    <div class="figure f2"></div>
+    <div class="figure f3"></div>
+    <div class="figure f4"></div>
+    <div class="figure f5"></div>
+    <div class="figure f6"></div>
+    <div class="figure f7"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Brooklyn · Est. 2018 · Three Locations</div>
+    <h1>Work Better.<br>Together.</h1>
+    <p class="sub">Three Brooklyn locations. 847 members. One community of builders.</p>
+  </div>
+</section>
+
+<!-- MEMBERSHIP TIERS -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Membership</div>
+    <h2 class="section-title">Pick a desk, a corner, or the whole office.</h2>
+    <p class="section-intro">Three flexible plans for how you actually work. No long contracts, cancel any month.</p>
+
+    <div class="tiers">
+      <div class="tier-card">
+        <div class="tier-name">Hot Desk</div>
+        <div class="tier-price">$299<span class="per">/month</span></div>
+        <div class="tier-desc">Open seating across all three locations. Show up, plug in, get to work.</div>
+        <ul class="tier-perks">
+          <li>Access to all 3 Brooklyn locations</li>
+          <li>2 guest passes per month</li>
+          <li>Unlimited coffee &amp; Friday beer tap</li>
+        </ul>
+        <a href="/membership" class="btn btn-outline">Choose Hot Desk</a>
+      </div>
+
+      <div class="tier-card featured">
+        <span class="badge-popular">Most Popular</span>
+        <div class="tier-name">Dedicated Desk</div>
+        <div class="tier-price">$499<span class="per">/month</span></div>
+        <div class="tier-desc">Your own desk. Your monitor stays plugged in. Your locker is yours.</div>
+        <ul class="tier-perks">
+          <li>Reserved desk, 24/7 access</li>
+          <li>8 meeting room credits per month</li>
+          <li>Business mail address + locker</li>
+        </ul>
+        <a href="/membership" class="btn">Choose Dedicated</a>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-name">Private Office</div>
+        <div class="tier-price">$899<span class="per">/mo+</span></div>
+        <div class="tier-desc">Lockable studios for 2–10 people. Frosted glass, your name on the door.</div>
+        <ul class="tier-perks">
+          <li>Private lockable office, 24/7</li>
+          <li>Unlimited meeting room credits</li>
+          <li>Team Slack channel &amp; partner perks</li>
+        </ul>
+        <a href="/membership" class="btn btn-outline">Choose Office</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<section class="stat-band" style="padding:96px 32px;">
+  <div class="stat-inner">
+    <div class="stat-big">
+      847
+      <span class="small">members &amp; counting</span>
+    </div>
+    <div>
+      <div class="stat-text">A community of builders <em>across three Brooklyn locations</em> — sharing leads, lunch, and the occasional dog.</div>
+      <div class="stat-locs">
+        <span>Williamsburg</span>
+        <span>Gowanus</span>
+        <span>Long Island City</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS PREVIEW -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">This Week at Kiln</div>
+    <h2 class="section-title">Two events. Bring a friend.</h2>
+
+    <div class="events-row">
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">Thu</div>
+          <div class="day">14</div>
+        </div>
+        <div>
+          <div class="event-meta">Workshop · 12 spots left</div>
+          <div class="event-title">Founder Office Hours w/ Priya Raman</div>
+          <div class="event-time">Thursday, 6:00 PM · Gowanus Library</div>
+          <a href="/events" class="event-rsvp">RSVP →</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-date">
+          <div class="month">Sat</div>
+          <div class="day">16</div>
+        </div>
+        <div>
+          <div class="event-meta">Social · 6 spots left</div>
+          <div class="event-title">Risograph Print Night</div>
+          <div class="event-time">Saturday, 2:00 PM · Williamsburg Studio</div>
+          <a href="/events" class="event-rsvp">RSVP →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-eyebrow">Member Spotlights</div>
+    <h2 class="section-title">Who you'd sit next to.</h2>
+
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="t-photo">MC</div>
+        <div class="t-quote">"I came for the WiFi and stayed because I found my first three hires playing ping-pong on the roof deck."</div>
+        <div>
+          <div class="t-name">Marcus Chen</div>
+          <div class="t-role">Founder, Loamwork</div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-photo">SA</div>
+        <div class="t-quote">"The natural light alone is worth it. The community is the unfair part."</div>
+        <div>
+          <div class="t-name">Sofia Alvarez</div>
+          <div class="t-role">Illustrator &amp; Member since 2020</div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-photo">DP</div>
+        <div class="t-quote">"Phone booths that are actually soundproof. I didn't know I needed it until I had it."</div>
+        <div>
+          <div class="t-name">Devon Park</div>
+          <div class="t-role">Lead Engineer, Tinroof</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <h2>Come see the place.</h2>
+      <p>Book a 30-minute tour. We'll show you all three locations, pour you a coffee, and answer every question you have.</p>
+    </div>
+    <form class="cta-form" onsubmit="return false;">
+      <div class="cta-form-label">Pick a date &amp; location</div>
+      <div class="date-stub">
+        <div class="date-box"><span>Thu, Mar 16</span><span>▾</span></div>
+        <div class="date-box"><span>Gowanus</span><span>▾</span></div>
+      </div>
+      <button class="btn">Book a Tour →</button>
+      <div class="cta-secondary">Not ready? Try a <a href="/day-pass">Day Pass — $35</a></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Kiln &amp; Co.</div>
+      <p>Coworking and creative studios for Brooklyn's builders. Three locations, one community.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#">Williamsburg</a></li>
+        <li><a href="#">Gowanus</a></li>
+        <li><a href="#">Long Island City</a></li>
+        <li><a href="#">Book a Tour</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Membership</h4>
+      <ul>
+        <li><a href="#">Day Pass</a></li>
+        <li><a href="#">Hot Desk</a></li>
+        <li><a href="#">Dedicated Desk</a></li>
+        <li><a href="#">Private Office</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2023 Kiln &amp; Co. — Made in Brooklyn.</div>
+    <div>hello@kilnand.co · (718) 555-0142</div>
+  </div>
+</footer>
+
+</body>
+</html>

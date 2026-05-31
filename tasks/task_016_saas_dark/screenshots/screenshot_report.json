@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "blog",
+      "path": "blog.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 827283,
+      "page_width": 1440,
+      "page_height": 4721
+    },
+    {
+      "slug": "docs",
+      "path": "docs.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 342889,
+      "page_width": 1440,
+      "page_height": 3591
+    },
+    {
+      "slug": "features",
+      "path": "features.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 707255,
+      "page_width": 1440,
+      "page_height": 6411
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 615044,
+      "page_width": 1440,
+      "page_height": 4603
+    },
+    {
+      "slug": "pricing",
+      "path": "pricing.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 755381,
+      "page_width": 1440,
+      "page_height": 5378
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "022",
+  "name": "indie_portfolio",
+  "source": "A",
+  "archetype": "Indie software developer and designer personal portfolio",
+  "market": "Tech industry recruiters, potential clients, open source community",
+  "era": "2024",
+  "density": "Sparse and intentional. Each project gets its own space. No visual clutter. The terminal and code aesthetic influences the design without being a cliché. Cursor blinking in the hero. A sense of craft and personality rather than corporate polish.",
+  "nav_style": "Minimal: name/handle as nav logo on left. Three or four text links only: Work, Writing, About, Contact. No borders, no background. The nav barely exists — content is the focus. Possibly a theme toggle (light/dark).",
+  "commercial_model": "Personal brand. Not directly commercial. Available for freelance work. Open source contributor. Goal is credibility signaling to potential employers and collaborators.",
+  "color_palette": "Dark theme with near-black (#0A0A0A) background. Soft white (#E8E8E8) text — not harsh pure white. Accent: electric green (#39FF14) — the terminal/hacker aesthetic personal brand color. Use this consistently for all links, highlights, active states, and the cursor blink. Secondary text #6B7280. Code syntax highlighting: keywords #61DAFB (cyan), strings #A8FF78 (lime), numbers #FFD700 (gold), comments #555555.",
+  "typography": "Mix of identity and function. JetBrains Mono or Fira Code for the name and code-adjacent content. Inter or System UI for prose. Developer blogs often use markdown-rendered look. 'console.log(name)' style personal statement in the hero.",
+  "quirks": ["terminal_prompt_in_hero", "github_contribution_graph", "npm_downloads_stat", "blog_powered_by_markdown", "project_tech_stack_badges", "open_source_stars_count", "currently_building_section", "dark_theme_default", "rss_feed_link", "fun_easter_egg"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-screen dark hero with terminal-style introduction: > Hi, I'm [Name]. Developer, designer, builder. Three featured projects below with screenshots. Tech stack icons strip. Currently building section. Writing/blog preview (2 recent posts). Contact CTA."},
+    {"slug": "work", "title": "Work", "description": "Project portfolio grid. Each project: screenshot, name, one-line description, tech stack badges, links to GitHub and live demo. Featured project gets full-width treatment. Open source contributions section."},
+    {"slug": "project", "title": "Project Detail", "description": "Single project page. Problem statement. Technical approach. Architecture diagram (CSS/SVG). Screenshots of the UI. Key technical decisions explained. Metrics/outcomes if available. Stack used. GitHub link."},
+    {"slug": "writing", "title": "Writing", "description": "Blog post list with date, title, reading time, and first line. Tags for filtering: React, Systems, Career, Open Source. Featured/pinned post at top. RSS feed link in footer."},
+    {"slug": "about", "title": "About", "description": "Personal page. Photo. Current role and company. Background story. What I'm learning now. What I'm building on the side. Currently reading. Tools I use. Way too long and opinionated. Contact info and resume download."}
+  ],
+  "animations": ["cursor_blink_green_bar", "terminal_typewriter_one_char_at_a_time", "hero_fade_up_from_below", "project_card_slide_in_staggered"]
+}

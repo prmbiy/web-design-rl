@@ -1,0 +1,184 @@
+{
+  "brand_name": "Linkbase Analytics",
+  "tagline": "Forecast demand. Optimize inventory. Mitigate supplier risk.",
+  "primary_color_name": "Linkbase Slate",
+  "pages": {
+    "home": {
+      "title": "Linkbase — Supply Chain Intelligence for Fortune 1000",
+      "nav_items": [
+        "Platform",
+        "Solutions",
+        "Integrations",
+        "Pricing",
+        "Resources"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Cut supply chain costs by 23% in 90 days",
+          "subheadline": "Linkbase unifies demand, inventory, and supplier data into one decision platform trusted by global operations teams."
+        },
+        {
+          "name": "hero_micro_stats",
+          "description": "Three inline stats below CTA: '23% avg cost savings', 'NPS 72', '99.97% uptime'."
+        },
+        {
+          "name": "hero_dashboard_mockup",
+          "description": "Right-column product mockup with dark sidebar (Overview, Forecasts, Inventory, Suppliers, Alerts), two stacked line charts (Demand Forecast Q4 2024, On-Hand Inventory by DC), and three KPI cards ($14.2M Cost Savings YTD, 98.4% Fill Rate, 6.2 day Cycle Time)."
+        },
+        {
+          "name": "customer_logo_strip",
+          "description": "Greyscale row of 8 Fortune 500 logos: Cargill, Whirlpool, Henkel, Mondelez, Stanley Black & Decker, Kimberly-Clark, Bridgestone, Owens Corning."
+        },
+        {
+          "name": "feature_grid",
+          "description": "3-column feature grid: Demand Sensing (ML forecasts with 14% MAPE reduction), Inventory Optimization (multi-echelon safety stock), Supplier Risk (real-time tier-2 disruption alerts)."
+        },
+        {
+          "name": "roi_statistics",
+          "description": "Three oversized stat blocks: '$2.4B inventory optimized', '47% fewer stockouts', '11x average ROI in year one'."
+        },
+        {
+          "name": "testimonial",
+          "description": "20px italic quote from Sarah Chen, VP Global Operations at Whirlpool, on cutting working capital by $80M."
+        },
+        {
+          "name": "integrations_wall",
+          "description": "Logo wall of 50+ partners grouped: ERPs (SAP S/4HANA, Oracle NetSuite, Microsoft D365), WMS (Manhattan, Blue Yonder), data (Snowflake, Databricks), EDI (SPS Commerce)."
+        },
+        {
+          "name": "footer_cta",
+          "description": "Slate blue band with 'See Linkbase on your data' headline and orange Request Demo button."
+        }
+      ]
+    },
+    "platform": {
+      "title": "Platform — Linkbase",
+      "nav_items": [
+        "Platform",
+        "Solutions",
+        "Integrations",
+        "Pricing",
+        "Resources"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "One platform for every supply chain decision",
+          "subheadline": "Four connected modules powered by a shared demand-and-supply graph."
+        },
+        {
+          "name": "tabs",
+          "description": "Four tabs (Demand Forecasting, Inventory Optimization, Supplier Analytics, Reporting & Alerts), each with dark-background product screenshot, 3 capability bullets (e.g. 'Probabilistic forecasts at SKU-location-week'), and a customer quote from companies like Henkel or Bridgestone."
+        },
+        {
+          "name": "security_compliance",
+          "description": "Compliance badge row and detail grid: SOC 2 Type II, ISO 27001, GDPR, HIPAA-ready, plus data residency options for US, EU (Frankfurt), and APAC (Singapore)."
+        },
+        {
+          "name": "sla_strip",
+          "description": "Enterprise SLA callout: 99.9% uptime, 24/7 named CSM, 15-minute Sev-1 response."
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Solutions by Industry — Linkbase",
+      "nav_items": [
+        "Platform",
+        "Solutions",
+        "Integrations",
+        "Pricing",
+        "Resources"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Built for the way your industry runs",
+          "subheadline": "Pre-configured models and KPIs for four core verticals."
+        },
+        {
+          "name": "industry_tabs",
+          "description": "Tabbed sections for Manufacturing (Whirlpool, 18% MRO reduction), Retail (Tractor Supply, 32% fewer stockouts), Healthcare (Cardinal Health, 9-day shorter cycle), CPG (Mondelez, $42M working capital freed); each with 3 use cases and a logo+quote+metric."
+        },
+        {
+          "name": "company_size",
+          "description": "Two-card split: Mid-Market (50–500 employees, Growth tier) vs Enterprise (500+, dedicated TAM and custom SLAs)."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pricing — Linkbase",
+      "nav_items": [
+        "Platform",
+        "Solutions",
+        "Integrations",
+        "Pricing",
+        "Resources"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Transparent tiers. Custom-fit deployments.",
+          "subheadline": "Annual contracts with a 20% discount versus monthly billing."
+        },
+        {
+          "name": "tier_cards",
+          "description": "Three cards: Starter (up to 5 users, 1 ERP connector), Growth (up to 25 users, 3 connectors, 'Most Popular' orange badge), Enterprise (unlimited users, unlimited connectors, dedicated CSM, contact sales)."
+        },
+        {
+          "name": "feature_comparison",
+          "description": "Checklist table across 14 capabilities (Demand Forecasting, Multi-Echelon Inventory, Supplier Risk Scoring, Custom Dashboards, SSO/SAML, Data Residency, etc.) with annual/monthly toggle."
+        },
+        {
+          "name": "roi_calculator",
+          "description": "Two-column widget: left inputs (Annual Procurement Spend, Team Size, Monthly Order Volume, Industry), right displays large $ Estimated Annual Savings, Payback Months, and 3-Year NPV."
+        },
+        {
+          "name": "implementation_timeline",
+          "description": "6-week table: Weeks 1–2 Onboarding & data scoping, Weeks 3–4 ERP/WMS integration, Weeks 5–6 Model tuning & go-live."
+        },
+        {
+          "name": "badges",
+          "description": "Trust row with Gartner Magic Quadrant Leader 2024 badge, G2 Leader Fall 2024 badge, SOC 2 Type II badge."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Resources — Linkbase",
+      "nav_items": [
+        "Platform",
+        "Solutions",
+        "Integrations",
+        "Pricing",
+        "Resources"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Research, playbooks, and field-tested benchmarks",
+          "subheadline": "From the Linkbase research team and our customer community."
+        },
+        {
+          "name": "featured_analyst_report",
+          "description": "Gated download card for '2024 Gartner Magic Quadrant for Supply Chain Planning Solutions' with analyst quote and email form."
+        },
+        {
+          "name": "webinars",
+          "description": "Three upcoming webinar cards: 'Probabilistic Forecasting for CPG' (Nov 14, Dr. Anita Rao), 'Tariff Shock Playbook' (Dec 3, Marco Esposito), 'Closing the S&OP Loop' (Dec 12, Lena Park)."
+        },
+        {
+          "name": "blog_grid",
+          "description": "Four article cards tagged Inventory, Procurement, Technology, Industry — e.g. 'Why MAPE is the wrong KPI', 'Tier-2 supplier visibility in 30 days'."
+        },
+        {
+          "name": "video_library",
+          "description": "Five thumbnail cards for product demos: Platform Tour, Demand Sensing Deep Dive, Inventory Optimization, Supplier Risk, ROI Calculator Walkthrough."
+        },
+        {
+          "name": "case_studies",
+          "description": "Three gated PDF case study cards (Whirlpool, Mondelez, Cardinal Health) each with headline metric and email-capture CTA."
+        }
+      ]
+    }
+  }
+}

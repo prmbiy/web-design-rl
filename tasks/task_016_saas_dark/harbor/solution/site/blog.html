@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Changelog — Flexor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0F1117;
+  --surface: #171923;
+  --border: #252836;
+  --primary: #4F6BFF;
+  --secondary: #A78BFA;
+  --accent: #22C55E;
+  --text: #FFFFFF;
+  --muted: #94A3B8;
+  --badge-bg: #1E293B;
+  --code-bg: #0A0C12;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 8px;
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.gh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+}
+.gh-badge .star { color: #FBBF24; }
+.btn {
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+}
+.btn-ghost:hover { color: var(--secondary); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,107,255,0.4); }
+
+/* HERO */
+.hero {
+  padding: 96px 24px 64px;
+  text-align: center;
+}
+.hero-content { animation: fade_in_hero 0.8s ease-out forwards; }
+.hero-eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--secondary);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@keyframes fade_in_hero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CATEGORY FILTERS */
+.filters {
+  padding: 32px 24px 48px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-pill:hover { color: var(--text); border-color: var(--primary); }
+.filter-pill.active {
+  background: linear-gradient(135deg, rgba(79,107,255,0.15), rgba(167,139,250,0.15));
+  color: var(--text);
+  border-color: var(--primary);
+}
+.filter-pill .count {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* FEATURED POSTS */
+.section {
+  padding: 64px 24px;
+}
+.section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.section-sub { color: var(--muted); margin-top: 8px; }
+.view-all {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.view-all:hover { color: var(--primary); }
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.post-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+.post-cover {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.post-cover.eng {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(79,107,255,0.5), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(34,197,94,0.3), transparent 50%),
+    linear-gradient(135deg, #0A0C12, #171923);
+}
+.post-cover.prod {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(167,139,250,0.5), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(79,107,255,0.3), transparent 50%),
+    linear-gradient(135deg, #171923, #0A0C12);
+}
+.post-cover.comp {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(34,197,94,0.4), transparent 60%),
+    linear-gradient(135deg, #0A0C12, #1E293B);
+}
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.2em;
+}
+.cover-emoji {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 22px;
+  background: rgba(0,0,0,0.4);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.post-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.post-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+.tag-eng { background: rgba(79,107,255,0.15); color: #93AAFF; }
+.tag-prod { background: rgba(167,139,250,0.15); color: #C4B5FD; }
+.tag-comp { background: rgba(34,197,94,0.15); color: #6EE7A1; }
+.post-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+.post-excerpt {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.avatar.sc { background: linear-gradient(135deg, #4F6BFF, #A78BFA); }
+.avatar.mw { background: linear-gradient(135deg, #22C55E, #4F6BFF); }
+.avatar.pk { background: linear-gradient(135deg, #A78BFA, #EC4899); }
+.avatar.dm { background: linear-gradient(135deg, #F59E0B, #EF4444); }
+.avatar.jl { background: linear-gradient(135deg, #06B6D4, #4F6BFF); }
+.meta-name { font-size: 13px; font-weight: 500; }
+.meta-sub { font-size: 12px; color: var(--muted); }
+.meta-info { line-height: 1.3; }
+
+/* CHANGELOG */
+.changelog-wrap {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+.changelog-intro h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.changelog-intro p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.rss-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.rss-link:hover { border-color: var(--primary); }
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+}
+.timeline-item.active .timeline-dot {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+}
+.timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.timeline-card:hover { border-color: var(--primary); transform: translateX(4px); }
+.timeline-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.version {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(34,197,94,0.12);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.active-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+.timeline-date {
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+.timeline-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.timeline-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.change-list {
+  list-style: none;
+  padding: 0;
+}
+.change-list li {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 4px 0 4px 22px;
+  position: relative;
+}
+.change-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 12px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.change-list li.fix::before { background: var(--accent); }
+.change-list li.imp::before { background: var(--secondary); }
+.change-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  margin-right: 8px;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.tag-new { background: rgba(79,107,255,0.15); color: #93AAFF; }
+.tag-fix { background: rgba(34,197,94,0.15); color: #6EE7A1; }
+.tag-imp { background: rgba(167,139,250,0.15); color: #C4B5FD; }
+
+/* NEWSLETTER */
+.newsletter {
+  padding: 32px 24px 96px;
+}
+.newsletter-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  animation: gradient_border_glow 3s ease-in-out infinite;
+  border: 1px solid transparent;
+  background-image: linear-gradient(#171923,#171923), linear-gradient(135deg,#4F6BFF,#A78BFA);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+@keyframes gradient_border_glow {
+  0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); }
+}
+.newsletter-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.newsletter-card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+.subscriber-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+.subscriber-count .stat-number {
+  animation: counter_animation_stats 1s ease-out forwards;
+  display: inline-block;
+}
+@keyframes counter_animation_stats {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  background: var(--code-bg);
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+.newsletter-form input::placeholder { color: var(--muted); }
+.subscribe-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.form-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* AUTHORS */
+.authors-section { padding: 32px 24px 96px; }
+.authors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.author-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.author-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+}
+.author-avatar::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; right: 4px;
+  width: 16px; height: 16px;
+  background: var(--accent);
+  border: 3px solid var(--surface);
+  border-radius: 50%;
+}
+.author-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.author-role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.author-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+.author-stats strong { color: var(--text); display: block; font-size: 16px; }
+
+/* FOOTER */
+.footer {
+  background: #0A0C12;
+  border-top: 1px solid var(--border);
+  padding: 64px 24px 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 16px;
+  max-width: 280px;
+}
+.footer h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 10px; }
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer a:hover { color: var(--text); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer-badges { display: flex; gap: 12px; align-items: center; }
+.status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+.soc-badge {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-mark"></span> Flexor</div>
+    <div class="nav-links">
+      <a href="#">Product</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="gh-badge"><span class="star">★</span> 18.4k</span>
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-content">
+    <span class="hero-eyebrow">📚 The Flexor Journal · Updated weekly</span>
+    <h1>Engineering, product,<br>and release notes</h1>
+    <p>Deep dives from the Flexor team plus every shipped change.</p>
+  </div>
+</section>
+
+<div class="filters">
+  <button class="filter-pill active">All Posts <span class="count">87</span></button>
+  <button class="filter-pill">Engineering <span class="count">42</span></button>
+  <button class="filter-pill">Product <span class="count">23</span></button>
+  <button class="filter-pill">Company <span class="count">12</span></button>
+  <button class="filter-pill">Changelog <span class="count">68</span></button>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Featured posts</h2>
+        <div class="section-sub">Hand-picked writing from across the team</div>
+      </div>
+      <a href="#" class="view-all">Browse all posts →</a>
+    </div>
+
+    <div class="posts-grid">
+      <article class="post-card">
+        <div class="post-cover eng">
+          <div class="cover-overlay">p99 = 11ms</div>
+          <div class="cover-emoji">⚡</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-eng">Engineering</span>
+          <h3 class="post-title">How we cut p99 evaluation to 11ms with Cloudflare Workers</h3>
+          <p class="post-excerpt">A deep technical look at rewriting our evaluation runtime in Rust, deploying to the edge, and the surprising cache strategy that knocked 80ms off the tail.</p>
+          <div class="post-meta">
+            <div class="avatar sc">SC</div>
+            <div class="meta-info">
+              <div class="meta-name">Sarah Chen</div>
+              <div class="meta-sub">Nov 14, 2024 · 12 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-cover prod">
+          <div class="cover-overlay">STATS ENGINE v2</div>
+          <div class="cover-emoji">📊</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-prod">Product</span>
+          <h3 class="post-title">Introducing Stats Engine v2 — Bayesian by default</h3>
+          <p class="post-excerpt">Faster experiment readouts, automatic sample ratio mismatch detection, and credible intervals that make sense to PMs. Here's what changed and why it matters.</p>
+          <div class="post-meta">
+            <div class="avatar pk">PK</div>
+            <div class="meta-info">
+              <div class="meta-name">Priya Krishnan</div>
+              <div class="meta-sub">Nov 8, 2024 · 8 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-cover comp">
+          <div class="cover-overlay">SERIES B · $40M</div>
+          <div class="cover-emoji">🚀</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-comp">Company</span>
+          <h3 class="post-title">Series B: $40M to build the developer platform</h3>
+          <p class="post-excerpt">We're raising $40M led by Accel to accelerate our edge SDKs, on-prem offering, and the data platform underneath every Flexor experiment. The road ahead.</p>
+          <div class="post-meta">
+            <div class="avatar mw">MW</div>
+            <div class="meta-info">
+              <div class="meta-name">Marcus Webb</div>
+              <div class="meta-sub">Oct 30, 2024 · 5 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-cover eng">
+          <div class="cover-overlay">PostgreSQL · Multi-region</div>
+          <div class="cover-emoji">🗄️</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-eng">Engineering</span>
+          <h3 class="post-title">Designing multi-region writes for the Flexor control plane</h3>
+          <p class="post-excerpt">Why we picked CRDB over Postgres+Citus, how we handle hot keys for experiment counters, and the failover game-day that broke our assumptions.</p>
+          <div class="post-meta">
+            <div class="avatar dm">DM</div>
+            <div class="meta-info">
+              <div class="meta-name">Diego Martinez</div>
+              <div class="meta-sub">Oct 22, 2024 · 15 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-cover prod">
+          <div class="cover-overlay">RBAC · Audit Logs</div>
+          <div class="cover-emoji">🔐</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-prod">Product</span>
+          <h3 class="post-title">Enterprise-grade RBAC, now with custom roles and audit exports</h3>
+          <p class="post-excerpt">Define exactly who can toggle a flag, ship to production, or modify experiment targets — and stream every action to your SIEM in real time.</p>
+          <div class="post-meta">
+            <div class="avatar jl">JL</div>
+            <div class="meta-info">
+              <div class="meta-name">June Lee</div>
+              <div class="meta-sub">Oct 15, 2024 · 6 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <div class="post-cover comp">
+          <div class="cover-overlay">WE'RE HIRING</div>
+          <div class="cover-emoji">🌱</div>
+        </div>
+        <div class="post-body">
+          <span class="post-tag tag-comp">Company</span>
+          <h3 class="post-title">Hiring 22 engineers across SF, Berlin, and remote</h3>
+          <p class="post-excerpt">We're doubling the engineering org over the next two quarters. A peek at our interview loop, the problems we're working on, and how to stand out.</p>
+          <div class="post-meta">
+            <div class="avatar mw">MW</div>
+            <div class="meta-info">
+              <div class="meta-name">Marcus Webb</div>
+              <div class="meta-sub">Oct 9, 2024 · 4 min read</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 32px;">
+  <div class="container">
+    <div class="changelog-wrap">
+      <div class="changelog-intro">
+        <h2>Changelog</h2>
+        <p>Every notable change we ship, in reverse chronological order. Follow along and never miss an SDK update.</p>
+        <a href="#" class="rss-link">⌗ RSS feed · /changelog.rss</a>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item active">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <span class="version">v2.14.0</span>
+              <span class="active-badge"><span class="dot"></span> Active</span>
+              <span class="timeline-date">Nov 18, 2024</span>
+            </div>
+            <h3>Edge SDK GA — sub-50ms evaluation globally</h3>
+            <p>The Edge SDK is officially production-ready. Deploy your flag rules to 300+ Cloudflare PoPs with a single command. Includes drop-in support for Next.js middleware, Vercel Edge Functions, and Cloudflare Workers.</p>
+            <ul class="change-list">
+              <li><span class="change-tag tag-new">NEW</span>Edge SDK 1.0 with TypeScript, Go, and Rust runtimes</li>
+              <li class="imp"><span class="change-tag tag-imp">IMP</span>Cold start reduced from 47ms → 8ms on Workers</li>
+              <li class="fix"><span class="change-tag tag-fix">FIX</span>Resolved cache invalidation race on rapid flag updates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <span class="version">v2.13.2</span>
+              <span class="timeline-date">Nov 6, 2024</span>
+            </div>
+            <h3>PagerDuty integration & richer alert payloads</h3>
+            <p>Route flag-change events directly into PagerDuty services with severity routing rules. Alerts now include the actor, environment, and a diff of targeting rules.</p>
+            <ul class="change-list">
+              <li><span class="change-tag tag-new">NEW</span>PagerDuty v3 events integration with two-way ack</li>
+              <li class="imp"><span class="change-tag tag-imp">IMP</span>Alert payloads now include rule diffs and JSON snapshots</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <span class="version">v2.13.0</span>
+              <span class="timeline-date">Oct 24, 2024</span>
+            </div>
+            <h3>Bulk flag import & CSV migration tooling</h3>
+            <p>Migrating off LaunchDarkly or Unleash? Import thousands of flags, environments, and targeting rules in one shot using our new CLI command <code style="font-family:'JetBrains Mono',monospace;background:var(--code-bg);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--secondary);">flexor migrate</code>.</p>
+            <ul class="change-list">
+              <li><span class="change-tag tag-new">NEW</span>CSV / JSON bulk import for flags and segments</li>
+              <li><span class="change-tag tag-new">NEW</span><code style="font-family:'JetBrains Mono',monospace;font-size:12px;">flexor migrate</code> CLI subcommand</li>
+              <li class="fix"><span class="change-tag tag-fix">FIX</span>Pagination off-by-one in /v1/flags list endpoint</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <span class="version">v2.12.4</span>
+              <span class="timeline-date">Oct 10, 2024</span>
+            </div>
+            <h3>Stats Engine v2 preview & SRM detection</h3>
+            <p>Opt into the new Bayesian stats engine from your project settings. Automatic sample ratio mismatch detection now flags broken experiments before you read them.</p>
+            <ul class="change-list">
+              <li><span class="change-tag tag-new">NEW</span>Bayesian credible intervals on all experiment readouts</li>
+              <li><span class="change-tag tag-new">NEW</span>Automatic SRM detection with severity scoring</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-head">
+              <span class="version">v2.12.0</span>
+              <span class="timeline-date">Sep 28, 2024</span>
+            </div>
+            <h3>Self-hosted Relay v1 — keep evaluation in your VPC</h3>
+            <p>The Flexor Relay runs as a lightweight Go binary inside your infrastructure, caching flag definitions and serving evaluations with zero external network calls.</p>
+            <ul class="change-list">
+              <li><span class="change-tag tag-new">NEW</span>Relay v1.0.0 with Docker, Helm, and systemd packages</li>
+              <li class="imp"><span class="change-tag tag-imp">IMP</span>Reduced control-plane bandwidth by 90% for large customers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-card">
+      <div>
+        <h3>Get monthly engineering deep dives</h3>
+        <p>One email per month. No marketing fluff, just the technical posts our team thought were worth reading.</p>
+        <div class="subscriber-count">● <span class="stat-number">12,000</span>+ devs subscribed</div>
+      </div>
+      <div>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="you@company.dev" />
+          <button class="subscribe-btn">Subscribe →</button>
+        </form>
+        <div class="form-note">// We'll never share your email. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="authors-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Meet the authors</h2>
+        <div class="section-sub">The engineers, PMs, and founders behind the words</div>
+      </div>
+      <a href="#" class="view-all">All contributors →</a>
+    </div>
+
+    <div class="authors-grid">
+      <div class="author-card">
+        <div class="author-avatar sc">SC</div>
+        <div class="author-name">Sarah Chen</div>
+        <div class="author-role">Staff Engineer · Edge Platform</div>
+        <div class="author-stats">
+          <div><strong>18</strong> Posts</div>
+          <div><strong>Eng</strong> Lead</div>
+          <div><strong>SF</strong> Based</div>
+        </div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar mw">MW</div>
+        <div class="author-name">Marcus Webb</div>
+        <div class="author-role">Co-founder & CEO</div>
+        <div class="author-stats">
+          <div><strong>9</strong> Posts</div>
+          <div><strong>Co</strong> Founder</div>
+          <div><strong>NYC</strong> Based</div>
+        </div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar pk">PK</div>
+        <div class="author-name">Priya Krishnan</div>
+        <div class="author-role">Head of Product · Experimentation</div>
+        <div class="author-stats">
+          <div><strong>14</strong> Posts</div>
+          <div><strong>Prod</strong> Lead</div>
+          <div><strong>BER</strong> Based</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-mark"></span> Flexor</div>
+        <p>Feature flags and experimentation built for engineering velocity.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Edge SDKs</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API Reference</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Press kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">DPA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Flexor Inc. All rights reserved.</div>
+      <div class="footer-badges">
+        <a href="#" class="status-link"><span class="status-dot"></span> status.flexor.dev — All systems operational</a>
+        <span class="soc-badge">SOC 2 Type II</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

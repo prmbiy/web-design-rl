@@ -1,0 +1,12 @@
+{
+  "dna_id": "001",
+  "dna_name": "indian_govt",
+  "pages": [
+    "home",
+    "about",
+    "schemes",
+    "tenders",
+    "contact"
+  ],
+  "has_animations": false
+}

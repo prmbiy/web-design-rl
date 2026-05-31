@@ -1,0 +1,142 @@
+{
+  "brand_name": "Hacker News",
+  "tagline": "",
+  "primary_color_name": "HN Orange",
+  "pages": {
+    "home": {
+      "title": "Hacker News",
+      "nav_items": [
+        "new",
+        "past",
+        "comments",
+        "ask",
+        "show",
+        "jobs",
+        "submit"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Single orange bar: Y logo, 'Hacker News' bold link, then nav links separated by '|', with 'login' right-aligned."
+        },
+        {
+          "name": "story_list",
+          "description": "30 numbered story rows, each a single line: rank, upvote triangle, title link with (domain) in parens, then a subline with points, author 'by' link, time ago, hide, and discuss/comments count — e.g. '1. Show HN: I built a local-first Postgres GUI in Rust (github.com/pgwave)', '2. Llama 3.1 405B weights released (ai.meta.com)', '3. Why CRDTs are harder than they look (jakelazaroff.com)'."
+        },
+        {
+          "name": "pagination",
+          "description": "Indented 'More' link at the bottom leading to page 2."
+        },
+        {
+          "name": "footer",
+          "description": "Thin orange divider followed by links: Guidelines, FAQ, Lists, API, Security, Legal, Apply to YC, Contact, and a search box."
+        }
+      ]
+    },
+    "new": {
+      "title": "New Links | Hacker News",
+      "nav_items": [
+        "new",
+        "threads",
+        "past",
+        "comments",
+        "ask",
+        "show",
+        "jobs",
+        "submit"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Same orange nav bar with 'new' emphasized."
+        },
+        {
+          "name": "newest_list",
+          "description": "30 freshly submitted, mostly low-point stories with 'flag' link visible — e.g. 'Our Series A pitch deck template (notion.so)', 'Ask HN: Anyone else seeing GPT-4o latency spikes today?', '[dead] Buy cheap followers 2023 (spamdomain.ru)'."
+        },
+        {
+          "name": "pagination",
+          "description": "'More' link continuing the time-sorted feed."
+        }
+      ]
+    },
+    "ask": {
+      "title": "Ask | Hacker News",
+      "nav_items": [
+        "new",
+        "past",
+        "comments",
+        "ask",
+        "show",
+        "jobs",
+        "submit"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Orange nav bar with 'ask' emphasized."
+        },
+        {
+          "name": "ask_list",
+          "description": "30 'Ask HN:' posts with higher comment counts than points — e.g. 'Ask HN: What are you working on in October 2023?', 'Ask HN: Best resources to learn CUDA in 2023?', 'Ask HN: I'm 42 and burned out — what next?'."
+        },
+        {
+          "name": "pagination",
+          "description": "'More' link to older Ask HN posts."
+        }
+      ]
+    },
+    "show": {
+      "title": "Show | Hacker News",
+      "nav_items": [
+        "new",
+        "past",
+        "comments",
+        "ask",
+        "show",
+        "jobs",
+        "submit"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Orange nav bar with 'show' emphasized; small intro line linking to showhn guidelines."
+        },
+        {
+          "name": "show_list",
+          "description": "30 'Show HN:' launches with domains — e.g. 'Show HN: Tldraw – an infinite canvas SDK (tldraw.com)', 'Show HN: I replaced Zapier with 200 lines of Deno (github.com/marko)', 'Show HN: Offline-first Markdown editor for iPad (ergojot.app)'."
+        },
+        {
+          "name": "pagination",
+          "description": "'More' link to older Show HN entries."
+        }
+      ]
+    },
+    "jobs": {
+      "title": "YC Jobs | Hacker News",
+      "nav_items": [
+        "new",
+        "past",
+        "comments",
+        "ask",
+        "show",
+        "jobs",
+        "submit"
+      ],
+      "sections": [
+        {
+          "name": "top_bar",
+          "description": "Orange nav bar with 'jobs' emphasized."
+        },
+        {
+          "name": "jobs_list",
+          "description": "30 numbered YC company job postings, no upvote arrow, format 'Company (YC Wxx) Is Hiring a Role — Location (remote ok)' — e.g. 'Retool (YC W17) Is Hiring a Senior Backend Engineer — San Francisco', 'Pave (YC S19) Is Hiring a Founding Designer — Remote (US)', 'Speak (YC W17) Is Hiring iOS Engineers — Seoul / SF'."
+        },
+        {
+          "name": "pagination",
+          "description": "'More' link to older job posts."
+        }
+      ]
+    }
+  }
+}

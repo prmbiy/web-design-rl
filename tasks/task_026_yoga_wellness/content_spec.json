@@ -1,0 +1,158 @@
+{
+  "brand_name": "Stillwater Yoga & Wellness",
+  "tagline": "A quiet practice in the heart of the city.",
+  "primary_color_name": "Sage",
+  "pages": {
+    "home": {
+      "title": "Home",
+      "nav_items": [
+        "Practice",
+        "Schedule",
+        "Teachers",
+        "Workshops",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Come as you are. Move as you must.",
+          "subheadline": "A Brooklyn studio for thoughtful movement, breath, and rest — in person and online."
+        },
+        {
+          "name": "class_types",
+          "description": "Three card-style introductions to signature class formats: Slow Flow Vinyasa, Yin & Restore, and Pranayama + Meditation, each with a one-line invitation and duration."
+        },
+        {
+          "name": "weekly_preview",
+          "description": "Preview of three upcoming sessions this week, e.g., 'Tue 7:00am — Morning Flow with Amara Okafor', 'Wed 6:30pm — Candlelit Yin with Ines Marchetti', 'Sat 9:00am — Breathwork Circle with Devan Rao'."
+        },
+        {
+          "name": "teacher_spotlight",
+          "description": "Soft portrait and short feature on a rotating teacher, e.g., 'This month: Amara Okafor on returning to the breath.'"
+        },
+        {
+          "name": "membership_invitation",
+          "description": "Gentle three-tier overview: Studio Unlimited ($189/mo), 8-Class Pack ($168), and Stillwater Stream online ($24/mo)."
+        },
+        {
+          "name": "footer",
+          "description": "Studio address (147 Wythe Ave, Brooklyn), hours, newsletter signup labeled 'Receive our seasonal letter', and Instagram/Spotify links."
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Class Schedule",
+      "nav_items": [
+        "Practice",
+        "Schedule",
+        "Teachers",
+        "Workshops",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "filters",
+          "description": "Filter row with class type (Vinyasa, Yin, Meditation, Prenatal), teacher dropdown, level toggle (Beginner / All Levels / Advanced), and a 'Virtual classes' switch."
+        },
+        {
+          "name": "weekly_calendar",
+          "description": "Seven-column calendar grid Mon–Sun listing class cards with time, name, teacher in italic, duration, level, spots remaining, and a soft 'Reserve' button — examples: 'Mon 6:30am Slow Flow · Amara · 60min · 4 spots', 'Thu 12:15pm Lunch Yin · Ines · 45min · Online'."
+        },
+        {
+          "name": "cancellation_note",
+          "description": "Quiet paragraph explaining the 12-hour cancellation window and how late cancels affect class packs."
+        }
+      ]
+    },
+    "teachers": {
+      "title": "Our Teachers",
+      "nav_items": [
+        "Practice",
+        "Schedule",
+        "Teachers",
+        "Workshops",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "intro",
+          "headline": "The hands that hold the practice.",
+          "subheadline": "Twelve teachers, one shared commitment to slow, honest movement."
+        },
+        {
+          "name": "teacher_grid",
+          "description": "Directory of teacher cards with soft photography, each showing name, lineage/certifications (e.g., E-RYT 500, Iyengar Level 2), specialty, years practicing, and a two-line bio — sample names: Amara Okafor, Ines Marchetti, Devan Rao, Yuki Tanabe."
+        },
+        {
+          "name": "teacher_detail_preview",
+          "description": "Expanded view for one featured teacher with upcoming classes list and Instagram handle (@amara.breathes)."
+        }
+      ]
+    },
+    "workshops": {
+      "title": "Workshops & Retreats",
+      "nav_items": [
+        "Practice",
+        "Schedule",
+        "Teachers",
+        "Workshops",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "intro",
+          "headline": "Deeper time, fuller practice.",
+          "subheadline": "Seasonal workshops in the studio and small-group retreats abroad."
+        },
+        {
+          "name": "upcoming_events",
+          "description": "List of three event cards, e.g., 'Winter Yin & Yoga Nidra Immersion — Ines Marchetti — Feb 17, in-studio — Investment: $145', 'Breath & Backbends Workshop — Devan Rao — Mar 9, online — Investment: $65', 'Costa Rica Retreat — Nosara — May 4–11 — Investment: $2,890'."
+        },
+        {
+          "name": "registration",
+          "description": "Quiet inline registration form with name, email, dietary notes, and a 'limited to 14 practitioners' spots counter."
+        }
+      ]
+    },
+    "about": {
+      "title": "Our Story",
+      "nav_items": [
+        "Practice",
+        "Schedule",
+        "Teachers",
+        "Workshops",
+        "About"
+      ],
+      "sections": [
+        {
+          "name": "founding_story",
+          "description": "Short narrative of founder Mira Halvorsen opening Stillwater in 2018 after a decade of teaching in Kyoto and New York."
+        },
+        {
+          "name": "philosophy",
+          "description": "Three-pillar values block: Slowness, Lineage, Belonging — each with a one-line statement."
+        },
+        {
+          "name": "the_space",
+          "description": "Photo gallery and brief description of the 1,800 sq ft studio with reclaimed oak floors, linen curtains, and a tea bar."
+        },
+        {
+          "name": "testimonials",
+          "description": "Three student quotes with first name and years practicing, e.g., 'Stillwater gave me back my mornings. — Priya, 3 years'."
+        },
+        {
+          "name": "community_giving",
+          "description": "Note about the weekly Sunday Karma Class donating proceeds to The Loveland Foundation."
+        },
+        {
+          "name": "faq",
+          "description": "Six short questions for new students covering what to bring, arrival time, class etiquette, and pricing."
+        },
+        {
+          "name": "press",
+          "description": "Logo strip of mentions in Well+Good, Goop, and The Cut."
+        }
+      ]
+    }
+  }
+}

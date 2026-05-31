@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VANTBLACK/STUDIO — Index</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Custom cursor */
+.cursor-dot {
+  position: fixed; top: 50%; left: 50%;
+  width: 24px; height: 24px;
+  background: #FFE500;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+/* Page fade */
+@keyframes pageFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageFade 0.8s cubic-bezier(0.77, 0, 0.175, 1) both; }
+
+/* Scramble */
+@keyframes scramble {
+  0%,100% { letter-spacing: 0; }
+  25% { letter-spacing: 0.05em; transform: skewX(-2deg); }
+  50% { letter-spacing: -0.02em; }
+  75% { letter-spacing: 0.03em; transform: skewX(1deg); }
+}
+.scramble:hover, nav a:hover { animation: scramble 0.4s steps(4) both; display: inline-block; }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+
+/* SIDE NAV (fixed left column) */
+.side-nav {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 72px;
+  background: #000;
+  border-right: 3px solid #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+.side-nav .vertical-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: #fff;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.1em;
+  margin: 32px 0;
+}
+.side-nav .nav-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FFE500;
+}
+.side-nav .dot {
+  width: 14px; height: 14px;
+  background: #FFE500;
+  border-radius: 50%;
+}
+
+/* TOP NAV */
+.top-nav {
+  position: fixed;
+  top: 0; left: 72px; right: 0;
+  height: 72px;
+  background: #000;
+  border-bottom: 3px solid #fff;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 48px;
+}
+.top-nav ul a { color: #fff; }
+.top-nav ul a:hover { color: #FFE500; }
+.top-nav .nav-meta {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  color: #999;
+}
+.top-nav .nav-meta .page-count {
+  color: #FFE500;
+  border: 1px solid #FFE500;
+  padding: 6px 12px;
+}
+
+/* MAIN */
+main {
+  margin-left: 72px;
+  padding-top: 72px;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 80px 48px 40px;
+  border-bottom: 3px solid #fff;
+  overflow: hidden;
+}
+.hero .label-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFE500;
+  margin-bottom: 60px;
+}
+.hero .label-row span:nth-child(2) { color: #fff; }
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 260px;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  color: #fff;
+  white-space: nowrap;
+  margin-left: -12px;
+}
+.hero h1 .slash {
+  color: #FFE500;
+  font-style: italic;
+}
+.hero .manifesto-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 60px;
+  gap: 80px;
+}
+.hero .manifesto-line p {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.1;
+  max-width: 760px;
+  color: #fff;
+}
+.hero .manifesto-line p em {
+  color: #FFE500;
+  font-style: italic;
+}
+.hero .locations {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: right;
+  color: #999;
+  line-height: 2;
+  border-left: 2px solid #FFE500;
+  padding-left: 24px;
+}
+.hero .locations strong { color: #fff; display: block; }
+
+/* FEATURED WORK — overlapping case studies */
+.featured {
+  position: relative;
+  padding: 120px 48px 160px;
+  border-bottom: 3px solid #fff;
+}
+.featured .section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFE500;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.case-stack {
+  position: relative;
+  height: 1400px;
+}
+
+.case-item {
+  position: absolute;
+  border: 3px solid #fff;
+}
+
+.case-item .case-num {
+  position: absolute;
+  top: -64px;
+  left: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 96px;
+  font-weight: 700;
+  color: #FFE500;
+  line-height: 0.9;
+  z-index: 3;
+}
+
+.case-item .case-meta {
+  position: absolute;
+  bottom: -56px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #fff;
+}
+
+.case-item .case-title {
+  position: absolute;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 140px;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: #fff;
+  z-index: 4;
+  white-space: nowrap;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.case-thumb {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Case 1 — KORUNA (top left) */
+.case-1 {
+  top: 0; left: 0;
+  width: 680px; height: 520px;
+}
+.case-1 .case-thumb {
+  background:
+    radial-gradient(circle at 50% 50%, #FFE500 0%, #FFE500 8%, transparent 8.5%),
+    radial-gradient(circle at 50% 50%, transparent 22%, #fff 22.5%, #fff 23%, transparent 23.5%),
+    radial-gradient(circle at 50% 50%, transparent 35%, #fff 35.5%, #fff 36%, transparent 36.5%),
+    conic-gradient(from 0deg at 50% 50%, #1a1a1a 0deg, #2a2a2a 30deg, #1a1a1a 60deg, #2a2a2a 90deg, #1a1a1a 120deg, #2a2a2a 150deg, #1a1a1a 180deg, #2a2a2a 210deg, #1a1a1a 240deg, #2a2a2a 270deg, #1a1a1a 300deg, #2a2a2a 330deg, #1a1a1a 360deg);
+}
+.case-1 .case-title {
+  bottom: 40px; left: 40px;
+}
+
+/* Case 2 — HALDER (overlapping right) */
+.case-2 {
+  top: 320px; left: 520px;
+  width: 720px; height: 540px;
+}
+.case-2 .case-thumb {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(255,229,0,0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #3a2818 0%, #1a0e05 50%, #0d0703 100%);
+}
+.case-2 .case-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 60%, rgba(0,0,0,0.6) 0%, transparent 25%),
+    radial-gradient(circle at 70% 30%, rgba(0,0,0,0.5) 0%, transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(255,229,0,0.08) 0%, transparent 20%);
+}
+.case-2 .case-title {
+  top: 60px; right: 40px;
+  font-style: italic;
+  color: #FFE500;
+}
+
+/* Case 3 — NEMESIS (bottom, breaking out) */
+.case-3 {
+  top: 780px; left: 120px;
+  width: 900px; height: 540px;
+}
+.case-3 .case-thumb {
+  background:
+    linear-gradient(45deg, #000 0%, #0a0a1a 30%, #1a1a3a 60%, #00FFFF 100%);
+}
+.case-3 .case-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 39px, rgba(255,255,255,0.05) 39px, rgba(255,255,255,0.05) 40px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 39px, rgba(255,255,255,0.05) 39px, rgba(255,255,255,0.05) 40px),
+    radial-gradient(ellipse at 60% 50%, rgba(255,229,0,0.2) 0%, transparent 50%);
+}
+.case-3 .case-title {
+  bottom: 50px; left: 50px;
+  font-size: 160px;
+}
+
+/* Work-item hover reveal styles override */
+.work-item { position: relative; overflow: hidden; }
+.work-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.77,0,0.175,1);
+  z-index: 5;
+}
+.work-item:hover::after { transform: translateY(0); }
+.work-item .reveal-title {
+  opacity: 0;
+  transition: opacity 0.4s 0.2s;
+  z-index: 6;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  color: #FFE500;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.05;
+}
+.work-item:hover .reveal-title { opacity: 1; }
+.work-item .reveal-title small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #fff;
+  margin-top: 24px;
+}
+
+/* CLIENT TICKER */
+.client-ticker {
+  background: #FFE500;
+  color: #000;
+  padding: 32px 0;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  overflow: hidden;
+}
+.client-ticker .marquee-track {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.client-ticker .marquee-track span {
+  padding-right: 60px;
+  display: inline-flex;
+  align-items: center;
+}
+.client-ticker .marquee-track span::after {
+  content: '✕';
+  margin-left: 60px;
+  color: #000;
+  font-size: 40px;
+  display: inline-block;
+}
+
+/* MANIFESTO STRIP */
+.manifesto-strip {
+  padding: 180px 48px 200px;
+  position: relative;
+  border-bottom: 3px solid #fff;
+}
+.manifesto-strip .pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFE500;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+.manifesto-strip h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 180px;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.manifesto-strip h2 .yellow { color: #FFE500; font-style: normal; }
+.manifesto-strip h2 .strike { text-decoration: line-through; text-decoration-thickness: 6px; text-decoration-color: #FFE500; }
+.manifesto-strip .footnote {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 2px solid #fff;
+  padding-top: 32px;
+}
+.manifesto-strip .footnote-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #999;
+  max-width: 480px;
+  line-height: 1.6;
+}
+.manifesto-strip .award-count {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 0.9;
+  color: #FFE500;
+}
+.manifesto-strip .award-count small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #fff;
+  margin-top: 8px;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 80px 48px 40px;
+  border-top: 3px solid #fff;
+}
+footer .footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+footer h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+footer h3 .y { color: #FFE500; }
+footer .col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FFE500;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+footer ul { list-style: none; }
+footer ul li {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: #ccc;
+}
+footer ul li a:hover { color: #FFE500; }
+footer .footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #666;
+}
+
+</style>
+</head>
+<body class="page-enter">
+
+<div class="cursor-dot"></div>
+
+<!-- SIDE NAV -->
+<aside class="side-nav">
+  <div class="nav-num">01<br>05</div>
+  <div class="vertical-brand">VANTBLACK / STUDIO</div>
+  <div class="dot"></div>
+</aside>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <ul>
+    <li><a href="#" class="scramble">Index</a></li>
+    <li><a href="#" class="scramble">Work</a></li>
+    <li><a href="#" class="scramble">Studio</a></li>
+    <li><a href="#" class="scramble">Contact</a></li>
+  </ul>
+  <div class="nav-meta">
+    <span>EST. 2017</span>
+    <span>BER · NYC · SEL</span>
+    <span class="page-count">01 / 05</span>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="label-row">
+      <span>◉ Index — Issue 023</span>
+      <span>We make brands that refuse to be ignored.</span>
+      <span>↓ Scroll for selected work</span>
+    </div>
+    <h1 class="scramble">VANT<span class="slash">/</span>BLACK</h1>
+    <div class="manifesto-line">
+      <p>An independent design studio building <em>loud identities</em> for quiet giants. Operating from three rooms, three timezones, one obsession.</p>
+      <div class="locations">
+        <strong>BERLIN</strong>
+        <strong>NEW YORK</strong>
+        <strong>SEOUL</strong>
+        Open for new business — 2024
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="featured">
+    <div class="section-tag">
+      <span>§ 02 — Featured Work / 2023</span>
+      <span>Three projects from forty-seven →</span>
+    </div>
+
+    <div class="case-stack">
+      <!-- Case 1 -->
+      <div class="case-item case-1 work-item">
+        <div class="case-num">001</div>
+        <div class="case-thumb">
+          <div class="case-title">KORUNA</div>
+        </div>
+        <div class="case-meta">
+          <span>Koruna Hodinářství</span>
+          <span>Identity · Packaging</span>
+          <span>— 2023</span>
+        </div>
+        <div class="reveal-title">
+          Mechanical Watchmaker Rebrand
+          <small>View case study →</small>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-item case-2 work-item">
+        <div class="case-num">002</div>
+        <div class="case-thumb">
+          <div class="case-title">HALDER.</div>
+        </div>
+        <div class="case-meta">
+          <span>Halder Coffee Co.</span>
+          <span>D2C · Digital</span>
+          <span>— 2023</span>
+        </div>
+        <div class="reveal-title">
+          D2C Coffee Platform &amp; Subscription
+          <small>View case study →</small>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-item case-3 work-item">
+        <div class="case-num">003</div>
+        <div class="case-thumb">
+          <div class="case-title">NEMESIS XR</div>
+        </div>
+        <div class="case-meta">
+          <span>Nemesis Headsets</span>
+          <span>Launch Site · Motion</span>
+          <span>— 2023</span>
+        </div>
+        <div class="reveal-title">
+          Headset Launch &amp; Pre-Order Site
+          <small>View case study →</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT TICKER -->
+  <section class="client-ticker">
+    <div class="marquee-track">
+      <span>Acne Studios</span>
+      <span>Rapha</span>
+      <span>Patagonia</span>
+      <span>Notion</span>
+      <span>A24</span>
+      <span>Aesop</span>
+      <span>Bottega Veneta</span>
+      <span>Linear</span>
+      <span>On Running</span>
+      <span>Acne Studios</span>
+      <span>Rapha</span>
+      <span>Patagonia</span>
+      <span>Notion</span>
+      <span>A24</span>
+      <span>Aesop</span>
+      <span>Bottega Veneta</span>
+      <span>Linear</span>
+      <span>On Running</span>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto-strip">
+    <div class="pre">
+      <span>§ 04 — Manifesto / Line 001</span>
+      <span>Read aloud, preferably ↗</span>
+    </div>
+    <h2>We refuse <span class="strike">the algorithm</span><br>and the brief that <span class="yellow">asks for safe.</span></h2>
+    <div class="footnote">
+      <div class="footnote-text">
+        ¹ Footnote — Since founding in 2017, the studio has declined exactly 184 projects that began with the phrase "we want something like…" — and accepted the ones that didn't.
+      </div>
+      <div class="award-count">
+        47
+        <small>Awards · 2019–2023</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>VANT<span class="y">/</span>BLACK<span class="y">.</span></h3>
+    </div>
+    <div>
+      <div class="col-label">Studio</div>
+      <ul>
+        <li><a href="#">Index</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Studio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-label">Elsewhere</div>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Are.na</a></li>
+        <li><a href="#">Read.cv</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="col-label">Talk to us</div>
+      <ul>
+        <li>hello@vantblack.studio</li>
+        <li>press@vantblack.studio</li>
+        <li>Köpenicker Str. 187, Berlin</li>
+        <li>55 Walker St, NYC</li>
+        <li>14 Itaewon-ro, Seoul</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2017–2024 VANTBLACK STUDIO GMBH</span>
+    <span>Independent · Unrepresented · Unrepentant</span>
+    <span>↑ Back to top</span>
+  </div>
+</footer>
+
+</body>
+</html>

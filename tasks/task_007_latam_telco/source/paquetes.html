@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Paquetes Combinados - Volaris Móvil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: 15px;
+  color: #142A30;
+  background: #FFFFFF;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+
+/* === TOP UTILITY BAR === */
+.utility-bar {
+  background: #005A66;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 0;
+}
+.utility-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.status-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #2BAE66;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.utility-bar a { margin-left: 16px; opacity: .9; }
+
+/* === NAV === */
+.nav {
+  background: #007B8A;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.brand {
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-mark {
+  width: 32px; height: 32px;
+  background: #FF5722;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background .2s;
+}
+.nav-links a.active { background: #005A66; }
+.nav-links a:hover { background: #005A66; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.nav-right .icon-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-btn {
+  background: #FF5722;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+/* === PROMO BANNER === */
+.promo-banner {
+  background: linear-gradient(90deg, #FF5722, #FF8A50);
+  color: #fff;
+  padding: 10px 24px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.promo-banner .countdown {
+  background: #FFC107;
+  color: #142A30;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  font-weight: 800;
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(135deg, #007B8A 0%, #005A66 60%, #FF5722 140%);
+  color: #fff;
+  padding: 72px 24px 200px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,193,7,.15), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255,87,34,.18), transparent 35%);
+}
+.hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: #FFC107;
+  color: #142A30;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+}
+.hero h1 .pct {
+  font-size: 80px;
+  color: #FFC107;
+  display: inline-block;
+  margin-right: 6px;
+}
+.hero-sub {
+  font-size: 19px;
+  opacity: .95;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+.hero-ctas { display: flex; gap: 14px; }
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-primary { background: #FF5722; color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(255,87,34,.4); }
+.btn-ghost { background: rgba(255,255,255,.15); color: #fff; border: 2px solid #fff; }
+
+/* Savings Calculator (in hero) */
+.savings-calc {
+  background: #FFFFFF;
+  color: #142A30;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.calc-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #007B8A;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 6px;
+}
+.calc-heading {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #D5E5E8;
+  font-size: 14px;
+}
+.calc-row.total {
+  border-bottom: none;
+  font-size: 16px;
+  font-weight: 800;
+  padding-top: 14px;
+}
+.calc-row .check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #2BAE66;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  margin-right: 8px;
+}
+.calc-savings {
+  margin-top: 18px;
+  background: #FFC107;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calc-savings .label {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.calc-savings .amount {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+/* === BUNDLE CARDS SECTION === */
+.bundles-section {
+  background: #E0F7FA;
+  padding: 0 24px 80px;
+  margin-top: -140px;
+  position: relative;
+  z-index: 2;
+}
+.bundles-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bundle-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 2px solid #D5E5E8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.bundle-card.popular {
+  border-color: #FF5722;
+  transform: translateY(-16px);
+  box-shadow: 0 20px 50px rgba(0,123,138,.18);
+}
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FF5722;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.bundle-icon {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: #E0F7FA;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.bundle-card.popular .bundle-icon {
+  background: #FFE4D6;
+}
+.bundle-name {
+  font-size: 24px;
+  font-weight: 900;
+  color: #142A30;
+  margin-bottom: 4px;
+}
+.bundle-sub {
+  font-size: 13px;
+  color: #5C7079;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.bundle-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.bundle-price .currency { font-size: 22px; font-weight: 700; color: #007B8A; }
+.bundle-price .num { font-size: 56px; font-weight: 900; color: #007B8A; letter-spacing: -2px; line-height: 1; }
+.bundle-card.popular .bundle-price .num,
+.bundle-card.popular .bundle-price .currency { color: #FF5722; }
+.bundle-price .per { font-size: 14px; color: #5C7079; font-weight: 700; }
+.bundle-strikethrough {
+  font-size: 13px;
+  color: #5C7079;
+  margin-bottom: 20px;
+}
+.bundle-strikethrough s { color: #FF5722; }
+.bundle-features {
+  list-style: none;
+  margin: 0 0 24px;
+  flex: 1;
+}
+.bundle-features li {
+  padding: 8px 0;
+  border-bottom: 1px solid #F0F4F5;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.bundle-features li:last-child { border-bottom: none; }
+.bundle-features .feat-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #2BAE66;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.bundle-cta {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  background: #007B8A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+.bundle-card.popular .bundle-cta { background: #FF5722; }
+.bundle-secondary {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #5C7079;
+  font-weight: 700;
+}
+
+/* Section heading */
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-heading .eyebrow {
+  display: inline-block;
+  background: #FFC107;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 12px;
+}
+.section-heading h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #142A30;
+}
+.section-heading p {
+  color: #5C7079;
+  font-size: 16px;
+  margin-top: 8px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === COMPARISON CALCULATOR BAND === */
+.calc-band {
+  background: #fff;
+  padding: 64px 24px;
+}
+.calc-band-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+.calc-visual {
+  background: linear-gradient(135deg, #007B8A, #005A66);
+  border-radius: 20px;
+  padding: 40px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.calc-visual::after {
+  content: "";
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: rgba(255,193,7,.18);
+  border-radius: 50%;
+}
+.calc-visual h3 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  position: relative;
+}
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 22px;
+  height: 200px;
+  position: relative;
+  margin-bottom: 18px;
+}
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.bar-fill {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+.bar-fill .v {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.bar.separado .bar-fill { background: #FF5722; height: 100%; }
+.bar.bundle .bar-fill { background: #FFC107; color: #142A30; height: 58%; }
+.bar-label { font-size: 12px; font-weight: 700; opacity: .9; text-align: center; }
+
+.calc-text h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  color: #142A30;
+}
+.calc-text p {
+  color: #5C7079;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.calc-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.stat-box {
+  background: #E0F7FA;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-box .big {
+  font-size: 28px;
+  font-weight: 900;
+  color: #007B8A;
+  letter-spacing: -1px;
+}
+.stat-box .lab {
+  font-size: 12px;
+  color: #5C7079;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  margin-top: 2px;
+}
+
+/* === FAMILY PLAN === */
+.family-section {
+  background: #E0F7FA;
+  padding: 72px 24px;
+}
+.family-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.family-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  border: 2px solid #D5E5E8;
+}
+.family-card .badge {
+  display: inline-block;
+  background: #FFC107;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 14px;
+}
+.family-card h2 {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.family-card p {
+  font-size: 16px;
+  color: #5C7079;
+  margin-bottom: 22px;
+}
+.family-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin-bottom: 28px;
+}
+.family-features div {
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.family-features .check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #2BAE66;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+}
+.family-additional {
+  background: #E0F7FA;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #005A66;
+  font-weight: 700;
+}
+.family-additional strong { color: #FF5722; font-size: 18px; }
+.family-cta-row { display: flex; gap: 12px; }
+
+.family-lines-visual {
+  background: linear-gradient(135deg, #FFC107, #FF8A50);
+  border-radius: 16px;
+  padding: 40px 30px;
+  color: #142A30;
+}
+.lines-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.line-row {
+  background: rgba(255,255,255,.92);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.line-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #007B8A;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+.line-info { flex: 1; }
+.line-info .name { font-weight: 800; font-size: 14px; }
+.line-info .sub { font-size: 12px; color: #5C7079; }
+.line-data {
+  background: #E0F7FA;
+  color: #007B8A;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.lines-total {
+  margin-top: 18px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+  background: rgba(0,123,138,.12);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* === STREAMING BUNDLE CALLOUT === */
+.streaming-callout {
+  background: #FFC107;
+  padding: 36px 24px;
+}
+.streaming-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.streaming-text {
+  flex: 1;
+  min-width: 320px;
+}
+.streaming-text .tag {
+  display: inline-block;
+  background: #142A30;
+  color: #FFC107;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 10px;
+}
+.streaming-text h3 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #142A30;
+  letter-spacing: -0.8px;
+}
+.streaming-text p {
+  font-size: 14px;
+  color: #142A30;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.streaming-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-pill {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 900;
+  font-size: 14px;
+  color: #142A30;
+  border: 2px solid #142A30;
+}
+.logo-pill.netflix { color: #E50914; }
+.logo-pill.disney { color: #006bbd; }
+.logo-pill.star { background: #142A30; color: #FFC107; }
+
+/* === STREAMING PARTNERS BAND === */
+.partners-band {
+  background: #fff;
+  padding: 48px 24px;
+  border-top: 1px solid #D5E5E8;
+}
+.partners-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.partners-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #5C7079;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.partners-logos {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.partner {
+  font-weight: 900;
+  font-size: 18px;
+  color: #142A30;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #F5FAFB;
+}
+.partner.netflix { color: #E50914; }
+.partner.disney { color: #006bbd; }
+.partner.hbo { color: #6814b5; }
+.partner.paramount { color: #0064FF; }
+.partner.amazon { color: #FF9900; }
+
+/* === FOOTER === */
+footer {
+  background: #003D47;
+  color: #B8D5DA;
+  padding: 56px 24px 24px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+footer h4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+footer ul { list-style: none; }
+footer ul li { padding: 5px 0; font-size: 14px; }
+footer ul li a:hover { color: #FFC107; }
+.footer-brand .brand { color: #fff; margin-bottom: 14px; }
+.footer-brand p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.footer-whatsapp {
+  background: #2BAE66;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-bottom {
+  border-top: 1px solid #005A66;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #7BA3AB;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* === LIVE CHAT === */
+.chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #FF5722;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(255,87,34,.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  z-index: 50;
+}
+.chat-widget .pulse {
+  width: 10px; height: 10px;
+  background: #FFC107;
+  border-radius: 50%;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="utility-bar">
+  <div class="utility-inner">
+    <div><span class="status-dot"></span>Todos los servicios operando con normalidad · <a href="#">Ver estado detallado</a></div>
+    <div>
+      <a href="#">📞 *611</a>
+      <a href="#">💬 WhatsApp +52 55 8000 8888</a>
+      <a href="#">🇲🇽 México</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand"><span class="brand-mark">V</span> Volaris Móvil</a>
+    <div class="nav-links">
+      <a href="#">Móvil</a>
+      <a href="#">Internet</a>
+      <a href="#">TV</a>
+      <a href="#" class="active">Paquetes</a>
+      <a href="#">Empresa</a>
+      <a href="#">Tiendas</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="icon-btn">?</a>
+      <a href="#" class="icon-btn">🛒</a>
+      <a href="#" class="account-btn">Mi Cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Promo banner -->
+<div class="promo-banner">
+  🎉 ¡50% OFF en tu primer mes contratando un Paquete Combinado!
+  <span class="countdown">⏱ Termina en 2d 14h 32m 08s</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">Paquetes Combinados</span>
+      <h1>Combina y ahorra <br><span class="pct">35%</span></h1>
+      <p class="hero-sub">Móvil + Internet + TV en una sola factura. Simplifique su vida digital con un solo pago, un solo soporte y máximo ahorro para toda la familia.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary">Ver paquetes →</button>
+        <button class="btn btn-ghost">Calcular mi ahorro</button>
+      </div>
+    </div>
+
+    <div class="savings-calc">
+      <div class="calc-title">Calculadora de Ahorro</div>
+      <div class="calc-heading">Trío Familiar vs. Por separado</div>
+      <div class="calc-row"><span><span class="check">✓</span>Internet 300 Mbps</span><span>$599/mes</span></div>
+      <div class="calc-row"><span><span class="check">✓</span>TV 120 canales HD</span><span>$429/mes</span></div>
+      <div class="calc-row"><span><span class="check">✓</span>2 líneas móviles 80GB</span><span>$391/mes</span></div>
+      <div class="calc-row total"><span>Total por separado</span><span style="color:#FF5722;text-decoration:line-through;">$1,419/mes</span></div>
+      <div class="calc-row total"><span>Trío Familiar</span><span style="color:#007B8A;">$999/mes</span></div>
+      <div class="calc-savings">
+        <span class="label">Usted ahorra</span>
+        <span class="amount">$420/mes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE CARDS -->
+<section class="bundles-section">
+  <div class="bundles-inner">
+    <div class="bundle-grid">
+
+      <div class="bundle-card">
+        <div class="bundle-icon">🏠</div>
+        <div class="bundle-name">Dúo Hogar</div>
+        <div class="bundle-sub">Internet + TV para empezar</div>
+        <div class="bundle-price">
+          <span class="currency">$</span>
+          <span class="num">699</span>
+          <span class="per">/mes</span>
+        </div>
+        <div class="bundle-strikethrough">Por separado: <s>$928/mes</s> · Ahorra $229</div>
+        <ul class="bundle-features">
+          <li><span class="feat-icon">✓</span>Internet Fibra 200 Mbps</li>
+          <li><span class="feat-icon">✓</span>TV con 80 canales HD</li>
+          <li><span class="feat-icon">✓</span>Router Wi-Fi 6 incluido</li>
+          <li><span class="feat-icon">✓</span>Instalación gratis</li>
+          <li><span class="feat-icon">✓</span>Contrato 12 meses</li>
+        </ul>
+        <button class="bundle-cta">Contratar Dúo Hogar</button>
+        <div class="bundle-secondary">Sin permanencia obligatoria</div>
+      </div>
+
+      <div class="bundle-card popular">
+        <span class="popular-badge">⭐ Más Popular</span>
+        <div class="bundle-icon">👨‍👩‍👧</div>
+        <div class="bundle-name">Trío Familiar</div>
+        <div class="bundle-sub">El favorito de las familias</div>
+        <div class="bundle-price">
+          <span class="currency">$</span>
+          <span class="num">999</span>
+          <span class="per">/mes</span>
+        </div>
+        <div class="bundle-strikethrough">Por separado: <s>$1,419/mes</s> · Ahorra $420</div>
+        <ul class="bundle-features">
+          <li><span class="feat-icon">✓</span>Internet Fibra 300 Mbps</li>
+          <li><span class="feat-icon">✓</span>TV con 120 canales HD</li>
+          <li><span class="feat-icon">✓</span>2 líneas móviles con 80GB c/u</li>
+          <li><span class="feat-icon">✓</span>Disney+ y Star+ sin costo</li>
+          <li><span class="feat-icon">✓</span>Router Wi-Fi 6 + instalación gratis</li>
+          <li><span class="feat-icon">✓</span>Roaming USA incluido</li>
+        </ul>
+        <button class="bundle-cta">Contratar Trío Familiar</button>
+        <div class="bundle-secondary">Más de 480,000 familias eligieron este plan</div>
+      </div>
+
+      <div class="bundle-card">
+        <div class="bundle-icon">🚀</div>
+        <div class="bundle-name">Mega Familiar</div>
+        <div class="bundle-sub">Lo máximo para hogares grandes</div>
+        <div class="bundle-price">
+          <span class="currency">$</span>
+          <span class="num">1,499</span>
+          <span class="per">/mes</span>
+        </div>
+        <div class="bundle-strikethrough">Por separado: <s>$2,291/mes</s> · Ahorra $792</div>
+        <ul class="bundle-features">
+          <li><span class="feat-icon">✓</span>Internet Fibra 500 Mbps</li>
+          <li><span class="feat-icon">✓</span>TV Premium 240+ canales 4K</li>
+          <li><span class="feat-icon">✓</span>4 líneas móviles ilimitadas 5G</li>
+          <li><span class="feat-icon">✓</span>Netflix, Disney+, HBO Max y Star+</li>
+          <li><span class="feat-icon">✓</span>Amazon Music incluido</li>
+          <li><span class="feat-icon">✓</span>Router Wi-Fi 6 Mesh dual</li>
+          <li><span class="feat-icon">✓</span>Roaming América y EU sin costo</li>
+        </ul>
+        <button class="bundle-cta">Contratar Mega Familiar</button>
+        <div class="bundle-secondary">Hasta 35% de ahorro garantizado</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS CALCULATOR BAND -->
+<section class="calc-band">
+  <div class="calc-band-inner">
+    <div class="calc-visual">
+      <h3>Comparativa mensual: Trío Familiar</h3>
+      <div class="bar-chart">
+        <div class="bar separado">
+          <div class="bar-fill" style="height: 100%;"><span class="v">$1,419</span></div>
+          <div class="bar-label">Servicios<br>por separado</div>
+        </div>
+        <div class="bar bundle">
+          <div class="bar-fill" style="height: 70%;"><span class="v">$999</span></div>
+          <div class="bar-label">Trío Familiar<br>Volaris</div>
+        </div>
+        <div class="bar bundle">
+          <div class="bar-fill" style="height: 30%; background:#FFC107;"><span class="v" style="color:#FFC107;">$420</span></div>
+          <div class="bar-label">Su ahorro<br>mensual</div>
+        </div>
+      </div>
+      <p style="font-size:13px;opacity:.85;position:relative;">Cálculo basado en tarifas oficiales vigentes a septiembre de 2021. Promoción válida para nuevos clientes residenciales.</p>
+    </div>
+
+    <div class="calc-text">
+      <div class="section-heading" style="text-align:left;margin-bottom:0;">
+        <span class="eyebrow">Calculadora de Ahorro</span>
+        <h2 style="text-align:left;">Pague menos por más servicios, en una sola factura.</h2>
+      </div>
+      <p style="margin-top:16px;">Nuestra calculadora de ahorro le muestra exactamente cuánto reduce su factura mensual al combinar móvil, internet y TV. Sin cargos ocultos, con instalación gratis y soporte 24/7.</p>
+      <div class="calc-stats">
+        <div class="stat-box">
+          <div class="big">35%</div>
+          <div class="lab">Ahorro máximo</div>
+        </div>
+        <div class="stat-box">
+          <div class="big">$5,040</div>
+          <div class="lab">Ahorro anual</div>
+        </div>
+        <div class="stat-box">
+          <div class="big">1</div>
+          <div class="lab">Sola factura</div>
+        </div>
+      </div>
+      <button class="btn btn-primary">Calcular mi ahorro personalizado →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY PLAN -->
+<section class="family-section">
+  <div class="family-inner">
+    <div class="section-heading">
+      <span class="eyebrow">Plan Familia Volaris</span>
+      <h2>Hasta 5 líneas compartiendo 200GB</h2>
+      <p>Cada miembro de la familia conectado, con controles parentales avanzados y una línea adicional desde solo $99/mes.</p>
+    </div>
+
+    <div class="family-card">
+      <div>
+        <span class="badge">Recomendado para familias 4+</span>
+        <h2>Familia Volaris 200GB Compartidos</h2>
+        <p>Distribuya 200GB entre hasta 5 dispositivos, configure límites por línea, y agregue tablets o relojes desde $99/mes. Todo en una sola cuenta.</p>
+
+        <div class="family-features">
+          <div><span class="check">✓</span>200GB compartidos en 5G</div>
+          <div><span class="check">✓</span>Minutos y SMS ilimitados</div>
+          <div><span class="check">✓</span>Controles parentales avanzados</div>
+          <div><span class="check">✓</span>Localización familiar incluida</div>
+          <div><span class="check">✓</span>Reparto inteligente de datos</div>
+          <div><span class="check">✓</span>Roaming en USA y Latam</div>
+          <div><span class="check">✓</span>Disney+ incluido 6 meses</div>
+          <div><span class="check">✓</span>Soporte prioritario 24/7</div>
+        </div>
+
+        <div class="family-additional">
+          Línea adicional desde <strong>$99/mes</strong> · Tablets y wearables desde $79/mes
+        </div>
+
+        <div class="family-cta-row">
+          <button class="btn btn-primary">Crear Plan Familia</button>
+          <button class="btn" style="background:#E0F7FA;color:#007B8A;">Comparar opciones</button>
+        </div>
+      </div>
+
+      <div class="family-lines-visual">
+        <div style="font-weight:900;font-size:16px;margin-bottom:14px;">Su Plan Familia · 200GB compartidos</div>
+        <div class="lines-stack">
+          <div class="line-row">
+            <div class="line-avatar">MR</div>
+            <div class="line-info"><div class="name">María (Titular)</div><div class="sub">55 1234 5678</div></div>
+            <div class="line-data">62GB</div>
+          </div>
+          <div class="line-row">
+            <div class="line-avatar" style="background:#FF5722;">JR</div>
+            <div class="line-info"><div class="name">Jorge</div><div class="sub">55 8765 4321</div></div>
+            <div class="line-data">48GB</div>
+          </div>
+          <div class="line-row">
+            <div class="line-avatar" style="background:#2BAE66;">SA</div>
+            <div class="line-info"><div class="name">Sofía (12 años)</div><div class="sub">Control parental activo</div></div>
+            <div class="line-data">35GB</div>
+          </div>
+          <div class="line-row">
+            <div class="line-avatar" style="background:#6814b5;">DA</div>
+            <div class="line-info"><div class="name">Diego (16 años)</div><div class="sub">Límite: 40GB</div></div>
+            <div class="line-data">40GB</div>
+          </div>
+          <div class="line-row">
+            <div class="line-avatar" style="background:#FFC107;color:#142A30;">+</div>
+            <div class="line-info"><div class="name">Agregar 5ª línea</div><div class="sub">Desde $99/mes</div></div>
+            <div class="line-data" style="background:#FFE4D6;color:#FF5722;">Nuevo</div>
+          </div>
+        </div>
+        <div class="lines-total">185 GB de 200 GB usados este mes · Renueva en 12 días</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STREAMING CALLOUT -->
+<section class="streaming-callout">
+  <div class="streaming-inner">
+    <div class="streaming-text">
+      <span class="tag">⭐ Incluido sin costo</span>
+      <h3>Disney+ y Star+ gratis 12 meses</h3>
+      <p>Disponible al contratar Trío Familiar o Mega Familiar. Activación inmediata desde Mi Cuenta.</p>
+    </div>
+    <div class="streaming-logos">
+      <div class="logo-pill disney">Disney+</div>
+      <div class="logo-pill star">Star+</div>
+      <div class="logo-pill" style="background:#142A30;color:#fff;border-color:#142A30;">+ 12 meses</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-band">
+  <div class="partners-inner">
+    <div class="partners-title">Servicios de streaming incluidos en nuestros paquetes</div>
+    <div class="partners-logos">
+      <div class="partner netflix">NETFLIX</div>
+      <div class="partner disney">Disney+</div>
+      <div class="partner hbo">HBO Max</div>
+      <div class="partner paramount">Paramount+</div>
+      <div class="partner amazon">amazon music</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand"><span class="brand-mark">V</span> Volaris Móvil</div>
+      <p>Conecta sin límites en México y Colombia. Más de 1,240 tiendas y atención 24/7 en español.</p>
+      <a href="#" class="footer-whatsapp">💬 WhatsApp +52 55 8000 8888</a>
+    </div>
+    <div>
+      <h4>Productos</h4>
+      <ul>
+        <li><a href="#">Planes Móvil</a></li>
+        <li><a href="#">Internet Hogar</a></li>
+        <li><a href="#">TV con Streaming</a></li>
+        <li><a href="#">Paquetes Combinados</a></li>
+        <li><a href="#">Volaris Empresa</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Atención</h4>
+      <ul>
+        <li><a href="#">Llámanos *611</a></li>
+        <li><a href="#">Chat en vivo 24/7</a></li>
+        <li><a href="#">atencion@volaris.mx</a></li>
+        <li><a href="#">Estado del servicio</a></li>
+        <li><a href="#">Centro de ayuda</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Trámites</h4>
+      <ul>
+        <li><a href="#">Pagar mi factura</a></li>
+        <li><a href="#">Recarga prepago</a></li>
+        <li><a href="#">Portabilidad numérica</a></li>
+        <li><a href="#">Activar SIM</a></li>
+        <li><a href="#">Reportar falla</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Sobre Volaris</a></li>
+        <li><a href="#">Cobertura 5G</a></li>
+        <li><a href="#">Sala de prensa</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
+        <li><a href="#">Sostenibilidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="max-width:1240px;margin:0 auto;">
+    <div>© 2021 Volaris Móvil S.A. de C.V. · Todos los derechos reservados · México 🇲🇽 · Colombia 🇨🇴</div>
+    <div><a href="#">Aviso de privacidad</a> · <a href="#">Términos</a> · <a href="#">IFT</a></div>
+  </div>
+</footer>
+
+<!-- Live Chat -->
+<div class="chat-widget">
+  <span class="pulse"></span>
+  💬 Habla con Vola · Responde en 30s
+</div>
+
+</body>
+</html>

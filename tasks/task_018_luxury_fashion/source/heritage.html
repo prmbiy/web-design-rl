@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Maison & Heritage — Maison Delacroix-Vauban</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #FAF7F2;
+  color: #1A1A1A;
+  font-family: 'EB Garamond', 'Garamond', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- NAV ---------- */
+.nav-wrapper {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 96px;
+  background: #FFFFFF;
+  z-index: 100;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+.nav-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  letter-spacing: 0.32em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.wordmark .dot { display: inline-block; margin: 0 4px; }
+
+.tagline-mini {
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #8A8A8A;
+  margin-top: 4px;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  padding: 22px 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E1DA;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease 0.1s;
+}
+
+.nav-wrapper:hover .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-family: 'EB Garamond', serif;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: #1A1A1A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.bag-icon {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ---------- HERO ---------- */
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero, .hero * {
+  animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.hero {
+  padding: 220px 80px 180px;
+  text-align: center;
+  background: #FAF7F2;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  margin-bottom: 80px;
+}
+
+.hero-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 240px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  margin-bottom: 60px;
+}
+
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: #1A1A1A;
+}
+
+.hero-rule {
+  width: 1px;
+  height: 80px;
+  background: #1A1A1A;
+  margin: 100px auto 0;
+}
+
+/* ---------- SECTION LABEL ---------- */
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* ---------- FOUNDING STORY ---------- */
+.founding {
+  padding: 180px 80px 200px;
+  background: #FFFFFF;
+}
+
+.founding-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.founding-headline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 64px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 140px;
+  font-weight: 400;
+}
+
+.prose-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.prose-columns p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 22px;
+  color: #1A1A1A;
+}
+
+.prose-columns p:first-child::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  float: left;
+  line-height: 0.9;
+  padding: 6px 10px 0 0;
+}
+
+.signature {
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: #8A8A8A;
+}
+
+/* ---------- ATELIER GALLERY ---------- */
+.atelier {
+  padding: 160px 80px;
+  background: #FAF7F2;
+}
+
+.atelier-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.atelier-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  font-weight: 400;
+}
+
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.photo {
+  background: linear-gradient(135deg, #2a2a2a 0%, #4a4a4a 50%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+  animation: reveal 1.8s ease 0.2s forwards;
+}
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 8px),
+    radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.12), transparent 60%);
+  mix-blend-mode: overlay;
+}
+
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.4), transparent 70%);
+}
+
+.photo .caption {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  z-index: 2;
+  font-family: 'EB Garamond', serif;
+}
+
+.photo .frame-num {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  z-index: 2;
+}
+
+.photo-a { grid-column: 1 / 8; height: 580px; }
+.photo-b { grid-column: 8 / 13; height: 580px; }
+.photo-c { grid-column: 1 / 5; height: 460px; margin-top: 80px; }
+.photo-d { grid-column: 5 / 10; height: 460px; margin-top: 80px; }
+.photo-e { grid-column: 10 / 13; height: 460px; margin-top: 80px; }
+
+/* Slight variations per photo */
+.photo-b { background: linear-gradient(160deg, #1a1a1a 0%, #3a3a3a 60%, #555 100%); }
+.photo-c { background: linear-gradient(120deg, #3a3a3a 0%, #1a1a1a 70%); }
+.photo-d { background: linear-gradient(200deg, #2a2a2a 0%, #4a4a4a 40%, #1a1a1a 100%); }
+.photo-e { background: linear-gradient(180deg, #1a1a1a 0%, #404040 100%); }
+
+/* ---------- FILM ---------- */
+.film {
+  padding: 200px 80px;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.film-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.film-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 88px;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.film-meta {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #8A8A8A;
+  margin-bottom: 100px;
+}
+
+.film-frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 640px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 50%, #0a0a0a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.film-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(196,168,130,0.18), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 3px);
+}
+
+.film-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92px; height: 92px;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.9);
+  font-size: 18px;
+  z-index: 2;
+}
+
+.film-play::after {
+  content: '▶';
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.film-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  z-index: 2;
+}
+
+.film-runtime {
+  position: absolute;
+  bottom: 28px;
+  right: 32px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  z-index: 2;
+}
+
+.film-credit {
+  margin-top: 60px;
+  font-style: italic;
+  font-size: 15px;
+  color: #1A1A1A;
+}
+.film-credit span { color: #8A8A8A; }
+
+/* ---------- HOUSE CODES ---------- */
+.codes {
+  padding: 200px 80px;
+  background: #FAF7F2;
+}
+
+.codes-header {
+  text-align: center;
+  margin-bottom: 140px;
+}
+
+.codes-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  font-weight: 400;
+}
+
+.codes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.code-card {
+  text-align: center;
+}
+
+.code-visual {
+  height: 360px;
+  background: #FFFFFF;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-num {
+  position: absolute;
+  top: 20px; left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #8A8A8A;
+}
+
+/* Chevron stitch */
+.chevron-art {
+  width: 200px; height: 200px;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 12px, #1A1A1A 12px 13px, transparent 13px 25px),
+    repeating-linear-gradient(-45deg, transparent 0 12px, #1A1A1A 12px 13px, transparent 13px 25px);
+  opacity: 0.85;
+}
+
+/* V clasp */
+.clasp-art {
+  width: 160px; height: 200px;
+  position: relative;
+}
+.clasp-art::before {
+  content: 'V';
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  line-height: 1;
+  font-weight: 400;
+  background: linear-gradient(180deg, #C4A882 0%, #8a7654 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0;
+}
+
+/* Sand lining */
+.lining-art {
+  width: 240px; height: 240px;
+  background:
+    linear-gradient(135deg, #C4A882 0%, #d4baa0 50%, #b09872 100%);
+  position: relative;
+}
+.lining-art::after {
+  content: 'DV';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: rgba(26,26,26,0.4);
+  letter-spacing: 0.1em;
+}
+
+.code-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.code-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.code-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1A1A1A;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ---------- ARCHIVE ---------- */
+.archive {
+  padding: 180px 80px;
+  background: #FFFFFF;
+}
+
+.archive-header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.archive-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  font-weight: 400;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.archive-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+  animation: reveal 1.8s ease 0.3s forwards;
+}
+
+.archive-img {
+  height: 380px;
+  background: linear-gradient(160deg, #2a2a2a 0%, #4a4a4a 70%, #1a1a1a 100%);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.archive-img::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 60%);
+}
+
+.archive-img.a2 { background: linear-gradient(140deg, #f0ebe1 0%, #d6cdbb 100%); }
+.archive-img.a3 { background: linear-gradient(180deg, #1a1a1a 0%, #3a3a3a 100%); }
+.archive-img.a4 { background: linear-gradient(120deg, #C4A882 0%, #8a7654 100%); }
+
+.archive-year {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #8A8A8A;
+  margin-bottom: 6px;
+}
+
+.archive-name {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.archive-cat {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+
+/* ---------- PULL QUOTE ---------- */
+.quote {
+  padding: 220px 80px;
+  background: #FAF7F2;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  font-weight: 400;
+}
+
+.quote-attribution {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #FAF7F2;
+  padding: 120px 80px 60px;
+  border-top: 1px solid #E5E1DA;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1280px;
+  margin: 0 auto 100px;
+}
+
+.footer-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  letter-spacing: 0.28em;
+  margin-bottom: 20px;
+}
+
+.footer-tagline {
+  font-style: italic;
+  font-size: 14px;
+  color: #8A8A8A;
+  margin-bottom: 30px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { font-size: 13px; margin-bottom: 10px; color: #1A1A1A; }
+
+.newsletter input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1A1A1A;
+  padding: 10px 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 16px;
+}
+.newsletter input:focus { outline: none; }
+.newsletter label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  padding-top: 40px;
+  border-top: 1px solid #E5E1DA;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrapper">
+  <div class="nav-inner">
+    <div class="wordmark">Maison Delacroix<span class="dot">·</span>Vauban</div>
+    <div class="tagline-mini"><em>Paris, depuis 1923</em></div>
+    <div class="bag-icon">Bag (0)</div>
+    <nav class="nav-menu">
+      <a class="nav-link" href="#">Histoire</a>
+      <a class="nav-link" href="#">Atelier</a>
+      <a class="nav-link" href="#">Codes</a>
+      <a class="nav-link" href="#">Archives</a>
+      <a class="nav-link" href="#">Défilés</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Maison &mdash; Histoire</div>
+  <h1 class="hero-year">1923</h1>
+  <div class="hero-sub">Cent ans de discrétion</div>
+  <div class="hero-rule"></div>
+</section>
+
+<!-- FOUNDING STORY -->
+<section class="founding">
+  <div class="founding-inner">
+    <h2 class="founding-headline">Une maison née<br>au-dessus d'un atelier de cuir.</h2>
+    <div class="prose-columns">
+      <div>
+        <p>Au printemps 1923, Augustin Delacroix-Vauban — alors âgé de vingt-neuf ans, formé chez les selliers de la rue de Rivoli — loua deux pièces étroites au troisième étage d'un immeuble haussmannien de la rue Cambon. En dessous se trouvait l'atelier de cuir d'un certain Monsieur Bessette, dont l'odeur de tanin et de cire montait par les fenêtres ouvertes l'été. C'est cette odeur, écrira plus tard Augustin dans ses carnets, qui décida de tout.</p>
+        <p>La première collection comptait onze pièces. Un sac de voyage en cuir grainé. Un porte-documents. Trois petites maroquineries. Une ceinture. Quelques étuis. Augustin les présenta sans cérémonie à une poignée de clientes recommandées par sa cousine, Madame de Vaux-Renard. À la fin de l'année, il avait vendu dix pièces. La onzième, il la garda toute sa vie.</p>
+      </div>
+      <div>
+        <p>La maison déménagea en 1931 vers le Faubourg Saint-Honoré, où elle se trouve toujours. La guerre interrompit le travail mais non la maison : l'atelier fut maintenu, les outils huilés, les peaux conservées dans une cave de Bourgogne. À la libération, Augustin reprit les ciseaux comme s'il les avait posés la veille.</p>
+        <p>En 1958, le sculpteur Henri Laurens — ami de longue date — dessina pour la maison un fermoir en laiton brossé en forme de V renversé. Ce fermoir, à peine modifié depuis, ferme aujourd'hui le sac Vauban. Il est devenu, sans qu'on l'ait jamais voulu, la signature la plus reconnaissable d'une maison qui s'est toujours méfiée des signatures.</p>
+        <p>Cent ans plus tard, nous restons une maison familiale. Quatre générations. Un seul atelier principal. Aucune licence. Aucun parfum. Aucun compromis.</p>
+      </div>
+    </div>
+    <div class="signature">— La Famille Delacroix-Vauban</div>
+  </div>
+</section>
+
+<!-- ATELIER GALLERY -->
+<section class="atelier">
+  <div class="atelier-header">
+    <div class="section-label">L'Atelier &mdash; Faubourg Saint-Honoré</div>
+    <h2 class="atelier-title">Les mains qui font la maison</h2>
+  </div>
+  <div class="atelier-grid">
+    <div class="photo photo-a">
+      <div class="frame-num">I.</div>
+      <div class="caption">Salle de coupe &mdash; 06h40</div>
+    </div>
+    <div class="photo photo-b">
+      <div class="frame-num">II.</div>
+      <div class="caption">Couture main, sac Vauban</div>
+    </div>
+    <div class="photo photo-c">
+      <div class="frame-num">III.</div>
+      <div class="caption">Préparation du veau grainé</div>
+    </div>
+    <div class="photo photo-d">
+      <div class="frame-num">IV.</div>
+      <div class="caption">L'établi de Jean-Pierre Olivier</div>
+    </div>
+    <div class="photo photo-e">
+      <div class="frame-num">V.</div>
+      <div class="caption">Fermoirs &mdash; laiton brossé</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="film">
+  <div class="film-eyebrow">Film &mdash; Six minutes</div>
+  <h2 class="film-title">Les Mains</h2>
+  <div class="film-meta">Un portrait de Jean-Pierre Olivier, maître artisan</div>
+  <div class="film-frame">
+    <div class="film-play"></div>
+    <div class="film-caption">Les Mains · 2023</div>
+    <div class="film-runtime">06:14</div>
+  </div>
+  <p class="film-credit">Réalisé par Claire Mercier. <span>Quarante-et-une années à la maison.</span></p>
+</section>
+
+<!-- HOUSE CODES -->
+<section class="codes">
+  <div class="codes-header">
+    <div class="section-label">Codes de la Maison</div>
+    <h2 class="codes-title">Trois signatures, sans signature</h2>
+  </div>
+  <div class="codes-grid">
+    <div class="code-card">
+      <div class="code-visual">
+        <div class="code-num">i.</div>
+        <div class="chevron-art"></div>
+      </div>
+      <div class="code-label">Le Point</div>
+      <h3 class="code-name">Le chevron</h3>
+      <p class="code-desc">Une couture en chevron à six points par centimètre, exécutée à la main sur chaque pièce de maroquinerie depuis 1923.</p>
+    </div>
+    <div class="code-card">
+      <div class="code-visual">
+        <div class="code-num">ii.</div>
+        <div class="clasp-art"></div>
+      </div>
+      <div class="code-label">Le Fermoir</div>
+      <h3 class="code-name">Le V Laurens</h3>
+      <p class="code-desc">Dessiné par Henri Laurens en 1958. Laiton brossé, vissé à la main. Patiné par l'usage, jamais reverni.</p>
+    </div>
+    <div class="code-card">
+      <div class="code-visual">
+        <div class="code-num">iii.</div>
+        <div class="lining-art"></div>
+      </div>
+      <div class="code-label">La Doublure</div>
+      <h3 class="code-name">Le sable Vauban</h3>
+      <p class="code-desc">Une teinte d'agneau velours développée en 1947 d'après le sable de Cabourg. Présente dans chaque sac depuis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+  <p class="quote-text">&laquo;&nbsp;Le luxe ne fait pas de bruit.<br>Il attend qu'on le remarque.&nbsp;&raquo;</p>
+  <div class="quote-attribution">Augustin Delacroix-Vauban &mdash; Carnets, 1962</div>
+</section>
+
+<!-- ARCHIVE -->
+<section class="archive">
+  <div class="archive-header">
+    <div class="section-label">Pièces d'Archive</div>
+    <h2 class="archive-title">De la collection privée</h2>
+  </div>
+  <div class="archive-grid">
+    <div class="archive-card">
+      <div class="archive-img"></div>
+      <div class="archive-year">1934</div>
+      <div class="archive-name">Sac de Voyage Cambon</div>
+      <div class="archive-cat">Maroquinerie</div>
+    </div>
+    <div class="archive-card">
+      <div class="archive-img a2"></div>
+      <div class="archive-year">1958</div>
+      <div class="archive-name">Sac Vauban, premier modèle</div>
+      <div class="archive-cat">Maroquinerie</div>
+    </div>
+    <div class="archive-card">
+      <div class="archive-img a3"></div>
+      <div class="archive-year">1971</div>
+      <div class="archive-name">Manteau Sologne, prototype</div>
+      <div class="archive-cat">Prêt-à-Porter</div>
+    </div>
+    <div class="archive-card">
+      <div class="archive-img a4"></div>
+      <div class="archive-year">1989</div>
+      <div class="archive-name">Portefeuille Astrid</div>
+      <div class="archive-cat">Petite Maroquinerie</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-mark">DELACROIX&middot;VAUBAN</div>
+      <p class="footer-tagline">Paris, depuis 1923</p>
+      <p style="font-size:13px; color:#8A8A8A; max-width:340px; line-height:1.7;">Une maison familiale indépendante. Quatre générations. Un seul atelier.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Boutiques</h4>
+      <ul>
+        <li>Paris</li>
+        <li>Milan</li>
+        <li>Tokyo</li>
+        <li>New York</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conciergerie</h4>
+      <ul>
+        <li>+33 1 42 60 00 23</li>
+        <li>Rendez-vous privé</li>
+        <li>Services clients</li>
+      </ul>
+    </div>
+    <div class="footer-col newsletter">
+      <label>Correspondance</label>
+      <input type="email" placeholder="Votre adresse électronique">
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; MMXXIII Maison Delacroix-Vauban</div>
+    <div>Mentions légales &middot; Conditions &middot; Confidentialité</div>
+  </div>
+</footer>
+
+</body>
+</html>

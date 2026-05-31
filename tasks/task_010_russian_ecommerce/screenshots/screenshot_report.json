@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "cart",
+      "path": "cart.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 367413,
+      "page_width": 1440,
+      "page_height": 1953
+    },
+    {
+      "slug": "catalog",
+      "path": "catalog.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 737907,
+      "page_width": 1440,
+      "page_height": 2590
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 749859,
+      "page_width": 1440,
+      "page_height": 2755
+    },
+    {
+      "slug": "product",
+      "path": "product.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 552818,
+      "page_width": 1440,
+      "page_height": 4438
+    },
+    {
+      "slug": "seller",
+      "path": "seller.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 554746,
+      "page_width": 1440,
+      "page_height": 2532
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

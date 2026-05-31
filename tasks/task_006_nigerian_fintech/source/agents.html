@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Agent Banking — KoboPay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #1A1A1A;
+  background: #F5F8F6;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #FFFFFF;
+  height: 72px;
+  border-bottom: 1px solid #E4EAE7;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: 22px; color: #00C853;
+}
+.brand-mark {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: #00C853; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px;
+}
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { font-weight: 500; font-size: 15px; color: #1A1A1A; }
+.nav-links a.active { color: #00C853; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.lang-toggle {
+  font-size: 12px; font-weight: 600; color: #5A6B66;
+  border: 1px solid #E4EAE7; padding: 6px 10px; border-radius: 8px;
+}
+.cta-btn {
+  background: #AEEA00; color: #1A1A1A;
+  padding: 12px 20px; border-radius: 12px;
+  font-weight: 700; font-size: 14px;
+  border: 2px solid #1A1A1A;
+}
+
+/* HERO */
+.hero {
+  padding: 80px 24px 60px;
+  background: linear-gradient(135deg, #EAF8EF 0%, #F5F8F6 100%);
+}
+.hero-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;
+}
+.hero-tag {
+  display: inline-block;
+  background: #EAF8EF; color: #00C853;
+  padding: 6px 14px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 48px; font-weight: 800;
+  line-height: 1.1; letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero h1 span { color: #00C853; }
+.hero p {
+  font-size: 18px; color: #5A6B66;
+  margin-bottom: 32px; max-width: 520px;
+}
+.hero-ctas { display: flex; gap: 16px; margin-bottom: 32px; }
+.btn-primary {
+  background: #AEEA00; color: #1A1A1A;
+  padding: 16px 24px; border-radius: 12px;
+  font-weight: 700; font-size: 15px;
+  border: 2px solid #1A1A1A;
+}
+.btn-secondary {
+  background: #FFFFFF; color: #1A1A1A;
+  padding: 16px 24px; border-radius: 12px;
+  font-weight: 700; font-size: 15px;
+  border: 2px solid #E4EAE7;
+}
+.hero-stats {
+  display: flex; gap: 36px;
+  padding-top: 28px; border-top: 1px solid #E4EAE7;
+}
+.hero-stat-num {
+  font-size: 28px; font-weight: 800; color: #00C853;
+}
+.hero-stat-lbl {
+  font-size: 12px; color: #5A6B66; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.hero-photo {
+  position: relative;
+  height: 480px;
+  background: linear-gradient(160deg, #00C853 0%, #4A148C 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(74,20,140,0.4);
+}
+.hero-photo::before {
+  content: "👤";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 180px;
+}
+.hero-photo-badge {
+  position: absolute; top: 24px; left: 24px;
+  background: #FFFFFF; padding: 12px 16px; border-radius: 12px;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-photo-badge::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: #00C853; box-shadow: 0 0 0 4px rgba(0,200,83,0.2);
+}
+.hero-photo-card {
+  position: absolute; bottom: 24px; left: 24px; right: 24px;
+  background: #FFFFFF; padding: 20px; border-radius: 16px;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-photo-card-num {
+  font-size: 32px; font-weight: 800; color: #00C853;
+}
+.hero-photo-card-lbl {
+  font-size: 12px; color: #5A6B66;
+}
+.hero-photo-pos {
+  position: absolute; top: 24px; right: 24px;
+  background: #AEEA00; color: #1A1A1A;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 11px; font-weight: 800; text-transform: uppercase;
+  border: 2px solid #1A1A1A;
+}
+
+/* USSD strip */
+.ussd-strip {
+  background: #1A1A1A;
+  color: #fff;
+  padding: 14px 24px;
+  display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.ussd-strip strong { color: #AEEA00; font-family: 'JetBrains Mono', monospace; }
+.ussd-strip span { color: #B8C5BF; }
+
+/* SECTION */
+.section { padding: 80px 24px; }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+.section-eyebrow {
+  font-size: 12px; font-weight: 700; color: #00C853;
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;
+}
+.section-head h2 {
+  font-size: 36px; font-weight: 800; letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+.section-head p { color: #5A6B66; font-size: 17px; }
+
+/* COMMISSION TABLE */
+.commission-wrap {
+  max-width: 1200px; margin: 0 auto;
+  background: #FFFFFF; border-radius: 24px;
+  border: 1px solid #E4EAE7; overflow: hidden;
+}
+.commission-table { width: 100%; border-collapse: collapse; }
+.commission-table thead {
+  background: #4A148C; color: #fff;
+}
+.commission-table th {
+  padding: 20px 24px; text-align: left;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+}
+.commission-table td {
+  padding: 22px 24px;
+  border-top: 1px solid #E4EAE7;
+  font-size: 16px;
+}
+.commission-table tr:nth-child(even) td { background: #F5F8F6; }
+.commission-table .tier {
+  font-weight: 700; color: #1A1A1A;
+}
+.commission-table .range { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #5A6B66; }
+.commission-table .earn {
+  font-weight: 800; color: #00C853; font-size: 18px;
+}
+.commission-table .note { color: #5A6B66; font-size: 13px; }
+.commission-bonus {
+  background: #EAF8EF; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 2px dashed #00C853;
+}
+.commission-bonus strong { color: #00C853; }
+
+/* TERRITORY MAP */
+.map-section { background: #FFFFFF; }
+.map-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+}
+.map-visual {
+  background: #F5F8F6;
+  border: 1px solid #E4EAE7;
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  aspect-ratio: 1.2 / 1;
+}
+.map-svg { width: 100%; height: 100%; }
+.map-legend {
+  display: flex; gap: 16px; margin-top: 20px;
+  font-size: 12px; color: #5A6B66;
+}
+.legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+.map-states { display: flex; flex-direction: column; gap: 16px; }
+.state-card {
+  background: #FFFFFF;
+  border: 1px solid #E4EAE7;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.state-card.hot { border: 2px solid #00C853; background: #EAF8EF; }
+.state-name { font-weight: 700; font-size: 17px; }
+.state-sub { font-size: 12px; color: #5A6B66; }
+.state-count {
+  font-size: 28px; font-weight: 800; color: #00C853;
+  font-family: 'JetBrains Mono', monospace;
+}
+.state-bar {
+  height: 6px; background: #E4EAE7; border-radius: 4px; margin-top: 8px; overflow: hidden; width: 100%;
+}
+.state-bar div { height: 100%; background: linear-gradient(90deg, #00C853, #AEEA00); }
+.state-card-inner { flex: 1; }
+
+/* REQUIREMENTS */
+.requirements-section { background: #F5F8F6; }
+.req-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.req-list {
+  background: #FFFFFF; border-radius: 24px; padding: 40px;
+  border: 1px solid #E4EAE7;
+}
+.req-item {
+  display: flex; gap: 20px; padding: 20px 0;
+  border-bottom: 1px solid #E4EAE7;
+}
+.req-item:last-child { border-bottom: none; }
+.req-check {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: #00C853; color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+.req-text strong { font-size: 17px; display: block; margin-bottom: 4px; }
+.req-text span { color: #5A6B66; font-size: 14px; }
+
+.signup-form {
+  background: linear-gradient(160deg, #4A148C 0%, #7B1FA2 100%);
+  border-radius: 24px;
+  padding: 40px;
+  color: #fff;
+  position: sticky; top: 96px;
+}
+.signup-form h3 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.signup-form > p { color: #D4C5E8; font-size: 14px; margin-bottom: 24px; }
+.form-row { margin-bottom: 16px; }
+.form-row label {
+  display: block; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 6px; color: #D4C5E8;
+}
+.form-row input, .form-row select {
+  width: 100%; padding: 14px 16px;
+  border-radius: 12px; border: none;
+  background: rgba(255,255,255,0.1); color: #fff;
+  font-family: inherit; font-size: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.form-row input::placeholder { color: rgba(255,255,255,0.5); }
+.form-row select option { color: #1A1A1A; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-submit {
+  width: 100%; padding: 16px;
+  background: #AEEA00; color: #1A1A1A;
+  border: 2px solid #1A1A1A; border-radius: 12px;
+  font-weight: 800; font-size: 15px; cursor: pointer;
+  margin-top: 8px;
+}
+.form-note {
+  font-size: 11px; color: #D4C5E8; text-align: center; margin-top: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+
+/* SUCCESS STORIES */
+.stories-section { background: #FFFFFF; }
+.stories-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.story-card {
+  background: #F5F8F6;
+  border-radius: 24px;
+  padding: 36px;
+  border: 1px solid #E4EAE7;
+  display: grid; grid-template-columns: 120px 1fr; gap: 28px; align-items: start;
+}
+.story-avatar {
+  width: 120px; height: 120px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #00C853, #4A148C);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; font-weight: 800; color: #fff;
+}
+.story-card:nth-child(2) .story-avatar {
+  background: linear-gradient(160deg, #4A148C, #00C853);
+}
+.story-name { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.story-loc { font-size: 13px; color: #5A6B66; margin-bottom: 16px; }
+.story-quote { font-size: 15px; line-height: 1.5; margin-bottom: 18px; color: #1A1A1A; }
+.story-stats { display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid #E4EAE7; }
+.story-stat-num { font-size: 22px; font-weight: 800; color: #00C853; }
+.story-stat-lbl { font-size: 11px; color: #5A6B66; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* TRUST STRIP */
+.trust-strip {
+  background: #FFFFFF;
+  border-top: 1px solid #E4EAE7;
+  padding: 32px 24px;
+}
+.trust-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  align-items: center;
+}
+.trust-badge {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px; background: #EAF8EF; border-radius: 12px;
+}
+.trust-badge-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: #00C853; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+.trust-badge-text { font-size: 11px; }
+.trust-badge-text strong { display: block; font-size: 13px; color: #1A1A1A; }
+.trust-badge-text span { color: #5A6B66; }
+
+/* FINAL CTA */
+.final-cta {
+  background: linear-gradient(135deg, #00C853 0%, #4A148C 100%);
+  padding: 80px 24px;
+  text-align: center; color: #fff;
+}
+.final-cta h2 { font-size: 42px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+.final-cta p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.final-cta-ctas { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.final-cta .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.3); }
+
+/* FOOTER */
+footer {
+  background: #0B1F14; color: #B8C5BF;
+  padding: 64px 24px 32px;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-brand { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.footer-tag { font-size: 14px; margin-bottom: 20px; max-width: 240px; }
+.footer-ussd {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(174,234,0,0.1);
+  color: #AEEA00; padding: 10px 14px; border-radius: 8px;
+  display: inline-block; font-weight: 700; font-size: 14px;
+}
+.footer-col h4 { color: #fff; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; font-size: 14px; }
+.footer-col a:hover { color: #AEEA00; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  font-size: 12px;
+}
+.footer-licenses { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-licenses span { color: #5A6B66; }
+
+/* WhatsApp floating */
+.whatsapp-float {
+  position: fixed; bottom: 24px; right: 24px;
+  background: #25D366; color: #fff;
+  padding: 14px 22px; border-radius: 999px;
+  font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 12px 32px rgba(37,211,102,0.4);
+  z-index: 50;
+}
+.whatsapp-float-icon { font-size: 20px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      KoboPay
+    </div>
+    <div class="nav-links">
+      <a href="#">Personal</a>
+      <a href="#">Business</a>
+      <a href="#" class="active">Agents</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">EN ▾</div>
+      <a class="cta-btn" href="#">Open Account Free</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-tag">★ AGENT BANKING NETWORK</span>
+      <h1>Earn up to <span>₦250,000</span> Monthly as a KoboAgent.</h1>
+      <p>Join 87,000+ POS agents across 36 states. Free terminal after ₦500k in transactions. No hidden charges, daily settlement, instant payouts.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#signup">Become an Agent →</a>
+        <a class="btn-secondary" href="#commission">View Commissions</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">87,432</div>
+          <div class="hero-stat-lbl">Active Agents</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">36</div>
+          <div class="hero-stat-lbl">States Covered</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">₦18.6B</div>
+          <div class="hero-stat-lbl">Moved Last Month</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-badge">LIVE AGENT</div>
+      <div class="hero-photo-pos">POS Verified</div>
+      <div class="hero-photo-card">
+        <div>
+          <div class="hero-photo-card-num">₦210,400</div>
+          <div class="hero-photo-card-lbl">Aisha's earnings · September</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ussd-strip">
+  <span>📱 Dial <strong>*737*KOBO#</strong> from any phone</span>
+  <span>💬 WhatsApp Agent Desk: <strong>+234 901 KOBO PAY</strong></span>
+  <span>⏱️ Setup in <strong>48 hours</strong></span>
+</div>
+
+<section class="section" id="commission">
+  <div class="section-head">
+    <div class="section-eyebrow">Commission Structure</div>
+    <h2>Transparent payouts on every transaction.</h2>
+    <p>Earn on cash-in, cash-out, and bill payments. Commissions settle to your KoboPay wallet within 60 seconds — no waiting, no deductions.</p>
+  </div>
+  <div class="commission-wrap">
+    <table class="commission-table">
+      <thead>
+        <tr>
+          <th>Transaction Type</th>
+          <th>Amount Range</th>
+          <th>Agent Earns</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tier">Cash Withdrawal</td>
+          <td class="range">₦1,000 – ₦5,000</td>
+          <td class="earn">₦40</td>
+          <td class="note">Per transaction · flat fee</td>
+        </tr>
+        <tr>
+          <td class="tier">Cash Withdrawal</td>
+          <td class="range">₦5,001 – ₦20,000</td>
+          <td class="earn">₦80</td>
+          <td class="note">Per transaction · flat fee</td>
+        </tr>
+        <tr>
+          <td class="tier">Cash Withdrawal</td>
+          <td class="range">₦20,001 – ₦150,000</td>
+          <td class="earn">₦120</td>
+          <td class="note">Per transaction · flat fee</td>
+        </tr>
+        <tr>
+          <td class="tier">Cash Deposit</td>
+          <td class="range">Any amount</td>
+          <td class="earn">₦25</td>
+          <td class="note">Flat — no upper limit</td>
+        </tr>
+        <tr>
+          <td class="tier">Bill Payments</td>
+          <td class="range">DSTV, IKEDC, LAWMA, etc.</td>
+          <td class="earn">0.5%</td>
+          <td class="note">Capped at ₦500 per bill</td>
+        </tr>
+        <tr>
+          <td class="tier">Airtime &amp; Data</td>
+          <td class="range">MTN, Airtel, Glo, 9mobile</td>
+          <td class="earn">2.0%</td>
+          <td class="note">Top earner — repeat customers</td>
+        </tr>
+        <tr>
+          <td class="tier">Account Opening</td>
+          <td class="range">Per new KoboPay account</td>
+          <td class="earn">₦150</td>
+          <td class="note">BVN + selfie verification</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="commission-bonus">
+      <div>
+        <strong>🎁 Free POS Terminal Bonus:</strong> Process ₦500,000 in transactions in your first 30 days and we refund the ₦25,000 terminal deposit. Permanent ownership.
+      </div>
+      <a class="btn-primary" href="#signup" style="white-space:nowrap;">Claim Bonus</a>
+    </div>
+  </div>
+</section>
+
+<section class="section map-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Agent Density Map</div>
+    <h2>87,000+ agents. Every state covered.</h2>
+    <p>From Lagos Island to Maiduguri — wherever there's commerce, there's a KoboAgent. Lower density means bigger territory and exclusive route protection for new agents.</p>
+  </div>
+  <div class="map-grid">
+    <div>
+      <div class="map-visual">
+        <svg class="map-svg" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized Nigeria outline -->
+          <path d="M40 140 L60 90 L110 70 L160 60 L220 70 L280 80 L330 110 L360 150 L355 200 L320 250 L260 280 L200 285 L140 275 L90 250 L55 210 Z"
+            fill="#EAF8EF" stroke="#00C853" stroke-width="2"/>
+          <!-- State circles with density -->
+          <circle cx="100" cy="220" r="28" fill="#00C853" opacity="0.85"/>
+          <text x="100" y="218" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" font-family="DM Sans">LAGOS</text>
+          <text x="100" y="232" text-anchor="middle" fill="#fff" font-size="11" font-weight="800" font-family="DM Sans">12,400</text>
+
+          <circle cx="220" cy="100" r="22" fill="#00C853" opacity="0.7"/>
+          <text x="220" y="98" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">KANO</text>
+          <text x="220" y="110" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">6,800</text>
+
+          <circle cx="200" cy="240" r="18" fill="#00C853" opacity="0.6"/>
+          <text x="200" y="238" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">RIVERS</text>
+          <text x="200" y="250" text-anchor="middle" fill="#fff" font-size="9" font-weight="800">4,200</text>
+
+          <circle cx="280" cy="180" r="14" fill="#4A148C" opacity="0.6"/>
+          <text x="280" y="184" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">FCT</text>
+
+          <circle cx="160" cy="200" r="12" fill="#4A148C" opacity="0.5"/>
+          <text x="160" y="204" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">OYO</text>
+
+          <circle cx="290" cy="120" r="10" fill="#4A148C" opacity="0.4"/>
+          <circle cx="140" cy="120" r="8" fill="#4A148C" opacity="0.4"/>
+          <circle cx="240" cy="230" r="10" fill="#4A148C" opacity="0.4"/>
+          <circle cx="320" cy="220" r="9" fill="#4A148C" opacity="0.4"/>
+          <circle cx="80" cy="170" r="7" fill="#4A148C" opacity="0.3"/>
+          <circle cx="180" cy="150" r="9" fill="#4A148C" opacity="0.4"/>
+        </svg>
+        <div class="map-legend">
+          <span><span class="legend-dot" style="background:#00C853"></span>High density (4k+ agents)</span>
+          <span><span class="legend-dot" style="background:#4A148C"></span>Growing territory</span>
+          <span><span class="legend-dot" style="background:#EAF8EF;border:1px solid #00C853"></span>Open for signup</span>
+        </div>
+      </div>
+    </div>
+    <div class="map-states">
+      <div class="state-card hot">
+        <div class="state-card-inner">
+          <div class="state-name">Lagos State 🔥</div>
+          <div class="state-sub">Lagos Island, Ikeja, Surulere, Lekki</div>
+          <div class="state-bar"><div style="width:100%"></div></div>
+        </div>
+        <div class="state-count">12,400</div>
+      </div>
+      <div class="state-card">
+        <div class="state-card-inner">
+          <div class="state-name">Kano State</div>
+          <div class="state-sub">Kano Metro, Wudil, Gwale</div>
+          <div class="state-bar"><div style="width:55%"></div></div>
+        </div>
+        <div class="state-count">6,800</div>
+      </div>
+      <div class="state-card">
+        <div class="state-card-inner">
+          <div class="state-name">Rivers State</div>
+          <div class="state-sub">Port Harcourt, Obio-Akpor</div>
+          <div class="state-bar"><div style="width:34%"></div></div>
+        </div>
+        <div class="state-count">4,200</div>
+      </div>
+      <div class="state-card">
+        <div class="state-card-inner">
+          <div class="state-name">Anambra · Open Territory</div>
+          <div class="state-sub">Onitsha, Awka, Nnewi · ₦15k bonus</div>
+          <div class="state-bar"><div style="width:22%"></div></div>
+        </div>
+        <div class="state-count">2,750</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section requirements-section">
+  <div class="section-head">
+    <div class="section-eyebrow">How to Join</div>
+    <h2>Requirements &amp; signup — no wahala.</h2>
+    <p>Five things. One form. Approval in 48 hours. We deliver your POS terminal anywhere in Nigeria via courier — free.</p>
+  </div>
+  <div class="req-grid">
+    <div class="req-list">
+      <div class="req-item">
+        <div class="req-check">1</div>
+        <div class="req-text">
+          <strong>Valid National Identification Number (NIN)</strong>
+          <span>Required for KYC. Upload front and back via the app or USSD.</span>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">2</div>
+        <div class="req-text">
+          <strong>Physical shop or kiosk with signage</strong>
+          <span>Must have visible storefront. Mobile agents accepted in approved LGAs only.</span>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">3</div>
+        <div class="req-text">
+          <strong>₦50,000 float deposit</strong>
+          <span>Refundable. Held as working capital — earns 7% p.a. interest while idle.</span>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">4</div>
+        <div class="req-text">
+          <strong>One guarantor with active bank account</strong>
+          <span>Civil servant, business owner or another KoboAgent in good standing.</span>
+        </div>
+      </div>
+      <div class="req-item">
+        <div class="req-check">5</div>
+        <div class="req-text">
+          <strong>LGA business registration</strong>
+          <span>Local government permit or CAC certificate. We can help you register for ₦7,500.</span>
+        </div>
+      </div>
+    </div>
+    <form class="signup-form" id="signup" onsubmit="return false;">
+      <h3>Start Earning This Week</h3>
+      <p>Fill the form — our agent acquisition team calls back within 4 working hours.</p>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label>First Name</label>
+          <input type="text" placeholder="Aisha" value="">
+        </div>
+        <div class="form-row">
+          <label>Surname</label>
+          <input type="text" placeholder="Okonkwo" value="">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+234 803 000 0000">
+      </div>
+      <div class="form-row-2">
+        <div class="form-row">
+          <label>State</label>
+          <select>
+            <option>Anambra (Bonus territory)</option>
+            <option>Lagos</option>
+            <option>Kano</option>
+            <option>Rivers</option>
+            <option>FCT Abuja</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>LGA</label>
+          <input type="text" placeholder="e.g. Onitsha North">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Shop Address</label>
+        <input type="text" placeholder="Shop 14, Bridge Head Market">
+      </div>
+      <button class="form-submit" type="submit">Submit Application →</button>
+      <div class="form-note">🔒 CBN-licensed · Your data is encrypted &amp; NDPR-compliant</div>
+    </form>
+  </div>
+</section>
+
+<section class="section stories-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Real Agent Stories</div>
+    <h2>From kiosk to multi-outlet — in months.</h2>
+    <p>Our top agents started with one POS and ₦50k float. Today they employ staff, train other agents and bank consistent six-figure monthly incomes.</p>
+  </div>
+  <div class="stories-grid">
+    <div class="story-card">
+      <div class="story-avatar">AO</div>
+      <div>
+        <div class="story-name">Aisha Okonkwo</div>
+        <div class="story-loc">📍 Onitsha Main Market, Anambra</div>
+        <div class="story-quote">"I started with one POS terminal in 2022. KoboPay's settlement is the fastest in the market — money hits my wallet before the customer leaves my shop. No bank queues, no failed reversals."</div>
+        <div class="story-stats">
+          <div>
+            <div class="story-stat-num">₦210k</div>
+            <div class="story-stat-lbl">Monthly Earnings</div>
+          </div>
+          <div>
+            <div class="story-stat-num">280+</div>
+            <div class="story-stat-lbl">Daily Customers</div>
+          </div>
+          <div>
+            <div class="story-stat-num">18 mo</div>
+            <div class="story-stat-lbl">With KoboPay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-avatar">EN</div>
+      <div>
+        <div class="story-name">Emeka Nwosu</div>
+        <div class="story-loc">📍 Ariaria Market, Aba</div>
+        <div class="story-quote">"I expanded from one shop in Aba to 4 outlets across Abia State in just 8 months. The agent dashboard lets me track every terminal's earnings in real time. Best business decision I made."</div>
+        <div class="story-stats">
+          <div>
+            <div class="story-stat-num">4</div>
+            <div class="story-stat-lbl">POS Outlets</div>
+          </div>
+          <div>
+            <div class="story-stat-num">8 mo</div>
+            <div class="story-stat-lbl">To Scale Up</div>
+          </div>
+          <div>
+            <div class="story-stat-num">11</div>
+            <div class="story-stat-lbl">Staff Employed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🛡</div>
+      <div class="trust-badge-text"><strong>CBN Licensed</strong><span>MFB/2021/0847</span></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🏦</div>
+      <div class="trust-badge-text"><strong>NDIC Insured</strong><span>Up to ₦500,000</span></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">🔒</div>
+      <div class="trust-badge-text"><strong>PCI-DSS Level 1</strong><span>Certified 2024</span></div>
+    </div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon">✓</div>
+      <div class="trust-badge-text"><strong>NDPR Compliant</strong><span>Data protection</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="final-cta">
+  <h2>Ready to become a KoboAgent?</h2>
+  <p>Join 87,000+ Nigerians earning daily commissions with KoboPay. Free terminal. Daily settlement. Real support.</p>
+  <div class="final-cta-ctas">
+    <a class="btn-primary" href="#signup">Apply Now — Free</a>
+    <a class="btn-secondary" href="#">📞 Call Agent Desk · 0700-KOBO-PAY</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">KoboPay</div>
+        <div class="footer-tag">Bank Smart. Spend Free. Grow Naira. Nigeria's free digital bank, regulated by the CBN.</div>
+        <div class="footer-ussd">*737*KOBO#</div>
+      </div>
+      <div class="footer-col">
+        <h4>Personal</h4>
+        <ul>
+          <li><a href="#">Virtual Cards</a></li>
+          <li><a href="#">KoboSave</a></li>
+          <li><a href="#">Airtime &amp; Data</a></li>
+          <li><a href="#">Bill Payments</a></li>
+          <li><a href="#">Remittance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#">SME Accounts</a></li>
+          <li><a href="#">KoboPayroll</a></li>
+          <li><a href="#">Bulk Payments</a></li>
+          <li><a href="#">Working Capital</a></li>
+          <li><a href="#">POS Rental</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Agents</h4>
+        <ul>
+          <li><a href="#">Become an Agent</a></li>
+          <li><a href="#">Commission Rates</a></li>
+          <li><a href="#">Agent Login</a></li>
+          <li><a href="#">Training</a></li>
+          <li><a href="#">POS Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 KoboPay Microfinance Bank Ltd. All rights reserved.</div>
+      <div class="footer-licenses">
+        <span>CBN MFB/2021/0847</span>
+        <span>·</span>
+        <span>NDIC #DIB-2021-119</span>
+        <span>·</span>
+        <span>PCI-DSS Level 1</span>
+        <span>·</span>
+        <span>ISO 27001:2013</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="#">
+  <span class="whatsapp-float-icon">💬</span>
+  WhatsApp Support
+</a>
+
+</body>
+</html>

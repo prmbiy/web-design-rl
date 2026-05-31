@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home — Climate Horizon Collective</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #2D6A4F;
+  --deep: #1B4332;
+  --secondary: #C62828;
+  --accent: #E07A5F;
+  --surface: #E9F5E9;
+  --light-green: #B7E4C7;
+  --sky: #74C0FC;
+  --text: #1B2E20;
+  --muted: #5A6B5F;
+  --border: #D5E3D8;
+  --sand: #F4EFE6;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: #FFFFFF;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  height: 72px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--deep);
+}
+.logo-leaf {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+  position: relative;
+}
+.logo-leaf::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 10%;
+  width: 80%; height: 1.5px;
+  background: var(--light-green);
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--primary); }
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.nav-clock .red { color: var(--secondary); font-weight: 700; }
+.btn-donate {
+  background: var(--primary);
+  color: white;
+  padding: 11px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-donate:hover { background: var(--deep); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 640px;
+  background:
+    linear-gradient(135deg, rgba(27,67,50,0.85) 0%, rgba(45,106,79,0.65) 50%, rgba(116,192,252,0.35) 100%),
+    radial-gradient(ellipse at top, #4a7c61 0%, #1B4332 70%);
+  overflow: hidden;
+  color: white;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(183,228,199,0.18) 0, transparent 30%),
+    radial-gradient(circle at 80% 60%, rgba(116,192,252,0.2) 0, transparent 35%),
+    repeating-linear-gradient(45deg, transparent 0 40px, rgba(255,255,255,0.02) 40px 41px);
+}
+.hero::after {
+  /* glacier silhouette */
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 180px;
+  background:
+    linear-gradient(to top, rgba(27,46,32,0.6), transparent),
+    polygon-fallback;
+  clip-path: polygon(0 100%, 0 60%, 10% 45%, 20% 65%, 30% 40%, 42% 55%, 55% 30%, 68% 50%, 80% 35%, 92% 55%, 100% 40%, 100% 100%);
+  background-color: rgba(27,46,32,0.55);
+}
+.hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 24px 130px;
+  z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(198,40,40,0.95);
+  padding: 6px 12px;
+  border-radius: 3px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 56px;
+  line-height: 1.08;
+  font-weight: 700;
+  max-width: 880px;
+  letter-spacing: -0.01em;
+}
+.hero h1 .accent { color: var(--light-green); }
+.hero-sub {
+  margin-top: 22px;
+  font-size: 20px;
+  max-width: 620px;
+  color: rgba(255,255,255,0.9);
+}
+.hero-cta {
+  margin-top: 38px;
+  display: flex;
+  gap: 14px;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 14px 26px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #c46347; transform: translateY(-1px); }
+.btn-ghost {
+  background: transparent;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1.5px solid rgba(255,255,255,0.45);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+/* CLIMATE CLOCK */
+.climate-clock {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15,28,21,0.92);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 18px 30px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  z-index: 3;
+  width: calc(100% - 48px);
+  max-width: 1100px;
+  backdrop-filter: blur(6px);
+}
+.clock-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+}
+.clock-label small { display: block; color: rgba(255,255,255,0.6); font-weight: 500; letter-spacing: 0.05em; }
+.clock-digits {
+  display: flex;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  font-variant-numeric: tabular-nums;
+}
+.clock-digits .unit { text-align: center; }
+.clock-digits .unit small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+  font-weight: 500;
+}
+.clock-digits .sep { color: var(--secondary); padding: 0 2px; }
+.clock-side {
+  margin-left: auto;
+  display: flex;
+  gap: 30px;
+}
+.clock-side .item small {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  display: block;
+}
+.clock-side .item .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-green);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.clock-side .item .v.hot { color: var(--accent); }
+
+/* KEY STATS */
+.stats-band {
+  background: #FFFFFF;
+  padding: 70px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.stat {
+  padding: 0 36px;
+  border-left: 1px solid var(--border);
+}
+.stat:first-child { border-left: none; padding-left: 0; }
+.stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.stat-num .sm { font-size: 24px; color: var(--muted); }
+.stat-num.red { color: var(--secondary); }
+.stat-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 8px;
+}
+.stat-desc {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 10px;
+  max-width: 280px;
+}
+
+/* SECTION COMMON */
+section { padding: 96px 24px; }
+.section-head { max-width: 1200px; margin: 0 auto 56px; }
+.eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+h2 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.section-head .lede {
+  margin-top: 14px;
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* CAMPAIGNS */
+.campaigns { background: var(--surface); }
+.campaign-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.campaign {
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+.campaign-img {
+  height: 200px;
+  position: relative;
+}
+.campaign:nth-child(1) .campaign-img {
+  background:
+    linear-gradient(180deg, rgba(27,67,50,0.3), rgba(27,67,50,0.7)),
+    repeating-linear-gradient(90deg, #2d2d2d 0 18px, #1a1a1a 18px 36px);
+}
+.campaign:nth-child(2) .campaign-img {
+  background:
+    linear-gradient(180deg, rgba(198,40,40,0.25), rgba(27,46,32,0.7)),
+    radial-gradient(circle at 30% 60%, #E07A5F 0 8%, transparent 9%),
+    radial-gradient(circle at 70% 40%, #C62828 0 6%, transparent 7%),
+    linear-gradient(135deg, #5a4a3a, #2c1f15);
+}
+.campaign:nth-child(3) .campaign-img {
+  background:
+    linear-gradient(180deg, rgba(45,106,79,0.4), rgba(45,106,79,0.7)),
+    linear-gradient(135deg, #74C0FC, #2D6A4F);
+}
+.campaign-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(255,255,255,0.95);
+  color: var(--deep);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.campaign-body { padding: 26px 24px 28px; flex: 1; display: flex; flex-direction: column; }
+.campaign h3 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.campaign p { color: var(--muted); font-size: 15px; }
+.campaign-meta {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* IMPACT NUMBERS */
+.impact {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.impact .container { text-align: center; }
+.impact h2 { max-width: 720px; margin: 0 auto 14px; }
+.impact-lede { color: var(--muted); font-size: 18px; max-width: 580px; margin: 0 auto 60px; }
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 4px;
+}
+.impact-cell {
+  padding: 40px 26px;
+  border-left: 1px solid var(--border);
+  text-align: left;
+}
+.impact-cell:first-child { border-left: none; }
+.impact-cell .big {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--deep);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.impact-cell .big .sub { font-size: 22px; color: var(--primary); }
+.impact-cell .label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* STORIES */
+.stories { background: white; }
+.story-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.story-card { display: flex; flex-direction: column; }
+.story-img {
+  height: 240px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.story-card:nth-child(1) .story-img {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.4)),
+    linear-gradient(135deg, #E07A5F 0%, #C62828 60%, #2D6A4F 100%);
+}
+.story-card:nth-child(1) .story-img::after {
+  content: '☀';
+  position: absolute;
+  top: 30px; right: 40px;
+  font-size: 70px;
+  color: rgba(255,255,255,0.4);
+}
+.story-card:nth-child(2) .story-img {
+  background:
+    linear-gradient(180deg, rgba(27,46,32,0.2), rgba(27,46,32,0.55)),
+    linear-gradient(135deg, #74C0FC, #2D6A4F 70%);
+}
+.story-card:nth-child(2) .story-img::after {
+  content: '🦐';
+  position: absolute;
+  bottom: 20px; left: 30px;
+  font-size: 60px;
+  filter: grayscale(0.3);
+}
+.story-card:nth-child(3) .story-img {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.45)),
+    linear-gradient(135deg, #F4EFE6, #E07A5F 50%, #C62828 100%);
+}
+.story-card:nth-child(3) .story-img::after {
+  content: '🏫';
+  position: absolute;
+  bottom: 24px; right: 30px;
+  font-size: 64px;
+}
+.story-meta {
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+.story-card h3 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 10px;
+}
+.story-card p { color: var(--muted); font-size: 15px; margin-top: 8px; }
+.story-card .read { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--primary); }
+
+/* MONTHLY GIVING */
+.giving {
+  background: var(--accent);
+  color: white;
+  padding: 100px 24px;
+}
+.giving-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
+.giving h2 {
+  font-size: 44px;
+  line-height: 1.1;
+  color: white;
+}
+.giving .eyebrow { color: rgba(255,255,255,0.85); }
+.giving p { margin-top: 18px; font-size: 18px; color: rgba(255,255,255,0.92); max-width: 440px; }
+.giving-card {
+  background: white;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 36px 36px 32px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.toggle {
+  display: flex;
+  background: var(--surface);
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+.toggle div {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.toggle .active { background: var(--primary); color: white; }
+.toggle .inactive { color: var(--muted); }
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.tier {
+  border: 1.5px solid var(--border);
+  padding: 18px 8px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  cursor: pointer;
+}
+.tier .per { display: block; font-size: 10px; color: var(--muted); font-family: 'Inter',sans-serif; font-weight: 500; margin-top: 4px; letter-spacing: 0.1em; }
+.tier.selected { border-color: var(--primary); background: var(--surface); color: var(--primary); }
+.impact-equiv {
+  background: var(--surface);
+  border-left: 3px solid var(--primary);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--deep);
+  margin-bottom: 20px;
+  border-radius: 0 4px 4px 0;
+}
+.impact-equiv strong { color: var(--primary); }
+.btn-give {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-give:hover { background: var(--deep); }
+.giving-fineprint {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  background: var(--surface);
+  padding: 80px 24px;
+  border-top: 1px solid var(--border);
+}
+.news-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.newsletter h3 {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--deep);
+}
+.newsletter p { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.news-meta { margin-top: 14px; font-size: 13px; color: var(--primary); font-weight: 600; }
+.news-form { display: flex; flex-direction: column; gap: 10px; }
+.news-form input {
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+  background: white;
+}
+.news-form button {
+  background: var(--primary);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.news-form button:hover { background: var(--deep); }
+
+/* FOOTER */
+footer {
+  background: #1B2E20;
+  color: rgba(255,255,255,0.7);
+  padding: 70px 24px 30px;
+}
+.foot-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.foot-brand .logo { color: white; }
+.foot-brand p { margin-top: 14px; font-size: 14px; max-width: 280px; line-height: 1.6; }
+.foot-col h5 {
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.foot-col ul { list-style: none; }
+.foot-col li { margin-bottom: 10px; font-size: 14px; }
+.foot-col a:hover { color: var(--light-green); }
+.foot-bottom {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-leaf"></span>
+      Climate Horizon Collective
+    </a>
+    <div class="nav-links">
+      <a href="#">Our Work</a>
+      <a href="#">The Science</a>
+      <a href="#">Take Action</a>
+      <a href="#">Stories</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-clock">⏱ <span class="red">05y 7m 12d</span> to 1.5°C</div>
+      <a class="btn-donate" href="#">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">⚠ Carbon Budget Alert</span>
+    <h1>5 years, 7 months to limit warming to <span class="accent">1.5°C</span></h1>
+    <p class="hero-sub">We mobilize science, communities, and policy to cut emissions in half by 2030.</p>
+    <div class="hero-cta">
+      <a href="#giving" class="btn-primary">Become a monthly donor →</a>
+      <a href="#" class="btn-ghost">See our work</a>
+    </div>
+  </div>
+
+  <div class="climate-clock">
+    <div>
+      <div class="clock-label">Climate Deadline<small>1.5°C carbon budget remaining</small></div>
+    </div>
+    <div class="clock-digits">
+      <div class="unit">05<small>YEARS</small></div>
+      <span class="sep">:</span>
+      <div class="unit">07<small>MONTHS</small></div>
+      <span class="sep">:</span>
+      <div class="unit">12<small>DAYS</small></div>
+      <span class="sep">:</span>
+      <div class="unit">14<small>HOURS</small></div>
+      <span class="sep">:</span>
+      <div class="unit">38<small>MIN</small></div>
+    </div>
+    <div class="clock-side">
+      <div class="item">
+        <small>CO₂ ATMOSPHERIC</small>
+        <div class="v hot">422.8 ppm</div>
+      </div>
+      <div class="item">
+        <small>TEMP ANOMALY</small>
+        <div class="v hot">+1.24°C</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY STATS -->
+<section class="stats-band">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num">422.8<span class="sm"> ppm</span></div>
+      <div class="stat-label">Atmospheric CO₂</div>
+      <div class="stat-desc">Highest concentration in at least 3 million years. Source: NOAA GML, Sept 2024.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num red">+1.24°C</div>
+      <div class="stat-label">Above Pre-Industrial</div>
+      <div class="stat-desc">12-month rolling average through 2024. We have 0.26°C of headroom left.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">47</div>
+      <div class="stat-label">State Climate Bills Passed</div>
+      <div class="stat-desc">U.S. state legislatures enacted 47 climate-related laws in 2024 — a record.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section class="campaigns">
+  <div class="section-head container">
+    <div class="eyebrow">Where we're fighting</div>
+    <h2>Three campaigns shaping the next 24 months.</h2>
+    <p class="lede">Each campaign pairs frontline organizing with policy levers and rigorous science.</p>
+  </div>
+  <div class="campaign-grid">
+    <div class="campaign">
+      <div class="campaign-img"><span class="campaign-tag">Energy</span></div>
+      <div class="campaign-body">
+        <h3>Coal-Free Grid by 2030</h3>
+        <p>Accelerating retirement of the remaining 173 U.S. coal units through utility commission filings, community benefit agreements, and just-transition funds.</p>
+        <div class="campaign-meta"><span>62 units retired since 2022</span><span>→</span></div>
+      </div>
+    </div>
+    <div class="campaign">
+      <div class="campaign-img"><span class="campaign-tag">Methane</span></div>
+      <div class="campaign-body">
+        <h3>Methane Watch: Permian Basin</h3>
+        <p>Satellite-and-ground monitoring of super-emitter events across the largest U.S. oil field, with public dashboards used by EPA enforcement.</p>
+        <div class="campaign-meta"><span>2,140 leaks documented</span><span>→</span></div>
+      </div>
+    </div>
+    <div class="campaign">
+      <div class="campaign-img"><span class="campaign-tag">Youth Power</span></div>
+      <div class="campaign-body">
+        <h3>Youth Climate Lobby Day 2025</h3>
+        <p>Training 800 young people from 50 states to meet their congressional offices in person — a coordinated week of pressure on appropriations.</p>
+        <div class="campaign-meta"><span>March 18–21, Washington D.C.</span><span>→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div class="container">
+    <div class="eyebrow">Impact dashboard · Year to date 2024</div>
+    <h2>Receipts, not rhetoric.</h2>
+    <p class="impact-lede">Independently audited outcomes from our coalition partners and grantee organizations.</p>
+    <div class="impact-grid">
+      <div class="impact-cell">
+        <div class="big">2.4M<span class="sub"> t</span></div>
+        <div class="label">tons CO₂e prevented through coalition policy work and grid interventions</div>
+      </div>
+      <div class="impact-cell">
+        <div class="big">184</div>
+        <div class="label">frontline communities supported with legal, technical, or organizing capacity</div>
+      </div>
+      <div class="impact-cell">
+        <div class="big">312k</div>
+        <div class="label">petition signatures delivered to lawmakers and regulators in 2024</div>
+      </div>
+      <div class="impact-cell">
+        <div class="big">$18.7M</div>
+        <div class="label">regranted directly to frontline groups led by Indigenous &amp; BIPOC organizers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories">
+  <div class="section-head container">
+    <div class="eyebrow">Stories of change</div>
+    <h2>What the transition looks like, up close.</h2>
+  </div>
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="story-img"></div>
+      <div class="story-meta">Energy Sovereignty · 8 min read</div>
+      <h3>Pine Ridge powers its own future with a 12MW solar microgrid</h3>
+      <p>How the Oglala Lakota tribe broke utility dependence with a community-owned array — and reinvested the savings into housing.</p>
+      <div class="read">Read the story →</div>
+    </div>
+    <div class="story-card">
+      <div class="story-img"></div>
+      <div class="story-meta">Resistance · 12 min read</div>
+      <h3>The Louisiana shrimpers taking on a $10B LNG terminal</h3>
+      <p>Plaquemines Parish fishers are organizing against CP2 — and learning that wetlands law might be their strongest weapon.</p>
+      <div class="read">Read the story →</div>
+    </div>
+    <div class="story-card">
+      <div class="story-img"></div>
+      <div class="story-meta">Adaptation · 6 min read</div>
+      <h3>Mumbai's heat-resilient schools cut classroom temperatures by 7°C</h3>
+      <p>A retrofit program across 41 municipal schools is rewriting what affordable adaptation looks like in South Asia.</p>
+      <div class="read">Read the story →</div>
+    </div>
+  </div>
+</section>
+
+<!-- GIVING -->
+<section class="giving" id="giving">
+  <div class="giving-inner">
+    <div>
+      <div class="eyebrow">Become a Horizon Sustainer</div>
+      <h2>Monthly giving is the most powerful thing you can do today.</h2>
+      <p>Recurring support lets us hire organizers, fund frontline groups for the long haul, and respond to fast-moving policy fights without waiting on grants.</p>
+    </div>
+    <div class="giving-card">
+      <div class="toggle">
+        <div class="active">Monthly</div>
+        <div class="inactive">One-time</div>
+      </div>
+      <div class="tiers">
+        <div class="tier">$15<span class="per">/MONTH</span></div>
+        <div class="tier selected">$35<span class="per">/MONTH</span></div>
+        <div class="tier">$75<span class="per">/MONTH</span></div>
+        <div class="tier">Other<span class="per">CUSTOM</span></div>
+      </div>
+      <div class="impact-equiv"><strong>$35/month</strong> funds one community organizer for a week of doorknocking in a frontline parish.</div>
+      <button class="btn-give">Donate $35 monthly →</button>
+      <div class="giving-fineprint">Climate Horizon Collective is a 501(c)(3). EIN 47-2918440. Donations tax-deductible in the U.S.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="news-inner">
+    <div>
+      <h3>The Horizon Brief — weekly climate news in your inbox.</h3>
+      <p>Smart, short, never doom-spiraling. Curated by our newsroom every Thursday.</p>
+      <div class="news-meta">📬 Joining 240,000 subscribers</div>
+    </div>
+    <form class="news-form" onsubmit="return false;">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">Subscribe free</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <a class="logo" href="#">
+        <span class="logo-leaf"></span>
+        Climate Horizon Collective
+      </a>
+      <p>Science. Justice. Action. Before 2030. A 501(c)(3) coalition working in 31 countries.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Work</h5>
+      <ul>
+        <li><a href="#">Campaigns</a></li>
+        <li><a href="#">The Science</a></li>
+        <li><a href="#">Stories</a></li>
+        <li><a href="#">Reports</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Act</h5>
+      <ul>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Petitions</a></li>
+        <li><a href="#">Local chapters</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">Mission &amp; team</a></li>
+        <li><a href="#">Financials</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Bluesky</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2024 Climate Horizon Collective · EIN 47-2918440</div>
+    <div>Privacy · Terms · Accessibility</div>
+  </div>
+</footer>
+
+</body>
+</html>

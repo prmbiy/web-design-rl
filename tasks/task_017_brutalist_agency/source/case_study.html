@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Koruna Mechanical — VANTBLACK/STUDIO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #FFFFFF; color: #000; font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.4; overflow-x: hidden; }
+
+/* Animations */
+@keyframes pageFade { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+.page-enter { animation: pageFade 0.8s cubic-bezier(0.77,0,0.175,1) both; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 30s linear infinite; }
+@keyframes scramble { 0%,100% { letter-spacing: 0; } 25% { letter-spacing: 0.05em; transform: skewX(-2deg); } 50% { letter-spacing: -0.02em; } 75% { letter-spacing: 0.03em; transform: skewX(1deg); } }
+.scramble:hover { animation: scramble 0.4s steps(4) both; display: inline-block; }
+
+/* Side nav */
+.side-nav {
+  position: fixed; top: 0; left: 0; height: 100vh; width: 72px;
+  background: #000; color: #FFF; border-right: 4px solid #000;
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: center; padding: 24px 0; z-index: 100;
+}
+.side-nav .brand-vertical {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: 'Archivo Black', sans-serif; font-size: 14px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+}
+.side-nav .nav-links { display: flex; flex-direction: column; gap: 28px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.side-nav .nav-links a { color: #FFF; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; }
+.side-nav .nav-links a.current { color: #FFE500; }
+.side-nav .page-num { font-family: 'JetBrains Mono', monospace; color: #FFE500; font-size: 14px; font-weight: 700; }
+.side-nav .dot { width: 12px; height: 12px; background: #FFE500; border-radius: 50%; }
+
+main { margin-left: 72px; }
+
+/* Cursor dot */
+.cursor-dot { position: fixed; top: 50%; left: 50%; width: 24px; height: 24px; background: #FFE500; border-radius: 50%; pointer-events: none; mix-blend-mode: difference; z-index: 9999; display: none; }
+
+/* Top meta bar */
+.meta-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 48px; border-bottom: 3px solid #000;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.15em;
+}
+.meta-bar .meta-left { display: flex; gap: 32px; }
+.meta-bar .accent-pill { background: #FFE500; padding: 4px 12px; border: 2px solid #000; }
+
+/* Hero */
+.hero {
+  position: relative; padding: 80px 48px 40px;
+  border-bottom: 4px solid #000;
+}
+.hero .project-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 32px;
+  display: flex; gap: 24px; align-items: center;
+}
+.hero .project-tag span:nth-child(2) { color: #666; }
+.hero h1 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: 320px; line-height: 0.82; letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+.hero h1 .accent-block {
+  display: inline-block; background: #FFE500; padding: 0 24px;
+  font-style: italic;
+}
+.hero .sub {
+  font-family: 'Fraunces', serif; font-size: 42px; line-height: 1.15;
+  font-weight: 700; max-width: 1000px; margin-top: 24px;
+  border-left: 6px solid #000; padding-left: 32px;
+}
+
+/* Full bleed hero image */
+.hero-image {
+  height: 720px; width: 100%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,229,0,0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1) 0%, transparent 60%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000 100%);
+  position: relative; border-bottom: 4px solid #000;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.hero-image::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+}
+.watch-svg { width: 480px; height: 480px; position: relative; z-index: 2; }
+.hero-image .image-label {
+  position: absolute; bottom: 32px; left: 48px;
+  font-family: 'JetBrains Mono', monospace; color: #FFE500;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.hero-image .image-num {
+  position: absolute; top: 32px; right: 48px;
+  font-family: 'JetBrains Mono', monospace; color: #FFF;
+  font-size: 14px; letter-spacing: 0.2em;
+}
+
+/* Brief section */
+.brief {
+  padding: 160px 48px 160px; border-bottom: 4px solid #000;
+  display: grid; grid-template-columns: 220px 1fr; gap: 64px;
+}
+.brief .label {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.2em;
+  border-top: 3px solid #000; padding-top: 16px;
+}
+.brief .body p {
+  font-family: 'Fraunces', serif; font-size: 56px; line-height: 1.1;
+  font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px;
+}
+.brief .body p .hl { background: #FFE500; padding: 0 8px; }
+.brief .body p em { font-style: italic; }
+.brief .deliverables {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 2px solid #000; margin-top: 32px;
+}
+.brief .deliverables div {
+  padding: 24px 24px 24px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em;
+  border-right: 2px solid #000;
+}
+.brief .deliverables div:last-child { border-right: none; padding-left: 24px; }
+.brief .deliverables strong { display: block; font-size: 28px; font-family: 'Fraunces', serif; letter-spacing: 0; margin-top: 8px; text-transform: none; font-weight: 900; }
+
+/* Process gallery */
+.process {
+  padding: 120px 48px 160px; border-bottom: 4px solid #000;
+  background: #F4F4F1; position: relative;
+}
+.process .section-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px;
+}
+.process h2 {
+  font-family: 'Fraunces', serif; font-size: 140px; line-height: 0.9;
+  font-weight: 900; letter-spacing: -0.04em; margin-bottom: 80px;
+}
+.process h2 em { font-style: italic; color: #FFE500; -webkit-text-stroke: 2px #000; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 100px;
+  gap: 24px;
+}
+.tile { border: 3px solid #000; position: relative; overflow: hidden; }
+.tile .tnum { position: absolute; top: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; z-index: 3; }
+.tile .tcap { position: absolute; bottom: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; z-index: 3; text-transform: uppercase; }
+
+.t1 { grid-column: 1 / 6; grid-row: 1 / 5; background: #FFE500; display: flex; align-items: center; justify-content: center; }
+.t1 .sketch { font-family: 'Fraunces', serif; font-weight: 900; font-size: 180px; letter-spacing: -0.05em; text-decoration: line-through; }
+.t2 { grid-column: 6 / 10; grid-row: 1 / 4; background: linear-gradient(135deg, #1a1a1a, #000); color: #FFF; display: flex; align-items: center; justify-content: center; }
+.t2 .typestudy { font-family: 'Fraunces', serif; font-weight: 900; font-size: 120px; color: #FFE500; line-height: 0.9; }
+.t3 { grid-column: 10 / 13; grid-row: 1 / 3; background: repeating-linear-gradient(45deg, #000 0, #000 8px, #FFF 8px, #FFF 16px); }
+.t4 { grid-column: 10 / 13; grid-row: 3 / 5; background: #FFF; display: flex; align-items: center; justify-content: center; }
+.t4 .swatch { display: flex; }
+.t4 .swatch span { width: 32px; height: 120px; }
+
+.t5 { grid-column: 1 / 5; grid-row: 5 / 9; background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%); color: #FFF; display: flex; align-items: flex-end; padding: 24px; }
+.t5 .factory { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FFE500; letter-spacing: 0.2em; }
+.t6 { grid-column: 5 / 10; grid-row: 4 / 9; background: #FFE500; display: flex; align-items: center; justify-content: center; position: relative; }
+.t6 .dial {
+  width: 280px; height: 280px; border: 6px solid #000; border-radius: 50%;
+  position: relative; background: #FFF;
+}
+.t6 .dial::before, .t6 .dial::after { content: ''; position: absolute; background: #000; left: 50%; top: 50%; transform-origin: top center; }
+.t6 .dial::before { width: 4px; height: 90px; transform: translate(-50%, 0) rotate(45deg); }
+.t6 .dial::after { width: 4px; height: 120px; transform: translate(-50%, 0) rotate(180deg); }
+.t7 { grid-column: 10 / 13; grid-row: 5 / 9; background: linear-gradient(135deg, #FFE500 0%, #FFD000 100%); display: flex; align-items: center; justify-content: center; }
+.t7 .gear { width: 160px; height: 160px; border: 8px solid #000; border-radius: 50%; position: relative; }
+.t7 .gear::after { content: ''; position: absolute; inset: 20px; border: 4px solid #000; border-radius: 50%; }
+
+/* Results */
+.results {
+  padding: 160px 48px; border-bottom: 4px solid #000; background: #000; color: #FFF;
+}
+.results .section-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 24px; color: #FFE500;
+}
+.results h2 {
+  font-family: 'Fraunces', serif; font-size: 96px; font-weight: 900;
+  line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 100px; max-width: 1100px;
+}
+.results h2 em { font-style: italic; color: #FFE500; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 3px solid #FFF; }
+.metric { padding: 56px 32px 32px 0; border-right: 3px solid #FFF; }
+.metric:last-child { border-right: none; padding-left: 32px; padding-right: 0; }
+.metric .num {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 180px;
+  line-height: 0.85; letter-spacing: -0.05em; color: #FFE500;
+}
+.metric .num.small { font-size: 96px; }
+.metric .desc {
+  font-family: 'Space Grotesk', sans-serif; font-size: 18px;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 24px;
+  border-top: 2px solid #FFE500; padding-top: 16px;
+}
+
+/* Credits */
+.credits {
+  padding: 120px 48px; border-bottom: 4px solid #000;
+  display: grid; grid-template-columns: 220px 1fr;
+  font-family: 'JetBrains Mono', monospace;
+}
+.credits .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; border-top: 3px solid #000; padding-top: 16px; }
+.credits .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.credits .row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 28px 32px 28px 0; border-bottom: 2px solid #000;
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em;
+}
+.credits .row:nth-child(odd) { border-right: 2px solid #000; padding-right: 32px; }
+.credits .row:nth-child(even) { padding-left: 32px; }
+.credits .row strong { font-family: 'Fraunces', serif; font-size: 24px; letter-spacing: 0; text-transform: none; font-weight: 900; }
+
+/* Marquee strip */
+.marquee-strip {
+  background: #FFE500; border-top: 4px solid #000; border-bottom: 4px solid #000;
+  overflow: hidden; padding: 24px 0;
+}
+.marquee-strip .marquee-track {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 72px;
+  letter-spacing: -0.02em;
+}
+.marquee-strip .marquee-track span { padding: 0 32px; }
+.marquee-strip .marquee-track .star { font-style: italic; }
+
+/* Related work */
+.related {
+  padding: 120px 48px 0; border-bottom: 4px solid #000;
+}
+.related .section-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+.related h2 {
+  font-family: 'Fraunces', serif; font-size: 120px; font-weight: 900;
+  line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 80px;
+}
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 4px solid #000; }
+.work-item {
+  position: relative; overflow: hidden; height: 560px;
+  border-right: 4px solid #000; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 40px; color: #FFF;
+}
+.work-item:last-child { border-right: none; }
+.work-item.halder { background: linear-gradient(135deg, #3a2418 0%, #1a0f08 100%); }
+.work-item.atlas { background: linear-gradient(135deg, #1a2a3a 0%, #050a14 100%); }
+.work-item .meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; display: flex; justify-content: space-between; z-index: 3; position: relative; }
+.work-item .title { font-family: 'Fraunces', serif; font-weight: 900; font-size: 96px; line-height: 0.9; letter-spacing: -0.03em; z-index: 3; position: relative; }
+.work-item .footer-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; z-index: 3; position: relative; display: flex; justify-content: space-between; }
+.work-item::after { content: ''; position: absolute; inset: 0; background: #000; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.77,0,0.175,1); z-index: 1; }
+.work-item:hover::after { transform: translateY(0); }
+.work-item .reveal-title { opacity: 0; transition: opacity 0.4s 0.2s; z-index: 2; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #FFE500; font-family: 'Fraunces', serif; font-size: 64px; font-weight: 900; text-align: center; padding: 40px; line-height: 1; }
+.work-item:hover .reveal-title { opacity: 1; }
+
+/* Footer */
+footer { background: #000; color: #FFF; padding: 80px 48px 32px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 64px; border-bottom: 2px solid #FFF; }
+.footer-top h3 { font-family: 'Fraunces', serif; font-size: 84px; font-weight: 900; line-height: 0.9; letter-spacing: -0.03em; }
+.footer-top h3 em { font-style: italic; color: #FFE500; }
+.footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #FFE500; margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col li { font-family: 'Space Grotesk', sans-serif; font-size: 14px; margin-bottom: 10px; }
+.footer-col a { color: #FFF; text-decoration: none; }
+.footer-bottom { display: flex; justify-content: space-between; padding-top: 32px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #666; }
+.footer-bottom span.yellow { color: #FFE500; }
+</style>
+</head>
+<body class="page-enter">
+
+<div class="cursor-dot"></div>
+
+<aside class="side-nav">
+  <div class="brand-vertical scramble">VANTBLACK / STUDIO</div>
+  <div class="nav-links">
+    <a href="#" class="scramble">Index</a>
+    <a href="#" class="scramble">Work</a>
+    <a href="#" class="scramble">Studio</a>
+    <a href="#" class="scramble">Contact</a>
+  </div>
+  <div>
+    <div class="dot"></div>
+    <div class="page-num" style="margin-top:16px;">03<br>—<br>05</div>
+  </div>
+</aside>
+
+<main>
+
+<div class="meta-bar">
+  <div class="meta-left">
+    <span>CASE / 03</span>
+    <span>CLIENT — KORUNA HODINÁŘSTVÍ</span>
+    <span>YEAR — 2023</span>
+  </div>
+  <div class="meta-left">
+    <span class="accent-pill">D&AD WOOD PENCIL</span>
+    <span>03/05</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="project-tag">
+    <span>◉ CASE STUDY</span>
+    <span>IDENTITY · E-COMMERCE · PACKAGING</span>
+    <span>EST. 1929 / PRAHA</span>
+  </div>
+  <h1>KORUNA<br><span class="accent-block">Mech</span>anical.</h1>
+  <p class="sub">Rebranding a 94-year-old Czech watchmaker for a generation that doesn't wear watches.</p>
+</section>
+
+<div class="hero-image">
+  <div class="image-num">FIG. 001 / HERO</div>
+  <svg class="watch-svg" viewBox="0 0 480 480">
+    <circle cx="240" cy="240" r="220" fill="none" stroke="#FFE500" stroke-width="3"/>
+    <circle cx="240" cy="240" r="190" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 8"/>
+    <circle cx="240" cy="240" r="160" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="240" y="100" text-anchor="middle" fill="#FFE500" font-family="Fraunces" font-size="28" font-weight="900">XII</text>
+    <text x="380" y="252" text-anchor="middle" fill="#FFFFFF" font-family="Fraunces" font-size="22" font-weight="900">III</text>
+    <text x="240" y="402" text-anchor="middle" fill="#FFFFFF" font-family="Fraunces" font-size="22" font-weight="900">VI</text>
+    <text x="100" y="252" text-anchor="middle" fill="#FFFFFF" font-family="Fraunces" font-size="22" font-weight="900">IX</text>
+    <line x1="240" y1="240" x2="240" y2="140" stroke="#FFE500" stroke-width="5" stroke-linecap="square"/>
+    <line x1="240" y1="240" x2="320" y2="280" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square"/>
+    <circle cx="240" cy="240" r="10" fill="#FFE500"/>
+    <text x="240" y="320" text-anchor="middle" fill="#FFFFFF" font-family="Fraunces" font-size="14" font-weight="900" letter-spacing="6">KORUNA</text>
+    <text x="240" y="340" text-anchor="middle" fill="#FFE500" font-family="JetBrains Mono" font-size="8" letter-spacing="3">AUTOMATIC · SWISS LEVER</text>
+  </svg>
+  <div class="image-label">KORUNA — REF. KM-29 / "BOHEMIA" SERIES / PHOTOGRAPHED IN-STUDIO BERLIN, MAR 2023</div>
+</div>
+
+<section class="brief">
+  <div class="label">01 / THE BRIEF</div>
+  <div class="body">
+    <p>Koruna Hodinářství — founded <span class="hl">1929</span> in Nové Město — had survived <em>four regimes</em>, two currencies, and one global pandemic. What they could not survive was <span class="hl">indifference</span>. The fourth-generation owners came to us with a question disguised as a brief: <em>How do you make a mechanical watch matter to people who measure time on a screen they can't put down?</em></p>
+    <p>We refused the obvious answers. No "heritage reframed." No softened serifs. The work we delivered — identity, e-commerce platform, packaging system, a film — is built on a single insistence: a watch made by hand for ninety-four years deserves a brand that <span class="hl">screams instead of whispers</span>.</p>
+    <div class="deliverables">
+      <div>Identity<strong>Wordmark, dial system, sublogos</strong></div>
+      <div>Digital<strong>Headless commerce, configurator</strong></div>
+      <div>Packaging<strong>Six-piece structural system</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-tag">02 / PROCESS — SIX ARTEFACTS</div>
+  <h2>From the <em>cutting</em> room floor.</h2>
+  <div class="gallery-grid">
+    <div class="tile t1">
+      <span class="tnum">001 / WORDMARK SKETCH</span>
+      <div class="sketch">Kŏrūňă</div>
+      <span class="tcap">Rejected — too ornate</span>
+    </div>
+    <div class="tile t2">
+      <span class="tnum">002 / TYPE STUDY</span>
+      <div class="typestudy">K<br>OR<br>NA</div>
+      <span class="tcap">Final dial numeral system</span>
+    </div>
+    <div class="tile t3">
+      <span class="tnum" style="background:#FFE500;padding:4px 6px;">003</span>
+      <span class="tcap" style="background:#FFE500;padding:4px 6px;">Pattern / strap weave</span>
+    </div>
+    <div class="tile t4">
+      <span class="tnum">004 / PALETTE</span>
+      <div class="swatch">
+        <span style="background:#000;"></span>
+        <span style="background:#FFE500;"></span>
+        <span style="background:#FFFFFF;border-left:2px solid #000;border-right:2px solid #000;"></span>
+        <span style="background:#8B0000;"></span>
+      </div>
+      <span class="tcap">Bohemia / Lever / Linen / Garnet</span>
+    </div>
+    <div class="tile t5">
+      <span class="tnum" style="color:#FFE500;">005 / FACTORY</span>
+      <div class="factory">NOVÉ MĚSTO NA MORAVĚ<br>49.5614° N, 16.0728° E<br>NOVEMBER 14, 2022 — 06:42</div>
+    </div>
+    <div class="tile t6">
+      <span class="tnum">006 / DIAL TEST</span>
+      <div class="dial"></div>
+      <span class="tcap">Final hands — KM-29 reference</span>
+    </div>
+    <div class="tile t7">
+      <span class="tnum">007 / MOVEMENT</span>
+      <div class="gear"></div>
+      <span class="tcap">Calibre study — in-house ETA</span>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="section-tag">03 / RESULTS — TWELVE MONTHS POST-LAUNCH</div>
+  <h2>A 94-year-old watchmaker is now <em>sold out</em> through Q3.</h2>
+  <div class="metrics">
+    <div class="metric">
+      <div class="num">+312%</div>
+      <div class="desc">Direct-to-consumer sales growth Y/Y</div>
+    </div>
+    <div class="metric">
+      <div class="num">4.2M</div>
+      <div class="desc">Editorial impressions across Hodinkee, Wallpaper*, Monocle</div>
+    </div>
+    <div class="metric">
+      <div class="num small">D&AD<br>WOOD<br>PENCIL</div>
+      <div class="desc">2023 — Brand Identity / Heritage</div>
+    </div>
+  </div>
+</section>
+
+<section class="credits">
+  <div class="label">04 / CREDITS</div>
+  <div class="grid">
+    <div class="row"><span>CREATIVE DIRECTION</span><strong>Mira Hess</strong></div>
+    <div class="row"><span>DESIGN</span><strong>Otto Lindgren</strong></div>
+    <div class="row"><span>STRATEGY</span><strong>Yusuf Adeyemi</strong></div>
+    <div class="row"><span>YEAR</span><strong>2023</strong></div>
+    <div class="row"><span>PHOTOGRAPHY</span><strong>A. Vermeer</strong></div>
+    <div class="row"><span>CLIENT</span><strong>Koruna Hodinářství</strong></div>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="star">★</span><span>SOLD OUT THROUGH Q3 2024</span><span class="star">★</span><span>D&AD WOOD PENCIL 2023</span><span class="star">★</span><span>HODINKEE FEATURE MAY 2023</span><span class="star">★</span><span>+312% YoY GROWTH</span><span class="star">★</span>
+    <span class="star">★</span><span>SOLD OUT THROUGH Q3 2024</span><span class="star">★</span><span>D&AD WOOD PENCIL 2023</span><span class="star">★</span><span>HODINKEE FEATURE MAY 2023</span><span class="star">★</span><span>+312% YoY GROWTH</span><span class="star">★</span>
+  </div>
+</div>
+
+<section class="related">
+  <div class="section-tag">05 / RELATED WORK</div>
+  <h2>More from the <em>black room</em>.</h2>
+  <div class="related-grid">
+    <div class="work-item halder">
+      <div class="meta"><span>002 / HALDER COFFEE</span><span>2023</span></div>
+      <div class="title">HALDER<br>COFFEE.</div>
+      <div class="footer-meta"><span>D2C / Identity / Packaging</span><span>→ VIEW</span></div>
+      <div class="reveal-title">HALDER —<br>A D2C Coffee Platform For The Slow Mornings</div>
+    </div>
+    <div class="work-item atlas">
+      <div class="meta"><span>004 / ATLAS DENIM</span><span>2022</span></div>
+      <div class="title">ATLAS<br>DENIM.</div>
+      <div class="footer-meta"><span>Identity / Retail / Spatial</span><span>→ VIEW</span></div>
+      <div class="reveal-title">ATLAS —<br>Heritage Denim For The Post-Trend Era</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <h3>Have a brand that <em>refuses</em> to be ignored?</h3>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#" class="scramble">Index</a></li>
+        <li><a href="#" class="scramble">Work</a></li>
+        <li><a href="#" class="scramble">Studio</a></li>
+        <li><a href="#" class="scramble">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cities</h4>
+      <ul>
+        <li>Berlin — Köpenicker Str. 187</li>
+        <li>New York — 55 Walker St</li>
+        <li>Seoul — 14 Itaewon-ro</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Elsewhere</h4>
+      <ul>
+        <li><a href="#" class="scramble">Instagram</a></li>
+        <li><a href="#" class="scramble">Are.na</a></li>
+        <li><a href="#" class="scramble">Read.cv</a></li>
+        <li><a href="#" class="scramble">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© VANTBLACK/STUDIO MMXVII — MMXXIII</span>
+    <span class="yellow">★ INDEPENDENT / UNREPRESENTED ★</span>
+    <span>hello@vantblack.studio</span>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>

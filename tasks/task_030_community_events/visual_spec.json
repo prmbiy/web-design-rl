@@ -1,0 +1,82 @@
+{
+  "global": {
+    "google_fonts_url": "@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');",
+    "font_heading": "'Nunito', sans-serif",
+    "font_body": "'Nunito', sans-serif",
+    "font_mono": null,
+    "size_h1": "56px",
+    "size_h2": "36px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#2563EB",
+    "color_secondary": "#EFF6FF",
+    "color_accent": "#F97316",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F8FAFC",
+    "color_text": "#0F172A",
+    "color_text_muted": "#64748B",
+    "color_border": "#E2E8F0",
+    "border_radius": "16px",
+    "container_max_width": "1240px",
+    "section_padding": "64px 24px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#0F172A",
+    "extra_colors": {
+      "cat_art": "#7C3AED",
+      "cat_music": "#EC4899",
+      "cat_food": "#F97316",
+      "cat_sports": "#16A34A",
+      "cat_tech": "#0EA5E9",
+      "cat_outdoors": "#65A30D",
+      "cat_wellness": "#D97706",
+      "success": "#16A34A",
+      "warning": "#F59E0B"
+    },
+    "animation_specs": {
+      "fade_in_hero": {
+        "css": "@keyframes fadeInHero { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } } .hero > * { animation: fadeInHero 0.7s ease-out both; }",
+        "applies_to": ".hero, .hero h1, .hero p",
+        "trigger": "on-load"
+      },
+      "category_chip_hover": {
+        "css": ".chip { transition: transform 0.2s ease, box-shadow 0.2s ease; } .chip:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 6px 18px rgba(37,99,235,0.18); }",
+        "applies_to": ".chip",
+        "trigger": "on-hover"
+      },
+      "scroll_reveal_cards": {
+        "css": "@keyframes revealCard { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } } .event-card { animation: revealCard 0.6s ease-out both; }",
+        "applies_to": ".event-card",
+        "trigger": "on-scroll"
+      },
+      "map_marker_pulse": {
+        "css": "@keyframes markerPulse { 0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.6); } 70% { box-shadow: 0 0 0 16px rgba(37,99,235,0); } 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); } } .map-marker { animation: markerPulse 2s infinite; }",
+        "applies_to": ".map-marker",
+        "trigger": "continuous"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Hero with location search and category chip carousel, featured events carousel, this-weekend grid, new events row, popular organizers strip.",
+      "bg": "linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 420px)"
+    },
+    "explore": {
+      "layout": "Sticky filter sidebar left, results grid right with map/list toggle and pagination.",
+      "bg": "#FFFFFF"
+    },
+    "event": {
+      "layout": "Full-width cover photo, two-column body with description and schedule left, sticky ticket purchase card right, similar events below.",
+      "bg": "#FFFFFF"
+    },
+    "organizer": {
+      "layout": "Profile header with avatar, stats and follow button, tabs for upcoming/past events and reviews.",
+      "bg": "#F8FAFC"
+    },
+    "create": {
+      "layout": "Multi-step form on left with progress indicator, live event card preview on right.",
+      "bg": "#F8FAFC"
+    }
+  }
+}

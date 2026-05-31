@@ -1,0 +1,22 @@
+{
+  "id": "010",
+  "name": "russian_ecommerce",
+  "source": "B",
+  "archetype": "Russian multi-category e-commerce marketplace",
+  "market": "Russia, mass-market online retail, all ages and demographics",
+  "era": "2021",
+  "density": "Very high density. Aggressive promotional merchandising. Every section has a countdown timer or 'limited stock' badge. The homepage has more product categories than Western equivalents — 15+ visible. Product cards are compact with prices in large bold rubles. Delivery speed is a major selling point shown prominently on every card.",
+  "nav_style": "Full-width dark top bar with logo, search bar spanning 40% of width, cart icon, profile icon, 'Become a Seller' link. Below it: a horizontal scrollable category strip with 20+ categories and small icons. Below that: a location selector showing city name with delivery time estimate.",
+  "commercial_model": "Marketplace model. Sellers pay commission. Revenue from seller fees, advertising placements (sponsored products appear with 'Ad' badges), and financial services (buy now pay later). Banner ads for own financial product prominent.",
+  "color_palette": "Bright orange (#FF6100) as primary brand — aggressive, commercial energy. White (#FFFFFF) product card backgrounds. Dark grey (#333333) for nav and footer. Green (#00A857) for price discounts and 'in stock' status. Red (#E30000) for countdown timers and urgent badges. The overall effect is maximally commercial.",
+  "typography": "System sans-serif stack: Arial, Helvetica. Prices in very large bold — 24-32px for featured products. Product names at 14px. Review stars smaller. Old price struck through next to new price. Dense text compression in product cards.",
+  "quirks": ["ruble_currency", "countdown_timers", "limited_stock_badges", "delivery_speed_prominent", "seller_rating_system", "bnpl_installments_shown", "sponsored_product_badges", "city_delivery_selector", "loyalty_points_display", "18_plus_sections"],
+  "pages": [
+    {"slug": "home", "title": "Главная", "description": "Full-width promo banner carousel. Below: Today's Deals with countdown timer. Category grid with 20+ categories and icons. Flash sale products. Recommended products personalization section. App download banner."},
+    {"slug": "catalog", "title": "Каталог — Электроника", "description": "Electronics category catalog. Filter sidebar: brand, price range, rating, delivery time, seller. Product grid with compact cards: image, name, price (with old price struck), rating, review count, delivery time, add to cart."},
+    {"slug": "product", "title": "Страница товара", "description": "Product detail page. Large image gallery. Price with installment option. Seller rating. Delivery options with dates. Specifications table. Customer reviews with photos. Seller's other products. Similar items."},
+    {"slug": "cart", "title": "Корзина", "description": "Shopping cart with item list, quantity selectors, total calculation. Promo code input. Bonus points earned estimate. Delivery options and cost. 'You might also need' cross-sell section. Checkout CTA."},
+    {"slug": "seller", "title": "Продавец", "description": "Seller storefront page. Seller name, rating, review count, registration date. All seller's products. Seller ratings breakdown: communication, delivery, product accuracy. Contact seller button."}
+  ],
+  "animations": false
+}

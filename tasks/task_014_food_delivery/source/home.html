@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Food Online from Restaurants Near You | Chatori</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 15px;
+  color: #3D4152;
+  background: #FFFFFF;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== NAV ===== */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  height: 72px;
+  border-bottom: 1px solid #E9E9EB;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  color: #FC8019;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.logo span { color: #3D4152; }
+.location-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #FFF3E9;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #3D4152;
+  cursor: pointer;
+  border-left: 3px solid #FC8019;
+}
+.location-pill .pin { color: #FC8019; font-size: 16px; }
+.location-pill .area { font-weight: 800; }
+.location-pill .sub { font-weight: 400; color: #686B78; font-size: 13px; }
+.location-pill .caret { color: #FC8019; margin-left: 4px; font-size: 11px; }
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border: 1px solid #E9E9EB;
+  border-radius: 8px;
+  background: #FFFFFF;
+  max-width: 380px;
+}
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-family: inherit;
+  font-size: 14px;
+  color: #3D4152;
+  background: transparent;
+}
+.search-bar .search-ico { color: #FC8019; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #3D4152;
+}
+.nav-links a { display: flex; align-items: center; gap: 6px; }
+.nav-links a:hover { color: #FC8019; }
+.pro-badge {
+  background: linear-gradient(135deg, #1B1F25, #3D4152);
+  color: #FFE1B3;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.cart-badge {
+  background: #FC8019;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+/* ===== OFFER CAROUSEL ===== */
+.offer-carousel {
+  padding: 28px 0 8px;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+}
+.offer-banners {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.offer-banner {
+  border-radius: 12px;
+  padding: 22px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+.offer-banner.b1 { background: linear-gradient(120deg, #002970 0%, #004fbf 100%); }
+.offer-banner.b2 { background: linear-gradient(120deg, #FC8019 0%, #FFB36A 100%); }
+.offer-banner.b3 { background: linear-gradient(120deg, #1B1F25 0%, #3D4152 100%); }
+.offer-banner .tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  text-transform: uppercase;
+}
+.offer-banner .big {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+.offer-banner .small { font-size: 13px; opacity: 0.85; font-weight: 600; }
+.offer-banner.b3 .big span { color: #FFE1B3; }
+.offer-banner .ribbon {
+  position: absolute;
+  right: -22px;
+  top: 14px;
+  background: rgba(255,255,255,0.18);
+  padding: 4px 28px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  transform: rotate(35deg);
+}
+
+/* ===== CUISINE STRIP ===== */
+.cuisine-section { padding: 24px 0; border-bottom: 2px dashed #E9E9EB; }
+.cuisine-strip {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.cuisine-item {
+  flex: 0 0 auto;
+  text-align: center;
+  width: 110px;
+  cursor: pointer;
+}
+.cuisine-circle {
+  width: 110px;
+  height: 130px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+.cuisine-item p { font-weight: 700; color: #3D4152; font-size: 14px; }
+.c1 { background: linear-gradient(135deg, #FFE1B3, #FFD089); }
+.c2 { background: linear-gradient(135deg, #FFD4D4, #FFAAAA); }
+.c3 { background: linear-gradient(135deg, #FFEAD2, #FFC993); }
+.c4 { background: linear-gradient(135deg, #D2F5DA, #A8E8BC); }
+.c5 { background: linear-gradient(135deg, #FFE2C1, #FFC58D); }
+.c6 { background: linear-gradient(135deg, #FFD9C2, #FFB28A); }
+.c7 { background: linear-gradient(135deg, #FFE9B8, #FFD17A); }
+.c8 { background: linear-gradient(135deg, #FFD7E6, #FFB1CE); }
+.c9 { background: linear-gradient(135deg, #E8D9C2, #C9B292); }
+.c10 { background: linear-gradient(135deg, #FFE7C1, #FFCE85); }
+
+/* ===== RESTAURANT GRID ===== */
+.section-block { padding: 32px 0; border-bottom: 1px solid #E9E9EB; }
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.restaurant-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.restaurant-card:hover { transform: translateY(-4px); }
+.rest-img {
+  height: 180px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  overflow: hidden;
+}
+.rest-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7));
+}
+.rest-img .ribbon-offer {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.rest-img .promoted {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.95);
+  color: #3D4152;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+.img-1 { background: linear-gradient(135deg, #C77B4F, #6B3A1F); }
+.img-2 { background: linear-gradient(135deg, #E8A87C, #C38D5F); }
+.img-3 { background: linear-gradient(135deg, #8D5524, #4A2C12); }
+.img-4 { background: linear-gradient(135deg, #B5651D, #7A3F0F); }
+.img-5 { background: linear-gradient(135deg, #D2691E, #8B4513); }
+.img-6 { background: linear-gradient(135deg, #CD853F, #8B5A2B); }
+.img-7 { background: linear-gradient(135deg, #A0522D, #5C2F1A); }
+.img-8 { background: linear-gradient(135deg, #DAA520, #8B6914); }
+.rest-emoji {
+  position: absolute;
+  font-size: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.rest-info { padding: 12px 4px 0; }
+.rest-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 6px;
+}
+.rest-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.rating-badge {
+  background: #48C479;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.rest-meta .dot { color: #686B78; font-size: 8px; }
+.rest-meta .time { color: #3D4152; font-weight: 700; }
+.rest-cuisine, .rest-price {
+  color: #686B78;
+  font-size: 14px;
+  font-weight: 500;
+}
+.rest-divider {
+  border-top: 1px dashed #E9E9EB;
+  margin: 8px 0;
+}
+.rest-discount-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FC8019;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== WHAT'S ON YOUR MIND ===== */
+.mind-strip {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.mind-item {
+  flex: 0 0 auto;
+  width: 156px;
+  text-align: center;
+  cursor: pointer;
+}
+.mind-circle {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  margin-bottom: 8px;
+}
+.mind-item p { font-weight: 700; font-size: 15px; color: #3D4152; }
+.m1 { background: radial-gradient(circle at 30% 30%, #FFE1B3, #FFB36A); }
+.m2 { background: radial-gradient(circle at 30% 30%, #D2F5DA, #A8E8BC); }
+.m3 { background: radial-gradient(circle at 30% 30%, #FFEAD2, #FFC993); }
+.m4 { background: radial-gradient(circle at 30% 30%, #E8D9C2, #C9B292); }
+.m5 { background: radial-gradient(circle at 30% 30%, #FFD7E6, #FFB1CE); }
+.m6 { background: radial-gradient(circle at 30% 30%, #FFE9B8, #FFD17A); }
+.m7 { background: radial-gradient(circle at 30% 30%, #FFD4D4, #FFAAAA); }
+.m8 { background: radial-gradient(circle at 30% 30%, #FFE2C1, #FFC58D); }
+
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  padding: 8px 16px;
+  border: 1px solid #E9E9EB;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #3D4152;
+  background: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-chip:hover { border-color: #FC8019; }
+.filter-chip.active {
+  background: #FFF3E9;
+  border-color: #FC8019;
+  color: #FC8019;
+}
+.filter-chip .pro {
+  background: linear-gradient(135deg, #1B1F25, #3D4152);
+  color: #FFE1B3;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1B1F25;
+  color: #BCC0CD;
+  padding: 56px 0 28px;
+  margin-top: 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid #2D3138;
+}
+.footer-brand .logo-f {
+  font-size: 30px;
+  font-weight: 900;
+  color: #FC8019;
+  margin-bottom: 6px;
+}
+.footer-brand .logo-f span { color: white; }
+.footer-brand .tagline {
+  font-size: 14px;
+  color: #BCC0CD;
+  font-style: italic;
+}
+.footer-col h4 {
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; font-size: 14px; }
+.footer-col li a:hover { color: #FC8019; }
+.app-badges { display: flex; flex-direction: column; gap: 10px; }
+.app-badge {
+  background: black;
+  border: 1px solid #444;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.app-badge .ico { font-size: 22px; }
+.app-badge .col { display: flex; flex-direction: column; line-height: 1.1; }
+.app-badge .col small { font-size: 9px; opacity: 0.7; font-weight: 600; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  font-size: 13px;
+}
+.socials { display: flex; gap: 14px; }
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #2D3138;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.social-icon:hover { background: #FC8019; }
+
+/* Hero tagline strip */
+.hero-strip {
+  background: linear-gradient(90deg, #FFF3E9, #FFE1B3);
+  padding: 14px 0;
+  border-bottom: 1px solid #FFD089;
+}
+.hero-strip-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #3D4152;
+}
+.hero-strip .tagline {
+  font-size: 16px;
+  font-weight: 800;
+  color: #FC8019;
+}
+.hero-strip .perks { display: flex; gap: 28px; }
+.hero-strip .perk { display: flex; align-items: center; gap: 6px; }
+
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="logo">Chatori<span>.</span></div>
+    <div class="location-pill">
+      <span class="pin">📍</span>
+      <div>
+        <div class="area">Indiranagar, Bengaluru</div>
+        <div class="sub">560038 · Other</div>
+      </div>
+      <span class="caret">▼</span>
+    </div>
+    <div class="search-bar">
+      <span class="search-ico">🔍</span>
+      <input type="text" placeholder="Search for restaurants and food">
+    </div>
+    <div class="nav-links">
+      <a href="#">Delivery</a>
+      <a href="#">Dining Out</a>
+      <a href="#"><span class="pro-badge">PRO</span></a>
+      <a href="#">Offers</a>
+      <a href="#">Sign In</a>
+      <a href="#" class="cart-badge">🛒 Cart (2)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO STRIP ===== -->
+<div class="hero-strip">
+  <div class="container hero-strip-inner">
+    <div class="tagline">Bhookh lagi? Order kar! 🔥</div>
+    <div class="perks">
+      <div class="perk">⚡ Delivery in 30 mins</div>
+      <div class="perk">🎁 Free Delivery on ₹199+</div>
+      <div class="perk">💳 Bank Offers up to 20% OFF</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== OFFER CAROUSEL ===== -->
+  <section class="offer-carousel">
+    <div class="offer-banners">
+      <div class="offer-banner b1">
+        <div class="ribbon">EXCLUSIVE</div>
+        <div class="tag">HDFC BANK</div>
+        <div class="big">20% OFF<br>up to ₹120</div>
+        <div class="small">On orders above ₹400 · Code: HDFC20</div>
+      </div>
+      <div class="offer-banner b2">
+        <div class="tag">NEW USER</div>
+        <div class="big">First Order<br>FREE Delivery</div>
+        <div class="small">No code needed · Auto applied at checkout</div>
+      </div>
+      <div class="offer-banner b3">
+        <div class="ribbon">PRO ONLY</div>
+        <div class="tag">CHATORI PRO</div>
+        <div class="big">Flat <span>₹75 OFF</span><br>on every order</div>
+        <div class="small">₹299 for 3 months · Join now</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUISINE CATEGORIES ===== -->
+  <section class="cuisine-section">
+    <div class="cuisine-strip">
+      <div class="cuisine-item"><div class="cuisine-circle c1">🍛</div><p>Biryani</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c2">🍕</div><p>Pizza</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c3">🍲</div><p>North Indian</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c4">🥘</div><p>South Indian</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c5">🥡</div><p>Chinese</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c6">🍔</div><p>Burger</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c7">🌯</div><p>Rolls</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c8">🍰</div><p>Cake</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c9">🥙</div><p>Shawarma</p></div>
+      <div class="cuisine-item"><div class="cuisine-circle c10">🥞</div><p>Dosa</p></div>
+    </div>
+  </section>
+
+  <!-- ===== TOP RESTAURANTS ===== -->
+  <section class="section-block">
+    <h2 class="section-title">Top restaurants to explore</h2>
+    <div class="restaurant-grid">
+      <div class="restaurant-card">
+        <div class="rest-img img-1">
+          <span class="promoted">PROMOTED</span>
+          <span class="rest-emoji">🍛</span>
+          <div class="ribbon-offer">50% OFF<br>UPTO ₹100</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Meghana Foods</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.4</span>
+            <span class="dot">●</span>
+            <span class="time">30-35 mins</span>
+          </div>
+          <div class="rest-cuisine">Biryani, Andhra, North Indian</div>
+          <div class="rest-price">₹400 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-2">
+          <span class="rest-emoji">🍔</span>
+          <div class="ribbon-offer">40% OFF<br>UPTO ₹80</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Truffles</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.5</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+          </div>
+          <div class="rest-cuisine">American, Burgers, Continental</div>
+          <div class="rest-price">₹500 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-3">
+          <span class="promoted">PROMOTED</span>
+          <span class="rest-emoji">🍲</span>
+          <div class="ribbon-offer">₹125 OFF<br>ABOVE ₹249</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Empire Restaurant</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.2</span>
+            <span class="dot">●</span>
+            <span class="time">35-40 mins</span>
+          </div>
+          <div class="rest-cuisine">North Indian, Mughlai, Kebabs</div>
+          <div class="rest-price">₹450 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-4">
+          <span class="rest-emoji">🍕</span>
+          <div class="ribbon-offer">60% OFF<br>UPTO ₹120</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Pizza Hut</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.0</span>
+            <span class="dot">●</span>
+            <span class="time">40-45 mins</span>
+          </div>
+          <div class="rest-cuisine">Pizzas, Pasta, Italian</div>
+          <div class="rest-price">₹600 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-5">
+          <span class="rest-emoji">🍱</span>
+          <div class="ribbon-offer">FREE ITEM<br>IN CART</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Behrouz Biryani</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.3</span>
+            <span class="dot">●</span>
+            <span class="time">45-50 mins</span>
+          </div>
+          <div class="rest-cuisine">Biryani, Mughlai, Lucknowi</div>
+          <div class="rest-price">₹550 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-6">
+          <span class="rest-emoji">🌮</span>
+          <div class="ribbon-offer">30% OFF<br>UPTO ₹75</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Faasos</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.1</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+          </div>
+          <div class="rest-cuisine">Rolls, Wraps, Fast Food</div>
+          <div class="rest-price">₹300 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-7">
+          <span class="rest-emoji">🍜</span>
+          <div class="ribbon-offer">50% OFF<br>UPTO ₹100</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Wow! Momo</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.2</span>
+            <span class="dot">●</span>
+            <span class="time">20-25 mins</span>
+          </div>
+          <div class="rest-cuisine">Tibetan, Chinese, Momos</div>
+          <div class="rest-price">₹250 for two</div>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="rest-img img-8">
+          <span class="rest-emoji">🍩</span>
+          <div class="ribbon-offer">₹50 OFF<br>ABOVE ₹199</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Mad Over Donuts</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.4</span>
+            <span class="dot">●</span>
+            <span class="time">30-35 mins</span>
+          </div>
+          <div class="rest-cuisine">Desserts, Bakery, Beverages</div>
+          <div class="rest-price">₹350 for two</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT'S ON YOUR MIND ===== -->
+  <section class="section-block">
+    <h2 class="section-title">What's on your mind?</h2>
+    <div class="mind-strip">
+      <div class="mind-item"><div class="mind-circle m1">🍛</div><p>Biryani</p></div>
+      <div class="mind-item"><div class="mind-circle m2">🥗</div><p>Thali</p></div>
+      <div class="mind-item"><div class="mind-circle m3">🫓</div><p>Paratha</p></div>
+      <div class="mind-item"><div class="mind-circle m4">☕</div><p>Chai</p></div>
+      <div class="mind-item"><div class="mind-circle m5">🍦</div><p>Ice Cream</p></div>
+      <div class="mind-item"><div class="mind-circle m6">🥟</div><p>Momos</p></div>
+      <div class="mind-item"><div class="mind-circle m7">🥞</div><p>Dosa</p></div>
+      <div class="mind-item"><div class="mind-circle m8">🍝</div><p>Pasta</p></div>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR CHAINS ===== -->
+  <section class="section-block">
+    <h2 class="section-title">Popular brands to explore</h2>
+    <div class="restaurant-grid">
+      <div class="restaurant-card">
+        <div class="rest-img img-3">
+          <span class="rest-emoji">🍗</span>
+          <div class="ribbon-offer">50% OFF<br>UPTO ₹100</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">KFC</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.1</span>
+            <span class="dot">●</span>
+            <span class="time">30-35 mins</span>
+          </div>
+          <div class="rest-cuisine">Burgers, Fried Chicken, Fast Food</div>
+          <div class="rest-price">₹400 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-4">
+          <span class="rest-emoji">🍕</span>
+          <div class="ribbon-offer">BUY 1 GET 1<br>FREE</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Domino's Pizza</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.3</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+          </div>
+          <div class="rest-cuisine">Pizzas, Italian, Pasta</div>
+          <div class="rest-price">₹400 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-8">
+          <span class="rest-emoji">🍔</span>
+          <div class="ribbon-offer">40% OFF<br>UPTO ₹80</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">McDonald's</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.4</span>
+            <span class="dot">●</span>
+            <span class="time">20-25 mins</span>
+          </div>
+          <div class="rest-cuisine">Burgers, Beverages, Desserts</div>
+          <div class="rest-price">₹350 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-5">
+          <span class="rest-emoji">🍚</span>
+          <div class="ribbon-offer">60% OFF<br>UPTO ₹120</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Behrouz Biryani</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.3</span>
+            <span class="dot">●</span>
+            <span class="time">40-45 mins</span>
+          </div>
+          <div class="rest-cuisine">Biryani, Mughlai</div>
+          <div class="rest-price">₹500 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-6">
+          <span class="rest-emoji">🌯</span>
+          <div class="ribbon-offer">FLAT ₹125<br>OFF</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Faasos</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.0</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+          </div>
+          <div class="rest-cuisine">Rolls, Wraps, Biryani</div>
+          <div class="rest-price">₹300 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-7">
+          <span class="rest-emoji">🥟</span>
+          <div class="ribbon-offer">30% OFF<br>UPTO ₹75</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Wow! Momo</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.2</span>
+            <span class="dot">●</span>
+            <span class="time">20-25 mins</span>
+          </div>
+          <div class="rest-cuisine">Tibetan, Chinese, Momos</div>
+          <div class="rest-price">₹250 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-1">
+          <span class="rest-emoji">🥪</span>
+          <div class="ribbon-offer">₹50 OFF<br>₹199+</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Subway</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.0</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+          </div>
+          <div class="rest-cuisine">Salads, Snacks, Sandwiches</div>
+          <div class="rest-price">₹350 for two</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-2">
+          <span class="rest-emoji">🍦</span>
+          <div class="ribbon-offer">20% OFF<br>ALL ITEMS</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Baskin Robbins</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.5</span>
+            <span class="dot">●</span>
+            <span class="time">15-20 mins</span>
+          </div>
+          <div class="rest-cuisine">Desserts, Ice Cream</div>
+          <div class="rest-price">₹250 for two</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL RESTAURANTS ===== -->
+  <section class="section-block">
+    <h2 class="section-title">All restaurants nearby</h2>
+    <div class="filter-bar">
+      <div class="filter-chip"><span class="pro">PRO</span> Free Delivery</div>
+      <div class="filter-chip">Rating 4.0+</div>
+      <div class="filter-chip active">🟢 Pure Veg</div>
+      <div class="filter-chip">⚡ Fast Delivery</div>
+      <div class="filter-chip">🎁 Offers</div>
+      <div class="filter-chip">₹ Cost: Low to High</div>
+      <div class="filter-chip">⭐ Top Rated</div>
+    </div>
+    <div class="restaurant-grid">
+      <div class="restaurant-card">
+        <div class="rest-img img-5">
+          <span class="rest-emoji">🥘</span>
+          <div class="ribbon-offer">50% OFF<br>UPTO ₹100</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Punjab Grill</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.3</span>
+            <span class="dot">●</span>
+            <span class="time">35-40 mins</span>
+            <span class="dot">●</span>
+            <span class="time">1.2 km</span>
+          </div>
+          <div class="rest-cuisine">North Indian, Mughlai</div>
+          <div class="rest-price">₹600 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🎟️ Free Delivery on ₹199+</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-4">
+          <span class="rest-emoji">🥞</span>
+          <div class="ribbon-offer">₹100 OFF<br>ABOVE ₹299</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Sagar Ratna</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.4</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+            <span class="dot">●</span>
+            <span class="time">0.8 km</span>
+          </div>
+          <div class="rest-cuisine">South Indian, Pure Veg</div>
+          <div class="rest-price">₹350 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🟢 Pure Veg · 4.4 Rated</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-1">
+          <span class="rest-emoji">🍤</span>
+          <div class="ribbon-offer">40% OFF<br>UPTO ₹80</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Mainland China</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.2</span>
+            <span class="dot">●</span>
+            <span class="time">40-45 mins</span>
+            <span class="dot">●</span>
+            <span class="time">2.1 km</span>
+          </div>
+          <div class="rest-cuisine">Chinese, Asian, Seafood</div>
+          <div class="rest-price">₹800 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">⚡ Quick Bites available</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-7">
+          <span class="rest-emoji">🥗</span>
+          <div class="ribbon-offer">30% OFF<br>+ FREE ITEM</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">The Salad Story</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.6</span>
+            <span class="dot">●</span>
+            <span class="time">20-25 mins</span>
+            <span class="dot">●</span>
+            <span class="time">0.5 km</span>
+          </div>
+          <div class="rest-cuisine">Salads, Healthy Food, Continental</div>
+          <div class="rest-price">₹450 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🟢 Pure Veg</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-6">
+          <span class="rest-emoji">🍢</span>
+          <div class="ribbon-offer">60% OFF<br>UPTO ₹120</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Barbeque Nation</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.1</span>
+            <span class="dot">●</span>
+            <span class="time">45-50 mins</span>
+            <span class="dot">●</span>
+            <span class="time">3.4 km</span>
+          </div>
+          <div class="rest-cuisine">BBQ, North Indian, Kebabs</div>
+          <div class="rest-price">₹900 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🎟️ Use code BBQ60</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-2">
+          <span class="rest-emoji">🥯</span>
+          <div class="ribbon-offer">20% OFF<br>ALL DAY</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Theobroma</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.7</span>
+            <span class="dot">●</span>
+            <span class="time">25-30 mins</span>
+            <span class="dot">●</span>
+            <span class="time">1.5 km</span>
+          </div>
+          <div class="rest-cuisine">Bakery, Desserts, Beverages</div>
+          <div class="rest-price">₹400 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">⭐ Top Rated · Bestseller</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-3">
+          <span class="rest-emoji">🌶️</span>
+          <div class="ribbon-offer">50% OFF<br>UPTO ₹100</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Andhra Spice</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.0</span>
+            <span class="dot">●</span>
+            <span class="time">35-40 mins</span>
+            <span class="dot">●</span>
+            <span class="time">1.8 km</span>
+          </div>
+          <div class="rest-cuisine">Andhra, South Indian, Biryani</div>
+          <div class="rest-price">₹500 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🎟️ Pro Free Delivery</div>
+        </div>
+      </div>
+      <div class="restaurant-card">
+        <div class="rest-img img-8">
+          <span class="rest-emoji">🍰</span>
+          <div class="ribbon-offer">FLAT ₹150<br>OFF</div>
+        </div>
+        <div class="rest-info">
+          <div class="rest-name">Cake Walk</div>
+          <div class="rest-meta">
+            <span class="rating-badge">★ 4.5</span>
+            <span class="dot">●</span>
+            <span class="time">30-35 mins</span>
+            <span class="dot">●</span>
+            <span class="time">2.0 km</span>
+          </div>
+          <div class="rest-cuisine">Bakery, Cakes, Desserts</div>
+          <div class="rest-price">₹450 for two</div>
+          <div class="rest-divider"></div>
+          <div class="rest-discount-strip">🟢 Pure Veg</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-f">Chatori<span>.</span></div>
+        <p class="tagline">"Bhookh lagi? Order kar!"</p>
+        <p style="margin-top:14px; font-size:13px; opacity:0.7;">© 2022 Chatori Tech Pvt. Ltd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Chatori Pro</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Partner with us</a></li>
+          <li><a href="#">Ride with us</a></li>
+          <li><a href="#">Bug Bounty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Investor Relations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Available in</h4>
+        <div class="app-badges">
+          <div class="app-badge">
+            <span class="ico">🍎</span>
+            <div class="col"><small>Download on the</small><span>App Store</span></div>
+          </div>
+          <div class="app-badge">
+            <span class="ico">▶️</span>
+            <div class="col"><small>GET IT ON</small><span>Google Play</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies.</div>
+      <div class="socials">
+        <div class="social-icon">f</div>
+        <div class="social-icon">𝕏</div>
+        <div class="social-icon">in</div>
+        <div class="social-icon">📷</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

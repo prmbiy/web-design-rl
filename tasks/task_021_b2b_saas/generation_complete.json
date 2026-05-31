@@ -1,0 +1,12 @@
+{
+  "dna_id": "021",
+  "dna_name": "b2b_saas",
+  "pages": [
+    "home",
+    "platform",
+    "solutions",
+    "pricing",
+    "resources"
+  ],
+  "has_animations": false
+}

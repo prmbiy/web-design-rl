@@ -1,0 +1,22 @@
+{
+  "id": "023",
+  "name": "nonprofit_climate",
+  "source": "A",
+  "archetype": "Non-profit climate action and environmental advocacy organization",
+  "market": "Climate-concerned public, donors, policy makers, activists, young people 18-35",
+  "era": "2024",
+  "density": "Clean and modern with strong imagery. Not corporate-minimal but mission-forward. Data visualizations of climate stats front-and-center. Urgency balanced with hope. Donate CTA persistent but not aggressive. Impact metrics prominently displayed.",
+  "nav_style": "White sticky nav with green leaf logo. Nav: Our Work, The Science, Take Action, Stories, About. Right: 'Donate' button in forest green, filled. Sometimes a 'Climate Clock' countdown display in the header.",
+  "commercial_model": "Non-profit donation model. Monthly giving highlighted over one-time. Corporate partnership program. Grants from foundations. Merchandise shop. The donate journey is the most optimized user flow.",
+  "color_palette": "Forest green (#2D6A4F) as primary — nature, hope, action. White (#FFFFFF) for content areas. Urgency red (#C62828) for crisis callout boxes and climate clock — this is a critical differentiator from wellness/yoga sites that use only soft greens. Earth tone accent: warm terra cotta (#E07A5F) for CTA sections. Sky blue (#74C0FC) for data visualizations (line charts, maps). Light green (#B7E4C7) for success/progress indicators. Section backgrounds alternate: white, light sage (#E9F5E9), white.",
+  "typography": "Source Serif Pro for editoral headings — gives journalistic credibility. Inter for body and UI. Data numbers in large bold tabular figures. Pull quotes from climate scientists in italic. Action section headings in heavy bold.",
+  "quirks": ["climate_clock_countdown", "carbon_offset_calculator", "petition_signature_counter", "impact_metrics_dashboard", "monthly_vs_onetime_giving", "donor_wall_section", "scientific_consensus_quote", "local_action_map", "volunteer_signup_form", "newsletter_with_climate_news"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Hero with climate photography (glacier, protest, renewable energy). Climate clock countdown. Key stats: CO2 ppm, temperature rise, policy wins. Three key campaign sections. Impact in numbers. Stories of change. Monthly giving ask."},
+    {"slug": "science", "title": "The Science", "description": "Climate science explainer with specific data visualizations: (1) SVG line chart of global mean temperature 1880-2024 showing 1.2°C rise, with a red threshold line at 1.5°C. (2) Bar chart of extreme weather events per decade (1980s vs 2020s). (3) Sea level rise timeline with CSS animation. IPCC findings in accessible language. FAQ accordion for common misconceptions. Sources cited."},
+    {"slug": "action", "title": "Take Action", "description": "Multiple action pathways: donate, sign petition, write to representative, share on social, volunteer locally, reduce carbon footprint. Action counter showing community participation. Petition signature widget."},
+    {"slug": "stories", "title": "Stories of Change", "description": "Impact journalism. Stories from frontline communities, activists, policy wins, clean energy transitions. Long-form narrative format with photography. Video testimonials. Map of impact locations."},
+    {"slug": "about", "title": "About & Team", "description": "Org history and mission. Scientific advisory board credentials. Executive team. Financial transparency: how donations are used (pie chart). Annual report download. Press mentions. Charity navigator rating."}
+  ],
+  "animations": false
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunset Rooftop Vinyl Night — Blockparty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #FFFFFF; color: #0F172A; font-size: 16px; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; height: 72px; display: flex; align-items: center; }
+.nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; gap: 32px; }
+.logo { font-weight: 900; font-size: 24px; background: linear-gradient(90deg, #2563EB, #EC4899, #F97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-weight: 600; color: #0F172A; font-size: 15px; }
+.nav-links a:hover { color: #2563EB; }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+.loc-picker { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: 12px; background: #EFF6FF; color: #2563EB; cursor: pointer; }
+.icon-btn { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.icon-btn:hover { background: #F8FAFC; }
+.nav-login { font-weight: 700; font-size: 14px; }
+.btn-cta { background: #F97316; color: white; padding: 10px 18px; border-radius: 12px; font-weight: 800; font-size: 14px; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.btn-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(249,115,22,.35); }
+
+/* HERO */
+.hero { position: relative; width: 100%; height: 480px; overflow: hidden; background:
+  radial-gradient(ellipse at 20% 30%, rgba(236,72,153,.55), transparent 50%),
+  radial-gradient(ellipse at 80% 20%, rgba(249,115,22,.5), transparent 55%),
+  radial-gradient(ellipse at 60% 80%, rgba(37,99,235,.6), transparent 60%),
+  linear-gradient(135deg, #1e1b4b, #312e81 50%, #4c1d95);
+}
+.hero::after { content: ''; position: absolute; inset: 0; background:
+  repeating-linear-gradient(45deg, transparent 0 20px, rgba(255,255,255,.02) 20px 21px);
+}
+.hero-content { position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; padding: 80px 24px 0; color: white; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 56px; }
+.cat-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(236,72,153,.2); color: #FBCFE8; border: 1px solid rgba(236,72,153,.5); padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; width: fit-content; backdrop-filter: blur(8px); }
+.hero h1 { font-size: 52px; font-weight: 900; line-height: 1.1; margin: 16px 0 12px; max-width: 900px; letter-spacing: -.5px; }
+.hero-sub { font-size: 18px; font-weight: 600; color: rgba(255,255,255,.92); }
+.hero-sub .dot { color: #F97316; margin: 0 8px; font-weight: 900; }
+
+/* META BAR */
+.meta-bar { position: sticky; top: 72px; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; }
+.meta-inner { max-width: 1240px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.date-pill { background: #FEF3C7; color: #92400E; padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 14px; }
+.meta-loc { display: flex; align-items: center; gap: 6px; color: #64748B; font-weight: 600; font-size: 14px; }
+.meta-org { display: flex; align-items: center; gap: 10px; }
+.org-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED, #EC4899); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 14px; }
+.org-name { font-weight: 700; font-size: 14px; }
+.org-name span { color: #64748B; font-weight: 600; display: block; font-size: 12px; }
+.btn-follow { background: white; border: 1.5px solid #2563EB; color: #2563EB; padding: 7px 14px; border-radius: 10px; font-weight: 800; font-size: 13px; cursor: pointer; }
+.btn-follow:hover { background: #EFF6FF; }
+.meta-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.share-btn { width: 40px; height: 40px; border-radius: 12px; border: 1px solid #E2E8F0; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.share-btn:hover { background: #F8FAFC; }
+
+/* CONTAINER */
+.container { max-width: 1240px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 380px; gap: 48px; }
+.section-title { font-size: 24px; font-weight: 800; margin-bottom: 16px; letter-spacing: -.3px; }
+.section { margin-bottom: 48px; }
+.section p { color: #334155; font-size: 16px; line-height: 1.7; }
+
+/* INCLUDED */
+.included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.included-list li { list-style: none; display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #F8FAFC; border-radius: 12px; font-weight: 600; font-size: 15px; }
+.check { width: 24px; height: 24px; border-radius: 50%; background: #16A34A; color: white; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+
+/* SCHEDULE */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: #E2E8F0; }
+.t-item { position: relative; padding: 10px 0 22px; }
+.t-item::before { content: ''; position: absolute; left: -27px; top: 14px; width: 18px; height: 18px; border-radius: 50%; background: white; border: 3px solid #2563EB; }
+.t-time { color: #F97316; font-weight: 800; font-size: 15px; }
+.t-title { font-weight: 700; font-size: 16px; margin-top: 2px; }
+
+/* MAP */
+.map { position: relative; height: 320px; border-radius: 16px; overflow: hidden; border: 1px solid #E2E8F0;
+  background:
+    linear-gradient(135deg, #E0F2FE, #EFF6FF 50%, #F0F9FF);
+}
+.map::before { content: ''; position: absolute; inset: 0; background:
+  linear-gradient(90deg, transparent 49%, #CBD5E1 49% 51%, transparent 51%),
+  linear-gradient(0deg, transparent 49%, #CBD5E1 49% 51%, transparent 51%),
+  linear-gradient(45deg, transparent 60%, rgba(101,163,13,.15) 60% 75%, transparent 75%);
+  background-size: 80px 80px, 80px 80px, 240px 240px; opacity: .6;
+}
+.map::after { content: ''; position: absolute; inset: 0; background:
+  linear-gradient(120deg, transparent 35%, rgba(14,165,233,.2) 35% 45%, transparent 45%);
+}
+.map-marker { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 24px; height: 24px; border-radius: 50%; background: #2563EB; border: 4px solid white; z-index: 3; }
+.map-info { position: absolute; bottom: 16px; left: 16px; background: white; padding: 12px 16px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); font-size: 13px; z-index: 3; }
+.map-info strong { display: block; font-size: 14px; margin-bottom: 4px; }
+.map-info span { color: #64748B; }
+
+/* ATTENDEES */
+.attendees-card { background: #F8FAFC; border-radius: 16px; padding: 24px; }
+.avatars-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.av { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 13px; border: 2px solid white; }
+.attendees-footer { display: flex; justify-content: space-between; align-items: center; }
+.going-count { font-weight: 800; font-size: 18px; }
+.invite-link { color: #2563EB; font-weight: 700; font-size: 14px; }
+
+/* TICKETS SIDEBAR */
+.ticket-card { position: sticky; top: 156px; background: white; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; box-shadow: 0 8px 28px rgba(15,23,42,.06); align-self: start; }
+.ticket-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+.ticket-row { padding: 16px; border: 1.5px solid #E2E8F0; border-radius: 14px; margin-bottom: 12px; transition: border-color .2s; cursor: pointer; }
+.ticket-row:hover { border-color: #2563EB; }
+.ticket-row.sold-out { opacity: .55; cursor: not-allowed; background: #F8FAFC; }
+.ticket-row.featured { border-color: #F97316; background: #FFF7ED; }
+.ticket-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.ticket-name { font-weight: 800; font-size: 16px; }
+.ticket-price { font-weight: 900; font-size: 18px; color: #0F172A; }
+.ticket-meta { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.ticket-meta .left { color: #64748B; font-size: 13px; font-weight: 600; }
+.badge-coral { background: #F97316; color: white; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .3px; }
+.badge-grey { background: #E2E8F0; color: #475569; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; }
+.btn-tickets { width: 100%; background: #F97316; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 800; font-size: 16px; cursor: pointer; margin-top: 12px; transition: all .2s; }
+.btn-tickets:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(249,115,22,.35); }
+.ticket-card .small { font-size: 12px; color: #64748B; text-align: center; margin-top: 12px; }
+.waitlist-link { display: block; text-align: center; margin-top: 10px; color: #2563EB; font-weight: 700; font-size: 13px; }
+
+/* SIMILAR EVENTS */
+.similar { max-width: 1240px; margin: 0 auto; padding: 16px 24px 80px; }
+.similar h2 { font-size: 28px; font-weight: 800; margin-bottom: 24px; letter-spacing: -.3px; }
+.event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.event-card { background: white; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+.event-card:nth-child(1) { animation-delay: .05s; }
+.event-card:nth-child(2) { animation-delay: .15s; }
+.event-card:nth-child(3) { animation-delay: .25s; }
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,23,42,.08); }
+.card-img { height: 180px; position: relative; }
+.card-img-1 { background: linear-gradient(135deg, #EC4899, #F97316); }
+.card-img-2 { background: linear-gradient(135deg, #7C3AED, #2563EB); }
+.card-img-3 { background: linear-gradient(135deg, #F97316, #EC4899 60%, #7C3AED); }
+.card-cat { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,.95); color: #EC4899; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.card-body { padding: 16px; }
+.card-date { color: #F97316; font-weight: 800; font-size: 13px; }
+.card-title { font-size: 18px; font-weight: 800; margin: 6px 0 8px; letter-spacing: -.2px; }
+.card-loc { color: #64748B; font-size: 13px; display: flex; align-items: center; gap: 4px; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid #F1F5F9; }
+.card-price { font-weight: 900; font-size: 16px; }
+.card-going { color: #64748B; font-size: 12px; font-weight: 700; }
+
+/* FOOTER */
+footer { background: #0F172A; color: #CBD5E1; padding: 56px 24px 32px; margin-top: 32px; }
+.footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.footer-brand .logo { color: white; -webkit-text-fill-color: initial; background: none; }
+.footer-brand p { margin-top: 12px; font-size: 14px; max-width: 280px; color: #94A3B8; }
+.footer-city { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.07); padding: 8px 14px; border-radius: 10px; color: white; font-weight: 700; font-size: 13px; }
+.footer-col h4 { color: white; font-weight: 800; margin-bottom: 14px; font-size: 14px; }
+.footer-col a { display: block; font-size: 13px; padding: 5px 0; color: #94A3B8; }
+.footer-col a:hover { color: white; }
+.socials { display: flex; gap: 10px; margin-top: 12px; }
+.social { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,.07); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.footer-bottom { max-width: 1240px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08); font-size: 12px; color: #64748B; display: flex; justify-content: space-between; }
+
+/* ANIMATIONS */
+@keyframes fadeInHero { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.hero-content > * { animation: fadeInHero 0.7s ease-out both; }
+.hero-content > *:nth-child(2) { animation-delay: .1s; }
+.hero-content > *:nth-child(3) { animation-delay: .2s; }
+
+.chip { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.chip:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 6px 18px rgba(37,99,235,0.18); }
+
+@keyframes revealCard { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.event-card { animation: revealCard 0.6s ease-out both; }
+
+@keyframes markerPulse { 0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.6); } 70% { box-shadow: 0 0 0 16px rgba(37,99,235,0); } 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); } }
+.map-marker { animation: markerPulse 2s infinite; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">◆ Blockparty</a>
+    <div class="nav-links">
+      <a href="#">Explore</a>
+      <a href="#">Host an Event</a>
+      <a href="#">For Organizers</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="loc-picker">📍 Brooklyn, NY ▾</div>
+      <div class="icon-btn">🔍</div>
+      <a href="#" class="nav-login">Log in</a>
+      <button class="btn-cta">Create Event</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="cat-tag chip">🎵 Music · Nightlife</span>
+    <h1>Sunset Rooftop Vinyl Night — Jazz &amp; Soul Edition</h1>
+    <p class="hero-sub">Sat, Oct 12 <span class="dot">•</span> 6:00–10:00 PM <span class="dot">•</span> Westlight, Williamsburg</p>
+  </div>
+</section>
+
+<div class="meta-bar">
+  <div class="meta-inner">
+    <span class="date-pill">SAT · OCT 12 · 6PM</span>
+    <span class="meta-loc">📍 Westlight Rooftop, Williamsburg</span>
+    <div class="meta-org">
+      <div class="org-avatar">W&amp;</div>
+      <div class="org-name">Wax &amp; Wine Co. <span>Verified · 12.4k followers</span></div>
+      <button class="btn-follow">+ Follow</button>
+    </div>
+    <div class="meta-right">
+      <button class="share-btn" title="Share">↗</button>
+      <button class="btn-cta">Get Tickets</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="main-col">
+
+    <div class="section">
+      <h2 class="section-title">About this event</h2>
+      <p>Watch the Manhattan skyline melt into gold from the top of Westlight as <strong>Marcus Ellis</strong> and <strong>Lina Park</strong> spin a four-hour journey through deep jazz, dusty soul 45s, and rare grooves — all from vinyl, all night. Sip from a curated natural wine bar, settle into floor cushions in the listening lounge, and enter the raffle for a hand-picked record from our crate. This is slow listening, golden hour, and the city humming below.</p>
+      <p style="margin-top: 14px;">Capacity is intentionally small. Doors at 6PM sharp — late entry isn't guaranteed.</p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">What's included</h2>
+      <ul class="included-list">
+        <li><span class="check">✓</span> 1 welcome natural wine pour</li>
+        <li><span class="check">✓</span> Access to listening lounge</li>
+        <li><span class="check">✓</span> Vinyl raffle entry</li>
+        <li><span class="check">✓</span> Rooftop sunset views</li>
+        <li><span class="check">✓</span> Curated set program zine</li>
+        <li><span class="check">✓</span> Coat check &amp; locker</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Schedule</h2>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-time">6:00 PM</div>
+          <div class="t-title">Doors open · Welcome pour &amp; golden hour</div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">6:30 PM</div>
+          <div class="t-title">Marcus Ellis opening set — Spiritual Jazz</div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">8:00 PM</div>
+          <div class="t-title">Lina Park headline set — Soul &amp; Disco 45s</div>
+        </div>
+        <div class="t-item">
+          <div class="t-time">9:30 PM</div>
+          <div class="t-title">Open decks &amp; raffle draw</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Location</h2>
+      <p style="margin-bottom: 16px; color:#64748B;">111 N 12th St, Brooklyn, NY · Subway: L to Bedford Av · G to Nassau Av</p>
+      <div class="map">
+        <div class="map-marker"></div>
+        <div class="map-info">
+          <strong>Westlight Rooftop</strong>
+          <span>111 N 12th St · Williamsburg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Who's going</h2>
+      <div class="attendees-card">
+        <div class="avatars-grid">
+          <div class="av" style="background:#EC4899">JT</div>
+          <div class="av" style="background:#7C3AED">DR</div>
+          <div class="av" style="background:#F97316">PM</div>
+          <div class="av" style="background:#16A34A">AS</div>
+          <div class="av" style="background:#0EA5E9">KL</div>
+          <div class="av" style="background:#D97706">MN</div>
+          <div class="av" style="background:#2563EB">RB</div>
+          <div class="av" style="background:#65A30D">CT</div>
+          <div class="av" style="background:#EC4899">EH</div>
+          <div class="av" style="background:#7C3AED">SV</div>
+          <div class="av" style="background:#F97316">QZ</div>
+          <div class="av" style="background:#16A34A">GK</div>
+          <div class="av" style="background:#0EA5E9">YO</div>
+          <div class="av" style="background:#D97706">IP</div>
+          <div class="av" style="background:#2563EB">FW</div>
+          <div class="av" style="background:#65A30D">XU</div>
+          <div class="av" style="background:#EC4899">BL</div>
+          <div class="av" style="background:#7C3AED">NV</div>
+          <div class="av" style="background:#F97316">TR</div>
+          <div class="av" style="background:#16A34A">OE</div>
+          <div class="av" style="background:#0EA5E9">UC</div>
+          <div class="av" style="background:#D97706">HM</div>
+          <div class="av" style="background:#2563EB">ZA</div>
+          <div class="av" style="background:#65A30D">VW</div>
+        </div>
+        <div class="attendees-footer">
+          <div class="going-count">+312 going</div>
+          <a href="#" class="invite-link">Invite friends →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="ticket-card">
+    <h3>Tickets</h3>
+
+    <div class="ticket-row sold-out">
+      <div class="ticket-top">
+        <div class="ticket-name">Early Bird</div>
+        <div class="ticket-price">$28</div>
+      </div>
+      <div class="ticket-meta">
+        <span class="badge-grey">Sold out</span>
+        <span class="left">Released Sep 12</span>
+      </div>
+    </div>
+
+    <div class="ticket-row">
+      <div class="ticket-top">
+        <div class="ticket-name">General Admission</div>
+        <div class="ticket-price">$38</div>
+      </div>
+      <div class="ticket-meta">
+        <span class="left">47 left · includes welcome pour</span>
+      </div>
+    </div>
+
+    <div class="ticket-row featured">
+      <div class="ticket-top">
+        <div class="ticket-name">VIP Lounge</div>
+        <div class="ticket-price">$75</div>
+      </div>
+      <div class="ticket-meta">
+        <span class="badge-coral">Last few spots</span>
+        <span class="left">Reserved seating · 2 drinks</span>
+      </div>
+    </div>
+
+    <button class="btn-tickets">Get Tickets →</button>
+    <a href="#" class="waitlist-link">Join waitlist for Early Bird</a>
+    <p class="small">Secure checkout · Refundable up to 48h before</p>
+  </aside>
+</div>
+
+<section class="similar">
+  <h2>Similar events you'll love</h2>
+  <div class="event-grid">
+    <div class="event-card">
+      <div class="card-img card-img-1">
+        <span class="card-cat">Music</span>
+      </div>
+      <div class="card-body">
+        <div class="card-date">Sun, Oct 13 · 2:00 PM</div>
+        <div class="card-title">Brooklyn Soul Sundays</div>
+        <div class="card-loc">📍 Public Records, Gowanus</div>
+        <div class="card-foot">
+          <div class="card-price">$22</div>
+          <div class="card-going">👥 184 going</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="card-img card-img-2">
+        <span class="card-cat" style="color:#7C3AED">Music</span>
+      </div>
+      <div class="card-body">
+        <div class="card-date">Fri, Oct 18 · 7:00 PM</div>
+        <div class="card-title">Greenpoint Listening Bar Pop-up</div>
+        <div class="card-loc">📍 Sunny's Annex, Greenpoint</div>
+        <div class="card-foot">
+          <div class="card-price">$18</div>
+          <div class="card-going">👥 96 going</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="card-img card-img-3">
+        <span class="card-cat" style="color:#F97316">Music</span>
+      </div>
+      <div class="card-body">
+        <div class="card-date">Sat, Oct 19 · 9:00 PM</div>
+        <div class="card-title">Bushwick Block Disco</div>
+        <div class="card-loc">📍 Elsewhere Rooftop, Bushwick</div>
+        <div class="card-foot">
+          <div class="card-price">$30</div>
+          <div class="card-going">👥 421 going</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">◆ Blockparty</div>
+      <p>Find your people, find your night. Discover community events, classes, and meetups happening near you.</p>
+      <div class="footer-city">📍 Brooklyn, NY ▾</div>
+    </div>
+    <div class="footer-col">
+      <h4>Discover</h4>
+      <a href="#">Explore Events</a>
+      <a href="#">This Weekend</a>
+      <a href="#">Free Events</a>
+      <a href="#">Categories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Organizers</h4>
+      <a href="#">Host an Event</a>
+      <a href="#">Organizer Resources</a>
+      <a href="#">Pro Plan</a>
+      <a href="#">Help Center</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Trust &amp; Safety</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+      <div class="socials">
+        <div class="social">📷</div>
+        <div class="social">🐦</div>
+        <div class="social">🎵</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Blockparty Inc.</div>
+    <div>Terms · Privacy · Cookies</div>
+  </div>
+</footer>
+
+</body>
+</html>

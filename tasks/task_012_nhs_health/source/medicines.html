@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Amoxicillin - Medicines A to Z - NHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans',Frutiger,Arial,sans-serif;font-size:19px;line-height:1.6;color:#212B32;background:#FFFFFF}
+a{color:#005EB8;text-decoration:underline}
+a:hover{text-decoration:none;color:#003087}
+a:visited{color:#330072}
+a:focus{outline:4px solid #FFEB3B;outline-offset:0;background:#FFEB3B;color:#212B32;text-decoration:none;box-shadow:0 -2px #FFEB3B,0 4px #212B32}
+
+/* Skip link */
+.skip-link{position:absolute;left:-9999px;top:0;background:#FFEB3B;color:#212B32;padding:12px 24px;font-weight:700;z-index:1000}
+.skip-link:focus{left:0}
+
+/* Header */
+.nhs-header{background:#005EB8;border-bottom:4px solid #003087}
+.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:24px;min-height:80px}
+.nhs-logo{background:#FFFFFF;color:#005EB8;font-weight:700;font-size:24px;padding:8px 12px;letter-spacing:1px;font-family:Arial,sans-serif;flex-shrink:0}
+.search-form{flex:1;display:flex;max-width:560px;margin:0 auto}
+.search-form input{flex:1;border:4px solid #FFFFFF;border-right:none;padding:10px 14px;font-size:19px;font-family:inherit;background:#FFFFFF}
+.search-form button{background:#FFFFFF;border:4px solid #FFFFFF;color:#005EB8;padding:0 18px;font-weight:700;cursor:pointer;font-size:19px}
+.search-form button:hover{background:#003087;color:#FFFFFF;border-color:#003087}
+.menu-btn{background:#005EB8;color:#FFFFFF;border:none;border-bottom:4px solid transparent;font-size:19px;font-weight:700;padding:8px 14px;cursor:pointer;font-family:inherit}
+.menu-btn:hover{border-bottom-color:#FFFFFF}
+.menu-btn::after{content:" ▾"}
+
+/* Secondary nav */
+.sub-nav{background:#FFFFFF;border-bottom:1px solid #D8DDE0}
+.sub-nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap}
+.sub-nav a{color:#005EB8;text-decoration:none;font-weight:600;padding:14px 18px 14px 0;margin-right:8px;font-size:17px}
+.sub-nav a:hover{text-decoration:underline}
+
+/* Skip-to-content blue link */
+.skip-content-bar{background:#FFFFFF;border-bottom:1px solid #D8DDE0}
+.skip-content-bar a{display:inline-block;max-width:1200px;margin:0 auto;padding:8px 24px;color:#005EB8;font-weight:700;width:100%}
+
+/* Breadcrumbs */
+.breadcrumbs{background:#F0F4F5;border-bottom:1px solid #D8DDE0}
+.breadcrumbs-inner{max-width:1200px;margin:0 auto;padding:16px 24px;font-size:16px;color:#4C6272}
+.breadcrumbs a{color:#005EB8}
+.breadcrumbs .sep{margin:0 8px;color:#4C6272}
+
+/* Layout */
+.container{max-width:1200px;margin:0 auto;padding:32px 24px}
+.page-title{font-size:48px;font-weight:700;margin-bottom:8px;color:#212B32;line-height:1.2}
+.page-sub{font-size:24px;color:#4C6272;margin-bottom:32px;font-weight:400}
+
+.layout{display:grid;grid-template-columns:280px 1fr;gap:48px;margin-top:32px}
+
+/* Sidebar */
+.toc{border-top:4px solid #005EB8;padding-top:16px;position:sticky;top:24px;align-self:start}
+.toc h2{font-size:22px;margin-bottom:12px}
+.toc ul{list-style:none}
+.toc li{border-bottom:1px solid #D8DDE0}
+.toc a{display:block;padding:10px 0;text-decoration:none;color:#005EB8;font-weight:600;font-size:17px}
+.toc a:hover{text-decoration:underline}
+
+/* Main content */
+.main h2{font-size:32px;margin:40px 0 16px;color:#212B32;font-weight:700}
+.main h2:first-child{margin-top:0}
+.main h3{font-size:24px;margin:24px 0 12px;color:#212B32;font-weight:700}
+.main p{margin-bottom:16px;max-width:75ch}
+.main ul, .main ol{margin:0 0 20px 24px;max-width:75ch}
+.main li{margin-bottom:8px}
+
+/* Info boxes */
+.info-box{background:#FFFFFF;border-left:8px solid #005EB8;padding:20px 24px;margin:24px 0;background:#F0F4F5}
+.info-box h3{margin-top:0;font-size:24px}
+.info-box ul{margin-bottom:0}
+
+/* Warning yellow box */
+.warning-box{border:5px solid #FFB81C;padding:20px 24px;margin:32px 0;position:relative;background:#FFFFFF}
+.warning-box .label{display:inline-block;background:#FFB81C;color:#212B32;font-weight:700;padding:4px 12px;margin-bottom:12px;font-size:17px;text-transform:uppercase;letter-spacing:0.5px}
+.warning-box h3{margin-top:0}
+
+/* Emergency red box */
+.emergency-box{border:5px solid #DA291C;padding:20px 24px;margin:32px 0;background:#FBE9E8}
+.emergency-box .label{display:inline-block;background:#DA291C;color:#FFFFFF;font-weight:700;padding:4px 12px;margin-bottom:12px;font-size:17px;text-transform:uppercase;letter-spacing:0.5px}
+.emergency-box h3{margin-top:0;color:#212B32}
+.emergency-box .big-num{font-size:32px;font-weight:700;color:#DA291C;display:block;margin:8px 0}
+
+/* Numbered steps */
+.steps{counter-reset:step;list-style:none;margin-left:0!important;padding:0}
+.steps li{counter-increment:step;position:relative;padding:16px 16px 16px 64px;border-bottom:1px solid #D8DDE0;margin-bottom:0}
+.steps li::before{content:counter(step);position:absolute;left:0;top:16px;width:44px;height:44px;background:#005EB8;color:#FFFFFF;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+
+/* Table */
+.interactions-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:18px}
+.interactions-table caption{text-align:left;font-weight:700;font-size:22px;padding-bottom:12px;color:#212B32}
+.interactions-table th{background:#F0F4F5;text-align:left;padding:14px 16px;border-bottom:2px solid #4C6272;font-weight:700;font-size:18px}
+.interactions-table td{padding:14px 16px;border-bottom:1px solid #D8DDE0;vertical-align:top}
+.interactions-table tr:hover td{background:#F0F4F5}
+
+/* Last reviewed */
+.last-reviewed{margin-top:48px;padding:20px 0;border-top:1px solid #D8DDE0;color:#4C6272;font-size:17px}
+.last-reviewed p{margin-bottom:4px}
+
+/* Footer */
+.site-footer{background:#F0F4F5;border-top:4px solid #005EB8;margin-top:64px;padding:40px 0}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:32px}
+.footer-links h4{font-size:18px;margin-bottom:12px;color:#212B32}
+.footer-links ul{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{color:#005EB8;font-size:17px}
+.footer-copy{border-top:1px solid #D8DDE0;padding-top:20px;color:#4C6272;font-size:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.crown{display:inline-block;width:32px;height:24px;background:#003087;color:#FFFFFF;text-align:center;line-height:24px;font-size:14px;font-weight:700;margin-right:8px;vertical-align:middle}
+
+/* Medicine meta strip */
+.med-meta{display:flex;gap:24px;flex-wrap:wrap;background:#F0F4F5;padding:16px 20px;margin-bottom:24px;font-size:17px;border-left:4px solid #005EB8}
+.med-meta div strong{display:block;color:#4C6272;font-size:15px;text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="nhs-header">
+  <div class="header-inner">
+    <a href="/" class="nhs-logo" aria-label="NHS home">NHS</a>
+    <form class="search-form" role="search" onsubmit="return false">
+      <label for="search" style="position:absolute;left:-9999px">Search the NHS website</label>
+      <input id="search" type="search" placeholder="Search the NHS website">
+      <button type="submit" aria-label="Search">🔍</button>
+    </form>
+    <button class="menu-btn" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<nav class="sub-nav" aria-label="Primary">
+  <div class="sub-nav-inner">
+    <a href="/conditions">Health A to Z</a>
+    <a href="/mental-health">Mental health</a>
+    <a href="/care">Care and support</a>
+    <a href="/pregnancy">Pregnancy</a>
+    <a href="/services">NHS services</a>
+    <a href="/live-well">Live Well</a>
+  </div>
+</nav>
+
+<div class="skip-content-bar"><a href="#main-content">Skip to main content &gt;</a></div>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="breadcrumbs-inner">
+    <a href="/">Home</a><span class="sep">&gt;</span>
+    <a href="/medicines">Medicines A to Z</a><span class="sep">&gt;</span>
+    <span>Amoxicillin</span>
+  </div>
+</nav>
+
+<main id="main-content" class="container">
+
+  <h1 class="page-title">Amoxicillin</h1>
+  <p class="page-sub">Antibiotic used to treat bacterial infections</p>
+
+  <div class="med-meta" aria-label="Medicine details">
+    <div><strong>Brand names</strong>Amoxil, Amix</div>
+    <div><strong>Type of medicine</strong>Penicillin antibiotic</div>
+    <div><strong>Prescription only</strong>Yes — prescription only</div>
+  </div>
+
+  <div class="layout">
+
+    <aside class="toc" aria-label="On this page">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#about">1. About amoxicillin</a></li>
+        <li><a href="#who">2. Who can take it</a></li>
+        <li><a href="#how">3. How and when to take it</a></li>
+        <li><a href="#side-effects">4. Side effects</a></li>
+        <li><a href="#pregnancy">5. Pregnancy and breastfeeding</a></li>
+        <li><a href="#interactions">6. Interactions</a></li>
+        <li><a href="#questions">7. Common questions</a></li>
+      </ul>
+    </aside>
+
+    <article class="main">
+
+      <section id="about">
+        <h2>About amoxicillin</h2>
+        <p>Amoxicillin is a penicillin antibiotic. It's used to treat bacterial infections, such as chest infections (including pneumonia) and dental abscesses.</p>
+        <p>It can also be used together with other antibiotics and medicines to treat stomach ulcers caused by <em>H. pylori</em> infection.</p>
+
+        <div class="info-box">
+          <h3>Key facts</h3>
+          <ul>
+            <li>Take amoxicillin at evenly spaced times throughout the day.</li>
+            <li>Common side effects include feeling sick (nausea) and diarrhoea.</li>
+            <li>Finish the full course of medicine even if you feel better.</li>
+            <li>Liquid amoxicillin can stain your teeth — this does not last and is removed by brushing.</li>
+            <li>Amoxicillin is generally safe to take during pregnancy and while breastfeeding.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="who">
+        <h2>Who can and cannot take amoxicillin</h2>
+        <p>Amoxicillin can be taken by adults, including pregnant and breastfeeding women, and children.</p>
+        <p>Amoxicillin is not suitable for everyone. Tell your doctor before starting the medicine if you:</p>
+        <ul>
+          <li>have ever had an allergic reaction to amoxicillin or any other medicine</li>
+          <li>have liver or kidney problems</li>
+          <li>have recently had, or are about to have, any vaccinations</li>
+        </ul>
+      </section>
+
+      <section id="how">
+        <h2>How and when to take amoxicillin</h2>
+        <p>The usual dose of amoxicillin capsules is 250mg to 500mg taken 3 times a day. The dose may be lower for children.</p>
+
+        <ol class="steps">
+          <li><strong>Swallow capsules whole</strong> with a drink of water. Do not chew or break them.</li>
+          <li><strong>Space your doses evenly</strong> throughout the day — try to take them every 8 hours.</li>
+          <li><strong>You can take amoxicillin with or without food.</strong> For liquid medicine, use the plastic syringe or spoon that comes with it.</li>
+          <li><strong>Carry on taking the medicine until you've completed the course</strong>, even if you feel better. Stopping early can make the infection come back.</li>
+          <li><strong>If you forget a dose</strong>, take it as soon as you remember — unless your next dose is due in less than 4 hours, in which case skip the missed dose.</li>
+        </ol>
+
+        <div class="warning-box">
+          <span class="label">⚠ Important</span>
+          <h3>Allergic reactions — when to call 999</h3>
+          <p>In rare cases, amoxicillin can cause a serious allergic reaction (anaphylaxis).</p>
+          <p><strong>Call 999 or go to A&amp;E now if:</strong></p>
+          <ul>
+            <li>your lips, mouth, throat or tongue suddenly become swollen</li>
+            <li>you're breathing very fast or struggling to breathe (you may become very wheezy or feel like you're choking)</li>
+            <li>your throat feels tight or you're struggling to swallow</li>
+            <li>your skin, tongue or lips turn blue, grey or pale</li>
+            <li>you suddenly become very confused, drowsy or dizzy</li>
+            <li>someone faints and cannot be woken up</li>
+            <li>a child is limp, floppy or not responding like they normally do</li>
+          </ul>
+          <p>You or the person who's unwell may also have a rash that's swollen, raised, itchy, blistered or peeling.</p>
+        </div>
+      </section>
+
+      <section id="side-effects">
+        <h2>Side effects</h2>
+        <p>Like all medicines, amoxicillin can cause side effects, although not everyone gets them.</p>
+
+        <h3>Common side effects</h3>
+        <p>These common side effects of amoxicillin happen in more than 1 in 100 people. Talk to your doctor or pharmacist if these side effects bother you or do not go away:</p>
+        <ul>
+          <li>feeling sick (nausea)</li>
+          <li>diarrhoea</li>
+          <li>thrush (a yeast infection in the vagina, mouth or under foreskin)</li>
+          <li>headache</li>
+          <li>mild skin rash</li>
+        </ul>
+
+        <h3>Serious side effects</h3>
+        <p>It happens rarely, but some people have serious side effects after taking amoxicillin.</p>
+        <p>Call a doctor or call 111 straight away if you get:</p>
+        <ul>
+          <li>diarrhoea (sometimes with stomach cramps) that contains blood or mucus — if you have severe diarrhoea for more than 4 days</li>
+          <li>pale poo with dark pee, yellowing of the whites of your eyes or your skin (jaundice)</li>
+          <li>bruising or skin discolouration</li>
+          <li>joint or muscle pain that comes on after 2 days of taking the medicine</li>
+          <li>a skin rash with circular red patches</li>
+        </ul>
+      </section>
+
+      <section id="pregnancy">
+        <h2>Pregnancy and breastfeeding</h2>
+        <p>Amoxicillin is generally considered safe to take during pregnancy and while breastfeeding.</p>
+        <p>For more information about how amoxicillin can affect you and your baby, read the leaflet about <a href="#">amoxicillin on the Best Use of Medicines in Pregnancy (BUMPS) website</a>.</p>
+      </section>
+
+      <section id="interactions">
+        <h2>Cautions with other medicines</h2>
+        <p>There are some medicines that may affect how amoxicillin works, or that amoxicillin itself may affect.</p>
+
+        <table class="interactions-table">
+          <caption>Medicines that interact with amoxicillin</caption>
+          <thead>
+            <tr>
+              <th scope="col">Medicine</th>
+              <th scope="col">Effect of the interaction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Methotrexate (used to treat arthritis and psoriasis)</td>
+              <td>Amoxicillin can increase methotrexate levels, raising the risk of side effects.</td>
+            </tr>
+            <tr>
+              <td>Warfarin (a blood thinner)</td>
+              <td>May increase the risk of bleeding. Extra INR monitoring may be needed.</td>
+            </tr>
+            <tr>
+              <td>The contraceptive pill</td>
+              <td>If you experience sickness or diarrhoea, the pill may not work properly — use extra contraception.</td>
+            </tr>
+            <tr>
+              <td>Allopurinol (used for gout)</td>
+              <td>Taking this with amoxicillin may increase the chance of an allergic skin rash.</td>
+            </tr>
+            <tr>
+              <td>Other antibiotics (e.g. tetracyclines, chloramphenicol)</td>
+              <td>May reduce the effectiveness of amoxicillin.</td>
+            </tr>
+            <tr>
+              <td>Typhoid vaccine (oral)</td>
+              <td>Amoxicillin can stop the typhoid vaccine working — tell your nurse or doctor.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Tell your doctor or pharmacist if you're taking any other medicines, including herbal remedies, vitamins or supplements.</p>
+      </section>
+
+      <section id="questions">
+        <h2>Common questions</h2>
+        <h3>How long does amoxicillin take to work?</h3>
+        <p>For most infections, you should feel better within a few days. It's very important you keep taking amoxicillin until your course is finished.</p>
+        <h3>Will it affect my contraception?</h3>
+        <p>Amoxicillin does not stop the contraceptive pill working. However, if it makes you sick or gives you severe diarrhoea for more than 24 hours, your contraceptive pills may not protect you from pregnancy.</p>
+        <h3>Can I drink alcohol with it?</h3>
+        <p>Yes, you can drink alcohol while taking amoxicillin.</p>
+      </section>
+
+      <div class="emergency-box" role="alert">
+        <span class="label">Get urgent help</span>
+        <h3>When to get help straight away</h3>
+        <p>For a serious allergic reaction (anaphylaxis), call <strong>999</strong> or go to A&amp;E immediately.</p>
+        <span class="big-num">999</span>
+        <p>For non-emergency advice about your medicine, call NHS <strong>111</strong> or use 111 online.</p>
+      </div>
+
+      <div class="last-reviewed">
+        <p><strong>Page last reviewed:</strong> 28 November 2022</p>
+        <p><strong>Next review due:</strong> 28 November 2025</p>
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <div>
+        <h4>NHS sites</h4>
+        <ul>
+          <li><a href="#">NHS App</a></li>
+          <li><a href="#">My NHS account</a></li>
+          <li><a href="#">About the NHS</a></li>
+          <li><a href="#">Healthcare abroad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About us</h4>
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Our policies</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular topics</h4>
+        <ul>
+          <li><a href="#">Health A to Z</a></li>
+          <li><a href="#">Medicines A to Z</a></li>
+          <li><a href="#">Find services</a></li>
+          <li><a href="#">Mental health</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay connected</h4>
+        <ul>
+          <li><a href="#">NHS newsletter</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <div><span class="crown">♛</span>© Crown copyright NHS 2022</div>
+      <div>Your health, your NHS</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

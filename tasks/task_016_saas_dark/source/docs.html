@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Documentation — Flexor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0F1117;
+  --surface: #171923;
+  --border: #252836;
+  --primary: #4F6BFF;
+  --secondary: #A78BFA;
+  --accent: #22C55E;
+  --text: #FFFFFF;
+  --muted: #94A3B8;
+  --code-bg: #0A0C12;
+  --badge-bg: #1E293B;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(79,107,255,0.08);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.github-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+}
+.github-badge .star { color: #FBBF24; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+}
+.btn-ghost:hover { background: var(--surface); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79,107,255,0.3);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(79,107,255,0.4); }
+
+/* LAYOUT */
+.docs-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 24px 80px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 96px;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.sidebar-section {
+  margin-bottom: 28px;
+}
+.sidebar-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+.sidebar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sidebar-list a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--muted);
+  border-left: 2px solid transparent;
+}
+.sidebar-list a:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+.sidebar-list a.active {
+  background: rgba(79,107,255,0.1);
+  color: var(--text);
+  border-left-color: var(--primary);
+}
+
+/* HERO */
+.hero {
+  margin-bottom: 56px;
+}
+.hero-content {
+  animation: fade_in_hero 0.8s ease-out forwards;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 30%, #A78BFA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p.sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* CLI INSTALL CARD */
+.cli-card {
+  margin-bottom: 56px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cli-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+}
+.cli-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--muted);
+}
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+.window-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #3a3d4a;
+}
+.window-dots span:nth-child(1) { background: #FF5F57; }
+.window-dots span:nth-child(2) { background: #FEBC2E; }
+.window-dots span:nth-child(3) { background: #28C840; }
+.copy-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.copy-btn:hover { color: var(--text); border-color: var(--primary); }
+.cli-body {
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  background: var(--code-bg);
+}
+.cli-body .prompt { color: var(--accent); }
+.cli-body .cmd { color: var(--text); }
+.cli-body .comment { color: var(--muted); }
+.cli-body .key { color: var(--secondary); }
+.cli-body .output { color: var(--muted); margin-top: 8px; }
+.api-key-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(79,107,255,0.08);
+  border: 1px solid rgba(79,107,255,0.25);
+  border-radius: 8px;
+}
+.api-key-row .label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.api-key-row .key-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--secondary);
+}
+.api-key-row .badge-active {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* SECTION HEADING */
+.section {
+  margin-bottom: 64px;
+}
+.section-heading {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+/* SDK TABS */
+.tabs {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+}
+.tab {
+  padding: 14px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+  color: var(--text);
+  border-bottom-color: var(--primary);
+  background: rgba(79,107,255,0.05);
+}
+.tab-content {
+  padding: 24px;
+  background: var(--code-bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.tab-content .cmd-line {
+  color: var(--text);
+}
+.tab-content .cmd-line .prompt { color: var(--accent); margin-right: 8px; }
+.tab-content .cmd-line .pkg { color: var(--secondary); }
+
+/* GUIDE CARDS */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+.guide-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(79,107,255,0.2), rgba(167,139,250,0.2));
+  border: 1px solid rgba(79,107,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.guide-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.guide-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.guide-card .arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: var(--muted);
+  transition: transform 0.3s, color 0.3s;
+}
+.feature-card:hover .arrow { color: var(--primary); transform: translate(2px,-2px); }
+
+/* API REFERENCE */
+.api-ref {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.api-ref-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.api-ref-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.api-ref-header .base-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 10px;
+  background: var(--code-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.endpoint-list {
+  display: flex;
+  flex-direction: column;
+}
+.endpoint {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.endpoint:last-child { border-bottom: none; }
+.endpoint:hover { background: rgba(79,107,255,0.04); }
+.method {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.method.get { background: rgba(34,197,94,0.12); color: var(--accent); border: 1px solid rgba(34,197,94,0.25); }
+.method.post { background: rgba(79,107,255,0.15); color: var(--primary); border: 1px solid rgba(79,107,255,0.3); }
+.method.patch { background: rgba(251,191,36,0.12); color: #FBBF24; border: 1px solid rgba(251,191,36,0.25); }
+.method.delete { background: rgba(239,68,68,0.12); color: #EF4444; border: 1px solid rgba(239,68,68,0.25); }
+.endpoint-path { color: var(--text); }
+.endpoint-desc { color: var(--muted); font-family: 'Inter', sans-serif; font-size: 13px; text-align: right; }
+
+/* COMMUNITY + CHANGELOG */
+.dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.dual-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dual-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+.dual-card .icon-big {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.dual-card.discord .icon-big {
+  background: rgba(88,101,242,0.15);
+  border: 1px solid rgba(88,101,242,0.3);
+  color: #5865F2;
+}
+.dual-card.changelog .icon-big {
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--accent);
+}
+.dual-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.dual-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.dual-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+.dual-meta .badge-active {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  padding: 2px 6px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.dual-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* STATS STRIP */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 56px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.stat-cell {
+  padding: 24px 28px;
+  border-right: 1px solid var(--border);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: counter_animation_stats 1s ease-out forwards;
+  display: inline-block;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* FOOTER */
+footer {
+  background: #0A0C12;
+  border-top: 1px solid var(--border);
+  padding: 64px 24px 32px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 14px; color: var(--text); opacity: 0.8; }
+.footer-col a:hover { opacity: 1; color: var(--primary); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.footer-status .dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+.soc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+}
+
+/* ANIMATIONS */
+@keyframes fade_in_hero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes counter_animation_stats {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes gradient_border_glow {
+  0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); }
+}
+.glow-border {
+  animation: gradient_border_glow 3s ease-in-out infinite;
+}
+
+/* tabs simulated visible state */
+.tab-panel { display: none; }
+.tab-panel.active { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; }
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"></span>
+      Flexor
+    </a>
+    <div class="nav-links">
+      <a href="#">Product</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#" class="active">Docs</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="github-badge">
+        <span class="star">★</span>
+        <span>flexor/flexor</span>
+        <span style="color:var(--muted);">18.4k</span>
+      </span>
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<div class="docs-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Getting Started</div>
+      <ul class="sidebar-list">
+        <li><a href="#" class="active">Introduction</a></li>
+        <li><a href="#cli">Quickstart (CLI)</a></li>
+        <li><a href="#sdk">SDK installation</a></li>
+        <li><a href="#guides">Guides</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Core Concepts</div>
+      <ul class="sidebar-list">
+        <li><a href="#">Feature flags</a></li>
+        <li><a href="#">Targeting rules</a></li>
+        <li><a href="#">Rollouts & cohorts</a></li>
+        <li><a href="#">Experiments</a></li>
+        <li><a href="#">Environments</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">SDK Reference</div>
+      <ul class="sidebar-list">
+        <li><a href="#">Node.js</a></li>
+        <li><a href="#">Python</a></li>
+        <li><a href="#">Go</a></li>
+        <li><a href="#">Rust</a></li>
+        <li><a href="#">React</a></li>
+        <li><a href="#">Edge (Workers)</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">API & Integrations</div>
+      <ul class="sidebar-list">
+        <li><a href="#api">REST API</a></li>
+        <li><a href="#">Authentication</a></li>
+        <li><a href="#">Webhooks</a></li>
+        <li><a href="#">Datadog</a></li>
+        <li><a href="#">Slack & PagerDuty</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Operate</div>
+      <ul class="sidebar-list">
+        <li><a href="#">Self-hosted Relay</a></li>
+        <li><a href="#">Audit logs</a></li>
+        <li><a href="#">RBAC & SSO</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow"><span class="dot"></span> v2.14.0 — Edge SDK GA</span>
+        <h1>Build with Flexor in under 5 minutes</h1>
+        <p class="sub">Quickstarts, SDK references, and guides for every stack. Flexor gives engineering teams instant feature flags, gradual rollouts, and A/B experiments with sub-50ms edge evaluation.</p>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+      <div class="stat-cell">
+        <div class="stat-number">11ms</div>
+        <div class="stat-label">p99 edge evaluation</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">2.1B</div>
+        <div class="stat-label">flag evaluations / day</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">99.999%</div>
+        <div class="stat-label">platform uptime</div>
+      </div>
+    </div>
+
+    <!-- CLI INSTALL -->
+    <section class="section" id="cli">
+      <h2 class="section-heading">1. Initialize your project</h2>
+      <p class="section-sub">Run the Flexor CLI to bootstrap a new workspace and generate your first API key.</p>
+
+      <div class="cli-card">
+        <div class="cli-header">
+          <div class="cli-header-left">
+            <div class="window-dots"><span></span><span></span><span></span></div>
+            <span>~/projects/checkout-service</span>
+          </div>
+          <button class="copy-btn">⧉ Copy</button>
+        </div>
+        <div class="cli-body">
+          <div><span class="prompt">$</span> <span class="cmd">npx flexor init</span></div>
+          <div class="output">› Creating <span class="key">flexor.config.ts</span> ...</div>
+          <div class="output">› Detected runtime: <span class="key">node 20.10.0</span></div>
+          <div class="output">› Provisioning workspace <span class="key">acme-prod</span> ...</div>
+          <div class="output">✓ <span style="color:var(--accent);">Ready</span> in 3.2s</div>
+
+          <div class="api-key-row">
+            <span class="label">Live API Key</span>
+            <span class="key-val">flx_live_sk_a8f2…9c4d</span>
+            <span class="badge-active">● Active</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SDK TABS -->
+    <section class="section" id="sdk">
+      <h2 class="section-heading">2. Install an SDK</h2>
+      <p class="section-sub">Pick your language. All SDKs share the same evaluation API and stream updates over a persistent connection.</p>
+
+      <div class="tabs">
+        <div class="tab-bar">
+          <div class="tab active">npm</div>
+          <div class="tab">pip</div>
+          <div class="tab">cargo</div>
+          <div class="tab">go</div>
+          <div class="tab">gem</div>
+        </div>
+        <div class="tab-content">
+          <div class="tab-panel active">
+            <div>
+              <div class="cmd-line"><span class="prompt">$</span><span>npm i </span><span class="pkg">@flexor/node</span></div>
+              <div class="cmd-line" style="color:var(--muted); margin-top:8px;"># Also available: pip install <span style="color:var(--secondary);">flexor</span> · cargo add <span style="color:var(--secondary);">flexor</span></div>
+            </div>
+            <button class="copy-btn">⧉ Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDE CARDS -->
+    <section class="section" id="guides">
+      <h2 class="section-heading">3. Follow a guide</h2>
+      <p class="section-sub">Production-ready walkthroughs covering the most common workflows.</p>
+
+      <div class="guide-grid">
+        <div class="feature-card guide-card">
+          <div class="guide-icon">⚡</div>
+          <span class="arrow">→</span>
+          <h3>Quickstart</h3>
+          <p>Wire up your first flag and evaluate it from a Node server in under five minutes.</p>
+        </div>
+        <div class="feature-card guide-card">
+          <div class="guide-icon">🔐</div>
+          <span class="arrow">→</span>
+          <h3>Authentication</h3>
+          <p>API keys, scoped tokens, and JWT-based client auth for browser SDKs.</p>
+        </div>
+        <div class="feature-card guide-card">
+          <div class="guide-icon">🪝</div>
+          <span class="arrow">→</span>
+          <h3>Webhooks</h3>
+          <p>Receive signed events when flags change, rollouts advance, or experiments conclude.</p>
+        </div>
+        <div class="feature-card guide-card">
+          <div class="guide-icon">🎯</div>
+          <span class="arrow">→</span>
+          <h3>Targeting Rules</h3>
+          <p>Build rules like <code style="font-family:'JetBrains Mono';color:var(--secondary);">user.plan == 'pro'</code> with attribute matchers.</p>
+        </div>
+        <div class="feature-card guide-card">
+          <div class="guide-icon">🧪</div>
+          <span class="arrow">→</span>
+          <h3>Experiments Setup</h3>
+          <p>Run multivariate experiments with Bayesian stats and SRM detection out of the box.</p>
+        </div>
+        <div class="feature-card guide-card">
+          <div class="guide-icon">🛰️</div>
+          <span class="arrow">→</span>
+          <h3>Self-Hosted Relay</h3>
+          <p>Deploy the Flexor Relay inside your VPC for full data isolation and compliance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- API REFERENCE -->
+    <section class="section" id="api">
+      <h2 class="section-heading">REST API reference</h2>
+      <p class="section-sub">A small, predictable HTTP API. Every endpoint also has a typed SDK wrapper.</p>
+
+      <div class="api-ref">
+        <div class="api-ref-header">
+          <h3>Endpoints</h3>
+          <span class="base-url">https://api.flexor.dev</span>
+        </div>
+        <div class="endpoint-list">
+          <div class="endpoint">
+            <span class="method get">GET</span>
+            <span class="endpoint-path">/v1/flags</span>
+            <span class="endpoint-desc">List all flags in the workspace</span>
+          </div>
+          <div class="endpoint">
+            <span class="method get">GET</span>
+            <span class="endpoint-path">/v1/flags/:key</span>
+            <span class="endpoint-desc">Retrieve a single flag by key</span>
+          </div>
+          <div class="endpoint">
+            <span class="method post">POST</span>
+            <span class="endpoint-path">/v1/evaluate</span>
+            <span class="endpoint-desc">Evaluate a flag for a given user context</span>
+          </div>
+          <div class="endpoint">
+            <span class="method post">POST</span>
+            <span class="endpoint-path">/v1/flags</span>
+            <span class="endpoint-desc">Create a new flag</span>
+          </div>
+          <div class="endpoint">
+            <span class="method patch">PATCH</span>
+            <span class="endpoint-path">/v1/flags/:key</span>
+            <span class="endpoint-desc">Update targeting rules or rollout %</span>
+          </div>
+          <div class="endpoint">
+            <span class="method post">POST</span>
+            <span class="endpoint-path">/v1/experiments</span>
+            <span class="endpoint-desc">Start an A/B or multivariate experiment</span>
+          </div>
+          <div class="endpoint">
+            <span class="method get">GET</span>
+            <span class="endpoint-path">/v1/audit-logs</span>
+            <span class="endpoint-desc">Paginated audit trail of all changes</span>
+          </div>
+          <div class="endpoint">
+            <span class="method delete">DEL</span>
+            <span class="endpoint-path">/v1/flags/:key</span>
+            <span class="endpoint-desc">Archive a flag (soft delete)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY + CHANGELOG -->
+    <section class="section">
+      <h2 class="section-heading">Get help & stay updated</h2>
+      <p class="section-sub">Talk to our team and 3,200+ Flexor users, or browse what we shipped this week.</p>
+
+      <div class="dual-grid">
+        <div class="dual-card discord">
+          <div class="icon-big">💬</div>
+          <h3>Join the Discord community</h3>
+          <p>Ask questions, share patterns, and chat directly with the Flexor engineering team. Replies in under an hour, weekdays.</p>
+          <div class="dual-meta">
+            <span style="color:#5865F2;">●</span> 3,217 members online
+          </div>
+          <div><a href="#" class="dual-link">Open Discord →</a></div>
+        </div>
+
+        <div class="dual-card changelog">
+          <div class="icon-big">📜</div>
+          <h3>Latest changelog — v2.14.0</h3>
+          <p><strong>Edge SDK GA.</strong> Sub-50ms evaluation from 280+ Cloudflare PoPs, plus a redesigned config API and improved Vercel adapter.</p>
+          <div class="dual-meta">
+            <span>v2.14.0 · Nov 12, 2023</span>
+            <span class="badge-active">Active</span>
+          </div>
+          <div><a href="#" class="dual-link">Read full notes →</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-mark"></span> Flexor</div>
+        <p>Feature flags and experimentation built for engineering velocity.</p>
+        <div style="margin-top:18px; display:flex; gap:10px; align-items:center;">
+          <span class="soc-badge">🛡 SOC 2 TYPE II</span>
+          <span class="soc-badge">GDPR</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Edge SDKs</a></li>
+          <li><a href="#">Experiments</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API reference</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">DPA</a></li>
+          <li><a href="#">Subprocessors</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2023 Flexor, Inc. All rights reserved.</div>
+      <div style="display:flex; gap:14px; align-items:center;">
+        <a href="#" class="footer-status"><span class="dot"></span> status.flexor.dev — All systems normal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

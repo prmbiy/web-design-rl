@@ -1,0 +1,194 @@
+{
+  "brand_name": "Verisys Enterprise Solutions, Inc.",
+  "tagline": "Mission-Critical Software for the Global Enterprise",
+  "primary_color_name": "Verisys Blue",
+  "pages": {
+    "home": {
+      "title": "Verisys Enterprise Solutions - Home",
+      "nav_items": [
+        "Home",
+        "Products",
+        "Solutions",
+        "Partners",
+        "Support",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Unify Your Enterprise Data Infrastructure",
+          "subheadline": "VeriSuite 7.2 delivers end-to-end business process integration for the Fortune 1000."
+        },
+        {
+          "name": "left_tree_nav",
+          "description": "Collapsible tree menu with parent nodes Products (VeriSuite ERP, VeriFlow BPM, VeriVault Data Warehouse), Solutions (by Industry, by Role), Resources (White Papers, Webinars, Analyst Reports), and Support (Knowledge Base, Downloads)."
+        },
+        {
+          "name": "feature_bullets",
+          "description": "Three feature boxes highlighting 99.999% Uptime SLA, J2EE/.NET Interoperability, and Sarbanes-Oxley Compliance Reporting."
+        },
+        {
+          "name": "right_sidebar_press",
+          "description": "Latest press release dated October 14, 2003 announcing Verisys partnership with IBM Global Services, plus link to Q3 2003 earnings call replay."
+        },
+        {
+          "name": "right_sidebar_customers",
+          "description": "Vertical strip of customer logos including Prudential Financial, Lockheed Martin, Kaiser Permanente, and Archer Daniels Midland."
+        },
+        {
+          "name": "cta_strip",
+          "description": "Orange CTA buttons for Request a Demo and Download the VeriSuite 7.2 White Paper (email gate)."
+        },
+        {
+          "name": "footer",
+          "description": "Sitemap links across six columns (Products, Solutions, Partners, Support, About, Investor Relations), copyright 2003 Verisys Enterprise Solutions, Inc., and Privacy Policy / Terms of Use links."
+        }
+      ]
+    },
+    "products": {
+      "title": "Products - Verisys Enterprise Solutions",
+      "nav_items": [
+        "Home",
+        "Products",
+        "Solutions",
+        "Partners",
+        "Support",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "The Verisys Product Family",
+          "subheadline": "Integrated enterprise applications built on the VeriCore J2EE Platform."
+        },
+        {
+          "name": "featured_product_box",
+          "description": "Highlight box for VeriSuite ERP 7.2 with bullet list (Financials, Supply Chain, HCM modules) and Learn More link."
+        },
+        {
+          "name": "product_catalog_table",
+          "description": "Table listing VeriSuite ERP, VeriFlow BPM, VeriVault Data Warehouse, VeriPortal 4.0, and VeriConnect EAI Server with one-line descriptions and Learn More links."
+        },
+        {
+          "name": "comparison_table",
+          "description": "Edition comparison table (Workgroup, Departmental, Enterprise) with checkmarks for features like Oracle 9i support, Clustering, LDAP/Active Directory SSO, and 24x7 Premier Support."
+        },
+        {
+          "name": "right_sidebar",
+          "description": "Analyst quote from Gartner Group Magic Quadrant 2003 placing Verisys in the Leaders quadrant."
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Solutions by Industry - Verisys",
+      "nav_items": [
+        "Home",
+        "Products",
+        "Solutions",
+        "Partners",
+        "Support",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Industry-Specific Solutions",
+          "subheadline": "Pre-configured VeriSuite implementations for your vertical."
+        },
+        {
+          "name": "industry_table",
+          "description": "Five-row table for Financial Services, Healthcare, Manufacturing, Government, and Retail, each with a customer quote (e.g., CIO of Northern Trust) and a Read the Case Study link."
+        },
+        {
+          "name": "regulatory_box",
+          "description": "Light blue info box on compliance accelerators for HIPAA, Sarbanes-Oxley, and FDA 21 CFR Part 11."
+        },
+        {
+          "name": "cta_strip",
+          "description": "Request a Demo and Contact an Industry Specialist orange buttons."
+        }
+      ]
+    },
+    "partners": {
+      "title": "Partners - Verisys Partner Network",
+      "nav_items": [
+        "Home",
+        "Products",
+        "Solutions",
+        "Partners",
+        "Support",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "The Verisys Partner Network",
+          "subheadline": "Over 240 system integrators, ISVs, and reseller partners worldwide."
+        },
+        {
+          "name": "tier_badges",
+          "description": "Three square badge graphics for Gold (Accenture, Deloitte Consulting, EDS), Silver (BearingPoint, Sapient), and Authorized Reseller tiers."
+        },
+        {
+          "name": "partner_directory_search",
+          "description": "Form with dropdowns for Partner Type, Region (North America, EMEA, APAC), and Industry, plus a Search button."
+        },
+        {
+          "name": "benefits_table",
+          "description": "Three-column table comparing program benefits like Co-Marketing Funds, Sales Lead Sharing, NFR Software Licenses, and Certification Training across tiers."
+        },
+        {
+          "name": "become_a_partner_cta",
+          "description": "Orange CTA box prompting application to the Verisys Partner Network program."
+        }
+      ]
+    },
+    "about": {
+      "title": "About Us - Verisys Enterprise Solutions",
+      "nav_items": [
+        "Home",
+        "Products",
+        "Solutions",
+        "Partners",
+        "Support",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "About Verisys",
+          "subheadline": "Founded 1997 in Reston, Virginia. NASDAQ: VRSY."
+        },
+        {
+          "name": "mission_statement",
+          "description": "Short mission statement block about empowering global enterprises through reliable, scalable software infrastructure."
+        },
+        {
+          "name": "company_timeline",
+          "description": "Vertical timeline table with milestones: 1997 Founded, 1999 IPO on NASDAQ, 2001 Acquired DataLogix Corp, 2003 Launched VeriSuite 7.2."
+        },
+        {
+          "name": "executive_team_grid",
+          "description": "Table grid of six executives with placeholder headshots: Robert J. Chen (CEO), Patricia Hollings (CFO), Mark Steinberg (CTO), Linda Park (EVP Sales), David Okonkwo (EVP Engineering), Susan Whitfield (General Counsel)."
+        },
+        {
+          "name": "press_releases_list",
+          "description": "Reverse-chronological list of three 2003 press releases including Q3 Earnings, IBM Partnership, and Lockheed Martin contract win."
+        },
+        {
+          "name": "awards_badges",
+          "description": "Row of badge images for Gartner Leaders Quadrant 2003, InfoWorld 100 Award, and ISO 9001:2000 Certification."
+        },
+        {
+          "name": "contact_block",
+          "description": "Corporate HQ address at 11700 Plaza America Drive, Reston VA 20190, with main phone, fax number, and investor relations email."
+        }
+      ]
+    }
+  }
+}

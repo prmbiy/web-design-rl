@@ -1,0 +1,12 @@
+{
+  "dna_id": "011",
+  "dna_name": "korean_beauty",
+  "pages": [
+    "home",
+    "skincare",
+    "routine",
+    "about",
+    "reviews"
+  ],
+  "has_animations": true
+}

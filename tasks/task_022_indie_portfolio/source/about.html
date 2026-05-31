@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Kai Watanabe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0A0A0A;
+  color: #E8E8E8;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #39FF14;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+
+/* Nav */
+nav.top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: #E8E8E8;
+}
+.brand .dot { color: #39FF14; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+.nav-links a {
+  color: #E8E8E8;
+}
+.nav-links a:hover { color: #39FF14; }
+.nav-links a.active { color: #39FF14; }
+
+/* Animations */
+@keyframes cursor_blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  background: #39FF14;
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  animation: cursor_blink 1s steps(1) infinite;
+}
+
+@keyframes fade_up {
+  from { opacity:0; transform: translateY(24px); }
+  to { opacity:1; transform: translateY(0); }
+}
+.hero-item {
+  opacity: 0;
+  animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-item:nth-child(1) { animation-delay: 0.1s; }
+.hero-item:nth-child(2) { animation-delay: 0.3s; }
+.hero-item:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2.4s steps(40,end) forwards;
+}
+
+@keyframes slide_in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.project-card {
+  opacity: 0;
+  animation: slide_in 0.6s ease-out forwards;
+}
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+.project-card:nth-child(4) { animation-delay: 0.55s; }
+.project-card:nth-child(5) { animation-delay: 0.7s; }
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Hero / Intro */
+section.intro {
+  padding: 160px 32px 64px;
+}
+.intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.prompt {
+  font-family: 'JetBrains Mono', monospace;
+  color: #6B7280;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+.prompt .accent { color: #39FF14; }
+h1.headline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.subheadline {
+  color: #6B7280;
+  font-size: 19px;
+  max-width: 720px;
+  line-height: 1.55;
+}
+.subheadline .green { color: #39FF14; }
+
+/* Photo & Bio */
+section.bio {
+  padding: 80px 32px;
+  border-top: 1px solid #1F1F1F;
+}
+.bio-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.photo {
+  width: 340px;
+  height: 340px;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(57,255,20,0.15) 0%, transparent 50%),
+    linear-gradient(45deg, #141414 0%, #1F1F1F 100%);
+  border: 1px solid #1F1F1F;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 80px;
+  font-weight: 700;
+  color: #39FF14;
+  overflow: hidden;
+}
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 11px, rgba(57,255,20,0.04) 11px, rgba(57,255,20,0.04) 12px);
+  pointer-events: none;
+}
+.photo::after {
+  content: '◆';
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  font-size: 14px;
+  color: #39FF14;
+}
+.photo span { z-index: 2; }
+
+.bio-text h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.bio-text h2::before {
+  content: '// ';
+  color: #555555;
+}
+.bio-text p {
+  margin-bottom: 22px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #E8E8E8;
+}
+.bio-text p:last-child { margin-bottom: 0; }
+.bio-text .muted { color: #6B7280; }
+
+/* Currently */
+section.currently {
+  padding: 80px 32px;
+  border-top: 1px solid #1F1F1F;
+}
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+.section-title::before {
+  content: '// ';
+  color: #555555;
+}
+.currently-block {
+  background: #141414;
+  border: 1px solid #1F1F1F;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  padding: 28px 32px;
+  line-height: 2;
+}
+.currently-block .line { display: flex; align-items: baseline; gap: 14px; }
+.currently-block .key {
+  color: #61DAFB;
+  min-width: 110px;
+  display: inline-block;
+}
+.currently-block .arrow { color: #555555; }
+.currently-block .val { color: #E8E8E8; }
+.currently-block .val em { color: #A8FF78; font-style: normal; }
+.currently-block .val .num { color: #FFD700; }
+
+/* Tools */
+section.tools {
+  padding: 80px 32px;
+  border-top: 1px solid #1F1F1F;
+}
+.tools-list {
+  list-style: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  color: #E8E8E8;
+  max-width: 760px;
+}
+.tools-list li {
+  padding: 14px 0;
+  border-bottom: 1px dashed #1F1F1F;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.tools-list li:last-child { border-bottom: none; }
+.tools-list .tool-name { color: #E8E8E8; }
+.tools-list .tool-cat { color: #6B7280; font-size: 13px; }
+.tools-list .marker { color: #39FF14; margin-right: 12px; }
+
+/* Bookshelf */
+section.bookshelf {
+  padding: 80px 32px;
+  border-top: 1px solid #1F1F1F;
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.book {
+  background: #141414;
+  border: 1px solid #1F1F1F;
+  border-radius: 4px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.book:hover {
+  border-color: #39FF14;
+  transform: translateY(-3px);
+}
+.book-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555555;
+  margin-bottom: 18px;
+}
+.book-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: #E8E8E8;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.book-author {
+  font-size: 13px;
+  color: #6B7280;
+  margin-top: auto;
+}
+
+/* Contact */
+section.contact {
+  padding: 80px 32px 120px;
+  border-top: 1px solid #1F1F1F;
+}
+.contact-block {
+  background: #141414;
+  border: 1px solid #1F1F1F;
+  border-radius: 4px;
+  padding: 40px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.contact-line {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #E8E8E8;
+}
+.contact-line .label { color: #6B7280; margin-right: 12px; }
+.contact-line .label::after { content: ':'; }
+.contact-actions {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px dashed #1F1F1F;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid #39FF14;
+  border-radius: 4px;
+  color: #39FF14;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.resume-btn:hover {
+  background: rgba(57,255,20,0.1);
+  text-shadow: 0 0 8px rgba(57,255,20,0.5);
+}
+.easter-egg {
+  color: #39FF14;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+.easter-egg:hover {
+  text-shadow: 0 0 10px rgba(57,255,20,0.8);
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+/* Footer */
+footer {
+  background: #0A0A0A;
+  border-top: 1px solid #1F1F1F;
+  padding: 48px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #6B7280;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { color: #6B7280; }
+.footer-links a:hover { color: #39FF14; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="brand">kaiwa<span class="dot">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Writing</a></li>
+      <li><a href="#" class="active">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="intro">
+  <div class="intro-inner">
+    <div class="prompt hero-item"><span class="accent">kai@lisbon</span>:<span style="color:#61DAFB">~/about</span>$ <span class="typewriter">cat README.md</span></div>
+    <h1 class="headline hero-item">About Kai<span class="cursor"></span></h1>
+    <p class="subheadline hero-item">Senior engineer at <span class="green">Linear</span>. Based in Lisbon. Previously <span class="green">Vercel</span>, <span class="green">Stripe</span>, and a failed startup you've never heard of.</p>
+  </div>
+</section>
+
+<section class="bio">
+  <div class="bio-grid">
+    <div class="photo"><span>K.W</span></div>
+    <div class="bio-text">
+      <h2>photo_and_bio.md</h2>
+      <p>I grew up in <span class="muted">Osaka</span> in the late 90s, building HTML 4 fan sites for video games my friends didn't play. My parents thought computers were a phase. They were sort of right — I burned out, studied literature for four years, and ended up writing translations for an architecture magazine before remembering that I actually liked code more than I liked metaphor.</p>
+      <p>In 2016 I did a six-week bootcamp in Berlin and somehow talked my way into a contract role at Stripe a year later. Five years and two teams later I left to join Vercel during the great DX gold rush, where I built developer tools for a living and remembered why I started in the first place. I'm currently at <span class="muted">Linear</span> working on the sync engine — the thing that makes the app feel like magic when it isn't.</p>
+      <p>I moved to <span class="muted">Portugal</span> in 2022 for the same reasons everyone else did: the light, the food, and the rent. I work from a small apartment in Príncipe Real with a view of two churches and a tiled wall. I don't intend to leave.</p>
+    </div>
+  </div>
+</section>
+
+<section class="currently">
+  <div class="container">
+    <div class="section-title">currently</div>
+    <div class="currently-block">
+      <div class="line"><span class="key">working_on</span><span class="arrow">→</span><span class="val">Linear's <em>sync engine</em> (CRDT-backed, very fun)</span></div>
+      <div class="line"><span class="key">learning</span><span class="arrow">→</span><span class="val"><em>Zig</em> — slowly, painfully, joyfully</span></div>
+      <div class="line"><span class="key">building</span><span class="arrow">→</span><span class="val"><em>syncd</em> on weekends, version <span class="num">0.3.1</span></span></div>
+      <div class="line"><span class="key">reading</span><span class="arrow">→</span><span class="val"><em>Designing Data-Intensive Applications</em>, ch. <span class="num">7</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="container">
+    <div class="section-title">tools.txt</div>
+    <ul class="tools-list">
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Neovim + LazyVim</span></span><span class="tool-cat">editor — since 2019</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Ghostty</span></span><span class="tool-cat">terminal — finally, a good one</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Raycast</span></span><span class="tool-cat">launcher — replaced Alfred in 2022</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Linear</span></span><span class="tool-cat">project mgmt — I am extremely biased</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Arc</span></span><span class="tool-cat">browser — for the spaces feature alone</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Figma</span></span><span class="tool-cat">design — I still use it like a hammer</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">14" MacBook Pro</span></span><span class="tool-cat">hardware — M2 Pro, 32GB</span></li>
+      <li class="project-card"><span><span class="marker">▸</span><span class="tool-name">Keychron Q1</span></span><span class="tool-cat">keyboard — Holy Pandas, brass plate</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bookshelf">
+  <div class="container">
+    <div class="section-title">bookshelf — influencing me right now</div>
+    <div class="books">
+      <div class="book project-card">
+        <div class="book-num">01</div>
+        <div class="book-title">Designing Data-Intensive Applications</div>
+        <div class="book-author">Martin Kleppmann</div>
+      </div>
+      <div class="book project-card">
+        <div class="book-num">02</div>
+        <div class="book-title">The Pragmatic Programmer</div>
+        <div class="book-author">Hunt &amp; Thomas</div>
+      </div>
+      <div class="book project-card">
+        <div class="book-num">03</div>
+        <div class="book-title">Shape Up</div>
+        <div class="book-author">Ryan Singer</div>
+      </div>
+      <div class="book project-card">
+        <div class="book-num">04</div>
+        <div class="book-title">Working in Public</div>
+        <div class="book-author">Nadia Eghbal</div>
+      </div>
+      <div class="book project-card">
+        <div class="book-num">05</div>
+        <div class="book-title">A Philosophy of Software Design</div>
+        <div class="book-author">John Ousterhout</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="section-title">contact &amp; résumé</div>
+    <div class="contact-block">
+      <div class="contact-line"><span class="label">email</span> <a href="mailto:hi@kaiwa.dev">hi@kaiwa.dev</a></div>
+      <div class="contact-line"><span class="label">github</span> <a href="#">@kaiwa</a></div>
+      <div class="contact-line"><span class="label">mastodon</span> <a href="#">@kaiwa@hachyderm.io</a></div>
+      <div class="contact-line"><span class="label">bluesky</span> <a href="#">@kaiwa.dev</a></div>
+      <div class="contact-line"><span class="label">rss</span> <a href="#">/feed.xml</a></div>
+      <div class="contact-actions">
+        <a href="#" class="resume-btn">↓ Download résumé (PDF)</a>
+        <span style="color:#6B7280; font-size:13px;">last updated Mar 2024</span>
+        <span class="easter-egg" title="?">◆</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2024 Kai Watanabe · console.log('building things on the internet')</div>
+    <div class="footer-links">
+      <a href="#">RSS ›</a>
+      <a href="#">GitHub</a>
+      <a href="#">Colophon</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

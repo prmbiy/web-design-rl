@@ -1,0 +1,58 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap",
+    "font_heading": "'Noto Serif JP', 'Yu Mincho', serif",
+    "font_body": "'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif",
+    "font_mono": "'Courier New', monospace",
+    "size_h1": "22px",
+    "size_h2": "18px",
+    "size_body": "14px",
+    "size_small": "11px",
+    "color_primary": "#CC0000",
+    "color_secondary": "#000000",
+    "color_accent": "#0066CC",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#F7F7F7",
+    "color_text": "#1A1A1A",
+    "color_text_muted": "#666666",
+    "color_border": "#DDDDDD",
+    "border_radius": "0",
+    "container_max_width": "1200px",
+    "section_padding": "12px 16px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "112px",
+    "nav_position": "static",
+    "footer_bg": "#F7F7F7",
+    "extra_colors": {
+      "breaking_red": "#E60012",
+      "subscriber_gold": "#B8860B",
+      "stock_up": "#CC0000",
+      "stock_down": "#006633",
+      "tab_active": "#CC0000",
+      "ad_label_bg": "#EEEEEE"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Thin utility bar, red masthead, horizontal category tab scroller, then 5-column news grid with thumbnails as hero, secondary 3-column featured stories, and right sidebar stacking stock ticker, weather, sports scores, TV schedule and ad units.",
+      "bg": "#FFFFFF"
+    },
+    "politics": {
+      "layout": "Two-column: main column with lead Diet story, dated article list with bylines and comment counts; right sidebar with politician index, election widget, and ads.",
+      "bg": "#FFFFFF"
+    },
+    "economy": {
+      "layout": "Top stock ticker strip, lead business stories in 3-column grid, dense market data table mid-page, corporate earnings list, real estate sub-section and sidebar with currency rates.",
+      "bg": "#FFFFFF"
+    },
+    "international": {
+      "layout": "World map nav with region tabs (Asia/Americas/Europe/Middle East), 4-column story grid per region, foreign correspondent column rail, and right ad/sidebar stack.",
+      "bg": "#FFFFFF"
+    },
+    "culture": {
+      "layout": "Magazine-style hero feature, 3-column reviews (film/music/books) with star ratings, event calendar table, food and travel thumbnails strip, sidebar with bestseller list.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

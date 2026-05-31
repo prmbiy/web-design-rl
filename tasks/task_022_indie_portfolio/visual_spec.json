@@ -1,0 +1,83 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap",
+    "font_heading": "'JetBrains Mono', monospace",
+    "font_body": "'Inter', system-ui, sans-serif",
+    "font_mono": "'JetBrains Mono', 'Fira Code', monospace",
+    "size_h1": "64px",
+    "size_h2": "36px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#E8E8E8",
+    "color_secondary": "#6B7280",
+    "color_accent": "#39FF14",
+    "color_bg": "#0A0A0A",
+    "color_surface": "#141414",
+    "color_text": "#E8E8E8",
+    "color_text_muted": "#6B7280",
+    "color_border": "#1F1F1F",
+    "border_radius": "4px",
+    "container_max_width": "1100px",
+    "section_padding": "96px 32px",
+    "nav_bg": "rgba(10,10,10,0.85)",
+    "nav_height": "64px",
+    "nav_position": "fixed",
+    "footer_bg": "#0A0A0A",
+    "extra_colors": {
+      "syntax_keyword": "#61DAFB",
+      "syntax_string": "#A8FF78",
+      "syntax_number": "#FFD700",
+      "syntax_comment": "#555555",
+      "accent_glow": "rgba(57,255,20,0.15)"
+    },
+    "animation_specs": {
+      "cursor_blink": {
+        "css": "@keyframes cursor_blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } } .cursor { display:inline-block; width:10px; height:1.1em; background:#39FF14; vertical-align:text-bottom; margin-left:4px; animation: cursor_blink 1s steps(1) infinite; }",
+        "applies_to": ".cursor",
+        "trigger": "continuous"
+      },
+      "typewriter": {
+        "css": "@keyframes typewriter { from { width:0; } to { width:100%; } } .typewriter { display:inline-block; overflow:hidden; white-space:nowrap; border-right:none; animation: typewriter 2.4s steps(40,end) forwards; }",
+        "applies_to": ".typewriter",
+        "trigger": "on-load"
+      },
+      "hero_fade_up": {
+        "css": "@keyframes fade_up { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } } .hero-item { opacity:0; animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards; } .hero-item:nth-child(1){animation-delay:0.1s} .hero-item:nth-child(2){animation-delay:0.3s} .hero-item:nth-child(3){animation-delay:0.5s}",
+        "applies_to": ".hero-item",
+        "trigger": "on-load"
+      },
+      "project_card_slide": {
+        "css": "@keyframes slide_in { from { opacity:0; transform: translateX(-20px); } to { opacity:1; transform: translateX(0); } } .project-card { opacity:0; animation: slide_in 0.6s ease-out forwards; } .project-card:nth-child(1){animation-delay:0.1s} .project-card:nth-child(2){animation-delay:0.25s} .project-card:nth-child(3){animation-delay:0.4s}",
+        "applies_to": ".project-card",
+        "trigger": "on-scroll"
+      },
+      "link_hover": {
+        "css": "a { color:#39FF14; text-decoration:none; transition: color 0.2s ease, text-shadow 0.2s ease; } a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }",
+        "applies_to": "a",
+        "trigger": "on-hover"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed dark hero with terminal prompt and blinking cursor, followed by three featured project cards, tech stack icon strip, currently-building note, two recent posts, and contact CTA.",
+      "bg": "#0A0A0A"
+    },
+    "work": {
+      "layout": "Featured project full-width at top, then a two-column grid of project cards with screenshots, tech badges, and GitHub/demo links; open source contributions section below.",
+      "bg": "#0A0A0A"
+    },
+    "project": {
+      "layout": "Long-form single column with problem statement, architecture diagram, screenshots, technical decisions, metrics, and stack list with GitHub link.",
+      "bg": "#0A0A0A"
+    },
+    "writing": {
+      "layout": "Pinned featured post card on top, then a vertical list of posts with date, title, reading time, first line, and tag filters at the top.",
+      "bg": "#0A0A0A"
+    },
+    "about": {
+      "layout": "Two-column intro with photo and current role, followed by long-form opinionated prose sections on learning, building, reading, and tools, ending with contact info and resume download.",
+      "bg": "#0A0A0A"
+    }
+  }
+}

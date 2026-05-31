@@ -1,0 +1,12 @@
+{
+  "dna_id": "007",
+  "dna_name": "latam_telco",
+  "pages": [
+    "home",
+    "movil",
+    "internet",
+    "paquetes",
+    "tiendas"
+  ],
+  "has_animations": false
+}

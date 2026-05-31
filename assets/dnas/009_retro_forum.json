@@ -1,0 +1,22 @@
+{
+  "id": "009",
+  "name": "retro_forum",
+  "source": "B",
+  "archetype": "Classic vBulletin/phpBB-style discussion forum community",
+  "market": "English-speaking hobbyist community, car enthusiasts or gaming, ages 25-45",
+  "era": "2012",
+  "density": "Medium-high density in a structured tabular way. The forum index shows a table of sub-forums with category names, thread counts, post counts, last post info, and member avatars. Thread pages show posts in cards with user avatars, post counts, join dates, and reputation scores in left sidebar. Dense signature areas below each post.",
+  "nav_style": "Top bar with forum logo/banner image (replicated as CSS gradient + text). Below it: navigation row with Home, Forum, Calendar, FAQ, Members, Search, Today's Posts. Below that: a toolbar with 'New Thread', 'Reply', breadcrumb trail. Forum sections have colored category headers.",
+  "commercial_model": "Ad-supported enthusiast community. Banner ads in header and after first post. Sidebar ads on forum index. Premium membership removes ads and adds avatar flair. Donation drive sometimes appears.",
+  "color_palette": "Deep blue (#003366) forum header. Medium blue (#336699) category headers. White (#FFFFFF) post backgrounds. Light grey (#F2F2F2) alternating thread rows. Dark grey (#333333) text. Orange (#FF6600) for unread/new badges. Old-school but readable.",
+  "typography": "Arial and Tahoma — forum software defaults from the era. Post body at 13px. Username in bold. Post metadata (time, post count) in small grey text. Signatures often in italic colored text. No modern web fonts.",
+  "quirks": ["user_avatar_left_sidebar", "post_count_displayed", "join_date_displayed", "reputation_system", "signature_section", "thread_rating_stars", "quote_nested_styling", "moderator_badges", "online_users_list", "birthday_announcements"],
+  "pages": [
+    {"slug": "index", "title": "Forum Index", "description": "Forum category overview table. Categories: General Discussion, Technical Help, Build Threads, Classifieds, Meets & Events. Each with sub-forums, thread count, post count, last post preview with avatar thumbnail."},
+    {"slug": "subforum", "title": "Sub-forum Thread List", "description": "Thread listing page for one sub-forum. Columns: thread icon, thread title, author, replies, views, last post date+time. Sticky threads at top highlighted in different color."},
+    {"slug": "thread", "title": "Thread View", "description": "A discussion thread with 15 posts. Each post: left sidebar with avatar, username, member rank title, post count, join date, reputation. Right: post content area with quoted replies, images, and signature."},
+    {"slug": "profile", "title": "Member Profile", "description": "User profile page. Large avatar. Statistics: posts, threads started, reputation, join date, last active. Recent posts list. About me section. Infractions/awards display."},
+    {"slug": "search", "title": "Advanced Search", "description": "Forum search page with keyword field, author field, date range, forum section selector, sort options. Results shown in thread-list format. Also: 'Today's Posts' and 'New Posts' quick links."}
+  ],
+  "animations": false
+}

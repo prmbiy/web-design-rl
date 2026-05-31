@@ -1,0 +1,28 @@
+schema_version = "1.1"
+
+[task]
+name = "web-design-rl/001"
+description = "5-page website design replication (indian_govt)"
+keywords = ["design-to-code", "web", "html", "css", "visual-replication"]
+
+[metadata]
+task_id = "001"
+category = "design-to-code"
+framework = "html_css"
+page_count = 5
+generator = "web-design-rl"
+
+[agent]
+timeout_sec = 1800.0
+user = "agent"
+
+[verifier]
+timeout_sec = 600.0
+user = "root"
+
+[environment]
+build_timeout_sec = 1200.0
+os = "linux"
+cpus = 2
+memory_mb = 4096
+allow_internet = true

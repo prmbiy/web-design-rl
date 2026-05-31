@@ -1,0 +1,22 @@
+{
+  "id": "005",
+  "name": "early_corporate",
+  "source": "B",
+  "archetype": "Early 2000s corporate enterprise software company website",
+  "market": "United States, B2B enterprise technology, Fortune 500 buyers",
+  "era": "2003",
+  "density": "Moderate density with rigid table-based layouts. The page feels boxy and structured — clear regions but no organic flow. Above-the-fold real estate dominated by a Flash-like hero banner (replicated in HTML/CSS using a gradient blue rectangle with centered text). Left navigation column (180px fixed) with collapsible tree menus using CSS only. Main content column (60% width). Right column (20% width) with press releases and customer logos. CONSTRAINT: No CSS border-radius. No CSS gradients. No flexbox or grid — use HTML tables and float-based layout only. No rounded corners anywhere. This must look genuinely frozen in 2003.",
+  "nav_style": "Fixed top bar with horizontal text navigation links separated by pipes: Home | Products | Solutions | Partners | Support | About | Contact. Below it a breadcrumb. The left column has a persistent vertical tree navigation that expands on click using CSS. No mega-menus — just hierarchical indentation.",
+  "commercial_model": "Enterprise software. Lead generation website. Everything points to 'Contact Sales' or 'Request a Demo'. Case studies, white papers, and webinars gated behind email forms. No pricing publicly listed.",
+  "color_palette": "Corporate blue (#003087) and steel grey (#4A4A4A) dominant. White page backgrounds. Accent orange (#FF6600) for CTA buttons. Light blue (#DDEEFF) for alternating table rows and info boxes. The overall effect is conservative, trustworthy, dated.",
+  "typography": "Verdana and Arial — the corporate web-safe standards of the era. Headings in dark blue at 16-18px. Body text at 12-13px. All-caps labels for section headings. Link text always underlined. No Google Fonts, no web fonts.",
+  "quirks": ["table_based_three_column_layout", "flash_banner_style_hero", "collapsible_tree_nav", "case_study_logos_strip", "press_release_sidebar", "fax_number_in_contact", "ie6_compatible_design", "enterprise_jargon_heavy", "request_demo_cta_everywhere", "partner_ecosystem_section"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Three-column layout. Left nav tree. Center hero with product tagline and 3 feature bullets. Right sidebar with latest press release and customer logo strip. Bottom footer with all site links."},
+    {"slug": "products", "title": "Products", "description": "Product catalog in a table with product name, description blurb, and 'Learn More' link. Product comparison table. Featured product highlight box at top."},
+    {"slug": "solutions", "title": "Solutions by Industry", "description": "Industry vertical landing pages: Financial Services, Healthcare, Manufacturing, Government, Retail. Each with a customer quote and case study link."},
+    {"slug": "partners", "title": "Partners", "description": "Partner ecosystem page with partner tier badges (Gold, Silver, Authorized). Partner directory search. Partner program benefits table. 'Become a Partner' CTA."},
+    {"slug": "about", "title": "About Us", "description": "Company timeline since founding in 1997. Executive team photos in a table grid. Press releases list. Awards and certifications badges. Mission statement."}
+  ],
+  "animations": ["hero_banner_slide_from_left_on_load", "nav_item_background_color_change_on_hover", "feature_box_appear_on_scroll"]
+}

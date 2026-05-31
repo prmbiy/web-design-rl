@@ -1,0 +1,158 @@
+{
+  "brand_name": "MAISON DELACROIX-VAUBAN",
+  "tagline": "Paris, depuis 1923",
+  "primary_color_name": "Vauban Sand",
+  "pages": {
+    "home": {
+      "title": "Maison",
+      "nav_items": [
+        "Femme",
+        "Homme",
+        "Maroquinerie",
+        "Défilé",
+        "Maison"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "DELACROIX-VAUBAN",
+          "subheadline": "Collection Automne–Hiver 2023 : Silences du Nord"
+        },
+        {
+          "name": "collection_intro",
+          "description": "Brief italic serif editorial statement introducing the AW23 'Silences du Nord' collection, referencing Normandy coastlines and creative director Hélène Marchetti's third season."
+        },
+        {
+          "name": "featured_pieces",
+          "description": "Three-item product grid with extreme whitespace featuring the Vauban 36 Handbag (€9,400), the Camille Cashmere Coat (€6,200), and the Étienne Silk Blouse (€2,150)."
+        },
+        {
+          "name": "editorial_film",
+          "description": "Full-bleed still from the campaign film 'Une Lettre à Honfleur' shot by Paolo Roversi, with a single line linking to the runway replay."
+        },
+        {
+          "name": "footer",
+          "description": "Minimal footer with boutique cities (Paris, Milan, Tokyo, New York), client services telephone, and newsletter sign-up labeled 'Correspondance'."
+        }
+      ]
+    },
+    "collection": {
+      "title": "Automne–Hiver 2023",
+      "nav_items": [
+        "Tout",
+        "Prêt-à-Porter",
+        "Maroquinerie",
+        "Souliers",
+        "Accessoires"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Silences du Nord",
+          "subheadline": "Quarante-deux pièces · Présentées au Palais de Tokyo, 28 février 2023"
+        },
+        {
+          "name": "lookbook_alternation",
+          "description": "Full-bleed runway photographs alternating with product cards including Manteau Sologne in camel wool (€7,800), Sac Vauban 36 in noir grain (€9,400), and Bottines Astrid (€1,950)."
+        },
+        {
+          "name": "category_filter",
+          "description": "Tiny all-caps filter row at top with categories: PRÊT-À-PORTER, MAROQUINERIE, SOULIERS, ACCESSOIRES."
+        }
+      ]
+    },
+    "product": {
+      "title": "Sac Vauban 36",
+      "nav_items": [
+        "Femme",
+        "Homme",
+        "Maroquinerie",
+        "Défilé",
+        "Maison"
+      ],
+      "sections": [
+        {
+          "name": "gallery",
+          "description": "Left column with four full-height editorial photographs of the Sac Vauban 36 in Noir Calfskin, shown from front, side, interior, and on-model."
+        },
+        {
+          "name": "product_info",
+          "description": "Right column with name 'Sac Vauban 36', price '€9,400' in tiny type, color 'Noir', and 'Reserve' button alongside 'Add to bag'."
+        },
+        {
+          "name": "details_accordion",
+          "description": "Collapsible sections for Matières (veau grainé, doublure agneau), Savoir-faire (assembled in Fiesso d'Artico, Italy, 38 hours per piece), and Entretien."
+        },
+        {
+          "name": "related_styles",
+          "description": "Three related pieces shown small: Sac Vauban 28, Portefeuille Astrid, and Sac Camille Mini."
+        }
+      ]
+    },
+    "heritage": {
+      "title": "Maison & Heritage",
+      "nav_items": [
+        "Histoire",
+        "Atelier",
+        "Codes",
+        "Archives",
+        "Défilés"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "1923",
+          "subheadline": "Cent ans de discrétion"
+        },
+        {
+          "name": "founding_story",
+          "description": "Long-form elegant prose describing how Augustin Delacroix-Vauban founded the house above a leather workshop on Rue Cambon, and the 1958 collaboration with sculptor Henri Laurens."
+        },
+        {
+          "name": "atelier_gallery",
+          "description": "Black and white photographs of the Faubourg Saint-Honoré atelier showing artisans hand-stitching the Vauban handbag and the cutting room."
+        },
+        {
+          "name": "craftsmanship_film",
+          "description": "Embedded six-minute film 'Les Mains' documenting maître artisan Jean-Pierre Olivier, 41 years at the house."
+        },
+        {
+          "name": "house_codes",
+          "description": "Three signature codes presented as quiet vignettes: the chevron stitch, the brushed-brass V clasp, and the signature Vauban Sand lining."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact & Boutiques",
+      "nav_items": [
+        "Boutiques",
+        "Rendez-vous Privé",
+        "Services Clients",
+        "Défilé"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Nos Boutiques",
+          "subheadline": "Sur rendez-vous"
+        },
+        {
+          "name": "boutique_list",
+          "description": "Minimal typographic list of flagship addresses: 24 Rue du Faubourg Saint-Honoré Paris, Via Montenapoleone 8 Milano, Ginza Six 4F Tokyo, and 760 Madison Avenue New York."
+        },
+        {
+          "name": "private_appointment",
+          "description": "Understated form for booking a Private Client Salon visit with fields for name, boutique preference, date, and notes to the Conseiller Privé."
+        },
+        {
+          "name": "fashion_show_request",
+          "description": "Formal invitation request form for the SS24 show at Jardin des Tuileries on 26 September 2023, restricted to existing clients and press."
+        },
+        {
+          "name": "client_services",
+          "description": "Discrete contact block with international Conciergerie telephone +33 1 42 60 00 23 and email correspondance@delacroix-vauban.com."
+        }
+      ]
+    }
+  }
+}

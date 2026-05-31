@@ -1,0 +1,85 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "Verdana, Arial, sans-serif",
+    "font_body": "Verdana, Arial, sans-serif",
+    "font_mono": "'Courier New', monospace",
+    "size_h1": "18px",
+    "size_h2": "16px",
+    "size_body": "12px",
+    "size_small": "11px",
+    "color_primary": "#003087",
+    "color_secondary": "#4A4A4A",
+    "color_accent": "#FF6600",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#DDEEFF",
+    "color_text": "#333333",
+    "color_text_muted": "#666666",
+    "color_border": "#999999",
+    "border_radius": "0",
+    "container_max_width": "960px",
+    "section_padding": "12px",
+    "nav_bg": "#003087",
+    "nav_height": "28px",
+    "nav_position": "static",
+    "footer_bg": "#003087",
+    "extra_colors": {
+      "alt_row": "#F0F4FA",
+      "header_bar": "#002060",
+      "link_blue": "#0033CC",
+      "visited": "#660099",
+      "table_header": "#003087",
+      "badge_gold": "#D4A017",
+      "badge_silver": "#A8A8A8"
+    },
+    "animation_specs": {
+      "hero_banner_slide": {
+        "css": "@keyframes heroSlide { 0% { transform: translateX(-100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } } .hero-banner { animation: heroSlide 0.8s ease-out 1; }",
+        "applies_to": ".hero-banner",
+        "trigger": "on-load"
+      },
+      "nav_hover": {
+        "css": ".top-nav a { color: #FFFFFF; text-decoration: underline; padding: 4px 10px; transition: background-color 0.15s linear; } .top-nav a:hover { background-color: #FF6600; color: #FFFFFF; }",
+        "applies_to": ".top-nav a",
+        "trigger": "on-hover"
+      },
+      "feature_box_appear": {
+        "css": "@keyframes featureAppear { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } } .feature-box.in-view { animation: featureAppear 0.5s ease-out both; }",
+        "applies_to": ".feature-box",
+        "trigger": "on-scroll"
+      },
+      "tree_expand": {
+        "css": ".tree-nav ul { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; } .tree-nav li.open > ul { max-height: 500px; }",
+        "applies_to": ".tree-nav ul",
+        "trigger": "on-hover"
+      },
+      "cta_pulse": {
+        "css": ".btn-cta { background-color: #FF6600; color: #FFFFFF; border: 1px solid #993D00; padding: 5px 12px; font-weight: bold; transition: background-color 0.2s; } .btn-cta:hover { background-color: #CC5200; }",
+        "applies_to": ".btn-cta",
+        "trigger": "on-hover"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Three-column table layout: 180px left tree nav, ~60% center column with blue gradient-substitute hero banner and three feature bullet boxes, ~20% right sidebar with press release and customer logo strip.",
+      "bg": "#FFFFFF"
+    },
+    "products": {
+      "layout": "Two-column layout with left tree nav and main content area featuring a highlighted product callout box on top followed by a bordered product catalog table and a product comparison table with alternating light-blue rows.",
+      "bg": "#FFFFFF"
+    },
+    "solutions": {
+      "layout": "Two-column layout with left tree nav and main content showing a 2x3 table grid of industry vertical cards (Financial Services, Healthcare, Manufacturing, Government, Retail) each with a customer quote block and Learn More link.",
+      "bg": "#FFFFFF"
+    },
+    "partners": {
+      "layout": "Two-column layout with left tree nav and main area containing partner tier badge table (Gold/Silver/Authorized), partner directory search form, benefits comparison table, and a Become a Partner CTA box.",
+      "bg": "#FFFFFF"
+    },
+    "about": {
+      "layout": "Two-column layout with left tree nav and main content stacking mission statement box, company timeline table since 1997, executive team photo grid table, press releases list, and awards/certifications badge strip.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

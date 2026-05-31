@@ -1,0 +1,12 @@
+{
+  "dna_id": "023",
+  "dna_name": "nonprofit_climate",
+  "pages": [
+    "home",
+    "science",
+    "action",
+    "stories",
+    "about"
+  ],
+  "has_animations": false
+}

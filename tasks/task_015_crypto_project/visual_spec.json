@@ -1,0 +1,88 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+    "font_heading": "'Space Grotesk', sans-serif",
+    "font_body": "'Inter', sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "72px",
+    "size_h2": "48px",
+    "size_body": "16px",
+    "size_small": "11px",
+    "color_primary": "#7B2FBE",
+    "color_secondary": "#00D4FF",
+    "color_accent": "#00FF41",
+    "color_bg": "#0A0A0A",
+    "color_surface": "#13131A",
+    "color_text": "#FFFFFF",
+    "color_text_muted": "#94A3B8",
+    "color_border": "rgba(255,255,255,0.08)",
+    "border_radius": "12px",
+    "container_max_width": "1280px",
+    "section_padding": "120px 24px",
+    "nav_bg": "rgba(10,10,10,0.7)",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#070709",
+    "extra_colors": {
+      "code_bg": "#0D1100",
+      "code_text": "#00FF41",
+      "gradient_primary": "linear-gradient(135deg,#7B2FBE 0%,#00D4FF 100%)",
+      "cyan_glow": "0 0 20px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2)",
+      "purple_glow": "0 0 20px rgba(123,47,190,0.5)"
+    },
+    "animation_specs": {
+      "particle_network_drift": {
+        "css": "@keyframes drift { 0%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} 100%{transform:translate(0,0)} } .particle{animation:drift 12s ease-in-out infinite;}",
+        "applies_to": ".hero-particles .particle",
+        "trigger": "continuous"
+      },
+      "gradient_text_pulse": {
+        "css": "@keyframes gradPulse { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} } .gradient-text{background:linear-gradient(135deg,#7B2FBE,#00D4FF,#7B2FBE);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradPulse 6s ease infinite;}",
+        "applies_to": "h1, h2, .gradient-text",
+        "trigger": "continuous"
+      },
+      "stat_counter_tick_up": {
+        "css": "@keyframes tickUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} } .stat-value{animation:tickUp 1.2s ease-out both;}",
+        "applies_to": ".stat-value",
+        "trigger": "on-scroll"
+      },
+      "scroll_reveal_glow_cards": {
+        "css": "@keyframes glowReveal { from{opacity:0;transform:translateY(24px);box-shadow:none} to{opacity:1;transform:translateY(0);box-shadow:0 0 30px rgba(0,212,255,0.15)} } .glow-card{animation:glowReveal 0.8s ease-out both;transition:box-shadow 0.4s,transform 0.4s;} .glow-card:hover{transform:translateY(-4px);box-shadow:0 0 40px rgba(123,47,190,0.4),0 0 80px rgba(0,212,255,0.2);}",
+        "applies_to": ".glow-card",
+        "trigger": "on-scroll"
+      },
+      "nav_blur_scroll": {
+        "css": "nav{transition:backdrop-filter 0.3s,background 0.3s;} nav.scrolled{backdrop-filter:blur(20px);background:rgba(10,10,10,0.85);border-bottom:1px solid rgba(255,255,255,0.06);}",
+        "applies_to": "nav",
+        "trigger": "on-scroll"
+      },
+      "cta_glow_hover": {
+        "css": ".btn-primary{transition:box-shadow 0.3s,transform 0.3s;} .btn-primary:hover{box-shadow:0 0 30px rgba(0,212,255,0.6),0 0 60px rgba(123,47,190,0.4);transform:translateY(-2px);}",
+        "applies_to": ".btn-primary",
+        "trigger": "on-hover"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Hero with particle network bg + 72px gradient headline + dual CTAs, stats strip (TPS/Validators/TVL in 80px mono), 3-column tech cards, 12-logo ecosystem grid, terminal code block, community CTA, footer",
+      "bg": "#0A0A0A"
+    },
+    "technology": {
+      "layout": "Intro headline, SVG consensus flow diagram, parallelism explainer with side-by-side text/visual, comparison table vs Ethereum/Solana/Avalanche, audit badges row",
+      "bg": "radial-gradient(ellipse at top,#13131A 0%,#0A0A0A 60%)"
+    },
+    "ecosystem": {
+      "layout": "Total TVL hero stat in 80px mono, category filter chips, responsive grid of protocol glow-cards with TVL, builders fund CTA banner",
+      "bg": "#0A0A0A"
+    },
+    "developers": {
+      "layout": "Split hero with copy left and terminal code window right, SDK language cards row, grants program section with stats, testnet faucet widget, docs CTA",
+      "bg": "linear-gradient(180deg,#0A0A0A 0%,#0D1100 100%)"
+    },
+    "community": {
+      "layout": "Heading, large social icon card grid (Discord/X/Telegram/Reddit/Forum), governance proposals list with status badges, ambassador + hackathon sections",
+      "bg": "#0A0A0A"
+    }
+  }
+}

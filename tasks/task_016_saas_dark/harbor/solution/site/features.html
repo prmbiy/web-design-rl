@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — Flexor</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0F1117;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #252836;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#4F6BFF,#A78BFA);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: #94A3B8;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1E293B;
+  border: 1px solid #252836;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.gh-badge .star { color: #FBBF24; }
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost {
+  background: transparent;
+  color: #FFFFFF;
+}
+.btn-ghost:hover { background: #171923; }
+.btn-primary {
+  background: linear-gradient(135deg,#4F6BFF,#A78BFA);
+  color: #FFFFFF;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(79,107,255,0.4); }
+.btn-lg { padding: 14px 24px; font-size: 15px; }
+
+/* HERO */
+.hero {
+  padding: 120px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse, rgba(79,107,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  animation: fade_in_hero 0.8s ease-out forwards;
+}
+.hero-eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #1E293B;
+  border: 1px solid #252836;
+  border-radius: 100px;
+  font-size: 13px;
+  color: #A78BFA;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg,#FFFFFF 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 20px;
+  color: #94A3B8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@keyframes fade_in_hero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION */
+.section {
+  padding: 96px 24px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.section-sub {
+  color: #94A3B8;
+  font-size: 17px;
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* CATEGORY BLOCKS */
+.category {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+.category.reverse .cat-text { order: 2; }
+.category.reverse .cat-visual { order: 1; }
+
+.cat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(79,107,255,0.1);
+  border: 1px solid rgba(79,107,255,0.3);
+  color: #4F6BFF;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.cat-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.cat-text p {
+  color: #94A3B8;
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+.cat-list {
+  list-style: none;
+}
+.cat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #CBD5E1;
+  font-size: 15px;
+}
+.check {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.15);
+  color: #22C55E;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* VISUALS */
+.cat-visual {
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  min-height: 360px;
+}
+
+/* Targeting visual */
+.rule-box {
+  background: #0A0C12;
+  border: 1px solid #252836;
+  border-radius: 10px;
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.rule-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+.rule-code { color: #CBD5E1; line-height: 1.7; }
+.rule-code .key { color: #A78BFA; }
+.rule-code .op { color: #4F6BFF; }
+.rule-code .val { color: #22C55E; }
+
+.rollout-bar {
+  margin-top: 20px;
+}
+.rollout-track {
+  height: 12px;
+  background: #0A0C12;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid #252836;
+}
+.rollout-fill {
+  height: 100%;
+  width: 35%;
+  background: linear-gradient(90deg,#4F6BFF,#A78BFA);
+  border-radius: 100px;
+}
+.rollout-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.rollout-meta .pct { color: #FFFFFF; font-weight: 600; }
+.rollout-meta .lbl { color: #94A3B8; }
+
+/* Experiments visual */
+.exp-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 180px;
+  padding: 16px 0;
+  border-bottom: 1px solid #252836;
+}
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg,#4F6BFF,rgba(79,107,255,0.2));
+  border-radius: 6px 6px 0 0;
+  position: relative;
+}
+.bar.alt { background: linear-gradient(180deg,#A78BFA,rgba(167,139,250,0.2)); }
+.exp-legend {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #94A3B8;
+}
+.dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.dot.blue { background: #4F6BFF; }
+.dot.purple { background: #A78BFA; }
+.exp-stats {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.exp-stat {
+  background: #0A0C12;
+  border: 1px solid #252836;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.exp-stat .v {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.exp-stat .l {
+  font-size: 11px;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+.v.green { color: #22C55E; }
+
+/* Observability visual */
+.obs-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.obs-event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #0A0C12;
+  border: 1px solid #252836;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+.obs-event .ts {
+  font-family: 'JetBrains Mono', monospace;
+  color: #94A3B8;
+  font-size: 12px;
+  width: 64px;
+}
+.obs-event .ev {
+  color: #CBD5E1;
+  flex: 1;
+}
+.obs-event .src {
+  background: #1E293B;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #A78BFA;
+  font-weight: 600;
+}
+.obs-event .badge-active {
+  background: rgba(34,197,94,0.15);
+  color: #22C55E;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* COMPARISON TABLE */
+.compare-section { background: #0A0C12; border-top: 1px solid #252836; border-bottom: 1px solid #252836; }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.compare-table th, .compare-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid #252836;
+  font-size: 14px;
+}
+.compare-table th {
+  background: #1E293B;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.compare-table th.flexor {
+  color: #A78BFA;
+  background: linear-gradient(180deg, rgba(167,139,250,0.12), rgba(79,107,255,0.06));
+}
+.compare-table td:first-child { color: #94A3B8; font-weight: 500; }
+.compare-table td.flexor-cell { color: #FFFFFF; font-weight: 600; }
+.compare-table tr:last-child td { border-bottom: none; }
+.yes { color: #22C55E; font-weight: 600; }
+.no { color: #64748B; }
+
+/* VIDEO DEMO */
+.video-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #252836;
+  background: #171923;
+  aspect-ratio: 16/9;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.video-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(79,107,255,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(167,139,250,0.2) 0%, transparent 50%),
+    #0A0C12;
+}
+.video-mock {
+  position: absolute;
+  inset: 40px;
+  background: #0F1117;
+  border: 1px solid #252836;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mock-bar {
+  height: 12px;
+  background: #1E293B;
+  border-radius: 4px;
+}
+.mock-bar.s { width: 30%; }
+.mock-bar.m { width: 60%; }
+.mock-bar.l { width: 80%; }
+.mock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+.mock-card {
+  height: 80px;
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 6px;
+}
+.play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#4F6BFF,#A78BFA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(79,107,255,0.4);
+  z-index: 2;
+}
+.play-btn::before {
+  content: '';
+  width: 0; height: 0;
+  border-left: 20px solid #FFFFFF;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  margin-left: 4px;
+}
+.video-meta {
+  text-align: center;
+  margin-top: 24px;
+  color: #94A3B8;
+  font-size: 14px;
+}
+
+/* INTEGRATIONS */
+.integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+.int-cell {
+  aspect-ratio: 1.6;
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+.int-cell:hover {
+  border-color: #4F6BFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79,107,255,0.15);
+}
+.int-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#1E293B,#0A0C12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #A78BFA;
+}
+.int-name { font-size: 12px; color: #94A3B8; font-weight: 500; }
+
+/* CTA */
+.cta-section {
+  padding: 96px 24px;
+  text-align: center;
+}
+.cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  border-radius: 20px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at top, rgba(79,107,255,0.15), transparent 70%),
+    #171923;
+  border: 1px solid #252836;
+}
+.cta-card h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.cta-card p {
+  color: #94A3B8;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* FOOTER */
+.footer {
+  background: #0A0C12;
+  border-top: 1px solid #252836;
+  padding: 64px 24px 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+}
+.footer-brand p {
+  color: #94A3B8;
+  margin-top: 16px;
+  font-size: 14px;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-col a {
+  color: #94A3B8;
+  font-size: 14px;
+}
+.footer-col a:hover { color: #FFFFFF; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid #252836;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #94A3B8;
+}
+.footer-badges {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.badge-soc {
+  background: #1E293B;
+  border: 1px solid #252836;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #22C55E;
+}
+.status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+}
+
+/* keyframes */
+@keyframes gradient_border_glow {
+  0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); }
+}
+.glow-border {
+  animation: gradient_border_glow 3s ease-in-out infinite;
+}
+
+@keyframes counter_animation_stats {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.stat-number { animation: counter_animation_stats 1s ease-out forwards; display: inline-block; }
+
+.feature-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+.feature-card:hover { transform: translateY(-4px); border-color: #4F6BFF; box-shadow: 0 12px 32px rgba(79,107,255,0.15); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">⚡</span>
+      Flexor
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Product</a></li>
+      <li><a href="#" class="active">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="gh-badge"><span class="star">★</span> 18.4k</span>
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Start free</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ Features overview</span>
+    <h1>Everything you need to ship with confidence</h1>
+    <p>From kill switches to multivariate experiments, Flexor covers the full release lifecycle.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Targeting & Rollouts -->
+    <div class="category feature-card" style="border: 1px solid transparent; padding: 0;">
+      <div class="cat-text">
+        <span class="cat-tag">⊙ Targeting & Rollouts</span>
+        <h2>Ship to the right users at the right time</h2>
+        <p>Compose precise targeting rules with custom attributes, then gradually release to percentages of traffic. Roll back instantly if anything goes wrong.</p>
+        <ul class="cat-list">
+          <li><span class="check">✓</span> Rule-based targeting on any user attribute</li>
+          <li><span class="check">✓</span> Percentage rollouts with sticky bucketing</li>
+          <li><span class="check">✓</span> Geographic and device segmentation</li>
+          <li><span class="check">✓</span> Scheduled releases and time-based windows</li>
+          <li><span class="check">✓</span> Instant kill-switch with audit trail</li>
+        </ul>
+      </div>
+      <div class="cat-visual">
+        <div class="rule-box">
+          <div class="rule-label">Targeting Rule</div>
+          <div class="rule-code">
+            <span class="key">user.plan</span> <span class="op">==</span> <span class="val">"pro"</span><br>
+            <span class="op">AND</span> <span class="key">user.region</span> <span class="op">in</span> <span class="val">["us-east", "eu-west"]</span><br>
+            <span class="op">AND</span> <span class="key">user.created_at</span> <span class="op">&gt;</span> <span class="val">"2024-01-01"</span>
+          </div>
+        </div>
+        <div class="rollout-bar">
+          <div class="rollout-track"><div class="rollout-fill"></div></div>
+          <div class="rollout-meta">
+            <span class="lbl">Gradual rollout</span>
+            <span class="pct">35% of eligible traffic</span>
+          </div>
+        </div>
+        <div class="rollout-bar" style="margin-top: 16px;">
+          <div class="rollout-track"><div class="rollout-fill" style="width: 80%; background: linear-gradient(90deg,#22C55E,#A78BFA);"></div></div>
+          <div class="rollout-meta">
+            <span class="lbl">checkout-v2 (us-east)</span>
+            <span class="pct">80%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experiments -->
+    <div class="category reverse feature-card" style="border: 1px solid transparent; padding: 0;">
+      <div class="cat-text">
+        <span class="cat-tag">⚗ Experiments</span>
+        <h2>Bayesian stats that don't lie</h2>
+        <p>Stats Engine v2 brings honest, real-time experiment readouts with built-in guardrails. No more peeking penalties, no more sample ratio mismatches sneaking through.</p>
+        <ul class="cat-list">
+          <li><span class="check">✓</span> Bayesian analysis with credible intervals</li>
+          <li><span class="check">✓</span> Sample ratio mismatch (SRM) detection</li>
+          <li><span class="check">✓</span> Sequential testing — peek without penalty</li>
+          <li><span class="check">✓</span> CUPED variance reduction</li>
+          <li><span class="check">✓</span> Multi-armed bandits for optimization</li>
+        </ul>
+      </div>
+      <div class="cat-visual">
+        <div class="exp-chart">
+          <div class="bar" style="height: 45%;"></div>
+          <div class="bar alt" style="height: 62%;"></div>
+          <div class="bar" style="height: 52%;"></div>
+          <div class="bar alt" style="height: 78%;"></div>
+          <div class="bar" style="height: 58%;"></div>
+          <div class="bar alt" style="height: 88%;"></div>
+          <div class="bar" style="height: 64%;"></div>
+          <div class="bar alt" style="height: 95%;"></div>
+        </div>
+        <div class="exp-legend">
+          <span><span class="dot blue"></span>Control</span>
+          <span><span class="dot purple"></span>Variant B</span>
+        </div>
+        <div class="exp-stats">
+          <div class="exp-stat">
+            <div class="v green stat-number">+12.4%</div>
+            <div class="l">Lift on conversion</div>
+          </div>
+          <div class="exp-stat">
+            <div class="v stat-number">98.2%</div>
+            <div class="l">Probability to beat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Observability -->
+    <div class="category feature-card" style="border: 1px solid transparent; padding: 0; margin-bottom: 0;">
+      <div class="cat-text">
+        <span class="cat-tag">◉ Observability</span>
+        <h2>Wired into your existing stack</h2>
+        <p>Stream flag-change events into Datadog, Sentry, and Honeycomb. Correlate every rollout with errors, latency spikes, and user reports without leaving your dashboard.</p>
+        <ul class="cat-list">
+          <li><span class="check">✓</span> Native Datadog flag-change annotations</li>
+          <li><span class="check">✓</span> Sentry release & error linking</li>
+          <li><span class="check">✓</span> Honeycomb trace correlation</li>
+          <li><span class="check">✓</span> Webhook events for any system</li>
+          <li><span class="check">✓</span> Full audit log with diff view</li>
+        </ul>
+      </div>
+      <div class="cat-visual">
+        <div class="rule-label" style="margin-bottom: 14px;">Live event stream</div>
+        <div class="obs-stream">
+          <div class="obs-event">
+            <span class="ts">14:02:11</span>
+            <span class="ev">checkout-v2 → 50%</span>
+            <span class="src">Datadog</span>
+            <span class="badge-active">active</span>
+          </div>
+          <div class="obs-event">
+            <span class="ts">14:01:48</span>
+            <span class="ev">new-onboarding flipped on</span>
+            <span class="src">Sentry</span>
+            <span class="badge-active">active</span>
+          </div>
+          <div class="obs-event">
+            <span class="ts">14:00:33</span>
+            <span class="ev">payments-retry rule updated</span>
+            <span class="src">Honeycomb</span>
+            <span class="badge-active">active</span>
+          </div>
+          <div class="obs-event">
+            <span class="ts">13:58:09</span>
+            <span class="ev">dark-mode rollout → 100%</span>
+            <span class="src">Datadog</span>
+            <span class="badge-active">active</span>
+          </div>
+          <div class="obs-event">
+            <span class="ts">13:55:21</span>
+            <span class="ev">experiment-pricing started</span>
+            <span class="src">Segment</span>
+            <span class="badge-active">active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section compare-section">
+  <div class="container">
+    <h2 class="section-title">How Flexor compares</h2>
+    <p class="section-sub">An honest look at where we lead — and where competitors catch up.</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="flexor">Flexor</th>
+          <th>LaunchDarkly</th>
+          <th>Statsig</th>
+          <th>Unleash</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Edge latency (global p99)</td>
+          <td class="flexor-cell">&lt; 11ms</td>
+          <td>~80ms</td>
+          <td>~45ms</td>
+          <td>~120ms</td>
+        </tr>
+        <tr>
+          <td>Bayesian stats engine</td>
+          <td class="flexor-cell"><span class="yes">✓ v2</span></td>
+          <td><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">—</span></td>
+        </tr>
+        <tr>
+          <td>Self-hosted option</td>
+          <td class="flexor-cell"><span class="yes">✓ OSS relay</span></td>
+          <td><span class="yes">Enterprise</span></td>
+          <td><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Sample ratio mismatch detection</td>
+          <td class="flexor-cell"><span class="yes">✓ Built-in</span></td>
+          <td><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">—</span></td>
+        </tr>
+        <tr>
+          <td>Free tier MAU</td>
+          <td class="flexor-cell">50,000</td>
+          <td>1,000</td>
+          <td>1,000,000</td>
+          <td>Unlimited (OSS)</td>
+        </tr>
+        <tr>
+          <td>Starting price (paid)</td>
+          <td class="flexor-cell">$29/mo</td>
+          <td>$75/mo</td>
+          <td>$150/mo</td>
+          <td>$80/mo</td>
+        </tr>
+        <tr>
+          <td>SDKs (officially supported)</td>
+          <td class="flexor-cell">14 languages</td>
+          <td>25</td>
+          <td>9</td>
+          <td>11</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- VIDEO DEMO -->
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title">See Flexor in action</h2>
+    <p class="section-sub" style="margin-left: auto; margin-right: auto;">A 2-minute walkthrough of creating a flag, targeting users, and analyzing an experiment.</p>
+    <div class="video-wrap">
+      <div class="video-bg"></div>
+      <div class="video-mock">
+        <div class="mock-bar s"></div>
+        <div class="mock-bar m"></div>
+        <div class="mock-bar l"></div>
+        <div class="mock-grid">
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+          <div class="mock-card"></div>
+        </div>
+        <div class="mock-bar m"></div>
+        <div class="mock-bar l"></div>
+      </div>
+      <div class="play-btn glow-border"></div>
+    </div>
+    <div class="video-meta">▸ 2:14 product walkthrough · Narrated by Sarah Chen, Staff Engineer</div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="section" style="background: #0A0C12; border-top: 1px solid #252836;">
+  <div class="container">
+    <h2 class="section-title">Plays nicely with your stack</h2>
+    <p class="section-sub">50+ official integrations across CI/CD, observability, analytics, and infrastructure.</p>
+    <div class="integrations-grid">
+      <div class="int-cell"><div class="int-icon">⌥</div><div class="int-name">GitHub</div></div>
+      <div class="int-cell"><div class="int-icon">▲</div><div class="int-name">GitLab</div></div>
+      <div class="int-cell"><div class="int-icon">▼</div><div class="int-name">Slack</div></div>
+      <div class="int-cell"><div class="int-icon">⚑</div><div class="int-name">PagerDuty</div></div>
+      <div class="int-cell"><div class="int-icon">◐</div><div class="int-name">Datadog</div></div>
+      <div class="int-cell"><div class="int-icon">⌖</div><div class="int-name">Segment</div></div>
+      <div class="int-cell"><div class="int-icon">⌬</div><div class="int-name">Amplitude</div></div>
+      <div class="int-cell"><div class="int-icon">⌘</div><div class="int-name">Mixpanel</div></div>
+      <div class="int-cell"><div class="int-icon">▴</div><div class="int-name">Vercel</div></div>
+      <div class="int-cell"><div class="int-icon">☁</div><div class="int-name">AWS</div></div>
+      <div class="int-cell"><div class="int-icon">G</div><div class="int-name">GCP</div></div>
+      <div class="int-cell"><div class="int-icon">⏣</div><div class="int-name">Terraform</div></div>
+      <div class="int-cell"><div class="int-icon">⊛</div><div class="int-name">Sentry</div></div>
+      <div class="int-cell"><div class="int-icon">⬢</div><div class="int-name">Honeycomb</div></div>
+      <div class="int-cell"><div class="int-icon">◆</div><div class="int-name">Linear</div></div>
+      <div class="int-cell"><div class="int-icon">⬡</div><div class="int-name">Jira</div></div>
+      <div class="int-cell"><div class="int-icon">⌥</div><div class="int-name">CircleCI</div></div>
+      <div class="int-cell"><div class="int-icon">⏵</div><div class="int-name">Buildkite</div></div>
+      <div class="int-cell"><div class="int-icon">◑</div><div class="int-name">Azure</div></div>
+      <div class="int-cell"><div class="int-icon">▰</div><div class="int-name">Cloudflare</div></div>
+      <div class="int-cell"><div class="int-icon">▤</div><div class="int-name">Netlify</div></div>
+      <div class="int-cell"><div class="int-icon">⌨</div><div class="int-name">Fastly</div></div>
+      <div class="int-cell"><div class="int-icon">⌗</div><div class="int-name">Heap</div></div>
+      <div class="int-cell"><div class="int-icon">∞</div><div class="int-name">Looker</div></div>
+      <div class="int-cell"><div class="int-icon">⊟</div><div class="int-name">Snowflake</div></div>
+      <div class="int-cell"><div class="int-icon">▣</div><div class="int-name">BigQuery</div></div>
+      <div class="int-cell"><div class="int-icon">◇</div><div class="int-name">Redshift</div></div>
+      <div class="int-cell"><div class="int-icon">⊞</div><div class="int-name">Postgres</div></div>
+      <div class="int-cell"><div class="int-icon">⬣</div><div class="int-name">Supabase</div></div>
+      <div class="int-cell"><div class="int-icon">⊕</div><div class="int-name">PlanetScale</div></div>
+      <div class="int-cell"><div class="int-icon">⏍</div><div class="int-name">Auth0</div></div>
+      <div class="int-cell"><div class="int-icon">⊠</div><div class="int-name">Clerk</div></div>
+      <div class="int-cell"><div class="int-icon">✦</div><div class="int-name">Okta</div></div>
+      <div class="int-cell"><div class="int-icon">⊡</div><div class="int-name">Stripe</div></div>
+      <div class="int-cell"><div class="int-icon">⌜</div><div class="int-name">Intercom</div></div>
+      <div class="int-cell"><div class="int-icon">✉</div><div class="int-name">Resend</div></div>
+      <div class="int-cell"><div class="int-icon">⌙</div><div class="int-name">Twilio</div></div>
+      <div class="int-cell"><div class="int-icon">◭</div><div class="int-name">Notion</div></div>
+      <div class="int-cell"><div class="int-icon">⬓</div><div class="int-name">Retool</div></div>
+      <div class="int-cell"><div class="int-icon">⊜</div><div class="int-name">Statsig</div></div>
+      <div class="int-cell"><div class="int-icon">⊿</div><div class="int-name">FullStory</div></div>
+      <div class="int-cell"><div class="int-icon">⌗</div><div class="int-name">LogRocket</div></div>
+      <div class="int-cell"><div class="int-icon">⊳</div><div class="int-name">New Relic</div></div>
+      <div class="int-cell"><div class="int-icon">⏥</div><div class="int-name">Grafana</div></div>
+      <div class="int-cell"><div class="int-icon">⏧</div><div class="int-name">Prometheus</div></div>
+      <div class="int-cell"><div class="int-icon">⊚</div><div class="int-name">Tempo</div></div>
+      <div class="int-cell"><div class="int-icon">⏘</div><div class="int-name">Loki</div></div>
+      <div class="int-cell"><div class="int-icon">⌷</div><div class="int-name">Discord</div></div>
+      <div class="int-cell"><div class="int-icon">⌬</div><div class="int-name">Webhook</div></div>
+      <div class="int-cell"><div class="int-icon">+</div><div class="int-name">View all 50+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-card">
+    <h2>Start shipping with Flexor today</h2>
+    <p>Free forever for up to 50k MAU. No credit card. No nagging.</p>
+    <div class="cta-buttons">
+      <button class="btn btn-primary btn-lg">Start free</button>
+      <button class="btn btn-ghost btn-lg" style="border: 1px solid #252836;">Read the docs →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-mark">⚡</span>
+        Flexor
+      </a>
+      <p>Feature flags and experimentation built for engineering velocity.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Integrations</a></li>
+        <li><a href="#">Changelog</a></li>
+        <li><a href="#">Roadmap</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">DPA</a></li>
+        <li><a href="#">Subprocessors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Flexor Labs, Inc. All rights reserved.</div>
+    <div class="footer-badges">
+      <a href="#" class="status-link"><span class="status-dot"></span> status.flexor.dev — all systems normal</a>
+      <span class="badge-soc">SOC 2 Type II</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

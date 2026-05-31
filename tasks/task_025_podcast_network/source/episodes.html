@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Latest Episodes — Longwave Audio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1A0F2E;
+  color: #F5F0E8;
+  font-family: 'Karla', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: rgba(26, 15, 46, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #3D2C5C;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B, #3C1F6B 70%);
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px solid #F5F0E8;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: #FF6B6B; }
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.mini-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 8px 14px 8px 8px;
+  max-width: 340px;
+}
+.mini-art {
+  width: 36px; height: 36px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #FF6B6B 0%, #3C1F6B 100%);
+  flex-shrink: 0;
+  position: relative;
+}
+.mini-art::after {
+  content: 'SD';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #F5F0E8;
+}
+.mini-info { min-width: 0; }
+.mini-show {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #A89BB8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.mini-title {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+.mini-play {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #1A0F2E;
+  font-size: 10px;
+}
+.btn-support {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 4px;
+  letter-spacing: 0.01em;
+}
+.btn-support:hover { background: #F5F0E8; color: #1A0F2E; }
+
+/* Hero */
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 32px 40px;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #FF6B6B;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.hero .sub {
+  font-size: 19px;
+  color: #A89BB8;
+  max-width: 600px;
+}
+
+/* Filter bar */
+.filter-bar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 32px 0;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  border-top: 1px solid #3D2C5C;
+  padding-top: 32px;
+  margin-top: 24px;
+}
+.search-input {
+  flex: 1;
+  min-width: 280px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 12px 16px 12px 42px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #F5F0E8;
+  position: relative;
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+}
+.search-wrap::before {
+  content: '⌕';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #A89BB8;
+  font-size: 18px;
+}
+.search-wrap input { width: 100%; }
+.search-wrap input::placeholder { color: #A89BB8; }
+.select {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 12px 36px 12px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #F5F0E8;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #A89BB8 50%), linear-gradient(135deg, #A89BB8 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.filter-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  margin-left: auto;
+}
+
+/* Episode list */
+.episode-list {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #3D2C5C;
+  border-top: 1px solid #3D2C5C;
+  border-bottom: 1px solid #3D2C5C;
+}
+.ep-row {
+  display: grid;
+  grid-template-columns: 88px 1fr auto auto 56px;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 16px;
+  background: #1A0F2E;
+  transition: background 0.15s ease;
+}
+.ep-row:hover { background: #20133A; }
+.ep-art {
+  width: 88px; height: 88px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.ep-art .label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #F5F0E8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+.art-1 { background: linear-gradient(135deg, #FF6B6B 0%, #3C1F6B 100%); }
+.art-2 { background: linear-gradient(135deg, #F5B544 0%, #6B4BA8 100%); }
+.art-3 { background: linear-gradient(135deg, #6B4BA8 0%, #1A0F2E 100%); }
+.art-4 { background: linear-gradient(135deg, #F5F0E8 0%, #FF6B6B 100%); color: #3C1F6B !important; }
+.art-5 { background: linear-gradient(135deg, #3C1F6B 0%, #F5B544 100%); }
+.art-6 { background: linear-gradient(135deg, #FF6B6B 0%, #F5B544 100%); }
+.art-7 { background: linear-gradient(135deg, #6B4BA8 0%, #FF6B6B 100%); }
+.art-8 { background: linear-gradient(135deg, #1A0F2E 0%, #6B4BA8 100%); }
+
+.ep-meta { min-width: 0; }
+.ep-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FF6B6B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.new-badge {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.ep-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #F5F0E8;
+  margin-bottom: 6px;
+}
+.ep-show {
+  font-size: 13px;
+  color: #A89BB8;
+}
+.ep-show span {
+  color: #F5F0E8;
+  font-weight: 500;
+}
+.ep-date, .ep-dur {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ep-dur { color: #F5F0E8; }
+.play-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid #FF6B6B;
+  background: transparent;
+  color: #FF6B6B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.play-btn:hover {
+  background: #FF6B6B;
+  color: #1A0F2E;
+}
+.play-btn svg { width: 14px; height: 14px; }
+
+/* Pagination */
+.pagination {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+.page-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  background: transparent;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  color: #F5F0E8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 13px;
+}
+.page-btn:hover { border-color: #FF6B6B; color: #FF6B6B; }
+.page-btn.active {
+  background: #FF6B6B;
+  border-color: #FF6B6B;
+  color: #1A0F2E;
+  font-weight: 700;
+}
+.page-btn.disabled { opacity: 0.4; cursor: not-allowed; }
+.page-info {
+  margin: 0 16px;
+  color: #A89BB8;
+}
+
+/* Footer */
+.footer {
+  background: #0F0820;
+  border-top: 1px solid #3D2C5C;
+  padding: 72px 32px 40px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 48px;
+}
+.footer h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #A89BB8;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 10px; font-size: 14px; }
+.footer li a:hover { color: #FF6B6B; }
+.footer-brand p {
+  font-size: 14px;
+  color: #A89BB8;
+  margin-top: 16px;
+  max-width: 280px;
+}
+.footer-bottom {
+  max-width: 1280px;
+  margin: 64px auto 0;
+  padding-top: 32px;
+  border-top: 1px solid #3D2C5C;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark"></span>
+      Longwave Audio
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Shows</a></li>
+      <li><a href="#" style="color:#FF6B6B;">Episodes</a></li>
+      <li><a href="#">Newsletter</a></li>
+      <li><a href="#">Support Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="mini-player">
+        <div class="mini-art"></div>
+        <div class="mini-info">
+          <div class="mini-show">Now Playing · Signal Drift</div>
+          <div class="mini-title">Ep. 142 — The Last Search Engine</div>
+        </div>
+        <div class="mini-play">▶</div>
+      </div>
+      <a href="#" class="btn-support">Become a Supporter</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Episode Feed · Updated Hourly</div>
+  <h1>Latest Episodes</h1>
+  <p class="sub">Every new release across the network.</p>
+
+  <div class="filter-bar">
+    <div class="search-wrap">
+      <input class="search-input" type="text" placeholder="Search episodes, guests, topics…">
+    </div>
+    <select class="select">
+      <option>All shows</option>
+      <option>Signal Drift</option>
+      <option>Forkbomb</option>
+      <option>Cold Open</option>
+      <option>Slow Computer</option>
+      <option>The Annotated Web</option>
+      <option>Liner Notes from Nowhere</option>
+      <option>Field Recordings</option>
+    </select>
+    <select class="select">
+      <option>Newest first</option>
+      <option>Oldest first</option>
+      <option>Most Played</option>
+    </select>
+    <div class="filter-count">468 EPISODES</div>
+  </div>
+</section>
+
+<div class="episode-list">
+
+  <div class="ep-row">
+    <div class="ep-art art-1"><span class="label">SD</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 142 <span class="new-badge">NEW</span></div>
+      <div class="ep-title">The Last Search Engine</div>
+      <div class="ep-show">From <span>Signal Drift</span> · with Aanya Krishnan</div>
+    </div>
+    <div class="ep-date">Nov 14, 2024</div>
+    <div class="ep-dur">47:22</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-2"><span class="label">LN</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 031 <span class="new-badge">NEW</span></div>
+      <div class="ep-title">Tuning a Mellotron in 2024</div>
+      <div class="ep-show">From <span>Liner Notes from Nowhere</span> · with Theo Reyes</div>
+    </div>
+    <div class="ep-date">Nov 12, 2024</div>
+    <div class="ep-dur">38:09</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-3"><span class="label">FB</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 088</div>
+      <div class="ep-title">Inside the Linux Kernel Mailing List Wars</div>
+      <div class="ep-show">From <span>Forkbomb</span> · with Alex Tanaka</div>
+    </div>
+    <div class="ep-date">Nov 10, 2024</div>
+    <div class="ep-dur">1:12:04</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-4"><span class="label">CO</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 056</div>
+      <div class="ep-title">A Brief History of the Movie Trailer</div>
+      <div class="ep-show">From <span>Cold Open</span> · with Priya Menon</div>
+    </div>
+    <div class="ep-date">Nov 8, 2024</div>
+    <div class="ep-dur">52:48</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-5"><span class="label">SC</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 064</div>
+      <div class="ep-title">The Newton Was Right All Along</div>
+      <div class="ep-show">From <span>Slow Computer</span> · with Marcus Holloway</div>
+    </div>
+    <div class="ep-date">Nov 6, 2024</div>
+    <div class="ep-dur">44:17</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-6"><span class="label">AW</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 119</div>
+      <div class="ep-title">The Hyperlink, Revisited</div>
+      <div class="ep-show">From <span>The Annotated Web</span> · with Jin Park</div>
+    </div>
+    <div class="ep-date">Nov 5, 2024</div>
+    <div class="ep-dur">36:55</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-7"><span class="label">FR</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 022</div>
+      <div class="ep-title">Listening to the Salton Sea</div>
+      <div class="ep-show">From <span>Field Recordings</span> · with Hana Yoshida</div>
+    </div>
+    <div class="ep-date">Nov 3, 2024</div>
+    <div class="ep-dur">29:30</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-1"><span class="label">SD</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 141</div>
+      <div class="ep-title">RSS Will Outlive Us All</div>
+      <div class="ep-show">From <span>Signal Drift</span> · with Dave Winer</div>
+    </div>
+    <div class="ep-date">Nov 1, 2024</div>
+    <div class="ep-dur">51:08</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-8"><span class="label">FB</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 087</div>
+      <div class="ep-title">The Last True Sysadmin</div>
+      <div class="ep-show">From <span>Forkbomb</span> · with Lena Park</div>
+    </div>
+    <div class="ep-date">Oct 30, 2024</div>
+    <div class="ep-dur">1:04:22</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-5"><span class="label">SC</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 063</div>
+      <div class="ep-title">Plan 9, Ten Years Later</div>
+      <div class="ep-show">From <span>Slow Computer</span> · with Marcus Holloway</div>
+    </div>
+    <div class="ep-date">Oct 28, 2024</div>
+    <div class="ep-dur">39:48</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-2"><span class="label">LN</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 030</div>
+      <div class="ep-title">The Vanishing Indie Record Store</div>
+      <div class="ep-show">From <span>Liner Notes from Nowhere</span> · with Sasha Chen</div>
+    </div>
+    <div class="ep-date">Oct 25, 2024</div>
+    <div class="ep-dur">42:11</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+  <div class="ep-row">
+    <div class="ep-art art-6"><span class="label">AW</span></div>
+    <div class="ep-meta">
+      <div class="ep-num">EP. 118</div>
+      <div class="ep-title">In Praise of the Blogroll</div>
+      <div class="ep-show">From <span>The Annotated Web</span> · with Robin Sloan</div>
+    </div>
+    <div class="ep-date">Oct 23, 2024</div>
+    <div class="ep-dur">33:19</div>
+    <button class="play-btn" aria-label="Play">
+      <svg viewBox="0 0 12 14" fill="currentColor"><path d="M0 0L12 7L0 14V0Z"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<div class="pagination">
+  <button class="page-btn disabled">← Prev</button>
+  <button class="page-btn active">1</button>
+  <button class="page-btn">2</button>
+  <button class="page-btn">3</button>
+  <button class="page-btn">4</button>
+  <span class="page-info">… of 47</span>
+  <button class="page-btn">47</button>
+  <button class="page-btn">Next →</button>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#">
+        <span class="logo-mark"></span>
+        Longwave Audio
+      </a>
+      <p>Independent podcasts for the curious mind. Funded by listeners, not algorithms. Oakland, California — since 2021.</p>
+    </div>
+    <div>
+      <h4>Network</h4>
+      <ul>
+        <li><a href="#">All Shows</a></li>
+        <li><a href="#">Episodes</a></li>
+        <li><a href="#">Hosts</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Listen</h4>
+      <ul>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Overcast</a></li>
+        <li><a href="#">Pocket Casts</a></li>
+        <li><a href="#">RSS</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Patreon</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Merch Shop</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>The Dispatch</h4>
+      <ul>
+        <li><a href="#">Friday Newsletter</a></li>
+        <li><a href="#">Episode Picks</a></li>
+        <li><a href="#">Host Annotations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 LONGWAVE AUDIO · OAKLAND, CA</div>
+    <div>RSS · MASTODON · BLUESKY · EMAIL</div>
+  </div>
+</footer>
+
+</body>
+</html>

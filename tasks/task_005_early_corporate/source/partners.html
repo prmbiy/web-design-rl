@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Partners - Verisys Partner Network</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  background-color: #FFFFFF;
+  line-height: 1.5;
+}
+a { color: #0033CC; text-decoration: underline; }
+a:visited { color: #660099; }
+
+/* Top Header */
+.header-bar {
+  background-color: #002060;
+  color: #FFFFFF;
+  padding: 8px 20px;
+  border-bottom: 2px solid #FF6600;
+}
+.header-bar table { width: 100%; }
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: Verdana, Arial, sans-serif;
+}
+.tagline {
+  font-size: 11px;
+  color: #DDEEFF;
+  font-style: italic;
+}
+.header-right {
+  text-align: right;
+  font-size: 11px;
+  color: #DDEEFF;
+}
+.header-right a { color: #DDEEFF; }
+
+/* Top Nav */
+.top-nav {
+  background-color: #003087;
+  height: 28px;
+  border-bottom: 1px solid #999999;
+}
+.top-nav-inner {
+  padding: 0 20px;
+  line-height: 28px;
+}
+.top-nav a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  padding: 4px 10px;
+  font-size: 12px;
+  transition: background-color 0.15s linear;
+}
+.top-nav a:hover { background-color: #FF6600; color: #FFFFFF; }
+.top-nav .sep { color: #DDEEFF; }
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: #DDEEFF;
+  padding: 5px 20px;
+  font-size: 11px;
+  border-bottom: 1px solid #999999;
+  color: #4A4A4A;
+}
+
+/* Layout container */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+.layout-table { width: 100%; border-collapse: collapse; }
+.layout-table > tbody > tr > td { vertical-align: top; }
+
+.left-col { width: 180px; padding-right: 12px; }
+.main-col { padding-left: 12px; border-left: 1px solid #CCCCCC; }
+
+/* Tree Nav */
+.tree-nav {
+  background-color: #F0F4FA;
+  border: 1px solid #999999;
+  padding: 8px;
+  font-size: 11px;
+}
+.tree-nav h3 {
+  font-size: 11px;
+  color: #FFFFFF;
+  background-color: #003087;
+  padding: 4px 6px;
+  margin: -8px -8px 6px -8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tree-nav ul { list-style: none; }
+.tree-nav > ul > li {
+  font-weight: bold;
+  color: #003087;
+  padding: 3px 0;
+  border-bottom: 1px dotted #BBBBBB;
+}
+.tree-nav > ul > li:before { content: "▸ "; color: #4A4A4A; }
+.tree-nav > ul > li.open:before { content: "▾ "; }
+.tree-nav ul ul {
+  padding-left: 14px;
+  font-weight: normal;
+  margin-top: 3px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.tree-nav li.open > ul,
+.tree-nav li:hover > ul { max-height: 500px; }
+.tree-nav ul ul li { padding: 2px 0; }
+.tree-nav ul ul li:before { content: "• "; color: #4A4A4A; }
+.tree-nav a { color: #0033CC; text-decoration: underline; font-weight: normal; }
+
+.side-box {
+  margin-top: 12px;
+  border: 1px solid #999999;
+  background-color: #FFFFFF;
+  padding: 8px;
+  font-size: 11px;
+}
+.side-box h4 {
+  font-size: 11px;
+  color: #FFFFFF;
+  background-color: #4A4A4A;
+  padding: 3px 6px;
+  margin: -8px -8px 6px -8px;
+  text-transform: uppercase;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background-color: #003087;
+  color: #FFFFFF;
+  padding: 22px 24px;
+  border: 1px solid #002060;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+  animation: heroSlide 0.8s ease-out 1;
+}
+@keyframes heroSlide {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.hero-banner:before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 140px;
+  background-color: #002060;
+  border-left: 3px solid #FF6600;
+}
+.hero-banner:after {
+  content: "🤝";
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  font-size: 48px;
+  opacity: 0.7;
+}
+.hero-banner h1 {
+  font-size: 22px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  font-family: Verdana, Arial, sans-serif;
+}
+.hero-banner p {
+  font-size: 13px;
+  color: #DDEEFF;
+  max-width: 600px;
+}
+
+/* Section */
+.section { margin-bottom: 18px; }
+.section-label {
+  font-size: 11px;
+  color: #FFFFFF;
+  background-color: #003087;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #FF6600;
+}
+h2.dark-blue {
+  font-size: 16px;
+  color: #003087;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #DDEEFF;
+  padding-bottom: 4px;
+}
+
+/* Tier Badges */
+.tier-badges-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+.tier-badges-table td {
+  width: 33.33%;
+  vertical-align: top;
+  padding: 0 6px;
+}
+.tier-badges-table td:first-child { padding-left: 0; }
+.tier-badges-table td:last-child { padding-right: 0; }
+
+.feature-box {
+  border: 1px solid #999999;
+  background-color: #F0F4FA;
+  padding: 0;
+  animation: featureAppear 0.6s ease-out both;
+}
+@keyframes featureAppear {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.feature-box:nth-child(1) { animation-delay: 0.1s; }
+.feature-box:nth-child(2) { animation-delay: 0.25s; }
+.feature-box:nth-child(3) { animation-delay: 0.4s; }
+
+.badge-header {
+  padding: 8px;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #4A4A4A;
+}
+.badge-gold { background-color: #D4A017; }
+.badge-silver { background-color: #A8A8A8; }
+.badge-authorized { background-color: #4A4A4A; }
+
+.badge-icon {
+  text-align: center;
+  padding: 14px 8px 6px;
+  font-size: 36px;
+}
+.badge-body {
+  padding: 10px 12px;
+  font-size: 11px;
+}
+.badge-body strong {
+  display: block;
+  color: #003087;
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.badge-body ul {
+  list-style: none;
+  padding-left: 0;
+}
+.badge-body li {
+  padding: 2px 0;
+  border-bottom: 1px dotted #CCCCCC;
+}
+.badge-body li:before { content: "▪ "; color: #FF6600; }
+
+/* Search Form */
+.search-form {
+  background-color: #DDEEFF;
+  border: 1px solid #003087;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+.search-form table { width: 100%; }
+.search-form td { padding: 4px 6px; font-size: 11px; vertical-align: middle; }
+.search-form label {
+  display: block;
+  font-weight: bold;
+  color: #003087;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+.search-form select, .search-form input[type=text] {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #999999;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  background-color: #FFFFFF;
+}
+.btn-cta {
+  background-color: #FF6600;
+  color: #FFFFFF;
+  border: 1px solid #993D00;
+  padding: 5px 14px;
+  font-weight: bold;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+.btn-cta:hover { background-color: #CC5200; color: #FFFFFF; }
+.btn-cta:visited { color: #FFFFFF; }
+
+/* Benefits Table */
+.benefits-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #003087;
+  font-size: 11px;
+  margin-bottom: 14px;
+}
+.benefits-table th {
+  background-color: #003087;
+  color: #FFFFFF;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-right: 1px solid #FFFFFF;
+}
+.benefits-table th.tier { text-align: center; width: 14%; }
+.benefits-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #CCCCCC;
+  border-right: 1px solid #DDDDDD;
+}
+.benefits-table tr:nth-child(even) td { background-color: #DDEEFF; }
+.benefits-table tr:nth-child(odd) td { background-color: #FFFFFF; }
+.benefits-table td.center { text-align: center; font-weight: bold; }
+.check-yes { color: #006600; font-weight: bold; }
+.check-no { color: #999999; }
+.check-partial { color: #FF6600; font-weight: bold; }
+
+/* CTA Box */
+.cta-box {
+  background-color: #FFF4E6;
+  border: 2px solid #FF6600;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+.cta-box table { width: 100%; }
+.cta-box td { vertical-align: middle; }
+.cta-box h3 {
+  font-size: 16px;
+  color: #003087;
+  margin-bottom: 4px;
+}
+.cta-box p {
+  font-size: 11px;
+  color: #4A4A4A;
+}
+.cta-box .cta-btn-cell {
+  width: 200px;
+  text-align: right;
+}
+.btn-cta.large {
+  font-size: 13px;
+  padding: 8px 18px;
+}
+
+/* Footer */
+.footer {
+  background-color: #003087;
+  color: #DDEEFF;
+  padding: 16px 20px;
+  margin-top: 20px;
+  font-size: 11px;
+  border-top: 2px solid #FF6600;
+}
+.footer table { width: 100%; max-width: 1440px; margin: 0 auto; }
+.footer td { vertical-align: top; padding: 0 12px; }
+.footer h5 {
+  color: #FFFFFF;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #4A6FA8;
+  padding-bottom: 3px;
+}
+.footer a { color: #DDEEFF; text-decoration: underline; display: block; padding: 2px 0; font-size: 11px; }
+.footer a:hover { color: #FF6600; }
+.footer-bottom {
+  border-top: 1px solid #4A6FA8;
+  margin-top: 12px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 10px;
+  color: #AABBDD;
+}
+
+/* Quick stats */
+.quick-stats {
+  background-color: #F0F4FA;
+  border: 1px solid #999999;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  font-size: 11px;
+}
+.quick-stats strong { color: #003087; }
+.quick-stats table { width: 100%; }
+.quick-stats td { padding: 2px 8px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header-bar">
+  <table><tr>
+    <td>
+      <div class="brand-name">Verisys Enterprise Solutions, Inc.</div>
+      <div class="tagline">Mission-Critical Software for the Global Enterprise</div>
+    </td>
+    <td class="header-right">
+      <a href="#">Investor Relations</a> &nbsp;|&nbsp; <a href="#">Careers</a> &nbsp;|&nbsp; <a href="#">Worldwide Sites ▾</a><br>
+      <span style="color:#AABBDD;">NASDAQ: VRSY &nbsp; Last: $34.27 ▲0.42</span>
+    </td>
+  </tr></table>
+</div>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+  <div class="top-nav-inner">
+    <a href="#">Home</a><span class="sep">|</span>
+    <a href="#">Products</a><span class="sep">|</span>
+    <a href="#">Solutions</a><span class="sep">|</span>
+    <a href="#" style="background-color:#FF6600;">Partners</a><span class="sep">|</span>
+    <a href="#">Support</a><span class="sep">|</span>
+    <a href="#">About</a><span class="sep">|</span>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a> &raquo; <strong>Partners</strong> &raquo; Verisys Partner Network
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+<table class="layout-table"><tr>
+
+  <!-- LEFT COLUMN -->
+  <td class="left-col">
+    <div class="tree-nav">
+      <h3>Site Navigation</h3>
+      <ul>
+        <li>Products
+          <ul>
+            <li><a href="#">VeriSuite ERP</a></li>
+            <li><a href="#">VeriFlow BPM</a></li>
+            <li><a href="#">VeriVault DW</a></li>
+            <li><a href="#">VeriPortal 4.0</a></li>
+          </ul>
+        </li>
+        <li>Solutions
+          <ul>
+            <li><a href="#">By Industry</a></li>
+            <li><a href="#">By Role</a></li>
+          </ul>
+        </li>
+        <li class="open">Partners
+          <ul>
+            <li><a href="#">Partner Network</a></li>
+            <li><a href="#">Find a Partner</a></li>
+            <li><a href="#">Become a Partner</a></li>
+            <li><a href="#">Partner Login</a></li>
+            <li><a href="#">Tier Benefits</a></li>
+          </ul>
+        </li>
+        <li>Resources
+          <ul>
+            <li><a href="#">White Papers</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Analyst Reports</a></li>
+          </ul>
+        </li>
+        <li>Support
+          <ul>
+            <li><a href="#">Knowledge Base</a></li>
+            <li><a href="#">Downloads</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="side-box">
+      <h4>Partner Login</h4>
+      <label style="font-size:10px; color:#003087;"><strong>User ID:</strong></label>
+      <input type="text" style="width:100%; padding:2px; border:1px solid #999; margin-bottom:4px; font-size:11px;">
+      <label style="font-size:10px; color:#003087;"><strong>Password:</strong></label>
+      <input type="text" style="width:100%; padding:2px; border:1px solid #999; margin-bottom:6px; font-size:11px;">
+      <a href="#" class="btn-cta" style="width:100%; text-align:center;">LOGIN »</a>
+      <p style="margin-top:6px; font-size:10px;"><a href="#">Forgot password?</a></p>
+    </div>
+
+    <div class="side-box">
+      <h4>Contact Channel Sales</h4>
+      <p style="font-size:11px; line-height:1.6;">
+        <strong>Phone:</strong> 1-800-VERISYS<br>
+        <strong>Direct:</strong> +1 (703) 555-0140<br>
+        <strong>Fax:</strong> +1 (703) 555-0141<br>
+        <strong>Email:</strong> <a href="#">partners@verisys.com</a>
+      </p>
+    </div>
+  </td>
+
+  <!-- MAIN COLUMN -->
+  <td class="main-col">
+
+    <!-- HERO -->
+    <div class="hero-banner">
+      <h1>The Verisys Partner Network</h1>
+      <p>Over 240 system integrators, ISVs, and reseller partners worldwide deliver Verisys solutions to Fortune 1000 enterprises across every major industry vertical.</p>
+    </div>
+
+    <!-- QUICK STATS -->
+    <div class="quick-stats">
+      <table><tr>
+        <td><strong>240+</strong> Global Partners</td>
+        <td><strong>62</strong> Countries Served</td>
+        <td><strong>$1.2B</strong> Partner-Sourced Revenue (2002)</td>
+        <td><strong>18,000+</strong> Certified Consultants</td>
+      </tr></table>
+    </div>
+
+    <!-- TIER BADGES SECTION -->
+    <div class="section">
+      <div class="section-label">Partner Tier Program</div>
+      <h2 class="dark-blue">Three Tiers of Partnership Excellence</h2>
+      <p style="font-size:12px; margin-bottom:10px; color:#4A4A4A;">
+        The Verisys Partner Network is structured into three tiers, each offering progressively richer benefits aligned to partner commitment, expertise, and revenue contribution.
+      </p>
+
+      <table class="tier-badges-table"><tr>
+        <td>
+          <div class="feature-box">
+            <div class="badge-header badge-gold">★ GOLD PARTNER</div>
+            <div class="badge-icon">🏆</div>
+            <div class="badge-body">
+              <strong>Featured Gold Partners:</strong>
+              <ul>
+                <li>Accenture</li>
+                <li>Deloitte Consulting LLP</li>
+                <li>Electronic Data Systems (EDS)</li>
+              </ul>
+              <p style="margin-top:8px; color:#666666; font-size:10px;">
+                Premier strategic relationship. Minimum $5M annual commitment. Joint go-to-market.
+              </p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="feature-box">
+            <div class="badge-header badge-silver">◆ SILVER PARTNER</div>
+            <div class="badge-icon">🥈</div>
+            <div class="badge-body">
+              <strong>Featured Silver Partners:</strong>
+              <ul>
+                <li>BearingPoint, Inc.</li>
+                <li>Sapient Corporation</li>
+                <li>Keane Federal Systems</li>
+              </ul>
+              <p style="margin-top:8px; color:#666666; font-size:10px;">
+                Regional and practice-specific partners. Minimum $1M annual commitment.
+              </p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="feature-box">
+            <div class="badge-header badge-authorized">▪ AUTHORIZED RESELLER</div>
+            <div class="badge-icon">📋</div>
+            <div class="badge-body">
+              <strong>Authorized Tier Includes:</strong>
+              <ul>
+                <li>Regional VARs</li>
+                <li>Independent Software Vendors</li>
+                <li>OEM &amp; Embedded Partners</li>
+              </ul>
+              <p style="margin-top:8px; color:#666666; font-size:10px;">
+                Entry tier. Resale rights and basic enablement. Self-paced certification.
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr></table>
+    </div>
+
+    <!-- PARTNER DIRECTORY SEARCH -->
+    <div class="section">
+      <div class="section-label">Find a Partner</div>
+      <h2 class="dark-blue">Search the Partner Directory</h2>
+      <p style="font-size:12px; margin-bottom:8px; color:#4A4A4A;">
+        Locate certified Verisys implementation partners by tier, geography, and industry specialization.
+      </p>
+
+      <div class="search-form">
+        <table>
+          <tr>
+            <td style="width:25%;">
+              <label>Partner Type</label>
+              <select>
+                <option>-- All Partner Types --</option>
+                <option>Gold Partner</option>
+                <option>Silver Partner</option>
+                <option>Authorized Reseller</option>
+                <option>System Integrator</option>
+                <option>Independent Software Vendor</option>
+              </select>
+            </td>
+            <td style="width:25%;">
+              <label>Region</label>
+              <select>
+                <option>-- All Regions --</option>
+                <option>North America</option>
+                <option>EMEA (Europe, Middle East, Africa)</option>
+                <option>APAC (Asia Pacific)</option>
+                <option>Latin America</option>
+              </select>
+            </td>
+            <td style="width:25%;">
+              <label>Industry</label>
+              <select>
+                <option>-- All Industries --</option>
+                <option>Financial Services</option>
+                <option>Healthcare &amp; Life Sciences</option>
+                <option>Manufacturing</option>
+                <option>Government &amp; Defense</option>
+                <option>Retail &amp; Consumer Goods</option>
+              </select>
+            </td>
+            <td style="width:25%; text-align:right; padding-top:18px;">
+              <a href="#" class="btn-cta">SEARCH »</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- BENEFITS TABLE -->
+    <div class="section">
+      <div class="section-label">Program Benefits Comparison</div>
+      <h2 class="dark-blue">Partner Program Benefits by Tier</h2>
+      <p style="font-size:12px; margin-bottom:8px; color:#4A4A4A;">
+        Compare the benefits available at each tier of the Verisys Partner Network. All program benefits are subject to the Verisys Partner Agreement and annual recertification.
+      </p>
+
+      <table class="benefits-table">
+        <thead>
+          <tr>
+            <th style="width:40%;">Program Benefit</th>
+            <th class="tier">Gold</th>
+            <th class="tier">Silver</th>
+            <th class="tier">Authorized</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Co-Marketing Development Funds (MDF)</strong><br><span style="color:#666; font-size:10px;">Quarterly funds for joint marketing activities</span></td>
+            <td class="center"><span class="check-yes">✔ Up to $250K</span></td>
+            <td class="center"><span class="check-yes">✔ Up to $50K</span></td>
+            <td class="center"><span class="check-no">—</span></td>
+          </tr>
+          <tr>
+            <td><strong>Qualified Sales Lead Sharing</strong><br><span style="color:#666; font-size:10px;">Inbound leads routed via partner portal</span></td>
+            <td class="center"><span class="check-yes">✔ Priority</span></td>
+            <td class="center"><span class="check-yes">✔ Standard</span></td>
+            <td class="center"><span class="check-partial">◐ Limited</span></td>
+          </tr>
+          <tr>
+            <td><strong>NFR Software Licenses</strong><br><span style="color:#666; font-size:10px;">Not-for-resale internal use licenses</span></td>
+            <td class="center"><span class="check-yes">✔ Unlimited</span></td>
+            <td class="center"><span class="check-yes">✔ 25 Seats</span></td>
+            <td class="center"><span class="check-yes">✔ 5 Seats</span></td>
+          </tr>
+          <tr>
+            <td><strong>Certification Training Discount</strong><br><span style="color:#666; font-size:10px;">VeriCore Academy instructor-led courses</span></td>
+            <td class="center"><span class="check-yes">✔ 50%</span></td>
+            <td class="center"><span class="check-yes">✔ 30%</span></td>
+            <td class="center"><span class="check-yes">✔ 15%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dedicated Partner Account Manager</strong><br><span style="color:#666; font-size:10px;">Named PAM for relationship management</span></td>
+            <td class="center"><span class="check-yes">✔ Yes</span></td>
+            <td class="center"><span class="check-yes">✔ Yes</span></td>
+            <td class="center"><span class="check-no">— Pooled</span></td>
+          </tr>
+          <tr>
+            <td><strong>Annual Partner Summit Invitation</strong><br><span style="color:#666; font-size:10px;">Reston, VA — March each year</span></td>
+            <td class="center"><span class="check-yes">✔ 8 Seats</span></td>
+            <td class="center"><span class="check-yes">✔ 3 Seats</span></td>
+            <td class="center"><span class="check-yes">✔ 1 Seat</span></td>
+          </tr>
+          <tr>
+            <td><strong>Joint Reference Architecture Access</strong><br><span style="color:#666; font-size:10px;">Vertical-specific reference implementations</span></td>
+            <td class="center"><span class="check-yes">✔</span></td>
+            <td class="center"><span class="check-partial">◐ Selected</span></td>
+            <td class="center"><span class="check-no">—</span></td>
+          </tr>
+          <tr>
+            <td><strong>Logo Use Rights &amp; Tier Badge</strong><br><span style="color:#666; font-size:10px;">Co-branded collateral and web placement</span></td>
+            <td class="center"><span class="check-yes">✔ Featured</span></td>
+            <td class="center"><span class="check-yes">✔</span></td>
+            <td class="center"><span class="check-yes">✔ Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>24x7 Premier Technical Support</strong><br><span style="color:#666; font-size:10px;">Priority queue with named engineers</span></td>
+            <td class="center"><span class="check-yes">✔</span></td>
+            <td class="center"><span class="check-partial">◐ Business Hours</span></td>
+            <td class="center"><span class="check-no">— Web Only</span></td>
+          </tr>
+          <tr>
+            <td><strong>Executive Sponsorship Program</strong><br><span style="color:#666; font-size:10px;">Verisys VP-level executive sponsor</span></td>
+            <td class="center"><span class="check-yes">✔</span></td>
+            <td class="center"><span class="check-no">—</span></td>
+            <td class="center"><span class="check-no">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:10px; color:#666666; font-style:italic;">
+        Legend: <span class="check-yes">✔ Included</span> &nbsp; <span class="check-partial">◐ Partial / Conditional</span> &nbsp; <span class="check-no">— Not Available</span>
+      </p>
+    </div>
+
+    <!-- BECOME A PARTNER CTA -->
+    <div class="cta-box">
+      <table>
+        <tr>
+          <td>
+            <h3>Ready to Join the Verisys Partner Network?</h3>
+            <p>
+              Apply today to begin the qualification process. Verisys partner applications are reviewed on a rolling basis by our Channel Operations team in Reston, Virginia. Most applications receive an initial response within 10 business days.
+            </p>
+            <p style="margin-top:6px;">
+              <a href="#">Download the Partner Program Guide (PDF, 1.4 MB)</a> &nbsp;|&nbsp;
+              <a href="#">View Partner Agreement Terms</a>
+            </p>
+          </td>
+          <td class="cta-btn-cell">
+            <a href="#" class="btn-cta large">APPLY NOW »</a><br>
+            <span style="font-size:10px; color:#666; display:inline-block; margin-top:6px;">or call 1-800-VERISYS</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </td>
+</tr></table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <table>
+    <tr>
+      <td>
+        <h5>Products</h5>
+        <a href="#">VeriSuite ERP</a>
+        <a href="#">VeriFlow BPM</a>
+        <a href="#">VeriVault DW</a>
+        <a href="#">VeriPortal 4.0</a>
+        <a href="#">VeriConnect EAI</a>
+      </td>
+      <td>
+        <h5>Solutions</h5>
+        <a href="#">Financial Services</a>
+        <a href="#">Healthcare</a>
+        <a href="#">Manufacturing</a>
+        <a href="#">Government</a>
+        <a href="#">Retail</a>
+      </td>
+      <td>
+        <h5>Partners</h5>
+        <a href="#">Partner Network</a>
+        <a href="#">Find a Partner</a>
+        <a href="#">Become a Partner</a>
+        <a href="#">Partner Portal Login</a>
+        <a href="#">Tier Benefits</a>
+      </td>
+      <td>
+        <h5>Support</h5>
+        <a href="#">Knowledge Base</a>
+        <a href="#">Downloads &amp; Patches</a>
+        <a href="#">Open a Case</a>
+        <a href="#">VeriCore Academy</a>
+        <a href="#">Documentation</a>
+      </td>
+      <td>
+        <h5>About</h5>
+        <a href="#">Company Overview</a>
+        <a href="#">Executive Team</a>
+        <a href="#">Press Releases</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact Us</a>
+      </td>
+      <td>
+        <h5>Investor Relations</h5>
+        <a href="#">NASDAQ: VRSY</a>
+        <a href="#">SEC Filings</a>
+        <a href="#">Earnings Calls</a>
+        <a href="#">Annual Report 2002</a>
+        <a href="#">IR Contacts</a>
+      </td>
+    </tr>
+  </table>
+  <div class="footer-bottom">
+    Copyright &copy; 2003 Verisys Enterprise Solutions, Inc. All rights reserved. &nbsp;|&nbsp;
+    <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> &nbsp;|&nbsp; <a href="#">Trademarks</a> &nbsp;|&nbsp; <a href="#">Site Map</a><br>
+    VeriSuite, VeriFlow, VeriVault, VeriPortal, VeriConnect, and VeriCore are registered trademarks of Verisys Enterprise Solutions, Inc. Best viewed in Microsoft Internet Explorer 6.0 or higher at 1024x768 resolution.
+  </div>
+</div>
+
+</body>
+</html>

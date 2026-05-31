@@ -1,0 +1,12 @@
+{
+  "dna_id": "024",
+  "dna_name": "coworking",
+  "pages": [
+    "home",
+    "spaces",
+    "membership",
+    "community",
+    "events"
+  ],
+  "has_animations": false
+}

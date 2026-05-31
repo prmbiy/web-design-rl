@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tiendas y Atención — Volaris Móvil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: 15px;
+  color: #142A30;
+  background: #FFFFFF;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Promo top bar */
+.promo-bar {
+  background: #FF5722;
+  color: #fff;
+  text-align: center;
+  padding: 8px 24px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.promo-bar .countdown {
+  background: #FFC107;
+  color: #142A30;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: 12px;
+  font-weight: 800;
+}
+
+/* Nav */
+nav.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #007B8A;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  color: #fff;
+}
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 32px; height: 32px;
+  background: #FF5722;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  list-style: none;
+}
+.nav-links a {
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 4px;
+  border-bottom: 3px solid transparent;
+  transition: border-color .2s;
+}
+.nav-links a.active, .nav-links a:hover {
+  border-bottom-color: #FFC107;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 700;
+}
+.nav-right .icon-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.mi-cuenta {
+  background: #FFC107;
+  color: #142A30;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #007B8A 0%, #005A66 60%, #003D47 100%);
+  color: #fff;
+  padding: 64px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,193,7,0.12) 0, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255,87,34,0.18) 0, transparent 35%);
+}
+.hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.breadcrumbs {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.hero h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.hero p.sub {
+  font-size: 19px;
+  opacity: 0.92;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.stat {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  padding: 16px 22px;
+  min-width: 140px;
+}
+.stat .num {
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFC107;
+}
+.stat .lbl {
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 600;
+}
+.hero-status-card {
+  background: #fff;
+  color: #142A30;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #D5E5E8;
+  font-size: 14px;
+  font-weight: 600;
+}
+.status-row:last-child { border-bottom: none; }
+.dot {
+  width: 10px; height: 10px;
+  background: #2BAE66;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(43,174,102,0.18);
+}
+.status-row .region { flex: 1; }
+.status-row .ok { color: #2BAE66; font-weight: 800; font-size: 13px; }
+.status-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.status-card-head h3 {
+  font-size: 17px;
+  font-weight: 800;
+}
+.live-tag {
+  background: #2BAE66;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Sections wrapper */
+section.band {
+  padding: 64px 24px;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.section-sub {
+  color: #5C7079;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+/* Store locator */
+.locator-band { background: #F4FAFB; }
+.locator-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #D5E5E8;
+  overflow: hidden;
+}
+.locator-sidebar {
+  padding: 24px;
+  border-right: 1px solid #D5E5E8;
+  max-height: 620px;
+  overflow: hidden;
+}
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #007B8A;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+.search-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-family: inherit;
+  font-size: 14px;
+}
+.city-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.city-pill {
+  background: #E0F7FA;
+  color: #007B8A;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.city-pill.active {
+  background: #007B8A;
+  color: #fff;
+}
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.store-card {
+  border: 1px solid #D5E5E8;
+  border-radius: 10px;
+  padding: 14px;
+  transition: border-color .2s;
+}
+.store-card:hover { border-color: #007B8A; }
+.store-card.featured {
+  border-color: #FF5722;
+  background: #FFF5F0;
+}
+.store-name {
+  font-weight: 800;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.store-name .tag {
+  background: #2BAE66;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+.store-card.closed .tag { background: #5C7079; }
+.store-addr {
+  font-size: 13px;
+  color: #5C7079;
+  margin: 4px 0 8px;
+}
+.store-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #142A30;
+  font-weight: 700;
+}
+.store-meta span::before {
+  content: "•";
+  color: #007B8A;
+  margin-right: 4px;
+}
+
+.locator-map {
+  position: relative;
+  background:
+    linear-gradient(135deg, #E0F7FA 0%, #C8EDF1 100%);
+  min-height: 620px;
+  overflow: hidden;
+}
+.map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,123,138,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,123,138,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-road {
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+}
+.r1 { top: 30%; left: 0; right: 0; height: 8px; }
+.r2 { top: 0; bottom: 0; left: 45%; width: 8px; }
+.r3 { top: 70%; left: 0; right: 0; height: 6px; transform: rotate(-3deg); transform-origin: left; }
+.r4 { top: 0; bottom: 0; left: 18%; width: 5px; }
+.r5 { top: 0; bottom: 0; left: 75%; width: 6px; }
+
+.map-pin {
+  position: absolute;
+  width: 36px; height: 36px;
+  background: #FF5722;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  box-shadow: 0 6px 14px rgba(255,87,34,0.4);
+  border: 3px solid #fff;
+}
+.map-pin span { transform: rotate(45deg); }
+.map-pin.teal { background: #007B8A; box-shadow: 0 6px 14px rgba(0,123,138,0.4); }
+
+.pin1 { top: 20%; left: 22%; }
+.pin2 { top: 35%; left: 50%; }
+.pin3 { top: 45%; left: 70%; }
+.pin4 { top: 60%; left: 28%; }
+.pin5 { top: 70%; left: 55%; }
+.pin6 { top: 25%; left: 78%; }
+.pin7 { top: 80%; left: 38%; }
+
+.map-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.map-controls button {
+  width: 32px; height: 32px;
+  border: none;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #007B8A;
+  border-radius: 6px;
+}
+.map-controls button:hover { background: #E0F7FA; }
+
+.map-legend {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  font-size: 13px;
+  font-weight: 600;
+}
+.map-legend .row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.map-legend .row:last-child { margin-bottom: 0; }
+.legend-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #FF5722;
+}
+.legend-dot.teal { background: #007B8A; }
+
+.map-callout {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+  font-size: 12px;
+  font-weight: 700;
+  transform: translate(-50%, -120%);
+  white-space: nowrap;
+  border: 2px solid #FF5722;
+}
+.map-callout strong { color: #FF5722; display: block; font-size: 13px; }
+
+/* Hours table */
+.hours-band { background: #fff; }
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #D5E5E8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hours-table th, .hours-table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #D5E5E8;
+}
+.hours-table th {
+  background: #007B8A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.hours-table tr:nth-child(even) td { background: #F4FAFB; }
+.hours-table tr:last-child td { border-bottom: none; }
+.hours-table td .svc-tag {
+  display: inline-block;
+  background: #E0F7FA;
+  color: #007B8A;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+/* Contact channels */
+.contact-band { background: #F4FAFB; }
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.channel-card {
+  background: #fff;
+  border: 1px solid #D5E5E8;
+  border-radius: 12px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+}
+.channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,123,138,0.12);
+}
+.channel-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: #E0F7FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.channel-card.wa .channel-icon { background: #DCFCE7; }
+.channel-card.email .channel-icon { background: #FFE4D6; }
+.channel-card.chat .channel-icon { background: #FFF6D6; }
+.channel-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.channel-card .value {
+  font-size: 22px;
+  font-weight: 900;
+  color: #007B8A;
+  margin: 8px 0;
+  letter-spacing: -0.5px;
+}
+.channel-card.wa .value { color: #25D366; }
+.channel-card .desc {
+  font-size: 13px;
+  color: #5C7079;
+  margin-bottom: 14px;
+}
+.channel-card .available {
+  font-size: 12px;
+  font-weight: 800;
+  color: #2BAE66;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.channel-card .available::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: #2BAE66;
+  border-radius: 50%;
+}
+
+/* Tramites online */
+.tramites-band { background: #fff; }
+.tramites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.tramite-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #D5E5E8;
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color .2s;
+  cursor: pointer;
+}
+.tramite-card:hover {
+  border-color: #FF5722;
+  background: #FFF8F5;
+}
+.tramite-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: #FFE4D6;
+  color: #FF5722;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.tramite-card .meta { flex: 1; }
+.tramite-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.tramite-card p {
+  font-size: 13px;
+  color: #5C7079;
+}
+.tramite-card .arrow {
+  font-size: 20px;
+  color: #007B8A;
+  font-weight: 900;
+}
+
+.tramites-cta {
+  margin-top: 32px;
+  background: linear-gradient(90deg, #FF5722 0%, #FF8A50 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.tramites-cta h3 {
+  font-size: 22px;
+  font-weight: 900;
+}
+.tramites-cta p { font-size: 14px; opacity: 0.9; }
+.btn-white {
+  background: #fff;
+  color: #FF5722;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* Service status indicator strip */
+.service-strip {
+  background: #2BAE66;
+  color: #fff;
+  padding: 14px 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.service-strip .dot-w {
+  display: inline-block;
+  width: 10px; height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.3);
+  vertical-align: middle;
+}
+.service-strip a {
+  text-decoration: underline;
+  margin-left: 12px;
+  font-weight: 800;
+}
+
+/* Live chat floating */
+.live-chat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FF5722;
+  color: #fff;
+  padding: 14px 22px 14px 14px;
+  border-radius: 50px;
+  box-shadow: 0 12px 30px rgba(255,87,34,0.45);
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+}
+.live-chat .avatar {
+  width: 40px; height: 40px;
+  background: #fff;
+  color: #FF5722;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  position: relative;
+}
+.live-chat .avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 12px; height: 12px;
+  background: #2BAE66;
+  border-radius: 50%;
+  border: 2px solid #FF5722;
+}
+.live-chat .meta { line-height: 1.25; }
+.live-chat .meta small { display: block; font-weight: 600; opacity: 0.9; font-size: 11px; }
+
+/* Footer */
+footer {
+  background: #003D47;
+  color: #B8D5DA;
+  padding: 56px 24px 24px;
+  font-size: 14px;
+}
+.footer-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .logo { color: #fff; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; line-height: 1.6; margin-bottom: 16px; }
+.footer-brand .socials { display: flex; gap: 8px; }
+.footer-brand .socials a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+footer h4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+footer ul a { font-size: 13px; }
+footer ul a:hover { color: #FFC107; }
+.footer-bottom {
+  max-width: 1240px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #7A9AA1;
+}
+</style>
+</head>
+<body>
+
+<div class="promo-bar">
+  ¡50% OFF en tu primer mes! <span class="countdown">Termina en 2d : 14h : 32m</span>
+</div>
+
+<nav class="main-nav">
+  <div class="nav-container">
+    <div class="logo">
+      <span class="logo-mark">V</span> Volaris Móvil
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Móvil</a></li>
+      <li><a href="#">Internet</a></li>
+      <li><a href="#">TV</a></li>
+      <li><a href="#">Paquetes</a></li>
+      <li><a href="#">Empresa</a></li>
+      <li><a href="#" class="active">Tiendas</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="icon-btn">?</span>
+      <span class="icon-btn">🛒</span>
+      <a href="#" class="mi-cuenta">Mi Cuenta</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="breadcrumbs">Inicio › Tiendas y Atención</div>
+      <h1>Estamos cerca de usted</h1>
+      <p class="sub">1,240 tiendas en México y Colombia, abiertas para resolver cualquier duda sobre su plan, contrato o equipo Volaris.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">1,240+</div><div class="lbl">Tiendas activas</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Chat en vivo</div></div>
+        <div class="stat"><div class="num">30s</div><div class="lbl">Respuesta promedio</div></div>
+        <div class="stat"><div class="num">6</div><div class="lbl">Ciudades principales</div></div>
+      </div>
+    </div>
+    <div class="hero-status-card">
+      <div class="status-card-head">
+        <h3>Estado del servicio</h3>
+        <span class="live-tag">EN VIVO</span>
+      </div>
+      <div class="status-row"><span class="dot"></span><span class="region">CDMX y Zona Metro</span><span class="ok">OPERANDO</span></div>
+      <div class="status-row"><span class="dot"></span><span class="region">Guadalajara</span><span class="ok">OPERANDO</span></div>
+      <div class="status-row"><span class="dot"></span><span class="region">Monterrey</span><span class="ok">OPERANDO</span></div>
+      <div class="status-row"><span class="dot"></span><span class="region">Bogotá D.C.</span><span class="ok">OPERANDO</span></div>
+      <div class="status-row"><span class="dot"></span><span class="region">Medellín y Cali</span><span class="ok">OPERANDO</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="service-strip">
+  <span class="dot-w"></span> Todos los servicios operando con normalidad — Última actualización: hace 3 minutos
+  <a href="#">Ver página de estado detallado →</a>
+</div>
+
+<section class="band locator-band">
+  <div class="container">
+    <h2 class="section-title">Encuentra tu tienda más cercana</h2>
+    <p class="section-sub">Filtre por ciudad o ingrese su código postal para ver tiendas, horarios y servicios disponibles.</p>
+
+    <div class="locator-grid">
+      <aside class="locator-sidebar">
+        <div class="search-input">
+          <span>🔍</span>
+          <input type="text" placeholder="Código postal, colonia o ciudad">
+        </div>
+        <div class="city-filters">
+          <span class="city-pill active">Todas</span>
+          <span class="city-pill">CDMX</span>
+          <span class="city-pill">Guadalajara</span>
+          <span class="city-pill">Monterrey</span>
+          <span class="city-pill">Bogotá</span>
+          <span class="city-pill">Medellín</span>
+          <span class="city-pill">Cali</span>
+        </div>
+
+        <div style="font-size:13px; font-weight:800; color:#5C7079; margin-bottom:10px;">7 TIENDAS CERCA DE USTED</div>
+
+        <div class="store-list">
+          <div class="store-card featured">
+            <div class="store-name">Volaris Reforma 222 <span class="tag">ABIERTO</span></div>
+            <div class="store-addr">Av. Paseo de la Reforma 222, Juárez, CDMX</div>
+            <div class="store-meta"><span>0.4 km</span><span>Cierra 21:00</span><span>5G</span></div>
+          </div>
+          <div class="store-card">
+            <div class="store-name">Volaris Polanco <span class="tag">ABIERTO</span></div>
+            <div class="store-addr">Av. Presidente Masaryk 134, Polanco IV, CDMX</div>
+            <div class="store-meta"><span>2.1 km</span><span>Cierra 20:00</span><span>Equipos</span></div>
+          </div>
+          <div class="store-card">
+            <div class="store-name">Volaris Insurgentes Sur <span class="tag">ABIERTO</span></div>
+            <div class="store-addr">Av. Insurgentes Sur 1898, Florida, CDMX</div>
+            <div class="store-meta"><span>3.6 km</span><span>Cierra 21:00</span><span>Fibra</span></div>
+          </div>
+          <div class="store-card">
+            <div class="store-name">Volaris Coyoacán Centro <span class="tag">ABIERTO</span></div>
+            <div class="store-addr">Av. Universidad 1900, Oxtopulco, CDMX</div>
+            <div class="store-meta"><span>5.2 km</span><span>Cierra 20:00</span><span>5G</span></div>
+          </div>
+          <div class="store-card closed">
+            <div class="store-name">Volaris Santa Fe <span class="tag">CERRADO</span></div>
+            <div class="store-addr">Centro Comercial Santa Fe, Local 234, CDMX</div>
+            <div class="store-meta"><span>9.8 km</span><span>Abre 10:00</span><span>Empresas</span></div>
+          </div>
+          <div class="store-card">
+            <div class="store-name">Volaris Plaza Satélite <span class="tag">ABIERTO</span></div>
+            <div class="store-addr">Cir. Circunvalación Pte 2251, Cd. Satélite</div>
+            <div class="store-meta"><span>14 km</span><span>Cierra 21:00</span><span>Fibra</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="locator-map">
+        <div class="map-grid"></div>
+        <div class="map-road r1"></div>
+        <div class="map-road r2"></div>
+        <div class="map-road r3"></div>
+        <div class="map-road r4"></div>
+        <div class="map-road r5"></div>
+
+        <div class="map-callout">
+          <strong>Volaris Reforma 222</strong>
+          Abierto · Cierra 21:00 · 5G
+        </div>
+
+        <div class="map-pin pin1"><span>1</span></div>
+        <div class="map-pin teal pin2"><span>2</span></div>
+        <div class="map-pin pin3"><span>3</span></div>
+        <div class="map-pin teal pin4"><span>4</span></div>
+        <div class="map-pin pin5"><span>5</span></div>
+        <div class="map-pin teal pin6"><span>6</span></div>
+        <div class="map-pin pin7"><span>7</span></div>
+
+        <div class="map-controls">
+          <button>＋</button>
+          <button>−</button>
+          <button>⌖</button>
+        </div>
+
+        <div class="map-legend">
+          <div class="row"><span class="legend-dot"></span> Tienda Premium</div>
+          <div class="row"><span class="legend-dot teal"></span> Centro de atención</div>
+          <div class="row" style="color:#5C7079; font-size:11px; margin-top:6px;">Mostrando 7 de 312 en CDMX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band hours-band">
+  <div class="container">
+    <h2 class="section-title">Horarios y servicios por tienda</h2>
+    <p class="section-sub">Consulte qué trámites puede realizar en cada sucursal antes de visitarnos.</p>
+
+    <table class="hours-table">
+      <thead>
+        <tr>
+          <th>Sucursal</th>
+          <th>Lun – Vie</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
+          <th>Servicios disponibles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Volaris Reforma 222</strong><br><small style="color:#5C7079;">CDMX · Premium</small></td>
+          <td>09:00 – 21:00</td>
+          <td>10:00 – 21:00</td>
+          <td>11:00 – 19:00</td>
+          <td><span class="svc-tag">5G</span><span class="svc-tag">Equipos</span><span class="svc-tag">Empresas</span><span class="svc-tag">Fibra</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris Polanco</strong><br><small style="color:#5C7079;">CDMX</small></td>
+          <td>10:00 – 20:00</td>
+          <td>10:00 – 20:00</td>
+          <td>11:00 – 18:00</td>
+          <td><span class="svc-tag">5G</span><span class="svc-tag">Equipos</span><span class="svc-tag">SIM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris Andares</strong><br><small style="color:#5C7079;">Guadalajara</small></td>
+          <td>10:00 – 22:00</td>
+          <td>10:00 – 22:00</td>
+          <td>11:00 – 20:00</td>
+          <td><span class="svc-tag">5G</span><span class="svc-tag">Fibra</span><span class="svc-tag">Portabilidad</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris Valle Oriente</strong><br><small style="color:#5C7079;">Monterrey</small></td>
+          <td>10:00 – 21:00</td>
+          <td>10:00 – 21:00</td>
+          <td>12:00 – 19:00</td>
+          <td><span class="svc-tag">5G</span><span class="svc-tag">Empresas</span><span class="svc-tag">SIM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris Andino</strong><br><small style="color:#5C7079;">Bogotá</small></td>
+          <td>10:00 – 20:00</td>
+          <td>10:00 – 20:00</td>
+          <td>11:00 – 18:00</td>
+          <td><span class="svc-tag">5G</span><span class="svc-tag">Equipos</span><span class="svc-tag">Fibra</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris El Tesoro</strong><br><small style="color:#5C7079;">Medellín</small></td>
+          <td>10:00 – 21:00</td>
+          <td>10:00 – 21:00</td>
+          <td>11:00 – 19:00</td>
+          <td><span class="svc-tag">Equipos</span><span class="svc-tag">SIM</span><span class="svc-tag">Portabilidad</span></td>
+        </tr>
+        <tr>
+          <td><strong>Volaris Unicentro Cali</strong><br><small style="color:#5C7079;">Cali</small></td>
+          <td>10:00 – 20:00</td>
+          <td>10:00 – 20:00</td>
+          <td>12:00 – 18:00</td>
+          <td><span class="svc-tag">Fibra</span><span class="svc-tag">Equipos</span><span class="svc-tag">Empresas</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="band contact-band">
+  <div class="container">
+    <h2 class="section-title">Contáctenos por el canal que prefiera</h2>
+    <p class="section-sub">Nuestros asesores están listos para resolver consultas técnicas, comerciales y de facturación.</p>
+
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="channel-icon">📞</div>
+        <h3>Llámenos</h3>
+        <div class="value">*611</div>
+        <p class="desc">Marcación gratuita desde su línea Volaris. Atención en español 24/7.</p>
+        <div class="available">Disponible ahora · Espera 1 min</div>
+      </div>
+      <div class="channel-card wa">
+        <div class="channel-icon">💬</div>
+        <h3>WhatsApp Business</h3>
+        <div class="value">+52 55 8000 8888</div>
+        <p class="desc">Consultas, soporte técnico y trámites. Respuesta promedio en 2 minutos.</p>
+        <div class="available">En línea · Verificado</div>
+      </div>
+      <div class="channel-card email">
+        <div class="channel-icon">✉️</div>
+        <h3>Correo electrónico</h3>
+        <div class="value" style="font-size:17px;">atencion@volaris.mx</div>
+        <p class="desc">Reclamos formales, comprobantes y solicitudes empresariales. Respuesta en 24h.</p>
+        <div class="available">Activo · Lun – Dom</div>
+      </div>
+      <div class="channel-card chat">
+        <div class="channel-icon">🤖</div>
+        <h3>Chat en vivo</h3>
+        <div class="value">24 / 7</div>
+        <p class="desc">Hable con Vola, nuestra asistente virtual, o conéctese con un agente humano.</p>
+        <div class="available">Respuesta en 30 segundos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tramites-band">
+  <div class="container">
+    <h2 class="section-title">Trámites 100% en línea</h2>
+    <p class="section-sub">Realice estas gestiones desde Mi Cuenta sin necesidad de visitar una tienda.</p>
+
+    <div class="tramites-grid">
+      <a class="tramite-card">
+        <div class="tramite-icon">🔄</div>
+        <div class="meta"><h4>Cambiar de plan</h4><p>Suba o baje su plan móvil o de internet en minutos.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">⚠️</div>
+        <div class="meta"><h4>Reportar una falla</h4><p>Cree un ticket de soporte técnico con seguimiento.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">💳</div>
+        <div class="meta"><h4>Pagar su factura</h4><p>Visa, Mastercard, OXXO, PayPal o domiciliación.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">📲</div>
+        <div class="meta"><h4>Solicitar portabilidad</h4><p>Traiga su número de otra operadora en 24 horas.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">🔓</div>
+        <div class="meta"><h4>Activar su SIM</h4><p>Active su nueva tarjeta Volaris con su INE o cédula.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">📑</div>
+        <div class="meta"><h4>Descargar facturas</h4><p>Acceda a su historial de los últimos 24 meses.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">🏠</div>
+        <div class="meta"><h4>Agendar instalación</h4><p>Reserve técnico de fibra óptica en 48–72 horas.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">🔁</div>
+        <div class="meta"><h4>Recargar prepago</h4><p>Saldo y paquetes para su línea Volaris Amigo.</p></div>
+        <span class="arrow">›</span>
+      </a>
+      <a class="tramite-card">
+        <div class="tramite-icon">❌</div>
+        <div class="meta"><h4>Cancelar servicio</h4><p>Proceso transparente, sin necesidad de acudir.</p></div>
+        <span class="arrow">›</span>
+      </a>
+    </div>
+
+    <div class="tramites-cta">
+      <div>
+        <h3>¿Necesita algo más complejo?</h3>
+        <p>Agende una videollamada con un asesor especializado en menos de 15 minutos.</p>
+      </div>
+      <a href="#" class="btn-white">Agendar videollamada →</a>
+    </div>
+  </div>
+</section>
+
+<div class="live-chat">
+  <div class="avatar">V</div>
+  <div class="meta">
+    Habla con Vola
+    <small>Asistente virtual · Responde en ~30s</small>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-mark">V</span> Volaris Móvil</div>
+      <p>Conecta sin límites en México y Colombia. Mass-market mobile y broadband con cobertura 4G LTE y 5G en las principales ciudades.</p>
+      <div class="socials">
+        <a href="#">f</a><a href="#">𝕏</a><a href="#">in</a><a href="#">📷</a>
+      </div>
+    </div>
+    <div>
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Planes Móvil</a></li>
+        <li><a href="#">Internet Hogar</a></li>
+        <li><a href="#">TV con Streaming</a></li>
+        <li><a href="#">Paquetes Combinados</a></li>
+        <li><a href="#">Volaris Empresa</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Atención</h4>
+      <ul>
+        <li><a href="#">Tiendas</a></li>
+        <li><a href="#">Centro de ayuda</a></li>
+        <li><a href="#">Estado del servicio</a></li>
+        <li><a href="#">Reportar falla</a></li>
+        <li><a href="#">WhatsApp *611</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Mi Cuenta</h4>
+      <ul>
+        <li><a href="#">Ingresar</a></li>
+        <li><a href="#">Pagar factura</a></li>
+        <li><a href="#">Recargar saldo</a></li>
+        <li><a href="#">Portabilidad</a></li>
+        <li><a href="#">Activar SIM</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Términos y condiciones</a></li>
+        <li><a href="#">Aviso de privacidad</a></li>
+        <li><a href="#">Carta de derechos</a></li>
+        <li><a href="#">IFT México</a></li>
+        <li><a href="#">CRC Colombia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2021 Volaris Móvil S.A. de C.V. — Todos los derechos reservados.</div>
+    <div>Hecho con 🧡 en CDMX y Bogotá</div>
+  </div>
+</footer>
+
+</body>
+</html>

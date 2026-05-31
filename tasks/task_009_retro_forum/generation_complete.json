@@ -1,0 +1,12 @@
+{
+  "dna_id": "009",
+  "dna_name": "retro_forum",
+  "pages": [
+    "index",
+    "subforum",
+    "thread",
+    "profile",
+    "search"
+  ],
+  "has_animations": false
+}

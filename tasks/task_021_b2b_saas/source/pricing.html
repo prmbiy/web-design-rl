@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pricing — Linkbase</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: 'Inter', system-ui, sans-serif; color: #1A202C; font-size: 16px; line-height: 1.5; background: #FFFFFF; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav-wrap { position: sticky; top: 0; z-index: 100; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; }
+.nav { height: 72px; max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; font-size: 20px; color: #1E3A5F; display: flex; align-items: center; gap: 8px; }
+.logo-mark { width: 26px; height: 26px; background: #1E3A5F; border-radius: 6px; position: relative; }
+.logo-mark::after { content: ''; position: absolute; right: -4px; bottom: -4px; width: 12px; height: 12px; background: #F97316; border-radius: 3px; }
+.nav-center { display: flex; gap: 32px; }
+.nav-center a { font-size: 14px; font-weight: 500; color: #4A5568; }
+.nav-center a.active { color: #1E3A5F; font-weight: 600; }
+.nav-right { display: flex; gap: 12px; align-items: center; }
+.btn-ghost { padding: 10px 18px; font-size: 14px; font-weight: 500; color: #1E3A5F; }
+.btn-primary { padding: 10px 18px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1E3A5F; border-radius: 6px; border: none; cursor: pointer; }
+.btn-orange { padding: 12px 22px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #F97316; border-radius: 6px; border: none; cursor: pointer; }
+
+/* Ticker */
+.ticker { background: #F1F5F9; border-bottom: 1px solid #E2E8F0; overflow: hidden; padding: 8px 0; }
+.ticker-inner { display: flex; gap: 48px; white-space: nowrap; font-size: 12px; color: #4A5568; font-weight: 500; letter-spacing: 0.04em; padding-left: 24px; }
+.ticker-inner span { opacity: 0.85; }
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+section { padding: 96px 48px; }
+
+/* Hero */
+.hero { background: #F8FAFC; text-align: center; padding: 80px 48px 64px; border-bottom: 1px solid #E2E8F0; }
+.hero h1 { font-size: 56px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; }
+.hero p { font-size: 20px; color: #4A5568; max-width: 680px; margin: 0 auto 32px; }
+.toggle { display: inline-flex; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 4px; gap: 4px; }
+.toggle-opt { padding: 10px 22px; font-size: 14px; font-weight: 600; color: #4A5568; border-radius: 6px; cursor: pointer; }
+.toggle-opt.active { background: #1E3A5F; color: #FFFFFF; }
+.toggle-opt .save { color: #F97316; margin-left: 6px; font-size: 12px; }
+.toggle-opt.active .save { color: #F97316; }
+
+/* Tier cards */
+.tiers { padding: 64px 48px 96px; background: #F8FAFC; }
+.tier-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: stretch; }
+.tier { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 36px 32px; display: flex; flex-direction: column; position: relative; }
+.tier.popular { border: 2px solid #F97316; box-shadow: 0 12px 32px rgba(30, 58, 95, 0.10); transform: translateY(-12px); }
+.popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #F97316; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 4px; text-transform: uppercase; }
+.tier-name { font-size: 14px; font-weight: 700; color: #4F6BFF; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.tier-tagline { font-size: 14px; color: #4A5568; margin-bottom: 20px; }
+.tier-price { font-size: 44px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.02em; line-height: 1; }
+.tier-price small { font-size: 14px; font-weight: 500; color: #4A5568; }
+.tier-billing { font-size: 13px; color: #4A5568; margin-top: 8px; margin-bottom: 24px; }
+.tier ul { list-style: none; margin: 0 0 28px; padding: 0; flex: 1; }
+.tier li { font-size: 14px; color: #1A202C; padding: 10px 0; border-top: 1px solid #F1F5F9; display: flex; gap: 10px; align-items: flex-start; }
+.tier li::before { content: '✓'; color: #22C55E; font-weight: 700; flex-shrink: 0; }
+.tier li:first-of-type { border-top: none; }
+.tier .btn { width: 100%; text-align: center; padding: 14px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; border: none; }
+.btn-outline { background: #FFFFFF; color: #1E3A5F; border: 1.5px solid #1E3A5F; }
+.btn-fill { background: #1E3A5F; color: #FFFFFF; }
+.btn-fill-orange { background: #F97316; color: #FFFFFF; }
+
+/* Comparison table */
+.compare { background: #FFFFFF; }
+.compare h2 { font-size: 36px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.01em; margin-bottom: 12px; text-align: center; }
+.compare .sub { text-align: center; color: #4A5568; font-size: 16px; margin-bottom: 48px; }
+table.feature-table { width: 100%; max-width: 1100px; margin: 0 auto; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.feature-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A5568; font-weight: 700; padding: 16px 18px; text-align: left; border-bottom: 2px solid #E2E8F0; background: #F8FAFC; }
+.feature-table thead th:nth-child(n+2) { text-align: center; width: 140px; }
+.feature-table tbody td { padding: 14px 18px; font-size: 14px; border-bottom: 1px solid #F1F5F9; color: #1A202C; }
+.feature-table tbody tr:nth-child(even) td { background: #F8FAFC; }
+.feature-table tbody td:nth-child(n+2) { text-align: center; }
+.check { color: #22C55E; font-weight: 700; font-size: 16px; }
+.dash { color: #CBD5E0; font-weight: 700; }
+
+/* ROI Calculator */
+.roi { background: #F8FAFC; }
+.roi-header { text-align: center; margin-bottom: 48px; }
+.roi-header h2 { font-size: 36px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.01em; margin-bottom: 12px; }
+.roi-header p { color: #4A5568; font-size: 16px; }
+.roi-widget { max-width: 1100px; margin: 0 auto; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: 0 8px 24px rgba(30, 58, 95, 0.05); }
+.roi-inputs { padding: 40px; border-right: 1px solid #E2E8F0; }
+.roi-inputs h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #4F6BFF; font-weight: 700; margin-bottom: 24px; }
+.field { margin-bottom: 20px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: #4A5568; margin-bottom: 8px; }
+.field input, .field select { width: 100%; padding: 12px 14px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 15px; font-family: inherit; color: #1A202C; background: #FFFFFF; font-variant-numeric: tabular-nums; }
+.field input:focus, .field select:focus { outline: 2px solid #4F6BFF; outline-offset: -1px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.roi-output { padding: 40px; background: linear-gradient(180deg, #1E3A5F 0%, #15293F 100%); color: #FFFFFF; }
+.roi-output h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #F97316; font-weight: 700; margin-bottom: 28px; }
+.roi-big { font-size: 56px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.roi-big-label { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; margin-bottom: 32px; }
+.roi-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); }
+.roi-secondary .val { font-size: 28px; font-weight: 700; color: #FFFFFF; font-variant-numeric: tabular-nums; }
+.roi-secondary .lbl { font-size: 12px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+.roi-note { margin-top: 28px; font-size: 12px; color: rgba(255,255,255,0.6); }
+
+/* Implementation timeline */
+.impl { background: #FFFFFF; }
+.impl h2 { font-size: 36px; font-weight: 800; color: #1E3A5F; letter-spacing: -0.01em; margin-bottom: 12px; text-align: center; }
+.impl .sub { text-align: center; color: #4A5568; margin-bottom: 48px; }
+.impl-table { max-width: 1100px; margin: 0 auto; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden; }
+.impl-row { display: grid; grid-template-columns: 160px 1fr 1fr 1fr; padding: 0; border-bottom: 1px solid #E2E8F0; }
+.impl-row:last-child { border-bottom: none; }
+.impl-row.header { background: #1E3A5F; color: #FFFFFF; }
+.impl-row.header > div { padding: 16px 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.impl-row.body > div { padding: 24px 20px; font-size: 14px; color: #1A202C; border-right: 1px solid #F1F5F9; }
+.impl-row.body > div:last-child { border-right: none; }
+.impl-row.body:nth-child(odd) { background: #F8FAFC; }
+.impl-week { font-weight: 700; color: #F97316; font-size: 15px; }
+.impl-phase { font-weight: 700; color: #1E3A5F; font-size: 15px; margin-bottom: 4px; }
+
+/* Badges */
+.badges { background: #F8FAFC; padding: 64px 48px; border-top: 1px solid #E2E8F0; }
+.badges h3 { text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: #4A5568; font-weight: 700; margin-bottom: 32px; }
+.badge-row { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.badge { display: flex; align-items: center; gap: 14px; padding: 16px 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; }
+.badge-mark { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 800; font-size: 12px; flex-shrink: 0; }
+.badge-mark.gartner { background: linear-gradient(135deg, #4F6BFF, #1E3A5F); }
+.badge-mark.g2 { background: #F97316; }
+.badge-mark.soc { background: #22C55E; }
+.badge-title { font-size: 14px; font-weight: 700; color: #1E3A5F; }
+.badge-sub { font-size: 12px; color: #4A5568; }
+
+/* Footer CTA */
+.footer-cta { background: #1E3A5F; color: #FFFFFF; padding: 64px 48px; text-align: center; }
+.footer-cta h2 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+.footer-cta p { color: rgba(255,255,255,0.75); margin-bottom: 28px; font-size: 17px; }
+
+/* Footer */
+footer { background: #15293F; color: rgba(255,255,255,0.7); padding: 56px 48px 32px; }
+.foot-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.foot-grid h5 { color: #FFFFFF; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+.foot-grid ul { list-style: none; }
+.foot-grid li { font-size: 14px; padding: 6px 0; }
+.foot-brand { font-weight: 800; color: #FFFFFF; font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.foot-brand .logo-mark { width: 22px; height: 22px; background: #F97316; }
+.foot-brand .logo-mark::after { background: #FFFFFF; }
+.foot-tag { font-size: 14px; line-height: 1.6; max-width: 280px; }
+.foot-bot { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <div class="logo"><span class="logo-mark"></span> Linkbase</div>
+    <div class="nav-center">
+      <a href="#">Platform</a>
+      <a href="#">Solutions</a>
+      <a href="#">Integrations</a>
+      <a href="#" class="active">Pricing</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn-ghost">Log in</a>
+      <button class="btn-primary">Request demo</button>
+    </div>
+  </nav>
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>CARGILL</span><span>WHIRLPOOL</span><span>HENKEL</span><span>MONDELEZ</span><span>STANLEY BLACK &amp; DECKER</span><span>KIMBERLY-CLARK</span><span>BRIDGESTONE</span><span>OWENS CORNING</span><span>TRACTOR SUPPLY</span><span>CARDINAL HEALTH</span>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Transparent tiers.<br>Custom-fit deployments.</h1>
+  <p>Annual contracts with a 20% discount versus monthly billing. Every plan includes named CSM access for our enterprise customers.</p>
+  <div class="toggle">
+    <div class="toggle-opt">Monthly</div>
+    <div class="toggle-opt active">Annual <span class="save">— save 20%</span></div>
+  </div>
+</section>
+
+<section class="tiers">
+  <div class="tier-grid">
+    <div class="tier">
+      <div class="tier-name">Starter</div>
+      <div class="tier-tagline">For lean ops teams getting a single planning loop into production.</div>
+      <div class="tier-price">$1,950<small>/mo</small></div>
+      <div class="tier-billing">Billed annually · up to 5 users</div>
+      <ul>
+        <li>Up to 5 named users</li>
+        <li>1 ERP connector (SAP, NetSuite, or D365)</li>
+        <li>Demand Forecasting module</li>
+        <li>SKU-location-week granularity</li>
+        <li>Standard dashboards &amp; alerts</li>
+        <li>Email support, business hours</li>
+      </ul>
+      <button class="btn btn-outline">Start with Starter</button>
+    </div>
+
+    <div class="tier popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="tier-name" style="color:#F97316">Growth</div>
+      <div class="tier-tagline">The standard stack for mid-market manufacturing, retail, and CPG.</div>
+      <div class="tier-price">$4,800<small>/mo</small></div>
+      <div class="tier-billing">Billed annually · up to 25 users</div>
+      <ul>
+        <li>Up to 25 named users</li>
+        <li>3 ERP/WMS connectors</li>
+        <li>Demand + Inventory + Supplier modules</li>
+        <li>Multi-echelon safety stock</li>
+        <li>Custom dashboards &amp; Slack/Teams alerts</li>
+        <li>SSO / SAML</li>
+        <li>Priority support, 4-hour Sev-1</li>
+      </ul>
+      <button class="btn btn-fill-orange">Request demo</button>
+    </div>
+
+    <div class="tier">
+      <div class="tier-name">Enterprise</div>
+      <div class="tier-tagline">For Fortune 1000 deployments with global data residency needs.</div>
+      <div class="tier-price">Custom</div>
+      <div class="tier-billing">Annual contract · unlimited users</div>
+      <ul>
+        <li>Unlimited users &amp; entities</li>
+        <li>Unlimited ERP, WMS &amp; EDI connectors</li>
+        <li>All modules + Reporting &amp; Alerts</li>
+        <li>Data residency: US, EU, APAC</li>
+        <li>Dedicated CSM &amp; solution architect</li>
+        <li>Custom SLAs (99.9%+ uptime)</li>
+        <li>24/7 support, 15-min Sev-1 response</li>
+      </ul>
+      <button class="btn btn-fill">Contact sales</button>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="container">
+    <h2>Compare every capability</h2>
+    <p class="sub">14 capabilities across modules, governance, and support.</p>
+    <table class="feature-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Starter</th>
+          <th>Growth</th>
+          <th>Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Demand Forecasting (probabilistic)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Multi-Echelon Inventory Optimization</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Supplier Risk Scoring (tier-1 &amp; tier-2)</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Custom Dashboards</td><td>3 max</td><td>Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Real-time Disruption Alerts</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>ERP / WMS Connectors</td><td>1</td><td>3</td><td>Unlimited</td></tr>
+        <tr><td>EDI &amp; Snowflake/Databricks sync</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>SSO / SAML</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Role-based access control (RBAC)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td>Data Residency (US / EU / APAC)</td><td><span class="dash">—</span></td><td>US only</td><td>US / EU / APAC</td></tr>
+        <tr><td>Audit logs &amp; export</td><td>30 days</td><td>1 year</td><td>7 years</td></tr>
+        <tr><td>Dedicated Customer Success Manager</td><td><span class="dash">—</span></td><td>Shared</td><td>Named</td></tr>
+        <tr><td>SLA (uptime)</td><td>99.5%</td><td>99.9%</td><td>99.95%</td></tr>
+        <tr><td>Support response (Sev-1)</td><td>1 business day</td><td>4 hours</td><td>15 minutes, 24/7</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="roi">
+  <div class="roi-header">
+    <h2>Estimate your annual savings</h2>
+    <p>Most Linkbase customers reach payback in under 7 months. Try it on your numbers.</p>
+  </div>
+  <div class="roi-widget">
+    <div class="roi-inputs">
+      <h3>Your inputs</h3>
+      <div class="field">
+        <label>Annual procurement spend (USD)</label>
+        <input type="text" value="$ 480,000,000">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Team size</label>
+          <input type="text" value="42 planners">
+        </div>
+        <div class="field">
+          <label>Monthly order volume</label>
+          <input type="text" value="186,000">
+        </div>
+      </div>
+      <div class="field">
+        <label>Industry</label>
+        <select>
+          <option>Manufacturing</option>
+          <option>Retail</option>
+          <option>Healthcare</option>
+          <option>CPG</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Current inventory turnover</label>
+        <input type="text" value="6.8x annually">
+      </div>
+    </div>
+    <div class="roi-output">
+      <h3>Your projected impact</h3>
+      <div class="roi-big">$11.04M</div>
+      <div class="roi-big-label">Estimated annual savings (Year 1)</div>
+      <div class="roi-secondary">
+        <div>
+          <div class="val">6.4 mo</div>
+          <div class="lbl">Payback period</div>
+        </div>
+        <div>
+          <div class="val">$28.7M</div>
+          <div class="lbl">3-year NPV</div>
+        </div>
+      </div>
+      <div class="roi-note">Modeled on 2.3% procurement spend reduction and 14% MAPE improvement, averaged across 312 Linkbase customers.</div>
+    </div>
+  </div>
+</section>
+
+<section class="impl">
+  <div class="container">
+    <h2>From kickoff to go-live in 6 weeks</h2>
+    <p class="sub">A typical Growth-tier rollout. Enterprise engagements include a parallel global program plan.</p>
+    <div class="impl-table">
+      <div class="impl-row header">
+        <div>Timeline</div>
+        <div>Phase</div>
+        <div>Linkbase activities</div>
+        <div>Your team</div>
+      </div>
+      <div class="impl-row body">
+        <div class="impl-week">Weeks 1–2</div>
+        <div><div class="impl-phase">Onboarding &amp; scoping</div>KPI alignment, data inventory, success criteria signed.</div>
+        <div>Workshops with CSM, sandbox provisioned in your region, security review.</div>
+        <div>Exec sponsor, planning lead, IT security contact.</div>
+      </div>
+      <div class="impl-row body">
+        <div class="impl-week">Weeks 3–4</div>
+        <div><div class="impl-phase">Data integration</div>ERP/WMS connectors live, historical 24-month load.</div>
+        <div>Connector deployment (SAP S/4HANA, Manhattan WMS), data quality checks, master data mapping.</div>
+        <div>ERP admin, data steward, 2 sample dashboards reviewed.</div>
+      </div>
+      <div class="impl-row body">
+        <div class="impl-week">Weeks 5–6</div>
+        <div><div class="impl-phase">Model tuning &amp; go-live</div>Forecasts in production, alerts routed, planners trained.</div>
+        <div>MAPE benchmark, safety stock policies, training for 25 planners, go-live cutover.</div>
+        <div>Planners onboard, S&amp;OP cadence updated, first weekly review.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="badges">
+  <h3>Recognized by the industry</h3>
+  <div class="badge-row">
+    <div class="badge">
+      <div class="badge-mark gartner">G</div>
+      <div>
+        <div class="badge-title">Gartner Magic Quadrant</div>
+        <div class="badge-sub">Leader · Supply Chain Planning 2024</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-mark g2">G2</div>
+      <div>
+        <div class="badge-title">G2 Leader · Fall 2024</div>
+        <div class="badge-sub">Supply Chain Analytics category</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-mark soc">✓</div>
+      <div>
+        <div class="badge-title">SOC 2 Type II</div>
+        <div class="badge-sub">Audited annually · ISO 27001, GDPR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2>See Linkbase on your data</h2>
+  <p>Live walkthrough with a solution architect. 30 minutes. No slideware.</p>
+  <button class="btn-orange">Request demo</button>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><span class="logo-mark"></span> Linkbase</div>
+      <div class="foot-tag">Forecast demand. Optimize inventory. Mitigate supplier risk. Built for Fortune 1000 operations teams.</div>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <ul><li>Platform</li><li>Solutions</li><li>Integrations</li><li>Pricing</li><li>Security</li></ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul><li>Case studies</li><li>White papers</li><li>Webinars</li><li>Blog</li><li>ROI calculator</li></ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul><li>About</li><li>Customers</li><li>Careers</li><li>Press</li><li>Contact</li></ul>
+    </div>
+    <div>
+      <h5>Legal</h5>
+      <ul><li>Privacy</li><li>Terms</li><li>DPA</li><li>SOC 2</li><li>Trust center</li></ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <div>© 2024 Linkbase Analytics, Inc. All rights reserved.</div>
+    <div>San Francisco · Frankfurt · Singapore</div>
+  </div>
+</footer>
+
+</body>
+</html>

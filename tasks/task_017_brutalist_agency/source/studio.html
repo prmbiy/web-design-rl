@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Studio — VANTBLACK/STUDIO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #F4F4F1; color: #000; font-family: 'Space Grotesk', sans-serif; font-size: 18px; overflow-x: hidden; cursor: none; }
+a { color: inherit; text-decoration: none; }
+
+/* Cursor */
+.cursor-dot { position: fixed; width: 24px; height: 24px; background: #FFE500; border-radius: 50%; pointer-events: none; mix-blend-mode: difference; top: 50%; left: 50%; z-index: 9999; }
+
+/* Side Nav */
+.sidenav { position: fixed; top: 0; left: 0; width: 88px; height: 100vh; background: #000; color: #fff; border-right: 4px solid #000; z-index: 100; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 32px 0; }
+.sidenav .brand { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Archivo Black', sans-serif; font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase; }
+.sidenav .nav-links { display: flex; flex-direction: column; gap: 32px; writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; }
+.sidenav .nav-links a { display: inline-block; padding: 4px 0; }
+.sidenav .nav-links a.active { color: #FFE500; }
+.sidenav .page-counter { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FFE500; }
+
+main { margin-left: 88px; }
+
+/* Hero */
+.hero { padding: 140px 64px 80px; border-bottom: 4px solid #000; position: relative; }
+.hero .meta { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 80px; }
+.hero h1 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 168px; line-height: 0.88; letter-spacing: -0.04em; margin-bottom: 48px; }
+.hero h1 .black { background: #000; color: #FFE500; padding: 0 16px; display: inline-block; }
+.hero .subhead { font-family: 'Space Grotesk', sans-serif; font-size: 24px; max-width: 720px; line-height: 1.35; border-left: 4px solid #000; padding-left: 24px; margin-left: 40%; }
+
+/* Manifesto */
+.manifesto { padding: 120px 64px; border-bottom: 4px solid #000; background: #FFFFFF; }
+.manifesto .section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 80px; display: flex; justify-content: space-between; }
+.manifesto .item { display: grid; grid-template-columns: 80px 1fr; gap: 40px; border-top: 2px solid #000; padding: 48px 0; }
+.manifesto .item:last-child { border-bottom: 2px solid #000; }
+.manifesto .item .num { font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+.manifesto .item .text { font-family: 'Fraunces', serif; font-weight: 700; font-size: 56px; line-height: 1.02; letter-spacing: -0.02em; }
+.manifesto .item .text em { font-style: italic; }
+.manifesto .item:nth-child(3) { padding-left: 120px; }
+.manifesto .item:nth-child(5) { padding-left: 240px; }
+.manifesto .item .accent { background: #FFE500; padding: 0 8px; }
+
+/* Team */
+.team { padding: 120px 64px; border-bottom: 4px solid #000; background: #F4F4F1; }
+.team .section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 60px; display: flex; justify-content: space-between; }
+.team h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 96px; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 80px; max-width: 1000px; }
+.team-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+
+.member { position: relative; border: 3px solid #000; overflow: hidden; }
+.member .photo { aspect-ratio: 3/4; position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', sans-serif; color: rgba(255,255,255,0.15); font-size: 120px; }
+.member .name-tag { position: absolute; bottom: 0; left: 0; right: 0; background: #000; color: #fff; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; display: flex; justify-content: space-between; border-top: 2px solid #FFE500; }
+.member .name-tag .role { color: #FFE500; }
+
+/* asymmetric placement */
+.m1 { grid-column: 1/4; grid-row: 1/3; }
+.m1 .photo { background: linear-gradient(135deg, #000 0%, #222 100%); aspect-ratio: 3/5; }
+.m2 { grid-column: 5/8; grid-row: 1; margin-top: 60px; }
+.m2 .photo { background: linear-gradient(180deg, #1a1a1a, #000); }
+.m3 { grid-column: 9/13; grid-row: 1/3; }
+.m3 .photo { background: linear-gradient(45deg, #FFE500 0%, #000 100%); aspect-ratio: 3/5; }
+.m4 { grid-column: 1/3; grid-row: 3; margin-top: 32px;}
+.m4 .photo { background: linear-gradient(135deg, #333, #000); }
+.m5 { grid-column: 4/7; grid-row: 2/4; }
+.m5 .photo { background: linear-gradient(180deg, #000, #444); aspect-ratio: 1/1.3; }
+.m6 { grid-column: 8/10; grid-row: 2; margin-top: 80px;}
+.m6 .photo { background: linear-gradient(90deg, #111, #000); }
+.m7 { grid-column: 10/13; grid-row: 3; }
+.m7 .photo { background: linear-gradient(45deg, #000, #FFE500); }
+.m8 { grid-column: 3/6; grid-row: 4; }
+.m8 .photo { background: linear-gradient(135deg, #000, #555); }
+.m9 { grid-column: 7/10; grid-row: 4; margin-top: 40px;}
+.m9 .photo { background: linear-gradient(180deg, #222, #000); }
+.m10 { grid-column: 1/3; grid-row: 5; margin-top: 60px;}
+.m10 .photo { background: linear-gradient(45deg, #111, #333); }
+.m11 { grid-column: 4/6; grid-row: 5; }
+.m11 .photo { background: linear-gradient(135deg, #FFE500, #000); aspect-ratio: 1/1; }
+.m12 { grid-column: 7/10; grid-row: 5; }
+.m12 .photo { background: linear-gradient(180deg, #000, #1a1a1a); }
+.m13 { grid-column: 10/12; grid-row: 4/6; }
+.m13 .photo { background: linear-gradient(180deg, #000, #444); aspect-ratio: 3/5; }
+.m14 { grid-column: 12/13; grid-row: 5; }
+.m14 .photo { background: linear-gradient(45deg, #000, #888); }
+
+/* Clients */
+.clients { padding: 120px 64px; border-bottom: 4px solid #000; background: #FFFFFF; }
+.clients .header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #000; padding-bottom: 24px; margin-bottom: 48px; }
+.clients .header h2 { font-family: 'Fraunces', serif; font-weight: 900; font-size: 72px; letter-spacing: -0.03em; }
+.clients .header .count { font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+.clients-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border-top: 2px solid #000; border-left: 2px solid #000; }
+.client { border-right: 2px solid #000; border-bottom: 2px solid #000; padding: 28px 20px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.02em; display: flex; align-items: center; min-height: 88px; transition: background 0.2s; }
+.client:hover { background: #FFE500; }
+.client .star { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #FFE500; margin-right: 8px; }
+.client:hover .star { color: #000; }
+
+/* Awards Ticker */
+.awards { background: #000; color: #fff; padding: 60px 0; border-bottom: 4px solid #000; overflow: hidden; }
+.awards .label { padding: 0 64px; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: #FFE500; margin-bottom: 32px; }
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 30s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-track .item { font-family: 'Fraunces', serif; font-weight: 900; font-size: 96px; line-height: 1; padding: 0 48px; letter-spacing: -0.02em; }
+.marquee-track .item .yr { color: #FFE500; font-family: 'JetBrains Mono', monospace; font-size: 24px; vertical-align: super; font-weight: 400; }
+.marquee-track .dot { display: inline-flex; align-items: center; padding: 0 16px; color: #FFE500; font-size: 32px; }
+
+/* Locations */
+.locations { background: #F4F4F1; padding: 100px 64px; border-bottom: 4px solid #000; }
+.locations .section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 40px; display: flex; justify-content: space-between; }
+.city { font-family: 'Fraunces', serif; font-weight: 900; font-size: 240px; line-height: 0.85; letter-spacing: -0.05em; border-bottom: 4px solid #000; padding: 24px 0; display: flex; justify-content: space-between; align-items: flex-end; }
+.city:last-child { border-bottom: none; }
+.city .gmt { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 400; padding-bottom: 32px; letter-spacing: 0.1em; }
+.city.right { text-align: right; padding-left: 30%; }
+.city.center { text-align: center; padding-left: 15%; }
+.city .accent-dot { color: #FFE500; }
+
+/* Footer */
+footer { background: #000; color: #fff; padding: 80px 64px 40px; }
+footer .top { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #fff; padding-bottom: 60px; margin-bottom: 40px; }
+footer .top .big { font-family: 'Fraunces', serif; font-weight: 900; font-size: 88px; line-height: 0.9; letter-spacing: -0.03em; }
+footer .top .big .y { color: #FFE500; }
+footer .top .right { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; line-height: 2; text-align: right; }
+footer .bottom { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #999; }
+footer .bottom a:hover { color: #FFE500; }
+
+/* Animations */
+@keyframes pageFade { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+.page-enter { animation: pageFade 0.8s cubic-bezier(0.77,0,0.175,1) both; }
+
+@keyframes scramble { 0%,100% { letter-spacing: 0; } 25% { letter-spacing: 0.05em; transform: skewX(-2deg); } 50% { letter-spacing: -0.02em; } 75% { letter-spacing: 0.03em; transform: skewX(1deg); } }
+.scramble:hover, .sidenav .nav-links a:hover { animation: scramble 0.4s steps(4) both; }
+
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+
+<nav class="sidenav">
+  <div class="brand">VANTBLACK / STUDIO</div>
+  <div class="nav-links">
+    <a href="#">Index</a>
+    <a href="#">Work</a>
+    <a href="#" class="active">Studio</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="page-counter">04 / 05</div>
+</nav>
+
+<main class="page-enter">
+
+  <section class="hero">
+    <div class="meta">
+      <span>VB/STUDIO — ABOUT THE PRACTICE</span>
+      <span>EST. 2017 — BERLIN</span>
+      <span>FILE: 04.STUDIO.MANIFESTO</span>
+    </div>
+    <h1 class="scramble">WE ARE 14<br>PEOPLE IN A<br><span class="black">BLACK ROOM.</span></h1>
+    <p class="subhead">Founded 2017 by Mira Hess and Otto Lindgren. Independent. Unrepresented. We make brands that refuse to be ignored.</p>
+  </section>
+
+  <section class="manifesto">
+    <div class="section-label">
+      <span>↘ Manifesto</span>
+      <span>Five non-negotiables</span>
+      <span>2017 — Present</span>
+    </div>
+
+    <div class="item">
+      <div class="num">N°01</div>
+      <div class="text">Craft is the <em>only</em> currency. Everything else <span class="accent">depreciates</span>.</div>
+    </div>
+
+    <div class="item">
+      <div class="num">N°02</div>
+      <div class="text">We argue. We bring conflict into the room because politeness produces beige work.</div>
+    </div>
+
+    <div class="item">
+      <div class="num">N°03</div>
+      <div class="text">No templates. No moodboards from <em>last quarter</em>. No design that looks like everyone else's design.</div>
+    </div>
+
+    <div class="item">
+      <div class="num">N°04</div>
+      <div class="text">We build for the <span class="accent">long now</span>. Identities that last twenty years, not twenty months.</div>
+    </div>
+
+    <div class="item">
+      <div class="num">N°05</div>
+      <div class="text">Generative AI does not make brands. Humans with opinions do.</div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="section-label">
+      <span>↘ The Fourteen</span>
+      <span>Berlin · New York · Seoul</span>
+    </div>
+    <h2>The room. In order of who joined first.</h2>
+    <div class="team-grid">
+      <div class="member m1"><div class="photo">MH</div><div class="name-tag"><span>Mira Hess</span><span class="role">CD / CO-FOUND</span></div></div>
+      <div class="member m2"><div class="photo">OL</div><div class="name-tag"><span>Otto Lindgren</span><span class="role">CD / CO-FOUND</span></div></div>
+      <div class="member m3"><div class="photo">YA</div><div class="name-tag"><span>Yusuf Adeyemi</span><span class="role">STRATEGY</span></div></div>
+      <div class="member m4"><div class="photo">AV</div><div class="name-tag"><span>Anouk Vermeer</span><span class="role">DESIGN DIR</span></div></div>
+      <div class="member m5"><div class="photo">KT</div><div class="name-tag"><span>Keita Tanaka</span><span class="role">SR. DESIGNER</span></div></div>
+      <div class="member m6"><div class="photo">RM</div><div class="name-tag"><span>Rosa Mendes</span><span class="role">TYPE</span></div></div>
+      <div class="member m7"><div class="photo">SB</div><div class="name-tag"><span>Sólveig Bjørn</span><span class="role">MOTION LEAD</span></div></div>
+      <div class="member m8"><div class="photo">DK</div><div class="name-tag"><span>Daniel Kowalski</span><span class="role">DEV LEAD</span></div></div>
+      <div class="member m9"><div class="photo">IO</div><div class="name-tag"><span>Imani Okonkwo</span><span class="role">PRODUCER</span></div></div>
+      <div class="member m10"><div class="photo">LP</div><div class="name-tag"><span>Léa Petit</span><span class="role">DESIGNER</span></div></div>
+      <div class="member m11"><div class="photo">JH</div><div class="name-tag"><span>Ji-Ho Park</span><span class="role">DESIGNER</span></div></div>
+      <div class="member m12"><div class="photo">MR</div><div class="name-tag"><span>Marco Ricci</span><span class="role">3D / SPATIAL</span></div></div>
+      <div class="member m13"><div class="photo">CN</div><div class="name-tag"><span>Clara Novák</span><span class="role">EDITORIAL</span></div></div>
+      <div class="member m14"><div class="photo">EW</div><div class="name-tag"><span>Elif Wexler</span><span class="role">OPS</span></div></div>
+    </div>
+  </section>
+
+  <section class="clients">
+    <div class="header">
+      <h2>Clients. 2017—2023.</h2>
+      <div class="count">036 PARTNERS / 12 INDUSTRIES</div>
+    </div>
+    <div class="clients-grid">
+      <div class="client"><span class="star">✱</span>Aesop</div>
+      <div class="client"><span class="star">✱</span>A24</div>
+      <div class="client"><span class="star">✱</span>Rapha</div>
+      <div class="client"><span class="star">✱</span>Notion</div>
+      <div class="client"><span class="star">✱</span>Bottega Veneta</div>
+      <div class="client"><span class="star">✱</span>Linear</div>
+      <div class="client"><span class="star">✱</span>On Running</div>
+      <div class="client"><span class="star">✱</span>Patagonia</div>
+      <div class="client"><span class="star">✱</span>Acne Studios</div>
+      <div class="client"><span class="star">✱</span>Koruna</div>
+      <div class="client"><span class="star">✱</span>Halder</div>
+      <div class="client"><span class="star">✱</span>Nemesis XR</div>
+      <div class="client"><span class="star">✱</span>Atlas Denim</div>
+      <div class="client"><span class="star">✱</span>Arc'teryx</div>
+      <div class="client"><span class="star">✱</span>MUBI</div>
+      <div class="client"><span class="star">✱</span>Ssense</div>
+      <div class="client"><span class="star">✱</span>Byredo</div>
+      <div class="client"><span class="star">✱</span>Hay</div>
+      <div class="client"><span class="star">✱</span>Vitra</div>
+      <div class="client"><span class="star">✱</span>Kvadrat</div>
+      <div class="client"><span class="star">✱</span>Stripe</div>
+      <div class="client"><span class="star">✱</span>Figma</div>
+      <div class="client"><span class="star">✱</span>Vercel</div>
+      <div class="client"><span class="star">✱</span>Pitchfork</div>
+      <div class="client"><span class="star">✱</span>Dazed</div>
+      <div class="client"><span class="star">✱</span>032c</div>
+      <div class="client"><span class="star">✱</span>Highsnobiety</div>
+      <div class="client"><span class="star">✱</span>Loewe</div>
+      <div class="client"><span class="star">✱</span>Jil Sander</div>
+      <div class="client"><span class="star">✱</span>Margiela</div>
+      <div class="client"><span class="star">✱</span>Hermès</div>
+      <div class="client"><span class="star">✱</span>Veuve Clicquot</div>
+      <div class="client"><span class="star">✱</span>Bang &amp; Olufsen</div>
+      <div class="client"><span class="star">✱</span>Teenage Eng.</div>
+      <div class="client"><span class="star">✱</span>Leica</div>
+      <div class="client"><span class="star">✱</span>Polestar</div>
+    </div>
+  </section>
+
+  <section class="awards">
+    <div class="label">↘ Recent Recognition — Awards Ticker — 2021/2023</div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="item">D&amp;AD WOOD PENCIL <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">BRAND NEW WINNER <span class="yr">2022</span></span>
+        <span class="dot">●</span>
+        <span class="item">ADC GOLD CUBE <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">TYPE DIRECTORS CLUB <span class="yr">2022</span></span>
+        <span class="dot">●</span>
+        <span class="item">CANNES BRONZE LION <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">FWA OF THE DAY <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">D&amp;AD WOOD PENCIL <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">BRAND NEW WINNER <span class="yr">2022</span></span>
+        <span class="dot">●</span>
+        <span class="item">ADC GOLD CUBE <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">TYPE DIRECTORS CLUB <span class="yr">2022</span></span>
+        <span class="dot">●</span>
+        <span class="item">CANNES BRONZE LION <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+        <span class="item">FWA OF THE DAY <span class="yr">2023</span></span>
+        <span class="dot">●</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="locations">
+    <div class="section-label">
+      <span>↘ Three Rooms</span>
+      <span>One Time Zone of Mind</span>
+    </div>
+    <div class="city"><span>BERLIN<span class="accent-dot">.</span></span><span class="gmt">52.5200°N — GMT+1 — KÖPENICKER 187</span></div>
+    <div class="city right"><span class="gmt" style="padding-bottom: 32px;">40.7128°N — GMT−5 — 55 WALKER ST</span><span>NEW YORK<span class="accent-dot">.</span></span></div>
+    <div class="city center"><span>SEOUL<span class="accent-dot">.</span></span><span class="gmt">37.5665°N — GMT+9 — ITAEWON-RO 14</span></div>
+  </section>
+
+  <footer>
+    <div class="top">
+      <div class="big">Want to build<br>something <span class="y">loud?</span></div>
+      <div class="right">
+        HELLO@VANTBLACK.STUDIO<br>
+        +49 30 5557 0817<br>
+        NEW BUSINESS REVIEWED WEEKLY<br>
+        — WE RESPOND TO EVERYONE.
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2023 VANTBLACK/STUDIO GMBH</span>
+      <span>INSTAGRAM — ARE.NA — READ.CV — LINKEDIN</span>
+      <span>FILE 04/05 — STUDIO</span>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>

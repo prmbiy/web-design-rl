@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kai Watanabe — Developer & Designer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --border: #1F1F1F;
+  --text: #E8E8E8;
+  --muted: #6B7280;
+  --accent: #39FF14;
+  --accent-glow: rgba(57,255,20,0.15);
+  --syntax-keyword: #61DAFB;
+  --syntax-string: #A8FF78;
+  --syntax-number: #FFD700;
+  --syntax-comment: #555555;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+.nav-logo .dot { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.nav-links a {
+  color: var(--text);
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* HERO */
+.hero {
+  padding: 200px 32px 120px;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fade_up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-item {
+  opacity: 0;
+  animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-item:nth-child(1) { animation-delay: 0.1s; }
+.hero-item:nth-child(2) { animation-delay: 0.3s; }
+.hero-item:nth-child(3) { animation-delay: 0.5s; }
+.hero-item:nth-child(4) { animation-delay: 0.7s; }
+
+.terminal-meta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--syntax-comment);
+  margin-bottom: 24px;
+}
+.terminal-meta .prompt { color: var(--accent); }
+
+.hero h1 {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.hero h1 .prompt { color: var(--accent); }
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: typewriter 2.4s steps(40, end) forwards;
+  width: 0;
+}
+
+@keyframes cursor_blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  width: 14px;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  animation: cursor_blink 1s steps(1) infinite;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.hero-sub {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.hero-sub a { font-weight: 500; }
+
+.hero-meta-row {
+  display: flex;
+  gap: 32px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-meta-row span::before {
+  content: '◆ ';
+  color: var(--accent);
+}
+
+/* SECTIONS */
+section {
+  padding: 96px 32px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 56px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.section-head h2 {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.section-head h2 .accent { color: var(--accent); }
+.section-head .link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@keyframes slide_in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: slide_in 0.6s ease-out forwards;
+}
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.project-screenshot {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.screenshot-tinybase {
+  background:
+    linear-gradient(135deg, #0d1f0d 0%, #0a0a0a 100%);
+}
+.screenshot-tinybase::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(57,255,20,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57,255,20,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.screenshot-tinybase::after {
+  content: 'const store = createStore()';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(57,255,20,0.6);
+  white-space: nowrap;
+}
+
+.screenshot-inkwell {
+  background: linear-gradient(135deg, #1a1410 0%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.screenshot-inkwell::before {
+  content: '# Hello, world.';
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--syntax-string);
+}
+.screenshot-inkwell::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+
+.screenshot-plotter {
+  background: #050505;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--syntax-string);
+  padding: 16px;
+  line-height: 1.5;
+}
+.screenshot-plotter::before {
+  content: '$ plotter today\A▸ Linear sync engine    2h 14m\A▸ kaiwa.fm prep        47m\A▸ syncd CRDT impl      3h 02m\A——————————————————\A  total                5h 63m';
+  white-space: pre;
+  color: var(--syntax-string);
+}
+
+.project-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.project-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+.project-title {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.project-stars {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.project-stars::before { content: '★ '; color: var(--syntax-number); }
+.project-desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  background: rgba(57,255,20,0.08);
+  border: 1px solid rgba(57,255,20,0.2);
+  border-radius: 3px;
+  color: var(--accent);
+}
+.project-links {
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.project-links a::before { content: '→ '; }
+
+/* TECH STACK STRIP */
+.tech-strip {
+  padding: 80px 32px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.tech-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.tech-strip-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.tech-strip-label::before { content: '// '; color: var(--syntax-comment); }
+.tech-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tech-logo {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  cursor: default;
+}
+.tech-logo:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(57,255,20,0.4);
+}
+
+/* CURRENTLY BUILDING */
+.terminal-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  overflow: hidden;
+}
+.terminal-bar {
+  background: #0d0d0d;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.terminal-bar .dot-r { width: 11px; height: 11px; border-radius: 50%; background: #ff5f56; }
+.terminal-bar .dot-y { width: 11px; height: 11px; border-radius: 50%; background: #ffbd2e; }
+.terminal-bar .dot-g { width: 11px; height: 11px; border-radius: 50%; background: #27c93f; }
+.terminal-bar .title {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 12px;
+}
+.terminal-body {
+  padding: 24px 28px;
+  line-height: 1.9;
+}
+.term-line .comment { color: var(--syntax-comment); }
+.term-line .prompt { color: var(--accent); }
+.term-line .keyword { color: var(--syntax-keyword); }
+.term-line .string { color: var(--syntax-string); }
+.term-line .number { color: var(--syntax-number); }
+.term-line .label { color: var(--muted); margin-left: 8px; }
+.term-status {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  margin-left: 8px;
+}
+.status-alpha { background: rgba(255,215,0,0.1); color: var(--syntax-number); border: 1px solid rgba(255,215,0,0.3); }
+.status-active { background: rgba(57,255,20,0.1); color: var(--accent); border: 1px solid rgba(57,255,20,0.3); }
+.status-wip { background: rgba(97,218,251,0.1); color: var(--syntax-keyword); border: 1px solid rgba(97,218,251,0.3); }
+
+/* WRITING PREVIEW */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+}
+.post-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  gap: 32px;
+  align-items: baseline;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.2s ease;
+}
+.post-row:first-child { border-top: 1px solid var(--border); }
+.post-row:hover { padding-left: 8px; }
+.post-date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.post-title {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.post-row:hover .post-title { color: var(--accent); }
+.post-preview {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 6px;
+}
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* CONTACT CTA */
+.contact-section {
+  text-align: center;
+  padding: 140px 32px;
+}
+.contact-prompt {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+.contact-prompt .prompt { color: var(--accent); }
+.contact-prompt .string { color: var(--syntax-string); }
+.contact-prompt a { color: var(--syntax-string); }
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.contact-socials a::before { content: '['; color: var(--muted); margin-right: 2px; }
+.contact-socials a::after { content: ']'; color: var(--muted); margin-left: 2px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 32px;
+  background: var(--bg);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-tagline .keyword { color: var(--syntax-keyword); }
+.footer-tagline .string { color: var(--syntax-string); }
+.footer-right { display: flex; gap: 20px; }
+.footer-right a { color: var(--muted); }
+.footer-right a:hover { color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">kaiwa<span class="dot">.</span>dev</a>
+    <ul class="nav-links">
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Writing</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-item terminal-meta">
+      <span class="prompt">~/kaiwa</span> $ whoami
+    </div>
+    <h1 class="hero-item">
+      <span class="prompt">&gt;</span> Hi, I'm Kai.<br>
+      Developer, designer, builder.<span class="cursor"></span>
+    </h1>
+    <p class="hero-item hero-sub">
+      Currently shipping developer tools at <strong>Linear</strong>. Previously at <strong>Vercel</strong>. Available for <a href="#">select freelance projects</a> in Q2 2024.
+    </p>
+    <div class="hero-item hero-meta-row">
+      <span>Based in Lisbon, PT</span>
+      <span>Open to collaboration</span>
+      <span>OSS maintainer</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="accent">/</span> featured_work</h2>
+      <a href="#" class="link">View all projects →</a>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-screenshot screenshot-tinybase"></div>
+        <div class="project-body">
+          <div class="project-title-row">
+            <h3 class="project-title">Tinybase</h3>
+            <span class="project-stars">4.2k</span>
+          </div>
+          <p class="project-desc">Local-first React state library. 6kb, zero deps, optional CRDT sync.</p>
+          <div class="tech-badges">
+            <span class="badge">TypeScript</span>
+            <span class="badge">React</span>
+            <span class="badge">IndexedDB</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Case study</a>
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-screenshot screenshot-inkwell"></div>
+        <div class="project-body">
+          <div class="project-title-row">
+            <h3 class="project-title">Inkwell</h3>
+            <span class="project-stars">892</span>
+          </div>
+          <p class="project-desc">A markdown CMS built for indie hackers who hate yak-shaving.</p>
+          <div class="tech-badges">
+            <span class="badge">Go</span>
+            <span class="badge">SQLite</span>
+            <span class="badge">HTMX</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Live demo</a>
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-screenshot screenshot-plotter"></div>
+        <div class="project-body">
+          <div class="project-title-row">
+            <h3 class="project-title">Plotter</h3>
+            <span class="project-stars">1.1k</span>
+          </div>
+          <p class="project-desc">Terminal-based time tracker. Written in Rust. Annoying by design.</p>
+          <div class="tech-badges">
+            <span class="badge">Rust</span>
+            <span class="badge">Ratatui</span>
+            <span class="badge">CLI</span>
+          </div>
+          <div class="project-links">
+            <a href="#">Install</a>
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK STRIP -->
+<section class="tech-strip">
+  <div class="tech-strip-inner">
+    <div class="tech-strip-label">tools of the trade</div>
+    <div class="tech-logos">
+      <span class="tech-logo">TypeScript</span>
+      <span class="tech-logo">React</span>
+      <span class="tech-logo">Rust</span>
+      <span class="tech-logo">Go</span>
+      <span class="tech-logo">Postgres</span>
+      <span class="tech-logo">Tailwind</span>
+      <span class="tech-logo">Bun</span>
+      <span class="tech-logo">Deno</span>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENTLY BUILDING -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="accent">$</span> currently_building</h2>
+      <span class="link" style="color: var(--muted);">updated weekly</span>
+    </div>
+    <div class="terminal-block">
+      <div class="terminal-bar">
+        <span class="dot-r"></span>
+        <span class="dot-y"></span>
+        <span class="dot-g"></span>
+        <span class="title">~/side-projects — zsh</span>
+      </div>
+      <div class="terminal-body">
+        <div class="term-line"><span class="comment"># three things on the workbench right now</span></div>
+        <div class="term-line">
+          <span class="prompt">→</span> <span class="keyword">syncd</span> <span class="label">— CRDT sync engine, server + client</span>
+          <span class="term-status status-alpha">alpha</span>
+        </div>
+        <div class="term-line">
+          <span class="prompt">→</span> <span class="keyword">kaiwa.fm</span> <span class="label">— podcast about indie devs, ep 4 in edit</span>
+          <span class="term-status status-active">recording</span>
+        </div>
+        <div class="term-line">
+          <span class="prompt">→</span> <span class="keyword">rewrite</span> <span class="label">— this site in Astro + content collections</span>
+          <span class="term-status status-wip">in progress</span>
+        </div>
+        <div class="term-line"><span class="comment"># last commit: 6 hours ago to syncd/main</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING PREVIEW -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="accent">~</span> recent_writing</h2>
+      <a href="#" class="link">All posts →</a>
+    </div>
+    <div class="posts-list">
+      <a href="#" class="post-row">
+        <div class="post-date">Mar 18, 2024</div>
+        <div>
+          <span class="post-title">Why I stopped using Redux in 2024</span>
+          <span class="post-preview">After three years and four production apps, I finally retired the dispatch table for something smaller…</span>
+        </div>
+        <div class="post-meta">8 min read</div>
+      </a>
+      <a href="#" class="post-row">
+        <div class="post-date">Feb 27, 2024</div>
+        <div>
+          <span class="post-title">Building a CRDT from scratch in Rust</span>
+          <span class="post-preview">A weekend rabbit hole into Yjs internals, last-writer-wins maps, and why operational transforms still hurt…</span>
+        </div>
+        <div class="post-meta">14 min read</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-prompt">
+      <span class="prompt">$</span> echo <span class="string">"<a href="mailto:hi@kaiwa.dev">hi@kaiwa.dev</a>"</span>
+    </div>
+    <div class="contact-socials">
+      <a href="#">GitHub</a>
+      <a href="#">Mastodon</a>
+      <a href="#">Bluesky</a>
+      <a href="#">RSS</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-tagline">
+      <span class="keyword">console</span>.<span class="keyword">log</span>(<span class="string">'building things on the internet'</span>)
+    </div>
+    <div class="footer-right">
+      <a href="#">/feed.xml</a>
+      <a href="#">/colophon</a>
+      <span>© 2024 Kai Watanabe</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

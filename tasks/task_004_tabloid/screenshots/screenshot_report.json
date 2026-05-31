@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "celebrity",
+      "path": "celebrity.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1402364,
+      "page_width": 1440,
+      "page_height": 4890
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 2098472,
+      "page_width": 1900,
+      "page_height": 4505
+    },
+    {
+      "slug": "style",
+      "path": "style.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1355081,
+      "page_width": 1440,
+      "page_height": 5379
+    },
+    {
+      "slug": "tv",
+      "path": "tv.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1062311,
+      "page_width": 1440,
+      "page_height": 4927
+    },
+    {
+      "slug": "viral",
+      "path": "viral.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1571778,
+      "page_width": 1440,
+      "page_height": 5345
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

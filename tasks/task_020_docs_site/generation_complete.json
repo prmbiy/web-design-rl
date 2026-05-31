@@ -1,0 +1,12 @@
+{
+  "dna_id": "020",
+  "dna_name": "docs_site",
+  "pages": [
+    "index",
+    "installation",
+    "quickstart",
+    "api",
+    "configuration"
+  ],
+  "has_animations": false
+}

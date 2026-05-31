@@ -1,0 +1,188 @@
+{
+  "brand_name": "Veltrax",
+  "tagline": "The parallelized Layer-1 for global-scale finance.",
+  "primary_color_name": "Veltrax Violet",
+  "pages": {
+    "home": {
+      "title": "Veltrax — High-Throughput Layer-1 Blockchain",
+      "nav_items": [
+        "Technology",
+        "Ecosystem",
+        "Developers",
+        "Community",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Finality at the speed of thought.",
+          "subheadline": "Veltrax is a parallel-execution Layer-1 settling 120,000 transactions per second with sub-second finality."
+        },
+        {
+          "name": "particle_network_bg",
+          "description": "Animated canvas of 70 cyan/white nodes drifting and connecting with thin lines behind hero content."
+        },
+        {
+          "name": "cta_row",
+          "description": "Two buttons: 'Launch App' (gradient border) linking to app.veltrax.io and 'Read Docs' (ghost) linking to docs.veltrax.io."
+        },
+        {
+          "name": "network_stats_strip",
+          "description": "Three 80px mono stats: TPS 124,802 / Active Validators 1,247 / TVL $3.8B with cyan tick-up animation."
+        },
+        {
+          "name": "technology_overview",
+          "description": "Three glow cards: 'Helios Consensus' (PoS BFT, 400ms finality), 'Parallel VM' (multi-threaded EVM execution), 'Sub-cent Fees' ($0.0008 avg gas)."
+        },
+        {
+          "name": "ecosystem_logos",
+          "description": "12-logo grid of fictional partner protocols: VeltSwap, LumenLend, OrbitBridge, NovaNFT, StarVault, ZephyrDAO, Pulsar Oracle, AstraPay, HelixDEX, NimbusFi, KronosPerps, EtherGate."
+        },
+        {
+          "name": "developer_terminal",
+          "description": "Dark terminal block showing 'npm install @veltrax/sdk' and a 6-line JS snippet sending a signed transaction via VeltraxClient."
+        },
+        {
+          "name": "community_links",
+          "description": "Row of four icon cards linking to Discord, Twitter/X, GitHub, and Forum with member counts."
+        },
+        {
+          "name": "footer",
+          "description": "4-column footer: Product, Developers, Community, Legal plus VLX token ticker showing $1.84 +6.2%."
+        }
+      ]
+    },
+    "technology": {
+      "title": "Technology — Veltrax",
+      "nav_items": [
+        "Technology",
+        "Ecosystem",
+        "Developers",
+        "Community",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Helios Consensus, engineered for parallelism.",
+          "subheadline": "A BFT-based proof-of-stake protocol with optimistic block pipelining."
+        },
+        {
+          "name": "consensus_diagram",
+          "description": "SVG flow diagram showing Propose → Vote → Pipeline → Finalize stages with cyan glow on active nodes."
+        },
+        {
+          "name": "parallel_throughput",
+          "description": "Section explaining Sealevel-style parallel execution with a 80px mono '124,802 TPS sustained' headline and benchmark chart."
+        },
+        {
+          "name": "comparison_table",
+          "description": "Table comparing Veltrax vs Ethereum, Solana, Avalanche across TPS, finality (0.4s), gas ($0.0008), and EVM compatibility."
+        },
+        {
+          "name": "security_audits",
+          "description": "Audit badges from CertiK (96/100), Halborn, and Trail of Bits with links to PDF reports and $5M bug bounty CTA."
+        }
+      ]
+    },
+    "ecosystem": {
+      "title": "Ecosystem — Built on Veltrax",
+      "nav_items": [
+        "Technology",
+        "Ecosystem",
+        "Developers",
+        "Community",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "$3.84B locked across 180+ protocols.",
+          "subheadline": "Explore the DeFi, NFT, and infrastructure layer powering Veltrax."
+        },
+        {
+          "name": "tvl_stat",
+          "description": "Single giant 80px mono 'TVL $3,841,229,408' with category breakdown bar (DeFi 62% / Bridges 21% / NFT 11% / Infra 6%)."
+        },
+        {
+          "name": "protocol_grid",
+          "description": "Filterable cards for 12 protocols including VeltSwap (DEX, $812M TVL), LumenLend (Lending, $604M), OrbitBridge (Bridge, $390M), NovaNFT (Marketplace, 1.2M items)."
+        },
+        {
+          "name": "ecosystem_fund_cta",
+          "description": "Banner promoting $50M Veltrax Ecosystem Fund with 'Apply for Funding' gradient button."
+        }
+      ]
+    },
+    "developers": {
+      "title": "Build on Veltrax",
+      "nav_items": [
+        "Technology",
+        "Ecosystem",
+        "Developers",
+        "Community",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Ship faster on the parallel EVM.",
+          "subheadline": "Full Solidity compatibility plus native multi-threaded execution."
+        },
+        {
+          "name": "code_terminal",
+          "description": "Terminal window with tabs (JavaScript / Python / Rust / Go) showing SDK import and a deployContract example in terminal-green."
+        },
+        {
+          "name": "sdk_badges",
+          "description": "Row of 4 SDK cards (veltrax.js, veltrax-py, veltrax-rs, veltrax-go) with GitHub star counts (3.2k, 1.4k, 890, 412)."
+        },
+        {
+          "name": "grants_program",
+          "description": "Veltrax Builders Grant: $2M fund, 4-step application flow, and list of past grantees (HelixDEX, Pulsar Oracle, KronosPerps)."
+        },
+        {
+          "name": "testnet_faucet",
+          "description": "Embedded widget with address input and 'Drip 10 tVLX' button, rate-limited per 24h."
+        },
+        {
+          "name": "docs_link",
+          "description": "Large gradient card linking to docs.veltrax.io with 'Quickstart in 5 minutes' subtext."
+        }
+      ]
+    },
+    "community": {
+      "title": "Community — Veltrax",
+      "nav_items": [
+        "Technology",
+        "Ecosystem",
+        "Developers",
+        "Community",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "One million strong, governing one chain.",
+          "subheadline": "Join validators, builders, and degens shaping Veltrax."
+        },
+        {
+          "name": "social_grid",
+          "description": "Five large icon cards: Discord (452,000), Twitter/X (281,000), Telegram (124,000), Reddit (87,000), Forum (39,000)."
+        },
+        {
+          "name": "governance",
+          "description": "List of 4 recent VIPs: VIP-0042 Reduce inflation to 4% (Passed 78%), VIP-0041 Bridge subsidy (Active 62%), VIP-0040 Validator cap (Failed)."
+        },
+        {
+          "name": "ambassador_program",
+          "description": "Three-tier ambassador track (Apprentice → Voyager → Helios) with VLX rewards and application CTA."
+        },
+        {
+          "name": "hackathon_calendar",
+          "description": "Upcoming events: ETHDenver Veltrax Bounty (Feb 2022, $250k), VeltraxHack Lisbon (May 2022), Online Devcon (Oct 2022)."
+        }
+      ]
+    }
+  }
+}

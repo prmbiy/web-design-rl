@@ -1,0 +1,66 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap",
+    "font_heading": "'Lato', sans-serif",
+    "font_body": "'Lato', sans-serif",
+    "font_mono": "'Source Code Pro', monospace",
+    "size_h1": "36px",
+    "size_h2": "28px",
+    "size_body": "16px",
+    "size_small": "14px",
+    "color_primary": "#2980B9",
+    "color_secondary": "#1B5A8A",
+    "color_accent": "#27AE60",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#EEF2F6",
+    "color_text": "#2C3E50",
+    "color_text_muted": "#6B7C8E",
+    "color_border": "#D9E2EC",
+    "border_radius": "3px",
+    "container_max_width": "1400px",
+    "section_padding": "32px 40px",
+    "nav_bg": "#2980B9",
+    "nav_height": "56px",
+    "nav_position": "fixed",
+    "footer_bg": "#EEF2F6",
+    "extra_colors": {
+      "code_bg": "#2E3440",
+      "code_text": "#D8DEE9",
+      "syntax_keyword": "#81A1C1",
+      "syntax_string": "#A3BE8C",
+      "syntax_number": "#D08770",
+      "note_bg": "#E8F5E9",
+      "note_border": "#27AE60",
+      "warning_bg": "#FFF8E1",
+      "warning_border": "#F39C12",
+      "danger_bg": "#FDECEA",
+      "danger_border": "#E74C3C",
+      "sidebar_active": "#2980B9",
+      "sidebar_hover": "#DDE6EE",
+      "table_header_bg": "#F4F7FA"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "index": {
+      "layout": "Top nav with logo/version/search/GitHub; left 250px sidebar with full doc tree; main content with H1 title, intro paragraph, install tabs (pip/npm/cargo), quick start code block, features table, community links; right 200px on-this-page TOC.",
+      "bg": "#FFFFFF"
+    },
+    "installation": {
+      "layout": "Three-column layout (sidebar/content/TOC) with prerequisites section, OS-tabbed install commands in dark code blocks with copy buttons, virtual env steps, verification output, and green/yellow note boxes; breadcrumbs at top, prev/next links at bottom.",
+      "bg": "#FFFFFF"
+    },
+    "quickstart": {
+      "layout": "Three-column layout with numbered tutorial steps, each step followed by a code block and expected output, interspersed note boxes explaining concepts, and a 'Next Steps' card grid linking to advanced topics.",
+      "bg": "#FFFFFF"
+    },
+    "api": {
+      "layout": "Three-column layout with collapsible API method sections, each showing monospace signature header, parameter table (name/type/required/description), return value block, code example, and deprecated warning boxes where applicable.",
+      "bg": "#FFFFFF"
+    },
+    "configuration": {
+      "layout": "Three-column layout with a large options reference table (key/type/default/description), example YAML/JSON config in code blocks, environment variable equivalents section, and advanced patterns with note boxes.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

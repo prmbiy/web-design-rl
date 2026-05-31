@@ -1,0 +1,79 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&display=swap",
+    "font_heading": "'Barlow Condensed', 'Inter', sans-serif",
+    "font_body": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "88px",
+    "size_h2": "56px",
+    "size_body": "16px",
+    "size_small": "12px",
+    "color_primary": "#FFFFFF",
+    "color_secondary": "#CACACA",
+    "color_accent": "#007AFF",
+    "color_bg": "#111111",
+    "color_surface": "#1C1C1C",
+    "color_text": "#FFFFFF",
+    "color_text_muted": "#888888",
+    "color_border": "#2A2A2A",
+    "border_radius": "4px",
+    "container_max_width": "1280px",
+    "section_padding": "120px 32px",
+    "nav_bg": "rgba(17,17,17,0.85)",
+    "nav_height": "64px",
+    "nav_position": "fixed",
+    "footer_bg": "#0A0A0A",
+    "extra_colors": {
+      "amber": "#FF9F0A",
+      "row_alt": "#222222",
+      "label": "#888888",
+      "success": "#30D158",
+      "danger": "#FF453A",
+      "metal": "#CACACA"
+    },
+    "animation_specs": {
+      "product_rotate": {
+        "css": "@keyframes rotateY360 { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } } .product-3d { animation: rotateY360 12s linear infinite; transform-style: preserve-3d; }",
+        "applies_to": ".product-3d",
+        "trigger": "continuous"
+      },
+      "countdown_pulse": {
+        "css": "@keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } } .countdown-sep { animation: pulseDot 1s ease-in-out infinite; }",
+        "applies_to": ".countdown-sep",
+        "trigger": "continuous"
+      },
+      "cta_hover": {
+        "css": ".btn-primary { transition: background 0.2s ease, transform 0.15s ease; } .btn-primary:hover { background: #0051D5; transform: translateY(-1px); }",
+        "applies_to": ".btn-primary",
+        "trigger": "on-hover"
+      },
+      "nav_blur": {
+        "css": "nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #2A2A2A; }",
+        "applies_to": "nav",
+        "trigger": "on-load"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-viewport dark hero with rotating 3D product centered, large condensed product name, three spec callouts row, countdown timer and pre-order CTA below.",
+      "bg": "radial-gradient(ellipse at center, #1C1C1C 0%, #111111 70%)"
+    },
+    "features": {
+      "layout": "Vertically stacked 100vh feature sections, alternating left/right product image with text column and large differentiator number callout.",
+      "bg": "#111111"
+    },
+    "specs": {
+      "layout": "Full-width spec table with category headers, two-column rows (label left muted, value right white bold) alternating #1C1C1C and #222222, PDF download link at bottom.",
+      "bg": "#111111"
+    },
+    "compare": {
+      "layout": "Three-column comparison table with our product highlighted in accent blue column, checkmarks/X marks per row, price-per-feature summary at bottom.",
+      "bg": "#111111"
+    },
+    "story": {
+      "layout": "Long-form narrative single column with founder letter, full-width workshop photos between paragraphs, team grid, and community supporter count block.",
+      "bg": "#0F0F0F"
+    }
+  }
+}

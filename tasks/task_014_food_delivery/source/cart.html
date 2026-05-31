@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Your Cart | Chatori</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 15px;
+  color: #3D4152;
+  background: #F8F8F8;
+  padding-bottom: 120px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  height: 72px;
+  border-bottom: 1px solid #E9E9EB;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  color: #FC8019;
+  letter-spacing: -0.5px;
+}
+.logo span { color: #3D4152; }
+.location-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 2px solid #3D4152;
+  font-size: 13px;
+}
+.location-pill .lpin { color: #FC8019; font-weight: 800; }
+.location-pill .larea { font-weight: 700; }
+.location-pill .ldrop { color: #686B78; font-size: 11px; margin-left: 4px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3D4152;
+}
+.nav-links a { display:flex; align-items:center; gap:6px; }
+.nav-links a:hover { color: #FC8019; }
+.nav-links .cart-link { color: #FC8019; }
+.cart-badge {
+  background: #FC8019;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* PAGE HEAD */
+.page-head {
+  margin-bottom: 20px;
+}
+.crumb {
+  font-size: 13px;
+  color: #686B78;
+  margin-bottom: 10px;
+}
+.crumb a:hover { color: #FC8019; }
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3D4152;
+}
+
+/* CARD */
+.card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E9E9EB;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* RESTAURANT HEADER */
+.rest-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #E9E9EB;
+}
+.rest-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #FC8019, #E94E77);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.rest-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #3D4152;
+}
+.rest-meta {
+  font-size: 13px;
+  color: #686B78;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.delivery-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFF3E9;
+  color: #FC8019;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* CART ITEMS */
+.items {
+  padding: 8px 24px 16px;
+}
+.item-row {
+  display: grid;
+  grid-template-columns: 22px 1fr 130px 80px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px dashed #E9E9EB;
+}
+.item-row:last-child { border-bottom: none; }
+.veg-dot, .nonveg-dot {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #60B246;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.veg-dot::after {
+  content: '';
+  width: 8px; height: 8px;
+  background: #60B246;
+  border-radius: 50%;
+}
+.nonveg-dot {
+  border-color: #E23744;
+}
+.nonveg-dot::after {
+  content: '';
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #E23744;
+}
+.item-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3D4152;
+}
+.item-desc {
+  font-size: 12px;
+  color: #686B78;
+  margin-top: 3px;
+}
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #E9E9EB;
+  border-radius: 6px;
+  background: #fff;
+  color: #60B246;
+  font-weight: 800;
+  height: 36px;
+  width: 110px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  margin-left: auto;
+}
+.qty-stepper button {
+  background: none;
+  border: none;
+  color: #60B246;
+  font-weight: 900;
+  font-size: 18px;
+  width: 32px;
+  height: 100%;
+  cursor: pointer;
+}
+.qty-val { font-size: 14px; }
+.item-price {
+  text-align: right;
+  font-weight: 700;
+  font-size: 15px;
+  color: #3D4152;
+}
+
+/* COUPON */
+.section-title {
+  padding: 16px 24px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #3D4152;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.coupon-body {
+  padding: 0 24px 20px;
+}
+.coupon-input {
+  display: flex;
+  border: 1px solid #E9E9EB;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.coupon-input input {
+  flex: 1;
+  border: none;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+.coupon-input button {
+  background: #FC8019;
+  color: #fff;
+  border: none;
+  padding: 0 22px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+}
+.coupon-chips {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.chip {
+  border: 1px dashed #FC8019;
+  background: #FFF3E9;
+  color: #FC8019;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.chip:hover { background: #FC8019; color: #fff; }
+
+/* ADDRESS */
+.addr-body {
+  padding: 0 24px 20px;
+}
+.addr-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #E9E9EB;
+  border-radius: 8px;
+  background: #FAFAFA;
+}
+.addr-icon {
+  width: 36px;
+  height: 36px;
+  background: #FFF3E9;
+  color: #FC8019;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.addr-text {
+  flex: 1;
+}
+.addr-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 3px;
+}
+.addr-line {
+  font-size: 13px;
+  color: #686B78;
+  line-height: 1.5;
+}
+.change-btn {
+  background: none;
+  border: 1px solid #FC8019;
+  color: #FC8019;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* BILL */
+.bill-body {
+  padding: 0 24px 20px;
+}
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  font-size: 14px;
+  color: #3D4152;
+}
+.bill-row .lbl { color: #3D4152; }
+.bill-row .val { font-weight: 600; }
+.bill-row.muted .lbl { color: #686B78; }
+.bill-row.discount .val { color: #60B246; font-weight: 700; }
+.bill-divider {
+  border-top: 1px dashed #E9E9EB;
+  margin: 8px 0;
+}
+.bill-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0 4px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #3D4152;
+  border-top: 1px solid #E9E9EB;
+  margin-top: 8px;
+}
+.tip-line {
+  font-size: 12px;
+  color: #686B78;
+  margin-top: 6px;
+}
+
+/* CANCEL POLICY */
+.policy {
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: #FFF8E7;
+  border: 1px solid #FFE1B3;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #686B78;
+  line-height: 1.55;
+}
+.policy strong { color: #3D4152; }
+
+/* STICKY CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #FFFFFF;
+  border-top: 1px solid #E9E9EB;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  z-index: 90;
+}
+.sticky-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.pay-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.pay-label {
+  font-size: 12px;
+  color: #686B78;
+  font-weight: 600;
+}
+.pay-methods {
+  display: flex;
+  gap: 8px;
+}
+.pay-pill {
+  border: 1px solid #E9E9EB;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3D4152;
+  background: #fff;
+  cursor: pointer;
+}
+.pay-pill.active {
+  border-color: #FC8019;
+  background: #FFF3E9;
+  color: #FC8019;
+}
+.total-block {
+  text-align: right;
+  margin-right: 8px;
+}
+.total-block .t-lbl { font-size: 11px; color: #686B78; text-transform: uppercase; letter-spacing: 0.4px; }
+.total-block .t-val { font-size: 20px; font-weight: 900; color: #3D4152; }
+.place-btn {
+  background: #60B246;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+}
+.place-btn:hover { background: #4ea03b; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Chatori<span>.</span></div>
+    <div class="location-pill">
+      <span class="lpin">📍</span>
+      <div>
+        <div class="larea">Indiranagar, Bengaluru</div>
+      </div>
+      <span class="ldrop">▼</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">🔍 Search</a>
+      <a href="#">% Offers</a>
+      <a href="#">Help</a>
+      <a href="#">Sign In</a>
+      <a href="#" class="cart-link">🛒 Cart <span class="cart-badge">3</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-head">
+    <div class="crumb"><a href="#">Home</a> &nbsp;›&nbsp; <a href="#">Meghana Foods</a> &nbsp;›&nbsp; Cart</div>
+    <h1 class="page-title">Your Cart</h1>
+  </div>
+
+  <!-- Restaurant header + items -->
+  <div class="card">
+    <div class="rest-head">
+      <div class="rest-thumb">MF</div>
+      <div style="flex:1">
+        <div class="rest-name">Meghana Foods</div>
+        <div class="rest-meta">
+          Indiranagar, Bengaluru
+          <span class="delivery-tag">🛵 35 min delivery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="items">
+      <div class="item-row">
+        <div class="nonveg-dot"></div>
+        <div>
+          <div class="item-name">Chicken Boneless Biryani</div>
+          <div class="item-desc">Signature Andhra dum biryani, boneless chicken, raita & salan.</div>
+        </div>
+        <div class="qty-stepper">
+          <button>−</button><span class="qty-val">1</span><button>+</button>
+        </div>
+        <div class="item-price">₹360</div>
+      </div>
+
+      <div class="item-row">
+        <div class="veg-dot"></div>
+        <div>
+          <div class="item-name">Paneer 65</div>
+          <div class="item-desc">Crispy fried paneer tossed in spicy South Indian masala.</div>
+        </div>
+        <div class="qty-stepper">
+          <button>−</button><span class="qty-val">2</span><button>+</button>
+        </div>
+        <div class="item-price">₹520</div>
+      </div>
+
+      <div class="item-row">
+        <div class="veg-dot"></div>
+        <div>
+          <div class="item-name">Gulab Jamun</div>
+          <div class="item-desc">Warm sugar-syrup soaked dumplings, 2 pieces.</div>
+        </div>
+        <div class="qty-stepper">
+          <button>−</button><span class="qty-val">1</span><button>+</button>
+        </div>
+        <div class="item-price">₹80</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coupon -->
+  <div class="card">
+    <div class="section-title">Apply Coupon</div>
+    <div class="coupon-body">
+      <div class="coupon-input">
+        <input type="text" placeholder="Enter coupon code">
+        <button>APPLY</button>
+      </div>
+      <div class="coupon-chips">
+        <span class="chip">WELCOME50</span>
+        <span class="chip">CHATORIPRO</span>
+        <span class="chip">HDFC20</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Address -->
+  <div class="card">
+    <div class="section-title">Delivery Address</div>
+    <div class="addr-body">
+      <div class="addr-card">
+        <div class="addr-icon">🏠</div>
+        <div class="addr-text">
+          <div class="addr-label">Home</div>
+          <div class="addr-line">402, Brigade Apartments, 12th Main, Indiranagar, Bengaluru — 560038</div>
+        </div>
+        <button class="change-btn">CHANGE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bill -->
+  <div class="card">
+    <div class="section-title">Bill Details</div>
+    <div class="bill-body">
+      <div class="bill-row"><span class="lbl">Item Total</span><span class="val">₹960</span></div>
+      <div class="bill-row muted"><span class="lbl">Delivery Fee | 1.8 kms</span><span class="val">₹39</span></div>
+      <div class="bill-row muted"><span class="lbl">Platform Fee</span><span class="val">₹4</span></div>
+      <div class="bill-row muted"><span class="lbl">GST & Restaurant Charges</span><span class="val">₹48</span></div>
+      <div class="bill-row discount"><span class="lbl">Coupon Discount (WELCOME50)</span><span class="val">−₹100</span></div>
+      <div class="bill-total"><span>TO PAY</span><span>₹951</span></div>
+      <div class="tip-line">You saved ₹100 on this order 🎉</div>
+    </div>
+  </div>
+
+  <div class="policy">
+    <strong>Review your order and address details to avoid cancellations.</strong><br>
+    If you cancel within 60 seconds of placing your order, a 100% refund will be issued. No refund for cancellations made after 60 seconds.
+  </div>
+</div>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <div class="pay-select">
+      <span class="pay-label">PAY USING</span>
+      <div class="pay-methods">
+        <span class="pay-pill active">UPI</span>
+        <span class="pay-pill">Cards</span>
+        <span class="pay-pill">COD</span>
+      </div>
+    </div>
+    <div class="total-block">
+      <div class="t-lbl">Total</div>
+      <div class="t-val">₹951</div>
+    </div>
+    <button class="place-btn">Place Order →</button>
+  </div>
+</div>
+
+</body>
+</html>

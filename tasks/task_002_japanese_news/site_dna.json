@@ -1,0 +1,22 @@
+{
+  "id": "002",
+  "name": "japanese_news",
+  "source": "B",
+  "archetype": "Japanese major daily newspaper website",
+  "market": "Japan, national newspaper with 50+ years of history",
+  "era": "2020",
+  "density": "Extremely information-dense but visually organized. Every inch is used. A 5-column grid of news items above the fold with thumbnail images. Category tabs across the top with 20+ news sections. Right sidebar has weather, stocks, sports scores, and TV schedule. The density feels intentional and readable, unlike chaos — Japanese typographic discipline creates order within extreme density.",
+  "nav_style": "Thin top bar with date, weather, and login. Below it the newspaper masthead in Japanese with English subtitle. Below that a horizontal category scrollbar with 20+ categories: Politics, Economy, International, Sports, Culture, Entertainment, Science, Life, Regional, Opinion. Each has sub-tabs on click.",
+  "commercial_model": "Ad-supported premium news. Banner ads appear in fixed slots — top leaderboard, right sidebar, and interstitial between article sections. Premium subscriber badge shown for logged-in users.",
+  "color_palette": "Dark red (#CC0000) newspaper masthead. Black (#000000) text on white (#FFFFFF) backgrounds. Very light grey (#F7F7F7) for sidebar and footer backgrounds. Blue (#0066CC) for links. No decorative colors — pure news utility palette.",
+  "typography": "Japanese news typography: Noto Serif JP for headlines, Noto Sans JP for body text. Body at 14px, tightly leaded. Headlines at 18-22px. Japanese text uses full-width characters. English loan words in katakana alongside translated content.",
+  "quirks": ["5_column_article_grid", "japanese_vertical_text_accents", "persistent_stock_ticker", "weather_widget", "sports_scores_sidebar", "print_edition_link", "heavy_ad_density", "article_comment_counts_displayed", "breaking_news_red_banner", "archive_dating_back_decades"],
+  "pages": [
+    {"slug": "home", "title": "Top Page", "description": "5-column breaking news grid, top stories carousel, category quick-links, stock ticker widget, weather, sports scores, ad placements"},
+    {"slug": "politics", "title": "Politics", "description": "National politics section with Diet session news, party news, election coverage, political opinion columns"},
+    {"slug": "economy", "title": "Economy & Business", "description": "Economic news, corporate earnings, market data table, business features, real estate market section"},
+    {"slug": "international", "title": "International", "description": "World news by region (Asia, Americas, Europe, Middle East), foreign correspondent dispatches, international opinion"},
+    {"slug": "culture", "title": "Culture & Life", "description": "Arts, entertainment, food, travel, lifestyle. Review sections for film, music, books. Event calendar."}
+  ],
+  "animations": false
+}

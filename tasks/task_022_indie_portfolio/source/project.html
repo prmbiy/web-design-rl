@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tinybase — Case Study</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --border: #1F1F1F;
+  --text: #E8E8E8;
+  --muted: #6B7280;
+  --accent: #39FF14;
+  --glow: rgba(57,255,20,0.15);
+  --syn-key: #61DAFB;
+  --syn-str: #A8FF78;
+  --syn-num: #FFD700;
+  --syn-com: #555555;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* NAV */
+nav.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+}
+nav.site-nav .logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+nav.site-nav .logo::before {
+  content: '> ';
+  color: var(--accent);
+}
+nav.site-nav .nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+nav.site-nav .nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--text);
+}
+nav.site-nav .nav-links a:hover { color: var(--accent); }
+nav.site-nav .nav-links a.active { color: var(--accent); }
+
+/* Layout */
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 144px 32px 96px;
+}
+
+/* Cursor */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  animation: cursor_blink 1s steps(1) infinite;
+}
+@keyframes cursor_blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* hero-fade-up */
+@keyframes fade_up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-item {
+  opacity: 0;
+  animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-item:nth-child(1) { animation-delay: 0.1s; }
+.hero-item:nth-child(2) { animation-delay: 0.3s; }
+.hero-item:nth-child(3) { animation-delay: 0.5s; }
+.hero-item:nth-child(4) { animation-delay: 0.7s; }
+
+/* Typewriter */
+@keyframes typewriter { from { width: 0; } to { width: 100%; } }
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2.4s steps(40, end) forwards;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 8px; color: #333; }
+
+/* Project header */
+.project-header h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.project-header h1::before {
+  content: '> ';
+  color: var(--accent);
+}
+.project-header .subhead {
+  font-size: 20px;
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.project-header .meta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.project-header .meta-row span strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Section */
+.section {
+  margin-top: 80px;
+}
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.section-label::before { content: '// '; color: var(--syn-com); }
+.section h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+.section p {
+  color: #C8C8C8;
+  margin-bottom: 16px;
+  font-size: 17px;
+}
+.section p strong { color: var(--text); font-weight: 600; }
+.section p .accent { color: var(--accent); }
+
+/* Architecture SVG */
+.arch-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 48px 24px;
+  margin-top: 24px;
+}
+.arch-wrap svg { display: block; margin: 0 auto; max-width: 100%; }
+
+/* Screenshots */
+.screenshots {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.browser {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  animation: slide_in 0.6s ease-out forwards;
+}
+.browser:nth-child(1) { animation-delay: 0.1s; }
+.browser:nth-child(2) { animation-delay: 0.25s; }
+.browser:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes slide_in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #0E0E0E;
+  border-bottom: 1px solid var(--border);
+}
+.dot { width: 11px; height: 11px; border-radius: 50%; background: #2A2A2A; }
+.dot.r { background: #4A1F1F; }
+.dot.y { background: #4A3F1F; }
+.dot.g { background: #1F4A2A; }
+.browser-bar .url {
+  margin-left: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.browser-body {
+  min-height: 280px;
+  padding: 24px;
+  position: relative;
+}
+
+/* Screenshot 1: devtools */
+.shot-devtools {
+  background:
+    linear-gradient(180deg, transparent 0%, transparent 30%, rgba(57,255,20,0.04) 100%),
+    #0A0A0A;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.devtools-tabs {
+  display: flex;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+.devtools-tabs span.active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: -9px; }
+.devtools-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #1A1A1A;
+  color: #C8C8C8;
+}
+.devtools-row .key { color: var(--syn-key); }
+.devtools-row .val { color: var(--syn-str); }
+.devtools-row .num { color: var(--syn-num); }
+
+/* Screenshot 2: code */
+.shot-code {
+  background: #0E0E0E;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
+.shot-code .com { color: var(--syn-com); }
+.shot-code .key { color: var(--syn-key); }
+.shot-code .str { color: var(--syn-str); }
+.shot-code .num { color: var(--syn-num); }
+.shot-code .fn { color: var(--text); }
+
+/* Screenshot 3: docs */
+.shot-docs {
+  background: linear-gradient(135deg, #0F0F0F 0%, #141414 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.shot-docs .logo-big {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.shot-docs .logo-big span { color: var(--accent); }
+.shot-docs .tag { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+.shot-docs .ctas { display: flex; gap: 12px; }
+.shot-docs .btn-fake {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.shot-docs .btn-fake.solid { background: var(--accent); color: #0A0A0A; }
+
+/* Decisions list */
+.decisions { margin-top: 24px; list-style: none; }
+.decisions li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.decisions li:last-child { border-bottom: none; }
+.decisions h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.decisions h3::before { content: '# '; color: var(--accent); }
+.decisions p { color: var(--muted); font-size: 15px; margin: 0; }
+
+/* Outcomes stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.stat:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--glow);
+}
+.stat .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+.stat .label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Stack and links */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: #C8C8C8;
+  transition: color 0.2s, border-color 0.2s;
+}
+.badge:hover { color: var(--accent); border-color: var(--accent); }
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+.btn.primary {
+  background: var(--accent);
+  color: #0A0A0A;
+  font-weight: 600;
+}
+.btn.primary:hover {
+  box-shadow: 0 0 24px var(--glow);
+  text-shadow: none;
+}
+.btn.ghost {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn.ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 96px;
+  padding: 48px 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+footer .left { color: var(--muted); }
+footer .left .green { color: var(--accent); }
+footer .right { display: flex; gap: 20px; }
+footer .right a { color: var(--muted); }
+footer .right a:hover { color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="logo">kaiwa.dev</a>
+  <ul class="nav-links">
+    <li><a href="/work" class="active">Work</a></li>
+    <li><a href="/writing">Writing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <div class="breadcrumb hero-item">
+    <a href="/">~</a><span class="sep">/</span><a href="/work">work</a><span class="sep">/</span><span>tinybase</span>
+  </div>
+
+  <header class="project-header">
+    <h1 class="hero-item"><span class="typewriter">Tinybase</span><span class="cursor"></span></h1>
+    <p class="subhead hero-item">A 6kb local-first state library for React. 4,200 stars, 47k weekly downloads.</p>
+    <div class="meta-row hero-item">
+      <span><strong>Role</strong> — Solo author &amp; maintainer</span>
+      <span><strong>Year</strong> — 2022 → present</span>
+      <span><strong>Status</strong> — v2.3 stable</span>
+      <span><strong>License</strong> — MIT</span>
+    </div>
+  </header>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="section-label">problem</div>
+    <h2>The gap between Redux and useState.</h2>
+    <p>For three years I kept building the same thing in every offline-first React app I shipped: a thin reactive store that survived reloads, synced across tabs, and didn't make me write seventeen action creators to update a boolean. Redux Toolkit had become defensible at scale but punishing at small. <code style="color:var(--syn-str);font-family:'JetBrains Mono',monospace;">useState</code> was lovely until you needed two components to agree on anything.</p>
+    <p>Zustand and Jotai got close, but neither shipped persistence or sync as first-class concerns — and the moment you reached for IndexedDB you were back to writing the same 400 lines of boilerplate. <span class="accent">Tinybase</span> exists to make local-first state the default, not a side quest.</p>
+  </section>
+
+  <!-- Technical approach -->
+  <section class="section">
+    <div class="section-label">approach</div>
+    <h2>Three layers, no providers.</h2>
+    <p><strong>Signals-based reactivity.</strong> Under the hood, every value is a fine-grained signal. Components subscribe only to the keys they read, so a single field update never re-renders the tree. The public API still looks like a hook — <code style="color:var(--syn-str);font-family:'JetBrains Mono',monospace;">useStore(s =&gt; s.user.name)</code> — but the diffing happens at the source.</p>
+    <p><strong>IndexedDB persistence layer.</strong> A pluggable adapter flushes mutations to IndexedDB in a debounced microtask. Reads on first paint are warm because the store hydrates synchronously from a tiny in-memory snapshot kept in <code style="color:var(--syn-str);font-family:'JetBrains Mono',monospace;">sessionStorage</code>. Total cold-start overhead: ~2ms on a mid-2020 MBA.</p>
+    <p><strong>Optional CRDT sync adapter.</strong> Last year I extracted the sync engine into <a href="/work/syncd">syncd</a>, a separate package. Bring your own server, or use the hosted relay. Conflict resolution is Yjs-compatible, which means you can drop Tinybase into a doc collaboration app without rewriting your data model.</p>
+  </section>
+
+  <!-- Architecture diagram -->
+  <section class="section">
+    <div class="section-label">architecture</div>
+    <h2>Data flow.</h2>
+    <div class="arch-wrap">
+      <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#39FF14"/>
+          </marker>
+          <style>
+            .lbl { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #E8E8E8; }
+            .sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #6B7280; }
+            .box { fill: #141414; stroke: #1F1F1F; stroke-width: 1; }
+            .box-accent { fill: #141414; stroke: #39FF14; stroke-width: 1.5; }
+            .line { stroke: #39FF14; stroke-width: 1.5; fill: none; }
+            .line-dash { stroke: #39FF14; stroke-width: 1.5; fill: none; stroke-dasharray: 4 4; opacity: 0.6; }
+          </style>
+        </defs>
+
+        <!-- React components -->
+        <rect class="box" x="20" y="100" width="140" height="80" rx="4"/>
+        <text class="lbl" x="90" y="135" text-anchor="middle">React</text>
+        <text class="lbl" x="90" y="155" text-anchor="middle">components</text>
+        <text class="sub" x="90" y="172" text-anchor="middle">&lt;App /&gt;</text>
+
+        <!-- useStore hook -->
+        <rect class="box" x="195" y="100" width="140" height="80" rx="4"/>
+        <text class="lbl" x="265" y="135" text-anchor="middle">useStore()</text>
+        <text class="sub" x="265" y="155" text-anchor="middle">selector hook</text>
+        <text class="sub" x="265" y="170" text-anchor="middle">fine-grained sub</text>
+
+        <!-- Reactive core -->
+        <rect class="box-accent" x="370" y="100" width="140" height="80" rx="4"/>
+        <text class="lbl" x="440" y="135" text-anchor="middle" fill="#39FF14">reactive core</text>
+        <text class="sub" x="440" y="155" text-anchor="middle">signal graph</text>
+        <text class="sub" x="440" y="170" text-anchor="middle">6kb gzipped</text>
+
+        <!-- IndexedDB -->
+        <rect class="box" x="545" y="40" width="140" height="80" rx="4"/>
+        <text class="lbl" x="615" y="75" text-anchor="middle">IndexedDB</text>
+        <text class="sub" x="615" y="95" text-anchor="middle">persistence</text>
+        <text class="sub" x="615" y="110" text-anchor="middle">debounced flush</text>
+
+        <!-- Sync server (optional) -->
+        <rect class="box" x="545" y="160" width="140" height="80" rx="4" stroke-dasharray="3 3"/>
+        <text class="lbl" x="615" y="195" text-anchor="middle">sync server</text>
+        <text class="sub" x="615" y="215" text-anchor="middle">optional · CRDT</text>
+        <text class="sub" x="615" y="230" text-anchor="middle">syncd relay</text>
+
+        <!-- Arrows -->
+        <line class="line" x1="160" y1="140" x2="195" y2="140" marker-end="url(#arrow)"/>
+        <line class="line" x1="335" y1="140" x2="370" y2="140" marker-end="url(#arrow)"/>
+        <path class="line" d="M 510 130 Q 540 110 545 90" marker-end="url(#arrow)"/>
+        <path class="line-dash" d="M 510 150 Q 540 175 545 195" marker-end="url(#arrow)"/>
+
+        <!-- Return labels -->
+        <text class="sub" x="178" y="130" text-anchor="middle">render</text>
+        <text class="sub" x="352" y="130" text-anchor="middle">read</text>
+        <text class="sub" x="535" y="80" text-anchor="middle">write</text>
+        <text class="sub" x="535" y="170" text-anchor="middle">sync</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="section">
+    <div class="section-label">interface</div>
+    <h2>Screens.</h2>
+    <div class="screenshots">
+
+      <div class="browser project-card">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="url">chrome://devtools · Tinybase</span>
+        </div>
+        <div class="browser-body shot-devtools">
+          <div class="devtools-tabs">
+            <span class="active">Store</span><span>Subscribers</span><span>Mutations</span><span>Sync</span>
+          </div>
+          <div class="devtools-row"><span class="key">user.name</span><span class="val">"Kai Watanabe"</span></div>
+          <div class="devtools-row"><span class="key">user.id</span><span class="num">42189</span></div>
+          <div class="devtools-row"><span class="key">session.online</span><span class="val">true</span></div>
+          <div class="devtools-row"><span class="key">cart.items</span><span class="num">3</span></div>
+          <div class="devtools-row"><span class="key">cart.total</span><span class="num">128.40</span></div>
+          <div class="devtools-row"><span class="key">draft.body</span><span class="val">"working on it…"</span></div>
+          <div class="devtools-row"><span class="key">lastSync</span><span class="val">"2024-03-18T14:21Z"</span></div>
+        </div>
+      </div>
+
+      <div class="browser project-card">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="url">~/tinybase/example.tsx</span>
+        </div>
+        <div class="browser-body shot-code"><span class="com">// tinybase: ~6kb, no provider, no boilerplate</span>
+<span class="key">import</span> { createStore, useStore } <span class="key">from</span> <span class="str">'tinybase'</span>
+
+<span class="key">const</span> store = <span class="fn">createStore</span>({
+  user: { name: <span class="str">'Kai'</span>, online: <span class="key">true</span> },
+  count: <span class="num">0</span>,
+})
+
+<span class="key">export function</span> <span class="fn">Counter</span>() {
+  <span class="key">const</span> count = <span class="fn">useStore</span>(s =&gt; s.count)
+  <span class="key">return</span> (
+    &lt;<span class="fn">button</span> onClick={() =&gt; store.set(<span class="str">'count'</span>, count + <span class="num">1</span>)}&gt;
+      clicked {count} times
+    &lt;/<span class="fn">button</span>&gt;
+  )
+}</div>
+      </div>
+
+      <div class="browser project-card">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="url">tinybase.dev</span>
+        </div>
+        <div class="browser-body shot-docs">
+          <div class="logo-big">tiny<span>base</span></div>
+          <div class="tag">// local-first state for React, in 6kb</div>
+          <div class="ctas">
+            <span class="btn-fake solid">Get started</span>
+            <span class="btn-fake">★ 4.2k on GitHub</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key decisions -->
+  <section class="section">
+    <div class="section-label">decisions</div>
+    <h2>Things I'd defend at a whiteboard.</h2>
+    <ul class="decisions">
+      <li>
+        <h3>Why no Provider</h3>
+        <p>Providers force a tree structure on what is fundamentally a singleton. They make testing harder, SSR weirder, and they bloat the bundle for no observed benefit. The store is module-scoped; if you need isolation in tests, create a new store.</p>
+      </li>
+      <li>
+        <h3>Why signals over reducers</h3>
+        <p>Reducers are great when state transitions are the interesting object. For 90% of UI work, the interesting object is the value. Signals make the dependency graph explicit, which means we can sub-render with surgical precision and skip 80% of the reconciliation cost.</p>
+      </li>
+      <li>
+        <h3>Why I rewrote it in TypeScript at v2</h3>
+        <p>v1 was JS with .d.ts files hand-maintained alongside. By month four I was making three commits per change. The TS rewrite added 11kb of source but zero runtime bytes — and the inferred types caught two latent bugs in the persistence adapter on day one.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section">
+    <div class="section-label">outcomes</div>
+    <h2>What happened.</h2>
+    <div class="stats">
+      <div class="stat"><span class="num">4.2k</span><span class="label">GitHub stars</span></div>
+      <div class="stat"><span class="num">47k</span><span class="label">npm weekly downloads</span></div>
+      <div class="stat"><span class="num">12</span><span class="label">YC companies using it</span></div>
+      <div class="stat"><span class="num">#389</span><span class="label">React Status feature</span></div>
+    </div>
+  </section>
+
+  <!-- Stack & links -->
+  <section class="section">
+    <div class="section-label">stack &amp; links</div>
+    <h2>Built with.</h2>
+    <div class="badges">
+      <span class="badge">TypeScript</span>
+      <span class="badge">Vitest</span>
+      <span class="badge">tsup</span>
+      <span class="badge">Changesets</span>
+      <span class="badge">pnpm</span>
+      <span class="badge">GitHub Actions</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/kaiwa/tinybase">★ View on GitHub</a>
+      <a class="btn ghost" href="https://tinybase.dev">↗ Live demo</a>
+      <a class="btn ghost" href="/work">← Back to work</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="left">
+      <span class="green">$</span> echo "© 2024 kai watanabe · built in lisbon"
+    </div>
+    <div class="right">
+      <a href="https://github.com/kaiwa">github</a>
+      <a href="https://hachyderm.io/@kaiwa">mastodon</a>
+      <a href="https://bsky.app/profile/kaiwa.dev">bluesky</a>
+      <a href="/feed.xml">rss</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

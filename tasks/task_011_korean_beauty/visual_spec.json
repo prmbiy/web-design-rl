@@ -1,0 +1,72 @@
+{
+  "global": {
+    "google_fonts_url": "@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');",
+    "font_heading": "'DM Serif Display', 'Noto Sans KR', serif",
+    "font_body": "'Lato', 'Noto Sans KR', sans-serif",
+    "font_mono": null,
+    "size_h1": "64px",
+    "size_h2": "40px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#FFB6C1",
+    "color_secondary": "#C8829A",
+    "color_accent": "#B2DFDB",
+    "color_bg": "#FFFFF0",
+    "color_surface": "#FFF5EE",
+    "color_text": "#3D2A35",
+    "color_text_muted": "#9B8590",
+    "color_border": "#F2DCE2",
+    "border_radius": "16px",
+    "container_max_width": "1280px",
+    "section_padding": "80px 24px",
+    "nav_bg": "rgba(255,255,240,0.85)",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#FFF5EE",
+    "extra_colors": {
+      "gold_premium": "#D4AF37",
+      "mint_new": "#B2DFDB",
+      "blush_soft": "#FFE4E1",
+      "ivory_warm": "#FFFAF0"
+    },
+    "animation_specs": {
+      "fade_in_hero": {
+        "css": "@keyframes fadeInHero { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } .hero-content { animation: fadeInHero 1.2s ease-out forwards; }",
+        "applies_to": ".hero-content, .hero h1, .hero p",
+        "trigger": "on-load"
+      },
+      "hover_card_lift": {
+        "css": ".product-card { transition: transform 0.35s ease, box-shadow 0.35s ease; } .product-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(200,130,154,0.18); } .product-card .quick-add { opacity: 0; transition: opacity 0.3s ease; } .product-card:hover .quick-add { opacity: 1; }",
+        "applies_to": ".product-card",
+        "trigger": "on-hover"
+      },
+      "scroll_reveal_cards": {
+        "css": "@keyframes scrollReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } } .reveal { opacity: 0; } .reveal.visible { animation: scrollReveal 0.8s ease-out forwards; }",
+        "applies_to": ".reveal, .product-grid > *, section",
+        "trigger": "on-scroll"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed hero with model imagery and script tagline, followed by new arrivals grid, routine guide banner, bestsellers carousel, brand philosophy split section, and Instagram mosaic footer.",
+      "bg": "linear-gradient(180deg, #FFFFF0 0%, #FFF5EE 100%)"
+    },
+    "skincare": {
+      "layout": "Sidebar with skin-type filters on left and 3-column product grid on right, each card showing ingredient tags, mint 'NEW' badges, and gold premium markers.",
+      "bg": "#FFFFF0"
+    },
+    "routine": {
+      "layout": "AM/PM toggle header, vertical numbered 10-step routine builder with product recommendation cards and add-all CTA sticky at bottom.",
+      "bg": "linear-gradient(180deg, #FFF5EE 0%, #FFE4E1 100%)"
+    },
+    "about": {
+      "layout": "Editorial long-form layout with alternating image-text blocks: founder portrait, lab photos, certification badges row, bilingual philosophy text, and press logos strip.",
+      "bg": "#FFFAF0"
+    },
+    "reviews": {
+      "layout": "Filter bar at top, masonry-style photo review grid with star ratings, featured before/after comparison sliders, and blog journey cards below.",
+      "bg": "#FFFFF0"
+    }
+  }
+}

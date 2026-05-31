@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Real Estate Agent | PropertyNest</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#F5F5F5;color:#1A2A2A;font-size:16px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #E1E5E5;z-index:100}
+.nav-top{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;color:#006E6E}
+.logo-mark{width:32px;height:32px;background:#006E6E;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+.nav-right{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500}
+.nav-right a:hover{color:#006E6E}
+.btn-primary{background:#006E6E;color:#fff;padding:10px 18px;border-radius:6px;font-weight:600;font-size:14px;border:none;cursor:pointer}
+.btn-primary:hover{background:#004D4D}
+.btn-outline{background:#fff;border:1.5px solid #006E6E;color:#006E6E;padding:10px 18px;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer}
+
+.nav-tabs{display:flex;gap:0;padding:0 24px;max-width:1280px;margin:0 auto;border-top:1px solid #F0F4F4}
+.nav-tab{padding:14px 22px;font-size:15px;font-weight:600;color:#6B7878;border-bottom:3px solid transparent;cursor:pointer}
+.nav-tab.active{color:#006E6E;border-bottom-color:#006E6E}
+.nav-tab:hover{color:#006E6E}
+
+.nav-search{background:#F0F4F4;padding:14px 24px}
+.nav-search-inner{max-width:1280px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.search-field{flex:1;background:#fff;border:1px solid #E1E5E5;border-radius:6px;padding:10px 14px;font-size:14px;display:flex;align-items:center;gap:8px;color:#6B7878}
+.search-field.big{flex:2}
+.search-field svg{flex-shrink:0}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#006E6E 0%,#004D4D 100%);color:#fff;padding:56px 24px}
+.hero-inner{max-width:1280px;margin:0 auto}
+.hero h1{font-size:36px;font-weight:800;margin-bottom:10px;letter-spacing:-0.5px}
+.hero p{font-size:17px;opacity:0.9}
+
+/* FILTER BAR */
+.filter-bar{background:#fff;border-bottom:1px solid #E1E5E5;padding:18px 24px;box-shadow:0 1px 3px rgba(0,40,40,0.04)}
+.filter-bar-inner{max-width:1280px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.filter-input{padding:10px 14px;border:1px solid #E1E5E5;border-radius:6px;font-size:14px;font-family:inherit;background:#fff;color:#1A2A2A;min-width:200px}
+.filter-input.wide{flex:1;min-width:280px}
+.toggle-wrap{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500}
+.toggle{position:relative;width:40px;height:22px;background:#006E6E;border-radius:11px;cursor:pointer}
+.toggle::after{content:'';position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;top:2px;right:2px}
+
+/* MAIN LAYOUT */
+.main{padding:40px 24px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:32px}
+
+.section-title{font-size:24px;font-weight:700;margin-bottom:6px;color:#1A2A2A}
+.section-sub{color:#6B7878;font-size:14px;margin-bottom:24px}
+
+/* AGENT GRID */
+.agent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.agent-card{background:#fff;border-radius:6px;border:1px solid #E1E5E5;padding:24px;box-shadow:0 1px 3px rgba(0,40,40,0.04)}
+.agent-card-top{display:flex;gap:16px;margin-bottom:18px}
+.agent-photo{width:84px;height:84px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:#fff}
+.agent-photo.p1{background:linear-gradient(135deg,#006E6E,#00a3a3)}
+.agent-photo.p2{background:linear-gradient(135deg,#FF6700,#ff9248)}
+.agent-photo.p3{background:linear-gradient(135deg,#2E7D32,#4ca350)}
+.agent-photo.p4{background:linear-gradient(135deg,#C62828,#e94545)}
+.agent-photo.p5{background:linear-gradient(135deg,#004D4D,#006E6E)}
+.agent-photo.p6{background:linear-gradient(135deg,#5a3fa6,#8765c9)}
+.agent-info{flex:1}
+.agent-name{font-size:18px;font-weight:700;margin-bottom:4px}
+.agent-agency{font-size:14px;color:#6B7878;margin-bottom:6px}
+.agency-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;background:#F0F4F4;color:#006E6E;text-transform:uppercase;letter-spacing:0.4px}
+
+.agent-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px 0;border-top:1px solid #F0F4F4;border-bottom:1px solid #F0F4F4;margin-bottom:16px}
+.stat{text-align:center}
+.stat-num{font-size:20px;font-weight:700;color:#006E6E}
+.stat-label{font-size:11px;color:#6B7878;text-transform:uppercase;letter-spacing:0.4px;margin-top:2px}
+
+.agent-suburbs{font-size:13px;color:#6B7878;margin-bottom:16px}
+.agent-suburbs strong{color:#1A2A2A;font-weight:600}
+.agent-actions{display:flex;gap:10px}
+.agent-actions .btn-outline,.agent-actions .btn-primary{flex:1;padding:9px;font-size:13px;text-align:center}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:24px}
+.side-card{background:#fff;border-radius:6px;border:1px solid #E1E5E5;padding:24px;box-shadow:0 1px 3px rgba(0,40,40,0.04)}
+.side-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.side-sub{font-size:13px;color:#6B7878;margin-bottom:18px}
+
+.leaderboard{display:flex;flex-direction:column;gap:12px}
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F0F4F4}
+.lb-row:last-child{border-bottom:none}
+.lb-rank{width:28px;height:28px;border-radius:50%;background:#F0F4F4;color:#006E6E;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lb-rank.gold{background:#FF6700;color:#fff}
+.lb-rank.silver{background:#006E6E;color:#fff}
+.lb-rank.bronze{background:#004D4D;color:#fff}
+.lb-photo{width:36px;height:36px;border-radius:50%;flex-shrink:0;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.lb-info{flex:1;min-width:0}
+.lb-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-meta{font-size:12px;color:#6B7878}
+.lb-value{font-size:13px;font-weight:700;color:#006E6E;text-align:right}
+
+/* CTA */
+.appraisal-cta{margin:48px auto 0;max-width:1280px;padding:0 24px}
+.appraisal-inner{background:linear-gradient(135deg,#006E6E 0%,#003838 100%);border-radius:8px;padding:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;color:#fff;position:relative;overflow:hidden}
+.appraisal-inner::before{content:'';position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,103,0,0.12)}
+.appraisal-inner h2{font-size:32px;font-weight:800;margin-bottom:12px;letter-spacing:-0.5px}
+.appraisal-inner p{font-size:16px;opacity:0.92;margin-bottom:24px}
+.appraisal-features{display:flex;gap:24px;font-size:14px}
+.appraisal-features span::before{content:'✓ ';color:#FF6700;font-weight:800}
+.appraisal-form{background:#fff;border-radius:6px;padding:24px;position:relative;z-index:2}
+.appraisal-form h3{color:#1A2A2A;font-size:18px;font-weight:700;margin-bottom:14px}
+.appraisal-form input{width:100%;padding:11px 14px;border:1px solid #E1E5E5;border-radius:6px;font-size:14px;margin-bottom:10px;font-family:inherit}
+.appraisal-form .btn-cta{width:100%;background:#FF6700;color:#fff;border:none;padding:13px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit}
+.appraisal-form .btn-cta:hover{background:#e55a00}
+.appraisal-fineprint{font-size:11px;color:#6B7878;margin-top:8px;text-align:center}
+
+/* PAGINATION */
+.load-more{text-align:center;margin-top:32px}
+
+/* FOOTER */
+footer{background:#003838;color:#fff;padding:56px 24px 24px;margin-top:64px}
+.foot-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px}
+.foot-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:16px;color:#FF6700}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:10px;font-size:14px;opacity:0.85}
+.foot-col li a:hover{opacity:1;color:#FF6700}
+.foot-brand p{font-size:14px;opacity:0.75;margin-top:12px;line-height:1.6}
+.foot-bottom{max-width:1280px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:12px;opacity:0.7}
+
+.suburb-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:11px;background:#F0F4F4;color:#004D4D;padding:3px 9px;border-radius:11px;font-weight:500}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-top">
+    <div class="logo">
+      <div class="logo-mark">P</div>
+      PropertyNest
+    </div>
+    <div class="nav-right">
+      <a href="#">Agents</a>
+      <a href="#">News &amp; Insights</a>
+      <a href="#">Sign in</a>
+      <button class="btn-primary">List a property</button>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tab">Buy</div>
+    <div class="nav-tab">Rent</div>
+    <div class="nav-tab">Sold</div>
+    <div class="nav-tab">New Homes</div>
+    <div class="nav-tab">Estimate</div>
+    <div class="nav-tab active">Agents</div>
+  </div>
+  <div class="nav-search">
+    <div class="nav-search-inner">
+      <div class="search-field big">🔍 &nbsp;Search by suburb, postcode or agent name</div>
+      <div class="search-field">Any agency ▾</div>
+      <div class="search-field">Any property type ▾</div>
+      <div class="search-field">Any price ▾</div>
+      <button class="btn-primary">Search agents</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Find the right agent for your suburb</h1>
+    <p>Compare 41,000+ agents by sales, suburb and price range.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <input class="filter-input wide" placeholder="📍 Suburb e.g. Hawthorn VIC 3122" value="Hawthorn VIC 3122">
+    <select class="filter-input">
+      <option>All agencies</option>
+      <option>Ray White</option>
+      <option>Belle Property</option>
+      <option>McGrath</option>
+      <option>Jellis Craig</option>
+    </select>
+    <select class="filter-input">
+      <option>All property types</option>
+      <option>Houses</option>
+      <option>Apartments &amp; Units</option>
+      <option>Townhouses</option>
+      <option>Land</option>
+    </select>
+    <div class="toggle-wrap">
+      <div class="toggle"></div>
+      <span>Sold in last 12 months</span>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+  <section>
+    <h2 class="section-title">Real estate agents in Hawthorn, VIC</h2>
+    <p class="section-sub">Showing 248 agents · Sorted by sales volume (12 months)</p>
+
+    <div class="agent-grid">
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p1">SC</div>
+          <div class="agent-info">
+            <div class="agent-name">Sarah Chen</div>
+            <div class="agent-agency">Jellis Craig Hawthorn</div>
+            <span class="agency-badge">Jellis Craig</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">47</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$2.1M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">28</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Kew</span><span class="chip">Camberwell</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p2">JP</div>
+          <div class="agent-info">
+            <div class="agent-name">James Patel</div>
+            <div class="agent-agency">Ray White Carlton</div>
+            <span class="agency-badge">Ray White</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">62</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$1.35M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">21</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Carlton</span><span class="chip">Fitzroy</span><span class="chip">Brunswick</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p3">OT</div>
+          <div class="agent-info">
+            <div class="agent-name">Olivia Tran</div>
+            <div class="agent-agency">Belle Property Balwyn</div>
+            <span class="agency-badge">Belle Property</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">38</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$2.8M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">34</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Balwyn</span><span class="chip">Canterbury</span><span class="chip">Surrey Hills</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p4">MO</div>
+          <div class="agent-info">
+            <div class="agent-name">Michael O'Sullivan</div>
+            <div class="agent-agency">McGrath Hawthorn</div>
+            <span class="agency-badge">McGrath</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">54</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$1.9M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">25</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Hawthorn East</span><span class="chip">Glen Iris</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p5">PK</div>
+          <div class="agent-info">
+            <div class="agent-name">Priya Kapoor</div>
+            <div class="agent-agency">Jellis Craig Boroondara</div>
+            <span class="agency-badge">Jellis Craig</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">41</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$2.45M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">30</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Kew East</span><span class="chip">Deepdene</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p6">DM</div>
+          <div class="agent-info">
+            <div class="agent-name">Daniel Marchetti</div>
+            <div class="agent-agency">Ray White Hawthorn</div>
+            <span class="agency-badge">Ray White</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">36</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$1.65M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">26</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Richmond</span><span class="chip">Cremorne</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p1">EH</div>
+          <div class="agent-info">
+            <div class="agent-name">Emma Harrington</div>
+            <div class="agent-agency">Belle Property Hawthorn</div>
+            <span class="agency-badge">Belle Property</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">29</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$2.2M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">33</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Toorak</span><span class="chip">South Yarra</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card-top">
+          <div class="agent-photo p2">RN</div>
+          <div class="agent-info">
+            <div class="agent-name">Rohan Nguyen</div>
+            <div class="agent-agency">McGrath Boroondara</div>
+            <span class="agency-badge">McGrath</span>
+          </div>
+        </div>
+        <div class="agent-stats">
+          <div class="stat"><div class="stat-num">44</div><div class="stat-label">Sales</div></div>
+          <div class="stat"><div class="stat-num">$1.75M</div><div class="stat-label">Median</div></div>
+          <div class="stat"><div class="stat-num">22</div><div class="stat-label">Avg Days</div></div>
+        </div>
+        <div class="agent-suburbs">
+          <strong>Specialises in:</strong>
+          <div class="suburb-chips"><span class="chip">Hawthorn</span><span class="chip">Camberwell</span><span class="chip">Burwood</span></div>
+        </div>
+        <div class="agent-actions">
+          <button class="btn-outline">View profile</button>
+          <button class="btn-primary">Contact</button>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="load-more">
+      <button class="btn-outline" style="padding:14px 32px;font-size:15px;">Load more agents (240 remaining)</button>
+    </div>
+  </section>
+
+  <aside class="sidebar">
+
+    <div class="side-card">
+      <div class="side-title">🏆 Top 10 Agents in Hawthorn</div>
+      <div class="side-sub">Ranked by sales value · 2023</div>
+      <div class="leaderboard">
+        <div class="lb-row">
+          <div class="lb-rank gold">1</div>
+          <div class="lb-photo p3" style="background:linear-gradient(135deg,#2E7D32,#4ca350)">OT</div>
+          <div class="lb-info">
+            <div class="lb-name">Olivia Tran</div>
+            <div class="lb-meta">Belle Property · 38 sales</div>
+          </div>
+          <div class="lb-value">$106M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank silver">2</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#006E6E,#00a3a3)">SC</div>
+          <div class="lb-info">
+            <div class="lb-name">Sarah Chen</div>
+            <div class="lb-meta">Jellis Craig · 47 sales</div>
+          </div>
+          <div class="lb-value">$98.7M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank bronze">3</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#C62828,#e94545)">MO</div>
+          <div class="lb-info">
+            <div class="lb-name">Michael O'Sullivan</div>
+            <div class="lb-meta">McGrath · 54 sales</div>
+          </div>
+          <div class="lb-value">$94.2M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">4</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#004D4D,#006E6E)">PK</div>
+          <div class="lb-info">
+            <div class="lb-name">Priya Kapoor</div>
+            <div class="lb-meta">Jellis Craig · 41 sales</div>
+          </div>
+          <div class="lb-value">$87.5M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">5</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#FF6700,#ff9248)">JP</div>
+          <div class="lb-info">
+            <div class="lb-name">James Patel</div>
+            <div class="lb-meta">Ray White · 62 sales</div>
+          </div>
+          <div class="lb-value">$76.1M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">6</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#5a3fa6,#8765c9)">DM</div>
+          <div class="lb-info">
+            <div class="lb-name">Daniel Marchetti</div>
+            <div class="lb-meta">Ray White · 36 sales</div>
+          </div>
+          <div class="lb-value">$68.9M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">7</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#006E6E,#00a3a3)">EH</div>
+          <div class="lb-info">
+            <div class="lb-name">Emma Harrington</div>
+            <div class="lb-meta">Belle Property · 29 sales</div>
+          </div>
+          <div class="lb-value">$64.3M</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">8</div>
+          <div class="lb-photo" style="background:linear-gradient(135deg,#FF6700,#ff9248)">RN</div>
+          <div class="lb-info">
+            <div class="lb-name">Rohan Nguyen</div>
+            <div class="lb-meta">McGrath · 44 sales</div>
+          </div>
+          <div class="lb-value">$58.7M</div>
+        </div>
+      </div>
+      <a href="#" style="color:#006E6E;font-weight:600;font-size:14px;display:inline-block;margin-top:14px;">View full leaderboard →</a>
+    </div>
+
+    <div class="side-card" style="background:linear-gradient(135deg,#FFF7F0 0%,#FFEBD8 100%);border:1px solid #FFD9B3">
+      <div style="font-size:32px;margin-bottom:8px">🏠</div>
+      <div class="side-title">Selling soon?</div>
+      <p style="font-size:14px;color:#6B7878;margin:8px 0 16px;line-height:1.55">Get a free appraisal from up to 3 top local agents. Compare quotes, fees and strategy.</p>
+      <button class="btn-primary" style="width:100%;background:#FF6700;padding:13px;font-weight:700">Request appraisal</button>
+      <div style="font-size:12px;color:#6B7878;margin-top:10px;text-align:center">✓ Free · ✓ No obligation</div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Suburb median data</div>
+      <div class="side-sub">Hawthorn VIC 3122</div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F0F4F4">
+        <span style="font-size:14px;color:#6B7878">House median</span>
+        <span style="font-weight:700;color:#006E6E">$2.35M</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F0F4F4">
+        <span style="font-size:14px;color:#6B7878">Unit median</span>
+        <span style="font-weight:700;color:#006E6E">$685k</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #F0F4F4">
+        <span style="font-size:14px;color:#6B7878">Days on market</span>
+        <span style="font-weight:700">32</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:10px 0">
+        <span style="font-size:14px;color:#6B7878">Clearance rate</span>
+        <span style="font-weight:700;color:#2E7D32">71%</span>
+      </div>
+      <a href="#" style="color:#006E6E;font-weight:600;font-size:14px;display:inline-block;margin-top:10px">View suburb profile →</a>
+    </div>
+
+  </aside>
+</main>
+
+<section class="appraisal-cta">
+  <div class="appraisal-inner">
+    <div>
+      <h2>Thinking of selling? Get a free appraisal from up to 3 local agents.</h2>
+      <p>Compare commissions, marketing strategies and recent sales performance — all in one place. We'll match you with top-rated agents working in your suburb right now.</p>
+      <div class="appraisal-features">
+        <span>100% Free</span>
+        <span>No obligation</span>
+        <span>Local experts</span>
+      </div>
+    </div>
+    <form class="appraisal-form" onsubmit="return false;">
+      <h3>Find my best agents</h3>
+      <input type="text" placeholder="Property address" value="12 Acacia Avenue, Hawthorn VIC">
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Email address">
+      <input type="tel" placeholder="Phone number">
+      <button class="btn-cta">Get free appraisal →</button>
+      <div class="appraisal-fineprint">By submitting, you agree to PropertyNest's terms.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col foot-brand">
+      <div class="logo" style="color:#fff">
+        <div class="logo-mark" style="background:#FF6700">P</div>
+        PropertyNest
+      </div>
+      <p>Find your place in Australia. Over 482,000 properties for sale and rent from Bondi to Broome.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Buying</h4>
+      <ul>
+        <li><a href="#">Buy property</a></li>
+        <li><a href="#">New homes</a></li>
+        <li><a href="#">Sold prices</a></li>
+        <li><a href="#">Auctions</a></li>
+        <li><a href="#">Estimate</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Renting</h4>
+      <ul>
+        <li><a href="#">Find a rental</a></li>
+        <li><a href="#">Rental yields</a></li>
+        <li><a href="#">Tenant guide</a></li>
+        <li><a href="#">Inspections</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Selling</h4>
+      <ul>
+        <li><a href="#">List a property</a></li>
+        <li><a href="#">Find an agent</a></li>
+        <li><a href="#">Request appraisal</a></li>
+        <li><a href="#">Suburb reports</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About PropertyNest</a></li>
+        <li><a href="#">News &amp; Insights</a></li>
+        <li><a href="#">Advertise with us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2023 PropertyNest Australia Pty Ltd · ABN 12 345 678 901</div>
+    <div>Privacy · Terms · Cookies · Sitemap</div>
+  </div>
+</footer>
+
+</body>
+</html>

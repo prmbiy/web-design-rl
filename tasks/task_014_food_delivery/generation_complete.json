@@ -1,0 +1,12 @@
+{
+  "dna_id": "014",
+  "dna_name": "food_delivery",
+  "pages": [
+    "home",
+    "restaurant",
+    "cart",
+    "orders",
+    "offers"
+  ],
+  "has_animations": false
+}

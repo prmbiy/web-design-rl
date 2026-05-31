@@ -1,0 +1,22 @@
+{
+  "id": "017",
+  "name": "brutalist_agency",
+  "source": "B",
+  "archetype": "Brutalist creative digital agency portfolio",
+  "market": "Global, design and tech industry clients, luxury and challenger brands",
+  "era": "2023",
+  "density": "Deliberately jarring. Elements don't align to a comfortable grid — they purposefully collide, overlap, and contrast. Heavy black borders. Large raw typography at extreme sizes. Case study images break out of their containers. The chaos IS the design statement.",
+  "nav_style": "The nav is part of the design statement. Oversized monospace numbers count the pages. Navigation is a fixed left column with thick black border containing the agency name vertically oriented. Or: a full-screen overlay nav triggered by a minimal icon. Everything is unexpected.",
+  "commercial_model": "Agency business model. Revenue from project work. No pricing listed — 'Talk to us' CTA. Emphasis on prestigious clients and awards. Case studies are the product.",
+  "color_palette": "Stark black (#000000) and white (#FFFFFF) as dominant pair. Then ONE electric accent color that changes per project: might be yellow (#FFE500), red (#FF1A1A), or cyan (#00FFFF). Extreme contrast ratios, no mid-tones. The monochrome base plus one screaming accent is the signature brutalist palette.",
+  "typography": "Brutalist type is the main visual element. Giant serif for contrast (Freight Display or similar at 120-200px). Condensed grotesque for functional text. Monospace for project numbers and technical metadata. Text overlaps images. Text is used decoratively at extreme scales.",
+  "quirks": ["horizontal_scroll_layout", "oversized_typography", "text_overlapping_images", "case_study_full_bleed", "award_badges_prominent", "client_list_ticker", "cursor_custom_large_dot", "page_transition_dramatic", "no_conventional_grid", "manifesto_text"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-bleed black background. Agency name in massive 200px white type. One-line manifesto. Three featured case study previews with overlapping images and number labels. Horizontal scrolling or dramatic full-screen sections."},
+    {"slug": "work", "title": "Work", "description": "Case studies grid in brutalist layout — different sizes, some full-bleed, some small. Project names overlap images. Client name, year, type label. Hover reveals full project title over black overlay."},
+    {"slug": "case_study", "title": "Case Study", "description": "Single project case study. Brand name huge. Full-bleed hero image. Project brief text at large scale. Process photos in irregular layout. Results metrics displayed large. Related work at bottom."},
+    {"slug": "studio", "title": "Studio", "description": "About page as manifesto. Large text statements. Team photos in asymmetric layout with overlaid names. Client logo list as compact grid. Office location in very large type. Awards ticker."},
+    {"slug": "contact", "title": "Contact", "description": "Minimal contact page that's a design statement itself. Single email address at 80px. Business address in small type. New business form that's deliberately minimal. Social links as plain text."}
+  ],
+  "animations": ["page_transition_fade", "hover_image_reveal", "text_scramble_effect", "horizontal_marquee"]
+}

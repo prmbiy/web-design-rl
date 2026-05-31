@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "about",
+      "path": "about.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 359320,
+      "page_width": 1440,
+      "page_height": 2005
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 254800,
+      "page_width": 1440,
+      "page_height": 1146
+    },
+    {
+      "slug": "partners",
+      "path": "partners.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 290789,
+      "page_width": 1440,
+      "page_height": 2041
+    },
+    {
+      "slug": "products",
+      "path": "products.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 336895,
+      "page_width": 1440,
+      "page_height": 1723
+    },
+    {
+      "slug": "solutions",
+      "path": "solutions.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 286514,
+      "page_width": 1440,
+      "page_height": 1329
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "029",
+  "name": "restaurant_group",
+  "source": "A",
+  "archetype": "Multi-location local restaurant group and hospitality brand",
+  "market": "Local diners, event bookers, food media, tourists, delivery customers",
+  "era": "2024",
+  "density": "Food photography-forward with generous whitespace. Menu sections clean and readable. Multiple restaurant locations shown in clean cards. Reservation CTA prominent. Chef story important. Award badges displayed.",
+  "nav_style": "Elegant minimal nav with wordmark. Restaurants, Menu, Reservations, Events, About, Gift Cards. Reserve Now CTA in a rich terracotta or deep plum. Possibly a 'Today's Hours' indicator.",
+  "commercial_model": "Multi-location restaurant group. Revenue from in-person dining, private events, catering, gift cards. Delivery through third-party partners. No subscription model. Michelin recognition mentioned if applicable.",
+  "color_palette": "Deep plum (#4A1040) as primary — sophisticated dinner table aesthetic. Cream (#FDF8F0) for warm page backgrounds. Gold (#B8892F) for premium accents, menu price text, and thin divider lines (1px gold lines between menu sections). Charcoal (#3D3D3D) for body text. Warm amber lighting treatment: images use CSS overlay of rgba(255,248,225,0.15) to evoke candlelight warmth. Section dividers: 1px solid #B8892F gold. Box shadows use warm tones: 0 4px 24px rgba(74,16,64,0.12).",
+  "typography": "Cormorant Garamond or Playfair Display for restaurant names and menu headings — aristocratic, food-appropriate. Lato for body and menu item descriptions. Menu prices in tabular figures. Chef name in italic. Wine list in small refined type.",
+  "quirks": ["reservation_widget", "menu_with_dietary_icons", "chef_biography", "michelin_star_if_applicable", "private_dining_section", "wine_list_section", "gift_card_purchase", "press_mentions", "allergy_information", "seasonal_menu_update_date"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-bleed food hero image. Group tagline. Restaurant locations grid with card for each location: photo, name, cuisine type, neighborhood, hours, Reserve button. Awards strip. Press quote section. Private events CTA."},
+    {"slug": "restaurants", "title": "Our Restaurants", "description": "Restaurant directory. Each restaurant: full-width photo, name, cuisine description, neighborhood, hours, chef name, signature dishes callout, and Reserve/Order links. Ambience photos gallery."},
+    {"slug": "menu", "title": "Menu", "description": "Restaurant selector then menu sections: Starters, Mains, Sides, Desserts, Drinks. Each dish: name, description, price, dietary icons (V, GF, VG, DF). Seasonal specials flagged. Wine pairing suggestions."},
+    {"slug": "reservations", "title": "Reservations", "description": "Reservation form: restaurant selector, date picker, time selector, party size, special requests. OpenTable or Resy embed. Private dining inquiry form for larger groups. Cancellation policy."},
+    {"slug": "events", "title": "Events & Private Dining", "description": "Private events program. Room capacity and layout options. Sample menus for events. Photo gallery of past events. Inquiry form. Chef's table experiences. Seasonal tasting menu events calendar."}
+  ],
+  "animations": false
+}

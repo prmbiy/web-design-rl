@@ -1,0 +1,168 @@
+{
+  "brand_name": "VANTBLACK/STUDIO",
+  "tagline": "We make brands that refuse to be ignored.",
+  "primary_color_name": "Scream Yellow",
+  "pages": {
+    "home": {
+      "title": "Index",
+      "nav_items": [
+        "Index",
+        "Work",
+        "Studio",
+        "Contact",
+        "01/05"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "VANTBLACK",
+          "subheadline": "An independent design studio building loud identities for quiet giants. Berlin / New York / Seoul."
+        },
+        {
+          "name": "featured_work_marquee",
+          "description": "Three overlapping case study previews with monospace numerals labelled 001 KORUNA WATCHES, 002 HALDER COFFEE, 003 NEMESIS XR — each with client name, year (2023), and discipline tag."
+        },
+        {
+          "name": "client_ticker",
+          "description": "Horizontal scrolling marquee of client names including Acne Studios, Rapha, Patagonia, Notion, A24, and Aesop."
+        },
+        {
+          "name": "manifesto_strip",
+          "description": "A single oversized line of manifesto type reading something about refusing the algorithm, paired with a footnote on awards count."
+        }
+      ]
+    },
+    "work": {
+      "title": "Work",
+      "nav_items": [
+        "Index",
+        "Work",
+        "Studio",
+        "Contact",
+        "02/05"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "SELECTED WORK 2019—2023",
+          "subheadline": "47 projects. 12 industries. Zero compromises."
+        },
+        {
+          "name": "filter_bar",
+          "description": "Plain text filter row with disciplines: Identity, Digital, Editorial, Spatial, Motion, Packaging."
+        },
+        {
+          "name": "case_grid",
+          "description": "Asymmetric grid of nine projects with overlapping titles like 'KORUNA — Mechanical Watchmaker Rebrand', 'HALDER — D2C Coffee Platform', 'NEMESIS XR — Headset Launch Site', each tagged with year and discipline."
+        }
+      ]
+    },
+    "case_study": {
+      "title": "Koruna Mechanical",
+      "nav_items": [
+        "Index",
+        "Work",
+        "Studio",
+        "Contact",
+        "03/05"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "KORUNA",
+          "subheadline": "Rebranding a 94-year-old Czech watchmaker for a generation that doesn't wear watches."
+        },
+        {
+          "name": "brief",
+          "description": "Large-scale brief paragraph covering the client (Koruna Hodinářství, est. 1929), the challenge (Gen-Z relevance), and the deliverables (identity, e-commerce, packaging)."
+        },
+        {
+          "name": "process_gallery",
+          "description": "Irregular layout of six process artefacts: wordmark sketches, dial typography studies, factory photography from Nové Město, and color system board."
+        },
+        {
+          "name": "results_metrics",
+          "description": "Three oversized stats: +312% direct sales, 4.2M editorial impressions, D&AD Wood Pencil 2023."
+        },
+        {
+          "name": "credits",
+          "description": "Monospace credits block listing Creative Direction (Mira Hess), Design (Otto Lindgren), Strategy (Yusuf Adeyemi), Year 2023."
+        },
+        {
+          "name": "related_work",
+          "description": "Two related projects shown full-bleed: HALDER COFFEE and ATLAS DENIM."
+        }
+      ]
+    },
+    "studio": {
+      "title": "Studio",
+      "nav_items": [
+        "Index",
+        "Work",
+        "Studio",
+        "Contact",
+        "04/05"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "WE ARE 14 PEOPLE IN A BLACK ROOM.",
+          "subheadline": "Founded 2017 by Mira Hess and Otto Lindgren. Independent. Unrepresented."
+        },
+        {
+          "name": "manifesto",
+          "description": "Five numbered manifesto statements covering craft, conflict, refusal of templates, longevity, and the studio's stance on AI generated design."
+        },
+        {
+          "name": "team",
+          "description": "Asymmetric layout of 14 team portraits with names overlaid, including Mira Hess (CD), Otto Lindgren (CD), Yusuf Adeyemi (Strategy Lead), Anouk Vermeer (Design Director)."
+        },
+        {
+          "name": "clients_logos",
+          "description": "Compact text list of 36 clients including Aesop, A24, Rapha, Notion, Bottega Veneta, Linear, On Running, and Patagonia."
+        },
+        {
+          "name": "awards_ticker",
+          "description": "Horizontal scrolling list of recent awards: D&AD 2023, Brand New Awards Winner 2022, ADC Gold Cube, Type Directors Club, Cannes Bronze Lion."
+        },
+        {
+          "name": "locations",
+          "description": "Three city names rendered at 240px: BERLIN. NEW YORK. SEOUL."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "nav_items": [
+        "Index",
+        "Work",
+        "Studio",
+        "Contact",
+        "05/05"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "TALK TO US.",
+          "subheadline": "New business inquiries reviewed weekly. We respond to everyone."
+        },
+        {
+          "name": "email_block",
+          "description": "Single oversized email address hello@vantblack.studio at 80px with a press inquiry secondary email below."
+        },
+        {
+          "name": "address",
+          "description": "Three small-type studio addresses: Köpenicker Str. 187 Berlin, 55 Walker St NYC, 14 Itaewon-ro Seoul."
+        },
+        {
+          "name": "brief_form",
+          "description": "Minimal four-field new business form: Name, Company, Budget range (under 50K / 50–250K / 250K+), Project description."
+        },
+        {
+          "name": "social_links",
+          "description": "Plain text inline links to Instagram, Are.na, Read.cv, and LinkedIn."
+        }
+      ]
+    }
+  }
+}

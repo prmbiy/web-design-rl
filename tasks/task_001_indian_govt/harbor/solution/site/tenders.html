@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tenders & Procurement | Ministry of Panchayati Raj and Rural Empowerment</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.3; color: #222; background: #fff; }
+a { color: #0066CC; text-decoration: underline; }
+a:visited { color: #551A8B; }
+
+/* Utility Bar */
+.utility-bar { background: #1A1A1A; color: #fff; font-size: 11px; padding: 4px 12px; display: flex; justify-content: space-between; align-items: center; }
+.utility-bar .left a, .utility-bar .right a { color: #fff; margin-right: 10px; }
+.utility-bar .right a { margin-left: 10px; margin-right: 0; }
+.utility-bar select { font-size: 11px; padding: 1px 3px; }
+.font-sizer span { display: inline-block; padding: 0 4px; cursor: pointer; border: 1px solid #555; margin: 0 1px; }
+
+/* Header */
+.header { background: #FF6600; padding: 8px 12px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid #003366; }
+.emblem { width: 60px; height: 70px; background: #003366; color: #FFCC00; display: flex; align-items: center; justify-content: center; font-size: 36px; border: 2px solid #fff; flex-shrink: 0; }
+.header-text { flex: 1; color: #fff; }
+.header-text .hindi { font-family: 'Times New Roman', Times, serif; font-size: 14px; }
+.header-text h1 { font-size: 18px; font-family: 'Times New Roman', Times, serif; }
+.header-text .tagline { font-size: 11px; font-style: italic; margin-top: 2px; }
+.header-logos { display: flex; gap: 8px; }
+.header-logos .badge { width: 56px; height: 56px; background: #fff; color: #003366; border: 2px solid #FFCC00; display: flex; align-items: center; justify-content: center; font-size: 9px; text-align: center; font-weight: bold; padding: 2px; }
+
+/* Mega Nav */
+.mega-nav { background: #003366; border-bottom: 2px solid #FFCC00; }
+.mega-nav ul { list-style: none; display: flex; max-width: 1200px; margin: 0 auto; }
+.mega-nav li { flex: 1; border-right: 1px solid #1a4d80; }
+.mega-nav li:last-child { border-right: none; }
+.mega-nav a { display: block; color: #fff; padding: 8px 6px; text-align: center; text-decoration: none; font-size: 12px; font-weight: bold; }
+.mega-nav a:hover, .mega-nav a.active { background: #FF6600; color: #fff; }
+
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 12px; }
+.wrap { display: grid; grid-template-columns: 220px 1fr; gap: 12px; margin: 10px auto; max-width: 1200px; padding: 0 12px; }
+
+/* Sidebar */
+.sidebar { background: #F5F5F5; border: 1px solid #CCCCCC; padding: 0; font-size: 12px; }
+.sidebar h3 { background: #003366; color: #fff; padding: 6px 8px; font-size: 13px; text-transform: uppercase; }
+.sidebar ul { list-style: none; }
+.sidebar ul li { border-bottom: 1px dotted #CCCCCC; }
+.sidebar ul li a { display: block; padding: 5px 8px; color: #0066CC; text-decoration: underline; font-size: 12px; }
+.sidebar ul li a:before { content: "» "; color: #FF6600; text-decoration: none; }
+.sidebar-banner { background: #FFCC00; border: 1px solid #CC9900; padding: 8px; margin: 10px 0; text-align: center; }
+.sidebar-banner strong { display: block; color: #003366; font-size: 13px; margin-bottom: 3px; }
+.sidebar-banner .num { font-family: 'Times New Roman', serif; font-size: 16px; color: #CC0000; font-weight: bold; }
+
+/* Breadcrumb */
+.breadcrumb { background: #F5F5F5; border: 1px solid #CCCCCC; padding: 4px 8px; font-size: 11px; margin-bottom: 8px; }
+.breadcrumb a { text-decoration: underline; }
+
+/* Hero */
+.page-hero { background: linear-gradient(90deg, #003366 0%, #1a4d80 100%); color: #fff; padding: 12px 14px; border-bottom: 3px solid #FFCC00; margin-bottom: 8px; }
+.page-hero h2 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Times New Roman', serif; }
+.page-hero p { font-size: 12px; margin-top: 4px; font-style: italic; color: #FFCC00; }
+
+/* Tab Strip */
+.tab-strip { display: flex; border-bottom: 2px solid #003366; margin-bottom: 8px; background: #F5F5F5; }
+.tab-strip a { padding: 7px 16px; font-weight: bold; font-size: 12px; text-decoration: none; color: #003366; border: 1px solid #CCCCCC; border-bottom: none; background: #F5F5F5; margin-right: 2px; text-transform: uppercase; }
+.tab-strip a.active { background: #003366; color: #fff; border-color: #003366; }
+.tab-strip a:hover { background: #FF6600; color: #fff; }
+.tab-strip .right { margin-left: auto; padding: 7px 10px; font-size: 11px; color: #666; }
+
+/* Yellow Notice */
+.yellow-notice { background: #FFCC00; border: 2px solid #CC9900; padding: 7px 10px; margin-bottom: 8px; font-size: 12px; }
+.yellow-notice strong { color: #CC0000; text-transform: uppercase; }
+.yellow-notice a { color: #003366; font-weight: bold; }
+
+/* Tables */
+table.data { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 10px; border: 1px solid #999999; }
+table.data thead th { background: #003366; color: #fff; padding: 6px 5px; text-align: left; border: 1px solid #003366; font-size: 12px; text-transform: uppercase; }
+table.data tbody td { padding: 5px; border: 1px solid #CCCCCC; vertical-align: top; }
+table.data tbody tr:nth-child(even) { background: #F5F5F5; }
+table.data tbody tr:hover { background: #FFF4E0; }
+.value-cell { text-align: right; font-family: 'Courier New', monospace; font-weight: bold; color: #003366; }
+.tid { font-family: 'Courier New', monospace; font-weight: bold; color: #CC0000; font-size: 11px; }
+.dl-btn { display: inline-block; background: #FF6600; color: #fff !important; padding: 2px 6px; text-decoration: none; font-size: 11px; font-weight: bold; border: 1px solid #CC5200; margin: 1px; }
+.dl-btn:visited { color: #fff !important; }
+.badge { display: inline-block; padding: 1px 5px; font-size: 10px; font-weight: bold; color: #fff; text-transform: uppercase; }
+.badge-new { background: #CC0000; }
+.badge-live { background: #008000; }
+.badge-closing { background: #FF6600; }
+
+/* Section headings */
+h3.sec { background: #FF6600; color: #fff; padding: 5px 10px; font-size: 13px; text-transform: uppercase; margin: 14px 0 6px; border-left: 5px solid #003366; }
+
+/* Corrigenda */
+table.corrigenda td { font-size: 11px; }
+
+/* Archived */
+.archived-box { border: 1px solid #CCCCCC; padding: 8px; background: #F5F5F5; }
+.archived-box summary { cursor: pointer; font-weight: bold; color: #003366; font-size: 13px; padding: 4px; text-transform: uppercase; }
+.archived-box summary:hover { color: #FF6600; }
+
+/* Procurement Contact Box */
+.proc-contact { background: #F5F5F5; border: 1px solid #999999; padding: 8px 10px; margin: 10px 0; font-size: 12px; }
+.proc-contact h4 { color: #003366; font-size: 13px; text-transform: uppercase; margin-bottom: 4px; border-bottom: 1px solid #CCCCCC; padding-bottom: 3px; }
+.proc-contact table { width: 100%; font-size: 12px; }
+.proc-contact td { padding: 2px 5px; }
+.proc-contact td:first-child { font-weight: bold; width: 130px; color: #003366; }
+
+/* Pagination */
+.pagination { text-align: center; padding: 8px; border: 1px solid #CCCCCC; background: #F5F5F5; margin-bottom: 10px; font-size: 12px; }
+.pagination a, .pagination span { display: inline-block; padding: 3px 8px; margin: 0 2px; border: 1px solid #CCCCCC; background: #fff; text-decoration: none; color: #0066CC; }
+.pagination span.current { background: #003366; color: #fff; border-color: #003366; font-weight: bold; }
+.pagination a:hover { background: #FFCC00; color: #003366; }
+
+/* Timestamp */
+.timestamp { background: #F5F5F5; border-top: 2px solid #FF6600; border-bottom: 1px solid #CCCCCC; padding: 5px 10px; font-size: 11px; color: #666; text-align: right; margin-bottom: 10px; }
+
+/* Marquee scroll alt strip */
+.alert-strip { background: #FFF4E0; border: 1px dashed #CC0000; padding: 5px 10px; color: #CC0000; font-size: 11px; margin-bottom: 8px; }
+.alert-strip strong { background: #CC0000; color: #fff; padding: 1px 5px; margin-right: 6px; }
+
+/* Footer */
+.social-strip { background: #FFCC00; border-top: 2px solid #003366; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+.social-strip .icons span { display: inline-block; width: 24px; height: 24px; background: #003366; color: #fff; text-align: center; line-height: 24px; margin-right: 4px; font-size: 13px; border: 1px solid #fff; }
+.social-strip .helpline { font-weight: bold; color: #CC0000; }
+.access-btn { background: #003366; color: #fff; padding: 4px 8px; border: 2px solid #fff; font-weight: bold; font-size: 11px; }
+
+footer { background: #003366; color: #fff; padding: 14px 12px 8px; font-size: 11px; }
+footer .fcols { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 2fr 2fr 1fr; gap: 16px; }
+footer h4 { color: #FFCC00; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #1a4d80; padding-bottom: 3px; margin-bottom: 5px; }
+footer ul { list-style: none; }
+footer ul li { padding: 2px 0; border-bottom: 1px dotted #1a4d80; }
+footer a { color: #fff; text-decoration: underline; }
+footer .copyright { max-width: 1200px; margin: 12px auto 0; padding-top: 8px; border-top: 1px solid #1a4d80; text-align: center; font-size: 11px; }
+.visitor-counter { background: #000; color: #00FF00; font-family: 'Courier New', monospace; padding: 3px 6px; display: inline-block; border: 1px solid #fff; }
+
+/* Filter row */
+.filter-row { background: #F5F5F5; border: 1px solid #CCCCCC; padding: 6px 8px; margin-bottom: 8px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 11px; }
+.filter-row label { font-weight: bold; color: #003366; }
+.filter-row select, .filter-row input[type=text] { font-size: 11px; padding: 2px 4px; border: 1px solid #999; }
+.filter-row button { background: #FF6600; color: #fff; border: 1px solid #CC5200; padding: 3px 10px; font-weight: bold; cursor: pointer; font-size: 11px; }
+.filter-row button.reset { background: #666; border-color: #444; }
+
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="left">
+    <a href="#main">Skip to Main Content</a>
+    <a href="#">Screen Reader Access</a>
+    <span class="font-sizer">Font: <span>A-</span><span>A</span><span>A+</span></span>
+  </div>
+  <div class="right">
+    <select><option>English</option><option>हिन्दी</option></select>
+    <a href="#">Sitemap</a>
+    <a href="#">Login</a>
+    <a href="#">📞 1800-11-6446</a>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="emblem">☸</div>
+  <div class="header-text">
+    <div class="hindi">पंचायती राज एवं ग्रामीण सशक्तिकरण मंत्रालय</div>
+    <h1>Ministry of Panchayati Raj and Rural Empowerment</h1>
+    <div class="tagline">Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India | Government of India</div>
+  </div>
+  <div class="header-logos">
+    <div class="badge">SWACHH<br>BHARAT</div>
+    <div class="badge">AZADI KA<br>AMRIT<br>MAHOTSAV</div>
+    <div class="badge">DIGITAL<br>INDIA</div>
+  </div>
+</div>
+
+<!-- Mega Nav -->
+<nav class="mega-nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About the Ministry</a></li>
+    <li><a href="#">Schemes &amp; Programs</a></li>
+    <li><a href="#" class="active">Tenders &amp; Procurement</a></li>
+    <li><a href="#">Acts &amp; Rules</a></li>
+    <li><a href="#">Publications</a></li>
+    <li><a href="#">RTI</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h3>Citizen Services</h3>
+    <ul>
+      <li><a href="#">Apply for PMAY-G</a></li>
+      <li><a href="#">MGNREGA Job Card Status</a></li>
+      <li><a href="#">e-Gram Swaraj Portal</a></li>
+      <li><a href="#">Grievance Registration</a></li>
+      <li><a href="#">Track Application</a></li>
+      <li><a href="#">CPPP Portal</a></li>
+      <li><a href="#">Vendor Registration</a></li>
+      <li><a href="#">GeM Portal</a></li>
+    </ul>
+
+    <div class="sidebar-banner">
+      <strong>CPPP Helpdesk</strong>
+      <div class="num">0120-4200462</div>
+      <small>Mon-Fri 09:00-17:30</small>
+    </div>
+
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="#">All Active Tenders</a></li>
+      <li><a href="#">Awarded Tenders</a></li>
+      <li><a href="#">Tender FAQs</a></li>
+      <li><a href="#">Bidder Manual (PDF)</a></li>
+      <li><a href="#">EMD Exemption List</a></li>
+    </ul>
+
+    <div class="sidebar-banner" style="background:#CC0000;border-color:#800000;">
+      <strong style="color:#fff;">⚠ NEW DSC MANDATE</strong>
+      <div style="color:#fff;font-size:11px;">All bids w.e.f. 01-Nov-2018 must be digitally signed (Class III DSC).</div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main id="main">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="#">Home</a> &gt; <strong>Tenders &amp; Procurement</strong>
+    </div>
+
+    <!-- Hero -->
+    <section class="page-hero">
+      <h2>TENDERS &amp; PROCUREMENT NOTICES</h2>
+      <p>All procurements conducted through Central Public Procurement Portal (CPPP)</p>
+    </section>
+
+    <!-- Alert strip -->
+    <div class="alert-strip">
+      <strong>NEW</strong> Tender MoPR/2018-19/47 closing on 09-Nov-2018 &nbsp;|&nbsp; Pre-bid meeting for IEC Campaign on 02-Nov-2018 at 11:00 hrs &nbsp;|&nbsp; Corrigendum-2 issued for Tender No. 45
+    </div>
+
+    <!-- Yellow Notice -->
+    <div class="yellow-notice">
+      <strong>IMPORTANT NOTICE:</strong> &nbsp; All bidders are required to register on the <a href="#">Central Public Procurement Portal (eprocure.gov.in)</a> and submit bids exclusively in electronic form using a valid Class-III Digital Signature Certificate. Physical/manual bids will <strong style="color:#CC0000;">NOT</strong> be entertained. EMD must be furnished via NEFT/RTGS to Account No. <code>10985432100</code>, SBI Sansad Marg Branch, IFSC: SBIN0000691.
+    </div>
+
+    <!-- Tab Strip -->
+    <div class="tab-strip">
+      <a href="#" class="active">Active Tenders (14)</a>
+      <a href="#">Corrigenda (06)</a>
+      <a href="#">Awarded (38)</a>
+      <a href="#">Archived (212)</a>
+      <a href="#">Cancelled (04)</a>
+      <span class="right">Last sync with CPPP: 28-Oct-2018 09:42 IST</span>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-row">
+      <label>Department:</label>
+      <select><option>-- All Divisions --</option><option>NIC Cell</option><option>Programme Division</option><option>Administration</option><option>Training Division</option></select>
+      <label>Tender Type:</label>
+      <select><option>-- All --</option><option>Open</option><option>Limited</option><option>Single</option><option>EOI</option></select>
+      <label>Value Range:</label>
+      <select><option>Any</option><option>Below ₹10 L</option><option>₹10 L - ₹1 Cr</option><option>Above ₹1 Cr</option></select>
+      <label>Keyword:</label>
+      <input type="text" placeholder="Search title/ID" size="14">
+      <button>Search</button>
+      <button class="reset">Reset</button>
+    </div>
+
+    <!-- Active Tenders Table -->
+    <h3 class="sec">▶ Active Tenders &mdash; FY 2018-19</h3>
+    <table class="data">
+      <thead>
+        <tr>
+          <th style="width:5%;">Sl.</th>
+          <th style="width:12%;">Tender ID</th>
+          <th style="width:28%;">Title</th>
+          <th style="width:12%;">Department</th>
+          <th style="width:10%;">Value (₹)</th>
+          <th style="width:9%;">Published</th>
+          <th style="width:9%;">Closing</th>
+          <th style="width:7%;">Status</th>
+          <th style="width:8%;">Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="tid">MoPR/2018-19/47</span></td>
+          <td>Supply, Installation &amp; Commissioning of 1,250 Desktop Computers for e-Gram Swaraj Field Offices <span class="badge badge-new">NEW</span></td>
+          <td>NIC Cell</td>
+          <td class="value-cell">1,82,00,000</td>
+          <td>18-Oct-2018</td>
+          <td>09-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a><a href="#" class="dl-btn">XLS</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="tid">MoPR/2018-19/48</span></td>
+          <td>Hiring of Agency for Information, Education &amp; Communication (IEC) Campaign under RGSA for FY 2018-19</td>
+          <td>Programme Division</td>
+          <td class="value-cell">2,45,00,000</td>
+          <td>20-Oct-2018</td>
+          <td>14-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a><a href="#" class="dl-btn">XLS</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="tid">MoPR/2018-19/49</span></td>
+          <td>Engagement of Consultancy Firm for Third-Party Monitoring of SAGY Adarsh Grams (Phase-III)</td>
+          <td>SAGY Cell</td>
+          <td class="value-cell">98,50,000</td>
+          <td>22-Oct-2018</td>
+          <td>05-Nov-2018</td>
+          <td><span class="badge badge-closing">CLOSING</span></td>
+          <td><a href="#" class="dl-btn">PDF</a></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="tid">MoPR/2018-19/50</span></td>
+          <td>Procurement of Tablet PCs (7,500 nos.) with Rural Panchayat Application Suite Pre-loaded</td>
+          <td>NIC Cell</td>
+          <td class="value-cell">9,37,50,000</td>
+          <td>24-Oct-2018</td>
+          <td>24-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a><a href="#" class="dl-btn">XLS</a></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="tid">MoPR/2018-19/51</span></td>
+          <td>Comprehensive Annual Maintenance Contract (CAMC) for AHU and HVAC Systems at Sardar Patel Bhawan</td>
+          <td>Administration</td>
+          <td class="value-cell">42,80,000</td>
+          <td>25-Oct-2018</td>
+          <td>15-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="tid">MoPR/2018-19/52</span></td>
+          <td>Printing &amp; Distribution of Panchayat Capacity Building Modules in 22 Scheduled Languages</td>
+          <td>Training Division</td>
+          <td class="value-cell">1,18,00,000</td>
+          <td>26-Oct-2018</td>
+          <td>20-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a><a href="#" class="dl-btn">XLS</a></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="tid">MoPR/2018-19/53</span></td>
+          <td>Empanelment of Resource Institutions for Gram Panchayat Development Plan (GPDP) Handholding</td>
+          <td>Programme Division</td>
+          <td class="value-cell">EOI</td>
+          <td>26-Oct-2018</td>
+          <td>30-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="tid">MoPR/2018-19/54</span></td>
+          <td>Supply of Office Stationery &amp; Toner Cartridges for FY 2018-19 (Rate Contract)</td>
+          <td>Administration</td>
+          <td class="value-cell">28,00,000</td>
+          <td>27-Oct-2018</td>
+          <td>12-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><span class="tid">MoPR/2018-19/55</span></td>
+          <td>Hiring of Vehicles (Cars + Buses) on Monthly Lease Basis for Ministry Officers <span class="badge badge-new">NEW</span></td>
+          <td>Administration</td>
+          <td class="value-cell">64,20,000</td>
+          <td>27-Oct-2018</td>
+          <td>17-Nov-2018</td>
+          <td><span class="badge badge-live">LIVE</span></td>
+          <td><a href="#" class="dl-btn">PDF</a></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="tid">MoPR/2018-19/56</span></td>
+          <td>Development &amp; Maintenance of Mobile App "Meri Panchayat" for Citizen Services</td>
+          <td>NIC Cell</td>
+          <td class="value-cell">3,15,00,000</td>
+          <td>28-Oct-2018</td>
+          <td>28-Nov-2018</td>
+          <td><span class="badge badge-new">NEW</span></td>
+          <td><a href="#" class="dl-btn">PDF</a><a href="#" class="dl-btn">XLS</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      Showing 1-10 of 14 active tenders &nbsp; | &nbsp;
+      <a href="#">« First</a>
+      <a href="#">‹ Prev</a>
+      <span class="current">1</span>
+      <a href="#">2</a>
+      <a href="#">Next ›</a>
+      <a href="#">Last »</a>
+    </div>
+
+    <!-- Corrigenda -->
+    <h3 class="sec">▶ Corrigenda / Addenda Issued</h3>
+    <table class="data corrigenda">
+      <thead>
+        <tr>
+          <th style="width:5%;">Sl.</th>
+          <th style="width:18%;">Original Tender ID</th>
+          <th style="width:35%;">Subject</th>
+          <th style="width:15%;">Corrigendum No.</th>
+          <th style="width:12%;">Issued On</th>
+          <th style="width:15%;">Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="tid">MoPR/2018-19/45</span></td>
+          <td>Extension of Bid Submission Date &mdash; Cloud Hosting Services</td>
+          <td>CORR-02/2018</td>
+          <td>23-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (245 KB)</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="tid">MoPR/2018-19/46</span></td>
+          <td>Amendment in Eligibility Criteria &mdash; IEC Campaign Agency</td>
+          <td>CORR-01/2018</td>
+          <td>21-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (180 KB)</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="tid">MoPR/2018-19/42</span></td>
+          <td>Revised BoQ &mdash; Desktop Computers Supply</td>
+          <td>ADD-01/2018</td>
+          <td>15-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (310 KB)</a></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="tid">MoPR/2018-19/40</span></td>
+          <td>Pre-bid Clarifications &mdash; e-Panchayat MMP Audit</td>
+          <td>CLAR-01/2018</td>
+          <td>10-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (620 KB)</a></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="tid">MoPR/2018-19/38</span></td>
+          <td>Cancellation Notice &mdash; Furniture Procurement</td>
+          <td>CANCEL-01/2018</td>
+          <td>05-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (95 KB)</a></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="tid">MoPR/2018-19/35</span></td>
+          <td>Extension of Bid Validity Period</td>
+          <td>CORR-03/2018</td>
+          <td>02-Oct-2018</td>
+          <td><a href="#" class="dl-btn">PDF (140 KB)</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Archived -->
+    <h3 class="sec">▶ Archived Tenders</h3>
+    <details class="archived-box" open>
+      <summary>📁 FY 2017-18 &mdash; Closed &amp; Awarded Tenders (98 records)</summary>
+      <table class="data" style="margin-top:8px;">
+        <thead>
+          <tr>
+            <th>Tender ID</th>
+            <th>Title</th>
+            <th>Awarded To (L1)</th>
+            <th>Award Value (₹)</th>
+            <th>Award Date</th>
+            <th>Doc.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tid">MoPR/2017-18/89</span></td>
+            <td>Capacity Building of Elected Representatives - Phase II</td>
+            <td>M/s Centre for Good Governance, Hyderabad</td>
+            <td class="value-cell">4,82,50,000</td>
+            <td>28-Feb-2018</td>
+            <td><a href="#" class="dl-btn">PDF</a></td>
+          </tr>
+          <tr>
+            <td><span class="tid">MoPR/2017-18/76</span></td>
+            <td>Supply of Networking Equipment for NIC Data Centre</td>
+            <td>M/s Tata Communications Ltd., New Delhi</td>
+            <td class="value-cell">6,15,80,000</td>
+            <td>14-Jan-2018</td>
+            <td><a href="#" class="dl-btn">PDF</a></td>
+          </tr>
+          <tr>
+            <td><span class="tid">MoPR/2017-18/62</span></td>
+            <td>Digital Documentation of Best Panchayat Practices</td>
+            <td>M/s Doordarshan Commercial Service</td>
+            <td class="value-cell">1,28,00,000</td>
+            <td>20-Nov-2017</td>
+            <td><a href="#" class="dl-btn">PDF</a></td>
+          </tr>
+          <tr>
+            <td><span class="tid">MoPR/2017-18/51</span></td>
+            <td>Pre-printed Stationery for GPDP Workshops</td>
+            <td>M/s Thomson Press India Ltd.</td>
+            <td class="value-cell">32,40,000</td>
+            <td>05-Oct-2017</td>
+            <td><a href="#" class="dl-btn">PDF</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="text-align:right;padding:4px;"><a href="#">View all 98 records »</a></div>
+    </details>
+
+    <details class="archived-box" style="margin-top:6px;">
+      <summary>📁 FY 2016-17 &mdash; Closed &amp; Awarded Tenders (84 records)</summary>
+    </details>
+
+    <details class="archived-box" style="margin-top:6px;">
+      <summary>📁 FY 2015-16 &mdash; Closed &amp; Awarded Tenders (30 records)</summary>
+    </details>
+
+    <!-- Procurement Contact -->
+    <div class="proc-contact">
+      <h4>📞 Procurement Officer Contact</h4>
+      <table>
+        <tr><td>Name:</td><td>Shri Rajeev Ranjan Prasad, IES</td></tr>
+        <tr><td>Designation:</td><td>Director (Procurement &amp; Finance)</td></tr>
+        <tr><td>Room No.:</td><td>247, Krishi Bhawan, New Delhi - 110001</td></tr>
+        <tr><td>Phone:</td><td>011-23381547 / Fax: 011-23381549</td></tr>
+        <tr><td>Email:</td><td><a href="mailto:dir-proc-mopr@gov.in">dir-proc-mopr@gov.in</a></td></tr>
+        <tr><td>Office Hours:</td><td>Monday to Friday, 09:30 hrs to 18:00 hrs</td></tr>
+      </table>
+    </div>
+
+    <!-- Timestamp -->
+    <div class="timestamp">
+      <strong>Last Updated:</strong> 28-Oct-2018 &nbsp;|&nbsp; <strong>Page Hits:</strong> 84,213 &nbsp;|&nbsp; <strong>Content Owned by:</strong> Procurement Cell, MoPR
+    </div>
+
+  </main>
+</div>
+
+<!-- Social / Helpline strip -->
+<div class="social-strip">
+  <div class="icons">
+    <span>f</span><span>𝕏</span><span>▶</span><span>in</span><span>📷</span>
+    Follow Us @MoPR_GoI
+  </div>
+  <div class="helpline">☎ Toll-Free Helpline: 1800-11-6446 (Mon-Fri 09:30-18:00)</div>
+  <div class="access-btn">♿ Accessibility</div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="fcols">
+    <div>
+      <h4>Related Links</h4>
+      <ul>
+        <li><a href="#">MyGov.in</a></li>
+        <li><a href="#">India.gov.in (National Portal)</a></li>
+        <li><a href="#">Prime Minister's Office (PMO)</a></li>
+        <li><a href="#">National Informatics Centre (NIC)</a></li>
+        <li><a href="#">Digital India</a></li>
+        <li><a href="#">CPPP - eprocure.gov.in</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Important Schemes</h4>
+      <ul>
+        <li><a href="#">PMAY-Gramin</a></li>
+        <li><a href="#">MGNREGA</a></li>
+        <li><a href="#">Rashtriya Gram Swaraj Abhiyan</a></li>
+        <li><a href="#">SAGY - Adarsh Gram Yojana</a></li>
+        <li><a href="#">e-Gram Swaraj Portal</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Copyright Policy</a></li>
+        <li><a href="#">Hyperlinking Policy</a></li>
+        <li><a href="#">Web Information Manager</a></li>
+        <li><a href="#">Accessibility Statement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visitor Counter</h4>
+      <div class="visitor-counter">04,82,71,309</div>
+      <p style="margin-top:6px;">Last Updated:<br><strong>28-Oct-2018</strong></p>
+      <p style="margin-top:6px;">Best viewed in<br>IE 9+, Firefox, Chrome<br>at 1024 × 768</p>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2018 Ministry of Panchayati Raj and Rural Empowerment, Government of India. All Rights Reserved. &nbsp;|&nbsp; Designed, Developed &amp; Hosted by National Informatics Centre (NIC).
+  </div>
+</footer>
+
+</body>
+</html>

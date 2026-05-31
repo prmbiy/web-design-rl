@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Search - MiataOwners.net</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #E1E4F2;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #333333;
+  line-height: 1.4;
+}
+a { color: #22229C; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551A8B; }
+
+.wrapper { max-width: 1000px; margin: 0 auto; }
+
+/* Header Banner */
+.header-banner {
+  background: linear-gradient(180deg, #4477AA 0%, #003366 100%);
+  color: #fff;
+  padding: 14px 18px;
+  border: 1px solid #001a33;
+  border-bottom: none;
+  position: relative;
+}
+.header-banner .logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  text-shadow: 1px 1px 0 #001a33;
+}
+.header-banner .logo .accent { color: #FF6600; }
+.header-banner .tagline {
+  font-size: 11px;
+  color: #cdd9ea;
+  margin-top: 2px;
+  font-style: italic;
+}
+.welcome-bar {
+  background: #DCE2EF;
+  border: 1px solid #B8C4D9;
+  border-top: none;
+  padding: 5px 12px;
+  font-size: 11px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+.welcome-bar .unread { color: #CC0000; font-weight: bold; }
+
+/* Nav */
+.main-nav {
+  background: #003366;
+  border-left: 1px solid #001a33;
+  border-right: 1px solid #001a33;
+  padding: 0;
+  display: flex;
+}
+.main-nav a {
+  color: #fff;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-right: 1px solid #1a4d80;
+  display: block;
+}
+.main-nav a:hover { background: #336699; text-decoration: none; }
+.main-nav a:visited { color: #fff; }
+
+/* Subnav toolbar */
+.subnav {
+  background: #DCE2EF;
+  border: 1px solid #B8C4D9;
+  border-top: none;
+  padding: 6px 12px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.breadcrumb { color: #333; }
+.breadcrumb a { font-weight: bold; }
+.subnav .btns button {
+  background: linear-gradient(180deg, #4477AA, #2D5A87);
+  color: #fff;
+  border: 1px solid #001a33;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-left: 4px;
+}
+
+/* Leaderboard ad */
+.ad-leaderboard {
+  background: repeating-linear-gradient(45deg, #fff7e6, #fff7e6 10px, #ffe9c2 10px, #ffe9c2 20px);
+  border: 1px dashed #FF6600;
+  width: 728px;
+  height: 90px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #663300;
+  text-align: center;
+}
+.ad-leaderboard strong { color: #CC0000; font-size: 14px; }
+
+/* Page layout */
+.page-body {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.main-col { flex: 1; }
+.side-col { width: 200px; }
+
+/* Panels */
+.panel {
+  background: #fff;
+  border: 1px solid #B8C4D9;
+  margin-bottom: 10px;
+}
+.panel-header {
+  background: linear-gradient(180deg, #4477AA 0%, #2D5A87 100%);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 1px solid #001a33;
+}
+.panel-sub {
+  background: #DCE2EF;
+  padding: 5px 12px;
+  font-size: 11px;
+  color: #555;
+  border-bottom: 1px solid #B8C4D9;
+  font-style: italic;
+}
+.panel-body { padding: 12px; }
+
+/* Search form */
+.search-form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.search-form td {
+  padding: 6px 8px;
+  vertical-align: top;
+  font-size: 12px;
+}
+.search-form td.label {
+  width: 180px;
+  text-align: right;
+  font-weight: bold;
+  background: #F2F2F2;
+  border-right: 1px solid #B8C4D9;
+  color: #003366;
+}
+.search-form td.label .hint {
+  display: block;
+  font-weight: normal;
+  font-size: 10px;
+  color: #777;
+  font-style: italic;
+  margin-top: 2px;
+}
+.search-form input[type=text],
+.search-form select,
+.search-form textarea {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  padding: 3px 5px;
+  border: 1px solid #B8C4D9;
+  background: #fff;
+  border-radius: 2px;
+}
+.search-form input[type=text] { width: 320px; }
+.search-form select { min-width: 160px; }
+.search-form select[multiple] { width: 260px; height: 110px; }
+.search-form .row-sep td { border-bottom: 1px solid #E1E4F2; }
+.search-form .radio-group label {
+  display: inline-block;
+  margin-right: 14px;
+  font-weight: normal;
+}
+.search-form .check-group label {
+  display: block;
+  margin: 2px 0;
+  font-weight: normal;
+}
+
+.form-actions {
+  background: #F2F2F2;
+  border-top: 1px solid #B8C4D9;
+  padding: 10px 12px;
+  text-align: center;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #FF8833, #FF6600);
+  color: #fff;
+  border: 1px solid #993D00;
+  padding: 5px 18px;
+  font-weight: bold;
+  font-size: 12px;
+  font-family: Tahoma, Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  margin: 0 4px;
+  text-shadow: 1px 1px 0 #993D00;
+}
+.btn-secondary {
+  background: linear-gradient(180deg, #4477AA, #2D5A87);
+  color: #fff;
+  border: 1px solid #001a33;
+  padding: 5px 14px;
+  font-weight: bold;
+  font-size: 12px;
+  font-family: Tahoma, Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  margin: 0 4px;
+}
+
+/* Quick links sidebar */
+.quick-links { list-style: none; }
+.quick-links li {
+  border-bottom: 1px dotted #B8C4D9;
+}
+.quick-links li:last-child { border-bottom: none; }
+.quick-links a {
+  display: block;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.quick-links a:hover { background: #F2F2F2; }
+.quick-links .ico {
+  display: inline-block;
+  width: 16px;
+  color: #FF6600;
+  font-weight: bold;
+}
+.quick-links .count {
+  float: right;
+  color: #777;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+/* Sidebar info box */
+.info-box {
+  background: #FFF8DC;
+  border: 1px solid #E0D49C;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: #604f00;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.info-box strong { color: #CC0000; }
+
+/* Sidebar ad */
+.ad-sidebar {
+  background: linear-gradient(135deg, #003366, #336699);
+  color: #fff;
+  width: 100%;
+  padding: 18px 12px;
+  text-align: center;
+  border: 1px dashed #FF6600;
+  font-size: 11px;
+}
+.ad-sidebar .ad-title {
+  color: #FF6600;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-family: Arial, sans-serif;
+}
+.ad-sidebar .ad-cta {
+  background: #FF6600;
+  color: #fff;
+  display: inline-block;
+  padding: 4px 10px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+/* Results table */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.results-table thead th {
+  background: linear-gradient(180deg, #4477AA, #2D5A87);
+  color: #fff;
+  text-align: left;
+  padding: 5px 8px;
+  font-size: 11px;
+  border-right: 1px solid #001a33;
+  font-family: Arial, sans-serif;
+}
+.results-table tbody td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #E1E4F2;
+  vertical-align: middle;
+}
+.results-table tbody tr:nth-child(even) td { background: #F2F2F2; }
+.results-table tbody tr:nth-child(odd) td { background: #FFFFFF; }
+.results-table .col-icon { width: 28px; text-align: center; }
+.results-table .col-replies, .results-table .col-views { width: 70px; text-align: center; color: #555; }
+.results-table .col-lastpost { width: 200px; font-size: 11px; }
+.thread-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(180deg, #fff8dc, #ffd700);
+  border: 1px solid #b8860b;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 16px;
+  font-size: 10px;
+  color: #663300;
+  font-weight: bold;
+}
+.thread-icon.new { background: linear-gradient(180deg, #FFAA66, #FF6600); border-color: #993D00; color:#fff; }
+.thread-title { font-weight: bold; font-size: 12px; }
+.thread-meta { color: #777; font-size: 10px; }
+.stars { color: #FF6600; font-size: 10px; letter-spacing: -1px; }
+.last-by { color: #22229C; font-weight: bold; }
+
+/* Mini avatar */
+.mini-avatar {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #CC0000, #660000);
+  color: #fff;
+  text-align: center;
+  line-height: 22px;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid #333;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.mini-avatar.a2 { background: linear-gradient(135deg, #336699, #003366); }
+.mini-avatar.a3 { background: linear-gradient(135deg, #339933, #006600); }
+
+/* Page header */
+.page-title-bar {
+  background: linear-gradient(180deg, #4477AA, #003366);
+  color: #fff;
+  padding: 10px 14px;
+  border: 1px solid #001a33;
+  margin-top: 10px;
+}
+.page-title-bar h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #001a33;
+}
+.page-title-bar .sub { font-size: 11px; color: #cdd9ea; margin-top: 2px; font-style: italic; }
+
+/* Footer */
+.footer {
+  background: #003366;
+  color: #cdd9ea;
+  padding: 14px 18px;
+  margin-top: 14px;
+  font-size: 11px;
+  border: 1px solid #001a33;
+}
+.footer-links { margin-bottom: 8px; }
+.footer-links a { color: #FF9933; margin-right: 12px; font-weight: bold; }
+.footer-links a:visited { color: #FF9933; }
+.footer .copy { color: #99aacc; }
+
+/* Stats footer */
+.stats-footer {
+  background: #DCE2EF;
+  border: 1px solid #B8C4D9;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #333;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* tip text in form */
+.form-tip {
+  background: #FFF8DC;
+  border: 1px solid #E0D49C;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #604f00;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header-banner">
+    <div class="logo">Miata<span class="accent">Owners</span>.net</div>
+    <div class="tagline">The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999</div>
+  </div>
+  <div class="welcome-bar">
+    <div>Welcome back, <strong>RoadsterDan76</strong> — You have <span class="unread">3 unread PMs</span> and <span class="unread">14 new posts</span> since your last visit.</div>
+    <div>Tuesday, October 23, 2012 · 04:18 PM CDT &nbsp;|&nbsp; <a href="#">Log Out</a></div>
+  </div>
+
+  <!-- Nav -->
+  <div class="main-nav">
+    <a href="#">Home</a>
+    <a href="#">Forum</a>
+    <a href="#">Calendar</a>
+    <a href="#">FAQ</a>
+    <a href="#">Members</a>
+    <a href="#" style="background:#1a4d80;">Search</a>
+    <a href="#">Today's Posts</a>
+  </div>
+
+  <!-- Subnav / breadcrumb -->
+  <div class="subnav">
+    <div class="breadcrumb">
+      <a href="#">Forum Index</a> &gt; <a href="#">Tools</a> &gt; <strong>Advanced Search</strong>
+    </div>
+    <div class="btns">
+      <button>Mark All Forums Read</button>
+      <button>My Subscriptions</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard ad -->
+  <div class="ad-leaderboard">
+    <div>
+      <strong>FLYIN' MIATA</strong> — Turbo Kits &amp; Suspension for NA/NB/NC<br>
+      <span style="font-size:11px;">Free shipping on orders over $500 — Use code MONET2012 — 728 × 90 Advertisement</span>
+    </div>
+  </div>
+
+  <!-- Page title -->
+  <div class="page-title-bar">
+    <h1>🔍 Advanced Search</h1>
+    <div class="sub">Search by Keyword, Username, or Tag — across 187,432 threads and 4,221,908 posts.</div>
+  </div>
+
+  <!-- Body -->
+  <div class="page-body">
+
+    <!-- Main Column -->
+    <div class="main-col">
+
+      <!-- Search Form -->
+      <div class="panel search-form">
+        <div class="panel-header">Search Criteria</div>
+        <div class="panel-sub">Fill in any combination of fields below. Leaving a field blank will not filter on it.</div>
+
+        <div class="form-tip">💡 <strong>Pro tip:</strong> Use quotes around phrases (e.g. "head gasket") for exact matches. Use + before required terms and - to exclude.</div>
+
+        <table>
+          <tr class="row-sep">
+            <td class="label">Keyword(s):<span class="hint">Min 4 characters</span></td>
+            <td>
+              <input type="text" value="LS swap header clearance">
+              &nbsp;<label><input type="checkbox" checked> Search post bodies</label>
+              &nbsp;<label><input type="checkbox" checked> Search thread titles</label>
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Posted By Username:<span class="hint">Autocomplete enabled</span></td>
+            <td>
+              <input type="text" value="V8Lover_Brad">
+              &nbsp;<label><input type="checkbox"> Exact match only</label>
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Tag:<span class="hint">Optional</span></td>
+            <td>
+              <input type="text" placeholder="e.g. ls3, autocross, hardtop">
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Date Range:</td>
+            <td>
+              <select>
+                <option>Any Date</option>
+                <option>Last 24 Hours</option>
+                <option>Last Week</option>
+                <option selected>Last Month</option>
+                <option>Last 3 Months</option>
+                <option>Last Year</option>
+                <option>Custom Range...</option>
+              </select>
+              &nbsp;and newer
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Search In Forum(s):<span class="hint">Ctrl+Click to multi-select</span></td>
+            <td>
+              <select multiple>
+                <option selected>-- All Forums --</option>
+                <optgroup label="General Discussion">
+                  <option selected>NA/NB Chat</option>
+                  <option>NC Owners Lounge</option>
+                  <option>ND Speculation &amp; Rumors</option>
+                </optgroup>
+                <optgroup label="Technical Help">
+                  <option selected>Engine &amp; Drivetrain</option>
+                  <option>Suspension &amp; Brakes</option>
+                  <option>Electrical Gremlins</option>
+                  <option>DIY How-To Archive</option>
+                </optgroup>
+                <optgroup label="Build Threads">
+                  <option selected>Track/Autocross Builds</option>
+                  <option>Turbo &amp; Supercharger Projects</option>
+                  <option>Restoration Logs</option>
+                  <option>Stanced &amp; Show Cars</option>
+                </optgroup>
+                <optgroup label="Classifieds">
+                  <option>Cars for Sale</option>
+                  <option>Parts for Sale</option>
+                  <option>Wanted to Buy</option>
+                </optgroup>
+                <optgroup label="Meets &amp; Events">
+                  <option>Miatas at the Gap</option>
+                  <option>Regional Meetups</option>
+                  <option>Track Day Coordination</option>
+                </optgroup>
+              </select>
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Sort Results By:</td>
+            <td class="radio-group">
+              <label><input type="radio" name="sort" checked> Relevance</label>
+              <label><input type="radio" name="sort"> Last Post Time</label>
+              <label><input type="radio" name="sort"> Number of Replies</label>
+              <label><input type="radio" name="sort"> Thread Start Date</label>
+              <label><input type="radio" name="sort"> Number of Views</label>
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Sort Order:</td>
+            <td class="radio-group">
+              <label><input type="radio" name="ord" checked> Descending</label>
+              <label><input type="radio" name="ord"> Ascending</label>
+            </td>
+          </tr>
+          <tr class="row-sep">
+            <td class="label">Show Results As:</td>
+            <td class="radio-group">
+              <label><input type="radio" name="show" checked> Threads</label>
+              <label><input type="radio" name="show"> Posts</label>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Options:</td>
+            <td class="check-group">
+              <label><input type="checkbox" checked> Include posts from threads I've subscribed to</label>
+              <label><input type="checkbox"> Search child forums recursively</label>
+              <label><input type="checkbox"> Hide threads with fewer than <input type="text" value="3" style="width:30px;"> replies</label>
+            </td>
+          </tr>
+        </table>
+        <div class="form-actions">
+          <button class="btn-primary">» Search Now «</button>
+          <button class="btn-secondary">Reset Form</button>
+          <button class="btn-secondary">Save This Search</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="panel">
+        <div class="panel-header">Sample Results &mdash; 3 of 1,284 matches</div>
+        <div class="panel-sub">Showing results 1–3 sorted by Relevance · Page 1 of 86</div>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th class="col-icon">&nbsp;</th>
+              <th>Thread / Starter</th>
+              <th class="col-replies">Replies</th>
+              <th class="col-views">Views</th>
+              <th class="col-lastpost">Last Post</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-icon"><span class="thread-icon new">N</span></td>
+              <td>
+                <div class="thread-title"><a href="#">NB hardtop install DIY — complete photo writeup</a></div>
+                <div class="thread-meta">
+                  Started by <a href="#">TopdownTim</a> in <a href="#">Technical Help &raquo; DIY How-To Archive</a>
+                  &nbsp;·&nbsp; <span class="stars">★★★★★</span> (24 ratings)
+                </div>
+              </td>
+              <td class="col-replies">12</td>
+              <td class="col-views">3,847</td>
+              <td class="col-lastpost">
+                <span class="mini-avatar">MM</span>Today, 03:42 PM<br>
+                by <a href="#" class="last-by">MX5Mike</a> <span style="color:#777;">»</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-icon"><span class="thread-icon">★</span></td>
+              <td>
+                <div class="thread-title"><a href="#">1994 Miata LS-Swap Track Car — Build Thread (V8 Roadster)</a></div>
+                <div class="thread-meta">
+                  Started by <a href="#" style="color:#22229C;font-weight:bold;">V8Lover_Brad</a> in <a href="#">Build Threads &raquo; Track/Autocross Builds</a>
+                  &nbsp;·&nbsp; <span class="stars">★★★★★</span> (98 ratings) &nbsp;·&nbsp; <span style="color:#FF6600;font-weight:bold;">[STICKY]</span>
+                </div>
+              </td>
+              <td class="col-replies">287</td>
+              <td class="col-views">42,118</td>
+              <td class="col-lastpost">
+                <span class="mini-avatar a2">NB</span>Yesterday, 11:08 PM<br>
+                by <a href="#" class="last-by" style="color:#CC0000;">NBMike_PDX</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="col-icon"><span class="thread-icon">?</span></td>
+              <td>
+                <div class="thread-title"><a href="#">LS3 header clearance issues on '94 chassis — what fits?</a></div>
+                <div class="thread-meta">
+                  Started by <a href="#">BoostedBabs</a> in <a href="#">Technical Help &raquo; Engine &amp; Drivetrain</a>
+                  &nbsp;·&nbsp; <span class="stars">★★★★☆</span> (16 ratings)
+                </div>
+              </td>
+              <td class="col-replies">47</td>
+              <td class="col-views">1,204</td>
+              <td class="col-lastpost">
+                <span class="mini-avatar a3">VK</span>Today, 01:55 PM<br>
+                by <a href="#" class="last-by" style="color:#339933;">VTECkiller</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:6px 12px; background:#F2F2F2; font-size:11px; border-top:1px solid #B8C4D9; display:flex; justify-content:space-between;">
+          <div>Page <strong>1</strong> of 86 &nbsp; <a href="#">[1]</a> <a href="#">[2]</a> <a href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> ... <a href="#">[Last »]</a></div>
+          <div>
+            Jump to forum:
+            <select><option>-- Forum Jump --</option><option>NA/NB Chat</option><option>NC Owners Lounge</option></select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Side Column -->
+    <div class="side-col">
+
+      <!-- Quick Links -->
+      <div class="panel">
+        <div class="panel-header">Quick Links</div>
+        <ul class="quick-links">
+          <li><a href="#"><span class="ico">»</span> Today's Posts <span class="count">2,118</span></a></li>
+          <li><a href="#"><span class="ico">»</span> New Posts Since Last Visit <span class="count">14</span></a></li>
+          <li><a href="#"><span class="ico">»</span> Unanswered Threads <span class="count">87</span></a></li>
+          <li><a href="#"><span class="ico">»</span> Subscribed Threads <span class="count">22</span></a></li>
+          <li><a href="#"><span class="ico">»</span> My Posts <span class="count">1,442</span></a></li>
+          <li><a href="#"><span class="ico">»</span> Threads I Started <span class="count">38</span></a></li>
+          <li><a href="#"><span class="ico">»</span> Mark All Forums Read</a></li>
+          <li><a href="#"><span class="ico">»</span> Who's Online Now <span class="count">429</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <strong>Note:</strong> Search index updates every 5 minutes. Posts older than 90 days require Premium membership to search.<br><br>
+        <a href="#">Upgrade to Premium »</a>
+      </div>
+
+      <!-- Sidebar Ad -->
+      <div class="ad-sidebar">
+        <div class="ad-title">GOODWIN RACING</div>
+        <div style="font-size:10px;">MX-5 Performance Parts</div>
+        <div style="margin:14px 0; padding:20px 0; border-top:1px dashed #FF6600; border-bottom:1px dashed #FF6600;">
+          <div style="font-size:18px; font-weight:bold;">$20 OFF</div>
+          <div style="font-size:10px;">orders over $200</div>
+        </div>
+        <div style="font-size:10px;">Code: MIATA2012</div>
+        <div class="ad-cta">SHOP NOW »</div>
+        <div style="font-size:9px; margin-top:10px; color:#aac;">160 × 600 Advertisement</div>
+      </div>
+
+      <!-- Saved Searches -->
+      <div class="panel">
+        <div class="panel-header">Saved Searches</div>
+        <ul class="quick-links">
+          <li><a href="#"><span class="ico">★</span> LS swap parts</a></li>
+          <li><a href="#"><span class="ico">★</span> 99 10AE for sale</a></li>
+          <li><a href="#"><span class="ico">★</span> Bilstein PSS9</a></li>
+          <li><a href="#"><span class="ico">★</span> Manage searches...</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Stats footer -->
+  <div class="stats-footer">
+    <div><strong>Forum Statistics:</strong> Threads <strong>187,432</strong> · Posts <strong>4,221,908</strong> · Members <strong>62,114</strong> · Newest: <a href="#">TopdownTim</a></div>
+    <div>Currently Online: <strong>429</strong> (347 guests, 82 members)</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#">Forum Home</a>
+      <a href="#">Contact Us</a>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Advertise</a>
+      <a href="#">Donate</a>
+      <a href="#">Archive</a>
+      <a href="#">Top ↑</a>
+    </div>
+    <div class="copy">
+      All times are GMT -6. The time now is 04:18 PM.<br>
+      Powered by vBulletin® Version 4.1.12 — Copyright © 2000-2012, MiataOwners.net. All Rights Reserved.<br>
+      MiataOwners.net is not affiliated with Mazda Motor Corporation. Miata® and MX-5® are registered trademarks of Mazda.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

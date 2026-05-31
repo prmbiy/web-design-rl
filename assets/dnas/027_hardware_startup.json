@@ -1,0 +1,22 @@
+{
+  "id": "027",
+  "name": "hardware_startup",
+  "source": "A",
+  "archetype": "Consumer hardware startup product launch site",
+  "market": "Tech-savvy early adopters, crowdfunding backers, tech press, consumer electronics buyers",
+  "era": "2024",
+  "density": "Apple-influenced but more startup-gritty. Full-screen product sections — each feature section is 100vh on dark background. Technical specs in a full-width dark table (#1C1C1C rows alternating with #222222) with 2 columns: property name (left, #888888 label) and value (right, white bold). Pre-order countdown timer in large 48px monospace. Product rotation: CSS keyframe animation rotateY(0deg→360deg) on 12s loop, giving the impression of a 3D spinning product showcase.",
+  "nav_style": "Dark minimal nav. Product name/logo left. Nav: Features, Specs, Compare, Story, Press. Right: Pre-order price + CTA button. Shipping date shown near CTA. Cart icon.",
+  "commercial_model": "Direct-to-consumer hardware. Pre-orders with deposit. Crowdfunding campaign alumni (Kickstarter/Indiegogo badge). First batch limited quantity. Early bird pricing countdown. Referral program for extra discount.",
+  "color_palette": "Premium dark theme: near-black (#111111) or deep space grey (#1C1C1C). Brushed metal silver (#CACACA) for product photography tones. Accent: electric blue (#007AFF, Apple-adjacent) or warm amber (#FF9F0A). White (#FFFFFF) text. Clean, premium, hardware-appropriate.",
+  "typography": "SF Pro adjacent or Inter — clean system-font philosophy. Product name in a bold 72-96px condensed face. Spec names in all-caps small labels. Numbers (specs like 48MP, 5000mAh) in large tabular bold. Body copy in 16px clean sans-serif.",
+  "quirks": ["countdown_timer_preorder", "product_3d_rotation", "spec_comparison_table", "kickstarter_badge", "early_bird_pricing", "review_embargo_date", "press_kit_download", "made_in_taiwan_badge", "refund_policy_link", "founder_letter"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-screen product hero on dark background. Product name large. One-line value proposition. Key specs callouts: three most impressive numbers. Pre-order CTA with countdown. Reviews embargo note."},
+    {"slug": "features", "title": "Features", "description": "Full-screen feature sections one after another. Each feature gets a full viewport: product photo, feature name, description, key differentiator callout. Scroll-through storytelling format."},
+    {"slug": "specs", "title": "Technical Specs", "description": "Complete specifications table. Sections: Display, Processor, Battery, Camera, Connectivity, Materials, Dimensions, Sensors. Full detail, no marketing-speak. Export spec sheet PDF link."},
+    {"slug": "compare", "title": "Compare", "description": "Side-by-side comparison table with 2-3 competitor products. Key specs comparison with checkmarks and X marks. Price per feature value calculation. 'Our product wins' highlighted in accent color."},
+    {"slug": "story", "title": "Our Story", "description": "Founder letter. Problem they were solving. Journey from prototype to product. Workshop/manufacturing photos. Team section. Why they built this over traditional jobs. Community of early supporters."}
+  ],
+  "animations": false
+}

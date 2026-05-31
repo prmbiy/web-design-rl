@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Voltaic Valorant Roster — Voltaic Esports</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0D0D0D;
+  --surface: #1A1A1A;
+  --border: #262626;
+  --primary: #FF0033;
+  --gold: #FFD700;
+  --text: #FFFFFF;
+  --muted: #888888;
+  --discord: #5865F2;
+  --win: #00C853;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg,#0D0D0D 0%,#1A0A0E 100%);
+  color: var(--text);
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============== NAV ============== */
+.topbar {
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: 72px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%);
+}
+
+.brand-name span { color: var(--primary); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-links a {
+  color: #ccc;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--text); border-bottom-color: var(--primary); }
+.nav-links a.active { color: var(--text); border-bottom-color: var(--primary); }
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.socials span {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.socials span:hover { border-color: var(--primary); color: var(--primary); }
+
+.discord-btn {
+  background: var(--discord);
+  color: #fff;
+  padding: 10px 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+}
+
+.watch-live-btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: live_strobe 1.2s ease-in-out infinite;
+}
+.watch-live-btn::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+@keyframes live_strobe {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,0,51,0.7); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 8px rgba(255,0,51,0); }
+}
+
+/* ============== TICKER ============== */
+.ticker {
+  background: #1A1A1A;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.ticker-label {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--primary);
+  color: #fff;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  z-index: 2;
+  animation: live_strobe 1.2s ease-in-out infinite;
+}
+.ticker-viewport {
+  overflow: hidden;
+  padding: 12px 0 12px 80px;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker_scroll 60s linear infinite;
+  gap: 48px;
+}
+@keyframes ticker_scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ddd;
+  white-space: nowrap;
+}
+.ticker-item .tag {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.ticker-item .score {
+  color: var(--gold);
+  font-weight: 700;
+}
+.ticker-item .live-tag {
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  animation: live_strobe 1.2s ease-in-out infinite;
+}
+.ticker-item .win { color: var(--win); }
+
+/* ============== HERO BANNER ============== */
+.team-hero {
+  position: relative;
+  padding: 80px 32px 64px;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,0,51,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(255,0,51,0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #1A0A0E 0%, #0D0D0D 100%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.team-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent 49%, rgba(255,0,51,0.04) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(255,0,51,0.04) 50%, transparent 51%);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.crest {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary) 0%, #8B001C 100%);
+  clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 60px rgba(255,0,51,0.4);
+}
+.crest::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: #0D0D0D;
+  clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
+}
+.crest-bolt {
+  position: relative;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  z-index: 1;
+}
+
+.hero-text .breadcrumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero-text .breadcrumb span { color: var(--primary); }
+
+.hero-text h1 {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.hero-text h1 .accent { color: var(--primary); }
+
+.hero-text .sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 280px;
+}
+.stat-block {
+  background: rgba(26,26,26,0.7);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stat-block .label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.stat-block .value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+.stat-block .value .gold { color: var(--gold); }
+.stat-block .value .win { color: var(--win); }
+
+.match-score {
+  display: inline-block;
+  animation: score_count_up 0.6s cubic-bezier(0.2,0.8,0.2,1) both;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes score_count_up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ============== SECTION ============== */
+section {
+  padding: 64px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+}
+.section-head h2 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+.section-head h2::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 32px;
+  background: var(--primary);
+  margin-right: 14px;
+  vertical-align: -3px;
+}
+.section-head .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.section-head .meta strong { color: var(--gold); }
+
+/* ============== PLAYER GRID ============== */
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.player-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+.player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 24px rgba(255,0,51,0.6);
+  border-color: var(--primary);
+}
+
+.player-photo {
+  height: 320px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at center top, rgba(255,0,51,0.3) 0%, transparent 60%),
+    linear-gradient(180deg, #2a0a14 0%, #0D0D0D 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.player-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent 0 20px, rgba(255,0,51,0.04) 20px 21px);
+}
+.player-silhouette {
+  width: 80%;
+  height: 88%;
+  background: linear-gradient(180deg, #444 0%, #1a1a1a 100%);
+  clip-path: polygon(40% 0, 60% 0, 70% 18%, 78% 35%, 90% 50%, 95% 100%, 5% 100%, 10% 50%, 22% 35%, 30% 18%);
+  filter: drop-shadow(0 0 20px rgba(255,0,51,0.3));
+}
+.player-card:hover .player-silhouette {
+  background: linear-gradient(180deg, #666 0%, #1a1a1a 100%);
+  filter: drop-shadow(0 0 30px rgba(255,0,51,0.6));
+}
+
+.player-number {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(255,0,51,0.25);
+  line-height: 0.9;
+}
+
+.role-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(13,13,13,0.85);
+  border-left: 2px solid var(--primary);
+  padding: 5px 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+}
+
+.player-info {
+  padding: 18px 18px 16px;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.player-info::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%;
+  height: 2px;
+  background: var(--primary);
+}
+
+.player-ign {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.player-name {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.player-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+.flag {
+  width: 22px;
+  height: 14px;
+  border-radius: 1px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+.flag-kr { background: linear-gradient(180deg, #fff 50%, #fff 50%); }
+.flag-kr::after { content: '☯'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #cd2e3a; font-size: 9px; }
+.flag-br { background: #009c3b; position: relative; }
+.flag-br::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(45deg); width: 14px; height: 8px; background: #ffdf00; }
+.flag-us { background: linear-gradient(180deg, #b22234 0 14%, #fff 14% 28%, #b22234 28% 42%, #fff 42% 56%, #b22234 56% 70%, #fff 70% 84%, #b22234 84%); }
+.flag-uk { background: #012169; position: relative; }
+.flag-uk::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, #fff 45% 55%, transparent 55%), linear-gradient(0deg, transparent 45%, #fff 45% 55%, transparent 55%); }
+.flag-fr { background: linear-gradient(90deg, #002654 33%, #fff 33% 66%, #ed2939 66%); }
+.flag-se { background: #006aa7; position: relative; }
+.flag-se::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 30%, #fecc00 30% 42%, transparent 42%), linear-gradient(0deg, transparent 40%, #fecc00 40% 60%, transparent 60%); }
+.flag-ru { background: linear-gradient(180deg, #fff 33%, #0039A6 33% 66%, #D52B1E 66%); }
+
+.player-socials {
+  display: flex;
+  gap: 8px;
+}
+.player-socials a {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.player-socials a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(255,0,51,0.08);
+}
+
+/* ============== COACHING STAFF ============== */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.staff-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+.staff-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 24px rgba(255,0,51,0.4);
+}
+
+.staff-avatar {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #2a0a14 0%, #0D0D0D 100%);
+  border: 2px solid var(--primary);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--primary);
+  position: relative;
+}
+
+.staff-info .role-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+.staff-info h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.staff-info .bio {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ============== SUPPORT STAFF ============== */
+.support-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.support-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr 120px;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.support-row:last-child { border-bottom: none; }
+.support-row:hover { background: rgba(255,0,51,0.04); }
+
+.support-row.head {
+  background: #0D0D0D;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.support-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--primary);
+}
+.support-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.support-role {
+  font-size: 14px;
+  color: #ccc;
+}
+.support-tenure {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+.support-action {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+/* ============== SPONSORS ============== */
+.sponsor-strip {
+  background: #0a0a0a;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 32px;
+}
+.sponsor-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.sponsor-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.sponsor-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #555;
+  letter-spacing: 0.05em;
+  filter: grayscale(1);
+  transition: all 0.2s;
+}
+.sponsor-logo:hover { color: #aaa; }
+
+/* ============== DISCORD CTA ============== */
+.discord-cta {
+  margin: 0 auto;
+  max-width: 1400px;
+  background: var(--primary);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.discord-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(0,0,0,0.3) 100%);
+}
+.discord-cta-text { position: relative; }
+.discord-cta-text h3 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+.discord-cta-text p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+.discord-cta-text .online {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--win);
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 8px var(--win);
+}
+.discord-cta-btn {
+  position: relative;
+  background: #fff;
+  color: var(--discord);
+  padding: 16px 32px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+/* ============== FOOTER ============== */
+footer {
+  background: #000;
+  border-top: 1px solid var(--border);
+  padding: 56px 32px 24px;
+  margin-top: 80px;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.footer-brand h4 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.footer-brand h4 span { color: var(--primary); }
+.footer-brand p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.footer-col h5 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-col li:hover { color: var(--text); }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <nav class="nav">
+    <div class="brand">
+      <div class="brand-logo">⚡</div>
+      <div class="brand-name">VOLTAIC<span>.</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">News</a></li>
+      <li><a href="#" class="active">Teams</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Results</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Watch</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="socials">
+        <span>𝕏</span><span>▶</span><span>📷</span><span>🎮</span>
+      </div>
+      <a href="#" class="discord-btn">Discord</a>
+      <a href="#" class="watch-live-btn">Watch Live</a>
+    </div>
+  </nav>
+
+  <!-- LIVE TICKER -->
+  <div class="ticker">
+    <div class="ticker-label">● LIVE</div>
+    <div class="ticker-viewport">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="tag">VCT</span> VOLT <span class="score match-score">2 - 1</span> SEN <span class="tag">Map 3</span></div>
+        <div class="ticker-item"><span class="live-tag">LIVE</span> VOLT vs T1 <span class="tag">Bind</span></div>
+        <div class="ticker-item"><span class="tag">FINAL</span> FNATIC <span class="score match-score">13 - 9</span> VOLT</div>
+        <div class="ticker-item"><span class="tag">LCS</span> VOLT <span class="score win match-score">2 - 0</span> C9</div>
+        <div class="ticker-item"><span class="tag">IEM</span> VOLT vs NAVI <span class="tag">Oct 18 • 11:00 PT</span></div>
+        <div class="ticker-item"><span class="tag">RLCS</span> VOLT <span class="score match-score">3 - 1</span> KC</div>
+        <div class="ticker-item"><span class="tag">CS2</span> VOLT vs G2 <span class="tag">Oct 14</span></div>
+        <!-- duplicate for seamless loop -->
+        <div class="ticker-item"><span class="tag">VCT</span> VOLT <span class="score">2 - 1</span> SEN <span class="tag">Map 3</span></div>
+        <div class="ticker-item"><span class="live-tag">LIVE</span> VOLT vs T1 <span class="tag">Bind</span></div>
+        <div class="ticker-item"><span class="tag">FINAL</span> FNATIC <span class="score">13 - 9</span> VOLT</div>
+        <div class="ticker-item"><span class="tag">LCS</span> VOLT <span class="score win">2 - 0</span> C9</div>
+        <div class="ticker-item"><span class="tag">IEM</span> VOLT vs NAVI <span class="tag">Oct 18 • 11:00 PT</span></div>
+        <div class="ticker-item"><span class="tag">RLCS</span> VOLT <span class="score">3 - 1</span> KC</div>
+        <div class="ticker-item"><span class="tag">CS2</span> VOLT vs G2 <span class="tag">Oct 14</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM HERO -->
+<header class="team-hero">
+  <div class="hero-inner">
+    <div class="crest">
+      <div class="crest-bolt">⚡</div>
+    </div>
+    <div class="hero-text">
+      <div class="breadcrumb">Teams <span>/</span> Valorant <span>/</span> Roster</div>
+      <h1>VOLTAIC <span class="accent">VALORANT</span></h1>
+      <div class="sub">VCT Americas · Est. 2021 · Based in Los Angeles</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="label">Season Record</div>
+        <div class="value"><span class="match-score win">24</span> <span style="color:#444">/</span> <span class="match-score">11</span></div>
+      </div>
+      <div class="stat-block">
+        <div class="label">VCT Ranking</div>
+        <div class="value"><span class="gold">#3</span> Americas</div>
+      </div>
+      <div class="stat-block">
+        <div class="label">Earnings YTD</div>
+        <div class="value gold"><span class="match-score">$1.42M</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STARTING FIVE -->
+<section>
+  <div class="section-head">
+    <h2>Starting Five</h2>
+    <div class="meta">VCT Americas 2023 · <strong>Active Roster</strong></div>
+  </div>
+
+  <div class="player-grid">
+
+    <div class="player-card">
+      <div class="player-photo">
+        <div class="role-tag">Duelist</div>
+        <div class="player-number">01</div>
+        <div class="player-silhouette"></div>
+      </div>
+      <div class="player-info">
+        <div class="player-ign">ECHO</div>
+        <div class="player-name">Min-jun Park</div>
+        <div class="player-meta">
+          <div class="country"><span class="flag flag-kr"></span> KR</div>
+          <div class="player-socials">
+            <a>𝕏</a><a>📷</a><a>▶</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <div class="player-photo">
+        <div class="role-tag">Initiator</div>
+        <div class="player-number">02</div>
+        <div class="player-silhouette"></div>
+      </div>
+      <div class="player-info">
+        <div class="player-ign">RIVET</div>
+        <div class="player-name">Lucas Almeida</div>
+        <div class="player-meta">
+          <div class="country"><span class="flag flag-br"></span> BR</div>
+          <div class="player-socials">
+            <a>𝕏</a><a>📷</a><a>▶</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <div class="player-photo">
+        <div class="role-tag">Controller</div>
+        <div class="player-number">03</div>
+        <div class="player-silhouette"></div>
+      </div>
+      <div class="player-info">
+        <div class="player-ign">KAIROS</div>
+        <div class="player-name">Daniel Cho</div>
+        <div class="player-meta">
+          <div class="country"><span class="flag flag-us"></span> US</div>
+          <div class="player-socials">
+            <a>𝕏</a><a>📷</a><a>▶</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <div class="player-photo">
+        <div class="role-tag">Sentinel</div>
+        <div class="player-number">04</div>
+        <div class="player-silhouette"></div>
+      </div>
+      <div class="player-info">
+        <div class="player-ign">WRAITH</div>
+        <div class="player-name">Oliver Hayes</div>
+        <div class="player-meta">
+          <div class="country"><span class="flag flag-uk"></span> UK</div>
+          <div class="player-socials">
+            <a>𝕏</a><a>📷</a><a>▶</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <div class="player-photo">
+        <div class="role-tag">Flex / IGL</div>
+        <div class="player-number">05</div>
+        <div class="player-silhouette"></div>
+      </div>
+      <div class="player-info">
+        <div class="player-ign">TEMPO</div>
+        <div class="player-name">Hugo Martin</div>
+        <div class="player-meta">
+          <div class="country"><span class="flag flag-fr"></span> FR</div>
+          <div class="player-socials">
+            <a>𝕏</a><a>📷</a><a>▶</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COACHING STAFF -->
+<section>
+  <div class="section-head">
+    <h2>Coaching Staff</h2>
+    <div class="meta">Strategy · Performance · <strong>Vision</strong></div>
+  </div>
+
+  <div class="staff-grid">
+    <div class="staff-card">
+      <div class="staff-avatar">RV</div>
+      <div class="staff-info">
+        <div class="role-label">Head Coach</div>
+        <h3>Reyna Vidal</h3>
+        <div class="bio">Two-time VCT Americas finalist coach. Joined Voltaic 2022. Former CS:GO player turned Valorant tactician.</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-avatar">MO</div>
+      <div class="staff-info">
+        <div class="role-label">Assistant Coach</div>
+        <h3>Mikhail Orlov</h3>
+        <div class="bio">Specialist in opponent prep and map veto. 11 years coaching experience across CIS and NA teams.</div>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-avatar">SL</div>
+      <div class="staff-info">
+        <div class="role-label">Performance Analyst</div>
+        <h3>Sarah Liang</h3>
+        <div class="bio">Data lead. Builds player heat-maps, round economy models and post-match VOD breakdowns.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT STAFF -->
+<section>
+  <div class="section-head">
+    <h2>Support Staff</h2>
+    <div class="meta">Operations · Wellness · Content</div>
+  </div>
+
+  <div class="support-list">
+    <div class="support-row head">
+      <div>#</div>
+      <div>Name</div>
+      <div>Role</div>
+      <div>Tenure</div>
+      <div>Contact</div>
+    </div>
+    <div class="support-row">
+      <div class="support-num">01</div>
+      <div class="support-name">Jonas Keller</div>
+      <div class="support-role">Team Manager</div>
+      <div class="support-tenure">Since 2021 · 2y 8m</div>
+      <div class="support-action">View Profile →</div>
+    </div>
+    <div class="support-row">
+      <div class="support-num">02</div>
+      <div class="support-name">Dr. Amira Patel</div>
+      <div class="support-role">Sports Psychologist</div>
+      <div class="support-tenure">Since 2022 · 1y 6m</div>
+      <div class="support-action">View Profile →</div>
+    </div>
+    <div class="support-row">
+      <div class="support-num">03</div>
+      <div class="support-name">Riley Tan</div>
+      <div class="support-role">Content Creator</div>
+      <div class="support-tenure">Since 2023 · 9m</div>
+      <div class="support-action">View Profile →</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<div class="sponsor-strip">
+  <div class="sponsor-inner">
+    <div class="sponsor-label">Powered By</div>
+    <div class="sponsor-logo">INTEL</div>
+    <div class="sponsor-logo">CORSAIR</div>
+    <div class="sponsor-logo">RED BULL</div>
+    <div class="sponsor-logo">HYPERX</div>
+    <div class="sponsor-logo">SANTANDER</div>
+    <div class="sponsor-logo">SECRETLAB</div>
+  </div>
+</div>
+
+<!-- DISCORD CTA -->
+<section style="padding: 48px 32px;">
+  <div class="discord-cta">
+    <div class="discord-cta-text">
+      <h3>JOIN 184,000 FANS IN THE VOLTAIC DISCORD</h3>
+      <p><span class="online"></span>12,847 online now · Watch parties, match alerts, exclusive AMAs</p>
+    </div>
+    <a href="#" class="discord-cta-btn">Join Discord →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>VOLTAIC<span>.</span></h4>
+      <p>Born in the Server.<br>Built for the Stage.</p>
+    </div>
+    <div class="footer-col">
+      <h5>TEAMS</h5>
+      <ul>
+        <li>Valorant</li>
+        <li>League of Legends</li>
+        <li>CS2</li>
+        <li>Rocket League</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>SITE</h5>
+      <ul>
+        <li>News</li>
+        <li>Schedule</li>
+        <li>Results</li>
+        <li>Watch</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>SHOP</h5>
+      <ul>
+        <li>Jerseys</li>
+        <li>Apparel</li>
+        <li>Accessories</li>
+        <li>Signed</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>COMPANY</h5>
+      <ul>
+        <li>About</li>
+        <li>Careers</li>
+        <li>Press</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2023 VOLTAIC ESPORTS GMBH · ALL RIGHTS RESERVED</div>
+    <div>PRIVACY · TERMS · COOKIE PREFERENCES</div>
+  </div>
+</footer>
+
+</body>
+</html>

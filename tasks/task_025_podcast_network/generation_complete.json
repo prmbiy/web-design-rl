@@ -1,0 +1,12 @@
+{
+  "dna_id": "025",
+  "dna_name": "podcast_network",
+  "pages": [
+    "home",
+    "shows",
+    "episodes",
+    "episode",
+    "support"
+  ],
+  "has_animations": false
+}

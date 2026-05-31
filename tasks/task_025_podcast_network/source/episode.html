@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Ep. 142: The Last Search Engine — Signal Drift</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1A0F2E;
+  color: #F5F0E8;
+  font-family: 'Karla', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: rgba(26, 15, 46, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #3D2C5C;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FF6B6B 0%, #3C1F6B 70%);
+  position: relative;
+}
+.logo-mark::after {
+  content:'';
+  position:absolute; inset:6px;
+  border:1px solid #F5F0E8;
+  border-radius:50%;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: #FF6B6B; }
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.mini-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 6px 12px 6px 6px;
+  max-width: 320px;
+}
+.mini-art {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, #FF6B6B, #3C1F6B);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.mini-info {
+  font-size: 12px;
+  line-height: 1.3;
+  min-width: 0;
+}
+.mini-info .show { font-family: 'JetBrains Mono', monospace; color: #A89BB8; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+.mini-info .title { color: #F5F0E8; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+.mini-play {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: flex; align-items: center; justify-content: center;
+  color: #1A0F2E;
+  font-size: 10px;
+}
+.btn-support {
+  background: #FF6B6B;
+  color: #1A0F2E;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.btn-support:hover { background: #ff8585; }
+
+/* ===== PAGE ===== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 32px 96px;
+}
+
+.crumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 32px;
+}
+.crumb .sep { color: #3D2C5C; margin: 0 8px; }
+.crumb .coral { color: #FF6B6B; }
+
+.episode-layout {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* ===== LEFT COLUMN ===== */
+.left-col {
+  position: sticky;
+  top: 96px;
+}
+
+.artwork {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,107,107,0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(245,181,68,0.3) 0%, transparent 55%),
+    linear-gradient(135deg, #3C1F6B 0%, #1A0F2E 100%);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #3D2C5C;
+}
+.artwork-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+}
+.artwork-show {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  opacity: 0.85;
+}
+.artwork-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 42px;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.artwork-ep {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #FF6B6B;
+}
+.artwork::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,240,232,0.15);
+}
+.artwork::after {
+  content: '';
+  position: absolute;
+  bottom: -120px; right: -120px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,240,232,0.08);
+}
+
+/* PLAYER */
+.player {
+  margin-top: 24px;
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 22px;
+}
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.play-btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #FF6B6B;
+  display: flex; align-items: center; justify-content: center;
+  color: #1A0F2E;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.play-btn svg { width: 18px; height: 18px; fill: #1A0F2E; margin-left: 3px; }
+.player-meta {
+  flex: 1;
+  min-width: 0;
+}
+.player-meta .pm-show {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.player-meta .pm-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+.scrub {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  font-variant-numeric: tabular-nums;
+}
+.scrub-bar {
+  flex: 1;
+  height: 4px;
+  background: #3D2C5C;
+  border-radius: 2px;
+  position: relative;
+}
+.scrub-bar::before {
+  content:'';
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  width: 28%;
+  background: #FF6B6B;
+  border-radius: 2px;
+}
+.scrub-bar::after {
+  content:'';
+  position: absolute;
+  left: 28%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #F5F0E8;
+}
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #3D2C5C;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.player-controls span { cursor: pointer; }
+.player-controls span:hover { color: #FF6B6B; }
+
+/* ===== RIGHT COLUMN ===== */
+.right-col {
+  padding-top: 4px;
+}
+.show-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FF6B6B;
+  margin-bottom: 16px;
+}
+.ep-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.ep-meta {
+  display: flex;
+  gap: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #3D2C5C;
+  font-variant-numeric: tabular-nums;
+}
+.ep-meta strong { color: #F5F0E8; font-weight: 500; }
+
+/* SECTION */
+.section {
+  margin-top: 56px;
+}
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #A89BB8;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3D2C5C;
+}
+
+/* DESCRIPTION */
+.desc p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #E8DFD3;
+}
+.pullquote {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  line-height: 1.3;
+  font-weight: 400;
+  font-style: italic;
+  color: #F5F0E8;
+  border-left: 3px solid #FF6B6B;
+  padding: 8px 0 8px 24px;
+  margin: 28px 0;
+}
+.pullquote cite {
+  display: block;
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 14px;
+}
+
+/* CHAPTERS */
+.chapters {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 8px 0;
+}
+.chapter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  border-bottom: 1px solid #3D2C5C;
+  cursor: pointer;
+}
+.chapter:last-child { border-bottom: none; }
+.chapter:hover { background: rgba(255,107,107,0.05); }
+.chapter:hover .ch-title { color: #FF6B6B; }
+.ch-time {
+  color: #A89BB8;
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+}
+.ch-title {
+  color: #F5F0E8;
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+.ch-play {
+  margin-left: auto;
+  color: #6B4BA8;
+  font-size: 14px;
+}
+.chapter:hover .ch-play { color: #FF6B6B; }
+
+/* GUESTS */
+.people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.person {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  border-radius: 4px;
+  padding: 24px;
+}
+.person-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #F5F0E8;
+  flex-shrink: 0;
+}
+.avatar.maya {
+  background: linear-gradient(135deg, #FF6B6B, #3C1F6B);
+}
+.avatar.aanya {
+  background: linear-gradient(135deg, #F5B544, #3C1F6B);
+}
+.person-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #FF6B6B;
+}
+.person-name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.person-bio {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #C7BBD3;
+  margin-bottom: 12px;
+}
+.person-links {
+  display: flex;
+  gap: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A89BB8;
+}
+.person-links a:hover { color: #FF6B6B; }
+
+/* LINKS MENTIONED */
+.links-list {
+  list-style: none;
+}
+.links-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid #3D2C5C;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.links-list li:first-child { padding-top: 0; }
+.links-list .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #6B4BA8;
+}
+.links-list .ttl {
+  font-weight: 700;
+  color: #F5F0E8;
+}
+.links-list .ttl::after {
+  content: ' →';
+  color: #FF6B6B;
+}
+.links-list .src {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #A89BB8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* TRANSCRIPT */
+.transcript-card {
+  background: #F5F0E8;
+  color: #1A0F2E;
+  border-radius: 4px;
+  padding: 36px 40px;
+  position: relative;
+}
+.transcript-card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #3C1F6B;
+  margin-bottom: 14px;
+}
+.transcript-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  color: #1A0F2E;
+}
+.transcript-card p {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2A1A47;
+  max-width: 540px;
+  margin-bottom: 22px;
+}
+.transcript-btn {
+  display: inline-block;
+  background: #1A0F2E;
+  color: #F5F0E8;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.transcript-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #6B4BA8;
+  margin-top: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* SHARE / SUBSCRIBE */
+.share-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.share-box h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #A89BB8;
+  margin-bottom: 14px;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.btn-row a {
+  background: #2A1A47;
+  border: 1px solid #3D2C5C;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-row a:hover {
+  border-color: #FF6B6B;
+  color: #FF6B6B;
+}
+.btn-row .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #FF6B6B;
+}
+.btn-row a:nth-child(2) .dot { background: #6B4BA8; }
+.btn-row a:nth-child(3) .dot { background: #F5B544; }
+.btn-row a:nth-child(4) .dot { background: #A89BB8; }
+.btn-row a:nth-child(5) .dot { background: #FF6B6B; }
+
+/* FOOTER */
+footer {
+  background: #0F0820;
+  border-top: 1px solid #3D2C5C;
+  padding: 72px 32px 36px;
+  margin-top: 80px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.footer-tag {
+  color: #A89BB8;
+  font-size: 14px;
+  max-width: 280px;
+  line-height: 1.5;
+}
+footer h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FF6B6B;
+  margin-bottom: 16px;
+}
+footer ul { list-style: none; }
+footer li {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #C7BBD3;
+}
+footer li a:hover { color: #FF6B6B; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 56px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #3D2C5C;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B4BA8;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"></span>
+      Longwave Audio
+    </a>
+    <div class="nav-links">
+      <a href="#">Shows</a>
+      <a href="#">Episodes</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Support Us</a>
+    </div>
+    <div class="nav-right">
+      <div class="mini-player">
+        <div class="mini-art"></div>
+        <div class="mini-info">
+          <div class="show">Signal Drift · Ep 142</div>
+          <div class="title">The Last Search Engine</div>
+        </div>
+        <div class="mini-play">▶</div>
+      </div>
+      <a href="#" class="btn-support">Become a Supporter</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="crumb">
+    <a href="#">Episodes</a><span class="sep">/</span><a href="#">Signal Drift</a><span class="sep">/</span><span class="coral">Ep. 142</span>
+  </div>
+
+  <div class="episode-layout">
+
+    <!-- LEFT -->
+    <div class="left-col">
+      <div class="artwork">
+        <div class="artwork-content">
+          <div>
+            <div class="artwork-show">Signal Drift</div>
+            <div class="artwork-ep" style="margin-top:6px">Episode 142 · Nov 14, 2024</div>
+          </div>
+          <div>
+            <div class="artwork-title">The Last Search<br>Engine</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player">
+        <div class="player-row">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="player-meta">
+            <div class="pm-show">Signal Drift · Ep 142</div>
+            <div class="pm-title">The Last Search Engine</div>
+          </div>
+        </div>
+        <div class="scrub">
+          <span>13:14</span>
+          <div class="scrub-bar"></div>
+          <span>47:22</span>
+        </div>
+        <div class="player-controls">
+          <span>⏮ −15s</span>
+          <span>1.0×</span>
+          <span>+30s ⏭</span>
+          <span>Download</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-col">
+      <div class="show-name">Signal Drift · Episode 142</div>
+      <h1 class="ep-title">The Last Search Engine</h1>
+      <div class="ep-meta">
+        <span><strong>47:22</strong> runtime</span>
+        <span>Released <strong>Nov 14, 2024</strong></span>
+        <span>Hosted by <strong>Maya Okafor</strong></span>
+        <span>Guest: <strong>Aanya Krishnan</strong></span>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="section">
+        <div class="section-label">— Episode notes</div>
+        <div class="desc">
+          <p>The general-purpose web search engine, that strange utility we once treated as a public good, is quietly dying. Spam farms, SEO arbitrage, and AI slop have hollowed out the ten blue links until they read like a satellite radio loop of advertorial. This week on Signal Drift, Maya sits down with search engineer Aanya Krishnan to ask what happens after the index breaks.</p>
+          <p>The conversation winds from the original PageRank paper to the strange flourishing of small, weird search engines: Marginalia, which indexes the non-commercial web; Kagi, which sells search the way magazines used to be sold; and a handful of vertical indexes for academic papers, recipes, and old forums. Aanya, who spent six years at DuckDuckGo before walking away, argues that "general search" was always a brief commercial accident, not a natural state of the web.</p>
+          <p>We close with listener mail, including a long letter from a librarian in Wellington about whether finding things online is now closer to dowsing than retrieval.</p>
+
+          <div class="pullquote">
+            "The miracle wasn't that Google indexed the web. The miracle was that, for about fifteen years, the web was small enough and honest enough to be indexed at all."
+            <cite>— Aanya Krishnan, 34:08</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTERS -->
+      <div class="section">
+        <div class="section-label">— Chapters</div>
+        <div class="chapters">
+          <div class="chapter">
+            <span class="ch-time">00:00</span>
+            <span class="ch-title">Cold open</span>
+            <span class="ch-play">▶</span>
+          </div>
+          <div class="chapter">
+            <span class="ch-time">03:14</span>
+            <span class="ch-title">The Google problem</span>
+            <span class="ch-play">▶</span>
+          </div>
+          <div class="chapter">
+            <span class="ch-time">17:40</span>
+            <span class="ch-title">Marginalia and Kagi</span>
+            <span class="ch-play">▶</span>
+          </div>
+          <div class="chapter">
+            <span class="ch-time">34:02</span>
+            <span class="ch-title">What comes after the index</span>
+            <span class="ch-play">▶</span>
+          </div>
+          <div class="chapter">
+            <span class="ch-time">44:50</span>
+            <span class="ch-title">Listener mail</span>
+            <span class="ch-play">▶</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUEST / HOST -->
+      <div class="section">
+        <div class="section-label">— Host & Guest</div>
+        <div class="people">
+          <div class="person">
+            <div class="person-head">
+              <div class="avatar maya">MO</div>
+              <div>
+                <div class="person-role">Host</div>
+                <div class="person-name">Maya Okafor</div>
+              </div>
+            </div>
+            <p class="person-bio">Maya hosts Signal Drift, the weekly dispatch from the edges of the internet. Before Longwave she spent eight years reporting on platform economics for The Atlantic and KQED.</p>
+            <div class="person-links">
+              <a href="#">Website ↗</a>
+              <a href="#">Mastodon ↗</a>
+              <a href="#">Archive ↗</a>
+            </div>
+          </div>
+          <div class="person">
+            <div class="person-head">
+              <div class="avatar aanya">AK</div>
+              <div>
+                <div class="person-role">Guest</div>
+                <div class="person-name">Aanya Krishnan</div>
+              </div>
+            </div>
+            <p class="person-bio">Aanya is a search engineer who spent six years at DuckDuckGo before leaving in 2023. She now writes the newsletter "Tail Queries" about the long tail of how people actually look for things.</p>
+            <div class="person-links">
+              <a href="#">Newsletter ↗</a>
+              <a href="#">Bluesky ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKS -->
+      <div class="section">
+        <div class="section-label">— Links mentioned</div>
+        <ul class="links-list">
+          <li>
+            <span class="num">01</span>
+            <a href="#" class="ttl">Marginalia Search</a>
+            <span class="src">marginalia-search.com</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <a href="#" class="ttl">The PageRank Citation Ranking (Brin & Page, 1998)</a>
+            <span class="src">Stanford InfoLab</span>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <a href="#" class="ttl">"The End of the Googleverse" — Anna Wiener</a>
+            <span class="src">The New Yorker</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TRANSCRIPT -->
+      <div class="section">
+        <div class="transcript-card">
+          <div class="label">— Transcript</div>
+          <h3>Read the full transcript.</h3>
+          <p>A machine-edited transcript of this conversation, lightly cleaned by a human editor, is available alongside every Longwave episode. Transcripts are typically produced within 48 hours of release.</p>
+          <a href="#" class="transcript-btn">Open transcript →</a>
+          <div class="transcript-note">~ 9,400 words · 38 min read</div>
+        </div>
+      </div>
+
+      <!-- SHARE / SUBSCRIBE -->
+      <div class="section">
+        <div class="section-label">— Share & subscribe</div>
+        <div class="share-grid">
+          <div class="share-box">
+            <h4>Share this episode</h4>
+            <div class="btn-row">
+              <a href="#"><span class="dot"></span> Copy link</a>
+              <a href="#"><span class="dot"></span> Mastodon</a>
+              <a href="#"><span class="dot"></span> Bluesky</a>
+              <a href="#"><span class="dot"></span> Email</a>
+            </div>
+          </div>
+          <div class="share-box">
+            <h4>Subscribe to Signal Drift</h4>
+            <div class="btn-row">
+              <a href="#"><span class="dot"></span> Apple Podcasts</a>
+              <a href="#"><span class="dot"></span> Spotify</a>
+              <a href="#"><span class="dot"></span> Overcast</a>
+              <a href="#"><span class="dot"></span> Pocket Casts</a>
+              <a href="#"><span class="dot"></span> RSS</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Longwave Audio</div>
+      <div class="footer-tag">Independent podcasts for the curious mind. Founded in Oakland, 2021. Funded by 4,212 listeners.</div>
+    </div>
+    <div>
+      <h5>Network</h5>
+      <ul>
+        <li><a href="#">All Shows</a></li>
+        <li><a href="#">Latest Episodes</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Hosts</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Listen</h5>
+      <ul>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Overcast</a></li>
+        <li><a href="#">RSS Feeds</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Become a Supporter</a></li>
+        <li><a href="#">Patreon</a></li>
+        <li><a href="#">Merch Shop</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Longwave Audio Cooperative</span>
+    <span>Made in Oakland, CA</span>
+  </div>
+</footer>
+
+</body>
+</html>

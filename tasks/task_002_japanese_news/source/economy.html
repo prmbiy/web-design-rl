@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>経済・ビジネス | 朝日毎報</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #1A1A1A; background: #FFFFFF; line-height: 1.5; }
+a { color: #0066CC; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* TOP UTILITY BAR */
+.utility-bar { background: #F7F7F7; border-bottom: 1px solid #DDD; font-size: 11px; padding: 4px 16px; display: flex; justify-content: space-between; align-items: center; }
+.utility-bar .left span { margin-right: 14px; }
+.utility-bar .right span, .utility-bar .right a { margin-left: 10px; }
+.subscriber-badge { background: #B8860B; color: white; padding: 1px 6px; font-weight: 700; }
+
+/* MASTHEAD */
+.masthead { padding: 12px 16px 8px; border-bottom: 2px solid #CC0000; display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.masthead-logo { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 36px; color: #CC0000; letter-spacing: 2px; }
+.masthead-logo small { display: block; font-size: 11px; color: #1A1A1A; letter-spacing: 1px; font-weight: 500; margin-top: 2px; font-family: 'Noto Sans JP', sans-serif; }
+.masthead-ad { width: 468px; height: 60px; background: #EEE; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #666; border: 1px solid #DDD; }
+.masthead-ad strong { color: #1A1A1A; }
+
+/* CATEGORY NAV */
+.cat-nav { background: #1A1A1A; border-bottom: 3px solid #CC0000; }
+.cat-nav-inner { max-width: 1200px; margin: 0 auto; display: flex; overflow-x: auto; }
+.cat-nav a { color: #FFFFFF; padding: 9px 11px; font-size: 13px; white-space: nowrap; border-right: 1px solid #333; font-weight: 500; }
+.cat-nav a.active { background: #CC0000; color: #FFFFFF; font-weight: 700; }
+.cat-nav a:hover { background: #333; text-decoration: none; }
+
+/* STOCK TICKER STRIP */
+.ticker-strip { background: #000; color: #FFF; font-size: 12px; padding: 6px 16px; display: flex; gap: 24px; overflow: hidden; border-bottom: 1px solid #CC0000; }
+.ticker-strip .label { color: #999; margin-right: 6px; }
+.ticker-strip .up { color: #FF6666; font-weight: 700; }
+.ticker-strip .down { color: #66FF99; font-weight: 700; }
+.ticker-strip .item { white-space: nowrap; }
+
+/* BREADCRUMB & PAGE TITLE */
+.page-header { max-width: 1200px; margin: 0 auto; padding: 14px 16px 6px; }
+.breadcrumb { font-size: 11px; color: #666; margin-bottom: 8px; }
+.page-title { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 900; color: #CC0000; border-bottom: 1px solid #CC0000; padding-bottom: 8px; display: flex; align-items: baseline; gap: 12px; }
+.page-title small { font-size: 12px; color: #666; font-weight: 500; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 2px; }
+
+/* MAIN LAYOUT */
+.main-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 280px; gap: 18px; padding: 14px 16px; }
+
+/* LEAD 3-COLUMN */
+.lead-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; border-bottom: 1px solid #DDD; padding-bottom: 14px; margin-bottom: 14px; }
+.lead-main .photo, .lead-sub .photo { width: 100%; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; font-size: 38px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.lead-main .photo { background: linear-gradient(135deg, #003366 0%, #0066CC 50%, #CC0000 100%); aspect-ratio: 16/9; }
+.lead-sub:nth-child(2) .photo { background: linear-gradient(135deg, #2C3E50, #95A5A6); }
+.lead-sub:nth-child(3) .photo { background: linear-gradient(135deg, #4A3C2C, #B8860B); }
+.lead-main h2 { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 900; line-height: 1.35; margin-bottom: 6px; }
+.lead-sub h3 { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 5px; }
+.lead-main p, .lead-sub p { font-size: 12.5px; color: #333; line-height: 1.5; }
+.meta { font-size: 11px; color: #666; margin-top: 6px; }
+.meta .comments { color: #0066CC; margin-left: 8px; }
+.meta .tag { background: #CC0000; color: #FFF; padding: 1px 5px; font-size: 10px; margin-right: 6px; font-weight: 700; }
+
+/* SECTION HEADER */
+.sec-header { display: flex; align-items: center; justify-content: space-between; border-left: 4px solid #CC0000; padding-left: 8px; margin-bottom: 10px; }
+.sec-header h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 900; }
+.sec-header small { font-size: 10px; color: #666; letter-spacing: 1px; }
+.sec-header a.more { font-size: 11px; color: #0066CC; }
+
+/* MARKET DATA TABLE */
+.market-section { margin-bottom: 20px; }
+.market-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.market-table th { background: #1A1A1A; color: #FFF; padding: 6px 8px; text-align: left; font-weight: 500; font-size: 11px; border-right: 1px solid #333; }
+.market-table td { padding: 5px 8px; border-bottom: 1px solid #EEE; border-right: 1px solid #EEE; }
+.market-table tr:nth-child(even) { background: #FAFAFA; }
+.market-table tr:hover { background: #FFF5F5; }
+.market-table .code { color: #666; font-family: 'Courier New', monospace; font-size: 11px; }
+.market-table .name { font-weight: 500; }
+.market-table .num { text-align: right; font-family: 'Courier New', monospace; }
+.market-table .up { color: #CC0000; font-weight: 700; }
+.market-table .down { color: #006633; font-weight: 700; }
+
+/* INDEX SUMMARY */
+.index-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+.index-card { border: 1px solid #DDD; padding: 8px 10px; background: #FAFAFA; }
+.index-card .label { font-size: 10px; color: #666; }
+.index-card .val { font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; margin-top: 2px; }
+.index-card .chg { font-size: 11px; margin-top: 2px; font-family: 'Courier New', monospace; }
+.index-card .chg.up { color: #CC0000; }
+.index-card .chg.down { color: #006633; }
+.mini-chart { margin-top: 6px; }
+
+/* AD INTERSTITIAL */
+.ad-interstitial { width: 100%; height: 90px; background: linear-gradient(90deg, #001A4D, #0066CC); display: flex; align-items: center; justify-content: center; color: #FFF; margin: 16px 0; position: relative; }
+.ad-interstitial .label { position: absolute; top: 2px; left: 4px; font-size: 9px; background: #EEE; color: #666; padding: 1px 4px; }
+.ad-interstitial .copy { text-align: center; }
+.ad-interstitial .copy strong { font-family: 'Noto Serif JP', serif; font-size: 18px; display: block; }
+.ad-interstitial .copy span { font-size: 11px; opacity: 0.85; }
+
+/* EARNINGS LIST */
+.earnings-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.earnings-item { display: grid; grid-template-columns: 60px 1fr auto; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #DDD; align-items: center; }
+.earnings-item .ticker { font-family: 'Courier New', monospace; font-size: 11px; background: #1A1A1A; color: #FFF; padding: 2px 4px; text-align: center; }
+.earnings-item .info h4 { font-size: 13px; font-weight: 700; }
+.earnings-item .info p { font-size: 11px; color: #666; margin-top: 2px; }
+.earnings-item .figure { text-align: right; font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; }
+.earnings-item .figure small { display: block; font-size: 10px; font-weight: 400; color: #666; }
+.earnings-item .figure.up { color: #CC0000; }
+.earnings-item .figure.down { color: #006633; }
+
+/* REAL ESTATE */
+.realestate-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.re-card { border: 1px solid #DDD; }
+.re-card .photo { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 30px; color: rgba(255,255,255,0.6); }
+.re-card:nth-child(1) .photo { background: linear-gradient(135deg, #34495E, #7F8C8D); }
+.re-card:nth-child(2) .photo { background: linear-gradient(135deg, #8E44AD, #C0392B); }
+.re-card:nth-child(3) .photo { background: linear-gradient(135deg, #16A085, #2C3E50); }
+.re-card .body { padding: 10px; }
+.re-card h4 { font-family: 'Noto Serif JP', serif; font-size: 14px; line-height: 1.4; margin-bottom: 6px; }
+.re-card p { font-size: 11px; color: #666; }
+.re-stats { display: flex; gap: 14px; margin-top: 14px; padding: 10px; background: #F7F7F7; border-left: 3px solid #CC0000; font-size: 12px; }
+.re-stats div strong { display: block; font-size: 16px; color: #CC0000; font-family: 'Courier New', monospace; }
+
+/* SIDEBAR */
+.sidebar > div { margin-bottom: 16px; }
+.side-box { border: 1px solid #DDD; }
+.side-box-title { background: #1A1A1A; color: #FFF; padding: 6px 10px; font-size: 12px; font-weight: 700; display: flex; justify-content: space-between; }
+.side-box-title small { font-weight: 400; opacity: 0.7; font-size: 10px; }
+
+/* FX RATES */
+.fx-list { padding: 4px 0; }
+.fx-row { display: grid; grid-template-columns: 1fr auto auto; padding: 6px 10px; border-bottom: 1px solid #EEE; font-size: 12px; align-items: center; gap: 8px; }
+.fx-row:last-child { border-bottom: none; }
+.fx-row .pair { font-weight: 700; }
+.fx-row .rate { font-family: 'Courier New', monospace; font-weight: 700; }
+.fx-row .chg { font-family: 'Courier New', monospace; font-size: 11px; }
+.fx-row .chg.up { color: #CC0000; }
+.fx-row .chg.down { color: #006633; }
+
+/* COMMODITIES */
+.commodity-list .fx-row .pair { font-weight: 500; }
+
+/* SIDEBAR AD */
+.side-ad { width: 100%; height: 250px; background: linear-gradient(160deg, #4A0000, #CC0000); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFF; position: relative; }
+.side-ad .label { position: absolute; top: 2px; left: 4px; font-size: 9px; background: #EEE; color: #666; padding: 1px 4px; }
+.side-ad strong { font-family: 'Noto Serif JP', serif; font-size: 22px; }
+.side-ad em { font-style: normal; font-size: 11px; margin-top: 8px; opacity: 0.9; }
+.side-ad .btn { margin-top: 14px; background: #FFF; color: #CC0000; padding: 5px 14px; font-weight: 700; font-size: 11px; }
+
+/* RANKING */
+.ranking-list { padding: 4px 0; }
+.ranking-list li { display: grid; grid-template-columns: 24px 1fr; gap: 6px; padding: 7px 10px; border-bottom: 1px dotted #DDD; font-size: 12px; line-height: 1.4; align-items: start; }
+.ranking-list li:last-child { border-bottom: none; }
+.ranking-list .num { background: #CC0000; color: #FFF; font-weight: 700; text-align: center; padding: 2px 0; font-size: 11px; font-family: 'Noto Serif JP', serif; }
+.ranking-list li:nth-child(n+4) .num { background: #666; }
+
+/* VERTICAL TEXT ACCENT */
+.vert-accent { writing-mode: vertical-rl; font-family: 'Noto Serif JP', serif; font-size: 11px; color: #999; letter-spacing: 2px; }
+
+/* ARCHIVE WIDGET */
+.archive-widget { border: 2px solid #CC0000; padding: 12px; background: #FFF8F8; margin: 18px 0; }
+.archive-widget h3 { font-family: 'Noto Serif JP', serif; font-size: 14px; color: #CC0000; margin-bottom: 6px; }
+.archive-widget p { font-size: 11px; color: #333; }
+.archive-widget .calendar { display: flex; gap: 6px; margin-top: 8px; font-size: 11px; }
+.archive-widget select, .archive-widget input { font-size: 11px; padding: 3px 6px; border: 1px solid #DDD; }
+.archive-widget button { background: #CC0000; color: #FFF; border: none; padding: 3px 10px; font-size: 11px; cursor: pointer; }
+
+/* FOOTER */
+footer { background: #F7F7F7; border-top: 3px solid #CC0000; margin-top: 30px; padding: 24px 16px 16px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.footer-col h4 { font-family: 'Noto Serif JP', serif; font-size: 13px; margin-bottom: 8px; color: #CC0000; border-bottom: 1px solid #DDD; padding-bottom: 4px; }
+.footer-col ul { list-style: none; }
+.footer-col li { font-size: 11px; margin-bottom: 4px; }
+.footer-col a { color: #333; }
+.qr-box { width: 70px; height: 70px; background: repeating-linear-gradient(0deg, #000 0 4px, #FFF 4px 8px), repeating-linear-gradient(90deg, #000 0 4px, #FFF 4px 8px); background-blend-mode: multiply; border: 4px solid #FFF; outline: 1px solid #000; margin-top: 6px; }
+.copyright { max-width: 1200px; margin: 18px auto 0; padding-top: 12px; border-top: 1px solid #DDD; font-size: 10px; color: #666; display: flex; justify-content: space-between; }
+
+/* MINI BAR CHARTS */
+.barchart { display: flex; gap: 2px; align-items: flex-end; height: 28px; }
+.barchart div { width: 6px; background: #CC0000; }
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="left">
+    <span>2020年12月15日(火)</span>
+    <span>東京 8°C / 晴れ ☀</span>
+    <span>大阪 10°C / 曇り</span>
+    <span style="color:#CC0000;font-weight:700;">●速報あり</span>
+  </div>
+  <div class="right">
+    <a href="#">マイページ</a>
+    <a href="#">English</a>
+    <a href="#">紙面版</a>
+    <span class="subscriber-badge">★ プレミアム会員</span>
+    <a href="#">ログアウト</a>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-logo">朝日毎報<small>ASAHI MAINPŌ — Japan's Trusted Voice Since 1968</small></div>
+  <div style="font-size:11px;color:#666;text-align:center;">
+    <div style="font-family:'Noto Serif JP',serif;font-size:14px;color:#1A1A1A;">信頼される日本の声</div>
+    <div>第19,847号 / 朝刊32面</div>
+  </div>
+  <div class="masthead-ad">
+    <div style="text-align:center;"><strong>三菱UFJ銀行</strong> 住宅ローン金利 0.475%〜<br><span style="font-size:10px;color:#666;">[広告] 詳しくはこちら ›</span></div>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#">速報</a>
+    <a href="#">政治</a>
+    <a href="#" class="active">経済</a>
+    <a href="#">国際</a>
+    <a href="#">社会</a>
+    <a href="#">スポーツ</a>
+    <a href="#">文化</a>
+    <a href="#">エンタメ</a>
+    <a href="#">科学</a>
+    <a href="#">テクノロジー</a>
+    <a href="#">ライフ</a>
+    <a href="#">教育</a>
+    <a href="#">地域</a>
+    <a href="#">気象</a>
+    <a href="#">オピニオン</a>
+    <a href="#">社説</a>
+    <a href="#">コラム</a>
+    <a href="#">書評</a>
+    <a href="#">写真</a>
+    <a href="#">動画</a>
+    <a href="#">English</a>
+    <a href="#">紙面版</a>
+  </div>
+</nav>
+
+<!-- STOCK TICKER -->
+<div class="ticker-strip">
+  <span class="item"><span class="label">日経225</span> <span class="up">23,847.27 ▲128.45 (+0.54%)</span></span>
+  <span class="item"><span class="label">TOPIX</span> <span class="up">1,654.32 ▲7.18</span></span>
+  <span class="item"><span class="label">USD/JPY</span> 104.58</span>
+  <span class="item"><span class="label">EUR/JPY</span> 127.04</span>
+  <span class="item"><span class="label">NYダウ</span> <span class="up">30,046.37 ▲37.40</span></span>
+  <span class="item"><span class="label">上海総合</span> <span class="down">3,367.49 ▼3.21</span></span>
+  <span class="item"><span class="label">金</span> 6,432円/g</span>
+  <span class="item"><span class="label">原油WTI</span> 47.02$</span>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb">トップ &gt; 経済 &gt; <strong style="color:#CC0000;">経済・ビジネス</strong></div>
+  <h1 class="page-title">経済 <small>ECONOMY &amp; BUSINESS</small> <span style="margin-left:auto;font-size:11px;color:#666;font-weight:400;font-family:'Noto Sans JP',sans-serif;">2020年12月15日 14:47更新</span></h1>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+  <main>
+
+    <!-- INDEX SUMMARY -->
+    <div class="index-summary">
+      <div class="index-card">
+        <div class="label">日経平均株価</div>
+        <div class="val">23,847.27</div>
+        <div class="chg up">▲128.45 (+0.54%)</div>
+        <svg class="mini-chart" viewBox="0 0 100 30" width="100%" height="28">
+          <polyline points="0,20 10,18 20,22 30,15 40,17 50,12 60,14 70,8 80,10 90,6 100,4" fill="none" stroke="#CC0000" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="index-card">
+        <div class="label">TOPIX</div>
+        <div class="val">1,654.32</div>
+        <div class="chg up">▲7.18 (+0.44%)</div>
+        <svg class="mini-chart" viewBox="0 0 100 30" width="100%" height="28">
+          <polyline points="0,22 10,20 20,18 30,20 40,15 50,16 60,12 70,13 80,9 90,10 100,7" fill="none" stroke="#CC0000" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="index-card">
+        <div class="label">USD/JPY 円相場</div>
+        <div class="val">104.58</div>
+        <div class="chg down">▼0.32</div>
+        <svg class="mini-chart" viewBox="0 0 100 30" width="100%" height="28">
+          <polyline points="0,8 10,10 20,9 30,12 40,11 50,14 60,13 70,16 80,15 90,18 100,20" fill="none" stroke="#006633" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="index-card">
+        <div class="label">マザーズ指数</div>
+        <div class="val">1,221.87</div>
+        <div class="chg up">▲14.62 (+1.21%)</div>
+        <svg class="mini-chart" viewBox="0 0 100 30" width="100%" height="28">
+          <polyline points="0,25 10,22 20,24 30,18 40,20 50,14 60,15 70,10 80,11 90,6 100,3" fill="none" stroke="#CC0000" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- LEAD GRID -->
+    <div class="lead-grid">
+      <article class="lead-main">
+        <div class="photo">📈</div>
+        <h2>日経平均、24,000円目前 29年ぶり高値圏 ─ ワクチン期待で買い継続</h2>
+        <p>東京株式市場で日経平均株価が一時23,900円台に上昇し、バブル経済崩壊後の最高値を更新した。新型コロナワクチン接種開始への期待感に加え、米景気対策の追加観測が支えとなった。海外投資家の買い越し額は4週連続で1兆円を超え…</p>
+        <div class="meta"><span class="tag">マーケット</span>2020/12/15 13:24 <span class="comments">💬 247件</span></div>
+      </article>
+      <article class="lead-sub">
+        <div class="photo">🏭</div>
+        <h3>トヨタ第3四半期、営業益5,170億円 通期予想を上方修正</h3>
+        <p>トヨタ自動車が発表した4〜9月期連結決算は、中国市場の急回復と北米販売の戻りを背景に通期見通しを大幅修正。</p>
+        <div class="meta"><span class="tag">決算</span>12/15 11:50 <span class="comments">💬 132件</span></div>
+      </article>
+      <article class="lead-sub">
+        <div class="photo">💴</div>
+        <h3>円相場104円台前半 米長期金利上昇でドル買い優勢</h3>
+        <p>外国為替市場で円相場は1ドル=104.58円付近。米10年債利回りが0.93%に上昇し、円売り・ドル買いが進んだ。</p>
+        <div class="meta"><span class="tag">為替</span>12/15 14:32 <span class="comments">💬 58件</span></div>
+      </article>
+    </div>
+
+    <!-- MARKET DATA TABLE -->
+    <section class="market-section">
+      <div class="sec-header">
+        <div><h2>主要銘柄 株価一覧 <small>TOP MOVERS — 東証一部</small></h2></div>
+        <a class="more" href="#">全銘柄を見る ›</a>
+      </div>
+      <table class="market-table">
+        <thead>
+          <tr>
+            <th style="width:60px;">コード</th>
+            <th>銘柄名</th>
+            <th>業種</th>
+            <th class="num" style="width:90px;">株価(円)</th>
+            <th class="num" style="width:80px;">前日比</th>
+            <th class="num" style="width:70px;">変化率</th>
+            <th class="num" style="width:90px;">出来高(千株)</th>
+            <th class="num" style="width:100px;">時価総額(億円)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">7203</td><td class="name">トヨタ自動車</td><td>輸送用機器</td><td class="num">7,512.0</td><td class="num up">+184.0</td><td class="num up">+2.51%</td><td class="num">8,247</td><td class="num">245,318</td></tr>
+          <tr><td class="code">9984</td><td class="name">ソフトバンクG</td><td>情報・通信</td><td class="num">7,890.0</td><td class="num up">+312.0</td><td class="num up">+4.12%</td><td class="num">12,634</td><td class="num">163,742</td></tr>
+          <tr><td class="code">6758</td><td class="name">ソニー</td><td>電気機器</td><td class="num">9,851.0</td><td class="num up">+205.0</td><td class="num up">+2.12%</td><td class="num">5,128</td><td class="num">124,580</td></tr>
+          <tr><td class="code">6861</td><td class="name">キーエンス</td><td>電気機器</td><td class="num">54,720.0</td><td class="num down">−480.0</td><td class="num down">−0.87%</td><td class="num">312</td><td class="num">133,012</td></tr>
+          <tr><td class="code">9432</td><td class="name">日本電信電話</td><td>情報・通信</td><td class="num">2,617.5</td><td class="num up">+12.5</td><td class="num up">+0.48%</td><td class="num">14,872</td><td class="num">99,041</td></tr>
+          <tr><td class="code">8306</td><td class="name">三菱UFJ FG</td><td>銀行業</td><td class="num">446.7</td><td class="num up">+5.3</td><td class="num up">+1.20%</td><td class="num">62,134</td><td class="num">58,720</td></tr>
+          <tr><td class="code">7974</td><td class="name">任天堂</td><td>その他製品</td><td class="num">63,940.0</td><td class="num up">+1,240.0</td><td class="num up">+1.98%</td><td class="num">487</td><td class="num">82,317</td></tr>
+          <tr><td class="code">4063</td><td class="name">信越化学工業</td><td>化学</td><td class="num">17,395.0</td><td class="num down">−105.0</td><td class="num down">−0.60%</td><td class="num">1,128</td><td class="num">72,148</td></tr>
+          <tr><td class="code">6098</td><td class="name">リクルートHD</td><td>サービス業</td><td class="num">4,517.0</td><td class="num up">+47.0</td><td class="num up">+1.05%</td><td class="num">4,217</td><td class="num">76,892</td></tr>
+          <tr><td class="code">6594</td><td class="name">日本電産</td><td>電気機器</td><td class="num">12,720.0</td><td class="num up">+155.0</td><td class="num up">+1.23%</td><td class="num">1,847</td><td class="num">37,840</td></tr>
+          <tr><td class="code">8035</td><td class="name">東京エレクトロン</td><td>電気機器</td><td class="num">38,150.0</td><td class="num down">−250.0</td><td class="num down">−0.65%</td><td class="num">2,031</td><td class="num">59,872</td></tr>
+          <tr><td class="code">9433</td><td class="name">KDDI</td><td>情報・通信</td><td class="num">2,964.0</td><td class="num up">+18.5</td><td class="num up">+0.63%</td><td class="num">7,485</td><td class="num">68,317</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- AD INTERSTITIAL -->
+    <div class="ad-interstitial">
+      <span class="label">広告 [PR]</span>
+      <div class="copy">
+        <strong>ANA 冬の旅キャンペーン</strong>
+        <span>国内線往復 12,800円〜 ／ Go Toトラベル併用で最大35%OFF ─ 詳しくはこちら</span>
+      </div>
+    </div>
+
+    <!-- EARNINGS LIST -->
+    <section class="market-section">
+      <div class="sec-header">
+        <div><h2>本日の決算速報 <small>EARNINGS — DEC 15</small></h2></div>
+        <a class="more" href="#">決算カレンダー ›</a>
+      </div>
+      <div class="earnings-list">
+        <div class="earnings-item">
+          <span class="ticker">7203</span>
+          <div class="info"><h4>トヨタ自動車</h4><p>4-9月期 通期予想上方修正 / 中国販売寄与</p></div>
+          <div class="figure up">5,170億円<small>営業益 +20.1%</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">6758</span>
+          <div class="info"><h4>ソニー</h4><p>PS5世界販売340万台突破 ゲーム部門好調</p></div>
+          <div class="figure up">3,120億円<small>純利益 +12.4%</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">9984</span>
+          <div class="info"><h4>ソフトバンクG</h4><p>Vision Fund投資先IPO貢献</p></div>
+          <div class="figure up">2兆7,170億円<small>純利益 黒字転換</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">7974</span>
+          <div class="info"><h4>任天堂</h4><p>Switch累計販売6,830万台 巣ごもり需要継続</p></div>
+          <div class="figure up">2,914億円<small>営業益 +81.8%</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">9432</span>
+          <div class="info"><h4>日本電信電話</h4><p>NTTドコモ完全子会社化完了</p></div>
+          <div class="figure up">5,872億円<small>営業益 +3.7%</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">6502</span>
+          <div class="info"><h4>東芝</h4><p>半導体メモリ事業 構造改革効果</p></div>
+          <div class="figure down">147億円<small>営業損益 赤字幅縮小</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">8058</span>
+          <div class="info"><h4>三菱商事</h4><p>資源価格回復で資源事業改善</p></div>
+          <div class="figure down">1,847億円<small>純利益 −37.2%</small></div>
+        </div>
+        <div class="earnings-item">
+          <span class="ticker">9020</span>
+          <div class="info"><h4>JR東日本</h4><p>コロナ影響継続 通勤需要回復遅れ</p></div>
+          <div class="figure down">−2,640億円<small>純利益 赤字拡大</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="market-section">
+      <div class="sec-header">
+        <div><h2>不動産・住宅市場 <small>REAL ESTATE — 不動産市況</small></h2></div>
+        <a class="more" href="#">住宅特集ページ ›</a>
+      </div>
+      <div class="realestate-grid">
+        <div class="re-card">
+          <div class="photo">🏢</div>
+          <div class="body">
+            <h4>都心マンション価格、11月は前年比+8.2% 7,420万円</h4>
+            <p>東京23区の新築マンション平均価格が9ヶ月連続上昇。低金利と在宅需要が押し上げ。</p>
+            <div class="meta">12/15 09:30 <span class="comments">💬 89件</span></div>
+          </div>
+        </div>
+        <div class="re-card">
+          <div class="photo">🏘</div>
+          <div class="body">
+            <h4>郊外の戸建て需要急増 ─ 千葉・埼玉で契約数3割増</h4>
+            <p>テレワーク定着を背景に都心から郊外への移住が加速。湾岸エリアからの転居も顕著。</p>
+            <div class="meta">12/15 07:00 <span class="comments">💬 156件</span></div>
+          </div>
+        </div>
+        <div class="re-card">
+          <div class="photo">🏬</div>
+          <div class="body">
+            <h4>オフィス空室率、東京都心5区で4.49%に上昇</h4>
+            <p>三鬼商事調査。コロナ後初めて4%台を突破。賃料も下落基調が鮮明に。</p>
+            <div class="meta">12/14 18:20 <span class="comments">💬 42件</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="re-stats">
+        <div><strong>+8.2%</strong>23区マンション</div>
+        <div><strong>7,420万</strong>新築平均価格(円)</div>
+        <div><strong>4.49%</strong>都心オフィス空室率</div>
+        <div><strong>0.475%</strong>住宅ローン最低金利</div>
+        <div><strong>+31.4%</strong>郊外戸建て契約数</div>
+      </div>
+    </section>
+
+    <!-- ARCHIVE WIDGET -->
+    <div class="archive-widget">
+      <h3>📅 アーカイブ検索 ─ この日の朝日毎報</h3>
+      <p>1968年創刊号から52年間の経済紙面を全文検索。50年前の今日(1970年12月15日)の一面は「日経平均、初の2,000円台」でした。</p>
+      <div class="calendar">
+        <select><option>2020年</option><option>2019年</option><option>...</option><option>1968年</option></select>
+        <select><option>12月</option></select>
+        <select><option>15日</option></select>
+        <input type="text" placeholder="キーワード(例: トヨタ 決算)">
+        <button>検索</button>
+      </div>
+    </div>
+
+    <!-- OPINION -->
+    <section class="market-section">
+      <div class="sec-header">
+        <div><h2>経済オピニオン <small>OPINION &amp; COLUMN</small></h2></div>
+        <a class="more" href="#">一覧 ›</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="border-left:3px solid #CC0000;padding-left:10px;">
+          <div style="font-size:10px;color:#CC0000;font-weight:700;">社説</div>
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:15px;line-height:1.4;margin:4px 0;">日銀の追加緩和 ─ 出口戦略の議論を急げ</h4>
+          <p style="font-size:11.5px;color:#444;">政策金利据え置きは想定内だが、ETF買入れ枠拡大には副作用への懸念も…</p>
+          <div class="meta">論説委員 / 12月15日</div>
+        </div>
+        <div style="border-left:3px solid #CC0000;padding-left:10px;">
+          <div style="font-size:10px;color:#CC0000;font-weight:700;">コラム「経済の眼」</div>
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:15px;line-height:1.4;margin:4px 0;">山田太郎の米大統領選後の世界経済</h4>
+          <p style="font-size:11.5px;color:#444;">バイデン政権下の通商政策は中国とどう向き合うか。日本企業のサプライチェーン再編は…</p>
+          <div class="meta">山田太郎 / 12月15日</div>
+        </div>
+        <div style="border-left:3px solid #CC0000;padding-left:10px;">
+          <div style="font-size:10px;color:#CC0000;font-weight:700;">投書欄</div>
+          <h4 style="font-family:'Noto Serif JP',serif;font-size:15px;line-height:1.4;margin:4px 0;">読者の声 ─ Go To事業、地方の本音</h4>
+          <p style="font-size:11.5px;color:#444;">「観光客は戻ったが感染対策に追われる」北海道・旅館経営者(58)からの寄稿。</p>
+          <div class="meta">投書欄 / 12月15日</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- FX RATES -->
+    <div class="side-box">
+      <div class="side-box-title">為替レート <small>14:47</small></div>
+      <div class="fx-list">
+        <div class="fx-row"><span class="pair">USD/JPY</span><span class="rate">104.58</span><span class="chg down">−0.32</span></div>
+        <div class="fx-row"><span class="pair">EUR/JPY</span><span class="rate">127.04</span><span class="chg up">+0.18</span></div>
+        <div class="fx-row"><span class="pair">GBP/JPY</span><span class="rate">139.87</span><span class="chg up">+0.41</span></div>
+        <div class="fx-row"><span class="pair">AUD/JPY</span><span class="rate">78.92</span><span class="chg up">+0.27</span></div>
+        <div class="fx-row"><span class="pair">CNY/JPY</span><span class="rate">15.98</span><span class="chg up">+0.04</span></div>
+        <div class="fx-row"><span class="pair">CHF/JPY</span><span class="rate">117.62</span><span class="chg down">−0.09</span></div>
+        <div class="fx-row"><span class="pair">EUR/USD</span><span class="rate">1.2147</span><span class="chg up">+0.0032</span></div>
+        <div class="fx-row"><span class="pair">USD/CNY</span><span class="rate">6.541</span><span class="chg down">−0.012</span></div>
+      </div>
+    </div>
+
+    <!-- COMMODITIES -->
+    <div class="side-box">
+      <div class="side-box-title">商品先物 <small>NY/東京</small></div>
+      <div class="fx-list commodity-list">
+        <div class="fx-row"><span class="pair">WTI原油 ($/bbl)</span><span class="rate">47.02</span><span class="chg up">+0.81</span></div>
+        <div class="fx-row"><span class="pair">金 (¥/g)</span><span class="rate">6,432</span><span class="chg up">+14</span></div>
+        <div class="fx-row"><span class="pair">銀 (¥/g)</span><span class="rate">82.4</span><span class="chg down">−0.6</span></div>
+        <div class="fx-row"><span class="pair">プラチナ (¥/g)</span><span class="rate">3,547</span><span class="chg up">+22</span></div>
+        <div class="fx-row"><span class="pair">天然ガス ($)</span><span class="rate">2.692</span><span class="chg down">−0.041</span></div>
+        <div class="fx-row"><span class="pair">小麦 (¢/bu)</span><span class="rate">617.2</span><span class="chg up">+3.4</span></div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR AD -->
+    <div class="side-ad">
+      <span class="label">広告 [PR]</span>
+      <strong>サントリー</strong>
+      <em>ザ・プレミアム・モルツ</em>
+      <div style="font-size:30px;margin-top:8px;">🍺</div>
+      <em style="margin-top:4px;">神泡。麦芽100%の極上の余韻</em>
+      <div class="btn">特設サイトへ ›</div>
+    </div>
+
+    <!-- READING RANKING -->
+    <div class="side-box">
+      <div class="side-box-title">経済記事 アクセスランキング <small>24時間</small></div>
+      <ol class="ranking-list">
+        <li><span class="num">1</span><div><a href="#">日経平均、24,000円目前 ─ 29年ぶり高値圏</a><div class="meta">💬 247件</div></div></li>
+        <li><span class="num">2</span><div><a href="#">トヨタ通期予想を上方修正 営業益5,170億円</a><div class="meta">💬 132件</div></div></li>
+        <li><span class="num">3</span><div><a href="#">ソフトバンクG孫氏「Vision Fund 2号は7兆円規模」</a><div class="meta">💬 198件</div></div></li>
+        <li><span class="num">4</span><div><a href="#">PS5転売、メルカリで平均12万円 ソニーが警告</a><div class="meta">💬 412件</div></div></li>
+        <li><span class="num">5</span><div><a href="#">23区マンション7,420万円 9ヶ月連続上昇</a><div class="meta">💬 89件</div></div></li>
+        <li><span class="num">6</span><div><a href="#">JR東日本、通期2,640億円赤字へ 通勤需要回復遅れ</a><div class="meta">💬 156件</div></div></li>
+        <li><span class="num">7</span><div><a href="#">GoTo一時停止、観光業界から悲鳴</a><div class="meta">💬 387件</div></div></li>
+      </ol>
+    </div>
+
+    <!-- VERTICAL ACCENT -->
+    <div class="side-box" style="display:flex;padding:14px;gap:12px;align-items:stretch;">
+      <span class="vert-accent">特集連載 第27回</span>
+      <div style="flex:1;">
+        <h4 style="font-family:'Noto Serif JP',serif;font-size:14px;margin-bottom:6px;color:#CC0000;">コロナ後の日本経済</h4>
+        <p style="font-size:11px;color:#444;line-height:1.6;">中小企業の倒産動向、雇用調整助成金の出口戦略、デジタル庁発足の意味するもの。連載27回。</p>
+        <a href="#" style="font-size:11px;display:block;margin-top:6px;">続きを読む ›</a>
+      </div>
+    </div>
+
+    <!-- NIKKEI CALENDAR -->
+    <div class="side-box">
+      <div class="side-box-title">経済指標カレンダー</div>
+      <div style="padding:8px 10px;font-size:11px;">
+        <div style="border-bottom:1px dotted #DDD;padding:4px 0;"><strong>12/16 (水)</strong> 米FOMC声明発表</div>
+        <div style="border-bottom:1px dotted #DDD;padding:4px 0;"><strong>12/17 (木)</strong> 日銀金融政策決定会合</div>
+        <div style="border-bottom:1px dotted #DDD;padding:4px 0;"><strong>12/18 (金)</strong> 全国消費者物価指数</div>
+        <div style="padding:4px 0;"><strong>12/21 (月)</strong> 11月貿易統計</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>ニュース</h4>
+      <ul>
+        <li><a href="#">速報</a></li>
+        <li><a href="#">政治</a></li>
+        <li><a href="#">経済</a></li>
+        <li><a href="#">国際</a></li>
+        <li><a href="#">社会</a></li>
+        <li><a href="#">スポーツ</a></li>
+        <li><a href="#">文化・エンタメ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>サービス</h4>
+      <ul>
+        <li><a href="#">紙面ビューアー</a></li>
+        <li><a href="#">記事検索アーカイブ</a></li>
+        <li><a href="#">朝日毎報デジタル</a></li>
+        <li><a href="#">メルマガ登録</a></li>
+        <li><a href="#">RSS配信</a></li>
+        <li><a href="#">English Edition</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>購読のご案内</h4>
+      <ul>
+        <li><a href="#">購読申込</a></li>
+        <li><a href="#">料金プラン</a></li>
+        <li><a href="#">プレミアム会員特典</a></li>
+        <li><a href="#">学生プラン</a></li>
+        <li><a href="#">法人向け</a></li>
+        <li><a href="#">解約手続き</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>会社情報</h4>
+      <ul>
+        <li><a href="#">朝日毎報社について</a></li>
+        <li>

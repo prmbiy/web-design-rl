@@ -1,0 +1,78 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap",
+    "font_heading": "'Barlow Condensed', sans-serif",
+    "font_body": "'Roboto', sans-serif",
+    "font_mono": "'JetBrains Mono', monospace",
+    "size_h1": "72px",
+    "size_h2": "44px",
+    "size_body": "16px",
+    "size_small": "13px",
+    "color_primary": "#FF0033",
+    "color_secondary": "#FFD700",
+    "color_accent": "#FF0033",
+    "color_bg": "#0D0D0D",
+    "color_surface": "#1A1A1A",
+    "color_text": "#FFFFFF",
+    "color_text_muted": "#888888",
+    "color_border": "#262626",
+    "border_radius": "2px",
+    "container_max_width": "1400px",
+    "section_padding": "64px 32px",
+    "nav_bg": "#000000",
+    "nav_height": "72px",
+    "nav_position": "sticky",
+    "footer_bg": "#000000",
+    "extra_colors": {
+      "ticker_bg": "#1A1A1A",
+      "live_red": "#FF0033",
+      "gold": "#FFD700",
+      "win_green": "#00C853",
+      "discord": "#5865F2"
+    },
+    "animation_specs": {
+      "ticker_scroll": {
+        "css": "@keyframes ticker_scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .ticker-track { display: flex; width: max-content; animation: ticker_scroll 60s linear infinite; }",
+        "applies_to": ".ticker-track",
+        "trigger": "continuous"
+      },
+      "live_strobe": {
+        "css": "@keyframes live_strobe { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,0,51,0.7); } 50% { opacity: 0.85; box-shadow: 0 0 0 8px rgba(255,0,51,0); } } .live-badge { animation: live_strobe 1.2s ease-in-out infinite; background: #FF0033; color: #fff; }",
+        "applies_to": ".live-badge, .watch-live-btn",
+        "trigger": "continuous"
+      },
+      "player_card_glow": {
+        "css": ".player-card { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; border: 1px solid #262626; } .player-card:hover { transform: translateY(-4px); box-shadow: 0 0 24px rgba(255,0,51,0.6); border-color: #FF0033; }",
+        "applies_to": ".player-card",
+        "trigger": "on-hover"
+      },
+      "score_count_up": {
+        "css": "@keyframes score_count_up { 0% { transform: translateY(100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } } .match-score { display: inline-block; animation: score_count_up 0.6s cubic-bezier(0.2,0.8,0.2,1) both; font-variant-numeric: tabular-nums; }",
+        "applies_to": ".match-score",
+        "trigger": "on-load"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky black nav with live score ticker bar below; full-bleed hero featuring next match/announcement; 3-col news grid with video thumbs; matches schedule table; roster spotlight strip; sponsor logo bar; Discord CTA banner.",
+      "bg": "#0D0D0D"
+    },
+    "teams": {
+      "layout": "Page title with game filter tabs; responsive grid of large team cards (logo, game icon, ranking, W-L record) linking to roster pages.",
+      "bg": "#0D0D0D"
+    },
+    "roster": {
+      "layout": "Team banner header with crest and record; grid of player cards with photo, IGN, role, country flag, socials; secondary rows for coaches and staff.",
+      "bg": "linear-gradient(180deg,#0D0D0D 0%,#1A0A0E 100%)"
+    },
+    "schedule": {
+      "layout": "Tabbed Upcoming/Results view with tournament-grouped match rows showing logos, date/time, game, score, and stream link; sidebar filters by team and game.",
+      "bg": "#0D0D0D"
+    },
+    "shop": {
+      "layout": "Top limited-drop countdown banner; category nav (Jerseys, Hoodies, Accessories); product grid cards with image, name, price, size selector; signed merch highlighted section.",
+      "bg": "#0D0D0D"
+    }
+  }
+}

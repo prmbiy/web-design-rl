@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "episode",
+      "path": "episode.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 459816,
+      "page_width": 1440,
+      "page_height": 3229
+    },
+    {
+      "slug": "episodes",
+      "path": "episodes.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 300355,
+      "page_width": 1440,
+      "page_height": 2717
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1158480,
+      "page_width": 1440,
+      "page_height": 4680
+    },
+    {
+      "slug": "shows",
+      "path": "shows.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 479587,
+      "page_width": 1440,
+      "page_height": 2091
+    },
+    {
+      "slug": "support",
+      "path": "support.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 888874,
+      "page_width": 1440,
+      "page_height": 4449
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

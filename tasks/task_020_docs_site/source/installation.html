@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Installation Guide — Quillforge 2.4 Documentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2C3E50;
+  background: #FFFFFF;
+}
+
+a { color: #2980B9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Top Nav */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #2980B9;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.topnav .brand {
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 24px;
+}
+.topnav .brand .logo {
+  width: 26px; height: 26px;
+  background: white;
+  color: #2980B9;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+.version-selector {
+  background: #1B5A8A;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-right: 16px;
+}
+.search-bar {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%;
+  height: 34px;
+  padding: 0 12px 0 36px;
+  border-radius: 3px;
+  border: none;
+  background: rgba(255,255,255,0.95);
+  font-family: inherit;
+  font-size: 14px;
+  color: #2C3E50;
+}
+.search-bar::before {
+  content: "🔍";
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  opacity: 0.6;
+}
+.topnav .right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+.topnav .right a { color: white; }
+.gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 220px;
+  padding-top: 56px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Left Sidebar */
+.sidebar {
+  background: #EEF2F6;
+  border-right: 1px solid #D9E2EC;
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6B7C8E;
+  padding: 14px 24px 6px;
+  font-weight: 700;
+}
+.sidebar ul { list-style: none; }
+.sidebar ul li a {
+  display: block;
+  padding: 6px 24px;
+  color: #2C3E50;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+}
+.sidebar ul li a:hover {
+  background: #DDE6EE;
+  text-decoration: none;
+}
+.sidebar ul li a.active {
+  background: #DDE6EE;
+  color: #2980B9;
+  font-weight: 700;
+  border-left-color: #2980B9;
+}
+.sidebar ul.sub li a {
+  padding-left: 40px;
+  font-size: 13.5px;
+  color: #6B7C8E;
+}
+.sidebar ul.sub li a.active {
+  color: #2980B9;
+  font-weight: 700;
+  background: transparent;
+  border-left-color: #2980B9;
+}
+.sidebar-footer {
+  padding: 20px 24px;
+  margin-top: 20px;
+  border-top: 1px solid #D9E2EC;
+  font-size: 12px;
+  color: #6B7C8E;
+}
+.sponsor-box {
+  background: white;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* Main Content */
+.content {
+  padding: 28px 48px 60px;
+  max-width: 100%;
+  min-width: 0;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-bottom: 8px;
+}
+.breadcrumb a { color: #6B7C8E; }
+.gh-edit {
+  float: right;
+  font-size: 13px;
+}
+.content h1 {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 4px 0 24px;
+  color: #2C3E50;
+  border-bottom: 1px solid #D9E2EC;
+  padding-bottom: 14px;
+}
+.content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 36px 0 14px;
+  color: #2C3E50;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #EEF2F6;
+}
+.content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+  color: #2C3E50;
+}
+.content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+.content p { margin: 0 0 14px; }
+.content ul, .content ol {
+  margin: 0 0 16px 22px;
+}
+.content li { margin-bottom: 6px; }
+
+code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  background: #F4F7FA;
+  border: 1px solid #D9E2EC;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #2C3E50;
+}
+
+/* Code blocks */
+.codeblock {
+  background: #2E3440;
+  color: #D8DEE9;
+  border-radius: 3px;
+  margin: 14px 0 18px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+}
+.codeblock .cb-header {
+  background: #252B36;
+  color: #88A0B8;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #1f2530;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copy-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #D8DEE9;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.codeblock pre {
+  padding: 14px 16px;
+  overflow-x: auto;
+  line-height: 1.55;
+}
+.codeblock code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #D8DEE9;
+  font-size: 14px;
+}
+.tok-k { color: #81A1C1; }
+.tok-s { color: #A3BE8C; }
+.tok-n { color: #D08770; }
+.tok-c { color: #6B7C8E; font-style: italic; }
+.tok-fn { color: #88C0D0; }
+.prompt { color: #A3BE8C; user-select: none; }
+
+/* OS Tabs */
+.os-tabs {
+  display: flex;
+  border-bottom: 2px solid #D9E2EC;
+  margin: 16px 0 0;
+}
+.os-tab {
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #6B7C8E;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+}
+.os-tab.active {
+  color: #2980B9;
+  border-bottom-color: #2980B9;
+}
+
+/* Note Boxes */
+.admonition {
+  border-left: 4px solid;
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin: 18px 0;
+  font-size: 14.5px;
+}
+.admonition .title {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.admonition p { margin: 0; }
+.note { background: #E8F5E9; border-color: #27AE60; }
+.note .title { color: #1e8049; }
+.warning { background: #FFF8E1; border-color: #F39C12; }
+.warning .title { color: #b8770a; }
+.danger { background: #FDECEA; border-color: #E74C3C; }
+.danger .title { color: #b3271a; }
+
+/* Prev/Next */
+.prev-next {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding-top: 24px;
+  border-top: 1px solid #D9E2EC;
+  gap: 16px;
+}
+.prev-next a {
+  flex: 1;
+  border: 1px solid #D9E2EC;
+  padding: 14px 18px;
+  border-radius: 3px;
+  display: block;
+  background: #FFFFFF;
+}
+.prev-next a:hover {
+  border-color: #2980B9;
+  text-decoration: none;
+  background: #F4F7FA;
+}
+.prev-next .label {
+  font-size: 12px;
+  color: #6B7C8E;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.prev-next .title-link {
+  font-weight: 700;
+  color: #2980B9;
+  font-size: 15px;
+}
+.prev-next .nx { text-align: right; }
+
+/* Right TOC */
+.toc {
+  padding: 28px 20px;
+  font-size: 13px;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  border-left: 1px solid #EEF2F6;
+}
+.toc h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6B7C8E;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.toc ul { list-style: none; }
+.toc ul li {
+  margin: 6px 0;
+}
+.toc ul li a {
+  color: #6B7C8E;
+  display: block;
+  padding: 3px 8px;
+  border-left: 2px solid #EEF2F6;
+}
+.toc ul li a:hover { color: #2980B9; }
+.toc ul li a.active {
+  color: #2980B9;
+  border-left-color: #2980B9;
+  font-weight: 700;
+}
+
+/* OS section */
+.os-section {
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  background: #FAFCFE;
+}
+.os-section h3 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.os-icon {
+  display: inline-flex;
+  width: 24px; height: 24px;
+  background: #2980B9;
+  color: white;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+footer.docfoot {
+  grid-column: 1 / -1;
+  background: #EEF2F6;
+  padding: 24px 48px;
+  font-size: 13px;
+  color: #6B7C8E;
+  border-top: 1px solid #D9E2EC;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="brand"><span class="logo">Q</span> Quillforge</div>
+  <select class="version-selector">
+    <option>v2.4 (stable)</option>
+    <option>v2.3</option>
+    <option>v2.2</option>
+    <option>main (dev)</option>
+  </select>
+  <div class="search-bar"><input type="text" placeholder="Search the docs… (press /)"></div>
+  <div class="right">
+    <a href="#">Tutorials</a>
+    <a href="#">Community</a>
+    <a href="#" class="gh-link">★ GitHub <span style="opacity:.8">12.4k</span></a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h4>Getting Started</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="installation.html" class="active">Installation Guide</a></li>
+      <li><a href="quickstart.html">Quick Start Tutorial</a></li>
+    </ul>
+    <ul class="sub">
+      <li><a href="#prerequisites" class="active">Prerequisites</a></li>
+      <li><a href="#linux-macos">Linux / macOS</a></li>
+      <li><a href="#windows">Windows</a></li>
+      <li><a href="#venv">Virtual Environments</a></li>
+      <li><a href="#verification">Verification</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ul>
+
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="configuration.html">Configuration</a></li>
+    </ul>
+
+    <h4>Concepts</h4>
+    <ul>
+      <li><a href="#">Tasks &amp; Decorators</a></li>
+      <li><a href="#">Pipelines &amp; DAGs</a></li>
+      <li><a href="#">Workers &amp; Scheduler</a></li>
+      <li><a href="#">Retries &amp; Backoff</a></li>
+      <li><a href="#">Telemetry</a></li>
+    </ul>
+
+    <h4>Deployment</h4>
+    <ul>
+      <li><a href="#">Docker</a></li>
+      <li><a href="#">Kubernetes (Helm)</a></li>
+      <li><a href="#">Quillforge Cloud</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div>Sponsored by</div>
+      <div class="sponsor-box">
+        <strong style="color:#2980B9">RELAYNODE</strong><br>
+        <span style="font-size:10px">Managed Redis for async workloads</span>
+      </div>
+      <div class="sponsor-box" style="background:#2980B9;color:white;border-color:#2980B9">
+        <strong>Try Quillforge Cloud →</strong><br>
+        <span style="font-size:10px;opacity:.85">Hosted pipelines, free tier</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <a class="gh-edit" href="#">✎ Edit on GitHub</a>
+    <div class="breadcrumb">
+      <a href="index.html">Docs</a> › <a href="#">Getting Started</a> › <span>Installation</span>
+    </div>
+    <h1 id="top">Installation Guide</h1>
+
+    <p>This guide walks you through installing <strong>Quillforge 2.4.1</strong> on Linux, macOS, and Windows. Choose the section matching your platform, or jump straight to the <a href="#venv">virtual environment</a> setup if you already have Python.</p>
+
+    <h2 id="prerequisites">Prerequisites</h2>
+    <p>Before installing Quillforge, make sure your system meets the following requirements:</p>
+    <ul>
+      <li><strong>Python ≥ 3.10</strong> — CPython or PyPy 7.3+ supported. Python 3.11 recommended for best performance.</li>
+      <li><strong>pip ≥ 23.0</strong> — older versions will not resolve the <code>quillforge[redis,otel]</code> extras correctly.</li>
+      <li><strong>Redis 7.x</strong> <em>(optional)</em> — required only when running the distributed worker pool.</li>
+      <li><strong>Docker 24+</strong> <em>(optional)</em> — for spinning up the <code>quillforge/devcontainer</code> stack.</li>
+      <li>~150 MB free disk space for the runtime, plus extras for telemetry exporters.</li>
+    </ul>
+
+    <h2 id="linux-macos">Linux / macOS</h2>
+    <div class="os-tabs">
+      <div class="os-tab active">Ubuntu 22.04</div>
+      <div class="os-tab">macOS 13 Ventura</div>
+      <div class="os-tab">Arch / Fedora</div>
+    </div>
+
+    <div class="os-section" id="ubuntu">
+      <h3><span class="os-icon">🐧</span> Ubuntu 22.04 LTS</h3>
+      <p>Install Python and the venv module via apt, then install Quillforge with pip:</p>
+      <div class="codeblock">
+        <div class="cb-header"><span>shell</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">$</span> sudo apt update
+<span class="prompt">$</span> sudo apt install python3.11 python3.11-venv python3-pip
+<span class="prompt">$</span> python3.11 -m pip install --upgrade pip
+<span class="prompt">$</span> python3.11 -m pip install quillforge</code></pre>
+      </div>
+    </div>
+
+    <div class="os-section" id="macos">
+      <h3><span class="os-icon">🍎</span> macOS 13 Ventura (Homebrew)</h3>
+      <p>The fastest path on macOS is the <code>quillforge</code> Homebrew formula, which bundles Python 3.11 and Redis as optional dependencies:</p>
+      <div class="codeblock">
+        <div class="cb-header"><span>shell</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">$</span> brew tap quillforge/tap
+<span class="prompt">$</span> brew install quillforge
+<span class="prompt">$</span> brew services start redis  <span class="tok-c"># optional, distributed mode</span></code></pre>
+      </div>
+    </div>
+
+    <h2 id="windows">Windows 11</h2>
+    <div class="os-section">
+      <h3><span class="os-icon">🪟</span> Windows 11 (PowerShell)</h3>
+      <p>Install Python from the Microsoft Store or python.org, then run in an elevated PowerShell:</p>
+      <div class="codeblock">
+        <div class="cb-header"><span>powershell</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">PS&gt;</span> winget install Python.Python.3.11
+<span class="prompt">PS&gt;</span> py -3.11 -m pip install --upgrade pip
+<span class="prompt">PS&gt;</span> py -3.11 -m pip install quillforge[redis,otel]</code></pre>
+      </div>
+      <div class="admonition note">
+        <div class="title">📝 Note — WSL2 recommended</div>
+        <p>For the distributed worker mode on Windows, we strongly recommend running Quillforge inside WSL2 with an Ubuntu 22.04 distribution. Native Windows is fully supported for the in-process scheduler only.</p>
+      </div>
+    </div>
+
+    <h2 id="venv">Virtual Environments</h2>
+    <p>We strongly recommend installing Quillforge into an isolated virtual environment, especially when working on multiple projects. The standard <code>venv</code> module is sufficient:</p>
+
+    <div class="codeblock">
+      <div class="cb-header"><span>shell — create &amp; activate</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">$</span> python -m venv .venv &amp;&amp; source .venv/bin/activate
+<span class="prompt">(.venv) $</span> pip install --upgrade pip
+<span class="prompt">(.venv) $</span> pip install <span class="tok-s">"quillforge[redis,otel]"</span></code></pre>
+    </div>
+
+    <p>The <code>[redis,otel]</code> extras pull in <code>redis&gt;=5.0</code>, <code>opentelemetry-sdk</code>, and the OTLP/gRPC exporter. For a minimal install, drop the brackets.</p>
+
+    <h4>Using Poetry or PDM</h4>
+    <div class="codeblock">
+      <div class="cb-header"><span>shell</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">$</span> poetry add <span class="tok-s">"quillforge@^2.4"</span> --extras <span class="tok-s">"redis otel"</span>
+<span class="prompt">$</span> pdm add quillforge[redis,otel]</code></pre>
+    </div>
+
+    <h2 id="verification">Verification</h2>
+    <p>Confirm the installation by running the <code>quill</code> CLI. You should see output similar to the following:</p>
+
+    <div class="codeblock">
+      <div class="cb-header"><span>terminal — verify</span><button class="copy-btn">📋 Copy</button></div>
+<pre><code><span class="prompt">(.venv) $</span> quill --version
+Quillforge 2.4.1 (CPython 3.11.5)
+<span class="prompt">(.venv) $</span> quill doctor
+✔ python                 3.11.5
+✔ pip                    23.2.1
+✔ quillforge             2.4.1
+✔ redis client           5.0.1   (server unreachable — ok in local mode)
+✔ otel-sdk               1.21.0
+All checks passed. You are ready to <span class="tok-fn">quill init</span>.</code></pre>
+    </div>
+
+    <p>If <code>quill --version</code> reports a different version, your shell may be resolving an older binary on <code>$PATH</code>. Deactivate other environments and try again from a fresh shell.</p>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+
+    <div class="admonition note">
+      <div class="title">✓ Note — Apple Silicon wheels</div>
+      <p>Native <code>arm64</code> wheels are published for M1, M2, and M3 Macs on Python 3.10–3.12. No Rosetta required. The <code>uvloop</code> dependency is built against the macOS 13 SDK; older macOS versions will fall back to the asyncio default loop automatically.</p>
+    </div>
+
+    <div class="admonition warning">
+      <div class="title">⚠ Warning — Python 3.9 reached end-of-life</div>
+      <p>Quillforge 2.4 still installs on Python 3.9, but support is deprecated and will be removed in version 2.6 (Q2 2024). Upstream Python 3.9 security patches end October 2025. Plan an upgrade to 3.11 or 3.12 now.</p>
+    </div>
+
+    <div class="admonition danger">
+      <div class="title">⛔ Danger — Do not mix system pip with your venv</div>
+      <p>Running <code>sudo pip install quillforge</code> after activating a virtualenv will install the package into <code>/usr/lib/python3</code>, leaving your venv shadowed by a stale system copy. This is a common source of <em>"ModuleNotFoundError: No module named 'quill.core'"</em> reports. Always install inside the activated venv, without <code>sudo</code>.</p>
+    </div>
+
+    <h3>Common errors</h3>
+    <ul>
+      <li><code>error: Microsoft Visual C++ 14.0 or greater is required</code> — install the <em>Build Tools for Visual Studio</em> on Windows, then re-run pip.</li>
+      <li><code>SSL: CERTIFICATE_VERIFY_FAILED</code> on macOS — run <code>/Applications/Python\ 3.11/Install\ Certificates.command</code>.</li>
+      <li><code>quill: command not found</code> — your venv is not activated, or <code>~/.local/bin</code> is missing from <code>$PATH</code>.</li>
+    </ul>
+
+    <div class="prev-next">
+      <a href="index.html">
+        <div class="label">← Previous</div>
+        <div class="title-link">Documentation Home</div>
+      </a>
+      <a href="quickstart.html" class="nx">
+        <div class="label">Next →</div>
+        <div class="title-link">Quick Start Tutorial</div>
+      </a>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <h5>On this page</h5>
+    <ul>
+      <li><a href="#prerequisites" class="active">Prerequisites</a></li>
+      <li><a href="#linux-macos">Linux / macOS</a></li>
+      <li><a href="#ubuntu" style="padding-left:18px">Ubuntu 22.04</a></li>
+      <li><a href="#macos" style="padding-left:18px">macOS Ventura</a></li>
+      <li><a href="#windows">Windows 11</a></li>
+      <li><a href="#venv">Virtual Environments</a></li>
+      <li><a href="#verification">Verification</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ul>
+
+    <h5 style="margin-top:24px">Help</h5>
+    <ul>
+      <li><a href="#">Discord #quillforge</a></li>
+      <li><a href="#">GitHub Discussions</a></li>
+      <li><a href="#">Report an issue</a></li>
+    </ul>
+  </aside>
+
+  <footer class="docfoot">
+    <div>© 2023 Quillforge Project · Licensed Apache 2.0 · Docs built with quillforge-docs 0.9.2 · Last updated Oct 18, 2023</div>
+    <div><a href="#">Privacy</a> · <a href="#">Code of Conduct</a> · <a href="#">Mastodon</a></div>
+  </footer>
+
+</div>
+
+</body>
+</html>

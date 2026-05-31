@@ -1,0 +1,12 @@
+{
+  "dna_id": "029",
+  "dna_name": "restaurant_group",
+  "pages": [
+    "home",
+    "restaurants",
+    "menu",
+    "reservations",
+    "events"
+  ],
+  "has_animations": false
+}

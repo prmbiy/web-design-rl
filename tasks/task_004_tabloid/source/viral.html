@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Viral & WTF - Internet's Wildest Moments | BuzzDish</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  background: #FFFFFF;
+  color: #111111;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #FFFFFF;
+  border-bottom: 3px solid #FF1493;
+}
+.nav {
+  height: 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 24px;
+}
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: #FF1493;
+  letter-spacing: -1px;
+}
+.logo span { color: #000; }
+.tagline {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #777;
+}
+.nav-items {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.nav-items a {
+  padding: 8px 12px;
+  color: #000;
+}
+.nav-items a.active {
+  background: #FF1493;
+  color: #fff;
+}
+.nav-items a:hover { color: #FF1493; }
+.nav-items a.active:hover { color: #fff; }
+
+/* TICKER */
+.ticker {
+  background: #1A1A1A;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 2px solid #FF1493;
+}
+.ticker-label {
+  display: inline-block;
+  background: #FF0000;
+  padding: 4px 12px;
+  margin: 0 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.ticker-item {
+  display: inline-block;
+  margin-right: 24px;
+}
+.ticker-item .hot {
+  background: #FF0000;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  font-weight: 900;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+}
+
+.main-col { min-width: 0; }
+.side-col { min-width: 0; }
+
+/* AD UNITS */
+.ad {
+  background: repeating-linear-gradient(45deg, #f5f5f5, #f5f5f5 10px, #ececec 10px, #ececec 20px);
+  border: 1px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #999;
+  margin-bottom: 16px;
+  position: relative;
+}
+.ad::before {
+  content: 'ADVERTISEMENT';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 9px;
+  color: #999;
+  letter-spacing: 1px;
+}
+.ad-728 { height: 90px; }
+.ad-970 { height: 250px; }
+.ad-300x600 { height: 600px; width: 300px; }
+.ad-300x250 { height: 250px; }
+.ad-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: #777;
+}
+.ad-sub {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* HERO */
+.hero {
+  margin-bottom: 24px;
+  position: relative;
+}
+.hero-img {
+  height: 480px;
+  background:
+    radial-gradient(circle at 30% 40%, #FF1493 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, #FFD700 0%, transparent 40%),
+    linear-gradient(135deg, #2a0a2a 0%, #000 50%, #1a0a2a 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-img::after {
+  content: '📱';
+  position: absolute;
+  font-size: 220px;
+  opacity: 0.15;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-overlay {
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  padding: 60px 40px 30px;
+  width: 100%;
+  color: #fff;
+}
+.hero-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.badge-breaking {
+  background: #FF0000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  padding: 4px 10px;
+  letter-spacing: 1.5px;
+}
+.badge-hot {
+  background: #FF1493;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  padding: 4px 10px;
+  letter-spacing: 1.5px;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.hero-sub {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #FFD700;
+}
+.hero-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #ccc;
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 32px;
+}
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border-bottom: 4px solid #FF1493;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title .pink-dot {
+  width: 14px;
+  height: 14px;
+  background: #FF1493;
+  border-radius: 50%;
+}
+
+/* TWEET ROUNDUP */
+.tweets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.tweet {
+  background: #fff;
+  border: 1px solid #EEEEEE;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.tweet-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.tweet-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF1493, #FFD700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+}
+.tweet-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+.tweet-handle {
+  color: #777;
+  font-size: 12px;
+}
+.tweet-body {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111;
+  margin-bottom: 10px;
+}
+.tweet-meta {
+  color: #777;
+  font-size: 11px;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  display: flex;
+  gap: 16px;
+}
+.tweet-tag {
+  display: inline-block;
+  background: #FF0000;
+  color: #fff;
+  font-size: 9px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* TIKTOK GRID */
+.tiktok-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.tiktok {
+  aspect-ratio: 9/16;
+  background: linear-gradient(135deg, #000 0%, #222 100%);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+.tiktok:nth-child(1) { background: linear-gradient(135deg, #FFD700 0%, #FF1493 100%); }
+.tiktok:nth-child(2) { background: linear-gradient(160deg, #1a1a1a 0%, #FF1493 100%); }
+.tiktok:nth-child(3) { background: linear-gradient(135deg, #2a0a4a 0%, #FF0000 100%); }
+.tiktok:nth-child(4) { background: linear-gradient(135deg, #FF1493 0%, #000 100%); }
+.tiktok:nth-child(5) { background: linear-gradient(135deg, #006400 0%, #FFD700 100%); }
+.tiktok:nth-child(6) { background: linear-gradient(135deg, #000 0%, #4B0082 100%); }
+.tiktok:nth-child(7) { background: linear-gradient(160deg, #FFD700 0%, #FF0000 100%); }
+.tiktok:nth-child(8) { background: linear-gradient(135deg, #FF1493 0%, #FFD700 100%); }
+.tiktok:nth-child(9) { background: linear-gradient(135deg, #1a1a1a 0%, #FF1493 50%, #000 100%); }
+.tiktok-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.tiktok-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  backdrop-filter: blur(4px);
+}
+.tiktok-title {
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.tiktok-stats {
+  font-size: 10px;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+.tiktok-hot {
+  background: #FF0000;
+  padding: 2px 6px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  align-self: flex-start;
+}
+
+/* REDDIT */
+.reddit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reddit-card {
+  background: #FFF5FA;
+  border-left: 5px solid #FF1493;
+  padding: 16px;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.reddit-up {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.reddit-up .arrow {
+  color: #FF1493;
+  font-size: 20px;
+  font-weight: 900;
+}
+.reddit-up .count {
+  font-weight: 900;
+  font-size: 16px;
+  color: #000;
+}
+.reddit-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.reddit-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  margin: 4px 0;
+  color: #000;
+}
+.reddit-takeaway {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #555;
+}
+.reddit-verdict {
+  background: #000;
+  color: #FFD700;
+  padding: 8px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* POLL */
+.poll {
+  background: linear-gradient(135deg, #FF1493, #D6107A);
+  color: #fff;
+  padding: 24px;
+  border-radius: 4px;
+}
+.poll-q {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.poll-sub {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 18px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.poll-option {
+  margin-bottom: 12px;
+}
+.poll-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.poll-bar {
+  height: 24px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.poll-fill {
+  height: 100%;
+  background: #FFD700;
+}
+.poll-votes {
+  font-size: 11px;
+  margin-top: 14px;
+  opacity: 0.8;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* WEIRD NEWS */
+.weird-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.weird-card {
+  background: #fff;
+  border: 1px solid #EEEEEE;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.weird-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  position: relative;
+}
+.weird-img-1 { background: linear-gradient(135deg, #228B22, #FFD700); }
+.weird-img-2 { background: linear-gradient(135deg, #0071CE, #FFC220); }
+.weird-img-3 { background: linear-gradient(135deg, #FF1493, #FFD700); }
+.weird-img-4 { background: linear-gradient(135deg, #2a0a4a, #FF1493); }
+.weird-img-5 { background: linear-gradient(135deg, #FF6B35, #FFD700); }
+.weird-img-6 { background: linear-gradient(135deg, #1a1a1a, #FF0000); }
+.weird-body {
+  padding: 14px;
+}
+.weird-cat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 10px;
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.weird-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.2;
+  margin: 6px 0 8px;
+  color: #000;
+}
+.weird-meta {
+  font-size: 11px;
+  color: #777;
+  font-family: 'Montserrat', sans-serif;
+}
+.weird-img .hot-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #FF0000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 10px;
+  padding: 3px 7px;
+  letter-spacing: 1px;
+}
+
+/* TABOOLA */
+.taboola-header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.taboola-sub {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+.taboola-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.taboola-card {
+  cursor: pointer;
+}
+.taboola-img {
+  aspect-ratio: 4/3;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+.taboola-img-1 { background: linear-gradient(135deg, #ffaa9c, #ff6868); }
+.taboola-img-2 { background: linear-gradient(135deg, #f0c0a0, #884422); }
+.taboola-img-3 { background: linear-gradient(135deg, #FFD700, #ffaa00); }
+.taboola-img-4 { background: linear-gradient(135deg, #c0c0c0, #707070); }
+.taboola-img-5 { background: linear-gradient(135deg, #ffb6c1, #ff1493); }
+.taboola-img-6 { background: linear-gradient(135deg, #87ceeb, #4682b4); }
+.taboola-img-7 { background: linear-gradient(135deg, #98fb98, #228b22); }
+.taboola-img-8 { background: linear-gradient(135deg, #dda0dd, #9370db); }
+.taboola-img-9 { background: linear-gradient(135deg, #f4a460, #8b4513); }
+.taboola-img-10 { background: linear-gradient(135deg, #ffd700, #ff1493); }
+.taboola-img-11 { background: linear-gradient(135deg, #000, #FF1493); }
+.taboola-img-12 { background: linear-gradient(135deg, #ff6347, #ffd700); }
+.taboola-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #000;
+}
+.taboola-source {
+  font-size: 10px;
+  color: #999;
+  margin-top: 4px;
+  font-family: 'Montserrat', sans-serif;
+}
+.taboola-source .ad-lbl {
+  background: #FFF8DC;
+  color: #999;
+  padding: 1px 4px;
+  margin-left: 4px;
+}
+
+/* SIDEBAR */
+.sidebar-block {
+  background: #fff;
+  border: 1px solid #EEEEEE;
+  margin-bottom: 16px;
+  padding: 14px;
+}
+.sidebar-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #FF1493;
+  border-bottom: 2px solid #FF1493;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.top10 {
+  list-style: none;
+  counter-reset: top10;
+}
+.top10 li {
+  counter-increment: top10;
+  padding: 8px 0;
+  border-bottom: 1px dotted #eee;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.3;
+}
+.top10 li:last-child { border-bottom: none; }
+.top10 li::before {
+  content: counter(top10);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: #FF1493;
+  min-width: 28px;
+}
+.top10 .name {
+  color: #FF1493;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.video-ad {
+  background: #000;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFD700;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  margin-bottom: 16px;
+}
+.video-ad::before {
+  content: '▶ AUTOPLAYING AD';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 9px;
+  color: #FF0000;
+  letter-spacing: 1px;
+}
+.video-ad-icon { font-size: 60px; }
+.video-ad-title {
+  font-weight: 900;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.newsletter-box {
+  background: #FF1493;
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+}
+.newsletter-box h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.newsletter-box p {
+  font-size: 12px;
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+.newsletter-box input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+.newsletter-box button {
+  width: 100%;
+  background: #000;
+  color: #FFD700;
+  border: none;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* STICKY VIDEO AD BOTTOM RIGHT */
+.sticky-video-ad {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 320px;
+  height: 200px;
+  background: #000;
+  border: 2px solid #FFD700;
+  z-index: 900;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.sticky-video-ad .close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  color: #777;
+  font-size: 16px;
+  cursor: pointer;
+}
+.sticky-video-ad .lbl {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-size: 9px;
+  color: #FF0000;
+  letter-spacing: 1px;
+}
+.sticky-video-ad .icon { font-size: 50px; }
+.sticky-video-ad .t {
+  font-weight: 900;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #FFD700;
+  text-align: center;
+  padding: 0 20px;
+}
+.sticky-video-ad .s {
+  font-size: 10px;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+/* EXIT INTENT POPUP */
+.exit-popup {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 360px;
+  background: #fff;
+  border: 3px solid #FFD700;
+  z-index: 950;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.vip-badge {
+  background: #FFD700;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  padding: 3px 10px;
+  display: inline-block;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.exit-popup h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #000;
+}
+.exit-popup p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+}
+.exit-popup .price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #FF1493;
+  margin-bottom: 10px;
+}
+.exit-popup button {
+  background: #FF1493;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 100%;
+}
+.exit-popup .close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  color: #999;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* SOCIAL FLOAT */
+.social-float {
+  position: fixed;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 500;
+}
+.social-float a {
+  width: 36px;
+  height: 36px;
+  background: #FF1493;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.social-float a:nth-child(2) { background: #000; }
+.social-float a:nth-child(3) { background: #FFD700; color: #000; }
+.social-float a:nth-child(4) { background: #FF0000; }
+
+/* FOOTER */
+footer {
+  background: #000000;
+  color: #fff;
+  padding: 40px 16px 20px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.footer-brand .logo { color: #FF1493; }
+.footer-brand p {
+  font-style: italic;
+  color: #aaa;
+  font-size: 13px;
+  margin-top: 8px;
+}
+footer h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #FF1493;
+  margin-bottom: 12px;
+}
+footer ul { list-style: none; }
+footer ul li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #ccc;
+}
+.footer-bottom {
+  max-width: 1280px;
+  margin: 30px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 11px;
+  color: #777;
+}
+
+.spacer { height: 16px; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="topbar">
+  <nav class="nav">
+    <div>
+      <div class="logo">Buzz<span>Dish</span></div>
+      <div class="tagline">Hollywood's Hottest Tea, Served Daily</div>
+    </div>
+    <div class="nav-items">
+      <a href="#">Celebrity</a>
+      <a href="#">TV</a>
+      <a href="#">Music</a>
+      <a href="#">Movies</a>
+      <a href="#">Style</a>
+      <a href="#">Beauty</a>
+      <a href="#">Royals</a>
+      <a href="#" class="active">Viral</a>
+    </div>
+  </nav>
+  <div class="ticker">
+    <span class="ticker-label">🔥 TRENDING NOW</span>
+    <span class="ticker-item"><span class="hot">HOT</span>Corn Kid Lands $50K Sponsorship Deal</span>
+    <span class="ticker-item"><span class="hot">HOT</span>Couch Guy Speaks: "I Just Wanted To Sit"</span>
+    <span class="ticker-item"><span class="hot">HOT</span>Florida Man's Alligator Wedding Goes Viral</span>
+    <span class="ticker-item"><span class="hot">HOT</span>AOC's "Tax The Rich" Dress: One Year Later</span>
+    <span class="ticker-item"><span class="hot">HOT</span>Walmart Quitter Intercom Audio LEAKED</span>
+    <span class="ticker-item"><span class="hot">HOT</span>Nyquil Chicken Sends 12 To Hospital</span>
+  </div>
+</div>
+
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+  <a>f</a>
+  <a>𝕏</a>
+  <a>📌</a>
+  <a>✉</a>
+</div>
+
+<div class="container">
+
+  <!-- MAIN COLUMN -->
+  <div class="main-col">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-img">
+        <div class="hero-overlay">
+          <div class="hero-badges">
+            <span class="badge-breaking">BREAKING</span>
+            <span class="badge-hot">🔥 VIRAL</span>
+            <span class="badge-hot" style="background:#000;color:#FFD700;">WTF</span>
+          </div>
+          <h1>The 'Couch Guy' TikTok Saga: A Full Timeline of Internet Madness</h1>
+          <div class="hero-sub">How a 21-second video turned into a 4-day true-crime obsession</div>
+          <div class="hero-meta">By Brandi Chen · Sept 28, 2021 · 14 min read · 4.2M reads</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD AD -->
+    <div class="ad ad-728">
+      <div class="ad-label">GEICO — 15 Minutes Could Save You 15%</div>
+      <div class="ad-sub">728 × 90 placement</div>
+    </div>
+
+    <!-- TWEET ROUNDUP -->
+    <div class="section">
+      <h2 class="section-title"><span class="pink-dot"></span>The Tweet Roundup</h2>
+
+      <div class="tweets">
+        <div class="tweet">
+          <div class="tweet-head">
+            <div class="tweet-avatar">M</div>
+            <div>
+              <div class="tweet-name">Met Gala Mood <span class="tweet-tag">HOT</span></div>
+              <div class="tweet-handle">@metgalamood · 16h</div>
+            </div>
+          </div>
+          <div class="tweet-body">"AOC wearing 'Tax The Rich' to a $35K-a-ticket event is the most American thing I've ever seen and I cannot stop laughing"</div>
+          <div class="tweet-meta">↻ 142K · ♥ 891K · 💬 38.2K</div>
+        </div>
+
+        <div class="tweet">
+          <div class="tweet-head">
+            <div class="tweet-avatar">K</div>
+            <div>
+              <div class="tweet-name">Kim Pawpaw</div>
+              <div class="tweet-handle">@kimpawpaw · 1d</div>
+            </div>
+          </div>
+          <div class="tweet-body">Kim K showed up in a head-to-toe black Balenciaga sock at the Met and everyone's pretending this is normal. We are NOT okay as a society.</div>
+          <div class="tweet-meta">↻ 88K · ♥ 412K · 💬 21K</div>
+        </div>
+
+        <div class="tweet">
+          <div class="tweet-head">
+            <div class="tweet-avatar">B</div>
+            <div>
+              <div class="tweet-name">Bean Dad Discourse <span class="tweet-tag">DRAMA</span></div>
+              <div class="tweet-handle">@beandaddiscourse · 4h</div>
+            </div>
+          </div>
+          <div class="tweet-body">Reminder that one year ago today a man made his daughter open a can of beans for nine hours and we're STILL talking about it. The internet never forgets.</div>
+          <div class="tweet-meta">↻ 67K · ♥ 304K · 💬 14.6K</div>
+        </div>
+
+        <div class="tweet">
+          <div class="tweet-head">
+            <div class="tweet-avatar">C</div>
+            <div>
+              <div class="tweet-name">Couch Guy Truthers</div>
+              <div class="tweet-handle">@couchtruth · 2d</div>
+            </div>
+          </div>
+          <div class="tweet-body">If you slow the Couch Guy video down to 0.25x and zoom in on the left blanket, you can clearly see another girl's hand. WE WERE LIED TO. 🧵 1/47</div>
+          <div class="tweet-meta">↻ 256K · ♥ 1.1M · 💬 89K</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HALF PAGE AD inline -->
+    <div class="ad ad-970">
+      <div class="ad-label">LANCÔME — New Hypnôse Mascara</div>
+      <div class="ad-sub">970 × 250 billboard placement</div>
+    </div>
+
+    <!-- TIKTOK GRID -->
+    <div class="section">
+      <h2 class="section-title"><span class="pink-dot"></span>TikToks Breaking The Algorithm</h2>
+
+      <div class="tiktok-grid">
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@recess_therapy</span><span class="tiktok-hot">HOT</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Corn Kid Goes Mainstream</div>
+            <div class="tiktok-stats">📍 78.2M views · 14.1M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@subwayshirt</span><span class="tiktok-hot">HOT</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">The Subway Shirt Trend, Explained</div>
+            <div class="tiktok-stats">📍 42.6M views · 8.8M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@fda_official</span><span class="tiktok-hot">WTF</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">⚠ Nyquil Chicken Warning From The FDA</div>
+            <div class="tiktok-stats">📍 23.1M views · 4.2M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@drosso_official</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">"That Girl" Routine: Day 87</div>
+            <div class="tiktok-stats">📍 19.8M views · 3.6M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@_couchguy</span><span class="tiktok-hot">HOT</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Couch Guy Responds (Finally)</div>
+            <div class="tiktok-stats">📍 56.4M views · 11.9M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@adele.official</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Adele Adele Adele Sound Trend</div>
+            <div class="tiktok-stats">📍 38.4M views · 7.2M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@cheugyqueen</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Are You Cheugy? Take The Quiz</div>
+            <div class="tiktok-stats">📍 14.7M views · 2.8M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@bossbabe_quits</span><span class="tiktok-hot">VIRAL</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Walmart Employee Quits Over Intercom</div>
+            <div class="tiktok-stats">📍 67.9M views · 13.4M ♥</div>
+          </div>
+        </div>
+        <div class="tiktok">
+          <div class="tiktok-top"><span>@floridamanofficial</span></div>
+          <div class="tiktok-play">▶</div>
+          <div>
+            <div class="tiktok-title">Florida Man's Gator Wedding Vows</div>
+            <div class="tiktok-stats">📍 29.3M views · 6.1M ♥</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REDDIT -->
+    <div class="section">
+      <h2 class="section-title"><span class="pink-dot"></span>This Week On Reddit</h2>
+
+      <div class="reddit-list">
+        <div class="reddit-card">
+          <div class="reddit-up">
+            <div class="arrow">▲</div>
+            <div class="count">48.2K</div>
+            <div class="arrow" style="color:#aaa;">▼</div>
+          </div>
+          <div>
+            <div class="reddit-sub">r/AmItheAsshole</div>
+            <div class="reddit-title">"AITA for telling my sister her gender reveal was 'unhinged' after she set the forest on fire?"</div>
+            <div class="reddit-takeaway">BuzzDish hot take: Sis, you started a wildfire AND a family feud in one weekend. Iconic but also concerning.</div>
+          </div>
+          <div class="reddit-verdict">NTA<br><span style="font-size:18px;">10K 👍</span></div>
+        </div>
+
+        <div class="reddit-card">
+          <div class="reddit-up">
+            <div class="arrow">▲</div>
+            <div class="count">31.7K</div>
+            <div class="arrow" style="color:#aaa;">▼</div>
+          </div>
+          <div>
+            <div class="reddit-sub">r/relationshipadvice</div>
+            <div class="reddit-title">"My boyfriend (29M) made a Notion database of every fight we've ever had. Help."</div>
+            <div class="reddit-takeaway">BuzzDish hot take: Run. Run so far the Notion synch can't follow you. This is not normal behavior.</div>
+          </div>
+          <div class="reddit-verdict">RUN<br><span style="font-size:18px;">🚩 × 47</span></div>
+        </div>
+
+        <div class="reddit-card">
+          <div class="reddit-up">
+            <div class="arrow">▲</div>
+            <div class="count">22.4K</div>
+            <div class="arrow" style="color:#aaa;">▼</div>
+          </div>
+          <div>
+            <div class="reddit-sub">r/TodayILearned</div>
+            <div class="reddit-title">"TIL the phrase 'cheugy' was coined by a teen in 2013 and now actively haunts every millennial's dreams"</div>
+            <div class="reddit-takeaway">BuzzDish hot take: We had a good run, fellow #girlbosses. The Live Laugh Love sign era is officially over.</div>
+          </div>
+          <div class="reddit-verdict">RIP<br><span style="font-size:18px;">2013–2021</span></div>
+        </div>
+
+        <div class="reddit-card">
+          <div class="reddit-up">
+            <div class="arrow">▲</div>
+            <div class="count">19.1K</div>
+            <div class="arrow" style="color:#aaa;">▼</div>
+          </div>
+          <div>
+            <div class="reddit-sub">r/popculturechat</div>
+            <div class="reddit-title">"Can we please discuss how Couch Guy turned into a 4-day national investigation?"</div>
+            <div class="reddit-takeaway">BuzzDish hot take: We are all detectives now and frankly we should be paid by the FBI for our services.</div>
+          </div>
+          <div class="reddit-verdict">FBI<br><span style="font-size:18px;">OPEN UP</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POLL -->
+    <div class="section">
+      <div class="poll">
+        <div class="poll-q">Is Pumpkin Spice Officially Cancelled in 2021?</div>
+        <div class="poll-sub">⚡ Live results · 142,847 votes</div>
+
+        <div class="poll-option">
+          <div class="poll-row"><span>YES — it's deeply cheugy now</span><span>54%</span></div>
+          <div class="poll-bar"><div class="poll-fill" style="width:54%;"></div></div>
+        </div>
+        <div class="poll-option">
+          <div class="poll-row"><span>NO — leave my latte ALONE</span><span>38%</span></div>
+          <div class="poll-bar"><div class="poll-fill" style="width:38%;"></div></div>
+        </div>
+        <div class="poll-option">
+          <div class="poll-row"><span>I prefer Apple Cider Donut</span><span>6%</span></div>
+          <div class="poll-bar"><div class="poll-fill" style="width:6%;"></div></div>
+        </div>
+        <div class="poll-option">
+          <div class="poll-row"><span>What is pumpkin spice</span><span>2%</span></div>
+          <div class="poll-bar"><div class="poll-fill" style="width:2%;"></div></div>
+        </div>
+
+        <div class="poll-votes">Polls close at midnight EST · One vote per IP · Powered by DishMeter™</div>
+      </div>
+    </div>
+
+    <!-- INTERSTITIAL AD -->
+    <div class="ad ad-970">
+      <div class="ad-label">HULU — Stream The Bachelor + 75 Live Channels</div>
+      <div class="ad-sub">970 × 250 interstitial placement · $5.99/mo</div>
+    </div>
+
+    <!-- WEIRD NEWS -->
+    <div class="section">
+      <h2 class="section-title"><span class="pink-dot"></span>Weird News Wednesday</h2>
+
+      <div class="weird-grid">
+        <div class="weird-card">
+          <div class="weird-img weird-img-1">🐊
+            <span class="hot-badge">BREAKING</span>
+          </div>
+          <div class="weird-body">
+            <div class="weird-cat">FLORIDA · WTF</div>
+            <div class="weird-title">Florida Man Marries Emotional Support Alligator</div>
+            <div class="weird-meta">Read · 4 min · 892K views</div>
+          </div>
+        </div>
+
+        <div class="weird-card">
+          <div class="weird-img weird-img-2">🎤
+            <span class="hot-badge">VIRAL</span>
+          </div>
+          <div class="weird-body">
+            <div class="weird-cat">WORKPLACE · LEGEND</div>
+            <div class="weird-title">Walmart Employee Quits Over Intercom: Full Transcript</div>
+            <div class="weird-meta">Read · 6 min · 2.1M views</div>
+          </div>
+        </div>
+
+        <div class="weird-card">
+          <div class="weird-img weird-img-3">💅</div>
+          <div class="weird-body">
+            <div class="weird-cat">LANGUAGE · DRAMA</div>
+            <div class="weird-title">Cheugy: The Word That Killed Millennials</div>
+            <div class="weird-meta">Read · 7 min · 1.4M views</div>
+          </div>
+        </div>
+
+        <div class="weird-card">
+          <div class="weird-img weird-img-4">📱
+            <span class="hot-badge">HOT</span>
+          </div>
+          <div class="weird-body">
+            <div class="weird-cat">TIKTOK · CHAOS</div>
+            <div class="weird-title">Devious Licks Trend Has Schools Banning Soap Dispensers</div>
+            <div class="weird-meta">Read · 5 min · 760K views</div>
+          </div>
+        </div>
+
+        <div class="weird-card">
+          <div class="weird-img weird-img-5">🌽</div>
+          <div class="weird-body">
+            <div class="weird-cat">INTERVIEW · WHOLESOME</div>
+            <div class="weird-title">Corn Kid Lands $50K Endorsement Deal With Green Giant</div>
+            <div class="weird-meta">Read · 3 min · 1.8M views</div>
+          </div>
+        </div>
+
+        <div class="weird-card">
+          <div class="weird-img weird-img-6">🔪
+            <span class="hot-badge">UPDATE</span>
+          </div>
+          <div class="weird-body">
+            <div class="weird-cat">TRUE CRIME-Y · ONGOING</div>
+            <div class="weird-title">Couch Guy Timeline: A Day-By-Day Investigation</div>
+            <div class="weird-meta">Read · 22 min · 4.6M views</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABOOLA -->
+    <div class="section">
+      <div class="taboola-header">You May Also Like

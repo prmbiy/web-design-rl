@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solutions by Industry — Linkbase</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#1A202C;background:#F8FAFC;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+.nav-wrap{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0}
+.nav{height:72px;max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:#1E3A5F}
+.logo-mark{width:28px;height:28px;background:#1E3A5F;border-radius:6px;position:relative}
+.logo-mark::after{content:'';position:absolute;inset:7px;border:2px solid #F97316;border-radius:50%;border-right-color:transparent}
+.nav-center{display:flex;gap:32px}
+.nav-center a{font-size:14px;font-weight:500;color:#1A202C}
+.nav-center a:hover{color:#1E3A5F}
+.nav-right{display:flex;gap:12px;align-items:center}
+.btn{font-family:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:6px;border:none;cursor:pointer;display:inline-block}
+.btn-ghost{background:transparent;color:#1E3A5F}
+.btn-primary{background:#1E3A5F;color:#fff}
+.btn-accent{background:#F97316;color:#fff}
+.btn-primary:hover{background:#15294a}
+.btn-accent:hover{background:#ea670a}
+
+/* Ticker */
+.ticker{background:#F1F5F9;border-bottom:1px solid #E2E8F0;overflow:hidden;height:36px;display:flex;align-items:center}
+.ticker-track{display:flex;gap:48px;padding:0 48px;white-space:nowrap;font-size:12px;font-weight:500;color:#4A5568;letter-spacing:0.04em}
+.ticker-track span{display:inline-flex;align-items:center;gap:8px}
+.ticker-track span::before{content:'●';color:#22C55E;font-size:8px}
+
+/* Container */
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+/* Hero */
+.hero{padding:80px 48px 64px;background:#F8FAFC;border-bottom:1px solid #E2E8F0}
+.hero-inner{max-width:1200px;margin:0 auto;text-align:center}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#F97316;background:#FFF7ED;padding:6px 12px;border-radius:20px;margin-bottom:20px}
+.hero h1{font-size:56px;font-weight:800;color:#1E3A5F;letter-spacing:-0.02em;line-height:1.05;margin-bottom:20px}
+.hero p.sub{font-size:20px;color:#4A5568;max-width:680px;margin:0 auto 28px}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:36px;font-size:14px;color:#4A5568}
+.hero-stats b{color:#1E3A5F;font-weight:700;font-size:16px;display:block}
+
+/* Section */
+section{padding:96px 48px}
+.section-head{text-align:center;max-width:760px;margin:0 auto 56px}
+.section-head h2{font-size:36px;font-weight:700;color:#1E3A5F;letter-spacing:-0.01em;margin-bottom:14px}
+.section-head p{color:#4A5568;font-size:17px}
+
+/* Industry tabs (visual grid, not interactive) */
+.industries{background:#fff}
+.tab-pills{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.pill{padding:10px 20px;border:1px solid #E2E8F0;border-radius:30px;font-size:14px;font-weight:600;color:#4A5568;background:#fff;display:inline-flex;align-items:center;gap:8px}
+.pill.active{background:#1E3A5F;color:#fff;border-color:#1E3A5F}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:#F97316}
+.pill.active .dot{background:#F97316}
+
+.industry-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;margin-bottom:32px;overflow:hidden;display:grid;grid-template-columns:1.4fr 1fr}
+.ic-left{padding:48px}
+.ic-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;color:#F97316;margin-bottom:16px}
+.ic-tag .swatch{width:10px;height:10px;border-radius:2px}
+.ic-left h3{font-size:30px;font-weight:700;color:#1E3A5F;letter-spacing:-0.01em;line-height:1.2;margin-bottom:14px}
+.ic-pain{color:#4A5568;font-size:16px;margin-bottom:32px;max-width:560px}
+.use-cases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.uc{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:18px}
+.uc-num{font-size:11px;font-weight:700;color:#F97316;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
+.uc-title{font-size:14px;font-weight:600;color:#1E3A5F;margin-bottom:6px;line-height:1.3}
+.uc-desc{font-size:13px;color:#4A5568;line-height:1.45}
+
+.ic-right{background:#1E3A5F;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.ic-right::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(circle at 80% 20%, rgba(249,115,22,0.15), transparent 50%),
+  radial-gradient(circle at 20% 80%, rgba(79,107,255,0.18), transparent 50%);pointer-events:none}
+.cust-logo{position:relative;font-size:22px;font-weight:800;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.cust-logo .lm{width:32px;height:32px;border-radius:6px;background:#fff;color:#1E3A5F;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.quote{position:relative;font-size:18px;font-style:italic;color:#CBD5E1;line-height:1.5;margin-bottom:24px}
+.qauthor{position:relative;font-size:13px;color:#94A3B8}
+.qauthor b{color:#fff;font-style:normal;display:block;font-size:14px;margin-bottom:2px;font-weight:600}
+.result{position:relative;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;margin-top:24px}
+.result-num{font-size:48px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1}
+.result-num .unit{color:#F97316}
+.result-label{font-size:13px;color:#94A3B8;margin-top:6px;text-transform:uppercase;letter-spacing:0.06em}
+
+/* Company size */
+.sizes{background:#F8FAFC}
+.size-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.size-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:40px;position:relative}
+.size-card.enterprise{border-color:#1E3A5F;background:linear-gradient(180deg,#fff 0%,#F8FAFC 100%)}
+.size-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:5px 10px;border-radius:4px;margin-bottom:18px}
+.bb-mid{background:#EEF2FF;color:#4F6BFF}
+.bb-ent{background:#1E3A5F;color:#fff}
+.size-card h3{font-size:28px;font-weight:700;color:#1E3A5F;margin-bottom:6px;letter-spacing:-0.01em}
+.size-range{font-size:14px;color:#4A5568;margin-bottom:24px}
+.size-list{list-style:none;margin-bottom:32px}
+.size-list li{padding:10px 0;border-bottom:1px solid #F1F5F9;font-size:14px;color:#1A202C;display:flex;gap:10px;align-items:flex-start}
+.size-list li::before{content:'✓';color:#22C55E;font-weight:700;flex-shrink:0}
+.size-list li:last-child{border-bottom:none}
+.size-foot{display:flex;justify-content:space-between;align-items:center;padding-top:8px}
+.size-meta{font-size:13px;color:#4A5568}
+.size-meta b{color:#1E3A5F;display:block;font-size:20px;font-weight:700}
+
+/* Vertical metrics strip */
+.metrics-strip{background:#1E3A5F;color:#fff;padding:64px 48px}
+.metrics-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.metric .big{font-size:48px;font-weight:800;letter-spacing:-0.02em;color:#fff}
+.metric .big .pct{color:#F97316}
+.metric .lbl{font-size:13px;color:#94A3B8;margin-top:8px;text-transform:uppercase;letter-spacing:0.06em}
+.metric .div{width:40px;height:2px;background:#F97316;margin:14px auto 0}
+
+/* Footer CTA */
+.cta-band{background:#1E3A5F;padding:80px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(249,115,22,0.2), transparent 60%)}
+.cta-band h2{position:relative;font-size:40px;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+.cta-band p{position:relative;color:#CBD5E1;margin-bottom:28px;font-size:17px}
+.cta-band .btn{position:relative;padding:14px 28px;font-size:15px}
+
+/* Footer */
+footer{background:#1E3A5F;color:#94A3B8;padding:64px 48px 32px;border-top:1px solid rgba(255,255,255,0.08)}
+.foot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-grid h4{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;font-weight:600}
+.foot-grid ul{list-style:none}
+.foot-grid li{font-size:14px;padding:6px 0}
+.foot-about{font-size:14px;line-height:1.6;max-width:280px;margin-top:14px}
+.foot-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+.badges-row{display:flex;gap:10px}
+.mini-badge{border:1px solid rgba(255,255,255,0.2);padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:0.04em}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#" class="logo"><span class="logo-mark"></span> Linkbase</a>
+    <div class="nav-center">
+      <a href="#">Platform</a>
+      <a href="#">Solutions</a>
+      <a href="#">Integrations</a>
+      <a href="#">Pricing</a>
+      <a href="#">Resources</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn btn-ghost">Log in</button>
+      <button class="btn btn-primary">Request demo</button>
+    </div>
+  </nav>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>CARGILL</span><span>WHIRLPOOL</span><span>HENKEL</span><span>MONDELEZ</span><span>STANLEY BLACK &amp; DECKER</span><span>KIMBERLY-CLARK</span><span>BRIDGESTONE</span><span>OWENS CORNING</span><span>TRACTOR SUPPLY</span><span>CARDINAL HEALTH</span>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Solutions by Industry</span>
+    <h1>Built for the way your industry runs</h1>
+    <p class="sub">Pre-configured models, KPIs, and connectors for four core verticals — calibrated against benchmarks from hundreds of operational deployments.</p>
+    <button class="btn btn-accent" style="padding:14px 28px;font-size:15px">Request demo</button>
+    <div class="hero-stats">
+      <div><b>23%</b>Avg cost savings</div>
+      <div><b>11x</b>ROI in year one</div>
+      <div><b>4</b>Vertical playbooks</div>
+      <div><b>99.97%</b>Uptime SLA</div>
+    </div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="container">
+    <div class="section-head">
+      <h2>Industry-tuned playbooks, not generic templates</h2>
+      <p>Each vertical ships with category-specific models, KPI taxonomies, and reference dashboards developed with practitioners from leading operators.</p>
+    </div>
+
+    <div class="tab-pills">
+      <span class="pill active"><span class="dot"></span>Manufacturing</span>
+      <span class="pill" style="background:#fff;color:#1E3A5F;border-color:#1E3A5F"><span class="dot" style="background:#22C55E"></span>Retail</span>
+      <span class="pill" style="background:#fff;color:#1E3A5F;border-color:#1E3A5F"><span class="dot" style="background:#A78BFA"></span>Healthcare</span>
+      <span class="pill" style="background:#fff;color:#1E3A5F;border-color:#1E3A5F"><span class="dot" style="background:#06B6D4"></span>CPG</span>
+    </div>
+
+    <!-- Manufacturing -->
+    <div class="industry-card">
+      <div class="ic-left">
+        <div class="ic-tag"><span class="swatch" style="background:#F97316"></span>Manufacturing</div>
+        <h3>End the MRO firefight before it hits the line</h3>
+        <p class="ic-pain">Discrete and process manufacturers lose millions to MRO stockouts, expedite freight, and tier-2 disruption. Linkbase fuses ERP, MES, and supplier telemetry into a single resilience graph.</p>
+        <div class="use-cases">
+          <div class="uc">
+            <div class="uc-num">Use case 01</div>
+            <div class="uc-title">MRO &amp; spares optimization</div>
+            <div class="uc-desc">Right-size critical spares using failure-rate models and lead-time variance per plant.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 02</div>
+            <div class="uc-title">Tier-2 disruption alerts</div>
+            <div class="uc-desc">Real-time signal monitoring across sub-tier suppliers with auto-routed escalations.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 03</div>
+            <div class="uc-title">Capacity-aware S&amp;OP</div>
+            <div class="uc-desc">Reconcile demand plans against constrained line capacity and changeover penalties.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ic-right">
+        <div class="cust-logo"><span class="lm">W</span> Whirlpool</div>
+        <div class="quote">"Linkbase paid back inside three quarters. We cut MRO inventory 18% without a single line stoppage — and finally have one number our plants and finance both trust."</div>
+        <div class="qauthor"><b>Sarah Chen</b>VP Global Operations, Whirlpool</div>
+        <div class="result">
+          <div class="result-num">18<span class="unit">%</span></div>
+          <div class="result-label">MRO inventory reduction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Retail -->
+    <div class="industry-card">
+      <div class="ic-left">
+        <div class="ic-tag"><span class="swatch" style="background:#22C55E"></span>Retail</div>
+        <h3>Allocate inventory to where it sells, not where it sat</h3>
+        <p class="ic-pain">Store-level demand is noisy, promo-driven, and weather-sensitive. Linkbase produces probabilistic store-SKU forecasts that close the gap between corporate plan and shelf reality.</p>
+        <div class="use-cases">
+          <div class="uc">
+            <div class="uc-num">Use case 01</div>
+            <div class="uc-title">Store-SKU forecasting</div>
+            <div class="uc-desc">Probabilistic demand at store-week granularity with promo and weather features baked in.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 02</div>
+            <div class="uc-title">Dynamic allocation</div>
+            <div class="uc-desc">Reallocate DC inventory across regions every night using live sell-through and on-hand data.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 03</div>
+            <div class="uc-title">Markdown optimization</div>
+            <div class="uc-desc">Sequenced markdown cadence by cluster to maximize sell-through and protect margin.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ic-right">
+        <div class="cust-logo"><span class="lm">T</span> Tractor Supply</div>
+        <div class="quote">"We rolled Linkbase out to 2,000 stores in one season. Stockouts on top-velocity SKUs dropped a third, and our planners stopped chasing exceptions all day."</div>
+        <div class="qauthor"><b>Daniel Ortiz</b>SVP Merchandise Planning, Tractor Supply</div>
+        <div class="result">
+          <div class="result-num">32<span class="unit">%</span></div>
+          <div class="result-label">Fewer stockouts on A-items</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Healthcare -->
+    <div class="industry-card">
+      <div class="ic-left">
+        <div class="ic-tag"><span class="swatch" style="background:#A78BFA"></span>Healthcare</div>
+        <h3>Move critical supplies faster, with audit-grade traceability</h3>
+        <p class="ic-pain">Healthcare distributors operate against lot, expiry, and regulatory constraints while patient demand is non-negotiable. Linkbase optimizes flow without ever compromising compliance.</p>
+        <div class="use-cases">
+          <div class="uc">
+            <div class="uc-num">Use case 01</div>
+            <div class="uc-title">Lot &amp; expiry planning</div>
+            <div class="uc-desc">FEFO-aware allocation with shelf-life-weighted safety stock by distribution center.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 02</div>
+            <div class="uc-title">Cold-chain cycle time</div>
+            <div class="uc-desc">Cycle-time analytics across nodes with thermal excursion linkage to root-cause supplier.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 03</div>
+            <div class="uc-title">FDA &amp; HIPAA-ready logs</div>
+            <div class="uc-desc">Immutable decision audit trail with role-based access and data residency controls.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ic-right">
+        <div class="cust-logo"><span class="lm">C</span> Cardinal Health</div>
+        <div class="quote">"Cutting nine days out of order-to-shelf was unthinkable until we had a single view of supplier, lot, and DC together. Linkbase made that view operational."</div>
+        <div class="qauthor"><b>Priya Nair</b>Director, Distribution Strategy, Cardinal Health</div>
+        <div class="result">
+          <div class="result-num">9<span class="unit"> days</span></div>
+          <div class="result-label">Shorter order-to-shelf cycle</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPG -->
+    <div class="industry-card">
+      <div class="ic-left">
+        <div class="ic-tag"><span class="swatch" style="background:#06B6D4"></span>CPG</div>
+        <h3>Free working capital trapped in legacy safety stock</h3>
+        <p class="ic-pain">CPG networks run dozens of plants, co-packers, and DCs against thousands of SKUs. Multi-echelon optimization unlocks tens of millions in working capital — without service trade-offs.</p>
+        <div class="use-cases">
+          <div class="uc">
+            <div class="uc-num">Use case 01</div>
+            <div class="uc-title">Multi-echelon inventory</div>
+            <div class="uc-desc">Joint optimization across plant, mixing center, and customer DC with service targets per channel.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 02</div>
+            <div class="uc-title">Promo &amp; NPI planning</div>
+            <div class="uc-desc">Lift modeling for promotions and analog-driven forecasts for new product introductions.</div>
+          </div>
+          <div class="uc">
+            <div class="uc-num">Use case 03</div>
+            <div class="uc-title">Co-packer orchestration</div>
+            <div class="uc-desc">Capacity, ingredient, and packaging constraints reconciled in a single weekly plan.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ic-right">
+        <div class="cust-logo"><span class="lm">M</span> Mondelez</div>
+        <div class="quote">"$42M of working capital came out in the first eighteen months. The case-fill never moved. That's the line you want to deliver to a CFO."</div>
+        <div class="qauthor"><b>Marco Esposito</b>Global Head of Supply Planning, Mondelez</div>
+        <div class="result">
+          <div class="result-num">$42<span class="unit">M</span></div>
+          <div class="result-label">Working capital freed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metrics-strip">
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="big">23<span class="pct">%</span></div>
+      <div class="div"></div>
+      <div class="lbl">Avg cost savings</div>
+    </div>
+    <div class="metric">
+      <div class="big">$2.4<span class="pct">B</span></div>
+      <div class="div"></div>
+      <div class="lbl">Inventory optimized</div>
+    </div>
+    <div class="metric">
+      <div class="big">47<span class="pct">%</span></div>
+      <div class="div"></div>
+      <div class="lbl">Fewer stockouts</div>
+    </div>
+    <div class="metric">
+      <div class="big">11<span class="pct">x</span></div>
+      <div class="div"></div>
+      <div class="lbl">Year-one ROI</div>
+    </div>
+  </div>
+</section>
+
+<section class="sizes">
+  <div class="container">
+    <div class="section-head">
+      <h2>Sized for your operation</h2>
+      <p>Two engagement tracks calibrated to organizational complexity, with shared platform capabilities underneath.</p>
+    </div>
+    <div class="size-grid">
+      <div class="size-card">
+        <span class="size-badge bb-mid">Mid-Market</span>
+        <h3>Linkbase for Mid-Market</h3>
+        <div class="size-range">50–500 employees · Growth tier deployment</div>
+        <ul class="size-list">
+          <li>6-week guided implementation with shared CSM</li>
+          <li>Up to 3 ERP/WMS connectors out of the box</li>
+          <li>Pre-built KPI library matched to your vertical</li>
+          <li>Standard SSO/SAML and SOC 2 Type II controls</li>
+          <li>Quarterly business reviews and adoption coaching</li>
+          <li>Best for $50M–$2B annual procurement spend</li>
+        </ul>
+        <div class="size-foot">
+          <div class="size-meta">Typical payback<b>9 months</b></div>
+          <button class="btn btn-primary">See Growth tier</button>
+        </div>
+      </div>
+      <div class="size-card enterprise">
+        <span class="size-badge bb-ent">Enterprise</span>
+        <h3>Linkbase for Enterprise</h3>
+        <div class="size-range">500+ employees · Custom deployment &amp; SLAs</div>
+        <ul class="size-list">
+          <li>Dedicated Technical Account Manager (named)</li>
+          <li>Unlimited users and unlimited connectors</li>
+          <li>Custom models &amp; private fine-tuning on your data</li>
+          <li>Data residency: US, EU (Frankfurt), APAC (Singapore)</li>
+          <li>15-minute Sev-1 response, 99.9% uptime SLA</li>
+          <li>Built for $2B+ procurement spend, multi-region ops</li>
+        </ul>
+        <div class="size-foot">
+          <div class="size-meta">Typical payback<b>4–6 months</b></div>
+          <button class="btn btn-accent">Contact sales</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>See Linkbase on your data</h2>
+  <p>Bring one ERP extract. We'll show you the savings model live in 30 minutes.</p>
+  <button class="btn btn-accent">Request demo</button>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="logo" style="color:#fff"><span class="logo-mark" style="background:#fff"></span> Linkbase</div>
+      <p class="foot-about">Forecast demand. Optimize inventory. Mitigate supplier risk. The decision platform for Fortune 1000 operations teams.</p>
+      <div class="badges-row" style="margin-top:20px">
+        <span class="mini-badge">SOC 2 TYPE II</span>
+        <span class="mini-badge">ISO 27001</span>
+        <span class="mini-badge">GDPR</span>
+      </div>
+    </div>
+    <div>
+      <h4>Platform</h4>
+      <ul>
+        <li>Demand Forecasting</li>
+        <li>Inventory Optimization</li>
+        <li>Supplier Analytics</li>
+        <li>Reporting &amp; Alerts</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Solutions</h4>
+      <ul>
+        <li>Manufacturing</li>
+        <li>Retail</li>
+        <li>Healthcare</li>
+        <li>CPG</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li>About</li>
+        <li>Customers</li>
+        <li>Careers</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li>Case Studies</li>
+        <li>White Papers</li>
+        <li>Webinars</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2024 Linkbase Analytics, Inc. All rights reserved.</div>
+    <div>Privacy · Terms · DPA · Trust Center</div>
+  </div>
+</footer>
+
+</body>
+</html>

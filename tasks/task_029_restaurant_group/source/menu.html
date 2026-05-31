@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Maison Verleux Hospitality</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Lato', -apple-system, sans-serif;
+  font-size: 16px;
+  color: #3D3D3D;
+  background: #F5EDD8;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253,248,240,0.96);
+  backdrop-filter: blur(10px);
+  height: 84px;
+  border-bottom: 1px solid rgba(184,137,47,0.3);
+}
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #4A1040;
+  letter-spacing: 0.5px;
+}
+.wordmark span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  display: block;
+  color: #B8892F;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #3D3D3D;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #4A1040; }
+.nav-cta {
+  background: #4A1040;
+  color: #FDF8F0 !important;
+  padding: 12px 22px;
+  border-radius: 2px;
+  font-size: 13px !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #2E0A28; color: #FDF8F0 !important; }
+
+/* HERO */
+.hero {
+  padding: 88px 32px 56px;
+  text-align: center;
+  background: #F5EDD8;
+  border-bottom: 1px solid #B8892F;
+}
+.hero-eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: #4A1040;
+  line-height: 1.05;
+  margin-bottom: 22px;
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  color: #7A6A6A;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* RESTAURANT SELECTOR */
+.selector-wrap {
+  background: #FDF8F0;
+  border-bottom: 1px solid #B8892F;
+  padding: 0 32px;
+}
+.selector {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  overflow-x: auto;
+}
+.tab {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 26px 36px;
+  cursor: pointer;
+  color: #7A6A6A;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+.tab:hover { color: #4A1040; }
+.tab.active {
+  color: #4A1040;
+  border-bottom: 2px solid #4A1040;
+  font-weight: 600;
+}
+
+/* MENU MAIN */
+.menu-main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 32px 96px;
+}
+
+.restaurant-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.restaurant-header .name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #4A1040;
+}
+.restaurant-header .chef {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #7A6A6A;
+  margin-top: 6px;
+}
+
+/* MENU SECTION */
+.menu-section {
+  margin-bottom: 72px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #4A1040;
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-ornament {
+  text-align: center;
+  color: #B8892F;
+  font-size: 14px;
+  margin-bottom: 48px;
+  letter-spacing: 8px;
+}
+
+.divider-gold {
+  height: 1px;
+  background: #B8892F;
+  margin: 64px 0;
+  position: relative;
+}
+.divider-gold::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #F5EDD8;
+  color: #B8892F;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* DISH */
+.dish {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px dashed rgba(184,137,47,0.25);
+}
+.dish:last-child { border-bottom: none; }
+
+.dish-main {
+  flex: 1;
+}
+.dish-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dish-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2E0A28;
+}
+.dietary {
+  display: inline-flex;
+  gap: 4px;
+}
+.diet-icon {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #B8892F;
+  border: 1px solid #B8892F;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  text-align: center;
+}
+.dish-desc {
+  font-size: 14px;
+  color: #5a5a5a;
+  margin-top: 6px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+.wine-pair {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #B8892F;
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+.wine-pair::before {
+  content: '🍷 ';
+  font-size: 11px;
+}
+
+.dish-dots {
+  flex: 0 0 40px;
+  border-bottom: 1px dotted rgba(184,137,47,0.5);
+  margin-bottom: 6px;
+  min-width: 30px;
+}
+.dish-dots-flex {
+  flex: 1;
+  border-bottom: 1px dotted rgba(184,137,47,0.5);
+  margin: 0 12px 6px;
+  min-width: 20px;
+}
+
+.price {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #B8892F;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.seasonal-flag {
+  display: inline-block;
+  background: #B8892F;
+  color: #FDF8F0;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* SUB SECTIONS in last block */
+.sub-section { margin-bottom: 48px; }
+.sub-section:last-child { margin-bottom: 0; }
+.sub-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #4A1040;
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.sub-divider {
+  height: 1px;
+  background: #B8892F;
+  margin: 40px 0;
+  opacity: 0.6;
+}
+
+/* ALLERGY NOTE */
+.allergy-note {
+  max-width: 780px;
+  margin: 80px auto 0;
+  padding: 32px;
+  background: #FDF8F0;
+  border: 1px solid rgba(184,137,47,0.4);
+  text-align: center;
+}
+.allergy-note h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  color: #4A1040;
+  margin-bottom: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.allergy-note .legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #3D3D3D;
+}
+.allergy-note p {
+  font-size: 13px;
+  color: #7A6A6A;
+  font-style: italic;
+  margin-top: 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+}
+
+/* SOURCING */
+.sourcing-strip {
+  background: #FDF8F0;
+  padding: 36px 32px;
+  border-top: 1px solid #B8892F;
+  border-bottom: 1px solid #B8892F;
+  text-align: center;
+}
+.sourcing-strip .label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B8892F;
+  margin-bottom: 12px;
+}
+.sourcing-strip .farms {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #4A1040;
+}
+
+/* FOOTER */
+footer {
+  background: #4A1040;
+  color: #FDF8F0;
+  padding: 72px 32px 36px;
+}
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(184,137,47,0.4);
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #D4A85A;
+  margin-bottom: 20px;
+}
+.footer-text { font-size: 13px; line-height: 1.8; color: rgba(253,248,240,0.75); }
+.footer-col h5 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  color: #B8892F;
+  margin-bottom: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; font-size: 14px; color: rgba(253,248,240,0.8); }
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(253,248,240,0.6);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">
+      Maison Verleux
+      <span>Hospitality</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Restaurants</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Reservations</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gift Cards</a></li>
+      <li><a href="#" class="nav-cta">Reserve Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Seasonal Update · 14 October 2024</div>
+  <h1>Autumn Menu</h1>
+  <p class="hero-sub">Updated 14 October 2024 — sourced from Hawthorne Valley Farm, Montauk Shellfish Co., and Violet Hill Farm.</p>
+</section>
+
+<!-- SOURCING STRIP -->
+<div class="sourcing-strip">
+  <div class="label">Tonight's Pantry</div>
+  <div class="farms">Hawthorne Valley · Montauk Shellfish Co. · Violet Hill Farm · Stone Barns · Cayuga Pure Organics</div>
+</div>
+
+<!-- SELECTOR -->
+<div class="selector-wrap">
+  <div class="selector">
+    <div class="tab active">Atelier Hudson</div>
+    <div class="tab">Le Petit Verleux</div>
+    <div class="tab">Bar Maribel</div>
+    <div class="tab">Otsu by Verleux</div>
+    <div class="tab">Verleux Pasta Bar</div>
+  </div>
+</div>
+
+<!-- MENU -->
+<main class="menu-main">
+
+  <div class="restaurant-header">
+    <div class="name">Atelier Hudson</div>
+    <div class="chef">Chef de Cuisine, Maya Okonkwo · Hudson, NY</div>
+  </div>
+
+  <!-- STARTERS -->
+  <section class="menu-section">
+    <h2 class="section-title">Starters</h2>
+    <div class="section-ornament">— ✦ —</div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Delicata Squash Velouté</span>
+          <span class="dietary">
+            <span class="diet-icon">V</span>
+            <span class="diet-icon">GF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Toasted pepitas, sage oil, brown butter crème fraîche</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">19</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Yellowfin Crudo</span>
+          <span class="dietary">
+            <span class="diet-icon">GF</span>
+            <span class="diet-icon">DF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Yuzu kosho, finger lime, shiso, smoked olive oil</div>
+        <div class="wine-pair">Pair with NV Vouette &amp; Sorbée Fidèle Blanc de Noirs</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">24</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Smoked Beet Tartare</span>
+          <span class="dietary">
+            <span class="diet-icon">VG</span>
+            <span class="diet-icon">GF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Black walnut, horseradish, rye crisp, dill oil</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">21</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Hawthorne Burrata</span>
+          <span class="dietary">
+            <span class="diet-icon">V</span>
+          </span>
+        </div>
+        <div class="dish-desc">Concord grape mostarda, hazelnut dukkah, grilled levain</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">22</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Hudson Valley Foie Gras Torchon</span>
+        </div>
+        <div class="dish-desc">Quince paste, brioche, fleur de sel, Sauternes gelée</div>
+        <div class="wine-pair">Pair with 2018 Château Coutet Sauternes</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">32</div>
+    </div>
+  </section>
+
+  <div class="divider-gold"></div>
+
+  <!-- MAINS -->
+  <section class="menu-section">
+    <h2 class="section-title">Mains</h2>
+    <div class="section-ornament">— ✦ —</div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Wood-Roasted Hen of the Woods</span>
+          <span class="dietary">
+            <span class="diet-icon">VG</span>
+          </span>
+        </div>
+        <div class="dish-desc">Farro verde, black garlic, charred leek, koji butter</div>
+        <div class="wine-pair">Pair with 2021 Domaine Tessier Pinot Noir, Sancerre</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">34</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Dry-Aged Duck Breast</span>
+          <span class="dietary">
+            <span class="diet-icon">GF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Quince, foie jus, salt-baked turnip, juniper</div>
+        <div class="wine-pair">Pair with 2019 Domaine Tessier Sancerre Rouge</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">46</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Black Trumpet Agnolotti</span>
+          <span class="dietary">
+            <span class="diet-icon">V</span>
+          </span>
+        </div>
+        <div class="dish-desc">Brown butter, aged parmesan, hazelnut, thyme</div>
+        <div class="wine-pair">Pair with 2020 G.D. Vajra Langhe Nebbiolo</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">38</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">Montauk Halibut</span>
+          <span class="dietary">
+            <span class="diet-icon">GF</span>
+            <span class="diet-icon">DF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Brown butter dashi, salsify, smoked roe, sea beans</div>
+        <div class="wine-pair">Pair with 2021 François Cotat Sancerre 'Les Monts Damnés'</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">52</div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-main">
+        <div class="dish-name-row">
+          <span class="dish-name">45-Day Dry-Aged Ribeye for Two</span>
+          <span class="dietary">
+            <span class="diet-icon">GF</span>
+          </span>
+        </div>
+        <div class="dish-desc">Bone marrow bordelaise, roasted shallot, watercress, fines herbes</div>
+        <div class="wine-pair">Pair with 2017 Château Lynch-Bages, Pauillac</div>
+      </div>
+      <div class="dish-dots-flex"></div>
+      <div class="price">148</div>
+    </div>
+  </section>
+
+  <div class="divider-gold"></div>
+
+  <!-- SIDES, DESSERTS, DRINKS -->
+  <section class="menu-section">
+    <h2 class="section-title">Sides · Sweets · Cellar</h2>
+    <div class="section-ornament">— ✦ —</div>
+
+    <!-- SIDES -->
+    <div class="sub-section">
+      <div class="sub-title">Garden &amp; Hearth</div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Charred Brassicas</span>
+            <span class="dietary">
+              <span class="diet-icon">VG</span>
+              <span class="diet-icon">GF</span>
+            </span>
+          </div>
+          <div class="dish-desc">Anchoïade, lemon confit, toasted almond</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">14</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Hudson Potato Pavé</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+              <span class="diet-icon">GF</span>
+            </span>
+          </div>
+          <div class="dish-desc">Brown butter, bay laurel, sea salt</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">13</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Sourdough &amp; Cultured Butter</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+            </span>
+          </div>
+          <div class="dish-desc">Eight-day levain, smoked Maldon</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">9</div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <!-- DESSERTS -->
+    <div class="sub-section">
+      <div class="sub-title">Sweets</div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Concord Grape Pavlova</span>
+            <span class="seasonal-flag">Seasonal Special</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+              <span class="diet-icon">GF</span>
+            </span>
+          </div>
+          <div class="dish-desc">Crème fraîche chantilly, candied verjus, lemon thyme</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">16</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Buckwheat Honey Cake</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+            </span>
+          </div>
+          <div class="dish-desc">Crème anglaise, brûléed pear, bee pollen</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">14</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Dark Chocolate Tartelette</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+            </span>
+          </div>
+          <div class="dish-desc">Valrhona Guanaja 70%, fleur de sel, olive oil</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">15</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Cheese Course — Three Selections</span>
+            <span class="dietary">
+              <span class="diet-icon">V</span>
+            </span>
+          </div>
+          <div class="dish-desc">Murray's affineurs, quince paste, walnut bread</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">22</div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <!-- DRINKS -->
+    <div class="sub-section">
+      <div class="sub-title">Cocktails &amp; Cellar</div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">The Verleux Old Fashioned</span>
+          </div>
+          <div class="dish-desc">Pikesville rye, demerara, black walnut bitters, orange oil</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">18</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Autumn Negroni</span>
+          </div>
+          <div class="dish-desc">Tanqueray No. Ten, Campari, Carpano Antica, smoked rosemary</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">17</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Quince &amp; Sage Spritz</span>
+          </div>
+          <div class="dish-desc">Lillet Blanc, quince shrub, sage, prosecco</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">16</div>
+      </div>
+
+      <div class="dish">
+        <div class="dish-main">
+          <div class="dish-name-row">
+            <span class="dish-name">Chef's Pairing — Four Glasses</span>
+          </div>
+          <div class="dish-desc">Sommelier Margaux Lévy's seasonal selection to accompany the tasting menu</div>
+        </div>
+        <div class="dish-dots-flex"></div>
+        <div class="price">95</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLERGY NOTE -->
+  <div class="allergy-note">
+    <h4>A Note on Dietary Symbols</h4>
+    <div class="legend">
+      <div class="legend-item"><span class="diet-icon">V</span> Vegetarian</div>
+      <div class="legend-item"><span class="diet-icon">VG</span> Vegan</div>
+      <div class="legend-item"><span class="diet-icon">GF</span> Gluten Free</div>
+      <div class="legend-item"><span class="diet-icon">DF</span> Dairy Free</div>
+    </div>
+    <p>Please inform your server of any allergies or dietary restrictions. Our kitchen handles tree nuts, shellfish, wheat, dairy, and eggs daily and cannot guarantee a fully allergen-free environment.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Maison Verleux</div>
+      <div class="footer-tag">Five tables. One philosophy. Always seasonal.</div>
+      <div class="footer-text">
+        A hospitality group by Chef Elise Verleux.<br>
+        Brooklyn · Hudson Valley · Tribeca<br>
+        events@maisonverleux.com<br>
+        (718) 555-0144
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Restaurants</h5>
+      <ul>
+        <li>Atelier Hudson</li>
+        <li>Le Petit Verleux</li>
+        <li>Bar Maribel</li>
+        <li>Otsu by Verleux</li>
+        <li>Verleux Pasta Bar</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Visit</h5>
+      <ul>
+        <li>Reservations</li>
+        <li>Private Events</li>
+        <li>Gift Cards</li>
+        <li>Catering</li>
+        <li>Press Inquiries</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Maison</h5>
+      <ul>
+        <li>About Chef Verleux</li>
+        <li>Sourcing &amp; Farms</li>
+        <li>Careers</li>
+        <li>Newsletter</li>
+        <li>@maisonverleux</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Maison Verleux Hospitality Group. All rights reserved.</div>
+    <div>Privacy · Accessibility · Terms</div>
+  </div>
+</footer>
+
+</body>
+</html>

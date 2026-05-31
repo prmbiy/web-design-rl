@@ -1,0 +1,80 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap",
+    "font_heading": "'Playfair Display', 'Didot', serif",
+    "font_body": "'EB Garamond', 'Garamond', serif",
+    "font_mono": null,
+    "size_h1": "72px",
+    "size_h2": "44px",
+    "size_body": "14px",
+    "size_small": "11px",
+    "color_primary": "#1A1A1A",
+    "color_secondary": "#FAF7F2",
+    "color_accent": "#C4A882",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#FAF7F2",
+    "color_text": "#1A1A1A",
+    "color_text_muted": "#8A8A8A",
+    "color_border": "#1A1A1A",
+    "border_radius": "0",
+    "container_max_width": "1440px",
+    "section_padding": "120px 80px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "96px",
+    "nav_position": "fixed",
+    "footer_bg": "#FAF7F2",
+    "extra_colors": {
+      "hairline": "#E5E1DA",
+      "cream_deep": "#F2EEE6"
+    },
+    "animation_specs": {
+      "fade_in_hero": {
+        "css": "@keyframes fade_in_hero { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } } .hero, .hero * { animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both; }",
+        "applies_to": ".hero, .hero-title, .hero-image",
+        "trigger": "on-load"
+      },
+      "extremely_slow_image_crossfade": {
+        "css": "@keyframes crossfade { 0%, 45% { opacity: 1; } 55%, 95% { opacity: 0; } 100% { opacity: 1; } } .crossfade img { animation: crossfade 14s ease-in-out infinite; }",
+        "applies_to": ".crossfade img",
+        "trigger": "continuous"
+      },
+      "hover_underline_slide": {
+        "css": ".nav-link { position: relative; } .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1px; background: #1A1A1A; transform: scaleX(0); transform-origin: right; transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1); } .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }",
+        "applies_to": ".nav-link, a.editorial",
+        "trigger": "on-hover"
+      },
+      "scroll_reveal_product_cards": {
+        "css": ".product-card { opacity: 0; transform: translateY(40px); transition: opacity 1.8s ease, transform 1.8s ease; } .product-card.in-view { opacity: 1; transform: translateY(0); }",
+        "applies_to": ".product-card",
+        "trigger": "on-scroll"
+      },
+      "nav_reveal": {
+        "css": ".nav-menu { opacity: 0; pointer-events: none; transition: opacity 0.9s ease 0.1s; } .nav-wrapper:hover .nav-menu { opacity: 1; pointer-events: auto; }",
+        "applies_to": ".nav-menu",
+        "trigger": "on-hover"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed campaign image with centered wordmark overlay; scroll reveals italic serif collection name, brief editorial paragraph, then a three-column product grid with vast whitespace.",
+      "bg": "#FFFFFF"
+    },
+    "collection": {
+      "layout": "Alternating full-bleed lookbook images and three-column product cards, with minimal text filters in small caps anchored at the top.",
+      "bg": "#FAF7F2"
+    },
+    "product": {
+      "layout": "Two-column split: tall left-side image gallery and a right column with sparse product details, understated price, and a thin 'Reserve' button.",
+      "bg": "#FFFFFF"
+    },
+    "heritage": {
+      "layout": "Long editorial scroll with oversized founding year, long-form prose columns, black-and-white atelier photography, and an embedded craftsmanship film.",
+      "bg": "#FAF7F2"
+    },
+    "contact": {
+      "layout": "Two-column layout pairing a minimal monochrome map and boutique addresses with a formal private-appointment booking form in fine serif type.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

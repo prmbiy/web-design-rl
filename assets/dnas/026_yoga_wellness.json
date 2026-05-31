@@ -1,0 +1,22 @@
+{
+  "id": "026",
+  "name": "yoga_wellness",
+  "source": "A",
+  "archetype": "Holistic wellness and yoga studio with online classes and in-person bookings",
+  "market": "Urban wellness-focused adults 28-50, primarily women, middle-to-high income",
+  "era": "2024",
+  "density": "Very low density, meditative. Large whitespace. Slow, breathing aesthetic. Studio photography with natural light. Classes shown as clean cards. No rush, no urgency CTAs — the UX feels like the practice.",
+  "nav_style": "Transparent nav that fades to light on scroll. Studio name in a script or thin serif font. Nav: Practice, Schedule, Teachers, Workshops, About. Right: 'Book Class' CTA in a soft terracotta or sage. Cart icon for merchandise.",
+  "commercial_model": "Class packs, monthly memberships, drop-in rates. Online streaming subscription for at-home practitioners. Workshops and retreats as premium revenue. Wellness products e-shop. Teacher training program as high-ticket item.",
+  "color_palette": "Warm natural whites (#FAFAF7) and creams (#F5ECD7). Sage green (#88A47C) for primary accents — grounding, natural. Warm sand (#D4B896) for secondary accents. Dusty rose (#C5848A) for special event highlights. Stone grey (#9E9E8E) for text. The palette is earthy, natural, Japanese-inspired in restraint.",
+  "typography": "Lora or Cormorant Garamond for headings — slow, humanist, meditative serifs. Lato or Hind for body copy — accessible and clean. Class type names in small caps. Price in understated regular weight, not bold. Instructor names in italic.",
+  "quirks": ["class_schedule_calendar", "online_streaming_option", "teacher_bios_detailed", "meditation_timer_widget", "retreat_section", "blog_with_wellness_articles", "ayurveda_or_holistic_content", "spotify_playlist_links", "community_testimonials", "studio_photo_gallery"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Full-screen studio photography hero — morning light, wooden floors, a single plant. Soft headline. Three class types with brief descriptions. This week's schedule preview (3 upcoming classes). Teacher spotlight. Membership CTA — gentle, not pushy."},
+    {"slug": "schedule", "title": "Class Schedule", "description": "Weekly class schedule as a clean calendar grid. Class cards: time, class name, teacher, duration, level (beginner/all/advanced), available spots, and book button. Filter by class type and teacher. Virtual class toggle."},
+    {"slug": "teachers", "title": "Our Teachers", "description": "Teacher directory with soft photography. Each teacher: name, certifications, style/specialization, years of practice, brief bio. Upcoming classes with that teacher. Instagram link."},
+    {"slug": "workshops", "title": "Workshops & Retreats", "description": "Upcoming workshops and retreats. Each event: title, teacher, dates, location or online, what's included, investment (price shown gently as 'Investment: $...'), limited spots counter, registration form."},
+    {"slug": "about", "title": "Our Story", "description": "Studio founding story. Philosophy and values. The physical space description. Community section — student testimonials. Social impact: donation class for charity. FAQ about starting practice. Press mentions."}
+  ],
+  "animations": ["fade_in_hero", "scroll_reveal_cards", "soft_hover_image_zoom"]
+}

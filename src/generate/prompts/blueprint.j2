@@ -1,0 +1,48 @@
+You are creating a brief content specification for a fictional {{ dna.archetype }}.
+
+## Site DNA
+```json
+{{ dna | tojson(indent=2) }}
+```
+
+## Your Task
+
+Invent a specific fictional entity matching this DNA. Output a concise JSON spec — just enough for a developer to generate the HTML. Do NOT write full body copy or long paragraphs.
+
+### Rules
+1. Be specific with names, numbers, and labels — "Ministry of Rural Development" not "A ministry"
+2. Match the market and era: {{ dna.era }}, {{ dna.market }}
+3. For nav items: list the labels only, no descriptions
+4. For content sections: 1 sentence describing what goes there, not the actual text
+5. Keep the entire response under 2000 tokens
+
+### Output Format
+
+Respond with ONLY valid JSON:
+
+```json
+{
+  "brand_name": "...",
+  "tagline": "...",
+  "primary_color_name": "short name for the brand color e.g. Sarkari Orange",
+  "pages": {
+    "<slug>": {
+      "title": "...",
+      "nav_items": ["label1", "label2"],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "...",
+          "subheadline": "..."
+        },
+        {
+          "name": "section_name",
+          "description": "one sentence: what content appears here with 2-3 specific real-sounding examples"
+        }
+      ]
+    }
+  }
+}
+```
+
+Respond with ONLY the JSON, no markdown fences.

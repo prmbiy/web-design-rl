@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MiataOwners.net - Forum Index</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+  background: #E1E4F2;
+  line-height: 1.4;
+}
+a { color: #22229C; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551A8B; }
+
+.wrap { max-width: 1000px; margin: 0 auto; background: #fff; border-left: 1px solid #B8C4D9; border-right: 1px solid #B8C4D9; }
+
+/* Header */
+.header {
+  background: linear-gradient(180deg, #004488 0%, #003366 60%, #002244 100%);
+  color: #fff;
+  padding: 14px 16px;
+  border-bottom: 3px solid #FF6600;
+  position: relative;
+}
+.header .logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 0 #001122;
+}
+.header .logo .dot { color: #FF6600; }
+.header .tagline { font-size: 11px; color: #B8C4D9; margin-top: 2px; font-style: italic; }
+.header .userbar {
+  position: absolute;
+  top: 14px; right: 16px;
+  font-size: 11px;
+  text-align: right;
+  background: rgba(0,0,0,0.25);
+  padding: 6px 10px;
+  border: 1px solid #4477AA;
+}
+.header .userbar b { color: #FFCC66; }
+.header .userbar .unread { color: #FF6600; font-weight: bold; }
+.header .userbar a { color: #fff; }
+
+/* Nav */
+.nav {
+  background: #003366;
+  padding: 0;
+  border-bottom: 1px solid #4477AA;
+}
+.nav ul { list-style: none; display: flex; }
+.nav li { border-right: 1px solid #4477AA; }
+.nav a {
+  display: block;
+  color: #fff;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+.nav a:hover { background: #336699; text-decoration: none; }
+
+/* Subnav / breadcrumb */
+.subnav {
+  background: #DCE2EF;
+  padding: 6px 12px;
+  font-size: 11px;
+  border-bottom: 1px solid #B8C4D9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subnav .crumb b { color: #003366; }
+.subnav .btns a {
+  display: inline-block;
+  background: linear-gradient(180deg, #fff 0%, #DCE2EF 100%);
+  border: 1px solid #B8C4D9;
+  padding: 3px 8px;
+  margin-left: 4px;
+  font-size: 11px;
+  color: #003366;
+}
+
+/* Leaderboard ad */
+.adbar {
+  background: #F2F2F2;
+  border-bottom: 1px solid #B8C4D9;
+  padding: 8px;
+  text-align: center;
+}
+.ad-leaderboard {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto;
+  background: repeating-linear-gradient(45deg, #FFE4CC 0px, #FFE4CC 10px, #FFD4AA 10px, #FFD4AA 20px);
+  border: 1px solid #CC9966;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #663300;
+  font-family: Arial, sans-serif;
+}
+.ad-leaderboard .ad-label { font-size: 9px; color: #996633; letter-spacing: 1px; }
+.ad-leaderboard .ad-title { font-size: 22px; font-weight: bold; color: #CC3300; text-shadow: 1px 1px 0 #fff; }
+.ad-leaderboard .ad-sub { font-size: 12px; color: #663300; }
+
+/* Main layout */
+.main { display: flex; padding: 10px; gap: 10px; }
+.content { flex: 1; min-width: 0; }
+.sidebar { width: 180px; flex-shrink: 0; }
+
+/* Category tables */
+.cat-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  border: 1px solid #003366;
+  font-size: 12px;
+}
+.cat-table .cat-header td {
+  background: linear-gradient(180deg, #4477AA 0%, #336699 50%, #2D5A87 100%);
+  color: #fff;
+  padding: 6px 10px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 1px 1px 0 #001122;
+  border-bottom: 1px solid #003366;
+}
+.cat-table .cat-header td a { color: #fff; }
+.cat-table .col-headers td {
+  background: #DCE2EF;
+  font-weight: bold;
+  font-size: 11px;
+  color: #003366;
+  padding: 4px 8px;
+  border-bottom: 1px solid #B8C4D9;
+  text-align: center;
+}
+.cat-table .col-headers td:first-child { text-align: left; }
+.cat-table .col-headers td:last-child { text-align: left; }
+
+.cat-table tr.forum-row td {
+  padding: 8px;
+  border-bottom: 1px solid #E1E4F2;
+  vertical-align: top;
+}
+.cat-table tr.forum-row:nth-child(even) td { background: #F2F2F2; }
+.cat-table tr.forum-row:nth-child(odd) td { background: #FFFFFF; }
+
+.forum-icon {
+  width: 30px;
+  text-align: center;
+}
+.icon-folder {
+  display: inline-block;
+  width: 28px; height: 22px;
+  background: linear-gradient(180deg, #FFD966 0%, #CC9933 100%);
+  border: 1px solid #996600;
+  border-radius: 2px;
+  position: relative;
+}
+.icon-folder::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: 2px;
+  width: 10px; height: 5px;
+  background: #CC9933;
+  border: 1px solid #996600;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+}
+.icon-folder.new { background: linear-gradient(180deg, #FF9933 0%, #CC3300 100%); border-color: #993300; }
+
+.forum-info { width: 50%; }
+.forum-info a.forum-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #003366;
+}
+.forum-info .forum-desc { font-size: 11px; color: #555; margin-top: 2px; }
+.forum-info .subforums { font-size: 10px; color: #777; margin-top: 3px; }
+.forum-info .subforums a { color: #336699; }
+
+.col-num { text-align: center; width: 70px; font-size: 12px; color: #333; }
+.col-num b { color: #003366; }
+
+.col-last { width: 200px; font-size: 11px; }
+.col-last .last-title { color: #22229C; font-weight: bold; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+.col-last .last-meta { color: #777; font-size: 10px; }
+.col-last .last-by { color: #003366; font-weight: bold; }
+.col-last .last-row { display: flex; gap: 6px; align-items: center; }
+.mini-avatar {
+  width: 28px; height: 28px;
+  flex-shrink: 0;
+  border: 1px solid #B8C4D9;
+  background: linear-gradient(135deg, #CC3300, #660000);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 11px; font-weight: bold;
+  font-family: Arial;
+}
+.mini-avatar.a2 { background: linear-gradient(135deg, #003366, #001122); }
+.mini-avatar.a3 { background: linear-gradient(135deg, #339933, #006600); }
+.mini-avatar.a4 { background: linear-gradient(135deg, #CC9900, #663300); }
+.mini-avatar.a5 { background: linear-gradient(135deg, #663399, #330066); }
+.mini-avatar.a6 { background: linear-gradient(135deg, #336699, #003366); }
+.mini-avatar.a7 { background: linear-gradient(135deg, #990000, #330000); }
+
+.badge-new {
+  display: inline-block;
+  background: #FF6600;
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 1px 4px;
+  margin-left: 4px;
+  border-radius: 2px;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
+
+/* Sidebar */
+.sb-box {
+  background: #fff;
+  border: 1px solid #B8C4D9;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.sb-box .sb-head {
+  background: linear-gradient(180deg, #4477AA 0%, #336699 50%, #2D5A87 100%);
+  color: #fff;
+  padding: 5px 8px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: 1px 1px 0 #001122;
+}
+.sb-box .sb-body { padding: 6px 8px; }
+
+.ad-sky {
+  width: 160px;
+  height: 600px;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 30%),
+    repeating-linear-gradient(0deg, #003366 0px, #003366 2px, #004488 2px, #004488 4px);
+  border: 1px solid #001122;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.ad-sky .lbl { font-size: 9px; color: #99BBDD; letter-spacing: 2px; }
+.ad-sky .brand { font-size: 18px; font-weight: bold; color: #FF6600; text-shadow: 1px 1px 0 #000; line-height: 1.1; }
+.ad-sky .gw-logo {
+  width: 120px; height: 80px;
+  background: linear-gradient(135deg, #FF6600 0%, #CC3300 100%);
+  border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: bold; color: #fff;
+  text-shadow: 2px 2px 0 #663300;
+}
+.ad-sky .tagline2 { font-size: 11px; line-height: 1.3; color: #fff; }
+.ad-sky .cta {
+  background: #FF6600;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  border: 1px solid #993300;
+}
+
+/* Online users */
+.online-list { line-height: 1.6; }
+.online-list .admin { color: #CC0000; font-weight: bold; }
+.online-list .mod { color: #003366; font-weight: bold; }
+.online-list .prem { color: #339933; font-weight: bold; }
+.online-list .reg { color: #22229C; }
+.online-summary {
+  font-size: 11px;
+  background: #F2F2F2;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  border: 1px dotted #B8C4D9;
+}
+.online-summary b { color: #003366; }
+
+/* Birthday */
+.bday {
+  background: #FFF8DC;
+  border: 1px solid #E0C870;
+  padding: 6px 8px;
+  font-size: 11px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.bday .icon { font-size: 14px; margin-right: 4px; }
+.bday b { color: #993300; }
+
+/* Stats block */
+.stats-block {
+  background: #DCE2EF;
+  border: 1px solid #B8C4D9;
+  padding: 8px 12px;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+.stats-block .stats-head {
+  font-weight: bold;
+  color: #003366;
+  font-family: Arial;
+  font-size: 12px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #B8C4D9;
+  padding-bottom: 2px;
+}
+.stats-block span { margin-right: 12px; }
+.stats-block b { color: #003366; }
+
+/* Legend */
+.legend {
+  background: #F2F2F2;
+  border: 1px solid #B8C4D9;
+  padding: 6px 10px;
+  font-size: 10px;
+  color: #555;
+  display: flex;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.legend .lg-folder {
+  display: inline-block;
+  width: 14px; height: 11px;
+  background: linear-gradient(180deg, #FFD966 0%, #CC9933 100%);
+  border: 1px solid #996600;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.legend .lg-folder.new { background: linear-gradient(180deg, #FF9933 0%, #CC3300 100%); }
+
+/* Footer */
+.footer {
+  background: #003366;
+  color: #B8C4D9;
+  padding: 12px 16px;
+  font-size: 11px;
+  border-top: 3px solid #FF6600;
+  text-align: center;
+}
+.footer a { color: #99BBDD; }
+.footer .ft-links { margin-bottom: 6px; }
+.footer .ft-links a { margin: 0 8px; }
+.footer .copy { color: #6688AA; font-size: 10px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Header banner -->
+  <div class="header">
+    <div class="logo">MiataOwners<span class="dot">.</span>net</div>
+    <div class="tagline">The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999</div>
+    <div class="userbar">
+      Welcome back, <b>RoadsterDan76</b><br>
+      <span class="unread">★ 3 unread PMs</span> | <a href="#">14 new posts</a> | <a href="#">Log Out</a>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Forum</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Members</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Today's Posts</a></li>
+    </ul>
+  </div>
+
+  <!-- Sub-nav / breadcrumb toolbar -->
+  <div class="subnav">
+    <div class="crumb"><b>MiataOwners.net</b> &gt; Forum Index</div>
+    <div class="btns">
+      <a href="#">Mark Forums Read</a>
+      <a href="#">View Subscriptions</a>
+      <a href="#">User CP</a>
+    </div>
+  </div>
+
+  <!-- Leaderboard ad -->
+  <div class="adbar">
+    <div class="ad-leaderboard">
+      <div class="ad-label">— ADVERTISEMENT —</div>
+      <div class="ad-title">FLYIN' MIATA</div>
+      <div class="ad-sub">Turbo Kits &amp; Suspension — Trusted Since 1989 — flyinmiata.com</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- Content -->
+    <div class="content">
+
+      <!-- General Discussion -->
+      <table class="cat-table">
+        <tr class="cat-header"><td colspan="5">📂 General Discussion</td></tr>
+        <tr class="col-headers">
+          <td colspan="2">Forum</td>
+          <td>Threads</td>
+          <td>Posts</td>
+          <td>Last Post</td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">NA/NB Chat</a>
+            <div class="forum-desc">First-gen (1990-1997) and second-gen (1999-2005) Miata general discussion.</div>
+            <div class="subforums">Sub-forums: <a href="#">NA Build Tips</a>, <a href="#">NB Trim Differences</a></div>
+          </td>
+          <td class="col-num"><b>48,221</b></td>
+          <td class="col-num">912,447</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar">RC</div>
+              <div>
+                <a href="#" class="last-title">Just picked up a 99 10AE #347!</a>
+                <div class="last-meta">by <span class="last-by">ClassicRedNA</span><br>Today, 03:42 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">NC Owners Lounge</a>
+            <div class="forum-desc">Third-generation (2006-2015) NC chassis discussion and ownership.</div>
+            <div class="subforums">Sub-forums: <a href="#">PRHT Specific</a>, <a href="#">Mazdaspeed Tuning</a></div>
+          </td>
+          <td class="col-num"><b>22,109</b></td>
+          <td class="col-num">418,326</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a2">NM</div>
+              <div>
+                <a href="#" class="last-title">NC2 differential whine — normal?</a>
+                <div class="last-meta">by <span class="last-by">NBMike_PDX</span><br>Today, 02:18 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">ND Speculation &amp; Rumors</a>
+            <div class="forum-desc">What will the next-gen Miata bring? Leaks, mules, and wishful thinking.</div>
+          </td>
+          <td class="col-num"><b>3,847</b></td>
+          <td class="col-num">71,902</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a3">TT</div>
+              <div>
+                <a href="#" class="last-title">2014 prototype spotted in Hiroshima</a>
+                <div class="last-meta">by <span class="last-by">TopdownTim</span><br>Today, 11:07 AM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Technical Help -->
+      <table class="cat-table">
+        <tr class="cat-header"><td colspan="5">🔧 Technical Help</td></tr>
+        <tr class="col-headers">
+          <td colspan="2">Forum</td>
+          <td>Threads</td>
+          <td>Posts</td>
+          <td>Last Post</td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Engine &amp; Drivetrain</a>
+            <div class="forum-desc">B6, BP, MZR diagnostics, rebuilds, transmission, differential.</div>
+          </td>
+          <td class="col-num"><b>31,558</b></td>
+          <td class="col-num">604,118</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a4">MM</div>
+              <div>
+                <a href="#" class="last-title">BP4W timing belt walk-through</a>
+                <div class="last-meta">by <span class="last-by">MX5Mike</span><br>14 minutes ago</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Suspension &amp; Brakes</a>
+            <div class="forum-desc">Coilovers, sway bars, alignment specs, brake upgrades.</div>
+          </td>
+          <td class="col-num"><b>18,902</b></td>
+          <td class="col-num">311,442</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a5">KS</div>
+              <div>
+                <a href="#" class="last-title">Koni Yellow vs Bilstein B6</a>
+                <div class="last-meta">by <span class="last-by">KhanSquared</span><br>Today, 01:55 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Electrical Gremlins</a>
+            <div class="forum-desc">Wiring, sensors, ECU codes, the dreaded NB cluster bulbs.</div>
+          </td>
+          <td class="col-num"><b>9,447</b></td>
+          <td class="col-num">142,889</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a6">BB</div>
+              <div>
+                <a href="#" class="last-title">P0301 misfire after rain — fixed!</a>
+                <div class="last-meta">by <span class="last-by">BoostedBabs</span><br>Today, 12:33 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">DIY How-To Archive</a>
+            <div class="forum-desc">Read-only archive of vetted how-to guides. Submit yours to a moderator.</div>
+          </td>
+          <td class="col-num"><b>1,204</b></td>
+          <td class="col-num">38,716</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a2">NM</div>
+              <div>
+                <a href="#" class="last-title">[STICKY] NB Hardtop Install Guide</a>
+                <div class="last-meta">by <span class="last-by">NBMike_PDX</span><br>Yesterday, 08:14 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Build Threads -->
+      <table class="cat-table">
+        <tr class="cat-header"><td colspan="5">🏗 Build Threads</td></tr>
+        <tr class="col-headers">
+          <td colspan="2">Forum</td>
+          <td>Threads</td>
+          <td>Posts</td>
+          <td>Last Post</td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Track/Autocross Builds</a>
+            <div class="forum-desc">Cage'd, caged, and corner-balanced. Build logs welcomed.</div>
+          </td>
+          <td class="col-num"><b>4,118</b></td>
+          <td class="col-num">198,442</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar">V8</div>
+              <div>
+                <a href="#" class="last-title">1994 Miata LS-Swap Track Car (V8 Roadster)</a>
+                <div class="last-meta">by <span class="last-by">V8Lover_Brad</span><br>Today, 04:11 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Turbo &amp; Supercharger Projects</a>
+            <div class="forum-desc">Forced induction builds, dyno results, tuning logs.</div>
+          </td>
+          <td class="col-num"><b>3,209</b></td>
+          <td class="col-num">156,887</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a6">BB</div>
+              <div>
+                <a href="#" class="last-title">BEGI Stage 2 — first dyno pull, 218whp!</a>
+                <div class="last-meta">by <span class="last-by">BoostedBabs</span><br>Today, 09:42 AM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Restoration Logs</a>
+            <div class="forum-desc">Bringing tired NAs back from the dead.</div>
+          </td>
+          <td class="col-num"><b>1,887</b></td>
+          <td class="col-num">62,331</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a4">ME</div>
+              <div>
+                <a href="#" class="last-title">'91 BRG full respray — week 8 update</a>
+                <div class="last-meta">by <span class="last-by">MarcoEunos</span><br>Yesterday, 10:08 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Stanced &amp; Show Cars</a>
+            <div class="forum-desc">Fitment, wheels, and aesthetic builds. Keep it civil, please.</div>
+          </td>
+          <td class="col-num"><b>2,441</b></td>
+          <td class="col-num">88,109</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a5">ZZ</div>
+              <div>
+                <a href="#" class="last-title">Work Equip 03 on -15° rear</a>
+                <div class="last-meta">by <span class="last-by">ZoomZoomKaren</span><br>Yesterday, 06:30 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Classifieds -->
+      <table class="cat-table">
+        <tr class="cat-header"><td colspan="5">💰 Classifieds</td></tr>
+        <tr class="col-headers">
+          <td colspan="2">Forum</td>
+          <td>Threads</td>
+          <td>Posts</td>
+          <td>Last Post</td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Cars for Sale<span class="badge-new">NEW</span></a>
+            <div class="forum-desc">Complete vehicles only. Title status and location required.</div>
+          </td>
+          <td class="col-num"><b>6,118</b></td>
+          <td class="col-num">42,889</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a7">TT</div>
+              <div>
+                <a href="#" class="last-title">FS: 1999 10AE #847 — TX — $9,800</a>
+                <div class="last-meta">by <span class="last-by">TopdownTim</span><br>32 minutes ago</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Parts for Sale<span class="badge-new">NEW</span></a>
+            <div class="forum-desc">Used and new parts. Pics, prices, location, shipping cost.</div>
+          </td>
+          <td class="col-num"><b>14,442</b></td>
+          <td class="col-num">88,217</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a2">VK</div>
+              <div>
+                <a href="#" class="last-title">FS: NB hardtop, Mariner Blue, w/ defrost</a>
+                <div class="last-meta">by <span class="last-by">VTECkiller</span><br>1 hour ago</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Wanted to Buy</a>
+            <div class="forum-desc">Looking for parts? Post here before posting in FS threads.</div>
+          </td>
+          <td class="col-num"><b>3,887</b></td>
+          <td class="col-num">21,108</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a3">NG</div>
+              <div>
+                <a href="#" class="last-title">WTB: NA Torsen 4.30 — PNW</a>
+                <div class="last-meta">by <span class="last-by">NewGuy2012</span><br>2 hours ago</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Vendor Deals<span class="badge-new">NEW</span></a>
+            <div class="forum-desc">Approved vendors only. Group buys and promo codes.</div>
+          </td>
+          <td class="col-num"><b>1,108</b></td>
+          <td class="col-num">9,442</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a4">FM</div>
+              <div>
+                <a href="#" class="last-title">[FM] Spring sale — 15% off coilovers</a>
+                <div class="last-meta">by <span class="last-by">FlyinMiataRep</span><br>Today, 10:00 AM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Meets & Events -->
+      <table class="cat-table">
+        <tr class="cat-header"><td colspan="5">📅 Meets &amp; Events</td></tr>
+        <tr class="col-headers">
+          <td colspan="2">Forum</td>
+          <td>Threads</td>
+          <td>Posts</td>
+          <td>Last Post</td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Miatas at the Gap</a>
+            <div class="forum-desc">The annual pilgrimage to Deals Gap, Tennessee. April every year.</div>
+          </td>
+          <td class="col-num"><b>1,442</b></td>
+          <td class="col-num">38,118</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar">V8</div>
+              <div>
+                <a href="#" class="last-title">MATG 2012 — registration is OPEN</a>
+                <div class="last-meta">by <span class="last-by">V8Lover_Brad</span><br>Today, 08:17 AM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Regional Meetups</a>
+            <div class="forum-desc">Cars &amp; coffee, canyon runs, club gatherings. Find your locals.</div>
+            <div class="subforums">Sub-forums: <a href="#">West</a>, <a href="#">Midwest</a>, <a href="#">Northeast</a>, <a href="#">South</a></div>
+          </td>
+          <td class="col-num"><b>4,887</b></td>
+          <td class="col-num">71,442</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a5">ZZ</div>
+              <div>
+                <a href="#" class="last-title">SoCal C&amp;C — Saturday 7 AM</a>
+                <div class="last-meta">by <span class="last-by">ZoomZoomKaren</span><br>Yesterday, 11:42 PM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="forum-row">
+          <td class="forum-icon"><span class="icon-folder new"></span></td>
+          <td class="forum-info">
+            <a href="#" class="forum-title">Track Day Coordination</a>
+            <div class="forum-desc">HPDE signups, ride-shares, trailer-share, instructor matching.</div>
+          </td>
+          <td class="col-num"><b>2,118</b></td>
+          <td class="col-num">42,887</td>
+          <td class="col-last">
+            <div class="last-row">
+              <div class="mini-avatar a3">JM</div>
+              <div>
+                <a href="#" class="last-title">VIR Mar 24 — group buy on garage</a>
+                <div class="last-meta">by <span class="last-by">JoshMX5</span><br>Today, 07:55 AM</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Birthdays -->
+      <div class="bday">
+        <span class="icon">🎂</span><b>Today's Birthdays:</b>
+        <a href="#">BoostedNB</a> (38),
+        <a href="#">ZoomZoomKaren</a> (44),
+        <a href="#">MarcoEunos</a> (29) — wish them a happy one!
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-block">
+        <div class="stats-head">MiataOwners.net Statistics</div>
+        <span>Threads: <b>187,432</b></span>
+        <span>Posts: <b>4,221,908</b></span>
+        <span>Members: <b>62,114</b></span>
+        <span>Newest Member: <a href="#"><b>TopdownTim</b></a></span>
+      </div>
+
+      <!-- Legend -->
+      <div class="legend">
+        <span><span class="lg-folder new"></span>New posts since last visit</span>
+        <span><span class="lg-folder"></span>No new posts</span>
+        <span>🔒 Forum is closed for posting</span>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <!-- Skyscraper ad -->
+      <div class="sb-box">
+        <div class="sb-head">Sponsor</div>
+        <div style="padding:4px;">
+          <div class="ad-sky">
+            <div class="lbl">AD</div>
+            <div class="brand">GOODWIN<br>RACING</div>
+            <div class="gw-logo">MX-5</div>
+            <div class="tagline2">Performance Parts<br>for the MX-5 / Miata<br>since 1996</div>
+            <div class="cta">SHOP NOW →</div>
+            <div class="lbl">goodwin-racing.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Online users -->
+      <div class="sb-box">
+        <div class="sb-head">Currently Active Users</div>
+        <div class="sb-body">
+          <div class="online-summary">
+            <b>429</b> users online<br>
+            347 guests &amp; 82 members
+          </div>
+          <div class="online-list">
+            <span class="admin">MazdaMod_Steve</span>,
+            <span class="mod">NBMike_PDX</span>,
+            <span class="mod">MX5Mike</span>,
+            <span class="prem">BoostedBabs</span>,
+            <span class="prem">V8Lover_Brad</span>,
+            <span class="prem">RoadsterDan76</span>,
+            <span class="reg">ClassicRedNA</span>,
+            <span class="reg">TopdownTim</span>,
+            <span class="reg">VTECkiller</span>,
+            <span class="reg">KhanSquared</span>,
+            <span class="reg">NewGuy2012</span>,
+            <span class="reg">JoshMX5</span>,
+            <span class="reg">MarcoEunos</span>,
+            <span class="reg">ZoomZoomKaren</span>,
+            <span class="reg">BoostedNB</span>,
+            <span class="reg">FlyinMiataRep</span>...
+          </div>
+          <div style="margin-top:6px; font-size:10px; color:#777; border-top:1px dotted #ccc; padding-top:4px;">
+            <span class="admin">■</span> Admin
+            <span class="mod">■</span> Mod
+            <span class="prem">■</span> Premium
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="sb-box">
+        <div class="sb-head">Quick Links</div>
+        <div class="sb-body">
+          <a href="#">› Today's Posts</a><br>
+          <a href="#">› New Posts</a><br>
+          <a href="#">› Unanswered Threads</a><br>
+          <a href="#">› Subscribed Threads</a><br>
+          <a href="#">› Private Messages</a><br>
+          <a href="#">› Edit Profile</a><br>
+          <a href="#">› Forum Rules</a>
+        </div>
+      </div>
+
+      <!-- Donation -->
+      <div class="sb-box">
+        <div class="sb-head">Support MO.net</div>
+        <div class="sb-body" style="text-align:center;">
+          <div style="font-size:11px; color:#555;">Annual server drive<br>$1,247 / $2,000</div>
+          <div style="background:#F2F2F2; border:1px solid #B8C4D9; height:10px; margin:6px 0;">
+            <div style="background:linear-gradient(180deg,#FF9933,#FF6600); width:62%; height:100%;"></div>
+          </div>
+          <a href="#" style="display:inline-block; background:#FF6600; color:#fff; padding:4px 10px; font-weight:bold; font-size:11px;">DONATE</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="ft-links">
+      <a href="#">Home</a> ·
+      <a href="#">Forum Rules</a> ·
+      <a href="#">FAQ</a> ·
+      <a href="#">Members List</a> ·
+      <a href="#">Calendar</a> ·
+      <a href="#">Premium Membership</a> ·
+      <a href="#">Contact Admins</a> ·
+      <a href="#">Privacy</a>
+    </div>
+    <div class="copy">
+      © 1999–2012 MiataOwners.net · Powered by community since the dial-up era · All times are GMT-5. Page generated in 0.087 seconds with 14 queries.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

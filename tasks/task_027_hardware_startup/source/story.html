@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — NOVA Field One</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0F0F0F;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #2A2A2A;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.nav-logo span { color: #FF9F0A; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: #CACACA;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover { color: #FFFFFF; }
+.nav-links a.active { color: #FF9F0A; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #888888;
+}
+.nav-price strong { color: #FFFFFF; }
+.ship-date {
+  font-size: 11px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.btn-primary {
+  background: #007AFF;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover { background: #0051D5; transform: translateY(-1px); }
+
+.cart-icon {
+  width: 20px;
+  height: 20px;
+  color: #CACACA;
+  cursor: pointer;
+}
+
+/* MAIN */
+main { padding-top: 64px; }
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.container-wide {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* HERO */
+.story-hero {
+  padding: 140px 32px 80px;
+  text-align: center;
+  border-bottom: 1px solid #2A2A2A;
+}
+.story-hero .kicker {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FF9F0A;
+  font-weight: 600;
+  margin-bottom: 24px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.story-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.story-hero p {
+  font-size: 20px;
+  color: #CACACA;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* FOUNDER LETTER */
+.founder-letter {
+  padding: 120px 32px;
+}
+.letter-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #2A2A2A;
+}
+.founder-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF9F0A, #7A4C00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #0F0F0F;
+  flex-shrink: 0;
+}
+.letter-meta .label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 6px;
+}
+.letter-meta .name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.letter-meta .role {
+  font-size: 14px;
+  color: #888888;
+}
+
+.founder-letter h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.letter-body p {
+  font-size: 17px;
+  color: #CACACA;
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+.letter-body p strong { color: #FFFFFF; font-weight: 600; }
+.letter-body .pullquote {
+  border-left: 3px solid #FF9F0A;
+  padding: 8px 0 8px 24px;
+  margin: 40px 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+.signature {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #2A2A2A;
+}
+.signature .sig-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  font-style: italic;
+  color: #FF9F0A;
+  margin-bottom: 8px;
+}
+.signature .sig-role {
+  font-size: 13px;
+  color: #888888;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* TIMELINE */
+.timeline-section {
+  padding: 120px 32px;
+  background: #0A0A0A;
+  border-top: 1px solid #2A2A2A;
+  border-bottom: 1px solid #2A2A2A;
+}
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FF9F0A;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 16px;
+}
+.section-h {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 64px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #2A2A2A;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px;
+  gap: 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid #2A2A2A;
+  align-items: start;
+}
+.timeline-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #FF9F0A;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.timeline-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.timeline-content p {
+  font-size: 15px;
+  color: #CACACA;
+  line-height: 1.6;
+}
+.timeline-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #888888;
+  text-align: right;
+}
+
+/* WORKSHOP GALLERY */
+.workshop {
+  padding: 120px 32px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  margin-top: 0;
+}
+.photo {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  overflow: hidden;
+  filter: grayscale(1);
+}
+.photo-1 { background: linear-gradient(135deg, #2A2A2A 0%, #444 40%, #1A1A1A 100%); }
+.photo-2 { background: linear-gradient(180deg, #3A3A3A 0%, #1F1F1F 60%, #0F0F0F 100%); }
+.photo-3 { background: radial-gradient(ellipse at 30% 40%, #4A4A4A 0%, #1A1A1A 70%); }
+.photo-4 { background: linear-gradient(45deg, #1F1F1F 0%, #383838 50%, #161616 100%); }
+
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(255,255,255,0.02) 12px, rgba(255,255,255,0.02) 13px);
+  pointer-events: none;
+}
+.photo-caption {
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #CACACA;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 10px;
+  border: 1px solid #2A2A2A;
+}
+.photo-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  opacity: 0.4;
+}
+
+/* TEAM */
+.team-section {
+  padding: 120px 32px;
+  background: #0A0A0A;
+  border-top: 1px solid #2A2A2A;
+  border-bottom: 1px solid #2A2A2A;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.team-member {
+  background: #1C1C1C;
+  border: 1px solid #2A2A2A;
+  padding: 28px;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+.team-member:hover { border-color: #FF9F0A; }
+.member-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0F0F0F;
+  margin-bottom: 20px;
+}
+.m1 { background: linear-gradient(135deg, #FF9F0A, #B36A00); }
+.m2 { background: linear-gradient(135deg, #007AFF, #003D85); }
+.m3 { background: linear-gradient(135deg, #30D158, #1A6F2E); }
+.m4 { background: linear-gradient(135deg, #FF453A, #851C16); color: #FFF; }
+.m5 { background: linear-gradient(135deg, #CACACA, #6A6A6A); }
+.m6 { background: linear-gradient(135deg, #FF9F0A, #FF453A); }
+
+.member-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+.member-role {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FF9F0A;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 16px;
+}
+.member-bio {
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.6;
+}
+
+/* COMMUNITY */
+.community {
+  padding: 120px 32px;
+  text-align: center;
+}
+.counter-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid #2A2A2A;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  background: #1C1C1C;
+}
+.counter {
+  padding: 56px 32px;
+  border-right: 1px solid #2A2A2A;
+}
+.counter:last-child { border-right: none; }
+.counter-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FF9F0A;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.counter-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.referral-note {
+  border: 1px solid #FF9F0A;
+  background: rgba(255,159,10,0.06);
+  padding: 24px 32px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+}
+.referral-note .ref-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FF9F0A;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid #FF9F0A;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+.referral-note .ref-text {
+  font-size: 15px;
+  color: #FFFFFF;
+}
+.referral-note .ref-text strong { color: #FF9F0A; }
+
+/* FOOTER LINKS BLOCK */
+.story-footer-links {
+  background: #1C1C1C;
+  border-top: 1px solid #2A2A2A;
+  padding: 56px 32px;
+}
+.fl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.fl-card {
+  background: #111111;
+  border: 1px solid #2A2A2A;
+  padding: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.fl-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: rgba(255,159,10,0.1);
+  color: #FF9F0A;
+  flex-shrink: 0;
+}
+.fl-card .fl-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 4px;
+}
+.fl-card .fl-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* FOOTER */
+footer {
+  background: #0A0A0A;
+  padding: 64px 32px 32px;
+  border-top: 1px solid #2A2A2A;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #2A2A2A;
+}
+.footer-brand .logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.footer-brand .logo span { color: #FF9F0A; }
+.footer-brand p {
+  font-size: 14px;
+  color: #888888;
+  max-width: 320px;
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  font-size: 14px;
+  color: #CACACA;
+  transition: color 0.15s ease;
+}
+.footer-col ul li a:hover { color: #FF9F0A; }
+.footer-bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #888888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.taiwan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #2A2A2A;
+  padding: 6px 12px;
+  border-radius: 2px;
+}
+.taiwan-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #FF9F0A;
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">NOVA <span>—</span> FIELD ONE</div>
+    <ul class="nav-links">
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Specs</a></li>
+      <li><a href="#">Compare</a></li>
+      <li><a href="#" class="active">Story</a></li>
+      <li><a href="#">Press</a></li>
+    </ul>
+    <div class="nav-right">
+      <div style="display:flex; flex-direction:column; align-items:flex-end;">
+        <div class="nav-price"><strong>$899</strong> <span style="text-decoration:line-through; opacity:0.5;">$1,199</span></div>
+        <div class="ship-date">Ships Feb 2025</div>
+      </div>
+      <button class="btn-primary">Pre-order</button>
+      <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 3h2l2.4 12.5a2 2 0 0 0 2 1.5h9.7a2 2 0 0 0 2-1.6L23 8H6"/>
+        <circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/>
+      </svg>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="story-hero">
+    <div class="kicker">// Our Story — Est. 2022 Taipei</div>
+    <h1>We built this in a garage<br>because no one else would.</h1>
+    <p>From a sensor board prototype in a Taipei garage to 4,812 backers in 38 countries. This is how Field One happened.</p>
+  </section>
+
+  <!-- FOUNDER LETTER -->
+  <section class="founder-letter">
+    <div class="container">
+      <div class="letter-header">
+        <div class="founder-avatar">MC</div>
+        <div class="letter-meta">
+          <div class="label">A letter from the founder</div>
+          <div class="name">Mei Lin Chen</div>
+          <div class="role">CEO & Co-founder · Ex-RED Digital Cinema</div>
+        </div>
+      </div>
+
+      <h2>Why $4K should not be the floor for cinema.</h2>
+
+      <div class="letter-body">
+        <p>I spent six years at RED watching brilliant filmmakers walk into our showroom, hold a camera that could change their work, then walk back out because the entry point started at <strong>$4,995 — body only</strong>. That number is a moat. It's not engineering. It's not silicon cost. It's a moat.</p>
+
+        <p>In 2021 I started sketching a different kind of camera on weekends. Something a working DP could afford on a single shoot. Something a film student could pre-order without taking on debt. Open-gate Super 35. Internal RAW. A real cinema mount. The kind of feature list that engineers at every major brand have whiteboarded a hundred times and been told "no, that's a $9,000 camera."</p>
+
+        <div class="pullquote">"The hardest part of building Field One was not the sensor. It was convincing twelve suppliers that yes, we really did mean $899."</div>
+
+        <p>We started in a garage in Wenshan District in March 2022. The first sensor board didn't even hit a frame buffer — it just smoked. The second one did 2K and crashed every 90 seconds. By prototype seven we had clean 6K 30p. By prototype eleven we had a body you could hold.</p>
+
+        <p>Then we did the thing every hardware founder is warned against: we launched on Kickstarter without a brand, without press, without a partner. We hit our $400K goal in 38 minutes. We hit $1.6M in 11 days. <strong>4,812 people pre-ordered a camera from a company that had never shipped a camera.</strong></p>
+
+        <p>That trust is the only reason this product exists. We owe those backers — and now you — a camera that is honest about what it is and what it isn't. No marketing-speak in our spec sheet. No asterisks on our frame rates. Every number on this site is measured, not estimated.</p>
+
+        <p>Thank you for reading this far. Now go shoot something.</p>
+
+        <div class="signature">
+          <div class="sig-name">Mei Lin Chen</div>
+          <div class="sig-role">CEO, NOVA · Taipei, October 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="container-wide">
+      <div class="section-label">// Journey — Prototype to Product</div>
+      <h2 class="section-h">Two and a half years.<br>Eleven prototypes.</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Mar 2022</div>
+          <div class="timeline-content">
+            <h3>First sensor board in a Taipei garage</h3>
+            <p>Prototype 01 boots, captures one frame at 1080p, then the regulator dies. Mei Lin and Daniel celebrate with cold dumplings. Total budget spent: NT$184,000.</p>
+          </div>
+          <div class="timeline-marker">P01</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Nov 2022</div>
+          <div class="timeline-content">
+            <h3>NovaCore X2 silicon taped out</h3>
+            <p>Custom image processor design returns from fab in Hsinchu. Yuki ports the firmware over a 72-hour bench session. First clean 4K capture follows two weeks later.</p>
+          </div>
+          <div class="timeline-marker">P04</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2023</div>
+          <div class="timeline-content">
+            <h3>EVT body — the chassis becomes real</h3>
+            <p>CNC machining of the magnesium top plate begins with a partner shop in Taoyuan. The camera weighs 638g. We commit to 612g for shipping units.</p>
+          </div>
+          <div class="timeline-marker">P07</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Sep 2023</div>
+          <div class="timeline-content">
+            <h3>Kickstarter hits $1.6M in 11 days</h3>
+            <p>Campaign goes live with one product video shot on prototype 09. Funded in 38 minutes. 412% by closing. 4,812 backers across 38 countries.</p>
+          </div>
+          <div class="timeline-marker">KS</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2024</div>
+          <div class="timeline-content">
+            <h3>PVT — pilot production runs in Hsinchu</h3>
+            <p>200 units assembled on the SMT line. Calibration bench commissioned. We discover and fix a sensor stitching bug at iso 1600 that delays shipping by six weeks. Worth it.</p>
+          </div>
+          <div class="timeline-marker">P10</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Aug 2024</div>
+          <div class="timeline-content">
+            <h3>DVT units ship to 40 reviewers worldwide</h3>
+            <p>Embargo set for January 15, 2025. Production tooling locked. Field One enters mass production prep. Backer #001 unit is engraved and set aside.</p>
+          </div>
+          <div class="timeline-marker">P11</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOP GALLERY -->
+  <section class="workshop">
+    <div class="container-wide">
+      <div class="section-label">// Workshop — Hsinchu Science Park</div>
+      <h2 class="section-h">Where it actually gets built.</h2>
+
+      <div class="gallery-grid">
+        <div class="photo photo-1">
+          <span class="photo-icon">⚙</span>
+          <span class="photo-caption">01 · SMT Line — Hsinchu</span>
+        </div>
+        <div class="photo photo-2">
+          <span class="photo-icon">▣</span>
+          <span class="photo-caption">02 · CNC Machining — Top Plate</span>
+        </div>
+        <div class="photo photo-3">
+          <span class="photo-icon">◉</span>
+          <span class="photo-caption">03 · Sensor Calibration Bench</span>
+        </div>
+        <div class="photo photo-4">
+          <span class="photo-icon">◧</span>
+          <span class="photo-caption">04 · Team Standup — Building B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="container-wide">
+      <div class="section-label">// The Team — 14 people, one camera</div>
+      <h2 class="section-h">Engineers who left bigger jobs<br>to build something smaller.</h2>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-photo m1">MC</div>
+          <div class="member-name">Mei Lin Chen</div>
+          <div class="member-role">CEO & Co-founder</div>
+          <p class="member-bio">Six years at RED Digital Cinema as a senior sensor engineer. Left in 2021 to start NOVA. Holds 4 patents in image-pipeline design.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo m2">DO</div>
+          <div class="member-name">Daniel Okafor</div>
+          <div class="member-role">Head of Optics</div>
+          <p class="member-bio">Former optics lead at ARRI's prototype lab in Munich. Designed the interchangeable mount system that swaps in under 8 seconds.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo m3">YT</div>
+          <div class="member-name">Yuki Tanaka</div>
+          <div class="member-role">Firmware Lead</div>
+          <p class="member-bio">Wrote firmware for three generations of Panasonic Lumix bodies. Built NovaOS from scratch in 14 months on a borrowed RISC-V dev kit.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo m4">RS</div>
+          <div class="member-name">Rosa Salinas</div>
+          <div class="member-role">Industrial Design</div>
+          <p class="member-bio">Previously product designer at Teenage Engineering. Responsible for the matte-black body, the amber record button, and the click on the mode dial.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo m5">KW</div>
+          <div class="member-name">Kai Weintraub</div>
+          <div class="member-role">Manufacturing Ops</div>
+          <p class="member-bio">Twelve years running pilot lines in Taiwan and Vietnam. Negotiated the Hsinchu SMT partnership that lets us ship at $899.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-photo m6">AP</div>
+          <div class="member-name">Amara Patel</div>
+          <div class="member-role">Community & Backers</div>
+          <p class="member-bio">Runs the Field One Discord, the backer update cadence, and the early reviewer program. Has personally replied to over 9,000 emails.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="community">
+    <div class="container-wide">
+      <div class="section-label">// Community — Built with backers, not for them</div>
+      <h2 class="section-h">The people who paid for this<br>before it existed.</h2>
+
+      <div class="counter-strip">
+        <div class="counter">
+          <div class="counter-num">4,812</div>
+          <div class="counter-label">Kickstarter Backers</div>
+        </div>
+        <div class="counter">
+          <div class="counter-num">38</div>
+          <div class="counter-label">Countries Shipped To</div>
+        </div>
+        <div class="counter">
+          <div class="counter-num">612</div>
+          <div class="counter-label">In the Field One Discord</div>
+        </div>
+      </div>
+
+      <div class="referral-note">
+        <span class="ref-tag">Referral Program</span>
+        <span class="ref-text"><strong>$50 off</strong> per friend who pre-orders. They get $50 off too. No cap, no expiry.</span>
+        <button class="btn-primary" style="background:transparent; border:1px solid #FF9F0A; color:#FF9F0A;">Get your link →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER LINKS BLOCK -->
+  <section class="story-footer-links">
+    <div class="fl-grid">
+      <a class="fl-card" href="#">
+        <div class="fl-icon">📦</div>
+        <div>
+          <div class="fl-label">For Press / Reviewers</div>
+          <div class="fl-title">Press Kit — ZIP, 240MB</div>
+        </div>
+      </a>
+      <a class="fl-card" href="#">
+        <div class="fl-icon">↺</div>
+        <div>
+          <div class="fl-label">No-questions-asked policy</div>
+          <div class="fl-title">30-Day Refund Policy</div>
+        </div>
+      </a>
+      <a class="fl-card" href="#">
+        <div class="fl-icon">🇹🇼</div>
+        <div>
+          <div class="fl-label">Designed & Assembled</div>
+          <div class="fl-title">Made in Taiwan — Hsinchu</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">NOVA <span>—</span> FIELD ONE</div>
+        <p>The pocket cinema camera, reimagined for creators who shoot first. Pre-order open until November 30, 2024.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Technical Specs</a></li>
+          <li><a href="#">Compare</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Discord</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 NOVA Imaging Inc. · All rights reserved</div>
+      <div class="taiwan-badge">Made in Taiwan</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

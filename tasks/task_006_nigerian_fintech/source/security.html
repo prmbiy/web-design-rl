@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Security & Trust — KoboPay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #1A1A1A;
+  background: #FFFFFF;
+  line-height: 1.55;
+}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #FFFFFF;
+  height: 72px;
+  border-bottom: 1px solid #E4EAE7;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-size: 22px; font-weight: 800; color: #00C853;
+  display: flex; align-items: center; gap: 8px;
+}
+.logo-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, #00C853, #AEEA00);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: white; font-weight: 800; font-size: 16px;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 15px; font-weight: 500; color: #1A1A1A;
+}
+.nav-links a.active { color: #00C853; font-weight: 700; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.lang-toggle {
+  font-size: 12px; font-weight: 600; color: #5A6B66;
+  border: 1px solid #E4EAE7; padding: 6px 10px; border-radius: 8px;
+}
+.cta-btn {
+  background: #AEEA00; color: #1A1A1A;
+  padding: 12px 22px; border-radius: 12px;
+  font-weight: 700; font-size: 14px;
+  border: none; cursor: pointer;
+}
+.cta-btn:hover { background: #9bd400; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 100%);
+  color: white;
+  padding: 100px 24px 120px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(174,234,0,0.15), transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -150px; left: -100px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,200,83,0.2), transparent 70%);
+}
+.hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; }
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 16px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 56px; font-weight: 800; line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1.5px;
+}
+.hero h1 span { color: #AEEA00; }
+.hero-sub {
+  font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.85);
+  margin-bottom: 32px; max-width: 540px;
+}
+.hero-badges { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 14px; border-radius: 10px;
+  font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #AEEA00; }
+
+.shield-wrap {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.shield {
+  width: 320px; height: 360px;
+  background: linear-gradient(160deg, #00C853 0%, #00a544 60%, #007a32 100%);
+  clip-path: polygon(50% 0%, 100% 18%, 100% 60%, 50% 100%, 0 60%, 0 18%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+.shield::before {
+  content: ''; position: absolute; inset: 12px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.1), transparent);
+  clip-path: polygon(50% 0%, 100% 18%, 100% 60%, 50% 100%, 0 60%, 0 18%);
+}
+.shield-check {
+  font-size: 130px; color: white; font-weight: 800;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+.shield-orbit {
+  position: absolute; width: 460px; height: 460px;
+  border: 2px dashed rgba(174,234,0,0.3); border-radius: 50%;
+}
+.shield-orbit::before, .shield-orbit::after {
+  content: '🔒'; position: absolute;
+  background: white; width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+.shield-orbit::before { top: 10%; right: -10px; }
+.shield-orbit::after { content: '🛡️'; bottom: 15%; left: -10px; }
+
+/* TRUST STRIP */
+.trust-strip {
+  background: #EAF8EF;
+  padding: 24px;
+  border-bottom: 1px solid #E4EAE7;
+}
+.trust-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px;
+  align-items: center;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px;
+}
+.trust-item .icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: white; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #00C853;
+}
+.trust-item strong { display: block; font-size: 14px; font-weight: 700; }
+.trust-item small { font-size: 11px; color: #5A6B66; font-family: 'JetBrains Mono', monospace; }
+
+/* SECTIONS */
+section.block { padding: 80px 24px; }
+section.alt { background: #F5F8F6; }
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.section-tag {
+  display: inline-block; background: #EAF8EF; color: #00C853;
+  font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 100px;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-head h2 {
+  font-size: 36px; font-weight: 800; letter-spacing: -0.8px;
+  margin-bottom: 12px;
+}
+.section-head p { font-size: 17px; color: #5A6B66; }
+
+/* SECURITY FEATURES 4-UP */
+.sec-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  max-width: 1200px; margin: 0 auto;
+}
+.sec-card {
+  background: white; border: 1px solid #E4EAE7;
+  border-radius: 12px; padding: 28px;
+  transition: all .2s;
+  position: relative;
+}
+.sec-card:hover { border-color: #00C853; transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,200,83,0.08); }
+.sec-icon {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: linear-gradient(135deg, #00C853, #AEEA00);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 20px; color: white;
+}
+.sec-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.sec-card p { font-size: 14px; color: #5A6B66; line-height: 1.5; }
+.sec-card .tag-label {
+  position: absolute; top: 16px; right: 16px;
+  font-size: 10px; font-weight: 700; color: #00C853;
+  background: #EAF8EF; padding: 4px 8px; border-radius: 6px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* COMPLIANCE GRID */
+.compliance-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+  max-width: 1200px; margin: 0 auto 32px;
+}
+.cert-card {
+  background: white; border: 2px solid #E4EAE7;
+  border-radius: 12px; padding: 24px 20px;
+  text-align: center;
+}
+.cert-seal {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #4A148C, #7B1FA2);
+  color: #AEEA00; font-weight: 800; font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  border: 3px solid #AEEA00;
+  letter-spacing: 1px;
+}
+.cert-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.cert-card p { font-size: 11px; color: #5A6B66; font-family: 'JetBrains Mono', monospace; word-break: break-all; }
+.cert-card .verified {
+  margin-top: 12px; display: inline-block;
+  font-size: 10px; font-weight: 700;
+  color: #00C853; background: #EAF8EF;
+  padding: 4px 8px; border-radius: 6px;
+}
+
+.cbn-banner {
+  max-width: 1200px; margin: 32px auto 0;
+  background: linear-gradient(135deg, #4A148C, #7B1FA2);
+  color: white; padding: 28px 36px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.cbn-banner .text strong { font-size: 18px; display: block; margin-bottom: 6px; }
+.cbn-banner .text p { font-size: 14px; color: rgba(255,255,255,0.85); }
+.cbn-license-no {
+  background: rgba(174,234,0,0.15); border: 1px solid #AEEA00;
+  padding: 12px 18px; border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace; font-weight: 600;
+  color: #AEEA00; font-size: 14px;
+  white-space: nowrap;
+}
+
+/* PROTECTION PLEDGE STEPS */
+.steps-wrap { max-width: 1200px; margin: 0 auto; }
+.steps {
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 16px; align-items: stretch;
+}
+.step {
+  background: white; border: 1px solid #E4EAE7;
+  border-radius: 12px; padding: 32px 24px;
+  position: relative;
+}
+.step-num {
+  position: absolute; top: -16px; left: 24px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #00C853; color: white;
+  font-weight: 800; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  border: 4px solid #F5F8F6;
+}
+.step-icon { font-size: 32px; margin-bottom: 16px; }
+.step h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.step p { font-size: 14px; color: #5A6B66; }
+.step-arrow {
+  display: flex; align-items: center; justify-content: center;
+  color: #00C853; font-size: 24px; font-weight: 800;
+}
+.pledge-note {
+  margin-top: 32px; padding: 20px;
+  background: #EAF8EF; border-left: 4px solid #00C853;
+  border-radius: 8px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  font-size: 14px;
+}
+.pledge-note strong { color: #00C853; }
+
+/* FAQ ACCORDION */
+.faq-wrap { max-width: 800px; margin: 0 auto; }
+.faq-item {
+  background: white; border: 1px solid #E4EAE7;
+  border-radius: 12px; margin-bottom: 12px;
+  padding: 20px 24px;
+}
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 16px; font-weight: 700; cursor: pointer;
+}
+.faq-q .plus {
+  color: #00C853; font-size: 22px; font-weight: 400;
+}
+.faq-a {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid #E4EAE7;
+  font-size: 14px; color: #5A6B66; line-height: 1.6;
+}
+.faq-item:nth-child(n+3) .faq-a { display: none; }
+.faq-item:nth-child(n+3) .faq-q .plus::after { content: ''; }
+
+/* WHATSAPP CARD */
+.whatsapp-section {
+  max-width: 1200px; margin: 0 auto;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 16px; padding: 48px;
+  color: white; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  align-items: center;
+}
+.whatsapp-section h3 { font-size: 32px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+.whatsapp-section p { font-size: 16px; opacity: 0.9; margin-bottom: 20px; line-height: 1.5; }
+.whatsapp-number {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: white; color: #128C7E;
+  padding: 14px 22px; border-radius: 100px;
+  font-weight: 800; font-size: 18px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.whatsapp-meta {
+  display: flex; gap: 24px; margin-top: 20px;
+  font-size: 13px;
+}
+.whatsapp-meta div strong { display: block; font-size: 24px; font-weight: 800; }
+.wa-visual {
+  display: flex; justify-content: center; align-items: center;
+  position: relative;
+}
+.wa-bubble {
+  background: white; color: #1A1A1A;
+  border-radius: 16px 16px 16px 4px;
+  padding: 16px 20px; max-width: 280px;
+  font-size: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  margin-bottom: 8px;
+}
+.wa-bubble.user {
+  background: #dcf8c6; align-self: flex-end;
+  border-radius: 16px 16px 4px 16px;
+  margin-left: 60px;
+}
+.wa-bubble small { display: block; font-size: 11px; color: #5A6B66; margin-top: 4px; }
+.wa-chat { display: flex; flex-direction: column; }
+
+/* FOOTER */
+footer {
+  background: #0B1F14; color: rgba(255,255,255,0.7);
+  padding: 64px 24px 32px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px;
+}
+.footer-brand .logo { color: #AEEA00; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.footer-col h5 {
+  color: white; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+}
+.footer-col a {
+  display: block; font-size: 14px; margin-bottom: 10px;
+  color: rgba(255,255,255,0.65);
+}
+.footer-col a:hover { color: #AEEA00; }
+.footer-bottom {
+  max-width: 1200px; margin: 48px auto 0;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.5); flex-wrap: wrap; gap: 16px;
+}
+.footer-cert-strip {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.footer-cert-strip span {
+  background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 90;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25D366; color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-mark">₦</span> KoboPay</a>
+    <div class="nav-links">
+      <a href="#">Personal</a>
+      <a href="#">Business</a>
+      <a href="#">Agents</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="lang-toggle">EN ▾</span>
+      <button class="cta-btn">Open Account Free</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">🛡️ Security & Trust</span>
+      <h1>Your Kobo is <span>Safe</span> With Us.</h1>
+      <p class="hero-sub">Bank-grade encryption, NDIC insurance, and 24/7 fraud monitoring — regulated by the Central Bank of Nigeria. 4.2 million Nigerians trust us with ₦18.6 billion every month.</p>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="dot"></span> 256-bit AES Encryption</div>
+        <div class="hero-badge"><span class="dot"></span> Zero Fraud Liability</div>
+        <div class="hero-badge"><span class="dot"></span> 24/7 Monitoring</div>
+      </div>
+    </div>
+    <div class="shield-wrap">
+      <div class="shield-orbit"></div>
+      <div class="shield">
+        <div class="shield-check">✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <div class="icon">🏛️</div>
+      <div><strong>CBN Licensed</strong><small>MFB/2021/0847</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">🔐</div>
+      <div><strong>NDIC Insured</strong><small>Up to ₦500,000</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">💳</div>
+      <div><strong>PCI-DSS Level 1</strong><small>Certified 2024</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">📜</div>
+      <div><strong>ISO 27001:2013</strong><small>Info. Security</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">🇳🇬</div>
+      <div><strong>NDPR Compliant</strong><small>Data Protection</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECURITY FEATURES -->
+<section class="block">
+  <div class="section-head">
+    <span class="section-tag">Security Features</span>
+    <h2>Built like Fort Knox. Easy like *737#.</h2>
+    <p>Four layers of protection working silently to keep your money where it belongs — with you.</p>
+  </div>
+  <div class="sec-grid">
+    <div class="sec-card">
+      <span class="tag-label">Biometric</span>
+      <div class="sec-icon">👆</div>
+      <h3>Fingerprint & Face ID</h3>
+      <p>Log in instantly using your phone's biometric sensors. No passwords to remember, nothing to steal.</p>
+    </div>
+    <div class="sec-card">
+      <span class="tag-label">PIN</span>
+      <div class="sec-icon">🔢</div>
+      <h3>4-Digit Transaction PIN</h3>
+      <p>Every transaction requires a unique PIN. Auto-rotation prompts every 90 days for extra safety.</p>
+    </div>
+    <div class="sec-card">
+      <span class="tag-label">24/7</span>
+      <div class="sec-icon">🔔</div>
+      <h3>Real-Time Fraud Alerts</h3>
+      <p>SMS + push notifications for every kobo that moves. Suspicious activity? We freeze and call you.</p>
+    </div>
+    <div class="sec-card">
+      <span class="tag-label">Instant</span>
+      <div class="sec-icon">❄️</div>
+      <h3>One-Tap Card Freeze</h3>
+      <p>Lost your card in Yaba market? Freeze it from the app in one tap. Unfreeze when you find it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="block alt">
+  <div class="section-head">
+    <span class="section-tag">Regulatory Compliance</span>
+    <h2>Licensed, Audited & Insured.</h2>
+    <p>We are regulated by the highest authorities in Nigerian banking. Every license number below is verifiable.</p>
+  </div>
+  <div class="compliance-grid">
+    <div class="cert-card">
+      <div class="cert-seal">CBN</div>
+      <h4>CBN MFB License</h4>
+      <p>MFB/2021/0847</p>
+      <span class="verified">✓ ACTIVE</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-seal">NDIC</div>
+      <h4>NDIC Member</h4>
+      <p>#DIB-2021-119</p>
+      <span class="verified">✓ INSURED</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-seal">PCI</div>
+      <h4>PCI-DSS Level 1</h4>
+      <p>Cert: PCI-2024-NG-0211</p>
+      <span class="verified">✓ CERTIFIED</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-seal">ISO</div>
+      <h4>ISO 27001:2013</h4>
+      <p>Cert: ISO-NG-44982</p>
+      <span class="verified">✓ AUDITED</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-seal">NDPR</div>
+      <h4>NDPR Compliant</h4>
+      <p>NITDA/NDPR/2023/2401</p>
+      <span class="verified">✓ COMPLIANT</span>
+    </div>
+  </div>
+
+  <div class="cbn-banner">
+    <div class="text">
+      <strong>Verify Our CBN License</strong>
+      <p>Visit cbn.gov.ng/supervision and search license number below — or call CBN consumer helpline +234 700 225 5226.</p>
+    </div>
+    <div class="cbn-license-no">CBN/MFB/2021/0847</div>
+  </div>
+</section>
+
+<!-- HOW WE PROTECT YOUR MONEY -->
+<section class="block">
+  <div class="section-head">
+    <span class="section-tag">Protection Pledge</span>
+    <h2>How We Protect Your Money.</h2>
+    <p>Your deposits never sit on KoboPay's books. Here's the three-step trust chain that keeps your naira safe.</p>
+  </div>
+  <div class="steps-wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">💰</div>
+        <h4>You Deposit</h4>
+        <p>Funds enter KoboPay via secure, encrypted channels — bank transfer, card top-up, or USSD.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">🏦</div>
+        <h4>Held in Trust</h4>
+        <p>Customer funds are held in segregated trust accounts with Access Bank PLC — completely separate from operational money.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">🛡️</div>
+        <h4>NDIC Insured</h4>
+        <p>Every account is insured by the Nigeria Deposit Insurance Corporation up to ₦500,000 per depositor.</p>
+      </div>
+    </div>
+    <div class="pledge-note">
+      <strong>Our Promise:</strong> If KoboPay were to fail tomorrow (which we won't, ever), every kobo in your account is recoverable through our trust partner Access Bank and the NDIC scheme. You are protected by law — Banks and Other Financial Institutions Act (BOFIA) 2020.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block alt">
+  <div class="section-head">
+    <span class="section-tag">FAQ</span>
+    <h2>Common Security Questions.</h2>
+    <p>Real answers from our security team. No marketing fluff.</p>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <div class="faq-q">Is my money safe if KoboPay goes out of business? <span class="plus">−</span></div>
+      <div class="faq-a">Yes. Customer funds are not held by KoboPay — they sit in segregated trust accounts at Access Bank PLC. Additionally, every account is insured up to ₦500,000 by the NDIC. Even in the worst case, your money is recoverable.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What happens if someone steals my phone? <span class="plus">−</span></div>
+      <div class="faq-a">Without your biometric AND your 4-digit transaction PIN, no one can transfer money. You can also call our 24/7 line or WhatsApp +234 901 KOBO PAY to freeze your account in under 90 seconds.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why does KoboPay need my BVN? <span class="plus">+</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I verify your CBN license is real? <span class="plus">+</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is your refund policy for fraudulent transactions? <span class="plus">+</span></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does KoboPay share my data with third parties? <span class="plus">+</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP SUPPORT -->
+<section class="block">
+  <div class="whatsapp-section">
+    <div>
+      <h3>💬 Talk to a Human. Right Now.</h3>
+      <p>Our security team is on WhatsApp 24/7. No bots, no IVR queues, no "press 1 for English." A real Nigerian person answers in 90 seconds, on average.</p>
+      <div class="whatsapp-number">
+        <span>📞</span> +234 901 KOBO PAY
+      </div>
+      <div class="whatsapp-meta">
+        <div><strong>90s</strong>Avg. response</div>
+        <div><strong>24/7</strong>Always open</div>
+        <div><strong>4.9★</strong>Support rating</div>
+      </div>
+    </div>
+    <div class="wa-visual">
+      <div class="wa-chat">
+        <div class="wa-bubble">Hi! I see a transaction I don't recognize 😟<small>You · 2:14 PM</small></div>
+        <div class="wa-bubble user">No wahala. I'm Tunde from KoboPay Security. I've already frozen the card. Refund initiated. Receipt incoming 🛡️<small>KoboPay · 2:15 PM ✓✓</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-mark">₦</span> KoboPay</div>
+      <p>Bank Smart. Spend Free. Grow Naira. Nigeria's free digital bank, regulated by the Central Bank of Nigeria.</p>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px;">USSD: *737*KOBO#</p>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <a href="#">Personal</a>
+      <a href="#">Business</a>
+      <a href="#">Agents</a>
+      <a href="#">KoboSave</a>
+      <a href="#">KoboInvest</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#">About Us</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Press</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">NDPR Notice</a>
+      <a href="#">Complaints</a>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <a href="#">Help Centre</a>
+      <a href="#">WhatsApp Us</a>
+      <a href="#">Report Fraud</a>
+      <a href="#">Security Hub</a>
+      <a href="#">Status Page</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 KoboPay Microfinance Bank Ltd. All rights reserved. Plot 14, Admiralty Way, Lekki Phase 1, Lagos.</div>
+    <div class="footer-cert-strip">
+      <span>CBN/MFB/2021/0847</span>
+      <span>NDIC #DIB-2021-119</span>
+      <span>PCI-DSS L1</span>
+      <span>ISO 27001</span>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-float">💬</div>
+
+</body>
+</html>

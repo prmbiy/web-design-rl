@@ -1,0 +1,180 @@
+{
+  "brand_name": "KoboPay",
+  "tagline": "Bank Smart. Spend Free. Grow Naira.",
+  "primary_color_name": "Naija Green",
+  "pages": {
+    "home": {
+      "title": "KoboPay — Nigeria's Free Digital Bank",
+      "nav_items": [
+        "Personal",
+        "Business",
+        "Agents",
+        "About",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Send Money Free. Open Account in 2 Minutes.",
+          "subheadline": "Join 4.2 million Nigerians banking without queues, hidden fees, or wahala. Dial *737*KOBO# or download the app."
+        },
+        {
+          "name": "trust_badge_strip",
+          "description": "Horizontal strip with three certification badges: CBN License No. MFB/2021/0847, NDIC Deposit Insurance up to ₦500,000, and PCI-DSS Level 1 Certified."
+        },
+        {
+          "name": "user_count_stat",
+          "description": "Giant 72px number '4,287,193' with label 'Nigerians trust KoboPay' and sub-stat '₦18.6 billion moved last month'."
+        },
+        {
+          "name": "feature_highlights",
+          "description": "Three-column grid: Free Transfers to Any Bank (zero ₦ icon), Instant Account via BVN (2-minute clock), USSD Banking on *737*KOBO# (feature phone icon)."
+        },
+        {
+          "name": "ussd_callout",
+          "description": "Bold purple banner with the USSD shortcode '*737*KOBO#' and three-line instructions: Dial, Enter PIN, Bank Anywhere — even without internet."
+        },
+        {
+          "name": "testimonial_strip",
+          "description": "Three user quotes with names and locations: Chiamaka O. (Lagos hairdresser), Musa I. (Kano POS agent), Tunde A. (Ibadan student) praising fast transfers and zero fees."
+        },
+        {
+          "name": "partner_logos",
+          "description": "Greyscale logo row featuring GTBank, Access Bank, MTN, Airtel, Flutterwave, and Interswitch as settlement partners."
+        },
+        {
+          "name": "app_download",
+          "description": "Phone mockup beside Google Play and App Store badges plus QR code; sub-label 'Also available on AppGallery'."
+        }
+      ]
+    },
+    "personal": {
+      "title": "Personal Banking",
+      "nav_items": [
+        "Personal",
+        "Business",
+        "Agents",
+        "About",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Your Money. Your Rules. Zero Charges.",
+          "subheadline": "Virtual dollar cards, savings goals up to 13% p.a., and instant airtime — all in one green app."
+        },
+        {
+          "name": "feature_grid",
+          "description": "Six product tiles: Virtual Naira/USD Card, KoboSave Goals (13% APY), Airtime & Data (2% cashback), Bill Payments (DSTV, IKEDC, LAWMA), KoboInvest Treasury Bills, Diaspora Remittance from UK/US."
+        },
+        {
+          "name": "comparison_table",
+          "description": "Side-by-side table comparing KoboPay vs Traditional Bank on transfer fees (₦0 vs ₦52.50), account opening time (2 min vs 3 days), card maintenance (Free vs ₦1,200/yr), and SMS alerts (Free vs ₦4)."
+        },
+        {
+          "name": "diaspora_section",
+          "description": "Remittance feature showing GBP/USD/EUR to NGN rates with promise 'Family receives in 60 seconds' and partner badge for Wise and Sendwave."
+        },
+        {
+          "name": "cta",
+          "description": "Yellow-green button 'Open Account Free' with sub-text 'BVN + selfie required, no paperwork'."
+        }
+      ]
+    },
+    "business": {
+      "title": "Business Accounts",
+      "nav_items": [
+        "Personal",
+        "Business",
+        "Agents",
+        "About",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Banking Built for Naija SMEs.",
+          "subheadline": "From mama-put to manufacturing — manage payroll, invoices and POS in one dashboard."
+        },
+        {
+          "name": "feature_grid",
+          "description": "Six SME features: Multi-User Roles, Bulk Payments (up to 5,000 recipients), KoboPayroll with PAYE auto-deduction, Invoice Generator, POS Terminal Rental ₦15,000, Working Capital Loans up to ₦10M."
+        },
+        {
+          "name": "pricing_table",
+          "description": "Three tiers: Starter (Free, sole traders), Growth (₦2,500/mo, up to 10 staff), Enterprise (₦15,000/mo, unlimited staff + dedicated relationship manager)."
+        },
+        {
+          "name": "case_study_strip",
+          "description": "Three logos with revenue uplift stats: Jara Foods (+38% collections), Ankara Republic (+₦12M monthly), Lekki Auto Parts (saved 22 hrs/week)."
+        }
+      ]
+    },
+    "agents": {
+      "title": "Agent Banking",
+      "nav_items": [
+        "Personal",
+        "Business",
+        "Agents",
+        "About",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Earn up to ₦250,000 Monthly as a KoboAgent.",
+          "subheadline": "Join 87,000+ POS agents across 36 states. Free terminal after ₦500k in transactions."
+        },
+        {
+          "name": "commission_table",
+          "description": "Transaction-tier table: Cash withdrawal ₦1,000–5,000 earns ₦40, ₦5,001–20,000 earns ₦80, deposits earn flat ₦25, bill payments earn 0.5%."
+        },
+        {
+          "name": "territory_map",
+          "description": "Nigeria map shaded by agent density per state with hotspots in Lagos (12,400), Kano (6,800), and Rivers (4,200)."
+        },
+        {
+          "name": "requirements",
+          "description": "Checklist: Valid NIN, shop with signage, ₦50,000 float deposit, guarantor with active bank account, LGA registration."
+        },
+        {
+          "name": "success_stories",
+          "description": "Two profile cards: Aisha from Onitsha Main Market (₦210k/month) and Emeka from Aba (expanded to 4 outlets in 8 months)."
+        }
+      ]
+    },
+    "security": {
+      "title": "Security & Trust",
+      "nav_items": [
+        "Personal",
+        "Business",
+        "Agents",
+        "About",
+        "Blog"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Your Kobo is Safe With Us.",
+          "subheadline": "Bank-grade encryption, NDIC insurance, and 24/7 fraud monitoring — regulated by the CBN."
+        },
+        {
+          "name": "security_features",
+          "description": "Four-icon grid: Fingerprint/Face ID login, 4-digit transaction PIN with rotation, Real-time SMS+push fraud alerts, Card freeze in one tap."
+        },
+        {
+          "name": "compliance_grid",
+          "description": "Certification cards listing CBN MFB License MFB/2021/0847, NDIC Member #DIB-2021-119, PCI-DSS Level 1, ISO 27001:2013, and NDPR Compliant."
+        },
+        {
+          "name": "protection_pledge",
+          "description": "Three-step explainer of how customer funds are held in trust with Access Bank and insured by NDIC up to ₦500,000 per account."
+        },
+        {
+          "name": "whatsapp_support",
+          "description": "Green WhatsApp card with number +234 901 KOBO PAY and promise of average 90-second response time, 24/7."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexor — Ship faster with feature flags</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #0F1117;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #252836;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4F6BFF, #A78BFA);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  margin: 0 auto;
+}
+.nav-links a {
+  color: #94A3B8;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #FFFFFF; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1E293B;
+  border: 1px solid #252836;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #94A3B8;
+}
+.gh-badge strong { color: #FFFFFF; font-weight: 600; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-ghost {
+  background: transparent;
+  color: #FFFFFF;
+}
+.btn-ghost:hover { background: #171923; }
+.btn-primary {
+  background: linear-gradient(135deg, #4F6BFF, #6B7DFF);
+  color: #FFFFFF;
+}
+.btn-primary:hover { box-shadow: 0 8px 24px rgba(79,107,255,0.4); transform: translateY(-1px); }
+.btn-lg { padding: 14px 24px; font-size: 15px; }
+.btn-outline {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid #252836;
+}
+.btn-outline:hover { border-color: #4F6BFF; }
+
+/* HERO */
+.hero {
+  background: radial-gradient(ellipse at top, #1A1D2E 0%, #0F1117 60%);
+  padding: 120px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(79,107,255,0.15), transparent 70%);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  animation: fade_in_hero 0.8s ease-out forwards;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1E293B;
+  border: 1px solid #252836;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #94A3B8;
+  margin-bottom: 28px;
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+}
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 50%, #4F6BFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 19px;
+  color: #94A3B8;
+  max-width: 640px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@keyframes fade_in_hero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SOCIAL PROOF */
+.social-proof {
+  padding: 60px 24px 40px;
+  text-align: center;
+  border-bottom: 1px solid #252836;
+}
+.social-proof-label {
+  font-size: 13px;
+  color: #94A3B8;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.logos-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+.logo-item {
+  font-size: 18px;
+  font-weight: 700;
+  color: #94A3B8;
+  letter-spacing: -0.01em;
+}
+
+/* SECTIONS */
+.section {
+  padding: 96px 24px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-eyebrow {
+  font-size: 13px;
+  color: #4F6BFF;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.section-sub {
+  font-size: 18px;
+  color: #94A3B8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FEATURE GRID */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.feature-card {
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  padding: 32px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: #4F6BFF;
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+.feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(79,107,255,0.15), rgba(167,139,250,0.15));
+  border: 1px solid #252836;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+.feature-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.feature-card p {
+  font-size: 15px;
+  color: #94A3B8;
+  line-height: 1.65;
+}
+
+/* CODE DEMO */
+.code-demo-wrap {
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.code-tabs {
+  display: flex;
+  border-bottom: 1px solid #252836;
+  background: #0A0C12;
+}
+.code-tab {
+  padding: 14px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #94A3B8;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  border-right: 1px solid #252836;
+  position: relative;
+}
+.code-tab.active {
+  color: #FFFFFF;
+  background: #171923;
+}
+.code-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4F6BFF, #A78BFA);
+}
+.code-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 320px;
+}
+.code-block {
+  padding: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #E2E8F0;
+  overflow: auto;
+}
+.code-block .kw { color: #A78BFA; }
+.code-block .str { color: #22C55E; }
+.code-block .fn { color: #4F6BFF; }
+.code-block .com { color: #64748B; }
+.code-block .num { color: #FBBF24; }
+.terminal {
+  background: #0A0C12;
+  padding: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  border-left: 1px solid #252836;
+  color: #94A3B8;
+}
+.terminal-header {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.terminal-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot.r { background: #EF4444; }
+.terminal-dot.y { background: #FBBF24; }
+.terminal-dot.g { background: #22C55E; }
+.terminal .prompt { color: #4F6BFF; }
+.terminal .ok { color: #22C55E; }
+.terminal .val { color: #FFFFFF; }
+
+/* STATS */
+.stats-section {
+  background: #0A0C12;
+  border-top: 1px solid #252836;
+  border-bottom: 1px solid #252836;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.stat-card {
+  padding: 32px 24px;
+}
+.stat-number {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #4F6BFF, #A78BFA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  animation: counter_animation_stats 1s ease-out forwards;
+  display: inline-block;
+}
+.stat-label {
+  font-size: 15px;
+  color: #94A3B8;
+}
+@keyframes counter_animation_stats {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* TESTIMONIALS */
+.testimonial-carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  padding: 32px;
+  transition: border-color 0.3s ease;
+}
+.testimonial-card:hover { border-color: #4F6BFF; }
+.testimonial-quote {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #E2E8F0;
+  margin-bottom: 24px;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+}
+.avatar.a1 { background: linear-gradient(135deg, #4F6BFF, #A78BFA); }
+.avatar.a2 { background: linear-gradient(135deg, #22C55E, #4F6BFF); }
+.avatar.a3 { background: linear-gradient(135deg, #A78BFA, #EC4899); }
+.author-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.author-role {
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+/* PRICING PREVIEW */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: #171923;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  padding: 32px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: #4F6BFF;
+  box-shadow: 0 12px 32px rgba(79,107,255,0.15);
+}
+.pricing-card.featured {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#171923,#171923), linear-gradient(135deg,#4F6BFF,#A78BFA);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: gradient_border_glow 3s ease-in-out infinite;
+}
+@keyframes gradient_border_glow {
+  0%,100% { box-shadow: 0 0 20px rgba(79,107,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); }
+}
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #4F6BFF, #A78BFA);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.tier-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.tier-price {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.tier-price span {
+  font-size: 16px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+.tier-desc {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-bottom: 24px;
+  min-height: 40px;
+}
+.tier-features {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.tier-features li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #E2E8F0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tier-features li::before {
+  content: '✓';
+  color: #22C55E;
+  font-weight: 700;
+}
+.tier-cta {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  background: #1E293B;
+  color: white;
+  border: 1px solid #252836;
+  transition: all 0.2s;
+}
+.tier-cta.primary {
+  background: linear-gradient(135deg, #4F6BFF, #6B7DFF);
+  border: none;
+}
+.tier-cta:hover { transform: translateY(-1px); }
+.see-pricing {
+  text-align: center;
+  margin-top: 40px;
+}
+.see-pricing a {
+  color: #A78BFA;
+  font-weight: 500;
+  font-size: 15px;
+}
+.see-pricing a:hover { color: #4F6BFF; }
+
+/* FOOTER */
+footer {
+  background: #0A0C12;
+  border-top: 1px solid #252836;
+  padding: 64px 24px 32px;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #252836;
+}
+.footer-brand {
+  font-size: 14px;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  margin-bottom: 10px;
+}
+.footer-col a {
+  color: #94A3B8;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #FFFFFF; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #94A3B8;
+}
+.footer-badges {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #171923;
+  border: 1px solid #252836;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.status-pill .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 6px #22C55E;
+}
+.soc2 {
+  background: #171923;
+  border: 1px solid #252836;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94A3B8;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark">⚡</span>
+      Flexor
+    </a>
+    <div class="nav-links">
+      <a href="#">Product</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="gh-badge">★ GitHub <strong>18.4k</strong></span>
+      <a class="btn btn-ghost" href="#">Sign in</a>
+      <a class="btn btn-primary" href="#">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow"><span class="dot"></span> Stats Engine v2 is now generally available</span>
+    <h1>Ship features without shipping bugs</h1>
+    <p>Flexor gives engineering teams instant feature flags, gradual rollouts, and A/B experiments with sub-50ms edge evaluation.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#">Start Free →</a>
+      <a class="btn btn-outline btn-lg" href="#">View Docs</a>
+    </div>
+  </div>
+</section>
+
+<section class="social-proof">
+  <div class="social-proof-label">Trusted by 4,200+ engineering teams</div>
+  <div class="logos-strip">
+    <span class="logo-item">◆ Linear</span>
+    <span class="logo-item">▲ Vercel</span>
+    <span class="logo-item">⬡ Supabase</span>
+    <span class="logo-item">✉ Resend</span>
+    <span class="logo-item">🪐 PlanetScale</span>
+    <span class="logo-item">◉ Clerk</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Platform</div>
+      <h2 class="section-title">The complete release toolkit</h2>
+      <p class="section-sub">Three primitives that let any team move from idea to production in minutes — not weeks.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Targeted Rollouts</h3>
+        <p>Percentage-based release rules with rich user targeting. Roll out to 1%, then 10%, then everyone — without redeploying.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Realtime Experiments</h3>
+        <p>Bayesian stats engine with sample ratio mismatch detection. Get statistically significant results in days, not months.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Edge SDKs</h3>
+        <p>10ms p99 evaluation via Cloudflare Workers. Native SDKs for TypeScript, Python, Go, Rust, and 12 more languages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Developer Experience</div>
+      <h2 class="section-title">A single line. Any stack.</h2>
+      <p class="section-sub">Drop-in SDKs that feel native to your codebase.</p>
+    </div>
+    <div class="code-demo-wrap">
+      <div class="code-tabs">
+        <div class="code-tab active">typescript.ts</div>
+        <div class="code-tab">python.py</div>
+        <div class="code-tab">go.go</div>
+      </div>
+      <div class="code-body">
+        <pre class="code-block"><span class="com">// Evaluate a feature flag at the edge</span>
+<span class="kw">import</span> { Flexor } <span class="kw">from</span> <span class="str">'@flexor/node'</span>;
+
+<span class="kw">const</span> flexor = <span class="kw">new</span> <span class="fn">Flexor</span>({
+  apiKey: process.env.<span class="num">FLEXOR_KEY</span>,
+  edge: <span class="kw">true</span>
+});
+
+<span class="kw">const</span> user = {
+  id: <span class="str">'usr_8f2a'</span>,
+  plan: <span class="str">'pro'</span>,
+  region: <span class="str">'us-east'</span>
+};
+
+<span class="kw">const</span> enabled = <span class="kw">await</span> flexor.<span class="fn">evaluate</span>(
+  <span class="str">'checkout-v2'</span>,
+  user
+);
+
+<span class="kw">if</span> (enabled) {
+  <span class="fn">renderNewCheckout</span>();
+}</pre>
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="terminal-dot r"></div>
+            <div class="terminal-dot y"></div>
+            <div class="terminal-dot g"></div>
+          </div>
+          <div><span class="prompt">$</span> node app.js</div>
+          <div style="margin-top:12px; color:#64748B;">→ Connecting to flexor edge…</div>
+          <div><span class="ok">✓</span> Connected (us-east-1) in 8ms</div>
+          <div style="margin-top:8px;">→ Evaluating <span class="val">'checkout-v2'</span></div>
+          <div><span class="ok">✓</span> Result: <span class="val">true</span></div>
+          <div style="color:#64748B;">  reason: <span class="val">"rule_match"</span></div>
+          <div style="color:#64748B;">  variant: <span class="val">"treatment"</span></div>
+          <div style="color:#64748B;">  latency: <span class="val">11ms</span></div>
+          <div style="margin-top:12px;"><span class="ok">●</span> Rendered new checkout UI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">2.1B</div>
+        <div class="stat-label">Flag evaluations per day</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99.999%</div>
+        <div class="stat-label">Uptime over the last 12 months</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">&lt;50ms</div>
+        <div class="stat-label">Global p99 evaluation latency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Loved by engineers</div>
+      <h2 class="section-title">Teams ship 4× faster with Flexor</h2>
+    </div>
+    <div class="testimonial-carousel">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"We replaced a homegrown flag service that took two engineers to maintain. Flexor's edge SDK shaved 80ms off our checkout flow on day one."</div>
+        <div class="testimonial-author">
+          <div class="avatar a1">SC</div>
+          <div>
+            <div class="author-name">Sarah Chen</div>
+            <div class="author-role">Staff Engineer @ Linear</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"The Bayesian stats engine gives us readable answers, not p-value gymnastics. Our PMs actually use it now — that's the real win."</div>
+        <div class="testimonial-author">
+          <div class="avatar a2">MW</div>
+          <div>
+            <div class="author-name">Marcus Webb</div>
+            <div class="author-role">Platform Lead @ Retool</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"We migrated 600+ flags off LaunchDarkly in a weekend. Flexor's import tool is unreasonably good and the bill dropped 70%."</div>
+        <div class="testimonial-author">
+          <div class="avatar a3">PK</div>
+          <div>
+            <div class="author-name">Priya Krishnan</div>
+            <div class="author-role">CTO @ Cal.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">Start free. Scale when ready.</h2>
+      <p class="section-sub">Transparent pricing. No per-seat surprises. Generous free tier forever.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="tier-name">Free</div>
+        <div class="tier-price">$0</div>
+        <div class="tier-desc">For hobby projects and trying out Flexor.</div>
+        <ul class="tier-features">
+          <li>1 seat</li>
+          <li>50k monthly active users</li>
+          <li>10 feature flags</li>
+          <li>Community support</li>
+        </ul>
+        <a href="#" class="tier-cta">Get started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="tier-name">Pro</div>
+        <div class="tier-price">$29<span> / month</span></div>
+        <div class="tier-desc">For growing engineering teams shipping daily.</div>
+        <ul class="tier-features">
+          <li>5 seats included</li>
+          <li>250k monthly active users</li>
+          <li>Unlimited flags & experiments</li>
+          <li>Edge SDKs & webhooks</li>
+        </ul>
+        <a href="#" class="tier-cta primary">Start free trial</a>
+      </div>
+      <div class="pricing-card">
+        <div class="tier-name">Team</div>
+        <div class="tier-price">$99<span> / month</span></div>
+        <div class="tier-desc">For organizations needing SSO and audit controls.</div>
+        <ul class="tier-features">
+          <li>20 seats included</li>
+          <li>1M monthly active users</li>
+          <li>SAML SSO & audit logs</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="tier-cta">Choose Team</a>
+      </div>
+    </div>
+    <div class="see-pricing"><a href="#">See full pricing comparison →</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="#">
+        <span class="logo-mark">⚡</span> Flexor
+      </a>
+      <p style="margin-top: 12px;">Feature flags and experimentation built for engineering velocity.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Integrations</a></li>
+        <li><a href="#">Edge SDK</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+        <li><a href="#">Guides</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">DPA</a></li>
+        <li><a href="#">Subprocessors</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Flexor, Inc. All rights reserved.</div>
+    <div class="footer-badges">
+      <a href="#" class="status-pill"><span class="dot"></span> All systems normal · status.flexor.dev</a>
+      <span class="soc2">SOC 2 Type II</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

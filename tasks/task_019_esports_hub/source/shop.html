@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voltaic Esports — Merch Shop</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { background:#0D0D0D; color:#fff; font-family:'Roboto',sans-serif; font-size:16px; }
+a { color:inherit; text-decoration:none; }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:100; background:#000; height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 32px; border-bottom:1px solid #262626; }
+.brand { display:flex; align-items:center; gap:12px; }
+.bolt { width:32px; height:32px; background:#FF0033; clip-path:polygon(45% 0, 100% 0, 55% 45%, 100% 45%, 0 100%, 45% 55%, 0 55%); }
+.brand-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:24px; letter-spacing:1px; text-transform:uppercase; }
+.brand-name span { color:#FF0033; }
+.nav-links { display:flex; gap:32px; }
+.nav-links a { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:2px; color:#fff; padding:8px 0; border-bottom:2px solid transparent; }
+.nav-links a:hover { border-bottom-color:#FF0033; color:#FF0033; }
+.nav-links a.active { color:#FF0033; border-bottom-color:#FF0033; }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.socials { display:flex; gap:10px; }
+.socials span { width:30px; height:30px; border:1px solid #262626; display:flex; align-items:center; justify-content:center; font-size:13px; }
+.socials span:hover { border-color:#FF0033; color:#FF0033; }
+.watch-live-btn { background:#FF0033; color:#fff; padding:10px 18px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:14px; border-radius:2px; display:flex; align-items:center; gap:8px; }
+.watch-live-btn::before { content:''; width:8px; height:8px; background:#fff; border-radius:50%; }
+@keyframes live_strobe { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(255,0,51,0.7);} 50% { opacity:0.85; box-shadow:0 0 0 8px rgba(255,0,51,0);} }
+.watch-live-btn, .live-badge { animation: live_strobe 1.2s ease-in-out infinite; }
+.discord-btn { background:#5865F2; color:#fff; padding:10px 16px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:1px; text-transform:uppercase; font-size:13px; border-radius:2px; }
+
+/* TICKER */
+.ticker { background:#1A1A1A; border-bottom:1px solid #262626; padding:10px 0; overflow:hidden; position:relative; }
+.ticker-track { display:flex; width:max-content; animation: ticker_scroll 60s linear infinite; }
+@keyframes ticker_scroll { 0% { transform:translateX(0);} 100% { transform:translateX(-50%);} }
+.ticker-item { padding:0 28px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:#fff; display:flex; align-items:center; gap:10px; white-space:nowrap; border-right:1px solid #262626; }
+.ticker-item .live-badge { background:#FF0033; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; padding:2px 8px; font-size:11px; letter-spacing:1.5px; }
+.ticker-item .score { color:#FFD700; font-weight:700; }
+.ticker-item .muted { color:#888; }
+
+/* HERO */
+.hero { padding:80px 32px 64px; background:
+  linear-gradient(135deg, rgba(255,0,51,0.25) 0%, rgba(13,13,13,0) 50%),
+  linear-gradient(225deg, rgba(255,215,0,0.08) 0%, rgba(13,13,13,0) 60%),
+  repeating-linear-gradient(45deg, #0D0D0D 0 20px, #111 20px 21px);
+  border-bottom:1px solid #262626; max-width:1400px; margin:0 auto; }
+.hero-inner { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:center; }
+.hero-eyebrow { display:inline-block; background:#FF0033; color:#fff; padding:5px 12px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:3px; font-size:12px; text-transform:uppercase; margin-bottom:20px; }
+.hero h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:72px; line-height:0.95; text-transform:uppercase; letter-spacing:-1px; margin-bottom:18px; }
+.hero h1 span { color:#FF0033; }
+.hero p { color:#888; font-size:18px; max-width:560px; line-height:1.5; margin-bottom:28px; }
+.hero-cta { display:flex; gap:14px; }
+.btn-primary { background:#FF0033; color:#fff; padding:14px 28px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:15px; }
+.btn-ghost { border:1px solid #fff; color:#fff; padding:14px 28px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:15px; }
+.hero-art { aspect-ratio:1/1; background:
+  radial-gradient(circle at 30% 30%, #FF0033 0%, transparent 45%),
+  radial-gradient(circle at 70% 80%, #FFD700 0%, transparent 35%),
+  linear-gradient(135deg,#1A1A1A,#0D0D0D);
+  border:1px solid #262626; position:relative; display:flex; align-items:center; justify-content:center; }
+.hero-art::before { content:'VOLT'; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:140px; color:rgba(255,255,255,0.06); letter-spacing:-4px; position:absolute; }
+.jersey-mock { width:60%; height:75%; background:linear-gradient(180deg,#FF0033 0%,#cc0029 100%); clip-path:polygon(20% 0, 80% 0, 100% 15%, 90% 100%, 10% 100%, 0 15%); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
+.jersey-mock::after { content:'23'; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:120px; color:#fff; }
+.jersey-mock::before { content:'VOLTAIC'; position:absolute; top:30px; font-family:'Barlow Condensed',sans-serif; font-weight:900; color:#fff; letter-spacing:3px; font-size:22px; }
+
+/* COUNTDOWN */
+.countdown-banner { background:linear-gradient(90deg,#FF0033 0%, #0D0D0D 100%); padding:28px 32px; border-bottom:1px solid #262626; }
+.countdown-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+.cd-label { display:flex; flex-direction:column; gap:6px; }
+.cd-label .tag { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:13px; letter-spacing:3px; color:#FFD700; text-transform:uppercase; }
+.cd-label h3 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:32px; text-transform:uppercase; letter-spacing:1px; }
+.cd-timer { display:flex; gap:14px; }
+.cd-block { background:#0D0D0D; border:1px solid #262626; padding:12px 18px; text-align:center; min-width:84px; }
+.cd-block .num { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:36px; color:#FFD700; line-height:1; }
+.cd-block .lbl { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:2px; color:#888; text-transform:uppercase; margin-top:4px; }
+.cd-cta { background:#FFD700; color:#0D0D0D; padding:14px 22px; font-family:'Barlow Condensed',sans-serif; font-weight:900; letter-spacing:2px; text-transform:uppercase; font-size:14px; }
+
+/* CATEGORY NAV */
+.cat-nav { background:#000; border-bottom:1px solid #262626; padding:0 32px; position:sticky; top:72px; z-index:50; }
+.cat-inner { max-width:1400px; margin:0 auto; display:flex; gap:8px; }
+.cat-inner a { padding:18px 22px; font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:2px; text-transform:uppercase; font-size:14px; color:#888; border-bottom:2px solid transparent; }
+.cat-inner a:hover, .cat-inner a.active { color:#fff; border-bottom-color:#FF0033; }
+.cat-inner a .count { color:#FFD700; font-family:'JetBrains Mono',monospace; font-size:11px; margin-left:6px; }
+
+/* SECTION */
+section.block { padding:64px 32px; border-bottom:1px solid #262626; }
+.container { max-width:1400px; margin:0 auto; }
+.sec-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:32px; border-bottom:1px solid #262626; padding-bottom:18px; }
+.sec-head h2 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; letter-spacing:1px; }
+.sec-head h2 span { color:#FF0033; }
+.sec-head .meta { font-family:'JetBrains Mono',monospace; font-size:12px; color:#888; }
+
+/* PRODUCT GRID */
+.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.prod-card { background:#1A1A1A; border:1px solid #262626; display:flex; flex-direction:column; transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.prod-card:hover { transform:translateY(-4px); box-shadow:0 0 24px rgba(255,0,51,0.6); border-color:#FF0033; }
+.prod-img { aspect-ratio:1/1; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.prod-img.jersey-red { background:radial-gradient(circle at 50% 40%, #FF0033 0%, #0D0D0D 75%); }
+.prod-img.jersey-black { background:radial-gradient(circle at 50% 40%, #1A1A1A 0%, #0D0D0D 80%); }
+.prod-img.polo { background:radial-gradient(circle at 50% 40%, #2a2a2a 0%, #0D0D0D 80%); }
+.prod-img.hoodie { background:radial-gradient(circle at 50% 40%, #FF0033 0%, #0D0D0D 80%); }
+.prod-img.tee { background:radial-gradient(circle at 50% 40%, #222 0%, #0D0D0D 80%); }
+.prod-img.crew { background:radial-gradient(circle at 50% 40%, #333 0%, #0D0D0D 80%); }
+.prod-img.mouse { background:linear-gradient(135deg,#1A1A1A,#0D0D0D); }
+.prod-img.keys { background:radial-gradient(circle,#222,#0D0D0D); }
+.prod-img.cap { background:radial-gradient(circle,#FF0033 0%,#0D0D0D 70%); }
+.prod-img .icon { font-size:120px; color:rgba(255,255,255,0.15); font-family:'Barlow Condensed',sans-serif; font-weight:900; }
+.prod-img .badge { position:absolute; top:12px; left:12px; background:#FF0033; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:11px; padding:3px 8px; letter-spacing:2px; text-transform:uppercase; }
+.prod-img .badge.gold { background:#FFD700; color:#0D0D0D; }
+.prod-img .wishlist { position:absolute; top:12px; right:12px; width:34px; height:34px; background:rgba(0,0,0,0.6); border:1px solid #262626; display:flex; align-items:center; justify-content:center; font-size:14px; }
+.prod-body { padding:18px; display:flex; flex-direction:column; gap:12px; }
+.prod-cat { font-family:'JetBrains Mono',monospace; font-size:11px; color:#888; letter-spacing:1.5px; text-transform:uppercase; }
+.prod-name { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; text-transform:uppercase; letter-spacing:0.5px; line-height:1.1; }
+.prod-price { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:22px; color:#FFD700; }
+.prod-price .strike { color:#888; text-decoration:line-through; font-size:14px; margin-left:8px; font-weight:500; }
+.size-row { display:flex; gap:6px; flex-wrap:wrap; }
+.size { border:1px solid #262626; padding:6px 10px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#fff; min-width:38px; text-align:center; cursor:pointer; }
+.size:hover { border-color:#FF0033; color:#FF0033; }
+.size.oos { color:#444; text-decoration:line-through; }
+.prod-foot { display:flex; gap:8px; margin-top:6px; }
+.add-btn { flex:1; background:#FF0033; color:#fff; padding:12px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:13px; border:none; cursor:pointer; }
+.add-btn:hover { background:#fff; color:#0D0D0D; }
+.quick-btn { background:transparent; border:1px solid #262626; color:#fff; padding:12px 14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; }
+
+/* SIGNED */
+.signed-section { background:linear-gradient(180deg,#0D0D0D 0%, #14110a 100%); }
+.signed-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.signed-card { background:linear-gradient(135deg, rgba(255,215,0,0.08) 0%, #1A1A1A 60%); border:1px solid #FFD700; display:grid; grid-template-columns:1fr 1.1fr; }
+.signed-card:hover { box-shadow:0 0 24px rgba(255,215,0,0.4); }
+.signed-img { aspect-ratio:1/1; position:relative; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 50%, rgba(255,215,0,0.15), #0D0D0D 70%); border-right:1px solid #FFD700; }
+.signed-img .echo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:80px; color:#FF0033; }
+.signed-img .auto { position:absolute; bottom:24px; font-family:'Brush Script MT',cursive; font-size:36px; color:#fff; transform:rotate(-8deg); opacity:0.9; }
+.signed-body { padding:24px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
+.signed-badge { display:inline-flex; align-items:center; gap:6px; background:#FFD700; color:#0D0D0D; padding:4px 10px; font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:11px; align-self:flex-start; }
+.signed-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:32px; text-transform:uppercase; line-height:1; }
+.signed-meta { font-family:'JetBrains Mono',monospace; font-size:12px; color:#888; letter-spacing:1px; }
+.signed-price { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:30px; color:#FFD700; }
+.signed-desc { color:#888; font-size:14px; line-height:1.5; }
+.signed-btn { background:#FFD700; color:#0D0D0D; padding:13px 20px; font-family:'Barlow Condensed',sans-serif; font-weight:900; letter-spacing:2px; text-transform:uppercase; font-size:14px; align-self:flex-start; }
+
+/* PERKS STRIP */
+.perks { background:#000; padding:32px; border-bottom:1px solid #262626; }
+.perks-inner { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.perk { display:flex; gap:14px; align-items:center; }
+.perk-icon { width:48px; height:48px; background:#1A1A1A; border:1px solid #262626; display:flex; align-items:center; justify-content:center; font-size:22px; color:#FF0033; }
+.perk-text { display:flex; flex-direction:column; }
+.perk-text strong { font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; font-size:14px; }
+.perk-text span { color:#888; font-size:12px; }
+
+/* SPONSOR */
+.sponsor-strip { background:#000; padding:28px 32px; border-bottom:1px solid #262626; }
+.sponsor-inner { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:32px; }
+.sponsor-inner span { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:18px; color:#666; letter-spacing:3px; filter:grayscale(1); opacity:0.7; }
+
+/* FOOTER */
+footer { background:#000; padding:64px 32px 32px; border-top:1px solid #262626; }
+.foot-inner { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:48px; }
+.foot-brand .brand-name { font-size:28px; margin-bottom:14px; }
+.foot-brand p { color:#888; font-size:14px; line-height:1.6; margin-bottom:18px; }
+.foot-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:14px; color:#fff; margin-bottom:14px; }
+.foot-col a { display:block; color:#888; font-size:13px; padding:5px 0; }
+.foot-col a:hover { color:#FF0033; }
+.foot-bottom { max-width:1400px; margin:48px auto 0; padding-top:24px; border-top:1px solid #262626; display:flex; justify-content:space-between; font-size:12px; color:#666; font-family:'JetBrains Mono',monospace; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand">
+    <div class="bolt"></div>
+    <div class="brand-name">VOLT<span>AIC</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#">News</a>
+    <a href="#">Teams</a>
+    <a href="#">Schedule</a>
+    <a href="#">Results</a>
+    <a href="#" class="active">Shop</a>
+    <a href="#">Watch</a>
+  </div>
+  <div class="nav-right">
+    <div class="socials">
+      <span>𝕏</span><span>▶</span><span>📷</span><span>♪</span>
+    </div>
+    <a href="#" class="discord-btn">Discord</a>
+    <a href="#" class="watch-live-btn">Watch Live</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="live-badge">LIVE</span> VOLT <span class="score">2</span> - <span class="score">1</span> SENTINELS <span class="muted">VCT Americas</span></div>
+    <div class="ticker-item"><span class="live-badge">LIVE</span> VOLT vs T1 <span class="muted">starting now</span></div>
+    <div class="ticker-item">FNATIC <span class="score">13</span> - <span class="score">9</span> VOLT <span class="muted">FINAL · Bind</span></div>
+    <div class="ticker-item">VOLT <span class="score">3</span> - <span class="score">1</span> KC <span class="muted">RLCS</span></div>
+    <div class="ticker-item">VOLT <span class="score">16</span> - <span class="score">12</span> NAVI <span class="muted">CS2 · Mirage</span></div>
+    <div class="ticker-item">G2 vs VOLT <span class="muted">Oct 14 · 19:00 PT</span></div>
+    <div class="ticker-item"><span class="live-badge">LIVE</span> VOLT <span class="score">2</span> - <span class="score">1</span> SENTINELS <span class="muted">VCT Americas</span></div>
+    <div class="ticker-item"><span class="live-badge">LIVE</span> VOLT vs T1 <span class="muted">starting now</span></div>
+    <div class="ticker-item">FNATIC <span class="score">13</span> - <span class="score">9</span> VOLT <span class="muted">FINAL · Bind</span></div>
+    <div class="ticker-item">VOLT <span class="score">3</span> - <span class="score">1</span> KC <span class="muted">RLCS</span></div>
+    <div class="ticker-item">VOLT <span class="score">16</span> - <span class="score">12</span> NAVI <span class="muted">CS2 · Mirage</span></div>
+    <div class="ticker-item">G2 vs VOLT <span class="muted">Oct 14 · 19:00 PT</span></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">★ Voltaic Merch Shop</span>
+      <h1>2023 PRO KIT<br>— <span>NOW SHIPPING</span></h1>
+      <p>Designed with the players. Worn on the world stage. Every thread engineered by HyperX and Corsair for the pros who compete under the Voltaic banner.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">Shop the Kit →</a>
+        <a href="#" class="btn-ghost">View Lookbook</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="jersey-mock"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-banner">
+  <div class="countdown-inner">
+    <div class="cd-label">
+      <span class="tag">◆ Limited Drop · 500 Editions</span>
+      <h3>Championship Edition Jersey — Drops Oct 20, 12:00 PT</h3>
+    </div>
+    <div class="cd-timer">
+      <div class="cd-block"><div class="num">04</div><div class="lbl">Days</div></div>
+      <div class="cd-block"><div class="num">12</div><div class="lbl">Hours</div></div>
+      <div class="cd-block"><div class="num">37</div><div class="lbl">Mins</div></div>
+      <div class="cd-block"><div class="num">21</div><div class="lbl">Secs</div></div>
+    </div>
+    <a href="#" class="cd-cta">Notify Me</a>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-inner">
+    <a href="#" class="active">All <span class="count">42</span></a>
+    <a href="#jerseys">Jerseys <span class="count">06</span></a>
+    <a href="#apparel">Hoodies & Tees <span class="count">12</span></a>
+    <a href="#accessories">Accessories <span class="count">14</span></a>
+    <a href="#signed">Signed Collection <span class="count">08</span></a>
+    <a href="#">New Arrivals</a>
+    <a href="#">Sale</a>
+  </div>
+</div>
+
+<!-- PERKS -->
+<section class="perks">
+  <div class="perks-inner">
+    <div class="perk"><div class="perk-icon">⚡</div><div class="perk-text"><strong>Free Shipping $75+</strong><span>US & EU orders</span></div></div>
+    <div class="perk"><div class="perk-icon">↻</div><div class="perk-text"><strong>30-Day Returns</strong><span>No questions asked</span></div></div>
+    <div class="perk"><div class="perk-icon">★</div><div class="perk-text"><strong>Members Save 10%</strong><span>Join the Voltaic Discord</span></div></div>
+    <div class="perk"><div class="perk-icon">✦</div><div class="perk-text"><strong>Authenticity Card</strong><span>On every signed piece</span></div></div>
+  </div>
+</section>
+
+<!-- JERSEYS -->
+<section class="block" id="jerseys">
+  <div class="container">
+    <div class="sec-head">
+      <h2>The <span>Jerseys</span></h2>
+      <div class="meta">03 PRODUCTS · WORN BY THE STARTING FIVE</div>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img jersey-red">
+          <span class="badge">NEW '23</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">V</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Jersey · Home Kit</div>
+          <div class="prod-name">Pro Jersey 2023</div>
+          <div class="prod-price">$79.99</div>
+          <div class="size-row">
+            <div class="size">XS</div><div class="size">S</div><div class="size">M</div><div class="size">L</div><div class="size oos">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img jersey-black">
+          <span class="badge">AWAY</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">V</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Jersey · Away Kit</div>
+          <div class="prod-name">Away Jersey Black/Red</div>
+          <div class="prod-price">$74.99</div>
+          <div class="size-row">
+            <div class="size">XS</div><div class="size">S</div><div class="size">M</div><div class="size">L</div><div class="size">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img polo">
+          <span class="badge">STAFF</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">⚙</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Polo · Coach Edition</div>
+          <div class="prod-name">Coach Polo</div>
+          <div class="prod-price">$59.99</div>
+          <div class="size-row">
+            <div class="size">S</div><div class="size">M</div><div class="size">L</div><div class="size">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPAREL -->
+<section class="block" id="apparel">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Hoodies <span>& Tees</span></h2>
+      <div class="meta">03 PRODUCTS · MEMBERS GET 10% OFF</div>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img hoodie">
+          <span class="badge">BESTSELLER</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">⚡</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Hoodie · Heavyweight 400gsm</div>
+          <div class="prod-name">Voltaic Bolt Hoodie</div>
+          <div class="prod-price">$89.99</div>
+          <div class="size-row">
+            <div class="size">XS</div><div class="size">S</div><div class="size">M</div><div class="size oos">L</div><div class="size">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img tee">
+          <span class="badge">CS2 SQUAD</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">CS</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">T-Shirt · Roster Print</div>
+          <div class="prod-name">Roster Tee CS2</div>
+          <div class="prod-price">$34.99 <span class="strike">$44.99</span></div>
+          <div class="size-row">
+            <div class="size">XS</div><div class="size">S</div><div class="size">M</div><div class="size">L</div><div class="size">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img crew">
+          <span class="badge">SPONSORED</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">+</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Crewneck · All-Over Patches</div>
+          <div class="prod-name">Sponsor Patch Crewneck</div>
+          <div class="prod-price">$69.99</div>
+          <div class="size-row">
+            <div class="size">S</div><div class="size">M</div><div class="size">L</div><div class="size">XL</div><div class="size">2XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section class="block" id="accessories">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Gear & <span>Accessories</span></h2>
+      <div class="meta">03 PRODUCTS · OFFICIAL TEAM EQUIPMENT</div>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img mouse">
+          <span class="badge">XL · 900×400</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">▭</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Mousepad · Stitched Edge</div>
+          <div class="prod-name">XL Mousepad</div>
+          <div class="prod-price">$39.99</div>
+          <div class="size-row">
+            <div class="size">L</div><div class="size">XL</div><div class="size">3XL</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img keys">
+          <span class="badge">x CORSAIR</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">⌨</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Keycap Set · PBT Doubleshot</div>
+          <div class="prod-name">Voltaic x Corsair Keycap Set</div>
+          <div class="prod-price">$29.99</div>
+          <div class="size-row">
+            <div class="size">ANSI</div><div class="size">ISO</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img cap">
+          <span class="badge">FLAT BRIM</span>
+          <span class="wishlist">♡</span>
+          <div class="icon">⬢</div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Headwear · Embroidered</div>
+          <div class="prod-name">Snapback Cap</div>
+          <div class="prod-price">$32.00</div>
+          <div class="size-row">
+            <div class="size">ONE</div>
+          </div>
+          <div class="prod-foot">
+            <button class="add-btn">Add to Cart</button>
+            <button class="quick-btn">⚡</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SIGNED COLLECTION -->
+<section class="block signed-section" id="signed">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Signed <span style="color:#FFD700">Collection</span></h2>
+      <div class="meta" style="color:#FFD700">★ LIMITED EDITION · NUMBERED · COA INCLUDED</div>
+    </div>
+    <div class="signed-grid">
+
+      <div class="signed-card">
+        <div class="signed-img">
+          <div class="echo">ECHO</div>
+          <div class="auto">~ Min-jun</div>
+        </div>
+        <div class="signed-body">
+          <span class="signed-badge">★ 50 Editions</span>
+          <div class="signed-name">ECHO Signed Jersey</div>
+          <div class="signed-meta">VAL · DUELIST · KR · #07 / 50</div>
+          <div class="signed-desc">Match-issued 2023 Pro Jersey hand-signed by Min-jun "ECHO" Park after the VCT Americas Stage 2 Final. Ships in a custom display case with certificate of authenticity.</div>
+          <div class="signed-price">$249.00</div>
+          <a href="#" class="signed-btn">Reserve Now →</a>
+        </div>
+      </div>
+
+      <div class="signed-card">
+        <div class="signed-img">
+          <div class="echo" style="color:#FFD700">NOVAH</div>
+          <div class="auto">~ Novah</div>
+        </div>
+        <div class="signed-body">
+          <span class="signed-badge">★ 100 Editions</span>
+          <div class="signed-name">NOVAH Signed AWP Print</div>
+          <div class="signed-meta">CS2 · AWPER · SE · GICLÉE 18×24"</div>
+          <div class="signed-desc">Archival giclée print of NOVAH's iconic 1v4 clutch vs FaZe at IEM Cologne, hand-signed and numbered. Museum-grade paper, ready to frame.</div>
+          <div class="signed-price">$129.00</div>
+          <a href="#" class="signed-btn">Reserve Now →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR STRIP -->
+<section class="sponsor-strip">
+  <div class="sponsor-inner">
+    <span>INTEL</span>
+    <span>CORSAIR</span>
+    <span>RED BULL</span>
+    <span>HYPERX</span>
+    <span>SANTANDER</span>
+    <span>SECRETLAB</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="brand" style="margin-bottom:8px;"><div class="bolt"></div><div class="brand-name">VOLT<span>AIC</span></div></div>
+      <p>Born in the Server. Built for the Stage. Voltaic Esports competes across Valorant, League of Legends, CS2 and Rocket League on the global circuit.</p>
+      <a href="#" class="discord-btn">Join 184,000 in Discord</a>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <a href="#">Jerseys</a><a href="#">Hoodies & Tees</a><a href="#">Accessories</a><a href="#">Signed</a><a href="#">Gift Cards</a>
+    </div>
+    <div class="foot-col">
+      <h4>Org</h4>
+      <a href="#">News</a><a href="#">Teams</a><a href="#">Schedule</a><a href="#">Results</a><a href="#">About</a>
+    </div>
+    <div class="foot-col">
+      <h4>Support</h4>
+      <a href="#">Shipping</a><a href="#">Returns</a><a href="#">Sizing Guide</a><a href="#">Contact</a><a href="#">FAQ</a>
+    </div>
+    <div class="foot-col">
+      <h4>Follow</h4>
+      <a href="#">Twitter / X</a><a href="#">YouTube</a><a href="#">Twitch</a><a href="#">Instagram</a><a href="#">TikTok</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2023 VOLTAIC ESPORTS LLC · LOS ANGELES, CA</span>
+    <span>PRIVACY · TERMS · COOKIES · SPONSORS</span>
+  </div>
+</footer>
+
+</body>
+</html>

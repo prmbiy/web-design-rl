@@ -1,0 +1,67 @@
+{
+  "valid": true,
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "top_hold_ms": 2500,
+  "bottom_hold_ms": 2000,
+  "output_dir": "/local/mnt/workspace/pbiyani/Projects/Proximal/web-design-rl/tasks/task_019_esports_hub/screenrecordings",
+  "metrics": {
+    "expected": 5,
+    "recorded": 5
+  },
+  "failures": [],
+  "pages": [
+    {
+      "slug": "home",
+      "path": "home.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 4330,
+      "max_scroll_y": 3330,
+      "scroll_duration_ms": 7000,
+      "bytes": 2412261
+    },
+    {
+      "slug": "teams",
+      "path": "teams.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 3063,
+      "max_scroll_y": 2063,
+      "scroll_duration_ms": 7000,
+      "bytes": 1430566
+    },
+    {
+      "slug": "roster",
+      "path": "roster.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 2759,
+      "max_scroll_y": 1759,
+      "scroll_duration_ms": 7000,
+      "bytes": 1347843
+    },
+    {
+      "slug": "schedule",
+      "path": "schedule.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 2840,
+      "max_scroll_y": 1840,
+      "scroll_duration_ms": 7000,
+      "bytes": 1556290
+    },
+    {
+      "slug": "shop",
+      "path": "shop.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 4838,
+      "max_scroll_y": 3838,
+      "scroll_duration_ms": 7676,
+      "bytes": 2136363
+    }
+  ]
+}

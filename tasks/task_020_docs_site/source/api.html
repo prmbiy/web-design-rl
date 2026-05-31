@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>API Reference — quill.core | Quillforge Docs</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2C3E50;
+  background: #FFFFFF;
+}
+
+a { color: #2980B9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, pre, .mono { font-family: 'Source Code Pro', monospace; }
+
+/* ==== Top Nav ==== */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #2980B9;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.topnav .brand {
+  font-weight: 900;
+  font-size: 20px;
+  color: #fff;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topnav .brand .logo {
+  width: 28px; height: 28px;
+  background: #fff;
+  color: #2980B9;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+.topnav .version {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+.topnav .search {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 32px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 3px;
+  padding: 7px 12px;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: text;
+}
+.topnav .search::before { content: "🔍"; opacity: 0.85; }
+.topnav .search span { opacity: 0.85; }
+.topnav .search kbd {
+  margin-left: auto;
+  font-size: 11px;
+  background: rgba(255,255,255,0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+}
+.topnav .nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+.topnav .nav-links a {
+  color: #fff;
+  opacity: 0.92;
+}
+.topnav .nav-links a:hover { opacity: 1; text-decoration: none; }
+
+/* ==== Layout ==== */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 240px;
+  margin-top: 56px;
+  min-height: calc(100vh - 56px);
+}
+
+/* ==== Left Sidebar ==== */
+.sidebar {
+  background: #EEF2F6;
+  border-right: 1px solid #D9E2EC;
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6B7C8E;
+  padding: 0 20px;
+  margin: 16px 0 6px;
+  font-weight: 700;
+}
+.sidebar h4:first-child { margin-top: 0; }
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li a {
+  display: block;
+  padding: 5px 20px 5px 28px;
+  color: #2C3E50;
+  font-size: 14px;
+  border-left: 2px solid transparent;
+}
+.sidebar li a:hover {
+  background: #DDE6EE;
+  text-decoration: none;
+}
+.sidebar li.active > a {
+  background: #fff;
+  color: #2980B9;
+  font-weight: 700;
+  border-left: 2px solid #2980B9;
+}
+.sidebar li.section-active > a {
+  font-weight: 700;
+  color: #2980B9;
+}
+.sidebar .sub {
+  margin-left: 0;
+}
+.sidebar .sub a {
+  padding-left: 40px;
+  font-size: 13px;
+  color: #6B7C8E;
+}
+.sidebar .sub li.active a {
+  color: #2980B9;
+  background: #fff;
+  border-left: 2px solid #2980B9;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-top: 1px solid #D9E2EC;
+  font-size: 12px;
+  color: #6B7C8E;
+}
+.sidebar-footer .sponsors {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.sponsor-logo {
+  width: 44px; height: 22px;
+  background: #fff;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #6B7C8E;
+}
+
+/* ==== Main Content ==== */
+.main {
+  padding: 32px 40px 48px;
+  max-width: 880px;
+  width: 100%;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-bottom: 8px;
+}
+.breadcrumb a { color: #6B7C8E; }
+.breadcrumb span { color: #2C3E50; }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #D9E2EC;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #2C3E50;
+  line-height: 1.2;
+}
+.github-edit {
+  font-size: 13px;
+  color: #2980B9;
+  border: 1px solid #D9E2EC;
+  padding: 6px 12px;
+  border-radius: 3px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.module-intro {
+  color: #6B7C8E;
+  font-size: 17px;
+  margin-bottom: 32px;
+}
+
+h2.module-header {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #D9E2EC;
+  color: #2C3E50;
+  font-family: 'Source Code Pro', monospace;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #2C3E50;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6B7C8E;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+p { margin-bottom: 14px; }
+
+/* Function signature block */
+.signature {
+  background: #F4F7FA;
+  border-left: 3px solid #2980B9;
+  border-radius: 3px;
+  padding: 14px 18px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14.5px;
+  color: #2C3E50;
+  margin: 16px 0 20px;
+  overflow-x: auto;
+  position: relative;
+}
+.signature .anchor {
+  color: #6B7C8E;
+  margin-right: 8px;
+  text-decoration: none;
+  opacity: 0.6;
+}
+.signature .kw { color: #1B5A8A; font-weight: 600; }
+.signature .name { color: #2C3E50; font-weight: 700; }
+.signature .param { color: #2C3E50; }
+.signature .type { color: #6B7C8E; }
+.signature .num { color: #D08770; }
+.signature .str { color: #27AE60; }
+.signature .ret { color: #6B7C8E; }
+.signature .badge {
+  position: absolute;
+  top: 10px; right: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  background: #2980B9;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Parameter table */
+table.params {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 8px 0 18px;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+}
+table.params th {
+  background: #F4F7FA;
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #2C3E50;
+  border-bottom: 1px solid #D9E2EC;
+}
+table.params td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #EEF2F6;
+  vertical-align: top;
+}
+table.params tr:last-child td { border-bottom: none; }
+table.params td.mono {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+}
+table.params .req-yes {
+  display: inline-block;
+  background: #FDECEA;
+  color: #E74C3C;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+table.params .req-no {
+  display: inline-block;
+  background: #EEF2F6;
+  color: #6B7C8E;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+table.params .type-cell { color: #1B5A8A; }
+table.params .default-cell { color: #D08770; }
+
+/* Returns block */
+.returns-block {
+  background: #EEF2F6;
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin: 10px 0 20px;
+  font-size: 14.5px;
+}
+.returns-block .ret-type {
+  font-family: 'Source Code Pro', monospace;
+  color: #1B5A8A;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Code blocks */
+.code-block {
+  background: #2E3440;
+  color: #D8DEE9;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 12px 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+.code-block .code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  padding: 6px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px;
+  color: #88909C;
+}
+.code-block .copy-btn {
+  background: rgba(255,255,255,0.08);
+  color: #D8DEE9;
+  border: none;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.code-block pre {
+  padding: 14px 18px;
+  overflow-x: auto;
+}
+.code-block .kw { color: #81A1C1; }
+.code-block .str { color: #A3BE8C; }
+.code-block .num { color: #D08770; }
+.code-block .com { color: #6B7C8E; font-style: italic; }
+.code-block .fn { color: #88C0D0; }
+.code-block .dec { color: #EBCB8B; }
+.code-block .ty { color: #8FBCBB; }
+
+/* Note boxes */
+.box {
+  border-left: 4px solid;
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin: 16px 0 20px;
+  font-size: 14.5px;
+}
+.box-note { background: #E8F5E9; border-color: #27AE60; }
+.box-warning { background: #FFF8E1; border-color: #F39C12; }
+.box-danger { background: #FDECEA; border-color: #E74C3C; }
+.box .title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.box-note .title { color: #27AE60; }
+.box-warning .title { color: #B8730A; }
+.box-danger .title { color: #C0392B; }
+
+/* Prev/Next pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #D9E2EC;
+  gap: 16px;
+}
+.pagination a {
+  flex: 1;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+.pagination .label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6B7C8E;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.pagination .next { text-align: right; }
+
+/* ==== Right TOC ==== */
+.toc {
+  position: sticky;
+  top: 56px;
+  align-self: start;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  padding: 32px 24px;
+  border-left: 1px solid #D9E2EC;
+  font-size: 13px;
+}
+.toc h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6B7C8E;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.toc ul { list-style: none; }
+.toc li a {
+  display: block;
+  padding: 4px 8px;
+  color: #6B7C8E;
+  border-left: 2px solid transparent;
+}
+.toc li.active a {
+  color: #2980B9;
+  border-left: 2px solid #2980B9;
+  font-weight: 600;
+}
+.toc li a:hover { color: #2980B9; text-decoration: none; }
+
+/* Footer */
+.docs-footer {
+  background: #EEF2F6;
+  border-top: 1px solid #D9E2EC;
+  padding: 20px 40px;
+  font-size: 13px;
+  color: #6B7C8E;
+  display: flex;
+  justify-content: space-between;
+  grid-column: 2 / 4;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="brand">
+    <span class="logo">Q</span>
+    Quillforge
+  </div>
+  <div class="version">v2.4 ▾</div>
+  <div class="search">
+    <span>Search the docs…</span>
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="installation.html">Install</a>
+    <a href="quickstart.html">Quickstart</a>
+    <a href="api.html">API</a>
+    <a href="configuration.html">Config</a>
+    <a href="#">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <h4>Getting Started</h4>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="installation.html">Installation</a></li>
+      <li><a href="quickstart.html">Quick Start</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li class="section-active"><a href="api.html">API Reference</a>
+        <ul class="sub">
+          <li class="active"><a href="#quill-core">quill.core</a></li>
+          <li><a href="#quill-runtime">quill.runtime</a></li>
+          <li><a href="#quill-scheduler">quill.scheduler</a></li>
+          <li><a href="#quill-workers">quill.workers</a></li>
+          <li><a href="#quill-metrics">quill.metrics</a></li>
+          <li><a href="#deprecated">Deprecated</a></li>
+        </ul>
+      </li>
+      <li><a href="configuration.html">Configuration</a></li>
+    </ul>
+    <h4>Guides</h4>
+    <ul>
+      <li><a href="#">Core Concepts</a></li>
+      <li><a href="#">Scheduling &amp; Cron</a></li>
+      <li><a href="#">Distributed Workers</a></li>
+      <li><a href="#">Observability</a></li>
+      <li><a href="#">Deployment</a></li>
+    </ul>
+    <h4>Community</h4>
+    <ul>
+      <li><a href="#">Discord</a></li>
+      <li><a href="#">GitHub Discussions</a></li>
+      <li><a href="#">Changelog</a></li>
+      <li><a href="#">Quillforge Cloud →</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      Sponsored by
+      <div class="sponsors">
+        <div class="sponsor-logo">ACME</div>
+        <div class="sponsor-logo">NEXUS</div>
+        <div class="sponsor-logo">PYPI</div>
+      </div>
+      <div style="margin-top:14px;">© 2023 Quillforge<br>BSD-3 Licensed</div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <div class="breadcrumb">
+      <a href="index.html">Docs</a> ›
+      <a href="#">Reference</a> ›
+      <span>API Reference — quill.core</span>
+    </div>
+
+    <div class="page-header">
+      <h1>API Reference — quill.core</h1>
+      <a href="#" class="github-edit">✎ Edit on GitHub</a>
+    </div>
+
+    <p class="module-intro">
+      The <code>quill.core</code> module exposes the primitives every Quillforge program is built from:
+      the <code>@quill.task</code> decorator, the <code>Pipeline</code> class, and the <code>TaskContext</code>
+      object passed into each task at runtime. This page documents every public symbol with a stable contract.
+    </p>
+
+    <!-- MODULE: quill.core -->
+    <h2 class="module-header" id="quill-core">quill.core</h2>
+    <p style="color:#6B7C8E; margin-top:4px;">Core decorators, Pipeline class, and TaskContext primitives.</p>
+
+    <!-- quill.task -->
+    <h3 id="quill-task">quill.task <span style="color:#6B7C8E; font-weight:400; font-size:14px;">— decorator</span></h3>
+    <p>
+      Marks an <code>async</code> function as a Quillforge task. The decorated coroutine is registered
+      with the currently active <a href="#registry">Registry</a> and gains retry, timeout, and tracing
+      behaviour configured by the decorator arguments.
+    </p>
+
+    <div class="signature">
+      <span class="badge">function</span>
+      <a class="anchor" href="#quill-task">#</a>
+      <span class="kw">quill.</span><span class="name">task</span>(<span class="param">*</span>,
+      <span class="param">retries</span>: <span class="type">int</span> = <span class="num">0</span>,
+      <span class="param">timeout</span>: <span class="type">float | None</span> = <span class="kw">None</span>,
+      <span class="param">name</span>: <span class="type">str | None</span> = <span class="kw">None</span>)
+      <span class="ret">→ Callable</span>
+    </div>
+
+    <h4>Parameters</h4>
+    <table class="params">
+      <thead>
+        <tr>
+          <th style="width:18%">Name</th>
+          <th style="width:22%">Type</th>
+          <th style="width:12%">Required</th>
+          <th style="width:18%">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">retries</td>
+          <td class="mono type-cell">int</td>
+          <td><span class="req-no">no</span></td>
+          <td class="mono default-cell">0</td>
+          <td>Maximum number of times the task will be re-invoked on failure. Uses exponential backoff with the policy from <code>quill.toml</code>.</td>
+        </tr>
+        <tr>
+          <td class="mono">timeout</td>
+          <td class="mono type-cell">float | None</td>
+          <td><span class="req-no">no</span></td>
+          <td class="mono default-cell">None</td>
+          <td>Per-attempt timeout in seconds. When exceeded, <code>asyncio.CancelledError</code> is raised inside the task and the attempt is counted toward <code>retries</code>.</td>
+        </tr>
+        <tr>
+          <td class="mono">name</td>
+          <td class="mono type-cell">str | None</td>
+          <td><span class="req-no">no</span></td>
+          <td class="mono default-cell">fn.__name__</td>
+          <td>Override the registered task name. Useful when wrapping the same function multiple times or to keep a stable identifier across refactors.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Returns</h4>
+    <div class="returns-block">
+      <span class="ret-type">Callable[[Coroutine], Task]</span>
+      A decorated coroutine function registered with the active
+      <a href="#registry">quill.core.Registry</a>. Calling the returned object inside a
+      <code>Pipeline</code> queues an invocation; calling it outside a pipeline executes inline for testing.
+    </div>
+
+    <h4>Example</h4>
+    <div class="code-block">
+      <div class="code-header">
+        <span>python · tasks/invoices.py</span>
+        <button class="copy-btn">⎘ Copy</button>
+      </div>
+<pre><span class="kw">from</span> uuid <span class="kw">import</span> UUID
+<span class="kw">import</span> quill
+
+<span class="dec">@quill.task(retries=<span class="num">5</span>, timeout=<span class="num">12.0</span>)</span>
+<span class="kw">async def</span> <span class="fn">fetch_invoice</span>(id: <span class="ty">UUID</span>) -&gt; <span class="ty">dict</span>:
+    <span class="com"># Network calls inside a task are automatically traced</span>
+    <span class="kw">async with</span> httpx.AsyncClient() <span class="kw">as</span> client:
+        resp = <span class="kw">await</span> client.get(<span class="str">f"https://api.billing.test/v1/invoices/{id}"</span>)
+        resp.raise_for_status()
+        <span class="kw">return</span> resp.json()</pre>
+    </div>
+
+    <div class="box box-warning">
+      <div class="title">⚠ Deprecated</div>
+      <code>quill.legacy_task</code> is <strong>deprecated since 2.3</strong> and scheduled for removal in
+      <strong>3.0</strong>. New code should use <code>@quill.task</code>. See the
+      <a href="#">migration guide: legacy_task → task</a> for an automated codemod.
+    </div>
+
+    <!-- Pipeline -->
+    <h3 id="pipeline">Pipeline <span style="color:#6B7C8E; font-weight:400; font-size:14px;">— class</span></h3>
+    <p>
+      Composes a sequence (or DAG) of tasks into a single executable unit. Pipelines are immutable
+      once constructed and can be serialized to JSON for remote execution by a worker pool.
+    </p>
+
+    <div class="signature">
+      <span class="badge">class</span>
+      <a class="anchor" href="#pipeline">#</a>
+      <span class="kw">class</span> <span class="name">quill.Pipeline</span>(<span class="param">tasks</span>: <span class="type">Sequence[Task]</span>,
+      <span class="param">*</span>,
+      <span class="param">name</span>: <span class="type">str | None</span> = <span class="kw">None</span>,
+      <span class="param">on_error</span>: <span class="type">Literal["abort","continue"]</span> = <span class="str">"abort"</span>)
+    </div>
+
+    <h4>Parameters</h4>
+    <table class="params">
+      <thead>
+        <tr>
+          <th style="width:18%">Name</th>
+          <th style="width:22%">Type</th>
+          <th style="width:12%">Required</th>
+          <th style="width:18%">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">tasks</td>
+          <td class="mono type-cell">Sequence[Task]</td>
+          <td><span class="req-yes">yes</span></td>
+          <td class="mono default-cell">—</td>
+          <td>An ordered sequence of <code>@quill.task</code>-decorated callables. DAG edges are inferred from the type signatures of each task's parameters and return type.</td>
+        </tr>
+        <tr>
+          <td class="mono">name</td>
+          <td class="mono type-cell">str | None</td>
+          <td><span class="req-no">no</span></td>
+          <td class="mono default-cell">None</td>
+          <td>Human-friendly identifier surfaced in metrics, traces, and the <code>quill ps</code> CLI.</td>
+        </tr>
+        <tr>
+          <td class="mono">on_error</td>
+          <td class="mono type-cell">Literal["abort","continue"]</td>
+          <td><span class="req-no">no</span></td>
+          <td class="mono default-cell">"abort"</td>
+          <td>Whether downstream tasks should still execute after an upstream failure. Use <code>"continue"</code> for fan-out workloads with isolated branches.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Methods</h4>
+    <table class="params">
+      <thead>
+        <tr>
+          <th style="width:32%">Signature</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">async run(*args, **kwargs) → Result</td>
+          <td>Executes the pipeline on the current event loop. Returns a <code>Result</code> with per-task durations, outputs, and a trace ID.</td>
+        </tr>
+        <tr>
+          <td class="mono">submit(broker: Broker) → JobHandle</td>
+          <td>Hands the pipeline off to a distributed broker (Redis or NATS). Returns immediately with a handle suitable for polling.</td>
+        </tr>
+        <tr>
+          <td class="mono">to_dot() → str</td>
+          <td>Renders the inferred DAG as Graphviz DOT for documentation or debugging.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Returns</h4>
+    <div class="returns-block">
+      <span class="ret-type">Pipeline</span>
+      A new pipeline instance. Pipelines are hashable and may be cached at module scope.
+    </div>
+
+    <h4>Example</h4>
+    <div class="code-block">
+      <div class="code-header">
+        <span>python · pipelines/billing.py</span>
+        <button class="copy-btn">⎘ Copy</button>
+      </div>
+<pre><span class="kw">from</span> quill <span class="kw">import</span> Pipeline
+<span class="kw">from</span> tasks.invoices <span class="kw">import</span> fetch_invoice, normalize, write_warehouse
+
+billing = Pipeline(
+    [fetch_invoice, normalize, write_warehouse],
+    name=<span class="str">"billing.nightly"</span>,
+    on_error=<span class="str">"abort"</span>,
+)
+
+<span class="kw">async def</span> <span class="fn">main</span>():
+    result = <span class="kw">await</span> billing.run(id=<span class="str">"7f3a-…-9c01"</span>)
+    print(result.summary())  <span class="com"># &gt; 3/3 tasks ok in 1.82s</span></pre>
+    </div>
+
+    <!-- TaskContext -->
+    <h3 id="taskcontext">TaskContext <span style="color:#6B7C8E; font-weight:400; font-size:14px;">— class</span></h3>
+    <p>
+      Runtime metadata injected into every task. Access it via the contextvar
+      <code>quill.current_context()</code> from anywhere inside a task body.
+    </p>
+
+    <div class="signature">
+      <span class="badge">class</span>
+      <a class="anchor" href="#taskcontext">#</a>
+      <span class="kw">class</span> <span class="name">quill.TaskContext</span>(
+      <span class="param">task_id</span>: <span class="type">str</span>,
+      <span class="param">attempt</span>: <span class="type">int</span>,
+      <span class="param">trace_id</span>: <span class="type">str</span>,
+      <span class="param">logger</span>: <span class="type">structlog.BoundLogger</span>)
+    </div>
+
+    <h4>Attributes</h4>
+    <table class="params">
+      <thead>
+        <tr><th style="width:20%">Name</th><th style="width:25%">Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">task_id</td>
+          <td class="mono type-cell">str</td>
+          <td>ULID assigned at scheduling time. Stable across retries.</td>
+        </tr>
+        <tr>
+          <td class="mono">attempt</td>
+          <td class="mono type-cell">int</td>
+          <td>1-indexed attempt number. Equals <code>1</code> on first run.</td>
+        </tr>
+        <tr>
+          <td class="mono">trace_id</td>
+          <td class="mono type-cell">str</td>
+          <td>W3C traceparent for OpenTelemetry correlation across services.</td>
+        </tr>
+        <tr>
+          <td class="mono">logger</td>
+          <td class="mono type-cell">structlog.BoundLogger</td>
+          <td>Pre-bound logger with <code>task</code>, <code>attempt</code>, and <code>trace_id</code> fields.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="box box-note">
+      <div class="title">✓ Note</div>
+      <code>TaskContext</code> is read-only. If you need to share mutable state between tasks,
+      use <a href="#">quill.runtime.State</a> instead — it is broker-backed and survives worker restarts.
+    </div>
+
+    <div class="box box-danger">
+      <div class="title">✕ Danger</div>
+      Never capture a <code>TaskContext</code> in a closure that outlives the task body. The bound
+      logger holds a reference to the worker's connection pool and will leak file descriptors if
+      retained across pipeline boundaries.
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <a href="quickstart.html">
+        <span class="label">← Previous</span>
+        Quick Start Tutorial
+      </a>
+      <a href="configuration.html" class="next">
+        <span class="label">Next →</span>
+        Configuration
+      </a>
+    </div>
+
+  </main>
+
+  <!-- RIGHT TOC -->
+  <aside class="toc">
+    <h5>On this page</h5>
+    <ul>
+      <li class="active"><a href="#quill-core">quill.core</a></li>
+      <li><a href="#quill-task">quill.task</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Parameters</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Returns</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Example</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Parameters</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Methods</a></li>
+      <li><a href="#taskcontext">TaskContext</a></li>
+      <li style="padding-left:14px;"><a href="#" style="font-size:12px;">Attributes</a></li>
+    </ul>
+
+    <h5 style="margin-top:24px;">Related modules</h5>
+    <ul>
+      <li><a href="#">quill.runtime</a></li>
+      <li><a href="#">quill.scheduler</a></li>
+      <li><a href="#">quill.workers</a></li>
+    </ul>
+
+    <div style="margin-top:28px; padding:14px; background:#EEF2F6; border:1px solid #D9E2EC; border-radius:3px;">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#27AE60; font-weight:700; margin-bottom:4px;">Quillforge Cloud</div>
+      <div style="font-size:13px; color:#2C3E50; margin-bottom:8px;">Managed brokers, SSO and 24/7 SLA support.</div>
+      <a href="#" style="font-size:12px; font-weight:700;">Try Pro free →</a>
+    </div>
+  </aside>
+
+  <footer class="docs-footer">
+    <div>© 2023 Quillforge contributors · BSD-3 Licensed · Built with Quillforge Docs 2.4.1</div>
+    <div>Last updated: 2023-10-18 · <a href="#">Report an issue</a> · <a href="#">Edit this page</a></div>
+  </footer>
+
+</div>
+
+</body>
+</html>

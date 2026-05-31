@@ -1,0 +1,12 @@
+{
+  "dna_id": "026",
+  "dna_name": "yoga_wellness",
+  "pages": [
+    "home",
+    "schedule",
+    "teachers",
+    "workshops",
+    "about"
+  ],
+  "has_animations": true
+}

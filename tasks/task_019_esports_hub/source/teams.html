@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voltaic Esports — Our Teams</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0D0D0D; color:#fff; font-family:'Roboto',sans-serif; font-size:16px; line-height:1.5; }
+a { color:inherit; text-decoration:none; }
+
+/* NAV */
+.topbar { background:#000; border-bottom:1px solid #262626; position:sticky; top:0; z-index:100; }
+.nav { height:72px; max-width:1400px; margin:0 auto; padding:0 32px; display:flex; align-items:center; gap:40px; }
+.logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:28px; letter-spacing:1px; display:flex; align-items:center; gap:10px; }
+.logo-bolt { width:32px; height:32px; background:#FF0033; clip-path:polygon(45% 0,0 60%,40% 60%,25% 100%,100% 40%,55% 40%,75% 0); }
+.logo-text { color:#fff; }
+.logo-text span { color:#FF0033; }
+.nav-items { display:flex; gap:28px; flex:1; }
+.nav-items a { font-family:'Barlow Condensed',sans-serif; font-weight:600; text-transform:uppercase; font-size:16px; letter-spacing:1.5px; color:#fff; padding:8px 0; border-bottom:2px solid transparent; transition:.2s; }
+.nav-items a:hover, .nav-items a.active { color:#FF0033; border-bottom-color:#FF0033; }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.socials { display:flex; gap:10px; }
+.soc-ico { width:28px; height:28px; border:1px solid #262626; display:flex; align-items:center; justify-content:center; font-size:12px; color:#888; transition:.2s; }
+.soc-ico:hover { border-color:#FF0033; color:#FF0033; }
+.watch-live-btn { background:#FF0033; color:#fff; padding:10px 18px; font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; font-size:14px; border:none; display:flex; align-items:center; gap:8px; cursor:pointer; }
+.watch-live-btn::before { content:""; width:8px; height:8px; background:#fff; border-radius:50%; }
+.discord-btn { background:#5865F2; color:#fff; padding:10px 16px; font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:13px; }
+
+@keyframes live_strobe { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(255,0,51,0.7);} 50% { opacity:.85; box-shadow:0 0 0 8px rgba(255,0,51,0);} }
+.live-badge, .watch-live-btn { animation:live_strobe 1.2s ease-in-out infinite; }
+
+/* TICKER */
+.ticker { background:#1A1A1A; border-bottom:1px solid #262626; overflow:hidden; padding:10px 0; }
+@keyframes ticker_scroll { 0% { transform:translateX(0);} 100% { transform:translateX(-50%);} }
+.ticker-track { display:flex; width:max-content; animation:ticker_scroll 60s linear infinite; gap:48px; padding-left:32px; }
+.tick { display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; white-space:nowrap; color:#fff; }
+.tick .tag { font-family:'Barlow Condensed',sans-serif; font-weight:800; padding:2px 8px; font-size:12px; letter-spacing:1px; }
+.tick .live { background:#FF0033; color:#fff; animation:live_strobe 1.2s infinite; }
+.tick .final { background:#262626; color:#888; }
+.tick .score { color:#FFD700; font-weight:700; }
+.tick .muted { color:#888; }
+
+/* HERO */
+.hero { padding:80px 32px 64px; max-width:1400px; margin:0 auto; position:relative; overflow:hidden; }
+.hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%, rgba(255,0,51,0.18), transparent 50%), radial-gradient(circle at 80% 30%, rgba(255,215,0,0.06), transparent 45%); pointer-events:none; }
+.crumb { font-family:'JetBrains Mono',monospace; font-size:13px; color:#888; margin-bottom:18px; letter-spacing:1px; position:relative; }
+.crumb span { color:#FF0033; }
+.hero h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:96px; line-height:.95; letter-spacing:-1px; text-transform:uppercase; position:relative; }
+.hero h1 .red { color:#FF0033; }
+.hero .sub { font-family:'Barlow Condensed',sans-serif; font-size:22px; color:#888; margin-top:18px; font-weight:400; max-width:700px; position:relative; }
+.hero-stats { display:flex; gap:48px; margin-top:40px; position:relative; }
+.hstat { border-left:2px solid #FF0033; padding-left:14px; }
+.hstat .num { font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:#FFD700; }
+.hstat .lbl { font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:2px; color:#888; font-size:12px; }
+
+/* FILTER */
+.filter-bar { max-width:1400px; margin:0 auto; padding:0 32px 32px; display:flex; align-items:center; gap:16px; border-bottom:1px solid #262626; }
+.filter-bar .lbl { font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:2px; color:#888; font-size:13px; margin-right:8px; }
+.chip { font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; font-size:14px; padding:8px 16px; border:1px solid #262626; color:#fff; cursor:pointer; transition:.2s; background:transparent; }
+.chip:hover { border-color:#FF0033; }
+.chip.active { background:#FF0033; border-color:#FF0033; }
+.chip.gold.active { background:#FFD700; color:#0D0D0D; border-color:#FFD700; }
+
+/* TEAM GRID */
+.section { padding:64px 32px; max-width:1400px; margin:0 auto; }
+.sec-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px; border-bottom:1px solid #262626; padding-bottom:16px; }
+.sec-head h2 { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; letter-spacing:1px; }
+.sec-head h2 .accent { color:#FF0033; }
+.sec-head .meta { font-family:'JetBrains Mono',monospace; font-size:12px; color:#888; letter-spacing:1px; }
+
+.team-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.team-card { background:#1A1A1A; border:1px solid #262626; padding:32px; position:relative; overflow:hidden; transition:.25s; cursor:pointer; }
+.team-card::before { content:""; position:absolute; top:0; left:0; width:4px; height:100%; background:#FF0033; transform:scaleY(0); transform-origin:top; transition:transform .3s; }
+.team-card:hover { border-color:#FF0033; box-shadow:0 0 24px rgba(255,0,51,0.6); transform:translateY(-4px); }
+.team-card:hover::before { transform:scaleY(1); }
+
+.tc-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px; }
+.tc-logo { width:96px; height:96px; background:linear-gradient(135deg,#FF0033 0%, #8B0020 100%); display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:38px; color:#fff; letter-spacing:-1px; position:relative; }
+.tc-logo::after { content:""; position:absolute; inset:6px; border:1px solid rgba(255,255,255,.2); }
+.tc-game { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.game-icon { width:48px; height:48px; background:#0D0D0D; border:1px solid #262626; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.game-tag { font-family:'JetBrains Mono',monospace; font-size:11px; color:#888; letter-spacing:1.5px; }
+
+.tc-name { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:40px; text-transform:uppercase; line-height:1; letter-spacing:.5px; }
+.tc-league { font-family:'Barlow Condensed',sans-serif; font-size:15px; color:#888; text-transform:uppercase; letter-spacing:2px; margin-top:6px; margin-bottom:24px; }
+
+.tc-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid #262626; border-bottom:1px solid #262626; padding:18px 0; margin-bottom:20px; }
+.tc-stat { text-align:left; padding:0 12px; border-right:1px solid #262626; }
+.tc-stat:last-child { border-right:none; }
+.tc-stat .v { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:22px; color:#fff; }
+.tc-stat .v.gold { color:#FFD700; }
+.tc-stat .v.green { color:#00C853; }
+.tc-stat .v.red { color:#FF0033; }
+.tc-stat .l { font-family:'Barlow Condensed',sans-serif; font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1.5px; margin-top:4px; }
+
+@keyframes score_count_up { 0% { transform:translateY(100%); opacity:0;} 100% { transform:translateY(0); opacity:1;} }
+.match-score { display:inline-block; animation:score_count_up .6s cubic-bezier(0.2,0.8,0.2,1) both; font-variant-numeric:tabular-nums; }
+
+.tc-bottom { display:flex; justify-content:space-between; align-items:center; }
+.tc-roster-link { font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; font-size:14px; color:#FF0033; display:flex; align-items:center; gap:8px; }
+.tc-roster-link::after { content:"→"; font-size:18px; }
+.tc-next { font-family:'JetBrains Mono',monospace; font-size:12px; color:#888; }
+.tc-next .live-mini { color:#FF0033; font-weight:700; }
+
+.tc-form { display:flex; gap:4px; margin-top:14px; }
+.tc-form span { width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; }
+.tc-form .w { background:#00C853; color:#0D0D0D; }
+.tc-form .l { background:#262626; color:#888; }
+
+/* CHAMPIONSHIPS */
+.champ-section { background:#0a0a0a; border-top:1px solid #262626; border-bottom:1px solid #262626; }
+.trophy-shelf { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.trophy { background:linear-gradient(180deg,#1A1A1A 0%, #0f0f0f 100%); border:1px solid #262626; border-top:3px solid #FFD700; padding:28px; display:flex; gap:20px; align-items:flex-start; transition:.25s; }
+.trophy:hover { border-color:#FFD700; box-shadow:0 0 20px rgba(255,215,0,0.15); }
+.trophy-icon { width:64px; height:64px; flex-shrink:0; background:radial-gradient(circle, #FFD700 0%, #b8950a 100%); display:flex; align-items:center; justify-content:center; font-size:32px; }
+.trophy-meta { font-family:'JetBrains Mono',monospace; font-size:11px; color:#FFD700; letter-spacing:2px; text-transform:uppercase; }
+.trophy-title { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; text-transform:uppercase; line-height:1.1; margin:8px 0; }
+.trophy-sub { font-family:'Roboto',sans-serif; font-size:13px; color:#888; }
+
+/* SPONSORS */
+.sponsors { padding:48px 32px; max-width:1400px; margin:0 auto; border-top:1px solid #262626; }
+.sponsors-lbl { text-align:center; font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:4px; color:#888; font-size:13px; margin-bottom:24px; }
+.sponsor-row { display:flex; justify-content:space-around; align-items:center; gap:20px; flex-wrap:wrap; filter:grayscale(1); opacity:.6; }
+.sponsor { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; color:#888; letter-spacing:2px; text-transform:uppercase; padding:8px 16px; border:1px solid #262626; }
+
+/* FOOTER */
+footer { background:#000; padding:64px 32px 32px; border-top:1px solid #262626; }
+.foot-inner { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; }
+.foot-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:#fff; font-size:15px; margin-bottom:18px; }
+.foot-col a { display:block; color:#888; font-size:14px; padding:6px 0; transition:.2s; }
+.foot-col a:hover { color:#FF0033; }
+.foot-brand .tag { font-family:'Barlow Condensed',sans-serif; font-size:18px; color:#888; margin-top:14px; max-width:320px; }
+.foot-bottom { max-width:1400px; margin:48px auto 0; padding-top:24px; border-top:1px solid #262626; display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:12px; color:#888; letter-spacing:1px; }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <div class="logo"><div class="logo-bolt"></div><div class="logo-text">VOLT<span>AIC</span></div></div>
+    <div class="nav-items">
+      <a href="#">News</a>
+      <a href="#">Teams</a>
+      <a href="#" class="active">Schedule</a>
+      <a href="#">Results</a>
+      <a href="#">Shop</a>
+      <a href="#">Watch</a>
+    </div>
+    <div class="nav-right">
+      <div class="socials">
+        <a class="soc-ico">𝕏</a>
+        <a class="soc-ico">▶</a>
+        <a class="soc-ico">◉</a>
+      </div>
+      <a class="discord-btn">Discord</a>
+      <button class="watch-live-btn">Watch Live</button>
+    </div>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="tick"><span class="tag live">LIVE</span> VOLT <span class="score match-score">2</span>-<span class="score match-score">1</span> SENTINELS <span class="muted">· VCT Americas</span></div>
+      <div class="tick"><span class="tag live">LIVE</span> VOLT vs T1 <span class="muted">· LCK Pre-Season</span></div>
+      <div class="tick"><span class="tag final">FINAL</span> FNATIC <span class="score">13</span>-<span class="score">9</span> VOLT <span class="muted">· Ascent</span></div>
+      <div class="tick"><span class="tag final">FINAL</span> VOLT <span class="score">3</span>-<span class="score">1</span> KARMINE CORPS <span class="muted">· RLCS</span></div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs G2 · OCT 14 19:00 PT</div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs CLOUD9 · OCT 16</div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs NAVI · IEM KATOWICE OCT 18</div>
+      <div class="tick"><span class="tag live">LIVE</span> VOLT <span class="score match-score">2</span>-<span class="score match-score">1</span> SENTINELS <span class="muted">· VCT Americas</span></div>
+      <div class="tick"><span class="tag live">LIVE</span> VOLT vs T1 <span class="muted">· LCK Pre-Season</span></div>
+      <div class="tick"><span class="tag final">FINAL</span> FNATIC <span class="score">13</span>-<span class="score">9</span> VOLT <span class="muted">· Ascent</span></div>
+      <div class="tick"><span class="tag final">FINAL</span> VOLT <span class="score">3</span>-<span class="score">1</span> KARMINE CORPS <span class="muted">· RLCS</span></div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs G2 · OCT 14 19:00 PT</div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs CLOUD9 · OCT 16</div>
+      <div class="tick"><span class="muted">UPCOMING</span> VOLT vs NAVI · IEM KATOWICE OCT 18</div>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="crumb">VOLTAIC <span>/</span> TEAMS</div>
+  <h1>FOUR GAMES.<br><span class="red">ONE FLAG.</span></h1>
+  <p class="sub">Meet the squads carrying Voltaic across the global circuit. Born in the server. Built for the stage.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="num match-score">04</div><div class="lbl">Active Rosters</div></div>
+    <div class="hstat"><div class="num match-score">26</div><div class="lbl">Pro Players</div></div>
+    <div class="hstat"><div class="num match-score">12</div><div class="lbl">Trophies '23</div></div>
+    <div class="hstat"><div class="num match-score">95K</div><div class="lbl">Avg Viewers</div></div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <span class="lbl">Filter Game:</span>
+  <button class="chip active">All Teams</button>
+  <button class="chip">Valorant</button>
+  <button class="chip">League of Legends</button>
+  <button class="chip">Counter-Strike 2</button>
+  <button class="chip">Rocket League</button>
+  <span class="lbl" style="margin-left:auto;">Sort:</span>
+  <button class="chip gold active">Ranking</button>
+  <button class="chip">Win Rate</button>
+</div>
+
+<section class="section">
+  <div class="sec-head">
+    <h2>ACTIVE <span class="accent">ROSTERS</span></h2>
+    <div class="meta">UPDATED · OCT 13 2023 · 14:22 PT</div>
+  </div>
+
+  <div class="team-grid">
+
+    <!-- VALORANT -->
+    <a class="team-card">
+      <div class="tc-top">
+        <div class="tc-logo">VAL</div>
+        <div class="tc-game">
+          <div class="game-icon">⌖</div>
+          <div class="game-tag">VALORANT</div>
+        </div>
+      </div>
+      <div class="tc-name">Voltaic VAL</div>
+      <div class="tc-league">VCT Americas · LA Based · Est. 2021</div>
+      <div class="tc-stats">
+        <div class="tc-stat"><div class="v gold match-score">#3</div><div class="l">Region Rank</div></div>
+        <div class="tc-stat"><div class="v green match-score">24</div><div class="l">Wins</div></div>
+        <div class="tc-stat"><div class="v red match-score">11</div><div class="l">Losses</div></div>
+        <div class="tc-stat"><div class="v match-score">68.5%</div><div class="l">Win Rate</div></div>
+      </div>
+      <div class="tc-bottom">
+        <div class="tc-roster-link">View Roster</div>
+        <div class="tc-next"><span class="live-mini">● LIVE</span> vs SENTINELS</div>
+      </div>
+      <div class="tc-form">
+        <span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="w">W</span><span class="w">W</span>
+      </div>
+    </a>
+
+    <!-- LOL -->
+    <a class="team-card">
+      <div class="tc-top">
+        <div class="tc-logo">LOL</div>
+        <div class="tc-game">
+          <div class="game-icon">⚔</div>
+          <div class="game-tag">LEAGUE OF LEGENDS</div>
+        </div>
+      </div>
+      <div class="tc-name">Voltaic LoL</div>
+      <div class="tc-league">LCS · North America · Est. 2021</div>
+      <div class="tc-stats">
+        <div class="tc-stat"><div class="v gold match-score">#5</div><div class="l">LCS Rank</div></div>
+        <div class="tc-stat"><div class="v green match-score">18</div><div class="l">Wins</div></div>
+        <div class="tc-stat"><div class="v red match-score">14</div><div class="l">Losses</div></div>
+        <div class="tc-stat"><div class="v match-score">56.2%</div><div class="l">Win Rate</div></div>
+      </div>
+      <div class="tc-bottom">
+        <div class="tc-roster-link">View Roster</div>
+        <div class="tc-next">NEXT · vs CLOUD9 · OCT 16</div>
+      </div>
+      <div class="tc-form">
+        <span class="w">W</span><span class="l">L</span><span class="w">W</span><span class="w">W</span><span class="l">L</span>
+      </div>
+    </a>
+
+    <!-- CS2 -->
+    <a class="team-card">
+      <div class="tc-top">
+        <div class="tc-logo">CS2</div>
+        <div class="tc-game">
+          <div class="game-icon">◎</div>
+          <div class="game-tag">COUNTER-STRIKE 2</div>
+        </div>
+      </div>
+      <div class="tc-name">Voltaic CS2</div>
+      <div class="tc-league">HLTV Top 10 · Berlin Bootcamp · Est. 2022</div>
+      <div class="tc-stats">
+        <div class="tc-stat"><div class="v gold match-score">#9</div><div class="l">HLTV Rank</div></div>
+        <div class="tc-stat"><div class="v green match-score">31</div><div class="l">Wins</div></div>
+        <div class="tc-stat"><div class="v red match-score">12</div><div class="l">Losses</div></div>
+        <div class="tc-stat"><div class="v match-score">72.1%</div><div class="l">Win Rate</div></div>
+      </div>
+      <div class="tc-bottom">
+        <div class="tc-roster-link">View Roster</div>
+        <div class="tc-next">NEXT · vs NAVI · OCT 18 KATOWICE</div>
+      </div>
+      <div class="tc-form">
+        <span class="w">W</span><span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="w">W</span>
+      </div>
+    </a>
+
+    <!-- ROCKET LEAGUE -->
+    <a class="team-card">
+      <div class="tc-top">
+        <div class="tc-logo">RL</div>
+        <div class="tc-game">
+          <div class="game-icon">⚽</div>
+          <div class="game-tag">ROCKET LEAGUE</div>
+        </div>
+      </div>
+      <div class="tc-name">Voltaic RL</div>
+      <div class="tc-league">RLCS · São Paulo HQ · Est. 2022</div>
+      <div class="tc-stats">
+        <div class="tc-stat"><div class="v gold match-score">#6</div><div class="l">RLCS Rank</div></div>
+        <div class="tc-stat"><div class="v green match-score">22</div><div class="l">Wins</div></div>
+        <div class="tc-stat"><div class="v red match-score">9</div><div class="l">Losses</div></div>
+        <div class="tc-stat"><div class="v match-score">70.9%</div><div class="l">Win Rate</div></div>
+      </div>
+      <div class="tc-bottom">
+        <div class="tc-roster-link">View Roster</div>
+        <div class="tc-next">NEXT · RLCS MAJOR Q · OCT 21</div>
+      </div>
+      <div class="tc-form">
+        <span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="w">W</span><span class="w">W</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="champ-section">
+  <div class="section" style="padding:64px 32px;">
+    <div class="sec-head">
+      <h2>TROPHY <span style="color:#FFD700;">SHELF</span></h2>
+      <div class="meta">★ 12 TITLES · 2023 SEASON</div>
+    </div>
+    <div class="trophy-shelf">
+      <div class="trophy">
+        <div class="trophy-icon">🏆</div>
+        <div>
+          <div class="trophy-meta">VALORANT · CHAMPION</div>
+          <div class="trophy-title">VCT Americas Stage 1 Champion</div>
+          <div class="trophy-sub">Defeated Sentinels 3-1 in the Grand Final · Los Angeles · Prize: $200,000</div>
+        </div>
+      </div>
+      <div class="trophy">
+        <div class="trophy-icon">🥈</div>
+        <div>
+          <div class="trophy-meta">CS2 · RUNNER-UP</div>
+          <div class="trophy-title">ESL Pro League S17 Runner-up</div>
+          <div class="trophy-sub">Lost to FaZe in BO5 Final · Malta · Prize: $130,000</div>
+        </div>
+      </div>
+      <div class="trophy">
+        <div class="trophy-icon">🥉</div>
+        <div>
+          <div class="trophy-meta">ROCKET LEAGUE · TOP 4</div>
+          <div class="trophy-title">RLCS Spring Major Top 4</div>
+          <div class="trophy-sub">Semifinal exit vs Karmine Corps · London · Prize: $75,000</div>
+        </div>
+      </div>
+      <div class="trophy">
+        <div class="trophy-icon">🏆</div>
+        <div>
+          <div class="trophy-meta">LOL · CHAMPION</div>
+          <div class="trophy-title">LCS Lock-In Tournament Winners</div>
+          <div class="trophy-sub">Swept C9 3-0 in Final · Online · Prize: $150,000</div>
+        </div>
+      </div>
+      <div class="trophy">
+        <div class="trophy-icon">🥈</div>
+        <div>
+          <div class="trophy-meta">VALORANT · 2ND</div>
+          <div class="trophy-title">Red Bull Home Ground V Finalists</div>
+          <div class="trophy-sub">Lost to KOI in final map · Manchester · Prize: $40,000</div>
+        </div>
+      </div>
+      <div class="trophy">
+        <div class="trophy-icon">🏆</div>
+        <div>
+          <div class="trophy-meta">CS2 · CHAMPION</div>
+          <div class="trophy-title">BLAST Premier Spring Showdown</div>
+          <div class="trophy-sub">Beat NAVI 2-1 in Final · Copenhagen · Prize: $112,500</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sponsors">
+  <div class="sponsors-lbl">Official Partners · 2023 Season</div>
+  <div class="sponsor-row">
+    <div class="sponsor">INTEL</div>
+    <div class="sponsor">CORSAIR</div>
+    <div class="sponsor">RED BULL</div>
+    <div class="sponsor">HYPERX</div>
+    <div class="sponsor">SANTANDER</div>
+    <div class="sponsor">SECRETLAB</div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col foot-brand">
+      <div class="logo"><div class="logo-bolt"></div><div class="logo-text">VOLT<span>AIC</span></div></div>
+      <p class="tag">Born in the Server. Built for the Stage.</p>
+      <div class="socials" style="margin-top:20px;">
+        <a class="soc-ico">𝕏</a>
+        <a class="soc-ico">▶</a>
+        <a class="soc-ico">◉</a>
+        <a class="soc-ico">f</a>
+        <a class="soc-ico">in</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Org</h4>
+      <a>News</a><a>Teams</a><a>Schedule</a><a>Results</a>
+    </div>
+    <div class="foot-col">
+      <h4>Fans</h4>
+      <a>Shop</a><a>Watch Live</a><a>Discord</a><a>Membership</a>
+    </div>
+    <div class="foot-col">
+      <h4>Business</h4>
+      <a>Sponsors</a><a>Careers</a><a>Press Kit</a><a>Contact</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2023 VOLTAIC ESPORTS INC. · ALL RIGHTS RESERVED</div>
+    <div>TERMS · PRIVACY · COOKIES</div>
+  </div>
+</footer>
+
+</body>
+</html>

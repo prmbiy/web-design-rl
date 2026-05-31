@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Resources — Linkbase</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;font-size:16px;color:#1A202C;background:#F8FAFC;line-height:1.5}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:#FFFFFF;border-bottom:1px solid #E2E8F0;height:72px;display:flex;align-items:center;padding:0 48px}
+.nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;color:#1E3A5F}
+.logo-mark{width:28px;height:28px;background:#1E3A5F;border-radius:6px;position:relative}
+.logo-mark::after{content:"";position:absolute;inset:7px;background:#F97316;border-radius:2px}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;font-weight:500;color:#1A202C}
+.nav-links a.active{color:#1E3A5F;font-weight:600}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.btn{display:inline-block;padding:10px 18px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:opacity .2s}
+.btn:hover{opacity:.9}
+.btn-ghost{background:transparent;color:#1E3A5F}
+.btn-primary{background:#1E3A5F;color:#fff}
+.btn-orange{background:#F97316;color:#fff}
+.btn-outline{background:#fff;color:#1E3A5F;border:1px solid #1E3A5F}
+
+/* TICKER */
+.ticker{background:#F1F5F9;border-bottom:1px solid #E2E8F0;padding:8px 0;overflow:hidden;white-space:nowrap;font-size:12px;color:#4A5568;letter-spacing:.04em}
+.ticker span{margin:0 24px;font-weight:500}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:0 auto;padding:0 48px}
+
+/* HERO */
+.hero{padding:80px 48px 48px;background:#F8FAFC}
+.hero h1{font-size:56px;font-weight:800;color:#1E3A5F;letter-spacing:-.02em;line-height:1.05;max-width:780px}
+.hero .sub{margin-top:20px;font-size:20px;color:#4A5568;max-width:680px;line-height:1.5}
+
+/* TABS */
+.res-tabs{padding:32px 48px 0}
+.res-tabs-inner{max-width:1200px;margin:0 auto;border-bottom:1px solid #E2E8F0;display:flex;gap:8px}
+.res-tab{padding:14px 20px;font-size:14px;font-weight:600;color:#4A5568;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.res-tab.active{color:#1E3A5F;border-bottom-color:#F97316}
+.res-tab .count{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:10px;background:#F1F5F9;font-size:11px;color:#4A5568;font-weight:600}
+
+/* FEATURED ANALYST */
+.section{padding:48px 48px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;max-width:1200px;margin-left:auto;margin-right:auto}
+.section-head h2{font-size:28px;font-weight:700;color:#1E3A5F;letter-spacing:-.01em}
+.section-head .sub{font-size:14px;color:#4A5568;margin-top:6px}
+.section-head a{font-size:13px;color:#1E3A5F;font-weight:600}
+
+.featured-card{max-width:1200px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:8px;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.featured-left{padding:48px;background:linear-gradient(135deg,#1E3A5F 0%,#2A4A7A 100%);color:#fff;position:relative}
+.gartner-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.15);color:#F97316;border:1px solid #F97316;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.featured-left h3{font-size:30px;font-weight:700;line-height:1.2;margin-top:20px;letter-spacing:-.01em}
+.featured-left .quote{font-size:18px;font-style:italic;color:#CBD5E1;margin-top:28px;line-height:1.5;padding-left:14px;border-left:3px solid #F97316}
+.featured-left .quote-by{margin-top:14px;font-size:13px;color:#94A3B8;font-style:normal}
+.report-cover{position:absolute;top:32px;right:32px;width:84px;height:108px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:4px;display:flex;align-items:flex-end;padding:8px;font-size:9px;color:#fff;font-weight:700;letter-spacing:.05em;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+
+.featured-right{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.featured-right h4{font-size:20px;font-weight:700;color:#1E3A5F;margin-bottom:8px}
+.featured-right p{font-size:14px;color:#4A5568;margin-bottom:24px}
+.form-row{display:flex;flex-direction:column;gap:12px}
+.form-row input{padding:12px 14px;border:1px solid #E2E8F0;border-radius:6px;font-family:inherit;font-size:14px;background:#F8FAFC}
+.form-row .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-row button{margin-top:8px;padding:14px 18px;background:#F97316;color:#fff;border:none;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer}
+.form-note{font-size:11px;color:#94A3B8;margin-top:10px;text-transform:uppercase;letter-spacing:.06em}
+
+/* WEBINARS */
+.webinar-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.webinar-card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:24px;display:flex;flex-direction:column}
+.webinar-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#F97316;text-transform:uppercase;letter-spacing:.08em}
+.webinar-tag::before{content:"";width:6px;height:6px;background:#F97316;border-radius:50%}
+.webinar-date{font-size:13px;color:#4A5568;margin-top:14px;font-weight:600}
+.webinar-card h4{font-size:18px;font-weight:700;color:#1E3A5F;margin-top:10px;line-height:1.3;min-height:48px}
+.speaker{display:flex;align-items:center;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid #F1F5F9}
+.speaker-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+.av1{background:linear-gradient(135deg,#4F6BFF,#A78BFA)}
+.av2{background:linear-gradient(135deg,#F97316,#EF4444)}
+.av3{background:linear-gradient(135deg,#22C55E,#06B6D4)}
+.speaker-info{display:flex;flex-direction:column}
+.speaker-name{font-size:14px;font-weight:600;color:#1A202C}
+.speaker-title{font-size:12px;color:#4A5568}
+.webinar-card .btn{margin-top:20px;text-align:center;width:100%}
+
+/* BLOG GRID */
+.blog-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.blog-card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.blog-cover{height:140px;position:relative}
+.bc1{background:linear-gradient(135deg,#1E3A5F 0%,#4F6BFF 100%)}
+.bc2{background:linear-gradient(135deg,#F97316 0%,#EF4444 100%)}
+.bc3{background:linear-gradient(135deg,#06B6D4 0%,#22C55E 100%)}
+.bc4{background:linear-gradient(135deg,#A78BFA 0%,#4F6BFF 100%)}
+.blog-cover svg{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
+.blog-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.cat-tag{font-size:11px;font-weight:700;color:#1E3A5F;text-transform:uppercase;letter-spacing:.08em;background:#F1F5F9;padding:3px 8px;border-radius:4px;align-self:flex-start}
+.blog-body h4{font-size:16px;font-weight:700;color:#1E3A5F;margin-top:12px;line-height:1.35;flex:1}
+.blog-meta{display:flex;justify-content:space-between;margin-top:14px;font-size:12px;color:#4A5568}
+
+/* VIDEO LIBRARY */
+.video-row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.video-card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden}
+.video-thumb{height:120px;position:relative;display:flex;align-items:center;justify-content:center}
+.vt1{background:linear-gradient(135deg,#1E3A5F,#2A4A7A)}
+.vt2{background:linear-gradient(135deg,#4F6BFF,#06B6D4)}
+.vt3{background:linear-gradient(135deg,#22C55E,#06B6D4)}
+.vt4{background:linear-gradient(135deg,#EF4444,#F97316)}
+.vt5{background:linear-gradient(135deg,#A78BFA,#4F6BFF)}
+.play-btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.play-btn::after{content:"";border-left:12px solid #1E3A5F;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.video-duration{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.7);color:#fff;font-size:11px;font-weight:600;padding:2px 6px;border-radius:3px}
+.video-body{padding:14px}
+.video-body h5{font-size:13px;font-weight:600;color:#1E3A5F;line-height:1.3}
+.video-body .meta{font-size:11px;color:#4A5568;margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
+
+/* CASE STUDIES */
+.case-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:32px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.case-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:#F97316}
+.case-logo{font-size:18px;font-weight:800;color:#1E3A5F;letter-spacing:-.01em;height:32px;display:flex;align-items:center}
+.case-metric{font-size:48px;font-weight:800;color:#1E3A5F;letter-spacing:-.02em;margin-top:20px;line-height:1;font-variant-numeric:tabular-nums}
+.case-metric-label{font-size:13px;color:#4A5568;margin-top:8px;font-weight:500}
+.case-card h4{font-size:18px;font-weight:700;color:#1A202C;margin-top:24px;line-height:1.35}
+.case-card p{font-size:14px;color:#4A5568;margin-top:10px;flex:1}
+.gated-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#F97316;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:20px}
+.gated-pill::before{content:"🔒";font-size:11px}
+.case-card .btn{margin-top:12px;width:100%;text-align:center}
+
+/* FOOTER */
+.footer{background:#1E3A5F;color:#CBD5E1;padding:64px 48px 32px;margin-top:64px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:48px}
+.footer h5{color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer li{font-size:14px;color:#94A3B8}
+.footer .brand-col p{font-size:14px;color:#94A3B8;margin-top:14px;line-height:1.6}
+.footer .logo{color:#fff}
+.footer-bottom{max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid #2A4A7A;display:flex;justify-content:space-between;font-size:12px;color:#94A3B8}
+.compliance{display:flex;gap:14px}
+.compliance span{padding:4px 10px;border:1px solid #2A4A7A;border-radius:4px;font-weight:600;letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo"><div class="logo-mark"></div>Linkbase</div>
+    <div class="nav-links">
+      <a href="#">Platform</a>
+      <a href="#">Solutions</a>
+      <a href="#">Integrations</a>
+      <a href="#">Pricing</a>
+      <a href="#" class="active">Resources</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-ghost">Log in</button>
+      <button class="btn btn-primary">Request demo</button>
+    </div>
+  </div>
+</nav>
+
+<div class="ticker">
+  <span>CARGILL</span><span>WHIRLPOOL</span><span>HENKEL</span><span>MONDELEZ</span><span>STANLEY BLACK &amp; DECKER</span><span>KIMBERLY-CLARK</span><span>BRIDGESTONE</span><span>OWENS CORNING</span><span>TRACTOR SUPPLY</span><span>CARDINAL HEALTH</span>
+</div>
+
+<section class="hero">
+  <div class="container" style="padding:0">
+    <h1>Research, playbooks, and field-tested benchmarks</h1>
+    <p class="sub">From the Linkbase research team and our customer community — covering demand forecasting, inventory science, and supplier risk for Fortune 1000 operations leaders.</p>
+  </div>
+</section>
+
+<div class="res-tabs">
+  <div class="res-tabs-inner">
+    <div class="res-tab active">All Resources <span class="count">142</span></div>
+    <div class="res-tab">Case Studies <span class="count">38</span></div>
+    <div class="res-tab">White Papers <span class="count">21</span></div>
+    <div class="res-tab">Webinars <span class="count">17</span></div>
+    <div class="res-tab">Blog <span class="count">64</span></div>
+    <div class="res-tab">Analyst Reports <span class="count">12</span></div>
+  </div>
+</div>
+
+<!-- FEATURED ANALYST REPORT -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Featured analyst report</h2>
+      <div class="sub">Gated download — instant access after email verification</div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="featured-left">
+      <span class="gartner-badge">★ Gartner Magic Quadrant Leader</span>
+      <h3>2024 Gartner Magic Quadrant for Supply Chain Planning Solutions</h3>
+      <div class="quote">"Linkbase Analytics demonstrates strength in probabilistic demand sensing and multi-echelon inventory optimization, with measurable ROI across discrete manufacturing and CPG deployments."</div>
+      <div class="quote-by">— Gartner Research, Q3 2024 · 84 pages</div>
+      <div class="report-cover">GARTNER<br>MQ 2024</div>
+    </div>
+    <div class="featured-right">
+      <h4>Download the full report</h4>
+      <p>See why Linkbase was named a Leader. Includes vendor scoring, deployment criteria, and the full Gartner methodology.</p>
+      <div class="form-row">
+        <div class="row2">
+          <input type="text" placeholder="First name">
+          <input type="text" placeholder="Last name">
+        </div>
+        <input type="email" placeholder="Work email">
+        <input type="text" placeholder="Company">
+        <div class="row2">
+          <input type="text" placeholder="Job title">
+          <input type="text" placeholder="Country">
+        </div>
+        <button>Download PDF →</button>
+      </div>
+      <div class="form-note">SOC 2 Type II · We never share your email</div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBINARS -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Upcoming webinars</h2>
+      <div class="sub">Live sessions with Linkbase researchers and customer practitioners</div>
+    </div>
+    <a href="#">View all webinars →</a>
+  </div>
+  <div class="webinar-grid">
+    <div class="webinar-card">
+      <span class="webinar-tag">Live Webinar</span>
+      <div class="webinar-date">📅 November 14, 2024 · 11:00 AM ET</div>
+      <h4>Probabilistic Forecasting for CPG: Beyond Point Estimates</h4>
+      <div class="speaker">
+        <div class="speaker-avatar av1">AR</div>
+        <div class="speaker-info">
+          <span class="speaker-name">Dr. Anita Rao</span>
+          <span class="speaker-title">Head of Forecasting Research, Linkbase</span>
+        </div>
+      </div>
+      <button class="btn btn-orange">Register free</button>
+    </div>
+    <div class="webinar-card">
+      <span class="webinar-tag">Live Webinar</span>
+      <div class="webinar-date">📅 December 3, 2024 · 1:00 PM ET</div>
+      <h4>Tariff Shock Playbook: Re-routing Supply in 30 Days</h4>
+      <div class="speaker">
+        <div class="speaker-avatar av2">ME</div>
+        <div class="speaker-info">
+          <span class="speaker-name">Marco Esposito</span>
+          <span class="speaker-title">VP Supplier Intelligence, Linkbase</span>
+        </div>
+      </div>
+      <button class="btn btn-orange">Register free</button>
+    </div>
+    <div class="webinar-card">
+      <span class="webinar-tag">Live Webinar</span>
+      <div class="webinar-date">📅 December 12, 2024 · 10:00 AM ET</div>
+      <h4>Closing the S&amp;OP Loop: From Plan to Execution</h4>
+      <div class="speaker">
+        <div class="speaker-avatar av3">LP</div>
+        <div class="speaker-info">
+          <span class="speaker-name">Lena Park</span>
+          <span class="speaker-title">Director of S&amp;OP, Mondelez (Guest)</span>
+        </div>
+      </div>
+      <button class="btn btn-orange">Register free</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>From the blog</h2>
+      <div class="sub">Practitioner essays from the Linkbase research desk</div>
+    </div>
+    <a href="#">All articles →</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-cover bc1">
+        <svg viewBox="0 0 200 140" preserveAspectRatio="none">
+          <polyline points="10,110 40,90 70,95 100,60 130,70 160,40 190,30" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+          <polyline points="10,120 40,115 70,100 100,90 130,85 160,75 190,60" fill="none" stroke="#F97316" stroke-width="2"/>
+          <circle cx="190" cy="30" r="4" fill="#F97316"/>
+        </svg>
+      </div>
+      <div class="blog-body">
+        <span class="cat-tag">Inventory</span>
+        <h4>Why MAPE is the wrong KPI for high-velocity SKUs</h4>
+        <div class="blog-meta"><span>Oct 28, 2024</span><span>9 min read</span></div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-cover bc2">
+        <svg viewBox="0 0 200 140" preserveAspectRatio="none">
+          <rect x="20" y="60" width="20" height="60" fill="#fff" opacity=".5"/>
+          <rect x="50" y="40" width="20" height="80" fill="#fff" opacity=".7"/>
+          <rect x="80" y="70" width="20" height="50" fill="#fff" opacity=".5"/>
+          <rect x="110" y="30" width="20" height="90" fill="#fff" opacity=".9"/>
+          <rect x="140" y="50" width="20" height="70" fill="#fff" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="blog-body">
+        <span class="cat-tag">Procurement</span>
+        <h4>Tier-2 supplier visibility in 30 days: a step-by-step</h4>
+        <div class="blog-meta"><span>Oct 21, 2024</span><span>12 min read</span></div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-cover bc3">
+        <svg viewBox="0 0 200 140" preserveAspectRatio="none">
+          <circle cx="60" cy="70" r="35" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+          <circle cx="100" cy="70" r="35" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+          <circle cx="140" cy="70" r="35" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="blog-body">
+        <span class="cat-tag">Technology</span>
+        <h4>Building a demand-and-supply graph at petabyte scale</h4>
+        <div class="blog-meta"><span>Oct 14, 2024</span><span>15 min read</span></div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-cover bc4">
+        <svg viewBox="0 0 200 140" preserveAspectRatio="none">
+          <path d="M 20 100 Q 60 30 100 80 T 180 50" fill="none" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="100" cy="80" r="4" fill="#F97316"/>
+          <circle cx="180" cy="50" r="4" fill="#F97316"/>
+        </svg>
+      </div>
+      <div class="blog-body">
+        <span class="cat-tag">Industry</span>
+        <h4>What the 2024 holiday peak teaches retail planners</h4>
+        <div class="blog-meta"><span>Oct 7, 2024</span><span>7 min read</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO LIBRARY -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Video demo library</h2>
+      <div class="sub">Self-guided product tours and deep dives — no email required</div>
+    </div>
+    <a href="#">Browse all videos →</a>
+  </div>
+  <div class="video-row">
+    <div class="video-card">
+      <div class="video-thumb vt1">
+        <div class="play-btn"></div>
+        <span class="video-duration">4:32</span>
+      </div>
+      <div class="video-body">
+        <h5>Platform Tour</h5>
+        <div class="meta">Overview · 4 min</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb vt2">
+        <div class="play-btn"></div>
+        <span class="video-duration">8:14</span>
+      </div>
+      <div class="video-body">
+        <h5>Demand Sensing Deep Dive</h5>
+        <div class="meta">Technical · 8 min</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb vt3">
+        <div class="play-btn"></div>
+        <span class="video-duration">6:48</span>
+      </div>
+      <div class="video-body">
+        <h5>Inventory Optimization</h5>
+        <div class="meta">Module · 7 min</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb vt4">
+        <div class="play-btn"></div>
+        <span class="video-duration">5:21</span>
+      </div>
+      <div class="video-body">
+        <h5>Supplier Risk Module</h5>
+        <div class="meta">Module · 5 min</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb vt5">
+        <div class="play-btn"></div>
+        <span class="video-duration">3:55</span>
+      </div>
+      <div class="video-body">
+        <h5>ROI Calculator Walkthrough</h5>
+        <div class="meta">Sales · 4 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Customer case studies</h2>
+      <div class="sub">Gated PDF downloads · detailed deployment metrics inside</div>
+    </div>
+    <a href="#">All 38 case studies →</a>
+  </div>
+  <div class="case-grid">
+    <div class="case-card">
+      <div class="case-logo">WHIRLPOOL</div>
+      <div class="case-metric">$80M</div>
+      <div class="case-metric-label">Working capital freed in 18 months</div>
+      <h4>How Whirlpool cut finished-goods inventory by 24%</h4>
+      <p>Multi-echelon optimization across 14 distribution centers, integrated with SAP S/4HANA and Manhattan WMS.</p>
+      <span class="gated-pill">PDF · Gated</span>
+      <button class="btn btn-outline">Download case study</button>
+    </div>
+    <div class="case-card">
+      <div class="case-logo">MONDELĒZ</div>
+      <div class="case-metric">42%</div>
+      <div class="case-metric-label">Reduction in stockouts during 2024 peak</div>
+      <h4>Probabilistic demand sensing for global CPG promotions</h4>
+      <p>Linkbase replaced 9 legacy forecasting tools with a unified SKU-location-week model across 32 markets.</p>
+      <span class="gated-pill">PDF · Gated</span>
+      <button class="btn btn-outline">Download case study</button>
+    </div>
+    <div class="case-card">
+      <div class="case-logo">CARDINAL HEALTH</div>
+      <div class="case-metric">9 days</div>
+      <div class="case-metric-label">Shorter order-to-delivery cycle</div>
+      <h4>Healthcare supply resilience across 1,200 hospital partners</h4>
+      <p>Real-time tier-2 supplier signals routed into the Linkbase alert engine, with HIPAA-ready deployment.</p>
+      <span class="gated-pill">PDF · Gated</span>
+      <button class="btn btn-outline">Download case study</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="brand-col">
+      <div class="logo"><div class="logo-mark"></div>Linkbase</div>
+      <p>Forecast demand. Optimize inventory. Mitigate supplier risk. The decision platform trusted by Fortune 1000 operations teams.</p>
+    </div>
+    <div>
+      <h5>Platform</h5>
+      <ul>
+        <li>Demand Forecasting</li>
+        <li>Inventory Optimization</li>
+        <li>Supplier Analytics</li>
+        <li>Reporting &amp; Alerts</li>
+        <li>Integrations</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Solutions</h5>
+      <ul>
+        <li>Manufacturing</li>
+        <li>Retail</li>
+        <li>Healthcare</li>
+        <li>CPG</li>
+        <li>Mid-Market</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li>Case Studies</li>
+        <li>White Papers</li>
+        <li>Webinars</li>
+        <li>Blog</li>
+        <li>ROI Calculator</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li>About</li>
+        <li>Customers</li>
+        <li>Careers</li>
+        <li>Newsroom</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Linkbase Analytics, Inc. · 99.9% Enterprise SLA</div>
+    <div class="compliance">
+      <span>SOC 2 TYPE II</span>
+      <span>ISO 27001</span>
+      <span>GDPR</span>
+      <span>HIPAA-READY</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

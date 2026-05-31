@@ -1,0 +1,207 @@
+{
+  "brand_name": "Volaris Móvil",
+  "tagline": "Conecta sin límites en México y Colombia",
+  "primary_color_name": "Volaris Teal",
+  "pages": {
+    "home": {
+      "title": "Inicio",
+      "nav_items": [
+        "Móvil",
+        "Internet",
+        "TV",
+        "Paquetes",
+        "Empresa",
+        "Tiendas"
+      ],
+      "sections": [
+        {
+          "name": "promo_banner_carousel",
+          "headline": "¡50% OFF en tu primer mes!",
+          "subheadline": "Termina en 2 días, 14 horas, 32 minutos"
+        },
+        {
+          "name": "hero",
+          "headline": "Plan Ilimitado Volaris 5G por $349/mes",
+          "subheadline": "Incluye Netflix Estándar y Disney+ sin costo extra los primeros 6 meses"
+        },
+        {
+          "name": "plan_category_tabs",
+          "description": "Tabbed selector switching between Móvil, Internet Hogar, and TV con Streaming categories."
+        },
+        {
+          "name": "featured_plans_grid",
+          "description": "Three highlighted plan cards: Plan Esencial 30GB $249, Plan Pro 80GB $399 (Más Popular), Plan Ilimitado 5G $549, each showing minutes, SMS, and streaming inclusions."
+        },
+        {
+          "name": "streaming_partners",
+          "description": "Logo strip showing Netflix, Disney+, HBO Max, Paramount+, and Amazon Music included in select plans."
+        },
+        {
+          "name": "recharge_widget",
+          "description": "Quick prepaid recharge form with phone number input, amount selector ($50/$100/$200/$500), and 'Recargar Ahora' button via Visa/Oxxo/PayPal."
+        },
+        {
+          "name": "double_data_promo",
+          "description": "Bright orange band promoting 'Fines de Semana de Datos Dobles' for postpaid customers, valid Sept–Dec 2021."
+        },
+        {
+          "name": "portability_cta",
+          "description": "Call-to-action urging users to bring their number from Telcel, Movistar, or Claro and receive $200 bonus credit."
+        },
+        {
+          "name": "store_locator_link",
+          "description": "Banner linking to interactive store map covering 1,240+ Volaris stores across CDMX, Guadalajara, Bogotá, and Medellín."
+        },
+        {
+          "name": "service_status",
+          "description": "Green indicator showing 'Todos los servicios operando con normalidad' with link to detailed status page."
+        }
+      ]
+    },
+    "movil": {
+      "title": "Planes Móvil",
+      "nav_items": [
+        "Móvil",
+        "Internet",
+        "TV",
+        "Paquetes",
+        "Empresa",
+        "Tiendas"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Encuentra tu plan móvil ideal",
+          "subheadline": "Prepago o pospago, 4G LTE y 5G en las principales ciudades"
+        },
+        {
+          "name": "prepaid_postpaid_toggle",
+          "description": "Switch toggle alternating plan tables between Volaris Amigo (prepago) and Volaris Plan (pospago)."
+        },
+        {
+          "name": "plan_comparison_table",
+          "description": "Six-column table comparing Plan 30GB/$249, Plan 50GB/$329, Plan 80GB/$399, Plan 120GB/$479, Plan Ilimitado/$549 across data, minutos ilimitados, SMS, streaming bundle, and roaming en USA."
+        },
+        {
+          "name": "portability_cta",
+          "headline": "Trae tu número y recibe $200 de saldo",
+          "subheadline": "Proceso 100% online en 24 horas"
+        },
+        {
+          "name": "coverage_map_5g",
+          "description": "Interactive map highlighting 5G coverage in CDMX, Monterrey, Guadalajara, Bogotá, and Cali with zip code lookup."
+        },
+        {
+          "name": "whatsapp_support",
+          "description": "Sticky callout with WhatsApp Business number +52 55 8000 8888 for plan inquiries."
+        }
+      ]
+    },
+    "internet": {
+      "title": "Internet para Casa",
+      "nav_items": [
+        "Móvil",
+        "Internet",
+        "TV",
+        "Paquetes",
+        "Empresa",
+        "Tiendas"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Fibra óptica hasta 500 Mbps",
+          "subheadline": "Sin cargo de instalación contratando en línea"
+        },
+        {
+          "name": "coverage_checker",
+          "description": "Address input form with state/colonia dropdown to check fiber availability."
+        },
+        {
+          "name": "internet_plans_table",
+          "description": "Comparison of Fibra 100Mbps $399, Fibra 200Mbps $499, Fibra 300Mbps $599, Fibra 500Mbps $799 with router Wi-Fi 6 incluido, instalación gratis, and contrato 12 meses."
+        },
+        {
+          "name": "speed_test_widget",
+          "description": "Embedded speed test tool showing download/upload Mbps and ping for current connection."
+        },
+        {
+          "name": "installation_scheduling",
+          "description": "Calendar widget to book installation slots within 48–72 hours including morning/afternoon options."
+        },
+        {
+          "name": "service_status",
+          "description": "Real-time indicator for internet service health across regions with last-updated timestamp."
+        }
+      ]
+    },
+    "paquetes": {
+      "title": "Paquetes Combinados",
+      "nav_items": [
+        "Móvil",
+        "Internet",
+        "TV",
+        "Paquetes",
+        "Empresa",
+        "Tiendas"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Combina y ahorra hasta 35%",
+          "subheadline": "Móvil + Internet + TV en una sola factura"
+        },
+        {
+          "name": "bundle_cards",
+          "description": "Three bundles: Dúo Hogar (Internet 200 + TV 80 canales) $699, Trío Familiar (Internet 300 + TV 120 canales + 2 líneas móviles) $999 (Más Popular), Mega Familiar (Internet 500 + TV Premium + 4 líneas) $1,499."
+        },
+        {
+          "name": "savings_calculator",
+          "description": "Interactive calculator showing monthly savings vs contracting servicios por separado, e.g. 'Ahorras $420/mes con Trío Familiar'."
+        },
+        {
+          "name": "family_plan_section",
+          "description": "Section for Plan Familia Volaris with up to 5 lines sharing 200GB, parental controls, and línea adicional desde $99."
+        },
+        {
+          "name": "streaming_bundle_callout",
+          "description": "Yellow promotional band advertising Disney+ y Star+ incluidos sin costo en paquetes Trío y Mega por 12 meses."
+        }
+      ]
+    },
+    "tiendas": {
+      "title": "Tiendas y Atención",
+      "nav_items": [
+        "Móvil",
+        "Internet",
+        "TV",
+        "Paquetes",
+        "Empresa",
+        "Tiendas"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Estamos cerca de usted",
+          "subheadline": "1,240 tiendas en México y Colombia"
+        },
+        {
+          "name": "store_locator_map",
+          "description": "Interactive map with pin filters by city (CDMX, Guadalajara, Monterrey, Bogotá, Medellín, Cali) showing store hours and services."
+        },
+        {
+          "name": "contact_channels",
+          "description": "Grid of support options: Llámanos *611, WhatsApp +52 55 8000 8888, Email atencion@volaris.mx, Chat en vivo 24/7."
+        },
+        {
+          "name": "tramites_online",
+          "description": "List of self-service options: cambiar plan, reportar falla, pagar factura, solicitar portabilidad, activar SIM, sin necesidad de visitar tienda."
+        },
+        {
+          "name": "live_chat_button",
+          "description": "Floating orange chat widget labeled 'Habla con Vola, tu asistente virtual' with typical response time of 30 seconds."
+        }
+      ]
+    }
+  }
+}

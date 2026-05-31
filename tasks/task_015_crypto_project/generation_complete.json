@@ -1,0 +1,12 @@
+{
+  "dna_id": "015",
+  "dna_name": "crypto_project",
+  "pages": [
+    "home",
+    "technology",
+    "ecosystem",
+    "developers",
+    "community"
+  ],
+  "has_animations": true
+}

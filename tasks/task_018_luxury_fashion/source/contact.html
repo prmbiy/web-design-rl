@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Contact & Boutiques — Maison Delacroix-Vauban</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  font-family: 'EB Garamond', 'Garamond', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== Nav ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 96px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #1A1A1A;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wordmark {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-size: 15px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding-top: 6px;
+}
+.nav-menu {
+  display: flex;
+  gap: 56px;
+  margin-top: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease 0.1s;
+}
+.nav-wrapper:hover .nav-menu { opacity: 1; pointer-events: auto; }
+.nav-link {
+  position: relative;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: #1A1A1A;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.bag {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ===== Hero ===== */
+@keyframes fade_in_hero {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hero, .hero * { animation: fade_in_hero 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+.hero {
+  padding: 240px 80px 140px;
+  text-align: center;
+  background: #FFFFFF;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  color: #1A1A1A;
+}
+.hero-title {
+  font-family: 'Playfair Display', 'Didot', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 72px;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin-bottom: 36px;
+}
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #1A1A1A;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Two-col section ===== */
+.section {
+  padding: 120px 80px;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #1A1A1A;
+}
+
+/* ===== Map ===== */
+.map {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: #FAF7F2;
+  margin-bottom: 64px;
+  overflow: hidden;
+  border: 1px solid #E5E1DA;
+}
+.map svg { width: 100%; height: 100%; display: block; }
+.map-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #1A1A1A;
+  border-radius: 50%;
+}
+.map-label {
+  position: absolute;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ===== Boutiques list ===== */
+.boutique {
+  padding: 32px 0;
+  border-top: 1px solid #E5E1DA;
+}
+.boutique:last-child { border-bottom: 1px solid #E5E1DA; }
+.boutique-city {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.boutique-address {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1A1A1A;
+}
+.boutique-meta {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  margin-top: 10px;
+}
+
+/* ===== Form ===== */
+.form-intro {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 56px;
+  color: #1A1A1A;
+  max-width: 460px;
+}
+.field {
+  margin-bottom: 38px;
+}
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: #1A1A1A;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #1A1A1A;
+  background: transparent;
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  color: #1A1A1A;
+  padding: 8px 0 14px;
+  border-radius: 0;
+  outline: none;
+  letter-spacing: 0.02em;
+}
+.field textarea { resize: none; min-height: 90px; }
+.field select { appearance: none; cursor: pointer; }
+.field input::placeholder, .field textarea::placeholder { color: #8A8A8A; font-style: italic; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.submit {
+  margin-top: 20px;
+  background: transparent;
+  border: 1px solid #1A1A1A;
+  padding: 18px 48px;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #1A1A1A;
+  transition: background 1.2s ease, color 1.2s ease;
+}
+.submit:hover { background: #1A1A1A; color: #FFFFFF; }
+
+/* ===== Defile section ===== */
+.defile {
+  background: #FAF7F2;
+  padding: 140px 80px;
+}
+.defile-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: start;
+}
+.defile h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 44px;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 32px;
+}
+.defile p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  max-width: 440px;
+}
+.defile-meta {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  margin-top: 40px;
+}
+
+/* ===== Client services ===== */
+.services {
+  padding: 140px 80px;
+  text-align: center;
+  border-top: 1px solid #E5E1DA;
+}
+.services-label {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.services h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+.services-contact {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.services-contact span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  margin-bottom: 10px;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #FAF7F2;
+  padding: 100px 80px 48px;
+  border-top: 1px solid #E5E1DA;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1280px;
+  margin: 0 auto 80px;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer-tagline {
+  font-style: italic;
+  font-size: 14px;
+  color: #1A1A1A;
+}
+.footer h4 {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+.footer ul { list-style: none; }
+.footer ul li { font-size: 13px; padding: 4px 0; }
+.newsletter {
+  display: flex;
+  border-bottom: 1px solid #1A1A1A;
+}
+.newsletter input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 6px 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  outline: none;
+  font-style: italic;
+}
+.newsletter button {
+  background: transparent;
+  border: none;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.footer-bottom {
+  border-top: 1px solid #E5E1DA;
+  padding-top: 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-wrapper">
+    <div class="wordmark">Maison Delacroix-Vauban</div>
+    <div class="nav-menu">
+      <a class="nav-link" href="#">Boutiques</a>
+      <a class="nav-link" href="#">Rendez-vous Privé</a>
+      <a class="nav-link" href="#">Services Clients</a>
+      <a class="nav-link" href="#">Défilé</a>
+    </div>
+    <div class="bag">Sac (0)</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Contact &amp; Boutiques</div>
+  <h1 class="hero-title">Nos Boutiques</h1>
+  <div class="hero-sub">Sur rendez-vous</div>
+</section>
+
+<!-- TWO COL: MAP+BOUTIQUES / FORM -->
+<section class="section">
+  <div class="two-col">
+    <!-- LEFT: MAP + LIST -->
+    <div>
+      <div class="section-label">Adresses Maison</div>
+
+      <div class="map">
+        <svg viewBox="0 0 600 380" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- abstract continents -->
+          <g fill="none" stroke="#1A1A1A" stroke-width="0.4" opacity="0.35">
+            <path d="M40,140 Q90,120 130,135 T210,150 Q260,160 290,140 L300,170 L260,200 Q220,210 180,200 L130,205 Q90,200 60,180 Z"/>
+            <path d="M270,120 Q310,100 340,115 L370,140 Q360,170 330,175 L300,165 Z"/>
+            <path d="M380,150 Q440,135 490,150 Q540,165 555,200 L520,230 Q470,235 430,220 Q400,205 385,180 Z"/>
+            <path d="M120,260 Q160,250 195,275 L210,310 Q180,320 150,310 Q125,295 115,280 Z"/>
+          </g>
+          <g stroke="#E5E1DA" stroke-width="0.3">
+            <line x1="0" y1="95" x2="600" y2="95"/>
+            <line x1="0" y1="190" x2="600" y2="190"/>
+            <line x1="0" y1="285" x2="600" y2="285"/>
+            <line x1="150" y1="0" x2="150" y2="380"/>
+            <line x1="300" y1="0" x2="300" y2="380"/>
+            <line x1="450" y1="0" x2="450" y2="380"/>
+          </g>
+        </svg>
+        <!-- city dots -->
+        <div class="map-dot" style="top:42%; left:32%;"></div>
+        <div class="map-label" style="top:38%; left:34%;">Paris</div>
+
+        <div class="map-dot" style="top:48%; left:37%;"></div>
+        <div class="map-label" style="top:50%; left:39%;">Milano</div>
+
+        <div class="map-dot" style="top:50%; left:82%;"></div>
+        <div class="map-label" style="top:46%; left:74%;">Tokyo</div>
+
+        <div class="map-dot" style="top:46%; left:18%;"></div>
+        <div class="map-label" style="top:42%; left:6%;">New York</div>
+      </div>
+
+      <div class="boutique">
+        <div class="boutique-city">Paris</div>
+        <div class="boutique-address">24 Rue du Faubourg Saint-Honoré<br>75008 Paris, France</div>
+        <div class="boutique-meta">Maison Mère · Salon Privé au 2<sup>e</sup> étage</div>
+      </div>
+      <div class="boutique">
+        <div class="boutique-city">Milano</div>
+        <div class="boutique-address">Via Montenapoleone 8<br>20121 Milano, Italia</div>
+        <div class="boutique-meta">Sur rendez-vous · Lundi à Samedi</div>
+      </div>
+      <div class="boutique">
+        <div class="boutique-city">Tokyo</div>
+        <div class="boutique-address">Ginza Six, 4F<br>6-10-1 Ginza, Chūō-ku, Tokyo</div>
+        <div class="boutique-meta">Conseiller bilingue Japonais — Français</div>
+      </div>
+      <div class="boutique">
+        <div class="boutique-city">New York</div>
+        <div class="boutique-address">760 Madison Avenue<br>New York, NY 10065</div>
+        <div class="boutique-meta">Salon des Clients Internationaux</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div>
+      <div class="section-label">Rendez-vous Privé</div>
+      <p class="form-intro">
+        Nous vous accueillons en toute discrétion dans nos Salons Privés. Veuillez compléter le formulaire ci-dessous et notre Conseiller Privé prendra contact avec vous dans un délai de quarante-huit heures.
+      </p>
+
+      <form>
+        <div class="field-row">
+          <div class="field">
+            <label>Prénom</label>
+            <input type="text" placeholder="Hélène">
+          </div>
+          <div class="field">
+            <label>Nom</label>
+            <input type="text" placeholder="Marchetti">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Adresse électronique</label>
+          <input type="email" placeholder="vous@correspondance.fr">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Boutique de préférence</label>
+            <select>
+              <option>Paris — Faubourg Saint-Honoré</option>
+              <option>Milano — Montenapoleone</option>
+              <option>Tokyo — Ginza Six</option>
+              <option>New York — Madison Avenue</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Date souhaitée</label>
+            <input type="text" placeholder="28 septembre 2023">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Notes au Conseiller Privé</label>
+          <textarea placeholder="Pièces souhaitées, occasion, préférences de matières…"></textarea>
+        </div>
+
+        <button class="submit" type="button">Confirmer la demande</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DEFILE SS24 -->
+<section class="defile">
+  <div class="defile-inner">
+    <div>
+      <div class="section-label" style="border-color:#1A1A1A;">Défilé — Invitation</div>
+      <h2>Printemps–Été 2024<br><em>Jardin des Tuileries</em></h2>
+      <p>La Maison vous convie à la présentation de la collection Printemps–Été 2024 sous le pavillon éphémère du Jardin des Tuileries, le mardi 26 septembre 2023, à dix-neuf heures.</p>
+      <p>L'accès est réservé aux clients de la Maison et aux représentants de la presse internationale accrédités.</p>
+      <div class="defile-meta">26 · 09 · 2023 — 19h00 · Paris</div>
+    </div>
+
+    <div>
+      <form>
+        <div class="field">
+          <label>Nom complet</label>
+          <input type="text" placeholder="Mme Camille Astrid">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Qualité</label>
+            <select>
+              <option>Cliente de la Maison</option>
+              <option>Presse — Rédaction</option>
+              <option>Presse — Photographie</option>
+              <option>Industrie</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Publication / Conseiller</label>
+            <input type="text" placeholder="—">
+          </div>
+        </div>
+        <div class="field">
+          <label>Adresse électronique</label>
+          <input type="email" placeholder="correspondance@…">
+        </div>
+        <div class="field">
+          <label>Message</label>
+          <textarea placeholder="Précisions éventuelles à l'attention du Bureau des Défilés."></textarea>
+        </div>
+        <button class="submit" type="button">Soumettre la demande</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT SERVICES -->
+<section class="services">
+  <div class="services-label">Services Clients · Conciergerie</div>
+  <h3>À votre disposition, en toute discrétion, du lundi au samedi de dix heures à dix-neuf heures, heure de Paris.</h3>
+  <div class="services-contact">
+    <div>
+      <span>Téléphone</span>
+      +33 1 42 60 00 23
+    </div>
+    <div>
+      <span>Correspondance</span>
+      correspondance@delacroix-vauban.com
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Maison Delacroix-Vauban</div>
+      <div class="footer-tagline">Paris, depuis 1923</div>
+    </div>
+    <div>
+      <h4>Boutiques</h4>
+      <ul>
+        <li>Paris</li>
+        <li>Milano</li>
+        <li>Tokyo</li>
+        <li>New York</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Maison</h4>
+      <ul>
+        <li>Héritage</li>
+        <li>Atelier</li>
+        <li>Défilés</li>
+        <li>Carrières</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Correspondance</h4>
+      <p style="font-size:13px; margin-bottom:16px; font-style:italic; color:#1A1A1A;">Recevez nos lettres saisonnières.</p>
+      <div class="newsletter">
+        <input type="email" placeholder="Votre adresse">
+        <button type="button">Envoyer</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© MMXXIII Delacroix-Vauban</div>
+    <div>Mentions Légales · Confidentialité · Cookies</div>
+  </div>
+</footer>
+
+</body>
+</html>

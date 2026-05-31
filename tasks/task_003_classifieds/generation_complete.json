@@ -1,0 +1,12 @@
+{
+  "dna_id": "003",
+  "dna_name": "classifieds",
+  "pages": [
+    "home",
+    "housing",
+    "jobs",
+    "forsale",
+    "community"
+  ],
+  "has_animations": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "019",
+  "name": "esports_hub",
+  "source": "B",
+  "archetype": "Competitive esports organization and gaming news hub",
+  "market": "Global, 16-30 competitive gaming audience, fans of major esports titles",
+  "era": "2023",
+  "density": "High energy, high density, but in a structured magazine style. Above the fold: live match ticker. Below: news grid mixed with match schedule. Team roster section. Tournament brackets. Stream embeds. Discord join CTA. Everything maximally visual and action-oriented.",
+  "nav_style": "Dark to black background with team logo/org name left. Nav: News, Teams, Schedule, Results, Shop, Watch. Live match score ticker runs below the nav continuously. 'Watch Live' button in neon red pulsing animation. Social icons row. Discord join in contrasting accent color.",
+  "commercial_model": "Fan-funded esports org. Revenue from merch shop, sponsor logos prominently displayed (Intel, Corsair, Red Bull, regional banks), fan membership subscriptions, and tournament prize money visibility.",
+  "color_palette": "Near-black (#0D0D0D) background. Electric red (#FF0033) as primary team accent. White (#FFFFFF) for primary text. Medium grey (#888888) for secondary text and dividers. Gold (#FFD700) for championship badges, win records, and prize amounts. Live badge: #FF0033 red with white text. Ticker background: #1A1A1A. Player card hover glow: box-shadow 0 0 24px rgba(255,0,51,0.6) — use team red color for glow.",
+  "typography": "Barlow Condensed or Rajdhani for headlines — aggressive, condensed, game-like. Roboto for body text. Stats and numbers in a bold monospace. Player names in all-caps. Team names in organization typeface. Score displays in large tabular numerals.",
+  "quirks": ["live_score_ticker", "sponsor_logos_strip", "player_roster_cards", "match_schedule_table", "tournament_bracket", "stream_embed", "merch_shop_cta", "team_record_stats", "discord_join_button", "player_social_links"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Hero with featured match or announcement. Live match ticker below nav. News grid with video thumbnails. Upcoming matches schedule table. Roster spotlight section. Sponsor logos strip. Social media feed integration."},
+    {"slug": "teams", "title": "Our Teams", "description": "Teams by game: League of Legends, Valorant, CS2, Rocket League. Each team card with logo, game icon, current ranking, record. Click to team page with roster."},
+    {"slug": "roster", "title": "Player Roster", "description": "Player roster page for one team. Player cards with professional photo, IGN (in-game name), real name, role/position, country flag, and social links. Coach and analysts section. Staff section."},
+    {"slug": "schedule", "title": "Schedule & Results", "description": "Upcoming and past matches organized by tournament. Match cards with opponent logo, date/time, tournament name, game, and stream link. Results show score. Filter by team or game."},
+    {"slug": "shop", "title": "Merch Shop", "description": "Team merchandise store. Jersey section, hoodies, accessories, mousepads. Product cards with photo, name, price, size selector. Limited edition drops countdown timer. Signed merch section."}
+  ],
+  "animations": ["live_ticker_horizontal_scroll_continuous", "live_badge_red_strobe_pulse", "player_card_red_glow_on_hover", "match_score_number_count_up"]
+}

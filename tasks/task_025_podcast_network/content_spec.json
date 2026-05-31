@@ -1,0 +1,175 @@
+{
+  "brand_name": "Longwave Audio",
+  "tagline": "Independent podcasts for the curious mind.",
+  "primary_color_name": "Longwave Purple",
+  "pages": {
+    "home": {
+      "title": "Longwave Audio — Independent Podcasts on Tech & Culture",
+      "nav_items": [
+        "Shows",
+        "Episodes",
+        "Newsletter",
+        "Support Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Independent audio for the curious mind.",
+          "subheadline": "Seven shows on technology, culture, and the strange shape of the future — funded by listeners, not algorithms."
+        },
+        {
+          "name": "now_playing_widget",
+          "description": "Persistent mini player showing the latest episode (e.g. 'Signal Drift Ep. 142: The Last Search Engine' with host Maya Okafor, 47:22 runtime, scrub bar and play button)."
+        },
+        {
+          "name": "show_grid",
+          "description": "Grid of 7 large square cover artworks for network shows: Signal Drift, The Annotated Web, Forkbomb, Slow Computer, Liner Notes from Nowhere, Cold Open, and Field Recordings."
+        },
+        {
+          "name": "featured_episode",
+          "description": "Highlighted editor's pick episode with large artwork, e.g. 'Forkbomb #88 — Inside the Linux Kernel Mailing List Wars' with Alex Tanaka, 1h 12m, with play button and 3-line description."
+        },
+        {
+          "name": "newsletter_signup",
+          "description": "Email field for 'The Longwave Dispatch', a Friday newsletter with episode picks and host annotations, listing 18,400 subscribers."
+        },
+        {
+          "name": "support_block",
+          "description": "Donation prompt with coral CTA 'Become a Supporter' linking to membership tiers, with stat '4,212 listeners support Longwave directly'."
+        },
+        {
+          "name": "about_blurb",
+          "description": "Two-sentence network bio noting Longwave was founded in Oakland in 2021 by three former public radio producers."
+        }
+      ]
+    },
+    "shows": {
+      "title": "All Shows — Longwave Audio",
+      "nav_items": [
+        "Shows",
+        "Episodes",
+        "Newsletter",
+        "Support Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Seven shows. One network.",
+          "subheadline": "Filter by category or browse the full catalog."
+        },
+        {
+          "name": "category_filter",
+          "description": "Pill filters for categories: All, Technology, Culture, Interview, Narrative, Music, Essay."
+        },
+        {
+          "name": "show_directory",
+          "description": "Grid of show cards each with cover art, title, one-line pitch, episode count, and platform icons; e.g. 'Signal Drift — weekly dispatches from the edges of the internet, 142 episodes, Apple / Spotify / RSS' and 'Slow Computer — a show about technology that didn't catch on, 64 episodes'."
+        }
+      ]
+    },
+    "episodes": {
+      "title": "Latest Episodes — Longwave Audio",
+      "nav_items": [
+        "Shows",
+        "Episodes",
+        "Newsletter",
+        "Support Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Latest Episodes",
+          "subheadline": "Every new release across the network."
+        },
+        {
+          "name": "filter_bar",
+          "description": "Search field plus dropdowns to filter by show (Signal Drift, Forkbomb, Cold Open…) and sort by Newest / Oldest / Most Played."
+        },
+        {
+          "name": "episode_feed",
+          "description": "List of episode rows with thumbnail artwork, title, show name, publish date and duration; e.g. 'Ep. 142 The Last Search Engine — Signal Drift — Nov 14, 2024 — 47:22' and 'Ep. 31 Tuning a Mellotron in 2024 — Liner Notes from Nowhere — Nov 12, 2024 — 38:09'."
+        },
+        {
+          "name": "pagination",
+          "description": "Numbered pagination showing page 1 of 47 with Previous / Next controls."
+        }
+      ]
+    },
+    "episode": {
+      "title": "Ep. 142: The Last Search Engine — Signal Drift",
+      "nav_items": [
+        "Shows",
+        "Episodes",
+        "Newsletter",
+        "Support Us"
+      ],
+      "sections": [
+        {
+          "name": "player",
+          "headline": "Signal Drift · Episode 142",
+          "subheadline": "The Last Search Engine — with guest Aanya Krishnan, 47:22, released November 14, 2024."
+        },
+        {
+          "name": "description",
+          "description": "Three-paragraph episode summary about the decline of general-purpose web search and the rise of niche indexes, including a pull-quote from the conversation."
+        },
+        {
+          "name": "chapters",
+          "description": "Time-stamped chapter markers in mono type: '00:00 Cold open', '03:14 The Google problem', '17:40 Marginalia and Kagi', '34:02 What comes after the index', '44:50 Listener mail'."
+        },
+        {
+          "name": "guest_bio",
+          "description": "Host photo and bio for Maya Okafor plus guest card for Aanya Krishnan, search engineer formerly at DuckDuckGo, with two-sentence bio and links."
+        },
+        {
+          "name": "links_mentioned",
+          "description": "Bulleted list of references cited in the episode: Marginalia Search, the 1998 PageRank paper, and a New Yorker essay by Anna Wiener."
+        },
+        {
+          "name": "transcript",
+          "description": "Link to full machine-edited transcript (serif type) with note that transcripts are produced within 48 hours of release."
+        },
+        {
+          "name": "share_subscribe",
+          "description": "Share buttons (Copy link, Mastodon, Bluesky, Email) and subscribe buttons for Apple Podcasts, Spotify, Overcast, Pocket Casts, and RSS."
+        }
+      ]
+    },
+    "support": {
+      "title": "Support the Network — Longwave Audio",
+      "nav_items": [
+        "Shows",
+        "Episodes",
+        "Newsletter",
+        "Support Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Listener-supported, ad-light, ours.",
+          "subheadline": "76% of Longwave's budget comes directly from members like you."
+        },
+        {
+          "name": "impact",
+          "description": "Three-icon breakdown of what support funds: producer salaries for 5 staff, transcripts for every episode, and original cover art commissions."
+        },
+        {
+          "name": "membership_tiers",
+          "description": "Comparison table of three tiers — Free, Plus ($7/mo), Supporter ($15/mo) — listing benefits like ad-free feeds, monthly bonus episode 'The B-Side', early access 48 hours, and annual enamel pin."
+        },
+        {
+          "name": "patreon_embed",
+          "description": "Embedded Patreon widget showing 4,212 patrons and a coral 'Join on Patreon' button."
+        },
+        {
+          "name": "one_time_donation",
+          "description": "Single-field donation form with preset amounts $5 / $25 / $100 / Custom via Stripe."
+        },
+        {
+          "name": "merch_preview",
+          "description": "Four-product grid: Longwave logo tee ($28), Signal Drift tote ($22), Slow Computer mug ($18), enamel pin set ($14)."
+        }
+      ]
+    }
+  }
+}

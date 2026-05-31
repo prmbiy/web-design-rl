@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stillwater Yoga & Wellness — A quiet practice in the heart of the city.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAFAF7;
+  --surface: #F5ECD7;
+  --primary: #88A47C;
+  --deep-sage: #5F7256;
+  --secondary: #D4B896;
+  --accent: #C5848A;
+  --terracotta: #B87355;
+  --text: #5C5C52;
+  --muted: #9E9E8E;
+  --border: #E8E2D5;
+  --warm-white: #FDFCF8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #3d3d35;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 84px;
+  background: rgba(250,250,247,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  border-bottom: 1px solid rgba(232,226,213,0.5);
+}
+
+.nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--deep-sage);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 44px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.cart {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.btn-book {
+  background: var(--primary);
+  color: var(--warm-white);
+  padding: 12px 26px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.4s ease;
+}
+
+.btn-book:hover { background: var(--deep-sage); }
+
+/* Hero */
+.hero {
+  height: 100vh;
+  min-height: 720px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 75% 30%, rgba(255,240,210,0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(136,164,124,0.18) 0%, transparent 60%),
+    linear-gradient(135deg, #E8DFC9 0%, #D9C9A8 35%, #B8A789 70%, #8B7E62 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 96px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 80px, rgba(92, 70, 40, 0.06) 80px, rgba(92, 70, 40, 0.06) 82px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 180px, rgba(92, 70, 40, 0.04) 180px, rgba(92, 70, 40, 0.04) 181px);
+  pointer-events: none;
+}
+
+/* Plant silhouette */
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 14%;
+  bottom: 8%;
+  width: 180px;
+  height: 320px;
+  background:
+    radial-gradient(ellipse 40px 90px at 50% 30%, rgba(95,114,86,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 70px at 30% 50%, rgba(95,114,86,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 70px at 70% 50%, rgba(95,114,86,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 30px at 50% 95%, rgba(60,40,25,0.7) 0%, transparent 70%);
+  filter: blur(2px);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--deep-sage);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: 72px;
+  line-height: 1.08;
+  font-weight: 400;
+  color: #2e2e26;
+  margin-bottom: 32px;
+  letter-spacing: -0.015em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--deep-sage);
+}
+
+.hero p {
+  font-size: 19px;
+  line-height: 1.65;
+  color: #4a4a40;
+  max-width: 480px;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--deep-sage);
+  color: var(--warm-white);
+  padding: 16px 36px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: #4a5a44; }
+
+.btn-ghost {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--text);
+}
+
+/* Animations */
+@keyframes fade_in_hero { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero, .hero h1, .hero p { animation: fade_in_hero 1.6s ease-out both; }
+.hero .eyebrow { animation: fade_in_hero 1.6s ease-out 0.2s both; }
+.hero h1 { animation-delay: 0.4s; }
+.hero p { animation-delay: 0.8s; }
+.hero-actions { animation: fade_in_hero 1.6s ease-out 1.2s both; }
+
+@keyframes scroll_reveal_cards { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+.card, .class-card, .teacher-card { animation: scroll_reveal_cards 1s ease-out both; }
+
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 1.2s ease; }
+.img-zoom:hover img { transform: scale(1.05); }
+
+@keyframes breath_pulse { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+.breath { animation: breath_pulse 4s ease-in-out infinite; }
+
+/* Sections */
+section { padding: 140px 40px; }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 96px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.section-head h2 {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.section-head h2 em { font-style: italic; color: var(--deep-sage); }
+
+.section-head p {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Class types */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.class-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  padding: 56px 44px;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.class-card:nth-child(2) { animation-delay: 0.15s; }
+.class-card:nth-child(3) { animation-delay: 0.3s; }
+
+.class-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.class-card .icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  color: var(--primary);
+  font-size: 32px;
+}
+
+.class-card .type-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-variant: small-caps;
+}
+
+.class-card h3 {
+  font-size: 30px;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.class-card p {
+  font-size: 15.5px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.class-card .duration {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.class-card .duration::before {
+  content: '○';
+  color: var(--secondary);
+  font-size: 11px;
+}
+
+/* Weekly preview */
+.weekly {
+  background: var(--surface);
+  position: relative;
+}
+
+.weekly .section-head h2 { color: #3d3d35; }
+
+.weekly-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(184, 168, 137, 0.4);
+}
+
+.weekly-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 260px 160px;
+  align-items: center;
+  padding: 36px 16px;
+  border-bottom: 1px solid rgba(184, 168, 137, 0.4);
+  gap: 32px;
+  transition: background 0.4s ease;
+}
+
+.weekly-row:hover { background: rgba(253, 252, 248, 0.5); }
+
+.weekly-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--deep-sage);
+}
+
+.weekly-day .time {
+  display: block;
+  font-size: 13px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.weekly-class h4 {
+  font-size: 26px;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.weekly-class .teacher {
+  font-style: italic;
+  color: var(--text);
+  font-size: 15px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.weekly-meta {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.weekly-meta .level {
+  font-variant: small-caps;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  color: var(--primary);
+}
+
+.weekly-reserve {
+  text-align: right;
+}
+
+.btn-reserve {
+  background: transparent;
+  border: 1px solid var(--text);
+  color: var(--text);
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+}
+
+.btn-reserve:hover {
+  background: var(--deep-sage);
+  border-color: var(--deep-sage);
+  color: var(--warm-white);
+}
+
+.weekly-foot {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.link-quiet {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep-sage);
+  border-bottom: 1px solid var(--deep-sage);
+  padding-bottom: 4px;
+}
+
+/* Teacher spotlight */
+.spotlight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: center;
+}
+
+.spotlight-img {
+  aspect-ratio: 4/5;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(255,230,200,0.4) 0%, transparent 60%),
+    linear-gradient(160deg, #C9B89A 0%, #A8967A 50%, #6F6450 100%);
+  position: relative;
+  border-radius: 2px;
+}
+
+.spotlight-img::before {
+  content: '';
+  position: absolute;
+  left: 30%; top: 25%;
+  width: 40%; height: 55%;
+  background: radial-gradient(ellipse, rgba(80,60,45,0.5) 0%, rgba(80,60,45,0.2) 50%, transparent 80%);
+  border-radius: 50% 50% 45% 45%;
+}
+
+.spotlight-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(45deg, transparent 0px, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 4px);
+}
+
+.spotlight-img-wrap {
+  border-radius: 2px;
+}
+
+.spotlight-content .section-eyebrow { text-align: left; }
+
+.spotlight-content h2 {
+  font-size: 44px;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.spotlight-content h2 em { font-style: italic; color: var(--deep-sage); }
+
+.spotlight-content .quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 32px;
+  padding-left: 24px;
+  border-left: 2px solid var(--secondary);
+}
+
+.spotlight-content p {
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.spotlight-meta {
+  display: flex;
+  gap: 40px;
+  padding-top: 32px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.spotlight-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spotlight-meta .label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spotlight-meta .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--deep-sage);
+}
+
+/* Membership */
+.membership {
+  background: linear-gradient(180deg, var(--bg) 0%, #F1EBDC 100%);
+}
+
+.membership-head {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.membership-head h2 {
+  font-size: 52px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.membership-head h2 em { font-style: italic; color: var(--deep-sage); }
+
+.membership-head p {
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.tier {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  padding: 56px 44px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.tier:hover { transform: translateY(-4px); border-color: var(--primary); }
+
+.tier.featured {
+  border-color: var(--primary);
+  background: var(--warm-white);
+}
+
+.tier-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.tier h3 {
+  font-size: 32px;
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.tier .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--text);
+  font-weight: 400;
+  margin: 24px 0 8px;
+}
+
+.tier .price-unit {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.tier ul {
+  list-style: none;
+  margin: 32px 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tier ul li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tier ul li::before {
+  content: '○';
+  color: var(--primary);
+  font-size: 8px;
+}
+
+.tier-cta {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--text);
+  border-radius: 2px;
+  color: var(--text);
+  transition: all 0.4s ease;
+}
+
+.tier.featured .tier-cta {
+  background: var(--primary);
+  color: var(--warm-white);
+  border-color: var(--primary);
+}
+
+.tier-cta:hover {
+  background: var(--deep-sage);
+  border-color: var(--deep-sage);
+  color: var(--warm-white);
+}
+
+/* Footer */
+footer {
+  background: var(--surface);
+  padding: 96px 40px 48px;
+}
+
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(184, 168, 137, 0.4);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 30px;
+  color: var(--deep-sage);
+  margin-bottom: 20px;
+}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--text);
+  font-size: 18px;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.footer-col h5 {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.footer-col p, .footer-col a {
+  font-size: 14px;
+  color: var(--text);
+  display: block;
+  line-height: 2;
+}
+
+.footer-col a:hover { color: var(--primary); }
+
+.newsletter-form {
+  display: flex;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--text);
+}
+
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+
+.newsletter-form input::placeholder { color: var(--muted); }
+
+.newsletter-form button {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--deep-sage);
+  cursor: pointer;
+  padding: 10px 0 10px 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text);
+  transition: all 0.4s ease;
+}
+
+.socials a:hover {
+  background: var(--deep-sage);
+  border-color: var(--deep-sage);
+  color: var(--warm-white);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.footer-bottom .links {
+  display: flex;
+  gap: 28px;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">Stillwater</a>
+    <ul class="nav-links">
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Teachers</a></li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="cart" aria-label="Cart">⊙</a>
+      <a href="#" class="btn-book">Book Class</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow breath">— Brooklyn · Est. 2018</div>
+    <h1>Come as you are.<br><em>Move as you must.</em></h1>
+    <p>A Brooklyn studio for thoughtful movement, breath, and rest — in person and online.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">View the Schedule</a>
+      <a href="#" class="btn-ghost">Begin a Practice →</a>
+    </div>
+  </div>
+</section>
+
+<section class="class-types">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">The Practice</div>
+      <h2>Three ways to <em>arrive</em>.</h2>
+      <p>Signature formats designed for the body you brought today — nothing more, nothing less.</p>
+    </div>
+    <div class="class-grid">
+      <div class="class-card">
+        <div class="icon">⌬</div>
+        <div class="type-label">Vinyasa</div>
+        <h3>Slow Flow Vinyasa</h3>
+        <p>An unhurried sequence linking breath to movement. We pause where most studios rush, and we rest before we need to.</p>
+        <div class="duration">60–75 minutes · All levels</div>
+      </div>
+      <div class="class-card">
+        <div class="icon">◯</div>
+        <div class="type-label">Restorative</div>
+        <h3>Yin &amp; Restore</h3>
+        <p>Long, supported holds with bolsters and blankets. The kind of stillness that asks something of you and gives more back.</p>
+        <div class="duration">75 minutes · All levels</div>
+      </div>
+      <div class="class-card">
+        <div class="icon">∽</div>
+        <div class="type-label">Breath</div>
+        <h3>Pranayama + Meditation</h3>
+        <p>Seated practice for the nervous system. Breath techniques drawn from lineage, followed by a guided sit.</p>
+        <div class="duration">45 minutes · Beginner-friendly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="weekly">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">This Week</div>
+      <h2>A few classes <em>coming up</em>.</h2>
+      <p>A small selection from the week ahead. The full calendar lives on the schedule page.</p>
+    </div>
+
+    <div class="weekly-list">
+      <div class="weekly-row">
+        <div class="weekly-day">Tuesday<span class="time">7:00 AM</span></div>
+        <div class="weekly-class">
+          <h4>Morning Flow</h4>
+          <span class="teacher">with Amara Okafor</span>
+        </div>
+        <div class="weekly-meta">
+          <span>60 min · In-studio</span>
+          <span class="level">All Levels · 6 spots open</span>
+        </div>
+        <div class="weekly-reserve"><a href="#" class="btn-reserve">Reserve</a></div>
+      </div>
+
+      <div class="weekly-row">
+        <div class="weekly-day">Wednesday<span class="time">6:30 PM</span></div>
+        <div class="weekly-class">
+          <h4>Candlelit Yin</h4>
+          <span class="teacher">with Ines Marchetti</span>
+        </div>
+        <div class="weekly-meta">
+          <span>75 min · In-studio</span>
+          <span class="level">All Levels · 3 spots open</span>
+        </div>
+        <div class="weekly-reserve"><a href="#" class="btn-reserve">Reserve</a></div>
+      </div>
+
+      <div class="weekly-row">
+        <div class="weekly-day">Saturday<span class="time">9:00 AM</span></div>
+        <div class="weekly-class">
+          <h4>Breathwork Circle</h4>
+          <span class="teacher">with Devan Rao</span>
+        </div>
+        <div class="weekly-meta">
+          <span>45 min · Online + Studio</span>
+          <span class="level">Beginner · 11 spots open</span>
+        </div>
+        <div class="weekly-reserve"><a href="#" class="btn-reserve">Reserve</a></div>
+      </div>
+    </div>
+
+    <div class="weekly-foot">
+      <a href="#" class="link-quiet">See the full week</a>
+    </div>
+  </div>
+</section>
+
+<section class="spotlight-section" style="padding:160px 40px;">
+  <div class="container">
+    <div class="spotlight">
+      <div class="img-zoom spotlight-img-wrap">
+        <div class="spotlight-img" role="img" aria-label="Portrait of Amara Okafor"></div>
+      </div>
+      <div class="spotlight-content">
+        <div class="section-eyebrow">Teacher Spotlight · This Month</div>
+        <h2>Amara Okafor on <em>returning to the breath</em>.</h2>
+        <p class="quote">"The breath is the one teacher who never stopped showing up for you. Our practice is simply remembering how to listen."</p>
+        <p>Amara has taught at Stillwater since 2019. Her morning flows draw from a decade of Ashtanga study in Mysore and a softer, somatic approach she developed through doula work in Brooklyn.</p>
+        <div class="spotlight-meta">
+          <div>
+            <span class="label">Lineage</span>
+            <span class="value">E-RYT 500</span>
+          </div>
+          <div>
+            <span class="label">Teaching Since</span>
+            <span class="value">2012</span>
+          </div>
+          <div>
+            <span class="label">Find Her</span>
+            <span class="value">@amara.breathes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="membership">
+  <div class="container">
+    <div class="membership-head">
+      <div class="section-eyebrow">Membership</div>
+      <h2>Practice the way <em>that fits your life</em>.</h2>
+      <p>No contracts, no rush. Begin with a single class or settle into a rhythm — whichever feels right.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-label">Online</div>
+        <h3>Stillwater Stream</h3>
+        <div class="price">$24<span class="price-unit"> / month</span></div>
+        <ul>
+          <li>Unlimited on-demand library</li>
+          <li>Two live-streamed classes weekly</li>
+          <li>Guided meditation archive</li>
+          <li>Seasonal letter included</li>
+        </ul>
+        <a href="#" class="tier-cta">Begin Streaming</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-label">Most Chosen</div>
+        <h3>Studio Unlimited</h3>
+        <div class="price">$189<span class="price-unit"> / month</span></div>
+        <ul>
+          <li>Unlimited in-studio classes</li>
+          <li>Stillwater Stream included</li>
+          <li>15% off workshops &amp; retail</li>
+          <li>Guest passes (2 per month)</li>
+        </ul>
+        <a href="#" class="tier-cta">Become a Member</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label">Flexible</div>
+        <h3>8-Class Pack</h3>
+        <div class="price">$168<span class="price-unit"> / 8 classes</span></div>
+        <ul>
+          <li>Valid for four months</li>
+          <li>Shareable with one guest</li>
+          <li>Use in-studio or online</li>
+          <li>No monthly commitment</li>
+        </ul>
+        <a href="#" class="tier-cta">Purchase Pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-brand">Stillwater</div>
+        <p class="footer-tagline">A quiet practice in the heart of the city.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <p>147 Wythe Avenue<br>Brooklyn, NY 11249</p>
+        <p style="margin-top:14px;">Mon–Fri · 6:30a–9p<br>Sat–Sun · 8a–6p</p>
+      </div>
+      <div class="footer-col">
+        <h5>Wander</h5>
+        <a href="#">Practice</a>
+        <a href="#">Schedule</a>
+        <a href="#">Teachers</a>
+        <a href="#">Workshops</a>
+        <a href="#">Our Story</a>
+      </div>
+      <div class="footer-col">
+        <h5>Receive our seasonal letter</h5>
+        <p style="font-size:13px; color:var(--muted); line-height:1.6;">Four times a year. Solstices, equinoxes. Nothing more.</p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email" placeholder="your@email.com">
+          <button type="submit">Subscribe →</button>
+        </form>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">◐</a>
+          <a href="#" aria-label="Spotify">♪</a>
+          <a href="#" aria-label="Email">✉</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Stillwater Yoga &amp; Wellness</div>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

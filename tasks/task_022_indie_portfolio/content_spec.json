@@ -1,0 +1,187 @@
+{
+  "brand_name": "kaiwa.dev",
+  "tagline": "console.log('building things on the internet')",
+  "primary_color_name": "Terminal Green",
+  "pages": {
+    "home": {
+      "title": "Kai Watanabe — Developer & Designer",
+      "nav_items": [
+        "Work",
+        "Writing",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "> Hi, I'm Kai. Developer, designer, builder.",
+          "subheadline": "Currently shipping developer tools at Linear. Previously at Vercel. Available for select freelance projects in Q2 2024."
+        },
+        {
+          "name": "featured_projects",
+          "description": "Three project cards with screenshots: 'Tinybase' (local-first React state library, 4.2k stars), 'Inkwell' (markdown CMS for indie hackers), and 'Plotter' (terminal-based time tracker written in Rust)."
+        },
+        {
+          "name": "tech_stack_strip",
+          "description": "Horizontal row of monochrome tech logos with hover-to-green: TypeScript, React, Rust, Go, Postgres, Tailwind, Bun, Deno."
+        },
+        {
+          "name": "currently_building",
+          "description": "Terminal-styled block listing 3 active side projects with progress notes, e.g. 'syncd — CRDT sync engine (alpha)', 'kaiwa.fm — podcast about indie devs (ep 4)', 'rewriting this site in Astro'."
+        },
+        {
+          "name": "writing_preview",
+          "description": "Two latest blog posts with dates and read times: 'Why I stopped using Redux in 2024 (8 min)' and 'Building a CRDT from scratch in Rust (14 min)'."
+        },
+        {
+          "name": "contact_cta",
+          "description": "Single-line prompt: '$ echo \"hi@kaiwa.dev\"' with email link and social icons for GitHub, Mastodon, Bluesky, RSS."
+        }
+      ]
+    },
+    "work": {
+      "title": "Work — kaiwa.dev",
+      "nav_items": [
+        "Work",
+        "Writing",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "page_header",
+          "headline": "Work",
+          "subheadline": "Eight years of shipping. A selection of things I'm proud of."
+        },
+        {
+          "name": "featured_project",
+          "description": "Full-width hero card for 'Tinybase' with large screenshot, npm downloads counter (47k/week), GitHub stars (4.2k), and 'View case study' link."
+        },
+        {
+          "name": "project_grid",
+          "description": "Six project cards in a 2-column grid: Inkwell, Plotter, syncd, Cobalt (design system for Linear), Slug (URL shortener in 200 LOC), and 'this site' — each with tech badges and Live/GitHub links."
+        },
+        {
+          "name": "open_source",
+          "description": "Section listing notable OSS contributions with PR links: 'shadcn/ui — added Combobox primitive', 'tRPC — fixed type inference bug #4521', 'Astro — RSS plugin maintainer'."
+        },
+        {
+          "name": "contribution_graph",
+          "description": "GitHub-style 365-day contribution heatmap rendered in green with stat: '1,247 contributions in the last year'."
+        }
+      ]
+    },
+    "project": {
+      "title": "Tinybase — Case Study",
+      "nav_items": [
+        "Work",
+        "Writing",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "project_header",
+          "headline": "Tinybase",
+          "subheadline": "A 6kb local-first state library for React. 4,200 stars, 47k weekly downloads."
+        },
+        {
+          "name": "problem_statement",
+          "description": "Short prose block explaining the gap between Redux's complexity and useState's limits for offline-first apps."
+        },
+        {
+          "name": "technical_approach",
+          "description": "Three-paragraph explanation covering signals-based reactivity, IndexedDB persistence layer, and optional CRDT sync adapter."
+        },
+        {
+          "name": "architecture_diagram",
+          "description": "SVG diagram showing data flow: React components → useStore hook → reactive core → IndexedDB → optional sync server, with green accent lines."
+        },
+        {
+          "name": "screenshots",
+          "description": "Three browser-chrome framed screenshots: devtools panel, code example with syntax highlighting, and the docs site homepage."
+        },
+        {
+          "name": "key_decisions",
+          "description": "Bulleted list of three technical decisions with rationale: 'Why no Provider', 'Why signals over reducers', 'Why I rewrote it in TypeScript at v2'."
+        },
+        {
+          "name": "outcomes",
+          "description": "Stats row: 4.2k GitHub stars, 47k npm weekly downloads, used by 12 YC companies, featured in React Status #389."
+        },
+        {
+          "name": "stack_and_links",
+          "description": "Tech badge row (TypeScript, Vitest, tsup, Changesets) and prominent GitHub + Live Demo buttons."
+        }
+      ]
+    },
+    "writing": {
+      "title": "Writing — kaiwa.dev",
+      "nav_items": [
+        "Work",
+        "Writing",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "page_header",
+          "headline": "Writing",
+          "subheadline": "Notes on systems, careers, and shipping software. Powered by markdown and stubbornness."
+        },
+        {
+          "name": "tag_filter",
+          "description": "Horizontal row of clickable tag pills: All, React, Systems, Career, Open Source, Rust."
+        },
+        {
+          "name": "pinned_post",
+          "description": "Featured post card with green left border: 'The indie developer's guide to staying solvent in 2024 (22 min read, Jan 4)'."
+        },
+        {
+          "name": "post_list",
+          "description": "Chronological list of 12 posts, each row showing date, title, read time, and first line preview — e.g. 'Mar 18 · Why I stopped using Redux in 2024 · 8 min · After three years and four production apps...'."
+        },
+        {
+          "name": "rss_footer_note",
+          "description": "Small line at bottom: 'Subscribe via RSS' with green chevron icon linking to /feed.xml."
+        }
+      ]
+    },
+    "about": {
+      "title": "About — Kai Watanabe",
+      "nav_items": [
+        "Work",
+        "Writing",
+        "About",
+        "Contact"
+      ],
+      "sections": [
+        {
+          "name": "intro",
+          "headline": "About Kai",
+          "subheadline": "Senior engineer at Linear. Based in Lisbon. Previously Vercel, Stripe, and a failed startup you've never heard of."
+        },
+        {
+          "name": "photo_and_bio",
+          "description": "Square photo on left, three-paragraph bio on right covering: growing up in Osaka, the bootcamp-to-Stripe story, and why I moved to Portugal in 2022."
+        },
+        {
+          "name": "currently",
+          "description": "Four-line 'currently' block: working on Linear's sync engine, learning Zig, building syncd on weekends, reading 'Designing Data-Intensive Applications'."
+        },
+        {
+          "name": "tools",
+          "description": "Plain-text list of daily tools: Neovim + LazyVim, Ghostty, Raycast, Linear, Arc, Figma, a 14\" MacBook Pro, and a Keychron Q1."
+        },
+        {
+          "name": "bookshelf",
+          "description": "List of 5 books currently influencing my work: DDIA, The Pragmatic Programmer, Shape Up, Working in Public, A Philosophy of Software Design."
+        },
+        {
+          "name": "contact_and_resume",
+          "description": "Contact block with email, social handles, and 'Download résumé (PDF)' link, plus a tiny green '◆' that triggers an easter egg terminal overlay on click."
+        }
+      ]
+    }
+  }
+}

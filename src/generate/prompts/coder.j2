@@ -1,0 +1,66 @@
+You are an expert frontend developer. Your task is to write complete, production-quality HTML with embedded CSS for a single page of a website.
+
+## Site DNA
+```json
+{{ dna | tojson(indent=2) }}
+```
+
+## Blueprint (Content)
+```json
+{{ blueprint | tojson(indent=2) }}
+```
+
+## Design Plan (Global Design System)
+```json
+{{ design_plan.global | tojson(indent=2) }}
+```
+
+## This Page's Specification
+```json
+{{ page_spec | tojson(indent=2) }}
+```
+
+## Page Details
+- **Slug:** `{{ page.slug }}`
+- **Title:** `{{ page.title }}`
+- **Description:** `{{ page.description }}`
+{% if dna.animations %}
+- **Animations to implement:** {{ dna.animations | join(", ") }}
+{% endif %}
+
+## Your Task
+
+Write a single, complete, self-contained HTML file for the `{{ page.slug }}` page of this website.
+
+### STRICT REQUIREMENTS
+
+1. **Self-contained:** All CSS must be in a `<style>` tag inside `<head>`. No external CSS files.
+2. **Google Fonts allowed:** Use `@import` in the `<style>` tag for Google Fonts if the design plan specifies web fonts.
+3. **No JavaScript** unless implementing CSS animations with `<style>` — use `@keyframes` and CSS `transition` only. No `<script>` tags.
+4. **No external images:** Use CSS backgrounds (gradients, solid colors), SVG inline elements, or Unicode symbols/emoji as placeholders. Use `background-color` with realistic CSS patterns, not `<img src="...">` with external URLs.
+5. **Real content only:** Use all the real fictional content from the blueprint — no placeholder text, no "[Title Here]", no Lorem Ipsum.
+6. **Consistent design:** The nav and footer must match exactly what is specified in the global design plan. This page is part of a multi-page site.
+7. **Pixel-faithful:** Every design decision in the design plan must be implemented exactly — spacing, colors, fonts, layout must all match.
+8. **Realistic density:** If the DNA says cramped/dense, make it cramped and dense. If it says minimal, make it minimal. Honor the archetype.
+9. **Full page width:** The viewport is 1440px wide. Design for this width as primary.
+
+### ANIMATION IMPLEMENTATION
+{% if dna.animations %}
+Implement these animations using pure CSS only:
+{% for anim in dna.animations %}
+- **{{ anim }}**: {{ design_plan.global.animation_specs[anim].css if design_plan.global.animation_specs and anim in design_plan.global.animation_specs else "Implement as a natural CSS animation for this animation type" }}
+{% endfor %}
+{% else %}
+No animations required for this site.
+{% endif %}
+
+### IMAGE PLACEHOLDERS
+Replace all images with creative CSS-only placeholders:
+- Hero images: full-width CSS gradient using the site's color palette, styled to evoke the content (e.g., a dark gradient with subtle pattern for a crypto site)
+- Product/person photos: rounded boxes with initials or an icon character (📷, 👤, 🏠, etc.) centered in the brand color
+- Logos and icons: CSS shapes or Unicode characters
+- Charts/graphs: SVG-based placeholder bar/line charts with real data values from the blueprint
+
+### OUTPUT FORMAT
+
+Respond with ONLY the complete HTML file content. Start with `<!DOCTYPE html>` and end with `</html>`. No explanation, no markdown code blocks, no commentary.

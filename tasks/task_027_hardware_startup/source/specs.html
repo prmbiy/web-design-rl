@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Specifications — NOVA Field One</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #111111;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #2A2A2A;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.logo span { color: #FF9F0A; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  flex: 1;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #CACACA;
+  transition: color 0.15s ease;
+}
+.nav-links a:hover { color: #FFFFFF; }
+.nav-links a.active { color: #FFFFFF; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #CACACA;
+}
+.nav-price strong { color: #FF9F0A; }
+.nav-ship {
+  font-size: 11px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.btn-primary {
+  background: #007AFF;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  display: inline-block;
+}
+.btn-primary:hover { background: #0051D5; transform: translateY(-1px); }
+
+.btn-amber {
+  background: #FF9F0A;
+  color: #111111;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+  display: inline-block;
+}
+.btn-amber:hover { background: #FFB840; transform: translateY(-1px); }
+
+.cart-icon {
+  width: 20px; height: 20px;
+  display: inline-block;
+  color: #CACACA;
+  cursor: pointer;
+}
+
+/* HERO */
+.specs-hero {
+  padding: 180px 32px 80px;
+  border-bottom: 1px solid #2A2A2A;
+}
+.specs-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FF9F0A;
+  margin-bottom: 24px;
+}
+.specs-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.specs-hero p {
+  font-size: 20px;
+  color: #CACACA;
+  max-width: 640px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #2A2A2A;
+}
+.hero-meta-item {
+  font-size: 12px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+.hero-meta-item strong {
+  display: block;
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  margin-top: 6px;
+  letter-spacing: 0;
+}
+
+/* SPEC TABLE */
+.spec-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 32px 0;
+}
+.spec-block {
+  margin-bottom: 64px;
+}
+.spec-category {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #FF9F0A;
+  margin-bottom: 0;
+}
+.spec-category h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.spec-category .cat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #888888;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.spec-table tr:nth-child(odd) { background: #1C1C1C; }
+.spec-table tr:nth-child(even) { background: #222222; }
+.spec-table td {
+  padding: 22px 28px;
+  font-size: 15px;
+  border-bottom: 1px solid #2A2A2A;
+}
+.spec-table td.label {
+  width: 32%;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+.spec-table td.value {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.spec-table td.value .unit {
+  color: #888888;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/* PDF link */
+.pdf-section {
+  max-width: 1280px;
+  margin: 80px auto 0;
+  padding: 0 32px 120px;
+}
+.pdf-card {
+  background: #1C1C1C;
+  border: 1px solid #2A2A2A;
+  border-left: 3px solid #FF9F0A;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border-radius: 4px;
+}
+.pdf-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.pdf-icon {
+  width: 56px; height: 56px;
+  background: #111111;
+  border: 1px solid #2A2A2A;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 12px;
+  color: #FF9F0A;
+}
+.pdf-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.pdf-sub {
+  font-size: 13px;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pdf-card a.btn-primary { white-space: nowrap; }
+
+/* FOOTER */
+footer {
+  background: #0A0A0A;
+  border-top: 1px solid #2A2A2A;
+  padding: 64px 32px 32px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.footer-brand p {
+  color: #888888;
+  font-size: 14px;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+.badge-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.badge {
+  background: #1C1C1C;
+  border: 1px solid #2A2A2A;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  color: #CACACA;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+}
+.badge.amber { border-color: #FF9F0A; color: #FF9F0A; }
+
+.footer-col h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #888888;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col li {
+  margin-bottom: 10px;
+}
+.footer-col a {
+  font-size: 14px;
+  color: #CACACA;
+  transition: color 0.15s ease;
+}
+.footer-col a:hover { color: #FF9F0A; }
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #2A2A2A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #888888;
+  font-family: 'JetBrains Mono', monospace;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">NOVA<span>·</span>Field One</div>
+    <ul class="nav-links">
+      <li><a href="#">Features</a></li>
+      <li><a href="#" class="active">Specs</a></li>
+      <li><a href="#">Compare</a></li>
+      <li><a href="#">Story</a></li>
+      <li><a href="#">Press</a></li>
+    </ul>
+    <div class="nav-right">
+      <div>
+        <div class="nav-price"><strong>$899</strong> early bird</div>
+        <div class="nav-ship">Ships Feb 2025</div>
+      </div>
+      <a href="#" class="btn-primary">Pre-order</a>
+      <span class="cart-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l3 12h12l2-8H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<section class="specs-hero">
+  <div class="specs-hero-inner">
+    <div class="eyebrow">— Technical Specifications · v1.2</div>
+    <h1>Every spec,<br>no marketing.</h1>
+    <p>Full sheet for engineers, DPs, and reviewers. Numbers as measured on DVT-04 production units in our Hsinchu lab, October 2024.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Document<strong>FO-SPEC-1.2</strong></div>
+      <div class="hero-meta-item">Last updated<strong>2024-10-22</strong></div>
+      <div class="hero-meta-item">Firmware<strong>NovaOS 0.9.4</strong></div>
+      <div class="hero-meta-item">Unit tested<strong>DVT-04 batch</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="spec-section">
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Display</h2>
+      <span class="cat-num">01 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Screen</td><td class="value">4.3" IPS LCD, 1500 nit peak</td></tr>
+      <tr><td class="label">Resolution</td><td class="value">1920 × 1080 <span class="unit">(513 ppi)</span></td></tr>
+      <tr><td class="label">Touch</td><td class="value">10-point capacitive, glove mode</td></tr>
+      <tr><td class="label">Tilt range</td><td class="value">−45° to +90° on dual-axis hinge</td></tr>
+      <tr><td class="label">Color</td><td class="value">100% DCI-P3, factory-calibrated ΔE &lt; 2</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Sensor & Processor</h2>
+      <span class="cat-num">02 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Sensor</td><td class="value">Super 35 CMOS, 6048 × 4032 <span class="unit">(open-gate 3:2)</span></td></tr>
+      <tr><td class="label">Pixel pitch</td><td class="value">3.76 µm</td></tr>
+      <tr><td class="label">Dynamic range</td><td class="value">14 stops <span class="unit">(measured, IDT-aligned)</span></td></tr>
+      <tr><td class="label">Dual native ISO</td><td class="value">400 / 2500</td></tr>
+      <tr><td class="label">Processor</td><td class="value">NovaCore X2 <span class="unit">(6 nm, 8.4 TOPS)</span></td></tr>
+      <tr><td class="label">Codecs</td><td class="value">NovaRAW 12-bit · ProRes 422 HQ · H.265 10-bit</td></tr>
+      <tr><td class="label">Max frame rate</td><td class="value">6K30 · 4K120 · 1080p240</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Battery & Power</h2>
+      <span class="cat-num">03 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Capacity</td><td class="value">4200 mAh <span class="unit">(NP-F adapter compatible)</span></td></tr>
+      <tr><td class="label">Runtime</td><td class="value">95 min 6K30 · 140 min 4K30 standby on</td></tr>
+      <tr><td class="label">Charge</td><td class="value">USB-C PD 65W, 0–80% in 38 min</td></tr>
+      <tr><td class="label">DC input</td><td class="value">12–24 V via locking 2-pin</td></tr>
+      <tr><td class="label">Hot-swap</td><td class="value">Yes, with internal 90-second buffer cell</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Connectivity</h2>
+      <span class="cat-num">04 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Ports</td><td class="value">USB-C 3.2 Gen 2 · HDMI 2.1 (full-size) · 3G-SDI · 3.5mm TRS</td></tr>
+      <tr><td class="label">Card slots</td><td class="value">1× CFexpress Type B · 1× UHS-II SD</td></tr>
+      <tr><td class="label">Wireless</td><td class="value">Wi-Fi 6 (802.11ax) · Bluetooth 5.3 LE</td></tr>
+      <tr><td class="label">Timecode</td><td class="value">UltraSync compatible, ±1 frame / 24 hr drift</td></tr>
+      <tr><td class="label">Accessory bus</td><td class="value">NovaPort magnetic (data + power, 30W)</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Materials & Dimensions</h2>
+      <span class="cat-num">05 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Body</td><td class="value">CNC-machined 6061 aluminum + magnesium chassis</td></tr>
+      <tr><td class="label">Finish</td><td class="value">Type II anodized matte black · amber record button</td></tr>
+      <tr><td class="label">Weight</td><td class="value">612 g <span class="unit">(body only, no lens or battery)</span></td></tr>
+      <tr><td class="label">Dimensions</td><td class="value">138 × 86 × 62 mm</td></tr>
+      <tr><td class="label">Sealing</td><td class="value">IP52 dust + splash resistant</td></tr>
+      <tr><td class="label">Mount points</td><td class="value">9× 1/4"-20 · 2× 3/8"-16 · ARRI rosette (L+R)</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-block">
+    <div class="spec-category">
+      <h2>Lens Mount & Sensors</h2>
+      <span class="cat-num">06 / 06</span>
+    </div>
+    <table class="spec-table">
+      <tr><td class="label">Native mount</td><td class="value">NovaMount active <span class="unit">(L / EF / PL adapters in box)</span></td></tr>
+      <tr><td class="label">Flange depth</td><td class="value">16 mm</td></tr>
+      <tr><td class="label">Swap time</td><td class="value">&lt; 8 seconds, tool-free</td></tr>
+      <tr><td class="label">IBIS</td><td class="value">5-axis, 6.0 stops CIPA</td></tr>
+      <tr><td class="label">AF</td><td class="value">Hybrid phase-detect, 945 points, eye/animal AF</td></tr>
+      <tr><td class="label">Microphones</td><td class="value">Dual omnidirectional, 32-bit float via NovaGrip</td></tr>
+    </table>
+  </div>
+
+</section>
+
+<section class="pdf-section">
+  <div class="pdf-card">
+    <div class="pdf-info">
+      <div class="pdf-icon">PDF</div>
+      <div>
+        <div class="pdf-title">Field One Spec Sheet v1.2</div>
+        <div class="pdf-sub">PDF · 1.8 MB · updated 2024-10-22</div>
+      </div>
+    </div>
+    <a href="#" class="btn-primary">Download spec sheet</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>NOVA Field One</h3>
+      <p>The pocket cinema camera, reimagined for creators who shoot first.</p>
+      <div class="badge-row">
+        <span class="badge amber">★ Kickstarter — 412% funded</span>
+        <span class="badge">Made in Taiwan 🇹🇼</span>
+        <span class="badge">Ships Feb 2025</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Specs</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="#">Pre-order</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Press Kit (ZIP, 240MB)</a></li>
+        <li><a href="#">Discord Community</a></li>
+        <li><a href="#">Refer a friend — $50 off</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">30-day refund policy</a></li>
+        <li><a href="#">Shipping & tariffs</a></li>
+        <li><a href="#">Firmware updates</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Nova Optics Ltd. · Hsinchu, Taiwan</span>
+    <span>Press reviews lift Jan 15, 2025</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1003793,
+      "page_width": 1440,
+      "page_height": 4270
+    },
+    {
+      "slug": "internet",
+      "path": "internet.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 699378,
+      "page_width": 1440,
+      "page_height": 4490
+    },
+    {
+      "slug": "movil",
+      "path": "movil.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1048732,
+      "page_width": 1440,
+      "page_height": 3892
+    },
+    {
+      "slug": "paquetes",
+      "path": "paquetes.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 945440,
+      "page_width": 1440,
+      "page_height": 3720
+    },
+    {
+      "slug": "tiendas",
+      "path": "tiendas.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 980535,
+      "page_width": 1440,
+      "page_height": 3884
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

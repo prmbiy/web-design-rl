@@ -1,0 +1,209 @@
+{
+  "brand_name": "Yale NLP & Reasoning Lab (YNRL)",
+  "tagline": "Building language models that reason, explain, and remain robust.",
+  "primary_color_name": "Yale Blue",
+  "pages": {
+    "home": {
+      "title": "Home",
+      "nav_items": [
+        "Research",
+        "People",
+        "Publications",
+        "Code & Data",
+        "News",
+        "Join Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Yale NLP & Reasoning Lab",
+          "subheadline": "Department of Computer Science, Yale University — directed by Prof. Aditi Ramaswamy."
+        },
+        {
+          "name": "research_focus",
+          "description": "One short paragraph describing the lab's focus on faithful reasoning, multimodal grounding, and adversarial robustness in large language models."
+        },
+        {
+          "name": "highlighted_publications",
+          "description": "Three recent paper cards with venue badges: 'Chain-of-Verification Decoding' (NeurIPS 2023), 'GroundCLIP: Pixel-Faithful Multimodal Alignment' (ICCV 2023), 'Probing Refusal Circuits in 7B LMs' (EMNLP 2023 — Best Paper Runner-Up)."
+        },
+        {
+          "name": "open_positions",
+          "description": "Two PhD opening blurbs: one in Interpretability (Fall 2024 cohort) and one in Multimodal Reasoning (Fall 2024 cohort), each linking to the join page."
+        },
+        {
+          "name": "news",
+          "description": "Bullet list of 4 recent items: NSF CAREER Award to PI, two papers accepted at ICLR 2024, lab welcomes postdoc Dr. Wen Liu, alum Maya Chen joins Anthropic."
+        },
+        {
+          "name": "group_photo",
+          "description": "Captioned group photo placeholder taken at AKW Hall, Fall 2023, listing 12 members."
+        },
+        {
+          "name": "funding",
+          "description": "Acknowledgment row of funders: NSF, DARPA SAFRON, Google Research Award, Apple AI/ML Fellowship, Microsoft Accelerate Foundation Models Research."
+        }
+      ]
+    },
+    "research": {
+      "title": "Research",
+      "nav_items": [
+        "Research",
+        "People",
+        "Publications",
+        "Code & Data",
+        "News",
+        "Join Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Research Areas",
+          "subheadline": "Four interconnected threads on language, reasoning, and trustworthy AI."
+        },
+        {
+          "name": "area_llms",
+          "description": "Large Language Models: short description, SVG diagram of training/inference loop, and 3 key papers including 'Sparse Attention Routing for 70B Models' (ICML 2023)."
+        },
+        {
+          "name": "area_multimodal",
+          "description": "Multimodal Learning: vision-language grounding work, SVG of dual-encoder, key papers including 'GroundCLIP' (ICCV 2023) and 'VideoQA via Temporal Scene Graphs' (CVPR 2023)."
+        },
+        {
+          "name": "area_robustness",
+          "description": "Robustness: adversarial prompts and distribution shift, diagram of perturbation pipeline, papers including 'PromptArmor' (USENIX Security 2023)."
+        },
+        {
+          "name": "area_interpretability",
+          "description": "Interpretability: circuit-level analysis of transformer internals, SVG of attention head graph, papers including 'Refusal Circuits' (EMNLP 2023)."
+        },
+        {
+          "name": "ongoing_projects",
+          "description": "List of 4 ongoing projects with one-line descriptions: REASON-Bench, OpenGroundVL, SAFRON-Eval, and the Yale Interpretability Toolkit."
+        }
+      ]
+    },
+    "publications": {
+      "title": "Publications",
+      "nav_items": [
+        "Research",
+        "People",
+        "Publications",
+        "Code & Data",
+        "News",
+        "Join Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Publications",
+          "subheadline": "Peer-reviewed work from 2019–2023. Google Scholar profile linked."
+        },
+        {
+          "name": "filters",
+          "description": "Filter controls: by year (2023, 2022, 2021, 2020, 2019) and topic (LLMs, Multimodal, Robustness, Interpretability)."
+        },
+        {
+          "name": "list_2023",
+          "description": "Year-grouped list of ~9 entries with italic author names, venue (e.g., NeurIPS 2023, acceptance rate 26.1%), and links [PDF] [arXiv:2310.04521] [Code] [Data]; 'Refusal Circuits' carries a Best Paper Runner-Up badge."
+        },
+        {
+          "name": "list_2022",
+          "description": "Year-grouped list of ~7 entries including 'Sparse Mixture Routing for Multilingual MT' (ACL 2022) and 'Calibrated Uncertainty in Dialogue' (EMNLP 2022)."
+        },
+        {
+          "name": "list_2021_earlier",
+          "description": "Collapsed earlier-years section with ~12 entries from 2019–2021, formatted identically."
+        }
+      ]
+    },
+    "people": {
+      "title": "People",
+      "nav_items": [
+        "Research",
+        "People",
+        "Publications",
+        "Code & Data",
+        "News",
+        "Join Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "People",
+          "subheadline": "Faculty, students, postdocs, and alumni of YNRL."
+        },
+        {
+          "name": "pi",
+          "description": "Card for PI Prof. Aditi Ramaswamy with portrait, interests (reasoning, interpretability), one paper link, and personal site link."
+        },
+        {
+          "name": "phd_students",
+          "description": "Grid of 6 PhD students (e.g., Jordan Liu, Hana Park, Diego Alvarez) each with photo, year, interests, and a featured paper."
+        },
+        {
+          "name": "phd_spotlight",
+          "description": "Highlighted PhD spotlight box on Hana Park, including her ICLR 2024 paper and a short quote."
+        },
+        {
+          "name": "postdocs",
+          "description": "Two postdoc cards: Dr. Wen Liu (interpretability) and Dr. Sara Okafor (multimodal robustness)."
+        },
+        {
+          "name": "research_scientists",
+          "description": "One research scientist card: Dr. Marcus Feldman, focusing on evaluation infrastructure."
+        },
+        {
+          "name": "visiting",
+          "description": "Visiting researchers section listing Prof. Yuki Tanaka (Kyoto U., Spring 2024) and Yael Cohen (Technion, Fall 2023)."
+        },
+        {
+          "name": "alumni",
+          "description": "Table of 8 alumni with graduation year and placement: e.g., Maya Chen (PhD 2023 → Anthropic), Rahul Mehta (PhD 2022 → Asst. Prof., UT Austin), Lin Zhao (Postdoc 2021 → Google DeepMind)."
+        },
+        {
+          "name": "collaboration_network",
+          "description": "Mini diagram listing collaborating groups: Stanford CRFM, MIT CSAIL, Princeton NLP, Allen AI."
+        }
+      ]
+    },
+    "join": {
+      "title": "Join the Lab",
+      "nav_items": [
+        "Research",
+        "People",
+        "Publications",
+        "Code & Data",
+        "News",
+        "Join Us"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Join YNRL",
+          "subheadline": "PhD, postdoc, and visiting opportunities for Fall 2024."
+        },
+        {
+          "name": "what_we_look_for",
+          "description": "Short bulleted list of expected background: strong ML/math foundation, systems or linguistics depth, prior research output."
+        },
+        {
+          "name": "phd_apply",
+          "description": "How to apply via the Yale CS PhD program, December 15 deadline, with link to the official Graduate School application portal."
+        },
+        {
+          "name": "openings",
+          "description": "List of 2 PhD openings (Interpretability, Multimodal Reasoning) and 1 postdoc opening (Robust Evaluation, 2-year, NSF-funded)."
+        },
+        {
+          "name": "visiting_program",
+          "description": "Paragraph describing the Visiting Researcher program for senior PhD students and faculty on sabbatical, 3–12 month stays."
+        },
+        {
+          "name": "faq",
+          "description": "Six Q&A entries covering GRE requirements (not required), funding (5-year guarantee), pre-application emails, lab culture, internships, and remote work."
+        }
+      ]
+    }
+  }
+}

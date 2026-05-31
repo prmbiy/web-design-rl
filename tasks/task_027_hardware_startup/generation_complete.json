@@ -1,0 +1,12 @@
+{
+  "dna_id": "027",
+  "dna_name": "hardware_startup",
+  "pages": [
+    "home",
+    "features",
+    "specs",
+    "compare",
+    "story"
+  ],
+  "has_animations": false
+}

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Find NHS services near you - NHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans', Frutiger, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #212B32;
+  background: #FFFFFF;
+}
+
+a { color: #005EB8; }
+a:visited { color: #330072; }
+a:focus { background: #FFEB3B; outline: 4px solid #FFEB3B; color: #212B32; text-decoration: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #FFEB3B;
+  color: #212B32;
+  padding: 12px 24px;
+  font-weight: 700;
+  z-index: 1000;
+}
+.skip-link:focus { left: 0; }
+
+/* Top emergency strip */
+.emergency-strip {
+  background: #212B32;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 0;
+}
+.emergency-strip .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.emergency-strip strong { color: #fff; }
+.emergency-strip a { color: #fff; text-decoration: underline; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+header.site-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D8DDE0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo {
+  background: #005EB8;
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.search-wrap {
+  flex: 1;
+  display: flex;
+  max-width: 560px;
+}
+.search-wrap input {
+  flex: 1;
+  height: 48px;
+  border: 2px solid #4C6272;
+  border-right: none;
+  padding: 0 12px;
+  font-size: 19px;
+  font-family: inherit;
+}
+.search-wrap button {
+  background: #005EB8;
+  color: #fff;
+  border: 2px solid #4C6272;
+  width: 64px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.menu-btn {
+  background: #F0F4F5;
+  border: 2px solid #4C6272;
+  padding: 10px 20px;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+.menu-btn::after { content: " ▾"; }
+
+/* Sub nav */
+.subnav {
+  background: #005EB8;
+  border-bottom: 1px solid #D8DDE0;
+}
+.subnav ul {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+.subnav li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 17px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+.subnav li a:hover { background: #003087; }
+.subnav li a.active { background: #003087; }
+
+/* Breadcrumbs */
+.breadcrumbs {
+  background: #F0F4F5;
+  padding: 14px 0;
+  font-size: 16px;
+}
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.breadcrumbs li::after {
+  content: " /";
+  color: #4C6272;
+  margin-left: 8px;
+}
+.breadcrumbs li:last-child::after { content: ""; }
+.breadcrumbs li:last-child { color: #4C6272; }
+
+/* Hero */
+.hero {
+  background: #FFFFFF;
+  padding: 48px 0 24px;
+  border-bottom: 1px solid #D8DDE0;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #212B32;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.hero p.sub {
+  font-size: 22px;
+  color: #4C6272;
+  max-width: 720px;
+}
+
+main { padding: 32px 0 64px; }
+
+/* Service tabs */
+.service-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 4px solid #005EB8;
+  margin-bottom: 32px;
+}
+.service-tabs button {
+  background: #F0F4F5;
+  border: 1px solid #D8DDE0;
+  border-bottom: none;
+  padding: 14px 22px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: #005EB8;
+  margin-right: 4px;
+}
+.service-tabs button.active {
+  background: #005EB8;
+  color: #fff;
+  border-color: #005EB8;
+}
+
+/* Postcode widget */
+.postcode-widget {
+  background: #F0F4F5;
+  padding: 28px;
+  border-left: 8px solid #005EB8;
+  margin-bottom: 32px;
+}
+.postcode-widget h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.postcode-widget p {
+  margin-bottom: 20px;
+  color: #4C6272;
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.field label {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+.field input, .field select {
+  height: 52px;
+  border: 2px solid #4C6272;
+  padding: 0 12px;
+  font-size: 19px;
+  font-family: inherit;
+  background: #fff;
+  min-width: 200px;
+}
+.btn-green {
+  background: #007F3B;
+  color: #fff;
+  border: 2px solid #007F3B;
+  height: 52px;
+  padding: 0 32px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px 0 #00401E;
+}
+.btn-green:hover { background: #006B32; }
+
+/* Two-column results layout */
+.results-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 360px;
+  gap: 32px;
+}
+
+/* Filter sidebar */
+.filters {
+  border-top: 4px solid #005EB8;
+  padding-top: 20px;
+}
+.filters h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.filter-group {
+  border-bottom: 1px solid #D8DDE0;
+  padding: 14px 0;
+}
+.filter-group h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.filter-group input[type=checkbox], .filter-group input[type=radio] {
+  width: 22px;
+  height: 22px;
+  accent-color: #005EB8;
+}
+
+/* Results list */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.results-header h2 {
+  font-size: 28px;
+}
+.results-header .count {
+  color: #4C6272;
+  font-size: 17px;
+}
+
+.result-card {
+  background: #fff;
+  border: 1px solid #D8DDE0;
+  border-left: 8px solid #005EB8;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.result-card h3 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.result-card h3 a {
+  text-decoration: underline;
+}
+.result-meta {
+  color: #4C6272;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.result-meta .dot {
+  margin: 0 8px;
+  color: #4C6272;
+}
+.result-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 17px;
+  margin-bottom: 16px;
+}
+.result-info .row { display: flex; gap: 8px; }
+.result-info strong { font-weight: 700; color: #212B32; }
+.status-open { color: #007F3B; font-weight: 700; }
+.status-closed { color: #DA291C; font-weight: 700; }
+.status-accepting {
+  display: inline-block;
+  background: #E6F2EC;
+  color: #00401E;
+  padding: 4px 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.status-not-accepting {
+  display: inline-block;
+  background: #FFF9E6;
+  color: #594B00;
+  padding: 4px 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+}
+.stars { color: #FFB81C; font-size: 20px; letter-spacing: 2px; }
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid #D8DDE0;
+  padding-top: 14px;
+}
+.btn-primary {
+  background: #007F3B;
+  color: #fff;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid #007F3B;
+  box-shadow: 0 4px 0 #00401E;
+}
+.btn-secondary {
+  background: #fff;
+  color: #005EB8;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid #005EB8;
+}
+
+/* Map panel */
+.map-panel {
+  position: sticky;
+  top: 160px;
+  align-self: start;
+}
+.map-placeholder {
+  height: 420px;
+  background:
+    linear-gradient(135deg, #E8EDEE 0%, #D8DDE0 100%);
+  position: relative;
+  border: 1px solid #D8DDE0;
+  overflow: hidden;
+}
+.map-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-pin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #DA291C;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.map-pin span { transform: rotate(45deg); }
+.pin-1 { top: 30%; left: 25%; }
+.pin-2 { top: 50%; left: 55%; background: #005EB8; }
+.pin-3 { top: 65%; left: 35%; background: #005EB8; }
+.pin-4 { top: 40%; left: 70%; background: #005EB8; }
+.map-attrib {
+  background: #F0F4F5;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #4C6272;
+  border: 1px solid #D8DDE0;
+  border-top: none;
+}
+
+.help-box {
+  background: #E8EDEE;
+  border-left: 8px solid #005EB8;
+  padding: 20px;
+  margin-top: 20px;
+}
+.help-box h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.help-box ul {
+  list-style: none;
+  margin-top: 10px;
+}
+.help-box li {
+  padding: 6px 0;
+}
+.help-box li::before {
+  content: "›";
+  color: #005EB8;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* Last reviewed */
+.last-reviewed {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #D8DDE0;
+  color: #4C6272;
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background: #F0F4F5;
+  padding: 48px 0 32px;
+  margin-top: 48px;
+  border-top: 4px solid #005EB8;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-col h4 {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { padding: 4px 0; font-size: 16px; }
+.footer-col a { color: #005EB8; text-decoration: underline; }
+.footer-bottom {
+  border-top: 1px solid #D8DDE0;
+  padding-top: 20px;
+  font-size: 16px;
+  color: #4C6272;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="emergency-strip">
+  <div class="container">
+    <span>⚠ <strong>Life-threatening emergency?</strong> Call 999 immediately</span>
+    <span>Urgent non-emergency help: <a href="#">Call 111</a> or <a href="#">111 online</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">NHS</a>
+    <div class="search-wrap">
+      <input type="search" placeholder="Search the NHS website" aria-label="Search the NHS website">
+      <button aria-label="Search">🔍</button>
+    </div>
+    <button class="menu-btn">Menu</button>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Primary">
+  <div class="container">
+    <ul>
+      <li><a href="#">Health A to Z</a></li>
+      <li><a href="#">Mental health</a></li>
+      <li><a href="#">Care and support</a></li>
+      <li><a href="#">Pregnancy</a></li>
+      <li><a href="#" class="active">NHS services</a></li>
+      <li><a href="#">Live Well</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">NHS services</a></li>
+      <li>Find NHS services</li>
+    </ol>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <h1>Find NHS services</h1>
+    <p class="sub">Search for GPs, dentists, pharmacies, hospitals and more in your area</p>
+  </div>
+</section>
+
+<main id="main-content">
+  <div class="container">
+
+    <div class="service-tabs" role="tablist">
+      <button class="active">🏥 GP</button>
+      <button>🦷 Dentist</button>
+      <button>💊 Pharmacy</button>
+      <button>🏨 Hospital</button>
+      <button>👓 Optician</button>
+      <button>❤ Sexual health clinic</button>
+      <button>🧠 Mental health support</button>
+    </div>
+
+    <div class="postcode-widget">
+      <h2>Search for a GP near you</h2>
+      <p>Enter a postcode to find GP surgeries in your area.</p>
+      <div class="form-row">
+        <div class="field">
+          <label for="postcode">Postcode</label>
+          <input type="text" id="postcode" placeholder="e.g. SW1A 1AA" value="SW1A 1AA">
+        </div>
+        <div class="field">
+          <label for="radius">Within</label>
+          <select id="radius">
+            <option>1 mile</option>
+            <option selected>3 miles</option>
+            <option>5 miles</option>
+            <option>10 miles</option>
+          </select>
+        </div>
+        <button class="btn-green">Search</button>
+      </div>
+    </div>
+
+    <div class="results-layout">
+
+      <aside class="filters" aria-label="Filter results">
+        <h3>Filter results</h3>
+        <div class="filter-group">
+          <h4>Accepting new patients</h4>
+          <label><input type="checkbox" checked> Yes</label>
+          <label><input type="checkbox"> No</label>
+        </div>
+        <div class="filter-group">
+          <h4>Opening times</h4>
+          <label><input type="checkbox"> Open now</label>
+          <label><input type="checkbox"> Open weekends</label>
+          <label><input type="checkbox"> Open evenings</label>
+        </div>
+        <div class="filter-group">
+          <h4>Patient rating</h4>
+          <label><input type="radio" name="r"> 4 stars and above</label>
+          <label><input type="radio" name="r" checked> 3 stars and above</label>
+          <label><input type="radio" name="r"> All ratings</label>
+        </div>
+        <div class="filter-group">
+          <h4>Accessibility</h4>
+          <label><input type="checkbox"> Step-free access</label>
+          <label><input type="checkbox"> Hearing loop</label>
+          <label><input type="checkbox"> Disabled parking</label>
+        </div>
+        <div class="filter-group">
+          <h4>Languages</h4>
+          <label><input type="checkbox"> Polish</label>
+          <label><input type="checkbox"> Urdu</label>
+          <label><input type="checkbox"> Bengali</label>
+        </div>
+      </aside>
+
+      <section class="results">
+        <div class="results-header">
+          <h2>4 GP surgeries near SW1A 1AA</h2>
+          <span class="count">Sorted by distance</span>
+        </div>
+
+        <article class="result-card">
+          <h3><a href="#">Riverside Medical Practice</a></h3>
+          <p class="result-meta">12 Embankment Road, London, SW1A 2BB</p>
+          <div class="result-info">
+            <div class="row"><strong>Distance:</strong> 0.4 miles</div>
+            <div class="row"><strong>Status:</strong> <span class="status-open">Open today</span></div>
+            <div class="row"><strong>Hours today:</strong> 8:00am – 6:30pm</div>
+            <div class="row"><strong>Phone:</strong> 020 7946 0123</div>
+            <div class="row"><strong>New patients:</strong> <span class="status-accepting">Accepting</span></div>
+            <div class="row"><strong>Rating:</strong>
+              <span class="rating"><span class="stars">★★★★☆</span> 4.2 (186 reviews)</span>
+            </div>
+          </div>
+          <div class="result-actions">
+            <a href="#" class="btn-primary">Book online</a>
+            <a href="#" class="btn-secondary">View details</a>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <h3><a href="#">Westminster Health Centre</a></h3>
+          <p class="result-meta">45 Victoria Street, London, SW1H 0HW</p>
+          <div class="result-info">
+            <div class="row"><strong>Distance:</strong> 0.7 miles</div>
+            <div class="row"><strong>Status:</strong> <span class="status-open">Open today</span></div>
+            <div class="row"><strong>Hours today:</strong> 7:30am – 8:00pm</div>
+            <div class="row"><strong>Phone:</strong> 020 7946 0456</div>
+            <div class="row"><strong>New patients:</strong> <span class="status-accepting">Accepting</span></div>
+            <div class="row"><strong>Rating:</strong>
+              <span class="rating"><span class="stars">★★★★★</span> 4.7 (412 reviews)</span>
+            </div>
+          </div>
+          <div class="result-actions">
+            <a href="#" class="btn-primary">Book online</a>
+            <a href="#" class="btn-secondary">View details</a>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <h3><a href="#">Pimlico Surgery</a></h3>
+          <p class="result-meta">8 Lupus Mews, London, SW1V 3JP</p>
+          <div class="result-info">
+            <div class="row"><strong>Distance:</strong> 1.1 miles</div>
+            <div class="row"><strong>Status:</strong> <span class="status-closed">Closed — opens 8:00am</span></div>
+            <div class="row"><strong>Hours today:</strong> 8:00am – 6:00pm</div>
+            <div class="row"><strong>Phone:</strong> 020 7946 0789</div>
+            <div class="row"><strong>New patients:</strong> <span class="status-not-accepting">Waiting list</span></div>
+            <div class="row"><strong>Rating:</strong>
+              <span class="rating"><span class="stars">★★★★☆</span> 3.9 (97 reviews)</span>
+            </div>
+          </div>
+          <div class="result-actions">
+            <a href="#" class="btn-primary">Book online</a>
+            <a href="#" class="btn-secondary">View details</a>
+          </div>
+        </article>
+
+        <article class="result-card">
+          <h3><a href="#">St James's Park GP Practice</a></h3>
+          <p class="result-meta">23 Buckingham Gate, London, SW1E 6LB</p>
+          <div class="result-info">
+            <div class="row"><strong>Distance:</strong> 1.8 miles</div>
+            <div class="row"><strong>Status:</strong> <span class="status-open">Open today</span></div>
+            <div class="row"><strong>Hours today:</strong> 8:30am – 6:00pm</div>
+            <div class="row"><strong>Phone:</strong> 020 7946 0987</div>
+            <div class="row"><strong>New patients:</strong> <span class="status-accepting">Accepting</span></div>
+            <div class="row"><strong>Rating:</strong>
+              <span class="rating"><span class="stars">★★★★☆</span> 4.1 (243 reviews)</span>
+            </div>
+          </div>
+          <div class="result-actions">
+            <a href="#" class="btn-primary">Book online</a>
+            <a href="#" class="btn-secondary">View details</a>
+          </div>
+        </article>
+
+        <div class="last-reviewed">
+          <p>Page last reviewed: 18 October 2022<br>Next review due: 18 October 2024</p>
+        </div>
+      </section>
+
+      <aside class="map-panel" aria-label="Map of results">
+        <div class="map-placeholder">
+          <div class="map-pin pin-1"><span>📍</span></div>
+          <div class="map-pin pin-2"><span>1</span></div>
+          <div class="map-pin pin-3"><span>2</span></div>
+          <div class="map-pin pin-4"><span>3</span></div>
+        </div>
+        <div class="map-attrib">
+          Postcode data © Ordnance Survey. Map shows approximate locations.
+        </div>
+
+        <div class="help-box">
+          <h3>Not sure which service you need?</h3>
+          <p>If you need medical help but it's not an emergency, NHS 111 can advise you.</p>
+          <ul>
+            <li><a href="#">Use NHS 111 online</a></li>
+            <li><a href="#">When to call 999</a></li>
+            <li><a href="#">Find urgent treatment centres</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>NHS services</h4>
+        <ul>
+          <li><a href="#">Find a GP</a></li>
+          <li><a href="#">Find a pharmacy</a></li>
+          <li><a href="#">Find a dentist</a></li>
+          <li><a href="#">Find a hospital</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Health information</h4>
+        <ul>
+          <li><a href="#">Health A to Z</a></li>
+          <li><a href="#">Medicines A to Z</a></li>
+          <li><a href="#">Mental health</a></li>
+          <li><a href="#">Live Well</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About the NHS</h4>
+        <ul>
+          <li><a href="#">NHS App</a></li>
+          <li><a href="#">Your NHS Number</a></li>
+          <li><a href="#">Healthcare abroad</a></li>
+          <li><a href="#">Contact NHS</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Terms and conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Crown copyright</span>
+      <span>Your health, your NHS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

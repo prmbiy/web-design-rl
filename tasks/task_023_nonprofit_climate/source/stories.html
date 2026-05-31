@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories of Change — Climate Horizon Collective</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #1B2E20;
+  background: #FFFFFF;
+}
+
+h1, h2, h3, h4 { font-family: 'Source Serif Pro', Georgia, serif; line-height: 1.2; }
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-bottom: 1px solid #D5E3D8;
+  height: 72px;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #1B4332;
+}
+.logo-mark {
+  width: 32px; height: 32px;
+  background: #2D6A4F;
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-30deg);
+  display: inline-block;
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 2px; height: 16px;
+  background: #B7E4C7;
+  transform: translate(-50%, -50%) rotate(30deg);
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: #2D6A4F; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.climate-clock-mini {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #C62828;
+  border: 1px solid #C62828;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.btn-primary {
+  background: #2D6A4F;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-primary:hover { background: #1B4332; transform: translateY(-1px); }
+
+.btn-outline {
+  border: 1.5px solid #2D6A4F;
+  color: #2D6A4F;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* HERO */
+.hero {
+  padding: 96px 24px 72px;
+  background: #FFFFFF;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #2D6A4F;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.hero .sub {
+  font-size: 22px;
+  color: #5A6B5F;
+  max-width: 720px;
+  line-height: 1.5;
+}
+
+/* IMPACT MAP */
+.map-section {
+  padding: 64px 24px 96px;
+  background: #E9F5E9;
+}
+.map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+.map-head h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+.map-head p {
+  color: #5A6B5F;
+  max-width: 380px;
+  font-size: 15px;
+}
+.map-wrap {
+  background: #FFFFFF;
+  border: 1px solid #D5E3D8;
+  border-radius: 4px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+}
+.world-map {
+  background: #F4EFE6;
+  border-radius: 4px;
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+.world-map svg { width: 100%; height: 100%; display: block; }
+.map-legend {
+  font-size: 14px;
+}
+.map-legend h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #1B2E20;
+  margin-bottom: 16px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #D5E3D8;
+}
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-count {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: #1B4332;
+}
+.map-stat {
+  background: #2D6A4F;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+.map-stat .big {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+.map-stat .lbl {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+  color: #B7E4C7;
+}
+
+/* FEATURED STORY */
+.featured {
+  padding: 96px 24px;
+  background: #FFFFFF;
+}
+.featured-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.featured-img {
+  height: 560px;
+  background:
+    linear-gradient(180deg, rgba(27,46,32,0.0) 40%, rgba(27,46,32,0.85) 100%),
+    linear-gradient(135deg, #2D6A4F 0%, #74C0FC 50%, #E07A5F 100%);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.featured-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(0,0,0,0.25) 0%, transparent 50%);
+}
+.featured-img::after {
+  content: '🦐';
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-size: 32px;
+  background: white;
+  width: 56px; height: 56px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featured-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: white;
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.9;
+}
+.featured-tag {
+  display: inline-block;
+  background: #C62828;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+  border-radius: 2px;
+}
+.featured h2 {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.featured .dek {
+  font-size: 19px;
+  color: #5A6B5F;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #5A6B5F;
+}
+.byline-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #2D6A4F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.byline strong { color: #1B2E20; }
+.read-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5A6B5F;
+  margin-left: auto;
+}
+
+/* PULL QUOTE divider */
+.pullquote {
+  padding: 72px 24px;
+  background: #1B4332;
+  color: white;
+}
+.pullquote-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pullquote blockquote {
+  font-family: 'Source Serif Pro', serif;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.4;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.pullquote cite {
+  font-style: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #B7E4C7;
+}
+
+/* STORY GRID */
+.grid-section {
+  padding: 96px 24px;
+  background: #FFFFFF;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  border-bottom: 2px solid #1B2E20;
+  padding-bottom: 20px;
+}
+.section-head h2 {
+  font-size: 38px;
+  font-weight: 700;
+}
+.section-head .filter {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #5A6B5F;
+  font-weight: 600;
+}
+.filter span.active { color: #2D6A4F; border-bottom: 2px solid #2D6A4F; padding-bottom: 4px; }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px;
+}
+.story-card {
+  display: flex;
+  flex-direction: column;
+}
+.story-img {
+  height: 240px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.story-img.s1 { background: linear-gradient(135deg, #E07A5F 0%, #F4EFE6 100%); }
+.story-img.s2 { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 70%, #B7E4C7 100%); }
+.story-img.s3 { background: linear-gradient(135deg, #74C0FC 0%, #1B4332 100%); }
+.story-img.s4 { background: linear-gradient(135deg, #C62828 0%, #E07A5F 100%); }
+.story-img.s5 { background: linear-gradient(135deg, #2D6A4F 0%, #74C0FC 100%); }
+.story-img.s6 { background: linear-gradient(135deg, #F4EFE6 0%, #E07A5F 50%, #C62828 100%); }
+.story-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.2), transparent 60%);
+}
+.story-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.story-icon.data { color: #2D6A4F; }
+.story-icon.photo { color: #C62828; }
+.story-icon.dispatch { color: #1B4332; }
+.story-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.story-card p {
+  color: #5A6B5F;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+.story-meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #5A6B5F;
+  font-weight: 600;
+  margin-top: auto;
+}
+.story-meta .author { color: #2D6A4F; }
+
+/* VIDEO TESTIMONIALS */
+.video-section {
+  padding: 96px 24px;
+  background: #E9F5E9;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+.video-card {
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #D5E3D8;
+}
+.video-thumb {
+  height: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-thumb.v1 { background: linear-gradient(180deg, #74C0FC 0%, #1B4332 100%); }
+.video-thumb.v2 { background: linear-gradient(180deg, #5A6B5F 0%, #1B2E20 100%); }
+.video-thumb.v3 { background: linear-gradient(180deg, #E07A5F 0%, #C62828 100%); }
+.play-btn {
+  width: 72px; height: 72px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2D6A4F;
+  font-size: 28px;
+  padding-left: 6px;
+}
+.video-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  border-radius: 2px;
+}
+.video-info { padding: 24px; }
+.video-info .place {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #E07A5F;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.video-info h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.video-info p {
+  font-size: 14px;
+  color: #5A6B5F;
+}
+
+/* NEWSLETTER */
+.newsletter {
+  padding: 96px 24px;
+  background: #FFFFFF;
+}
+.newsletter-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #2D6A4F;
+  color: white;
+  border-radius: 4px;
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.newsletter-inner::before {
+  content: '';
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #B7E4C7 0%, transparent 70%);
+  opacity: 0.2;
+}
+.newsletter .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.newsletter h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.newsletter p {
+  color: #B7E4C7;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.editor-credit {
+  font-size: 13px;
+  color: #B7E4C7;
+  font-style: italic;
+}
+.signup-form {
+  background: white;
+  padding: 32px;
+  border-radius: 4px;
+  color: #1B2E20;
+}
+.signup-form label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+.signup-form input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #D5E3D8;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+.signup-form button {
+  width: 100%;
+  padding: 14px;
+}
+.form-note {
+  font-size: 12px;
+  color: #5A6B5F;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* FOOTER */
+.footer {
+  background: #1B2E20;
+  color: #B7E4C7;
+  padding: 72px 24px 32px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+.footer h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 12px; font-size: 14px; }
+.footer ul li a:hover { color: white; }
+.footer-brand .logo {
+  color: white;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  margin-bottom: 16px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #5A6B5F;
+}
+.badges {
+  display: flex;
+  gap: 12px;
+}
+.badge-mini {
+  background: rgba(255,255,255,0.08);
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark"></span>
+      Climate Horizon Collective
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Our Work</a></li>
+      <li><a href="#">The Science</a></li>
+      <li><a href="#">Take Action</a></li>
+      <li><a href="#" style="color:#2D6A4F;font-weight:600;">Stories</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="climate-clock-mini">⏱ 5Y 7M 12D · 1.5°C</div>
+      <a href="#" class="btn-primary">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Stories of Change · Issue 14</div>
+    <h1>Frontlines, firsthand.</h1>
+    <p class="sub">Long-form reporting from the communities, scientists, and organizers shaping the transition.</p>
+  </div>
+</section>
+
+<!-- IMPACT MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-head">
+      <h2>Where we're reporting from</h2>
+      <p>47 stories filed in 2024 across six continents, color-coded by topic. Click a pin to read the dispatch.</p>
+    </div>
+    <div class="map-wrap">
+      <div class="world-map">
+        <svg viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet">
+          <!-- Stylized continents -->
+          <g fill="#D5E3D8" stroke="#B7E4C7" stroke-width="1">
+            <!-- North America -->
+            <path d="M70,90 Q90,70 140,75 L200,80 Q230,100 220,140 L210,180 Q180,200 150,195 L110,180 Q80,160 75,130 Z"/>
+            <!-- South America -->
+            <path d="M180,220 Q210,215 225,250 L220,310 Q200,350 180,340 L170,300 Q165,260 180,220 Z"/>
+            <!-- Europe -->
+            <path d="M370,90 Q410,85 430,100 L425,135 Q400,140 380,130 Q365,115 370,90 Z"/>
+            <!-- Africa -->
+            <path d="M390,160 Q430,155 450,190 L455,260 Q435,310 410,305 L395,260 Q380,210 390,160 Z"/>
+            <!-- Asia -->
+            <path d="M440,80 Q540,70 620,90 L660,140 Q640,180 580,175 L500,165 Q450,140 440,80 Z"/>
+            <!-- Australia -->
+            <path d="M620,260 Q670,255 700,275 L695,310 Q650,320 620,310 Q605,290 620,260 Z"/>
+          </g>
+          <!-- Pins -->
+          <!-- Energy (green) -->
+          <circle cx="170" cy="150" r="7" fill="#2D6A4F"/>
+          <circle cx="170" cy="150" r="14" fill="#2D6A4F" opacity="0.2"/>
+          <circle cx="410" cy="115" r="7" fill="#2D6A4F"/>
+          <circle cx="600" cy="155" r="7" fill="#2D6A4F"/>
+          <circle cx="660" cy="290" r="7" fill="#2D6A4F"/>
+          <!-- Justice (red) -->
+          <circle cx="195" cy="170" r="7" fill="#C62828"/>
+          <circle cx="195" cy="170" r="14" fill="#C62828" opacity="0.2"/>
+          <circle cx="200" cy="280" r="7" fill="#C62828"/>
+          <circle cx="430" cy="230" r="7" fill="#C62828"/>
+          <!-- Policy (sky blue) -->
+          <circle cx="395" cy="110" r="7" fill="#74C0FC"/>
+          <circle cx="540" cy="105" r="7" fill="#74C0FC"/>
+          <circle cx="120" cy="120" r="7" fill="#74C0FC"/>
+          <!-- Adaptation (terra) -->
+          <circle cx="500" cy="160" r="7" fill="#E07A5F"/>
+          <circle cx="420" cy="270" r="7" fill="#E07A5F"/>
+          <circle cx="635" cy="285" r="7" fill="#E07A5F"/>
+          <!-- Science (deep forest) -->
+          <circle cx="220" cy="110" r="7" fill="#1B4332"/>
+          <circle cx="450" cy="200" r="7" fill="#1B4332"/>
+        </svg>
+      </div>
+      <div class="map-legend">
+        <h4>Topics</h4>
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#2D6A4F;"></span>
+          <span>Clean Energy</span>
+          <span class="legend-count">14</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#C62828;"></span>
+          <span>Climate Justice</span>
+          <span class="legend-count">11</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#74C0FC;"></span>
+          <span>Policy</span>
+          <span class="legend-count">9</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#E07A5F;"></span>
+          <span>Adaptation</span>
+          <span class="legend-count">8</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#1B4332;"></span>
+          <span>Science</span>
+          <span class="legend-count">5</span>
+        </div>
+        <div class="map-stat">
+          <div class="big">47</div>
+          <div class="lbl">Stories · 6 continents · 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED STORY -->
+<section class="featured">
+  <div class="featured-inner">
+    <div class="featured-img">
+      <div class="featured-caption">Plaquemines Parish, LA · Shrimp boats at first light, Sept 2024</div>
+    </div>
+    <div>
+      <span class="featured-tag">Cover Story</span>
+      <h2>The Shrimpers of Plaquemines Parish</h2>
+      <p class="dek">Fourth-generation fishermen are leading the legal fight against the proposed CP2 LNG terminal — and rewriting what climate organizing looks like on the Gulf Coast.</p>
+      <div class="byline">
+        <div class="byline-avatar">AT</div>
+        <div>
+          By <strong>Amelia Tate</strong><br>
+          <span>October 8, 2024</span>
+        </div>
+        <div class="read-meta">⏱ 12 min read</div>
+      </div>
+      <a href="#" class="btn-primary">Read the story</a>
+      <a href="#" style="margin-left:12px; color:#2D6A4F; font-weight:600; font-size:15px;">Listen on the podcast →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullquote">
+  <div class="pullquote-inner">
+    <blockquote>"They told us the marsh would protect us. Now the marsh is gone, and they want to build a gas terminal on what's left. We are not background characters in someone else's climate story."</blockquote>
+    <cite>— Acy Cooper Jr., Vice President, Louisiana Shrimp Association</cite>
+  </div>
+</section>
+
+<!-- STORY GRID -->
+<section class="grid-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Latest dispatches</h2>
+      <div class="filter">
+        <span class="active">All</span>
+        <span>Data Essay</span>
+        <span>Photo Essay</span>
+        <span>Dispatch</span>
+        <span>Profile</span>
+      </div>
+    </div>
+    <div class="story-grid">
+
+      <article class="story-card">
+        <div class="story-img s1">
+          <span class="story-icon data">Data Essay</span>
+        </div>
+        <h3>How Texas Built 40GW of Solar</h3>
+        <p>Inside the deregulated grid, conservative landowners, and federal tax credits that quietly made Texas the country's #1 renewable state.</p>
+        <div class="story-meta"><span class="author">Jordan Chen</span> · 14 MIN · Oct 4</div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img s2">
+          <span class="story-icon photo">Photo Essay</span>
+        </div>
+        <h3>A Day with the Sunrise Movement</h3>
+        <p>From dawn canvasses in Phoenix to sit-ins at Senator Sinema's office — 24 hours embedded with the youth climate army.</p>
+        <div class="story-meta"><span class="author">Maya Okonkwo</span> · 9 MIN · Sep 28</div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img s3">
+          <span class="story-icon dispatch">Dispatch</span>
+        </div>
+        <h3>Inside COP29 Negotiations</h3>
+        <p>Notes from the loss-and-damage room in Baku, where small island delegations held out against a $250B/year ceiling.</p>
+        <div class="story-meta"><span class="author">Dr. Priya Raman</span> · 11 MIN · Sep 22</div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img s4">
+          <span class="story-icon photo">Photo Essay</span>
+        </div>
+        <h3>Phoenix in the 113°F Summer</h3>
+        <p>How cooling centers, mutual aid networks, and a new heat officer kept the country's hottest big city from breaking.</p>
+        <div class="story-meta"><span class="author">Renata Vargas</span> · 8 MIN · Sep 14</div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img s5">
+          <span class="story-icon data">Data Essay</span>
+        </div>
+        <h3>The Quiet Boom in Heat Pumps</h3>
+        <p>Inflation Reduction Act rebates have tripled installations in Maine. The data tells a story about what climate policy actually does.</p>
+        <div class="story-meta"><span class="author">Jordan Chen</span> · 10 MIN · Sep 9</div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img s6">
+          <span class="story-icon dispatch">Dispatch</span>
+        </div>
+        <h3>When the Hurricane Came Twice</h3>
+        <p>Reporting from Asheville, NC after Helene — and what climate-displaced inland communities mean for the next decade.</p>
+        <div class="story-meta"><span class="author">Amelia Tate</span> · 13 MIN · Sep 2</div>
+      </article>
+
+    </div>
+    <div style="text-align:center; margin-top:56px;">
+      <a href="#" class="btn-outline">Browse the full archive (214 stories)</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-head" style="border-color:#2D6A4F;">
+      <h2>Video portraits</h2>
+      <div class="filter">
+        <span>Three voices · Three continents</span>
+      </div>
+    </div>
+    <div class="video-grid">
+
+      <div class="video-card">
+        <div class="video-thumb v1">
+          <div class="play-btn">▶</div>
+          <span class="video-duration">06:42</span>
+        </div>
+        <div class="video-info">
+          <div class="place">Cordillera Blanca · Peru</div>
+          <h4>"The glacier was our calendar."</h4>
+          <p>Rosa Quispe, a Quechua potato farmer at 4,200m, on what she lost when the Pastoruri glacier disappeared.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb v2">
+          <div class="play-btn">▶</div>
+          <span class="video-duration">08:15</span>
+        </div>
+        <div class="video-info">
+          <div class="place">Lusatia · Germany</div>
+          <h4>"My father mined coal. I install wind."</h4>
+          <p>Lukas Meier, 24, retraining at a former lignite plant on what a just transition looks like up close.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb v3">
+          <div class="play-btn">▶</div>
+          <span class="video-duration">07:28</span>
+        </div>
+        <div class="video-info">
+          <div class="place">Olkaria · Kenya</div>
+          <h4>"We drill into the Earth's heartbeat."</h4>
+          <p>Engineer Wanjiru Kamau on running East Africa's largest geothermal field — and what comes next.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div>
+      <span class="badge">📬 Monthly Long-Form</span>
+      <h2>The Horizon Dispatch</h2>
+      <p>One deeply reported climate story in your inbox, the first Sunday of every month. No takes. No noise.</p>
+      <p class="editor-credit">Edited by Amelia Tate, formerly climate editor at The Guardian. 84,000 readers.</p>
+    </div>
+    <form class="signup-form" onsubmit="return false;">
+      <label>Email address</label>
+      <input type="email" placeholder="you@domain.com">
+      <button type="submit" class="btn-primary">Subscribe — it's free</button>
+      <div class="form-note">We'll never share your email. Unsubscribe anytime.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#">
+        <span class="logo-mark"></span>
+        Climate Horizon Collective
+      </a>
+      <p>Science. Justice. Action. Before 2030. A 501(c)(3) nonprofit working in 31 countries.</p>
+      <div class="badges">
+        <span class="badge-mini">★★★★ Charity Nav</span>
+        <span class="badge-mini">Candid Platinum</span>
+      </div>
+    </div>
+    <div>
+      <h5>Our Work</h5>
+      <ul>
+        <li><a href="#">Campaigns</a></li>
+        <li><a href="#">The Science</a></li>
+        <li><a href="#">Policy Reports</a></li>
+        <li><a href="#">Frontline Fund</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get Involved</h5>
+      <ul>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Take Action</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Shop</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">Team & Board</a></li>
+        <li><a href="#">Financials</a></li>
+        <li><a href="#">Annual Report</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Stay Close</h5>
+      <ul>
+        <li><a href="#">The Horizon Brief</a></li>
+        <li><a href="#">The Dispatch</a></li>
+        <li><a href="#">Podcast</a></li>
+        <li><a href="#">Instagram · Bluesky</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Climate Horizon Collective · EIN 47-3892014</div>
+    <div>Privacy · Terms · Accessibility</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+{
+  "brand_name": "NOVA Field One",
+  "tagline": "The pocket cinema camera, reimagined for creators who shoot first.",
+  "primary_color_name": "Field Amber",
+  "pages": {
+    "home": {
+      "title": "NOVA Field One — Pocket Cinema Camera",
+      "nav_items": [
+        "Features",
+        "Specs",
+        "Compare",
+        "Story",
+        "Press"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Field One",
+          "subheadline": "A 6K open-gate cinema camera that fits in your jacket pocket."
+        },
+        {
+          "name": "spec_callouts",
+          "description": "Three large tabular numbers with caps labels: '6K / 60FPS SENSOR', '14 STOPS DYNAMIC RANGE', '4200mAh SWAPPABLE BATTERY'."
+        },
+        {
+          "name": "preorder_strip",
+          "description": "Early bird price '$899 (reg $1,199)', 48px monospace countdown to Nov 30 2024 cutoff, Pre-order CTA, embargo note 'Press reviews lift Jan 15, 2025'."
+        },
+        {
+          "name": "badges",
+          "description": "Row of trust badges: 'Kickstarter — 412% funded', 'Made in Taiwan', 'Ships Feb 2025'."
+        },
+        {
+          "name": "product_rotation",
+          "description": "Large centered product render on a 12s rotateY loop showing the matte black body, amber record button, and USB-C/SDI ports."
+        }
+      ]
+    },
+    "features": {
+      "title": "Features — NOVA Field One",
+      "nav_items": [
+        "Features",
+        "Specs",
+        "Compare",
+        "Story",
+        "Press"
+      ],
+      "sections": [
+        {
+          "name": "feature_sensor",
+          "description": "Full-viewport panel for 'Open-Gate Super 35 Sensor' with side product shot and callout 'Shoot 6K 3:2 to any aspect in post'."
+        },
+        {
+          "name": "feature_codec",
+          "description": "Full-viewport panel 'NovaRAW 12-bit' with internal CFexpress recording callout '4K ProRes 422 HQ at 120fps'."
+        },
+        {
+          "name": "feature_mount",
+          "description": "Full-viewport panel 'Interchangeable Mount System' showing swap between L-mount, EF, and PL with callout '< 8 second swap'."
+        },
+        {
+          "name": "feature_screen",
+          "description": "Full-viewport panel '4.3\" 1500-nit HDR tilt screen' with sunlight-readability callout."
+        },
+        {
+          "name": "feature_audio",
+          "description": "Full-viewport panel 'Dual 32-bit float XLR via NovaGrip' showing the magnetic side handle accessory."
+        }
+      ]
+    },
+    "specs": {
+      "title": "Technical Specifications",
+      "nav_items": [
+        "Features",
+        "Specs",
+        "Compare",
+        "Story",
+        "Press"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "Every spec, no marketing.",
+          "subheadline": "Full sheet for engineers, DPs, and reviewers."
+        },
+        {
+          "name": "spec_table_display",
+          "description": "Display section rows: 'SCREEN — 4.3\" IPS 1500 nit', 'RESOLUTION — 1920x1080', 'TOUCH — 10-point capacitive'."
+        },
+        {
+          "name": "spec_table_sensor",
+          "description": "Sensor/Processor rows: 'SENSOR — Super 35 CMOS 6048x4032', 'DYNAMIC RANGE — 14 stops', 'PROCESSOR — NovaCore X2'."
+        },
+        {
+          "name": "spec_table_battery",
+          "description": "Battery rows: 'CAPACITY — 4200mAh NP-F adapter compatible', 'RUNTIME — 95 min 6K30', 'CHARGE — USB-C PD 65W'."
+        },
+        {
+          "name": "spec_table_connectivity",
+          "description": "Connectivity rows: 'PORTS — USB-C 3.2, HDMI 2.1, 3G-SDI, 3.5mm', 'WIRELESS — Wi-Fi 6, BT 5.3', 'TIMECODE — UltraSync compatible'."
+        },
+        {
+          "name": "spec_table_physical",
+          "description": "Materials/Dimensions rows: 'BODY — CNC aluminum + magnesium', 'WEIGHT — 612g', 'DIMENSIONS — 138 x 86 x 62mm'."
+        },
+        {
+          "name": "pdf_link",
+          "description": "Download link 'Field One Spec Sheet v1.2 (PDF, 1.8MB)'."
+        }
+      ]
+    },
+    "compare": {
+      "title": "Compare",
+      "nav_items": [
+        "Features",
+        "Specs",
+        "Compare",
+        "Story",
+        "Press"
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "headline": "How it stacks up.",
+          "subheadline": "Field One vs. Blackmagic Pocket 6K G2 vs. Sony FX3."
+        },
+        {
+          "name": "comparison_table",
+          "description": "3-column table with NOVA column highlighted in Field Amber comparing rows: 'Open-gate 6K — ✓ / ✓ / ✗', 'Weight — 612g / 1.2kg / 715g', 'Internal RAW — ✓ / ✓ / ✗', 'Price — $899 / $1,995 / $3,899'."
+        },
+        {
+          "name": "value_calc",
+          "description": "Large 'Cost per stop of dynamic range: $64' headline with comparison numbers $142 and $278 beside competitor names."
+        },
+        {
+          "name": "verdict",
+          "description": "Amber-bordered card 'Field One wins on weight, price, and mount flexibility' with pre-order CTA."
+        }
+      ]
+    },
+    "story": {
+      "title": "Our Story",
+      "nav_items": [
+        "Features",
+        "Specs",
+        "Compare",
+        "Story",
+        "Press"
+      ],
+      "sections": [
+        {
+          "name": "founder_letter",
+          "description": "Signed letter from co-founder Mei Lin Chen, ex-RED engineer, on why $4K cinema cameras shouldn't be the floor."
+        },
+        {
+          "name": "journey_timeline",
+          "description": "Timeline entries: 'Mar 2022 — first sensor board prototype in Taipei garage', 'Sep 2023 — Kickstarter hits $1.6M in 11 days', 'Aug 2024 — DVT units shipped to 40 reviewers'."
+        },
+        {
+          "name": "workshop_gallery",
+          "description": "Grid of 4 grayscale photos: SMT line in Hsinchu, CNC machining of top plate, calibration bench, team standup."
+        },
+        {
+          "name": "team",
+          "description": "6 portraits with names and roles: 'Mei Lin Chen — CEO', 'Daniel Okafor — Head of Optics', 'Yuki Tanaka — Firmware Lead'."
+        },
+        {
+          "name": "community",
+          "description": "Counter strip '4,812 Kickstarter backers • 38 countries • 612 in the Field One Discord' with referral program note '$50 off per friend'."
+        },
+        {
+          "name": "footer_links",
+          "description": "Footer links: 'Press Kit (ZIP, 240MB)', '30-day refund policy', 'Made in Taiwan badge'."
+        }
+      ]
+    }
+  }
+}

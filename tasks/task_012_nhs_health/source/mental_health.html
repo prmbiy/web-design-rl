@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Mental health - NHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans', Frutiger, Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #212B32;
+  background: #FFFFFF;
+}
+
+a { color: #005EB8; text-decoration: underline; }
+a:hover { text-decoration: none; color: #003087; }
+a:visited { color: #330072; }
+a:focus { background: #FFEB3B; color: #212B32; outline: 4px solid #FFEB3B; text-decoration: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #003087;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: 700;
+  z-index: 1000;
+}
+.skip-link:focus { left: 0; }
+
+/* Top nav */
+.nav {
+  background: #FFFFFF;
+  border-bottom: 4px solid #005EB8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-top {
+  background: #005EB8;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.nav-top-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo {
+  background: #FFFFFF;
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 28px;
+  padding: 6px 14px;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  flex-shrink: 0;
+}
+.search-wrap {
+  flex: 0 0 40%;
+  margin: 0 auto;
+  display: flex;
+}
+.search-wrap input {
+  flex: 1;
+  border: 4px solid #FFFFFF;
+  border-right: none;
+  padding: 10px 14px;
+  font-size: 19px;
+  font-family: inherit;
+  background: #FFFFFF;
+}
+.search-wrap button {
+  background: #FFFFFF;
+  border: 4px solid #FFFFFF;
+  border-left: 1px solid #D8DDE0;
+  padding: 0 18px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #005EB8;
+  font-weight: 700;
+}
+.menu-btn {
+  background: transparent;
+  color: #FFFFFF;
+  border: none;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px 0;
+  cursor: pointer;
+  font-family: inherit;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.menu-btn::after {
+  content: '▾';
+  font-size: 16px;
+}
+
+.nav-bottom {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D8DDE0;
+}
+.nav-bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+}
+.nav-bottom a {
+  color: #005EB8;
+  text-decoration: none;
+  padding: 16px 20px 16px 0;
+  margin-right: 24px;
+  font-weight: 600;
+  font-size: 17px;
+  border-bottom: 4px solid transparent;
+  margin-bottom: -1px;
+}
+.nav-bottom a.active {
+  color: #212B32;
+  border-bottom-color: #005EB8;
+}
+.nav-bottom a:hover { color: #003087; text-decoration: underline; }
+
+/* Skip to content link below nav */
+.skip-content-bar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #D8DDE0;
+}
+.skip-content-bar .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px;
+}
+.skip-content-bar a {
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  background: #F0F4F5;
+  border-bottom: 1px solid #D8DDE0;
+}
+.breadcrumbs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: #4C6272;
+}
+.breadcrumbs-inner a { color: #005EB8; }
+.breadcrumbs-inner .sep { padding: 0 8px; color: #4C6272; }
+
+/* Main container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Crisis box */
+.crisis {
+  background: #FBE9E8;
+  border-left: 8px solid #DA291C;
+  padding: 24px 28px;
+  margin: 32px auto;
+  max-width: 1152px;
+}
+.crisis h2 {
+  font-size: 24px;
+  color: #DA291C;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.crisis h2::before {
+  content: '⚠';
+  font-size: 28px;
+}
+.crisis p { margin-bottom: 12px; font-size: 18px; }
+.crisis ul { margin-left: 24px; }
+.crisis li { margin-bottom: 8px; }
+.crisis strong { color: #212B32; }
+.crisis .phone {
+  font-weight: 700;
+  font-size: 22px;
+  color: #212B32;
+}
+
+/* Hero */
+.hero {
+  background: #003087;
+  color: #FFFFFF;
+  padding: 56px 0;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.hero p {
+  font-size: 22px;
+  max-width: 720px;
+  line-height: 1.5;
+}
+
+/* Main content */
+main {
+  padding: 48px 0;
+}
+
+section.block {
+  margin-bottom: 56px;
+}
+
+h2.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #212B32;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #D8DDE0;
+}
+.section-intro {
+  color: #4C6272;
+  font-size: 19px;
+  margin: 16px 0 24px;
+  max-width: 800px;
+}
+
+/* Conditions grid */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.condition-card {
+  background: #FFFFFF;
+  border: 1px solid #D8DDE0;
+  border-bottom: 4px solid #005EB8;
+  padding: 24px;
+  text-decoration: none;
+  color: #005EB8;
+  display: block;
+  transition: background 0.15s;
+}
+.condition-card:hover {
+  background: #F0F4F5;
+  text-decoration: underline;
+  color: #003087;
+}
+.condition-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.condition-card .icon {
+  width: 40px;
+  height: 40px;
+  background: #E8EDEE;
+  color: #005EB8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.condition-card p {
+  color: #4C6272;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+.condition-card .chev {
+  color: #005EB8;
+  font-weight: 700;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* Self-referral panel */
+.referral-panel {
+  background: #E6F2EC;
+  border-left: 8px solid #007F3B;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.referral-panel h2 {
+  font-size: 28px;
+  color: #212B32;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.referral-panel h2::before {
+  content: '✓';
+  color: #007F3B;
+  font-weight: 700;
+}
+.referral-panel p { margin-bottom: 16px; }
+.referral-panel ul {
+  margin: 12px 0 20px 24px;
+}
+.referral-panel li { margin-bottom: 8px; }
+.referral-form {
+  background: #FFFFFF;
+  padding: 24px;
+  border: 1px solid #D8DDE0;
+}
+.referral-form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+.referral-form .hint {
+  display: block;
+  color: #4C6272;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.referral-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #4C6272;
+  font-size: 19px;
+  font-family: inherit;
+  margin-bottom: 16px;
+}
+.btn-green {
+  background: #007F3B;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 24px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px 0 #00401E;
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+.btn-green:hover { background: #00662F; text-decoration: underline; }
+
+/* Young people section */
+.young-people {
+  background: #E8EDEE;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  border-left: 8px solid #005EB8;
+}
+.young-people h2 {
+  font-size: 28px;
+  color: #212B32;
+  margin-bottom: 12px;
+}
+.young-people p { margin-bottom: 16px; }
+.young-people .links-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.young-people .link-card {
+  background: #FFFFFF;
+  border: 1px solid #D8DDE0;
+  padding: 16px;
+  text-decoration: none;
+  color: #005EB8;
+}
+.young-people .link-card:hover { background: #F0F4F5; text-decoration: underline; }
+.young-people .link-card strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.young-people .link-card span {
+  font-size: 16px;
+  color: #4C6272;
+}
+
+/* Carers */
+.carers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.carers-text h2 { font-size: 28px; margin-bottom: 16px; }
+.carers-text p { margin-bottom: 12px; }
+.carers-text ul { margin: 12px 0 16px 24px; }
+.carers-text li { margin-bottom: 8px; }
+.carers-info-box {
+  background: #E8EDEE;
+  padding: 24px;
+  border-left: 8px solid #005EB8;
+}
+.carers-info-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.carers-info-box h3::before {
+  content: 'ⓘ';
+  color: #005EB8;
+  font-size: 24px;
+}
+.carers-info-box p { margin-bottom: 8px; }
+.carers-info-box .helpline {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 12px 0;
+  color: #212B32;
+}
+
+/* Last reviewed */
+.last-reviewed {
+  border-top: 1px solid #D8DDE0;
+  padding-top: 24px;
+  margin-top: 56px;
+  color: #4C6272;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Footer */
+footer {
+  background: #F0F4F5;
+  border-top: 1px solid #D8DDE0;
+  padding: 48px 0 24px;
+  margin-top: 48px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-cols h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #212B32;
+}
+.footer-cols ul { list-style: none; }
+.footer-cols li { margin-bottom: 8px; }
+.footer-cols a { color: #005EB8; font-size: 17px; }
+.footer-bottom {
+  border-top: 1px solid #D8DDE0;
+  padding-top: 24px;
+  color: #4C6272;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Bullets style */
+ul.styled-list { margin-left: 24px; }
+ul.styled-list li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="nav">
+  <div class="nav-top">
+    <div class="nav-top-inner">
+      <a href="/" class="logo" aria-label="NHS Home">NHS</a>
+      <form class="search-wrap" role="search">
+        <input type="search" placeholder="Search the NHS website" aria-label="Search the NHS website">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+      <button class="menu-btn">Menu</button>
+    </div>
+  </div>
+  <div class="nav-bottom">
+    <nav class="nav-bottom-inner" aria-label="Primary">
+      <a href="/conditions">Health A to Z</a>
+      <a href="/mental-health" class="active">Mental health</a>
+      <a href="/care">Care and support</a>
+      <a href="/pregnancy">Pregnancy</a>
+      <a href="/services">NHS services</a>
+      <a href="/livewell">Live Well</a>
+    </nav>
+  </div>
+</header>
+
+<div class="skip-content-bar">
+  <div class="inner"><a href="#main-content">Skip to main content</a></div>
+</div>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="breadcrumbs-inner">
+    <a href="/">Home</a><span class="sep">›</span><span>Mental health</span>
+  </div>
+</nav>
+
+<!-- Crisis support box pinned at top -->
+<div class="container">
+  <aside class="crisis" role="alert" aria-labelledby="crisis-title">
+    <h2 id="crisis-title">Get urgent help for mental health</h2>
+    <p>If you or someone you know is in a mental health crisis, help is available right now — 24 hours a day, 7 days a week.</p>
+    <ul>
+      <li><strong>Call Samaritans</strong> free on <span class="phone">116 123</span> — open 24/7</li>
+      <li><strong>Text SHOUT to 85258</strong> — free, anonymous text support</li>
+      <li><strong>Call 111</strong> and select the mental health option</li>
+      <li>If life is at risk, call <span class="phone">999</span> or go to A&amp;E</li>
+    </ul>
+  </aside>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <h1>Mental health</h1>
+    <p>Advice, support and where to get help for your mental wellbeing.</p>
+  </div>
+</section>
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- Conditions grid -->
+    <section class="block">
+      <h2 class="section-title">Mental health conditions</h2>
+      <p class="section-intro">Information on common mental health conditions, including symptoms, causes, treatments and where to get help.</p>
+      <div class="conditions-grid">
+        <a class="condition-card" href="/mental-health/depression">
+          <h3><span class="icon">☁</span> Depression</h3>
+          <p>Find out about the symptoms of depression and the different treatments available.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+        <a class="condition-card" href="/mental-health/anxiety">
+          <h3><span class="icon">◐</span> Anxiety</h3>
+          <p>Generalised anxiety disorder (GAD) is a long-term condition that causes you to feel anxious about a wide range of situations.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+        <a class="condition-card" href="/mental-health/ocd">
+          <h3><span class="icon">↻</span> OCD</h3>
+          <p>Obsessive compulsive disorder (OCD) is a common mental health condition where a person has obsessive thoughts and compulsive behaviours.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+        <a class="condition-card" href="/mental-health/ptsd">
+          <h3><span class="icon">✦</span> PTSD</h3>
+          <p>Post-traumatic stress disorder (PTSD) is an anxiety disorder caused by very stressful, frightening or distressing events.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+        <a class="condition-card" href="/mental-health/eating-disorders">
+          <h3><span class="icon">⊘</span> Eating disorders</h3>
+          <p>Information about anorexia, bulimia, binge eating disorder and other eating problems.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+        <a class="condition-card" href="/mental-health/postnatal-depression">
+          <h3><span class="icon">♡</span> Postnatal depression</h3>
+          <p>Postnatal depression is a type of depression that many parents experience after having a baby.</p>
+          <span class="chev">Read more ›</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Self-referral panel -->
+    <section class="block">
+      <div class="referral-panel">
+        <div>
+          <h2>Get help with NHS Talking Therapies</h2>
+          <p>NHS Talking Therapies (formerly IAPT) offers free, confidential talking therapies on the NHS, including cognitive behavioural therapy (CBT), counselling and guided self-help.</p>
+          <p><strong>You don't need a referral from your GP</strong> — you can refer yourself directly.</p>
+          <ul>
+            <li>Available to anyone aged 18 or over registered with a GP in England</li>
+            <li>Help for depression, anxiety, panic, phobias, PTSD and more</li>
+            <li>Sessions available in person, by phone or online</li>
+          </ul>
+        </div>
+        <div class="referral-form">
+          <label for="postcode">Find a service near you
+            <span class="hint">Enter your postcode to find NHS Talking Therapies in your area</span>
+          </label>
+          <input type="text" id="postcode" placeholder="e.g. SW1A 1AA">
+          <a href="#" class="btn-green">Find local service</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Young people -->
+    <section class="block">
+      <div class="young-people">
+        <div>
+          <h2>Support for under-18s</h2>
+          <p>Mental health support is available specifically for children, teenagers and young adults.</p>
+          <p>Talk to a parent, carer, teacher or your GP — or use one of the services on the right.</p>
+        </div>
+        <div>
+          <div class="links-list">
+            <a href="#" class="link-card">
+              <strong>YoungMinds ›</strong>
+              <span>Parents helpline and online resources for young people</span>
+            </a>
+            <a href="#" class="link-card">
+              <strong>Kooth ›</strong>
+              <span>Free, safe, anonymous online support for young people</span>
+            </a>
+            <a href="#" class="link-card">
+              <strong>CAMHS ›</strong>
+              <span>Child and Adolescent Mental Health Services — referral information</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carers support -->
+    <section class="block">
+      <div class="carers">
+        <div class="carers-text">
+          <h2>Support for carers</h2>
+          <p>Caring for someone with a mental health condition can be rewarding, but it can also be hard work. Looking after your own wellbeing is important.</p>
+          <p>Tips for caring for yourself while caring for others:</p>
+          <ul class="styled-list">
+            <li>Take regular breaks — even short ones can help</li>
+            <li>Stay connected with friends and family</li>
+            <li>Keep up with hobbies and activities you enjoy</li>
+            <li>Talk to your GP if you're struggling with low mood</li>
+            <li>Apply for a free carer's assessment from your local council</li>
+          </ul>
+          <p><a href="#">Read more about looking after yourself as a carer ›</a></p>
+        </div>
+        <div class="carers-info-box">
+          <h3>Carers UK helpline</h3>
+          <p>Free expert advice and information for unpaid carers.</p>
+          <div class="helpline">0808 808 7777</div>
+          <p>Monday to Friday, 9am to 6pm</p>
+          <p><a href="#">Visit Carers UK website ›</a></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="last-reviewed">
+      <span>Page last reviewed: 5 October 2022</span>
+      <span>Next review due: 5 October 2025</span>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div>
+        <h4>NHS sites</h4>
+        <ul>
+          <li><a href="#">NHS App</a></li>
+          <li><a href="#">NHS 111 online</a></li>
+          <li><a href="#">Find services</a></li>
+          <li><a href="#">Login to NHS account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About us</h4>
+        <ul>
+          <li><a href="#">About the NHS</a></li>
+          <li><a href="#">Contact NHS</a></li>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Our policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms and conditions</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="#">Give feedback</a></li>
+          <li><a href="#">NHS Jobs</a></li>
+          <li><a href="#">Volunteering</a></li>
+          <li><a href="#">Healthcare professionals</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Crown copyright</span>
+      <span>Your health, your NHS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Support the Network — Longwave Audio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #1A0F2E;
+  --surface: #2A1A47;
+  --primary: #3C1F6B;
+  --secondary: #6B4BA8;
+  --border: #3D2C5C;
+  --text: #F5F0E8;
+  --muted: #A89BB8;
+  --coral: #FF6B6B;
+  --amber: #F5B544;
+  --cream: #F5F0E8;
+  --footer-bg: #0F0820;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: linear-gradient(180deg, #2A1A47 0%, #1A0F2E 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: 'Karla', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAV ===== */
+nav.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 72px;
+  background: rgba(26, 15, 46, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--coral), var(--primary) 70%);
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245,240,232,0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a {
+  color: var(--text);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--coral); }
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mini-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 12px 6px 6px;
+  min-width: 280px;
+}
+.mp-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #FF6B6B, #3C1F6B);
+  flex-shrink: 0;
+  position: relative;
+}
+.mp-art::after {
+  content: 'SD';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cream);
+}
+.mp-text { flex: 1; min-width: 0; }
+.mp-show { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.mp-title { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mp-play {
+  width: 28px; height: 28px;
+  background: var(--coral);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+}
+.mp-play::before { content: '▶'; margin-left: 2px; }
+
+.btn-support {
+  background: var(--coral);
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section { padding: 96px 32px; }
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 120px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--coral);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--coral);
+  font-weight: 400;
+}
+.hero p.sub {
+  font-size: 20px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.hero .stat-strip {
+  margin-top: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 32px;
+  background: rgba(60, 31, 107, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.stat-strip .num {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--cream);
+}
+.stat-strip .lbl {
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== IMPACT ===== */
+.impact {
+  padding: 80px 32px;
+  background: rgba(15, 8, 32, 0.4);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--coral);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.impact-card {
+  padding: 40px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.impact-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+.impact-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.impact-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.impact-card .figure {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--amber);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ===== TIERS ===== */
+.tiers {
+  padding: 96px 32px;
+}
+.tiers-header { text-align: center; margin-bottom: 64px; }
+.tiers-header .section-title { margin-bottom: 16px; }
+.tiers-header p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto; }
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.tier {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.tier.featured {
+  border-color: var(--coral);
+  background: linear-gradient(180deg, rgba(255,107,107,0.08) 0%, var(--surface) 40%);
+  transform: scale(1.02);
+  box-shadow: 0 20px 60px rgba(255,107,107,0.12);
+}
+.tier-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--coral);
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+.tier-name {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.tier-tag {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.tier-price {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.tier-price .per {
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.tier-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+.tier-benefits {
+  list-style: none;
+  font-size: 14.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.tier-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.45;
+}
+.tier-benefits li::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+}
+.tier.featured .tier-benefits li::before { background: var(--coral); }
+.tier-benefits li.muted { color: var(--muted); }
+.tier-benefits li.muted::before { background: transparent; border: 1px solid var(--border); }
+.tier-benefits li.muted::after { content: ''; }
+
+.tier-cta {
+  margin-top: 32px;
+  padding: 14px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+}
+.tier.featured .tier-cta {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: white;
+}
+.tier-cta.outline-coral {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+/* ===== PATREON ===== */
+.patreon {
+  padding: 80px 32px;
+}
+.patreon-card {
+  max-width: 1216px;
+  margin: 0 auto;
+  background: linear-gradient(120deg, #3C1F6B 0%, #6B4BA8 100%);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 56px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.patreon-card::before {
+  content: 'P';
+  position: absolute;
+  right: -60px;
+  bottom: -80px;
+  font-family: 'Fraunces', serif;
+  font-size: 360px;
+  font-weight: 700;
+  color: rgba(245,240,232,0.04);
+  line-height: 1;
+}
+.patreon-left h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.patreon-left p {
+  color: rgba(245,240,232,0.8);
+  font-size: 16px;
+  max-width: 520px;
+  line-height: 1.55;
+}
+.patreon-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+.patreon-stats div span {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+.patreon-stats div small {
+  color: rgba(245,240,232,0.7);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.patreon-btn {
+  background: var(--coral);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 36px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== ONE TIME DONATION ===== */
+.donate {
+  padding: 80px 32px;
+  background: rgba(15, 8, 32, 0.5);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.donate-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.donate h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.donate p { color: var(--muted); margin-bottom: 40px; font-size: 16px; }
+.donate-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.donate-amt {
+  padding: 22px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.donate-amt:hover { border-color: var(--coral); }
+.donate-amt.active { border-color: var(--coral); background: rgba(255,107,107,0.1); color: var(--coral); }
+.donate-custom {
+  padding: 22px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+}
+.donate-submit {
+  width: 100%;
+  background: var(--coral);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+}
+.donate-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ===== MERCH ===== */
+.merch { padding: 96px 32px 120px; }
+.merch-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+.merch-head .section-title { margin-bottom: 8px; }
+.merch-head p { color: var(--muted); }
+.merch-shopall {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--coral);
+  padding-bottom: 4px;
+}
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.merch-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.merch-img {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+}
+.merch-img.tee { background: linear-gradient(135deg, #3C1F6B, #6B4BA8); }
+.merch-img.tote { background: linear-gradient(135deg, #F5B544, #FF6B6B); }
+.merch-img.mug { background: linear-gradient(135deg, #2A1A47, #3C1F6B); }
+.merch-img.pin { background: linear-gradient(135deg, #FF6B6B, #F5B544); }
+.merch-info {
+  padding: 20px 20px 24px;
+  border-top: 1px solid var(--border);
+}
+.merch-name {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.merch-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.merch-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--amber);
+  letter-spacing: 0.03em;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  padding: 64px 32px 32px;
+  margin-top: 0;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 320px;
+  line-height: 1.55;
+}
+footer h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+footer ul { list-style: none; font-size: 14px; }
+footer ul li { margin-bottom: 10px; }
+footer ul a { color: var(--text); opacity: 0.85; }
+footer ul a:hover { color: var(--coral); }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-mark"></span>Longwave Audio</a>
+    <ul class="nav-links">
+      <li><a href="/shows">Shows</a></li>
+      <li><a href="/episodes">Episodes</a></li>
+      <li><a href="/newsletter">Newsletter</a></li>
+      <li><a href="/support" style="color: var(--coral); opacity: 1;">Support Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="mini-player">
+        <div class="mp-art"></div>
+        <div class="mp-text">
+          <div class="mp-show">Now Playing · Signal Drift</div>
+          <div class="mp-title">Ep. 142 — The Last Search Engine</div>
+        </div>
+        <button class="mp-play" aria-label="Play"></button>
+      </div>
+      <button class="btn-support">Become a Member</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Support the Network</div>
+  <h1>Listener-supported, <em>ad-light</em>, ours.</h1>
+  <p class="sub">76% of Longwave's budget comes directly from members like you. No private equity, no programmatic ads, no podcast networks chasing a quarter.</p>
+  <div class="stat-strip">
+    <div>
+      <div class="num">4,212</div>
+      <div class="lbl">Active Supporters</div>
+    </div>
+    <div style="width:1px;height:36px;background:var(--border);"></div>
+    <div>
+      <div class="num">76%</div>
+      <div class="lbl">Listener Funded</div>
+    </div>
+    <div style="width:1px;height:36px;background:var(--border);"></div>
+    <div>
+      <div class="num">7</div>
+      <div class="lbl">Independent Shows</div>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="container">
+    <div class="section-label">— What Your Support Funds</div>
+    <h2 class="section-title">Every dollar stays in the studio.</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">🎙️</div>
+        <h3>Producer salaries</h3>
+        <p>Longwave pays five full-time staff producers a living Bay Area wage — editors, engineers, and a researcher who fact-checks every episode.</p>
+        <div class="figure">→ 5 staff producers</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📝</div>
+        <h3>Transcripts for every episode</h3>
+        <p>Machine-edited transcripts published within 48 hours of release — readable, searchable, and free for everyone, paid by members.</p>
+        <div class="figure">→ 100% transcript coverage</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🎨</div>
+        <h3>Original cover art</h3>
+        <p>We commission independent illustrators for every season's artwork. No stock photos, no AI slop — just real artists getting paid real rates.</p>
+        <div class="figure">→ 14 commissions in 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tiers">
+  <div class="container">
+    <div class="tiers-header">
+      <div class="section-label" style="margin-bottom: 12px;">— Membership Tiers</div>
+      <h2 class="section-title">Pick a level that fits.</h2>
+      <p>Cancel anytime. All amounts in USD. Annual plans save you two months.</p>
+    </div>
+    <div class="tier-grid">
+
+      <div class="tier">
+        <div class="tier-name">Free</div>
+        <div class="tier-tag">For everyone, forever.</div>
+        <div class="tier-price">$0<span class="per">/ month</span></div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Full access to all seven shows</li>
+          <li>Episode transcripts, free</li>
+          <li>Weekly Longwave Dispatch newsletter</li>
+          <li class="muted">Sponsor messages in feed</li>
+          <li class="muted">No bonus episodes</li>
+          <li class="muted">No early access</li>
+        </ul>
+        <button class="tier-cta">Continue Free</button>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Plus</div>
+        <div class="tier-tag">For regular listeners.</div>
+        <div class="tier-price">$7<span class="per">/ month</span></div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Everything in Free</li>
+          <li><strong>Ad-free podcast feeds</strong> on every show</li>
+          <li>Monthly bonus episode: <em>The B-Side</em></li>
+          <li>Early access — 48 hours before public release</li>
+          <li>Members-only Discord</li>
+          <li>Your name in the credits, once</li>
+        </ul>
+        <button class="tier-cta">Become a Plus Member</button>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Supporter</div>
+        <div class="tier-tag">For the truly invested.</div>
+        <div class="tier-price">$15<span class="per">/ month</span></div>
+        <div class="tier-divider"></div>
+        <ul class="tier-benefits">
+          <li>Everything in Plus</li>
+          <li>Annual enamel pin, mailed each January</li>
+          <li>Quarterly producer Q&A livestreams</li>
+          <li>Vote on next season's editorial themes</li>
+          <li>Two free guest passes per year</li>
+          <li>Hand-signed thank you postcard</li>
+        </ul>
+        <button class="tier-cta outline-coral">Become a Supporter</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="patreon">
+  <div class="patreon-card">
+    <div class="patreon-left">
+      <div class="section-label" style="color: var(--amber); margin-bottom: 12px;">— Or Join Via Patreon</div>
+      <h3>4,212 patrons already power the network.</h3>
+      <p>Prefer Patreon? Same benefits, same tiers — managed through your existing account. Single payment, billed monthly, integrates with the official Longwave RSS feed automatically.</p>
+      <div class="patreon-stats">
+        <div><span>4,212</span><small>PATRONS</small></div>
+        <div><span>$31,840</span><small>MONTHLY</small></div>
+        <div><span>48</span><small>MONTHS RUNNING</small></div>
+      </div>
+    </div>
+    <button class="patreon-btn">Join on Patreon →</button>
+  </div>
+</section>
+
+<section class="donate">
+  <div class="donate-wrap">
+    <div class="section-label" style="margin-bottom: 12px;">— One-Time Donation</div>
+    <h3>Not into subscriptions?</h3>
+    <p>A one-time gift goes just as far. Powered by Stripe — secure, no account required.</p>
+    <div class="donate-form">
+      <button class="donate-amt">$5</button>
+      <button class="donate-amt active">$25</button>
+      <button class="donate-amt">$100</button>
+      <div class="donate-custom">Custom $</div>
+    </div>
+    <button class="donate-submit">Donate $25 to Longwave Audio</button>
+    <div class="donate-note">SECURED BY STRIPE · 100% TAX-DEDUCTIBLE IN THE US</div>
+  </div>
+</section>
+
+<section class="merch">
+  <div class="container">
+    <div class="merch-head">
+      <div>
+        <div class="section-label">— Merchandise</div>
+        <h2 class="section-title">Wear the network.</h2>
+        <p>Profits fund three months of transcript production. Printed locally in Oakland.</p>
+      </div>
+      <a href="/shop" class="merch-shopall">Shop all →</a>
+    </div>
+    <div class="merch-grid">
+      <div class="merch-card">
+        <div class="merch-img tee">👕</div>
+        <div class="merch-info">
+          <div class="merch-name">Longwave Logo Tee</div>
+          <div class="merch-meta">Heavyweight cotton · Cream / Purple</div>
+          <div class="merch-price">$28.00</div>
+        </div>
+      </div>
+      <div class="merch-card">
+        <div class="merch-img tote">👜</div>
+        <div class="merch-info">
+          <div class="merch-name">Signal Drift Tote</div>
+          <div class="merch-meta">Canvas, screen-printed</div>
+          <div class="merch-price">$22.00</div>
+        </div>
+      </div>
+      <div class="merch-card">
+        <div class="merch-img mug">☕</div>
+        <div class="merch-info">
+          <div class="merch-name">Slow Computer Mug</div>
+          <div class="merch-meta">12oz ceramic · Matte finish</div>
+          <div class="merch-price">$18.00</div>
+        </div>
+      </div>
+      <div class="merch-card">
+        <div class="merch-img pin">📌</div>
+        <div class="merch-info">
+          <div class="merch-name">Enamel Pin Set</div>
+          <div class="merch-meta">Set of 4 · One per show</div>
+          <div class="merch-price">$14.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo"><span class="logo-mark"></span>Longwave Audio</a>
+      <p>Independent podcasts for the curious mind. Founded in Oakland, 2021, by three former public radio producers. Funded by listeners, not algorithms.</p>
+    </div>
+    <div>
+      <h5>Network</h5>
+      <ul>
+        <li><a href="/shows">All Shows</a></li>
+        <li><a href="/episodes">Latest Episodes</a></li>
+        <li><a href="/newsletter">Newsletter</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Support</h5>
+      <ul>
+        <li><a href="/support">Membership</a></li>
+        <li><a href="#">Patreon</a></li>
+        <li><a href="/shop">Merch</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Listen On</h5>
+      <ul>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Overcast</a></li>
+        <li><a href="#">RSS Feed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 LONGWAVE AUDIO LLC · OAKLAND, CA</div>
+    <div>MADE WITH RSS &amp; PATIENCE</div>
+  </div>
+</footer>
+
+</body>
+</html>

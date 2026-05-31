@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "case_study",
+      "path": "case_study.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1584552,
+      "page_width": 1440,
+      "page_height": 8432
+    },
+    {
+      "slug": "contact",
+      "path": "contact.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 272454,
+      "page_width": 1440,
+      "page_height": 3664
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 884050,
+      "page_width": 1440,
+      "page_height": 4392
+    },
+    {
+      "slug": "studio",
+      "path": "studio.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 708457,
+      "page_width": 1440,
+      "page_height": 7930
+    },
+    {
+      "slug": "work",
+      "path": "work.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 722105,
+      "page_width": 1440,
+      "page_height": 3825
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

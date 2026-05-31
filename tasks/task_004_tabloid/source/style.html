@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Style & Fashion - Red Carpet Best & Worst Dressed | BuzzDish</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Georgia&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 16px; color: #111; background: #fff; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+
+/* TOP NAV */
+.top-bar { background: #000; color: #fff; font-size: 11px; padding: 6px 16px; text-align: center; letter-spacing: 1px; font-family: 'Montserrat', sans-serif; font-weight: 700; }
+.nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 3px solid #FF1493; }
+.nav-inner { max-width: 1280px; margin: 0 auto; height: 64px; display: flex; align-items: center; padding: 0 16px; gap: 24px; }
+.logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 32px; color: #FF1493; letter-spacing: -1px; }
+.logo span { color: #000; }
+.nav-items { display: flex; gap: 18px; flex: 1; }
+.nav-items a { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 6px; border-bottom: 3px solid transparent; }
+.nav-items a:hover { color: #FF1493; }
+.nav-items a.active { color: #FF1493; border-bottom-color: #FF1493; }
+.nav-search { background: #FFF5FA; border: 1px solid #FF1493; padding: 6px 12px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; color: #FF1493; }
+
+/* TICKER */
+.ticker { background: #1A1A1A; color: #fff; padding: 8px 0; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: flex; gap: 24px; padding: 0 16px; align-items: center; }
+.ticker-label { background: #FF1493; padding: 4px 10px; color: #fff; letter-spacing: 1px; flex-shrink: 0; }
+.ticker-item { display: inline-flex; align-items: center; gap: 6px; }
+.hot-badge { background: #FF0000; color: #fff; font-size: 9px; padding: 2px 5px; font-weight: 900; }
+
+/* AD */
+.ad-slot { background: #f4f4f4; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #999; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 8px; text-align: center; }
+.ad-slot .ad-label { font-size: 9px; margin-bottom: 4px; }
+.ad-leaderboard { height: 110px; max-width: 1280px; margin: 16px auto; }
+.ad-half-page { height: 600px; width: 100%; background: linear-gradient(135deg, #FFF5FA 0%, #fff 100%); border: 1px dashed #FF1493; color: #FF1493; }
+
+/* CONTAINER */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+/* PAGE HEADER */
+.page-header { text-align: center; padding: 32px 16px 16px; }
+.page-header h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 48px; text-transform: uppercase; letter-spacing: -1px; }
+.page-header h1 span { color: #FF1493; }
+.page-header p { color: #777; font-style: italic; margin-top: 8px; }
+
+/* HERO SLIDESHOW */
+.hero-slideshow { position: relative; height: 560px; background: linear-gradient(135deg, #FF1493 0%, #D6107A 50%, #000 100%); margin-bottom: 24px; overflow: hidden; display: flex; align-items: flex-end; }
+.hero-slideshow::before { content: '👗'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); font-size: 240px; opacity: 0.15; }
+.hero-content { position: relative; z-index: 2; padding: 40px 60px; color: #fff; max-width: 800px; }
+.hero-badge { display: inline-block; background: #FFD700; color: #000; padding: 6px 12px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 12px; letter-spacing: 2px; margin-bottom: 12px; }
+.hero-content h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 52px; line-height: 1.05; text-transform: uppercase; letter-spacing: -1px; text-shadow: 2px 2px 8px rgba(0,0,0,0.4); }
+.hero-content p { font-size: 18px; margin-top: 12px; font-style: italic; text-shadow: 1px 1px 4px rgba(0,0,0,0.4); }
+.hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; background: rgba(255,255,255,0.9); color: #FF1493; font-size: 28px; font-weight: 900; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 3; }
+.hero-arrow.left { left: 16px; }
+.hero-arrow.right { right: 16px; }
+.hero-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
+.hero-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+.hero-dots span.active { background: #FF1493; width: 28px; border-radius: 5px; }
+.hero-counter { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: #fff; padding: 8px 14px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; z-index: 3; }
+
+/* MAIN GRID */
+.main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; margin-top: 16px; }
+
+/* RANKING SECTION */
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 32px; text-transform: uppercase; border-bottom: 4px solid #FF1493; padding-bottom: 8px; margin: 32px 0 20px; letter-spacing: -0.5px; }
+.section-title span { color: #FF1493; }
+
+.ranking-list { display: flex; flex-direction: column; gap: 16px; }
+.rank-card { display: grid; grid-template-columns: 80px 280px 1fr; gap: 20px; background: #fff; border: 1px solid #eee; padding: 16px; align-items: center; }
+.rank-card.worst { border-left: 6px solid #FF0000; }
+.rank-card.best { border-left: 6px solid #FFD700; }
+.rank-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 72px; color: #FF1493; line-height: 1; text-align: center; }
+.rank-photo { height: 220px; background: linear-gradient(135deg, #FF1493, #FFD700); display: flex; align-items: center; justify-content: center; font-size: 80px; color: #fff; }
+.rank-photo.r2 { background: linear-gradient(135deg, #000, #FF1493); }
+.rank-photo.r3 { background: linear-gradient(135deg, #FFD700, #FF1493); }
+.rank-photo.r4 { background: linear-gradient(135deg, #D6107A, #000); }
+.rank-photo.r5 { background: linear-gradient(135deg, #FF1493, #FFF5FA); color: #FF1493; }
+.rank-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 24px; text-transform: uppercase; margin-bottom: 4px; }
+.rank-info .celeb-name { color: #FF1493; }
+.rank-info .designer { font-style: italic; color: #777; font-size: 14px; margin-bottom: 8px; }
+.rank-info p { font-size: 15px; margin-bottom: 12px; }
+.rank-stars { color: #FFD700; font-size: 18px; margin-bottom: 8px; letter-spacing: 2px; }
+.rank-stars .rating { color: #111; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; margin-left: 6px; }
+.shop-btn { display: inline-block; background: #FF1493; color: #fff; padding: 10px 18px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; }
+.shop-btn.gold { background: #FFD700; color: #000; }
+.shop-btn:hover { background: #D6107A; }
+
+/* OUTFIT BREAKDOWN GRID */
+.breakdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.breakdown-card { background: #fff; border: 1px solid #eee; }
+.breakdown-photo { height: 240px; background: linear-gradient(135deg, #FF1493 0%, #FFD700 100%); position: relative; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #fff; }
+.breakdown-photo.b2 { background: linear-gradient(135deg, #000 0%, #FF1493 100%); }
+.breakdown-photo.b3 { background: linear-gradient(135deg, #FFD700 0%, #D6107A 100%); }
+.breakdown-photo.b4 { background: linear-gradient(135deg, #FFF5FA 0%, #FF1493 100%); }
+.breakdown-photo.b5 { background: linear-gradient(135deg, #FF0000 0%, #000 100%); }
+.breakdown-photo.b6 { background: linear-gradient(135deg, #FF1493 0%, #000 100%); }
+.breakdown-photo.b7 { background: linear-gradient(135deg, #FFD700 0%, #FF1493 100%); }
+.breakdown-photo.b8 { background: linear-gradient(135deg, #D6107A 0%, #FFD700 100%); }
+.breakdown-tag { position: absolute; top: 8px; left: 8px; background: #FF1493; color: #fff; padding: 3px 8px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.breakdown-tag.gold { background: #FFD700; color: #000; }
+.breakdown-info { padding: 14px; }
+.breakdown-info h4 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 15px; text-transform: uppercase; line-height: 1.2; margin-bottom: 6px; }
+.breakdown-info h4 .celeb-name { color: #FF1493; }
+.breakdown-info .price-tag { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; color: #FF1493; margin: 6px 0; }
+.breakdown-info p { font-size: 13px; color: #555; margin-bottom: 10px; }
+.shop-link { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11px; color: #FF1493; text-transform: uppercase; border-top: 1px solid #eee; padding-top: 8px; display: block; }
+.shop-link:hover { color: #D6107A; }
+
+/* SIDEBAR */
+.sidebar { display: flex; flex-direction: column; gap: 24px; }
+.sidebar-widget { background: #fff; border: 2px solid #FF1493; }
+.sidebar-widget h3 { background: #FF1493; color: #fff; padding: 10px 12px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.sidebar-list { padding: 12px; }
+.sidebar-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
+.sidebar-item:last-child { border-bottom: none; }
+.sidebar-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 28px; color: #FF1493; line-height: 1; min-width: 28px; }
+.sidebar-item h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; line-height: 1.3; text-transform: uppercase; }
+.sidebar-item .celeb-name { color: #FF1493; }
+
+.video-ad { background: #000; color: #fff; padding: 12px; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11px; }
+.video-ad-screen { height: 200px; background: linear-gradient(135deg, #333, #000); display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 8px; position: relative; }
+.video-ad-screen::after { content: 'AUTO-PLAYING'; position: absolute; top: 8px; right: 8px; background: #FF0000; padding: 2px 6px; font-size: 9px; }
+
+.email-capture { background: #FF1493; color: #fff; padding: 16px; text-align: center; }
+.email-capture h3 { background: transparent; padding: 0; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 18px; margin-bottom: 8px; }
+.email-capture p { font-size: 12px; margin-bottom: 12px; font-style: italic; }
+.email-capture input { width: 100%; padding: 10px; border: none; margin-bottom: 8px; font-family: Georgia, serif; }
+.email-capture button { width: 100%; background: #FFD700; color: #000; border: none; padding: 10px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 12px; text-transform: uppercase; cursor: pointer; }
+
+/* SPONSORED STRIP */
+.sponsored-strip { background: #FFF8DC; padding: 20px; margin: 32px 0; }
+.sponsored-label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+.sponsored-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sponsored-card { background: #fff; padding: 12px; border: 1px solid #eee; }
+.sponsored-thumb { height: 120px; background: linear-gradient(135deg, #FFD700, #FF1493); margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+.sponsored-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; line-height: 1.3; }
+
+/* TABOOLA */
+.taboola { margin: 40px 0; border-top: 4px solid #000; padding-top: 16px; }
+.taboola-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+.taboola-header h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 22px; text-transform: uppercase; }
+.taboola-header .sponsor { font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+.taboola-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.taboola-card { cursor: pointer; }
+.taboola-thumb { height: 140px; background: linear-gradient(135deg, #999, #555); margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #fff; }
+.taboola-thumb.t2 { background: linear-gradient(135deg, #FFD700, #FF1493); }
+.taboola-thumb.t3 { background: linear-gradient(135deg, #FF0000, #000); }
+.taboola-thumb.t4 { background: linear-gradient(135deg, #FF1493, #FFD700); }
+.taboola-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; line-height: 1.3; }
+.taboola-card .ad-tag { font-size: 9px; color: #999; text-transform: uppercase; margin-top: 4px; }
+
+/* SOCIAL FLOATING */
+.social-float { position: fixed; left: 12px; top: 40%; display: flex; flex-direction: column; gap: 6px; z-index: 50; }
+.social-float a { width: 40px; height: 40px; background: #FF1493; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; }
+.social-float a:nth-child(2) { background: #000; }
+.social-float a:nth-child(3) { background: #FFD700; color: #000; }
+.social-float a:nth-child(4) { background: #FF0000; }
+
+/* FOOTER */
+footer { background: #000; color: #fff; padding: 40px 16px 20px; margin-top: 40px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+.footer-brand .logo { color: #FF1493; }
+.footer-brand .logo span { color: #fff; }
+.footer-brand p { font-style: italic; color: #999; margin-top: 8px; font-size: 14px; }
+footer h5 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; text-transform: uppercase; margin-bottom: 12px; color: #FF1493; letter-spacing: 1px; }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 6px; font-size: 13px; color: #ccc; }
+footer ul li a:hover { color: #FF1493; }
+.footer-bottom { max-width: 1280px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid #333; font-size: 11px; color: #777; text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+  <a href="#" title="Facebook">f</a>
+  <a href="#" title="Twitter">𝕏</a>
+  <a href="#" title="Pinterest">P</a>
+  <a href="#" title="TikTok">♪</a>
+</div>
+
+<!-- TOP -->
+<div class="top-bar">★ HOLLYWOOD'S HOTTEST TEA, SERVED DAILY ★ FRIDAY, OCT 22 ★ 78°F LA</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">Buzz<span>Dish</span></a>
+    <div class="nav-items">
+      <a href="#">Celebrity</a>
+      <a href="#">TV</a>
+      <a href="#">Music</a>
+      <a href="#">Movies</a>
+      <a href="#" class="active">Style</a>
+      <a href="#">Beauty</a>
+      <a href="#">Royals</a>
+      <a href="#">Viral</a>
+    </div>
+    <div class="nav-search">🔍 SEARCH</div>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-label">🔥 TRENDING NOW</span>
+    <span class="ticker-item"><span class="hot-badge">HOT</span> Zendaya's Valentino Couture Stuns Met</span>
+    <span class="ticker-item"><span class="hot-badge">HOT</span> Rihanna Pregnancy Style Decoded</span>
+    <span class="ticker-item"><span class="hot-badge">HOT</span> Bachelor Finale Leak Exposed</span>
+    <span class="ticker-item"><span class="hot-badge">HOT</span> Kate Middleton's £49 Zara Sells Out</span>
+    <span class="ticker-item"><span class="hot-badge">HOT</span> Lady Gaga House of Gucci Premiere Pics</span>
+  </div>
+</div>
+
+<!-- LEADERBOARD AD -->
+<div class="ad-slot ad-leaderboard">
+  <div class="ad-label">— ADVERTISEMENT —</div>
+  <div>728×90 · SEPHORA HOLIDAY SALE · CLICK TO SHOP</div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="container">
+  <div class="page-header">
+    <h1>Style &amp; <span>Fashion</span></h1>
+    <p>Red carpet glamour, shopping dupes, and the looks everyone's talking about</p>
+  </div>
+</div>
+
+<!-- HERO SLIDESHOW -->
+<div class="container">
+  <div class="hero-slideshow">
+    <div class="hero-counter">SLIDE 1 / 12</div>
+    <div class="hero-arrow left">‹</div>
+    <div class="hero-arrow right">›</div>
+    <div class="hero-content">
+      <span class="hero-badge">★ MET GALA EXCLUSIVE ★</span>
+      <h2>The 12 Most JAW-DROPPING Red Carpet Looks of the Year</h2>
+      <p>Swipe through the gowns, suits, and "what were they thinking?!" moments that broke the internet</p>
+    </div>
+    <div class="hero-dots">
+      <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="container">
+  <div class="main-grid">
+    <main>
+      <!-- BEST DRESSED -->
+      <h2 class="section-title">★ Best <span>Dressed</span> This Week</h2>
+      <div class="ranking-list">
+
+        <div class="rank-card best">
+          <div class="rank-number">1</div>
+          <div class="rank-photo r1">👗</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Zendaya</span> in Valentino Haute Couture</h3>
+            <div class="designer">Custom Pierpaolo Piccioli · Bulgari high jewelry</div>
+            <div class="rank-stars">★★★★★ <span class="rating">5.0 / DISH METER</span></div>
+            <p>Hot pink feathered column gown that literally stopped traffic on the Lincoln Center carpet. Tom Holland's reaction = priceless.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+            <a href="#" class="shop-btn gold">✦ GET THE DUPE — $89</a>
+          </div>
+        </div>
+
+        <div class="rank-card best">
+          <div class="rank-number">2</div>
+          <div class="rank-photo r2">💃</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Rihanna</span> in Vintage Dior</h3>
+            <div class="designer">John Galliano Archive 2002 · Maison Mauboussin</div>
+            <div class="rank-stars">★★★★★ <span class="rating">4.9 / DISH METER</span></div>
+            <p>Maternity dressing redefined. The sheer lace bump-baring catsuit had Twitter in absolute SHAMBLES for 72 hours straight.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+            <a href="#" class="shop-btn gold">✦ GET THE DUPE — $124</a>
+          </div>
+        </div>
+
+        <div class="rank-card best">
+          <div class="rank-number">3</div>
+          <div class="rank-photo r3">✨</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Lady Gaga</span> in Armani Privé</h3>
+            <div class="designer">House of Gucci Premiere · Tiffany &amp; Co.</div>
+            <div class="rank-stars">★★★★☆ <span class="rating">4.7 / DISH METER</span></div>
+            <p>Old Hollywood goddess realness in liquid silver. The 30-foot train? Iconic. The diamond necklace worth $5M? Even more iconic.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+            <a href="#" class="shop-btn gold">✦ GET THE DUPE — $156</a>
+          </div>
+        </div>
+
+        <div class="rank-card best">
+          <div class="rank-number">4</div>
+          <div class="rank-photo r4">👠</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Timothée Chalamet</span> in Haider Ackermann</h3>
+            <div class="designer">Custom backless red sequin suit · Cartier</div>
+            <div class="rank-stars">★★★★☆ <span class="rating">4.6 / DISH METER</span></div>
+            <p>He came. He bared his back. He DESTROYED red carpet menswear forever. Internet's collective gay awakening confirmed.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+            <a href="#" class="shop-btn gold">✦ GET THE DUPE — $215</a>
+          </div>
+        </div>
+
+        <div class="rank-card best">
+          <div class="rank-number">5</div>
+          <div class="rank-photo r5">🌹</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Hailey Bieber</span> in Saint Laurent</h3>
+            <div class="designer">Anthony Vaccarello SS22 · Tiffany HardWear</div>
+            <div class="rank-stars">★★★★☆ <span class="rating">4.4 / DISH METER</span></div>
+            <p>Minimalist slip dress + slicked back bun + that $4,000 Erewhon smoothie energy. Quiet luxury before it was a TikTok trend.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+            <a href="#" class="shop-btn gold">✦ GET THE DUPE — $72</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INLINE AD -->
+      <div class="ad-slot ad-leaderboard" style="margin: 32px 0;">
+        <div class="ad-label">— ADVERTISEMENT —</div>
+        <div>728×90 · NORDSTROM ANNIVERSARY SALE · UP TO 60% OFF</div>
+      </div>
+
+      <!-- WORST DRESSED -->
+      <h2 class="section-title">⚠ Worst <span>Dressed</span> · Yikes Edition</h2>
+      <div class="ranking-list">
+
+        <div class="rank-card worst">
+          <div class="rank-number" style="color: #FF0000;">1</div>
+          <div class="rank-photo r4">😬</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Kim Kardashian</span> in Balenciaga</h3>
+            <div class="designer">Demna Gvasalia full-body morphsuit</div>
+            <div class="rank-stars">★★☆☆☆ <span class="rating">2.1 / DISH METER</span></div>
+            <p>The "faceless ghost" black mask Met Gala look. Iconic? Maybe. Wearable? Absolutely NOT. Pete reportedly couldn't find her at the afterparty.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK (?!)</a>
+          </div>
+        </div>
+
+        <div class="rank-card worst">
+          <div class="rank-number" style="color: #FF0000;">2</div>
+          <div class="rank-photo r5">🙃</div>
+          <div class="rank-info">
+            <h3><span class="celeb-name">Megan Fox &amp; MGK</span> Matching Pink</h3>
+            <div class="designer">Mugler bodysuit + custom blood-pink suit</div>
+            <div class="rank-stars">★★☆☆☆ <span class="rating">1.8 / DISH METER</span></div>
+            <p>His-and-hers Pepto Bismol. The vial of blood necklaces? STILL going strong. We need to talk about this couple, sis.</p>
+            <a href="#" class="shop-btn">🛍 SHOP THE LOOK</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPONSORED -->
+      <div class="sponsored-strip">
+        <div class="sponsored-label">— Sponsored by Walmart Fashion —</div>
+        <div class="sponsored-cards">
+          <div class="sponsored-card">
+            <div class="sponsored-thumb">💄</div>
+            <h5>Kim K's $12 Lip Hack — At Walmart NOW</h5>
+          </div>
+          <div class="sponsored-card">
+            <div class="sponsored-thumb" style="background: linear-gradient(135deg, #FF1493, #000);">👜</div>
+            <h5>The $24 "Birkin Dupe" Bag Going Viral on TikTok</h5>
+          </div>
+          <div class="sponsored-card">
+            <div class="sponsored-thumb" style="background: linear-gradient(135deg, #FFF5FA, #FF1493);">✨</div>
+            <h5>J.Lo Glow Drugstore Dupes Under $15</h5>
+          </div>
+          <div class="sponsored-card">
+            <div class="sponsored-thumb" style="background: linear-gradient(135deg, #FFD700, #D6107A);">👗</div>
+            <h5>Zendaya's Met Gala Look for $39 (Seriously)</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTFIT BREAKDOWN -->
+      <h2 class="section-title">🔍 Outfit <span>Breakdowns</span> · Get The Look</h2>
+      <div class="breakdown-grid">
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b1"><span class="breakdown-tag gold">★ BEST</span>👠</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Bella Hadid</span> Off-Duty Coffee Run</h4>
+            <div class="price-tag">TOTAL: $8,420</div>
+            <p>Vintage Versace tee · Khaite jeans · Bottega Veneta mules · Celine sunnies</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b2"><span class="breakdown-tag">EXCLUSIVE</span>🕶</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Kendall Jenner</span> Airport Look</h4>
+            <div class="price-tag">TOTAL: $12,890</div>
+            <p>Toteme blazer · Wardrobe NYC pants · The Row mules · Hermès Birkin</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b3"><span class="breakdown-tag gold">SHOPPABLE</span>👜</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Dua Lipa</span> Future Nostalgia Tour</h4>
+            <div class="price-tag">TOTAL: $4,210</div>
+            <p>Mugler corset · Versace boots · Tiffany ear cuff · Vintage Chanel belt</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b4"><span class="breakdown-tag">NEW</span>💎</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Olivia Rodrigo</span> Y2K Princess</h4>
+            <div class="price-tag">TOTAL: $2,890</div>
+            <p>Vintage Versace mini · Marc Jacobs platforms · Y/Project belt · Diesel bag</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b5"><span class="breakdown-tag">HOT</span>👑</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Kate Middleton</span> Royal Engagement</h4>
+            <div class="price-tag">TOTAL: £612 (steal!)</div>
+            <p>Zara blazer £49 · Massimo Dutti trousers · Aquazzura pumps · Mulberry clutch</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b6"><span class="breakdown-tag gold">★ BEST</span>🌟</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Beyoncé</span> Date Night with Jay</h4>
+            <div class="price-tag">TOTAL: $24,500</div>
+            <p>Mugler hourglass dress · Stuart Weitzman boots · Tiffany Schlumberger</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b7"><span class="breakdown-tag">EXCLUSIVE</span>💃</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Ariana Grande</span> Studio Style</h4>
+            <div class="price-tag">TOTAL: $3,920</div>
+            <p>Reformation slip · Loeffler Randall boots · Vintage Cartier · Coach bag</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+
+        <div class="breakdown-card">
+          <div class="breakdown-photo b8"><span class="breakdown-tag gold">NEW</span>✨</div>
+          <div class="breakdown-info">
+            <h4><span class="celeb-name">Jennifer Lopez</span> Bennifer Strolls</h4>
+            <div class="price-tag">TOTAL: $9,180</div>
+            <p>Khaite cashmere · Versace leather pants · Gucci horsebit · Bvlgari</p>
+            <a href="#" class="shop-link">→ SHOP ALL 4 PIECES</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABOOLA -->
+      <div class="taboola">
+        <div class="taboola-header">
+          <h3>You May Also Like</h3>
+          <span class="sponsor">— PROMOTED CONTENT —</span>
+        </div>
+        <div class="taboola-grid">
+          <div class="taboola-card">
+            <div class="taboola-thumb t1">😱</div>
+            <h5>Doctors Hate This One Trick To Reduce Wrinkles Overnight</h5>
+            <div class="ad-tag">SPONSORED · DermaPro</div>
+          </div>
+          <div class="taboola-card">
+            <div class="taboola-thumb t2">👰</div>
+            <h5>Remember Her From the 90s? You Won't Believe How She Looks Now</h5>
+            <div class="ad-tag">SPONSORED · CelebToday</div>
+          </div>
+          <div class="taboola-card">
+            <div class="taboola-thumb t3">📸</div>
+            <h5>25 Forbidden Royal Family Photos They Tried to Hide</h5>
+            <div class="ad-tag">SPONSORED · HistoryBuzz</div>
+          </div>
+          <div class="taboola-card">
+            <div class="taboola-thumb t4">💍</div>
+            <h5>Plastic Surgery Disasters You Completely Forgot About</h5>
+            <div class="ad-tag">SPONSORED · StarLeaks</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      
+      <div class="ad-slot ad-half-page">
+        <div class="ad-label">— ADVERTISEMENT —</div>
+        <div style="font-size: 14px; line-height: 1.4;">300×600<br>HALF PAGE<br><br>GEICO<br>15 MINUTES<br>COULD SAVE YOU 15%<br><br>📞 CLICK TO QUOTE</div>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3>★ Top 10 Style Stories</h3>
+        <div class="sidebar-list">
+          <div class="sidebar-item"><div class="sidebar-num">1</div><h4><span class="celeb-name">Zendaya's</span> Valentino Pink Look Decoded</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">2</div><h4><span class="celeb-name">Rihanna</span> Maternity Style Manifesto</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">3</div><h4>Kim K's Faceless Met Gala Look Explained</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">4</div><h4><span class="celeb-name">Hailey Bieber's</span> $4K Erewhon Outfit</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">5</div><h4><span class="celeb-name">Timothée</span> Backless Suit Breakdown</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">6</div><h4><span class="celeb-name">Kate Middleton's</span> Zara Blazer Sells Out</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">7</div><h4>House of Gucci Premiere Best Looks</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">8</div><h4>Bella Hadid's Y2K Revival</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">9</div><h4>Bennifer 2.0 Couples Style Watch</h4></div>
+          <div class="sidebar-item"><div class="sidebar-num">10</div><h4><span class="celeb-name">Lady Gaga's</span> $5M Tiffany Necklace</h4></div>
+        </div>
+      </div>
+
+      <div class="video-ad">
+        <div class="video-ad-screen">▶</div>
+        AUTO-PLAYING VIDEO AD<br>LANCÔME LASH IDÔLE
+      </div>
+
+      <div class="email-capture">
+        <h3>📩 GET THE DAILY DISH</h3>
+        <p>Hollywood's hottest tea in your inbox every morning</p>
+        <input type="email" placeholder="your@email.com">
+        <button>SUBSCRIBE FREE →</button>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3>💎 Shop By Celeb</h3>
+        <div class="sidebar-list">
+          <div class="sidebar-item"><h4 style="color:#FF1493;">→ ZENDAYA'S CLOSET</h4></div>
+          <div class="sidebar-item"><h4 style="color:#FF1493;">→ HAILEY BIEBER STAPLES</h4></div>
+          <div class="sidebar-item"><h4 style="color:#FF1493;">→ BELLA HADID OFF-DUTY</h4></div>
+          <div class="sidebar-item"><h4 style="color:#FF1493;">→ KATE MIDDLETON ROYAL</h4></div>
+          <div class="sidebar-item"><h4 style="color:#FF1493;">→ DUA LIPA TOUR FITS</h4></div>
+        </div>
+      </div>
+
+      <div class="ad-slot" style="height: 250px; background: linear-gradient(135deg, #FFD700, #FF1493); color: #fff; border: none;">
+        <div class="ad-label" style="color: rgba(255,255,255,0.8);">— SPONSORED —</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 22px;">REVOLVE<br>BLACK FRIDAY<br>50% OFF ★</div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">Buzz<span>Dish</span></a>
+      <p>Hollywood's Hottest Tea, Served Daily. © 2021 BuzzDish Media, LLC.</p>
+      <p style="margin-top: 12px;">📱 Follow: @BuzzDish on TikTok · Instagram · Twitter</p>
+    </div>
+    <div>
+      <h5>Sections</h5>
+      <ul>
+        <li><a href="#">Celebrity</a></li>
+        <li><a href="#">TV &amp; Streaming</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">Style &amp; Fashion</a></li>
+        <li><a href="#">Beauty</a></li>
+        <li><a href="#">Royals</a></li>
+        <li><a href="#">Viral &amp; WTF</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About BuzzDish</a></li>
+        <li><a href="#">Editorial Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Send a Tip</a></li>
+        <li><a href="#">Press Inquiries</a></li>
+        <li><a href="#">Advertise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Cookie Settings</a></li>
+        <li><a href="#">Do Not Sell My Info</a></li>
+        <li><a href="#">DMCA</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    BuzzDish™ and the BuzzDish logo are trademarks of BuzzDish Media. All celebrity content is for entertainment purposes. Some links are affiliate links — we may earn a commission.
+  </div>
+</footer>
+
+</body>
+</html>

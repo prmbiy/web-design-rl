@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quick Start Tutorial — Quillforge 2.4 Documentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Code+Pro:wght@400;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #2C3E50;
+  background: #FFFFFF;
+}
+
+a { color: #2980B9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* TOP NAV */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #2980B9;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.topnav .brand {
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 24px;
+}
+.topnav .brand .logo {
+  width: 28px; height: 28px;
+  background: #fff;
+  color: #2980B9;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+}
+.version-selector {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+}
+.topnav .search {
+  flex: 1;
+  max-width: 480px;
+  margin: 0 24px;
+  position: relative;
+}
+.topnav .search input {
+  width: 100%;
+  height: 34px;
+  padding: 0 12px 0 36px;
+  border: 0;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.95);
+  font-size: 14px;
+  font-family: inherit;
+}
+.topnav .search::before {
+  content: "🔍";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0.6;
+}
+.topnav .kbd {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #EEF2F6;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-family: 'Source Code Pro', monospace;
+  color: #6B7C8E;
+}
+.topnav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+.topnav .nav-links a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 240px;
+  padding-top: 56px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  background: #EEF2F6;
+  border-right: 1px solid #D9E2EC;
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #6B7C8E;
+  padding: 12px 20px 6px;
+  font-weight: 900;
+}
+.sidebar ul { list-style: none; }
+.sidebar li a {
+  display: block;
+  padding: 6px 20px;
+  color: #2C3E50;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+}
+.sidebar li a:hover {
+  background: #DDE6EE;
+  text-decoration: none;
+}
+.sidebar li.active > a {
+  background: #2980B9;
+  color: #fff;
+  border-left-color: #1B5A8A;
+  font-weight: 700;
+}
+.sidebar li.section-toggle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2C3E50;
+  padding: 8px 20px 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sidebar .subnav {
+  margin-left: 0;
+}
+.sidebar .subnav a {
+  padding-left: 36px;
+  font-size: 13px;
+  color: #2C3E50;
+}
+.sidebar .subnav a.current {
+  color: #2980B9;
+  font-weight: 700;
+  border-left-color: #2980B9;
+}
+.sidebar .sponsor {
+  margin: 24px 20px 0;
+  padding-top: 16px;
+  border-top: 1px solid #D9E2EC;
+  font-size: 12px;
+  color: #6B7C8E;
+}
+.sidebar .sponsor .logos {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.sidebar .sponsor .logos span {
+  background: #fff;
+  border: 1px solid #D9E2EC;
+  padding: 6px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6B7C8E;
+}
+
+/* MAIN */
+main {
+  padding: 32px 40px;
+  min-width: 0;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-bottom: 8px;
+}
+.breadcrumb a { color: #6B7C8E; }
+.gh-edit {
+  float: right;
+  font-size: 13px;
+  background: #EEF2F6;
+  border: 1px solid #D9E2EC;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: #2980B9;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #2C3E50;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #D9E2EC;
+  padding-bottom: 12px;
+}
+.sub {
+  font-size: 17px;
+  color: #6B7C8E;
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 36px 0 12px;
+  color: #2C3E50;
+  scroll-margin-top: 70px;
+}
+h2 .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  background: #2980B9;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 900;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+  color: #2C3E50;
+}
+
+main p { margin: 12px 0; }
+
+/* CODE BLOCKS */
+.code-block {
+  background: #2E3440;
+  border-radius: 3px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+.code-block .code-header {
+  background: #252B36;
+  padding: 8px 14px;
+  color: #D8DEE9;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1f242d;
+}
+.code-block .copy-btn {
+  background: #3B4252;
+  color: #D8DEE9;
+  border: 1px solid #4C566A;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  font-weight: 700;
+}
+.code-block pre {
+  padding: 16px 18px;
+  color: #D8DEE9;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+.kw { color: #81A1C1; }
+.str { color: #A3BE8C; }
+.num { color: #D08770; }
+.cm { color: #6B7C8E; font-style: italic; }
+.fn { color: #88C0D0; }
+.dec { color: #EBCB8B; }
+.prompt { color: #A3BE8C; user-select: none; }
+
+/* NOTE BOXES */
+.box {
+  border-left: 4px solid;
+  padding: 14px 18px;
+  margin: 18px 0;
+  border-radius: 0 3px 3px 0;
+  font-size: 15px;
+}
+.box .box-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.box.note { background: #E8F5E9; border-color: #27AE60; }
+.box.note .box-title { color: #1e7c3f; }
+.box.warning { background: #FFF8E1; border-color: #F39C12; }
+.box.warning .box-title { color: #b67708; }
+.box.danger { background: #FDECEA; border-color: #E74C3C; }
+.box.danger .box-title { color: #b8331f; }
+
+.box code {
+  background: rgba(0,0,0,0.07);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+}
+
+p code, li code {
+  background: #EEF2F6;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  color: #1B5A8A;
+}
+
+/* NEXT STEPS CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+.card {
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 18px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  display: block;
+  color: inherit;
+}
+.card:hover {
+  border-color: #2980B9;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.12);
+  text-decoration: none;
+}
+.card .icon {
+  width: 36px; height: 36px;
+  background: #EEF2F6;
+  color: #2980B9;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2980B9;
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 13px;
+  color: #6B7C8E;
+  margin: 0;
+}
+
+/* PREV NEXT */
+.prev-next {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #D9E2EC;
+  gap: 16px;
+}
+.prev-next a {
+  flex: 1;
+  border: 1px solid #D9E2EC;
+  border-radius: 3px;
+  padding: 12px 16px;
+  display: block;
+}
+.prev-next a:hover {
+  border-color: #2980B9;
+  text-decoration: none;
+}
+.prev-next .label {
+  font-size: 12px;
+  color: #6B7C8E;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.prev-next .title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2980B9;
+}
+.prev-next .next { text-align: right; }
+
+/* RIGHT TOC */
+.toc {
+  padding: 32px 20px;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  border-left: 1px solid #D9E2EC;
+  font-size: 13px;
+}
+.toc h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #6B7C8E;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.toc ul { list-style: none; }
+.toc li a {
+  display: block;
+  padding: 4px 0 4px 10px;
+  border-left: 2px solid #D9E2EC;
+  color: #6B7C8E;
+  font-size: 13px;
+}
+.toc li a.active {
+  border-left-color: #2980B9;
+  color: #2980B9;
+  font-weight: 700;
+}
+.toc li a:hover { color: #2980B9; text-decoration: none; }
+
+/* FOOTER */
+footer {
+  background: #EEF2F6;
+  border-top: 1px solid #D9E2EC;
+  padding: 24px 40px;
+  font-size: 13px;
+  color: #6B7C8E;
+  margin-left: 250px;
+  margin-right: 240px;
+}
+footer .footer-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 920px;
+}
+footer a { color: #6B7C8E; }
+
+/* TREE OUTPUT */
+.tree {
+  font-family: 'Source Code Pro', monospace;
+  color: #D8DEE9;
+}
+
+/* INLINE FILE TAB */
+.file-tag { color: #88C0D0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="brand">
+    <span class="logo">Q</span>
+    Quillforge
+  </div>
+  <button class="version-selector">v2.4 ▾</button>
+  <div class="search">
+    <input type="text" placeholder="Search the docs…">
+    <span class="kbd">⌘K</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="api.html">API</a>
+    <a href="#">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h3>Getting Started</h3>
+    <ul>
+      <li><a href="index.html">Documentation Home</a></li>
+      <li><a href="installation.html">Installation Guide</a></li>
+      <li class="active">
+        <a href="quickstart.html">Quick Start Tutorial</a>
+        <ul class="subnav">
+          <li><a href="#step1" class="current">Step 1: Initialize</a></li>
+          <li><a href="#step2">Step 2: Define a Task</a></li>
+          <li><a href="#step3">Step 3: Build Pipeline</a></li>
+          <li><a href="#step4">Step 4: Run</a></li>
+          <li><a href="#next">Next Steps</a></li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Reference</h3>
+    <ul>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="configuration.html">Configuration</a></li>
+    </ul>
+    <h3>Guides</h3>
+    <ul>
+      <li><a href="#">Core Concepts</a></li>
+      <li><a href="#">Scheduling &amp; Triggers</a></li>
+      <li><a href="#">Distributed Workers</a></li>
+      <li><a href="#">Observability</a></li>
+      <li><a href="#">Deployment</a></li>
+    </ul>
+    <h3>Community</h3>
+    <ul>
+      <li><a href="#">Discord</a></li>
+      <li><a href="#">GitHub Discussions</a></li>
+      <li><a href="#">Contributing</a></li>
+    </ul>
+    <div class="sponsor">
+      Sponsored by
+      <div class="logos">
+        <span>ACME Cloud</span>
+        <span>Northwind</span>
+        <span>Initech</span>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <a class="gh-edit" href="#">✎ Edit on GitHub</a>
+    <div class="breadcrumb"><a href="index.html">Docs</a> › <a href="#">Getting Started</a> › Quick Start Tutorial</div>
+
+    <h1>Your First Pipeline in 5 Minutes</h1>
+    <p class="sub">Build a CSV‑to‑Postgres ETL pipeline using Quillforge tasks. By the end you'll have a typed, retry-safe, observable pipeline running on four async workers.</p>
+
+    <div class="box note">
+      <div class="box-title">📘 Prerequisites</div>
+      You'll need Python 3.10+ and a working Quillforge install. If you haven't installed yet, follow the <a href="installation.html">Installation Guide</a> first.
+    </div>
+
+    <h2 id="step1"><span class="step-num">1</span>Initialize the project</h2>
+    <p>Use the bundled <code>quill</code> CLI to scaffold a new project. The <code>init</code> subcommand lays out a conventional directory structure with sample pipelines, task modules, and a starter <code>quill.toml</code>.</p>
+
+    <div class="code-block">
+      <div class="code-header"><span>bash</span><button class="copy-btn">Copy</button></div>
+<pre><span class="prompt">$</span> quill init etl-demo
+<span class="cm">✓ created etl-demo/</span>
+<span class="cm">✓ scaffolded pipelines/ tasks/ tests/</span>
+<span class="cm">✓ wrote quill.toml (v2.4 schema)</span></pre>
+    </div>
+
+    <p>The generated tree looks like this:</p>
+
+    <div class="code-block">
+      <div class="code-header"><span>etl-demo/</span><button class="copy-btn">Copy</button></div>
+<pre class="tree">etl-demo/
+├── <span class="fn">pipelines/</span>
+│   └── invoices.py
+├── <span class="fn">tasks/</span>
+│   ├── extract.py
+│   ├── transform.py
+│   └── load.py
+├── <span class="fn">tests/</span>
+│   └── test_pipeline.py
+├── quill.toml
+└── pyproject.toml</pre>
+    </div>
+
+    <div class="box note">
+      <div class="box-title">💡 Concept — Project layout</div>
+      Quillforge enforces a soft convention: <code>tasks/</code> contains pure functions, <code>pipelines/</code> composes them into DAGs. The CLI uses this layout for autodiscovery during <code>quill run</code>.
+    </div>
+
+    <h2 id="step2"><span class="step-num">2</span>Define a task</h2>
+    <p>Tasks are async functions decorated with <code>@quill.task</code>. The decorator registers the function with the active <em>Registry</em> and applies retry, timeout, and naming semantics declaratively.</p>
+
+    <div class="code-block">
+      <div class="code-header"><span class="file-tag">tasks/extract.py</span><button class="copy-btn">Copy</button></div>
+<pre><span class="kw">from</span> pathlib <span class="kw">import</span> Path
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> quill
+
+
+<span class="dec">@quill.task</span>(retries=<span class="num">3</span>, timeout=<span class="num">30</span>, name=<span class="str">"load_csv"</span>)
+<span class="kw">async def</span> <span class="fn">load_csv</span>(path: Path) -> pd.DataFrame:
+    <span class="str">"""Read a CSV file into a DataFrame, retrying on transient I/O errors."""</span>
+    <span class="kw">async with</span> quill.io.open(path, mode=<span class="str">"rb"</span>) <span class="kw">as</span> fh:
+        data = <span class="kw">await</span> fh.read()
+    <span class="kw">return</span> pd.read_csv(data)</pre>
+    </div>
+
+    <div class="box warning">
+      <div class="box-title">⚠ Heads up</div>
+      Task functions <strong>must</strong> be <code>async def</code>. Synchronous functions will raise <code>quill.errors.NotAwaitable</code> at registration time. Use <code>quill.sync_task</code> for blocking work.
+    </div>
+
+    <h2 id="step3"><span class="step-num">3</span>Build the pipeline</h2>
+    <p>Compose your tasks into a <code>Pipeline</code>. Quillforge infers the DAG edges from type hints — the return type of one task is matched against the parameter types of the next.</p>
+
+    <div class="code-block">
+      <div class="code-header"><span class="file-tag">pipelines/invoices.py</span><button class="copy-btn">Copy</button></div>
+<pre><span class="kw">from</span> quill <span class="kw">import</span> Pipeline
+<span class="kw">from</span> tasks.extract <span class="kw">import</span> load_csv
+<span class="kw">from</span> tasks.transform <span class="kw">import</span> clean_rows
+<span class="kw">from</span> tasks.load <span class="kw">import</span> write_postgres
+
+
+etl = Pipeline(
+    name=<span class="str">"invoice_etl"</span>,
+    tasks=[load_csv, clean_rows, write_postgres],
+    on_failure=<span class="str">"halt"</span>,
+)
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    etl.run(<span class="str">"data/invoices_2023Q4.csv"</span>)</pre>
+    </div>
+
+    <div class="box note">
+      <div class="box-title">💡 Concept — DAG inference</div>
+      Because <code>load_csv</code> returns a <code>DataFrame</code> and <code>clean_rows</code> accepts a <code>DataFrame</code>, Quillforge wires them automatically. To force ordering for tasks that share types, pass an explicit <code>depends_on=[…]</code> argument.
+    </div>
+
+    <h2 id="step4"><span class="step-num">4</span>Run it</h2>
+    <p>Launch the pipeline with the CLI. The <code>--workers</code> flag fans the DAG out across an in-process worker pool; for distributed runs see the <a href="#">Workers guide</a>.</p>
+
+    <div class="code-block">
+      <div class="code-header"><span>terminal</span><button class="copy-btn">Copy</button></div>
+<pre><span class="prompt">$</span> quill run etl-demo --workers <span class="num">4</span>
+
+<span class="cm">[12:04:11] INFO  quill.runtime  starting pipeline=invoice_etl run_id=01HF4ZT3</span>
+<span class="cm">[12:04:11] INFO  quill.worker.0 task=load_csv id=t-001 status=running</span>
+<span class="cm">[12:04:11] INFO  quill.worker.1 task=clean_rows id=t-002 status=queued</span>
+<span class="cm">[12:04:12] INFO  quill.worker.0 task=load_csv id=t-001 status=success (812ms)</span>
+<span class="cm">[12:04:12] INFO  quill.worker.1 task=clean_rows id=t-002 status=success (438ms)</span>
+<span class="cm">[12:04:13] INFO  quill.worker.2 task=write_postgres id=t-003 status=success (1.06s)</span>
+<span class="cm">[12:04:13] INFO  quill.runtime  </span><span class="str">Pipeline completed in 2.31s</span> <span class="cm">tasks=3 retries=0</span></pre>
+    </div>
+
+    <div class="box danger">
+      <div class="box-title">🚫 Common pitfall</div>
+      Never call <code>asyncio.run()</code> from inside a task. Quillforge already manages the event loop; nesting loops will deadlock the worker. Use <code>await</code> directly.
+    </div>
+
+    <h2 id="next">Next Steps</h2>
+    <p>You've shipped your first pipeline. Here are three directions to go deeper:</p>
+
+    <div class="cards">
+      <a class="card" href="#">
+        <div class="icon">⏱</div>
+        <h4>Scheduling with Cron Triggers</h4>
+        <p>Run pipelines on cron expressions, intervals, or webhook events using the built-in scheduler.</p>
+      </a>
+      <a class="card" href="#">
+        <div class="icon">📊</div>
+        <h4>Adding Prometheus Metrics</h4>
+        <p>Expose per-task latency, retry counts, and queue depth via the <code>quill.metrics</code> exporter.</p>
+      </a>
+      <a class="card" href="#">
+        <div class="icon">☁</div>
+        <h4>Deploying to Quillforge Cloud</h4>
+        <p>One-command deploy to managed workers with autoscaling, secrets, and observability included.</p>
+      </a>
+    </div>
+
+    <div class="prev-next">
+      <a href="installation.html" class="prev">
+        <div class="label">← Previous</div>
+        <div class="title">Installation Guide</div>
+      </a>
+      <a href="api.html" class="next">
+        <div class="label">Next →</div>
+        <div class="title">API Reference</div>
+      </a>
+    </div>
+  </main>
+
+  <aside class="toc">
+    <h4>On this page</h4>
+    <ul>
+      <li><a href="#step1" class="active">Step 1: Initialize</a></li>
+      <li><a href="#step2">Step 2: Define a Task</a></li>
+      <li><a href="#step3">Step 3: Build Pipeline</a></li>
+      <li><a href="#step4">Step 4: Run</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ul>
+    <h4 style="margin-top:24px;">Resources</h4>
+    <ul>
+      <li><a href="#">Source: docs/quickstart.rst</a></li>
+      <li><a href="#">Report an issue</a></li>
+      <li><a href="#">Ask on Discord</a></li>
+    </ul>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-row">
+    <div>© 2023 Quillforge contributors · Licensed Apache 2.0 · Built with Sphinx-flavored love.</div>
+    <div><a href="#">Changelog</a> · <a href="#">Roadmap</a> · <a href="#">Quillforge Cloud Pro</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

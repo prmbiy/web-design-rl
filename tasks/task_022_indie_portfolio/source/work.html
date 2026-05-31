@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — kaiwa.dev</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --border: #1F1F1F;
+  --text: #E8E8E8;
+  --muted: #6B7280;
+  --accent: #39FF14;
+  --accent-glow: rgba(57,255,20,0.15);
+  --comment: #555555;
+  --keyword: #61DAFB;
+  --string: #A8FF78;
+  --number: #FFD700;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover { text-shadow: 0 0 8px rgba(57,255,20,0.5); }
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* NAV */
+nav.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+.nav-logo .dot { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+.nav-links a {
+  color: var(--text);
+}
+.nav-links a.active { color: var(--accent); }
+.nav-links a:hover { color: var(--accent); }
+.theme-toggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+}
+
+/* CURSOR */
+@keyframes cursor_blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  animation: cursor_blink 1s steps(1) infinite;
+}
+
+/* TYPEWRITER */
+@keyframes typewriter { from { width: 0; } to { width: 100%; } }
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2.4s steps(40, end) forwards;
+}
+
+/* HERO FADE */
+@keyframes fade_up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.hero-item { opacity: 0; animation: fade_up 0.8s cubic-bezier(0.22,1,0.36,1) forwards; }
+.hero-item:nth-child(1) { animation-delay: 0.1s; }
+.hero-item:nth-child(2) { animation-delay: 0.3s; }
+.hero-item:nth-child(3) { animation-delay: 0.5s; }
+
+/* PROJECT CARD SLIDE */
+@keyframes slide_in { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+.project-card {
+  opacity: 0;
+  animation: slide_in 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.35s; }
+.project-card:nth-child(3) { animation-delay: 0.5s; }
+.project-card:nth-child(4) { animation-delay: 0.65s; }
+.project-card:nth-child(5) { animation-delay: 0.8s; }
+.project-card:nth-child(6) { animation-delay: 0.95s; }
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+main {
+  padding-top: 64px;
+}
+
+/* PAGE HEADER */
+.page-header {
+  padding: 96px 32px 64px;
+}
+.page-header .container { max-width: 1100px; }
+.page-header .prompt {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.page-header .prompt .accent { color: var(--accent); }
+.page-header h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.page-header .sub {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 560px;
+}
+
+/* FEATURED PROJECT */
+.featured {
+  padding: 48px 32px 96px;
+}
+.featured-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.featured-screenshot {
+  background:
+    linear-gradient(180deg, rgba(57,255,20,0.08) 0%, transparent 100%),
+    linear-gradient(135deg, #0d1f0d 0%, #0A0A0A 100%);
+  min-height: 420px;
+  position: relative;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.browser-frame {
+  background: #0d0d0d;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.browser-bar {
+  height: 28px;
+  background: #161616;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 6px;
+}
+.browser-bar .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #2a2a2a;
+}
+.browser-bar .url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 12px;
+}
+.browser-body {
+  flex: 1;
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow: hidden;
+}
+.code-line { color: var(--text); }
+.code-line .kw { color: var(--keyword); }
+.code-line .str { color: var(--string); }
+.code-line .num { color: var(--number); }
+.code-line .com { color: var(--comment); }
+.code-line .fn { color: var(--text); }
+
+.featured-info {
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.featured-info h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+.featured-info p {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.stat-row {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+.stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--accent);
+}
+.featured-cta .arrow { transition: transform 0.2s ease; }
+.featured-cta:hover .arrow { transform: translateX(4px); }
+
+/* PROJECT GRID */
+.projects-section {
+  padding: 32px 32px 96px;
+}
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label .hash { color: var(--accent); }
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 12px;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.project-screenshot {
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  overflow: hidden;
+}
+.ss-inkwell {
+  background:
+    radial-gradient(ellipse at top left, rgba(168,255,120,0.07), transparent 60%),
+    linear-gradient(135deg, #0e1410 0%, #0A0A0A 100%);
+}
+.ss-plotter {
+  background: #0A0A0A;
+  padding: 18px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--accent);
+  line-height: 1.5;
+}
+.ss-syncd {
+  background:
+    repeating-linear-gradient(45deg, rgba(57,255,20,0.04) 0 10px, transparent 10px 20px),
+    linear-gradient(135deg, #0e1410 0%, #0A0A0A 100%);
+}
+.ss-cobalt {
+  background: linear-gradient(135deg, #5e6ad2 0%, #1a1f3a 100%);
+  position: relative;
+}
+.ss-cobalt::before {
+  content: '';
+  position: absolute;
+  inset: 30px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), transparent),
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 50%);
+  border-radius: 6px;
+}
+.ss-slug {
+  background: #0A0A0A;
+  padding: 18px;
+  font-size: 11px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--string);
+}
+.ss-thissite {
+  background:
+    linear-gradient(135deg, #0A0A0A 0%, #0d1f0d 100%);
+}
+.ss-thissite::before {
+  content: '>';
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.terminal-lines {
+  font-family: 'JetBrains Mono', monospace;
+}
+.terminal-lines .green { color: var(--accent); }
+.terminal-lines .muted { color: var(--muted); }
+.terminal-lines .gold { color: var(--number); }
+
+.project-body {
+  padding: 24px;
+}
+.project-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.project-desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.02);
+}
+.project-links {
+  display: flex;
+  gap: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.project-links .icon { font-size: 14px; }
+
+/* OPEN SOURCE */
+.oss-section {
+  padding: 32px 32px 96px;
+}
+.oss-list {
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.oss-item {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.oss-repo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.oss-desc {
+  color: var(--text);
+  font-size: 15px;
+}
+.oss-desc .pr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+.oss-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+/* CONTRIBUTION GRAPH */
+.contrib-section {
+  padding: 32px 32px 128px;
+}
+.contrib-stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.contrib-stat .accent { color: var(--accent); font-weight: 600; }
+.contrib-graph {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px;
+  overflow-x: auto;
+}
+.contrib-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 3px;
+  min-width: 900px;
+}
+.contrib-col {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 3px;
+}
+.contrib-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #161616;
+  border-radius: 2px;
+  min-height: 12px;
+}
+.contrib-cell.l1 { background: rgba(57,255,20,0.2); }
+.contrib-cell.l2 { background: rgba(57,255,20,0.4); }
+.contrib-cell.l3 { background: rgba(57,255,20,0.65); }
+.contrib-cell.l4 { background: rgba(57,255,20,0.95); }
+.contrib-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+.contrib-legend .lc {
+  width: 11px; height: 11px; border-radius: 2px;
+}
+
+/* FOOTER */
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 32px 64px;
+  background: var(--bg);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer-left .brand {
+  color: var(--text);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+.footer-links a { color: var(--muted); }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.footer-bottom .accent { color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">kaiwa<span class="dot">.</span>dev</a>
+    <ul class="nav-links">
+      <li><a href="/work" class="active">Work</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle">◐ dark</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <div class="prompt hero-item"><span class="accent">kai@kaiwa</span>:<span style="color:#61DAFB;">~/projects</span>$ <span class="typewriter">ls -la --sort=quality</span></div>
+      <h1 class="hero-item">Work<span class="cursor"></span></h1>
+      <p class="sub hero-item">Eight years of shipping. A selection of things I'm proud of.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-label"><span class="hash">#</span> featured_project</div>
+      <div class="featured-card" style="margin-top:32px;">
+        <div class="featured-screenshot">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">tinybase.dev</span>
+            </div>
+            <div class="browser-body">
+              <div class="code-line"><span class="com">// 6kb. zero providers. signal-based.</span></div>
+              <div class="code-line"><span class="kw">import</span> { createStore } <span class="kw">from</span> <span class="str">'tinybase'</span></div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="kw">const</span> <span class="fn">store</span> = <span class="fn">createStore</span>({</div>
+              <div class="code-line">&nbsp;&nbsp;todos: [],</div>
+              <div class="code-line">&nbsp;&nbsp;count: <span class="num">0</span>,</div>
+              <div class="code-line">&nbsp;&nbsp;user: <span class="str">'kai'</span></div>
+              <div class="code-line">})</div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="kw">export function</span> <span class="fn">App</span>() {</div>
+              <div class="code-line">&nbsp;&nbsp;<span class="kw">const</span> count = <span class="fn">useStore</span>(s =&gt; s.count)</div>
+              <div class="code-line">&nbsp;&nbsp;<span class="kw">return</span> &lt;<span class="keyword" style="color:#61DAFB">div</span>&gt;{count}&lt;/<span style="color:#61DAFB">div</span>&gt;</div>
+              <div class="code-line">}</div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-info">
+          <div class="featured-eyebrow">// Featured Case Study</div>
+          <h2>Tinybase</h2>
+          <p>A 6kb local-first state library for React. Signals-based reactivity, IndexedDB persistence, and an optional CRDT sync adapter.</p>
+          <div class="stat-row">
+            <div class="stat">
+              <span class="stat-value">★ 4.2k</span>
+              <span class="stat-label">GitHub stars</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">47k</span>
+              <span class="stat-label">weekly npm dl</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">12</span>
+              <span class="stat-label">YC companies</span>
+            </div>
+          </div>
+          <a href="/project" class="featured-cta">View case study <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="section-label"><span class="hash">#</span> selected_works</div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-screenshot ss-inkwell">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:13px; text-align:center;">
+              <div style="font-size:32px; color:var(--accent); margin-bottom:8px;">✒</div>
+              <div style="color:var(--text);">inkwell</div>
+              <div style="color:var(--muted); font-size:11px; margin-top:4px;">markdown.cms</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Inkwell</div>
+            <p class="project-desc">A flat-file markdown CMS for indie hackers who hate databases. Git-backed, deploy anywhere.</p>
+            <div class="badges">
+              <span class="badge">TypeScript</span>
+              <span class="badge">Next.js</span>
+              <span class="badge">MDX</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><span class="icon">↗</span> Live</a>
+              <a href="#"><span class="icon">⌥</span> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-screenshot ss-plotter">
+            <div class="terminal-lines">
+              <div><span class="muted">$</span> <span class="green">plotter start</span> deep-work</div>
+              <div><span class="muted">▸</span> tracking <span class="gold">"deep-work"</span></div>
+              <div><span class="muted">▸</span> 01:42:18 elapsed</div>
+              <div><span class="green">▰▰▰▰▰▰▰▱▱▱</span> 72%</div>
+              <div><span class="muted">$</span> <span class="green">plotter today</span></div>
+              <div>4.2h • 6 sessions • 2 ctx</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Plotter</div>
+            <p class="project-desc">A terminal-based time tracker. SQLite, no cloud, no telemetry. Written in Rust over a long weekend.</p>
+            <div class="badges">
+              <span class="badge">Rust</span>
+              <span class="badge">SQLite</span>
+              <span class="badge">ratatui</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><span class="icon">↗</span> Crates.io</a>
+              <a href="#"><span class="icon">⌥</span> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-screenshot ss-syncd">
+            <div style="font-family:'JetBrains Mono',monospace; text-align:center;">
+              <div style="font-size:11px; color:var(--accent); letter-spacing:0.2em; margin-bottom:6px;">[ ALPHA ]</div>
+              <div style="font-size:24px; color:var(--text); font-weight:700;">syncd</div>
+              <div style="color:var(--muted); font-size:11px; margin-top:4px;">CRDT • sync • engine</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-name">syncd</div>
+            <p class="project-desc">A CRDT-based sync engine for local-first apps. Alpha. Currently powering three production prototypes.</p>
+            <div class="badges">
+              <span class="badge">Rust</span>
+              <span class="badge">WASM</span>
+              <span class="badge">Yjs</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><span class="icon">↗</span> Docs</a>
+              <a href="#"><span class="icon">⌥</span> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-screenshot ss-cobalt">
+            <div style="position:absolute; bottom:18px; left:18px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#fff; font-weight:600; z-index:2;">Cobalt DS</div>
+            <div style="position:absolute; top:18px; right:18px; font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.6); z-index:2;">v3.2.1</div>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Cobalt</div>
+            <p class="project-desc">Linear's internal design system. 240+ tokens, 80+ components, shared across web and macOS.</p>
+            <div class="badges">
+              <span class="badge">React</span>
+              <span class="badge">Radix</span>
+              <span class="badge">Stitches</span>
+              <span class="badge">private</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><span class="icon">↗</span> Internal</a>
+              <span style="color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:13px;">⌥ closed source</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-screenshot ss-slug">
+            <div class="terminal-lines">
+              <div><span class="muted">// slug.ts — 198 LOC</span></div>
+              <div><span style="color:var(--keyword);">export</span> <span style="color:var(--keyword);">async function</span> shorten(</div>
+              <div>&nbsp;&nbsp;url: <span style="color:var(--keyword);">string</span></div>
+              <div>): <span style="color:var(--keyword);">Promise</span>&lt;<span style="color:var(--string);">string</span>&gt; {</div>
+              <div>&nbsp;&nbsp;<span style="color:var(--keyword);">const</span> id = nanoid(<span style="color:var(--number);">7</span>)</div>
+              <div>&nbsp;&nbsp;<span style="color:var(--keyword);">return</span> <span style="color:var(--string);">`/${id}`</span></div>
+              <div>}</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Slug</div>
+            <p class="project-desc">A URL shortener in 200 lines. Single file, edge-deployed, sub-10ms redirects. Powers go.kaiwa.dev.</p>
+            <div class="badges">
+              <span class="badge">TypeScript</span>
+              <span class="badge">Cloudflare</span>
+              <span class="badge">KV</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><span class="icon">↗</span> Live</a>
+              <a href="#"><span class="icon">⌥</span> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-screenshot ss-thissite"></div>
+          <div class="project-body">
+            <div class="project-name">this site</div>
+            <p class="project-desc">The website you're reading. Hand-rolled HTML/CSS. Lighthouse 100. Currently being rewritten in Astro.</p>
+            <div class="badges">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">Astro</span>
+              <span class="badge">2024</span>
+            </div>
+            <div class="project-links">
+              <a href="/">↗ You're here</a>
+              <a href="#"><span class="icon">⌥</span> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section class="oss-section">
+    <div class="container">
+      <div class="section-label"><span class="hash">#</span> open_source_contributions</div>
+      <div class="oss-list">
+
+        <div class="oss-item">
+          <div class="oss-repo">shadcn/ui</div>
+          <div class="oss-desc">Added the Combobox primitive and accompanying docs. Now used across hundreds of projects. <span class="pr">#2104</span></div>
+          <a href="#" class="oss-link">view PR →</a>
+        </div>
+
+        <div class="oss-item">
+          <div class="oss-repo">trpc/trpc</div>
+          <div class="oss-desc">Fixed a long-standing type inference bug affecting nested router merges. <span class="pr">#4521</span></div>
+          <a href="#" class="oss-link">view PR →</a>
+        </div>
+
+        <div class="oss-item">
+          <div class="oss-repo">withastro/astro</div>
+          <div class="oss-desc">Co-maintainer of the official RSS integration. ~120 issues triaged, 38 PRs merged. <span class="pr">@astrojs/rss</span></div>
+          <a href="#" class="oss-link">view repo →</a>
+        </div>
+
+        <div class="oss-item">
+          <div class="oss-repo">vercel/next.js</div>
+          <div class="oss-desc">Documentation improvements around App Router data fetching patterns. <span class="pr">#59812</span></div>
+          <a href="#" class="oss-link">view PR →</a>
+        </div>
+
+        <div class="oss-item">
+          <div class="oss-repo">tailwindlabs/tailwindcss</div>
+          <div class="oss-desc">Reported & helped reproduce arbitrary value parsing edge case. <span class="pr">#13201</span></div>
+          <a href="#" class="oss-link">view issue →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTION GRAPH -->
+  <section class="contrib-section">
+    <div class="container">
+      <div class="section-label"><span class="hash">#</span> github_activity</div>
+      <p class="contrib-stat"><span class="accent">1,247 contributions</span> in the last year — @kaiwa</p>
+      <div class="contrib-graph">
+        <div class="contrib-grid" id="contribGrid">
+          <!-- 53 weeks -->
+          <!-- Generated as static cells with deterministic intensity pattern -->
+        </div>
+        <div class="contrib-legend">
+          Less
+          <span class="lc contrib-cell"></span>
+          <span class="lc contrib-cell l1"></span>
+          <span class="lc contrib-cell l2"></span>
+          <span class="lc contrib-cell l3"></span>
+          <span class="lc contrib-cell l4"></span>
+          More
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="brand">kaiwa.dev</span>
+      console.log('building things on the internet')<br>
+      <span style="opacity:0.7;">Lisbon, Portugal · UTC+0</span>
+    </div>
+    <div class="footer-links">
+      <a href="/work">Work</a>
+      <a href="/writing">Writing</a>
+      <a href="/about">About</a>
+      <a href="/feed.xml">RSS ›</a>
+      <a href="#">GitHub</a>
+      <a href="#">Mastodon</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Kai Watanabe · hand-rolled HTML + stubbornness</span>
+    <span><span class="accent">◆</span> v3.1.4 · last deploy 2 days ago</span>
+  </div>
+</footer>
+
+<!-- Inline the contribution graph cells using nested DIVs -->
+<style>
+/* Populate the grid via CSS pseudo-elements is not feasible for 371 cells, so we render them inline below using HTML. */
+</style>
+
+<!-- We'll inject the grid cells right here with plain HTML to avoid JS -->
+<style>
+.contrib-grid > div { width: 100%; aspect-ratio: 1; background:#161616; border-radius:2px; min-height:11px; }
+</style>
+
+<script>/* no-op marker */</script>
+
+</body>
+</html>

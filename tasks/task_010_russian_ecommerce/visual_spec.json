@@ -1,0 +1,59 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "Arial, Helvetica, sans-serif",
+    "font_body": "Arial, Helvetica, sans-serif",
+    "font_mono": null,
+    "size_h1": "28px",
+    "size_h2": "20px",
+    "size_body": "14px",
+    "size_small": "12px",
+    "color_primary": "#FF6100",
+    "color_secondary": "#333333",
+    "color_accent": "#00A857",
+    "color_bg": "#F2F2F2",
+    "color_surface": "#FFFFFF",
+    "color_text": "#1A1A1A",
+    "color_text_muted": "#7A7A7A",
+    "color_border": "#E0E0E0",
+    "border_radius": "4px",
+    "container_max_width": "1280px",
+    "section_padding": "12px 16px",
+    "nav_bg": "#333333",
+    "nav_height": "56px",
+    "nav_position": "sticky",
+    "footer_bg": "#2A2A2A",
+    "extra_colors": {
+      "urgent_red": "#E30000",
+      "discount_green": "#00A857",
+      "ad_yellow": "#FFC107",
+      "bnpl_purple": "#6E4FE0",
+      "price_old": "#999999",
+      "category_strip_bg": "#444444",
+      "loyalty_pink": "#F0257A"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Sticky dark nav with logo + wide search + cart/profile; horizontal scrollable category strip with 20+ icons; full-width promo carousel; deals-of-the-day row with red countdown timer; 6-column category icon grid; flash sale product grid (5 cols); personalized recommendations grid; app download banner footer-side.",
+      "bg": "#F2F2F2"
+    },
+    "catalog": {
+      "layout": "Breadcrumb bar; two-column layout with 240px left filter sidebar (brand, price slider, rating, delivery, seller checkboxes) and right product grid 4 columns of compact cards showing image, name, bold ruble price, struck old price, green discount %, stars, delivery ETA, orange add-to-cart button.",
+      "bg": "#F2F2F2"
+    },
+    "product": {
+      "layout": "Breadcrumb; three-column top section: left 90px thumbnail rail + main image gallery, center title/rating/seller/specs summary, right sticky purchase box with large price, BNPL installment line, green in-stock, delivery date selector, orange buy button and cart button; below: specs table, reviews with photos, seller's other products carousel, similar items grid.",
+      "bg": "#FFFFFF"
+    },
+    "cart": {
+      "layout": "Two-column: left white card list with thumbnail, name, seller, quantity stepper, price, remove; right sticky 320px summary panel with totals, promo code input, bonus points estimate in pink, delivery options, large orange checkout CTA; below: 'You might also need' cross-sell horizontal scroll.",
+      "bg": "#F2F2F2"
+    },
+    "seller": {
+      "layout": "Seller header banner with name, star rating, review count, registration date and contact button; rating breakdown bars (communication, delivery, accuracy) in a 3-column strip; filter tabs for categories; product grid 4 columns of seller's items with standard compact cards.",
+      "bg": "#F2F2F2"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "global": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Georgia&display=swap",
+    "font_heading": "'Montserrat', sans-serif",
+    "font_body": "Georgia, serif",
+    "font_mono": null,
+    "size_h1": "48px",
+    "size_h2": "32px",
+    "size_body": "16px",
+    "size_small": "12px",
+    "color_primary": "#FF1493",
+    "color_secondary": "#000000",
+    "color_accent": "#FFD700",
+    "color_bg": "#FFFFFF",
+    "color_surface": "#FFF5FA",
+    "color_text": "#111111",
+    "color_text_muted": "#777777",
+    "color_border": "#EEEEEE",
+    "border_radius": "2px",
+    "container_max_width": "1280px",
+    "section_padding": "24px 16px",
+    "nav_bg": "#FFFFFF",
+    "nav_height": "64px",
+    "nav_position": "sticky",
+    "footer_bg": "#000000",
+    "extra_colors": {
+      "breaking_red": "#FF0000",
+      "hot_pink_dark": "#D6107A",
+      "ad_label_grey": "#999999",
+      "ticker_bg": "#1A1A1A",
+      "sponsored_bg": "#FFF8DC"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Full-bleed hero feature photo with bold headline overlay, leaderboard ad above, three-column layout below with masonry gossip grid center, trending sidebar right, ad banners between every 3 cards, viral video carousel near bottom, Taboola recommendations strip at footer.",
+      "bg": "#FFFFFF"
+    },
+    "celebrity": {
+      "layout": "Sticky category subnav, dense paparazzi photo card grid (3 columns desktop, 1 mobile), sensational headlines under each thumbnail with hot pink celebrity name tags, sidebar with 'Most Read' list and sticky video ad, native sponsored cards every 6 items.",
+      "bg": "#FFFFFF"
+    },
+    "tv": {
+      "layout": "Two-column feed of recap articles with show poster thumbnails and gold star rating widgets, embedded viewer polls between articles, sidebar with streaming service logos and trending shows, billboard ad above fold.",
+      "bg": "#FFF5FA"
+    },
+    "style": {
+      "layout": "Hero slideshow with swipe arrows showing red carpet looks, numbered best/worst dressed ranking list with large photos and shopping link buttons, outfit breakdown cards in 4-column grid, half-page ads in sidebar.",
+      "bg": "#FFFFFF"
+    },
+    "viral": {
+      "layout": "Vertical feed of bite-sized cards mixing tweet screenshots, embedded TikTok videos, and Reddit roundup boxes, red HOT badges on trending items, autoplay video ad sticky bottom-right, outrage-bait headlines in oversized Montserrat black.",
+      "bg": "#FFFFFF"
+    }
+  }
+}

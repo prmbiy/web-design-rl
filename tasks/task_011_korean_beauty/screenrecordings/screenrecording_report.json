@@ -1,0 +1,67 @@
+{
+  "valid": true,
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "top_hold_ms": 2500,
+  "bottom_hold_ms": 2000,
+  "output_dir": "/local/mnt/workspace/pbiyani/Projects/Proximal/web-design-rl/tasks/task_011_korean_beauty/screenrecordings",
+  "metrics": {
+    "expected": 5,
+    "recorded": 5
+  },
+  "failures": [],
+  "pages": [
+    {
+      "slug": "home",
+      "path": "home.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 5758,
+      "max_scroll_y": 4758,
+      "scroll_duration_ms": 9516,
+      "bytes": 2238844
+    },
+    {
+      "slug": "skincare",
+      "path": "skincare.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 3036,
+      "max_scroll_y": 2036,
+      "scroll_duration_ms": 7000,
+      "bytes": 1539634
+    },
+    {
+      "slug": "routine",
+      "path": "routine.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 4999,
+      "max_scroll_y": 3999,
+      "scroll_duration_ms": 7998,
+      "bytes": 1936486
+    },
+    {
+      "slug": "about",
+      "path": "about.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 4895,
+      "max_scroll_y": 3895,
+      "scroll_duration_ms": 7790,
+      "bytes": 2244430
+    },
+    {
+      "slug": "reviews",
+      "path": "reviews.mp4",
+      "failures": [],
+      "response_status": 200,
+      "scroll_height": 4772,
+      "max_scroll_y": 3772,
+      "scroll_duration_ms": 7544,
+      "bytes": 2436874
+    }
+  ]
+}

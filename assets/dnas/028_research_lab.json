@@ -1,0 +1,22 @@
+{
+  "id": "028",
+  "name": "research_lab",
+  "source": "A",
+  "archetype": "University AI/ML research lab academic website",
+  "market": "Academic community, potential PhD students, research collaborators, funding bodies, tech industry",
+  "era": "2023",
+  "density": "Medium-low. Academic restraint. Publications list is the most important content. Clean, institutional, credibility-focused. LaTeX-influenced typography sensibility — the design defers to the science.",
+  "nav_style": "Clean white nav. Lab name/university affiliation logo. Nav: Research, People, Publications, Code & Data, News, Join Us. Right: university logo badge. No flashy CTAs — contact for collaboration is the implicit CTA.",
+  "commercial_model": "Academic lab. Funded by grants (NSF, DARPA, corporate partnerships with Google, Apple, Microsoft). Not commercial. Goal is reputation, publication visibility, PhD recruitment, and industry collaboration.",
+  "color_palette": "University color scheme: maybe deep Yale blue (#00356B) + white, or MIT cardinal + white + grey. Clean white (#FFFFFF) content backgrounds. Light grey (#F5F5F5) for alternating rows and section backgrounds. Black (#000000) for text. Accent in the university's primary color for links and headings.",
+  "typography": "Times New Roman or a clean academic serif for headings — communicates scholarly weight. Georgia for body text. ArXiv links and citation formats in small monospace. Author names in italic. Award badges in sans-serif. The typography says 'we don't need to impress you, the work does'.",
+  "quirks": ["arxiv_links", "github_code_release", "venue_acceptance_rates", "google_scholar_profile", "best_paper_badges", "phd_student_spotlight", "visiting_positions_listed", "dataset_download_section", "lab_alumni_placement", "collaboration_network_section"],
+  "pages": [
+    {"slug": "home", "title": "Home", "description": "Lab name and university affiliation. One-paragraph research focus description. Three highlighted recent publications with venue badge. Two open PhD positions. Recent news/awards. Lab group photo. Funding acknowledgments."},
+    {"slug": "research", "title": "Research", "description": "Research areas organized by theme: Large Language Models, Multimodal Learning, Robustness, Interpretability. Each area: brief description, 3 key papers, one diagram (CSS/SVG placeholder). Ongoing projects."},
+    {"slug": "publications", "title": "Publications", "description": "Full publications list sorted by year. Each entry: authors, title, venue (conference/journal name with year), links (Paper PDF, ArXiv, Code, Data, Demo). Best paper awards highlighted. Filter by year/topic."},
+    {"slug": "people", "title": "People", "description": "Lab members organized by role: Principal Investigator, PhD Students, Postdocs, Research Scientists, Alumni. Each member: photo, name, research interests, one publication link, personal website link, graduation year for alumni."},
+    {"slug": "join", "title": "Join the Lab", "description": "PhD admissions information. What we look for. How to apply (links to university application). Research areas with openings. Postdoc openings. Visiting researcher program. FAQ about the application process and lab culture."}
+  ],
+  "animations": false
+}

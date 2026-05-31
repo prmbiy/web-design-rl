@@ -1,0 +1,12 @@
+{
+  "dna_id": "028",
+  "dna_name": "research_lab",
+  "pages": [
+    "home",
+    "research",
+    "publications",
+    "people",
+    "join"
+  ],
+  "has_animations": false
+}

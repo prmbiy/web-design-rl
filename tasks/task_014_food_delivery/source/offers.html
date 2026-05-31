@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offers & Benefits | Chatori</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 15px;
+  color: #3D4152;
+  background: linear-gradient(180deg, #FFF3E9 0%, #F8F8F8 320px);
+  background-attachment: fixed;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  height: 72px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  color: #FC8019;
+  letter-spacing: -0.5px;
+}
+.logo span { color: #3D4152; }
+.location-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 2px solid #3D4152;
+  font-size: 14px;
+  color: #3D4152;
+  font-weight: 600;
+}
+.location-pill b { font-weight: 800; }
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-weight: 600;
+  font-size: 15px;
+  color: #3D4152;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links a.active { color: #FC8019; }
+.nav-links a:hover { color: #FC8019; }
+
+/* HERO */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 8px;
+}
+.hero p {
+  font-size: 16px;
+  color: #686B78;
+  font-weight: 600;
+}
+.hero-badges {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  background: #FFFFFF;
+  border: 1px solid #E9E9EB;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #3D4152;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #60B246; }
+
+/* SECTION */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.section-head h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3D4152;
+}
+.section-head .meta {
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+}
+
+/* BANK OFFERS GRID */
+.bank-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.bank-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E9E9EB;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bank-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(252,128,25,0.08), transparent 70%);
+}
+.bank-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+.bank-logo.hdfc { background: linear-gradient(135deg, #004C8F, #002F5C); }
+.bank-logo.icici { background: linear-gradient(135deg, #B02A30, #7A1D21); }
+.bank-logo.amzn { background: linear-gradient(135deg, #FF9900, #E47911); }
+.bank-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3D4152;
+}
+.bank-card .discount {
+  font-size: 36px;
+  font-weight: 900;
+  color: #FC8019;
+  line-height: 1;
+}
+.bank-card .discount small {
+  font-size: 14px;
+  color: #686B78;
+  font-weight: 700;
+  display: block;
+  margin-top: 4px;
+}
+.bank-card .terms {
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+}
+.bank-card .code {
+  margin-top: auto;
+  border-top: 1px dashed #E9E9EB;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bank-card .code span {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: #3D4152;
+  letter-spacing: 1px;
+}
+.bank-card .code button {
+  background: none;
+  border: none;
+  color: #FC8019;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* FIRST ORDER HIGHLIGHT */
+.first-order {
+  margin-top: 32px;
+  background: linear-gradient(110deg, #FC8019 0%, #E94E77 100%);
+  border-radius: 12px;
+  padding: 32px;
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.first-order::after {
+  content: '🎉';
+  position: absolute;
+  right: 280px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 80px;
+  opacity: 0.2;
+}
+.first-order h3 {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+.first-order .big {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.first-order p { font-size: 14px; opacity: 0.9; font-weight: 600; }
+.first-order .copy-box {
+  background: rgba(255,255,255,0.18);
+  border: 2px dashed rgba(255,255,255,0.6);
+  border-radius: 8px;
+  padding: 16px 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.first-order .copy-box .code-text {
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.first-order .copy-box button {
+  background: #FFFFFF;
+  color: #FC8019;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* PRO BENEFITS */
+.pro-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E9E9EB;
+  overflow: hidden;
+}
+.pro-header {
+  background: linear-gradient(135deg, #1B1F25, #3D4152);
+  color: #FFFFFF;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pro-header h3 {
+  font-size: 24px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pro-badge {
+  background: #FC8019;
+  color: #FFFFFF;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.pro-header p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 4px;
+  font-weight: 600;
+}
+.pro-price {
+  text-align: right;
+}
+.pro-price .amt {
+  font-size: 32px;
+  font-weight: 900;
+  color: #FC8019;
+}
+.pro-price .lbl {
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 600;
+}
+.pro-cta {
+  background: #FC8019;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+}
+.compare th, .compare td {
+  padding: 16px 32px;
+  text-align: left;
+  border-bottom: 1px solid #E9E9EB;
+  font-size: 14px;
+}
+.compare th {
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #F8F8F8;
+}
+.compare th:nth-child(2), .compare th:nth-child(3),
+.compare td:nth-child(2), .compare td:nth-child(3) {
+  text-align: center;
+  width: 180px;
+}
+.compare td.benefit { font-weight: 700; color: #3D4152; }
+.compare .yes { color: #60B246; font-size: 20px; font-weight: 900; }
+.compare .no { color: #E23744; font-size: 18px; }
+.compare .partial { color: #686B78; font-weight: 700; font-size: 13px; }
+.compare tr:last-child td { border-bottom: none; }
+
+/* RESTAURANT OFFERS */
+.rest-offers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.rest-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E9E9EB;
+  padding: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.rest-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+.rest-logo.dom { background: linear-gradient(135deg, #006491, #003E5C); }
+.rest-logo.beh { background: linear-gradient(135deg, #8B1F2E, #5C1520); }
+.rest-logo.faa { background: linear-gradient(135deg, #FC8019, #E23744); }
+.rest-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #3D4152;
+  margin-bottom: 4px;
+}
+.rest-card .deal {
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.rest-card .order-now {
+  font-size: 12px;
+  font-weight: 800;
+  color: #FC8019;
+  letter-spacing: 0.5px;
+}
+
+/* COUPON CODES */
+.coupons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.coupon {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  border: 1px dashed #FC8019;
+}
+.coupon::before, .coupon::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #F8F8F8;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.coupon::before { left: -9px; }
+.coupon::after { right: -9px; }
+.coupon .ticket-icon {
+  display: inline-block;
+  background: #FFF3E9;
+  color: #FC8019;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.coupon h4 {
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: #3D4152;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.coupon .desc {
+  font-size: 13px;
+  color: #686B78;
+  font-weight: 600;
+  margin-bottom: 14px;
+  min-height: 38px;
+}
+.coupon .copy-btn {
+  width: 100%;
+  background: #FC8019;
+  color: #FFFFFF;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+.coupon .copy-btn:hover { background: #E26D0F; }
+
+/* FOOTER */
+.footer {
+  background: #1B1F25;
+  color: #C5C7CA;
+  margin-top: 48px;
+  padding: 48px 24px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 40px;
+}
+.footer-brand .logo { font-size: 26px; }
+.footer-brand .logo span { color: #FFFFFF; }
+.footer-brand p {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #888B92;
+}
+.footer h5 {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.footer ul { list-style: none; }
+.footer ul li {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.footer ul li a:hover { color: #FC8019; }
+.app-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.app-badge {
+  background: #000000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #FFFFFF;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app-badge .ic { font-size: 20px; }
+.app-badge small { display: block; font-size: 9px; font-weight: 500; opacity: 0.7; }
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+.socials span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2A2F37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 32px auto 0;
+  border-top: 1px solid #2A2F37;
+  padding-top: 20px;
+  font-size: 12px;
+  color: #686B78;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Chatori<span>.</span></div>
+    <div class="location-pill">
+      📍 <b>Indiranagar</b>, Bengaluru ▾
+    </div>
+    <div class="nav-links">
+      <a href="#">🏠 Home</a>
+      <a href="#">🔍 Search</a>
+      <a href="#" class="active">🎟 Offers</a>
+      <a href="#">⭐ Chatori Pro</a>
+      <a href="#">🛒 Cart</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Offers for You</h1>
+  <p>Save more with bank offers, coupons and Chatori Pro</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><span class="dot"></span> 12 Active Bank Offers</div>
+    <div class="hero-badge">🎟 24 Coupon Codes</div>
+    <div class="hero-badge">⚡ Pro Member Exclusive</div>
+    <div class="hero-badge">🍴 Bhookh lagi? Order kar!</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Bank Offers</h2>
+    <span class="meta">Showing offers valid in your area</span>
+  </div>
+  <div class="bank-grid">
+    <div class="bank-card">
+      <div class="bank-logo hdfc">HDFC</div>
+      <h3>HDFC Bank Credit Card</h3>
+      <div class="discount">20% OFF<small>up to ₹120 • Min order ₹400</small></div>
+      <div class="terms">Valid on all credit card transactions. Use code at checkout. T&C apply.</div>
+      <div class="code">
+        <span>HDFC20</span>
+        <button>COPY CODE</button>
+      </div>
+    </div>
+    <div class="bank-card">
+      <div class="bank-logo icici">ICICI</div>
+      <h3>ICICI Debit Card</h3>
+      <div class="discount">15% OFF<small>up to ₹100 • Min order ₹300</small></div>
+      <div class="terms">Applicable on debit card payments only. Valid till 31st March 2022.</div>
+      <div class="code">
+        <span>ICICIDC15</span>
+        <button>COPY CODE</button>
+      </div>
+    </div>
+    <div class="bank-card">
+      <div class="bank-logo amzn">A pay</div>
+      <h3>Amazon Pay Wallet</h3>
+      <div class="discount">₹75 Cashback<small>on orders above ₹250</small></div>
+      <div class="terms">Cashback credited to Amazon Pay balance within 24 hours of order.</div>
+      <div class="code">
+        <span>AMZNPAY75</span>
+        <button>COPY CODE</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="first-order">
+    <div>
+      <h3>FIRST ORDER SPECIAL</h3>
+      <div class="big">50% OFF up to ₹100</div>
+      <p>On your very first order with Chatori. No minimum spend required.</p>
+    </div>
+    <div class="copy-box">
+      <div class="code-text">WELCOME50</div>
+      <button>TAP TO COPY</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="pro-card">
+    <div class="pro-header">
+      <div>
+        <h3>Chatori Pro <span class="pro-badge">PRO</span></h3>
+        <p>Unlock free deliveries, exclusive offers & priority support</p>
+      </div>
+      <div class="pro-price">
+        <div class="amt">₹299</div>
+        <div class="lbl">for 3 months</div>
+        <button class="pro-cta">JOIN NOW</button>
+      </div>
+    </div>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>Non-Pro</th>
+          <th>Chatori Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="benefit">🚚 Free Delivery on orders above ₹199</td>
+          <td><span class="no">✕</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="benefit">💸 Extra 10% OFF on all restaurants</td>
+          <td><span class="no">✕</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="benefit">📞 Priority Customer Support (24x7)</td>
+          <td><span class="partial">Standard</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="benefit">🆕 Early access to new restaurants</td>
+          <td><span class="no">✕</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="benefit">🎁 Birthday month free dessert vouchers</td>
+          <td><span class="no">✕</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="benefit">⚡ No surge fees during peak hours</td>
+          <td><span class="no">✕</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Restaurant Offers</h2>
+    <span class="meta">Handpicked deals from your favourite spots</span>
+  </div>
+  <div class="rest-offers">
+    <div class="rest-card">
+      <div class="rest-logo dom">D</div>
+      <div>
+        <h4>Domino's Pizza</h4>
+        <div class="deal">Buy 1 Get 1 FREE on Medium Pizzas</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-logo beh">B</div>
+      <div>
+        <h4>Behrouz Biryani</h4>
+        <div class="deal">60% OFF on Biryani Combos</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-logo faa">F</div>
+      <div>
+        <h4>Faasos</h4>
+        <div class="deal">Flat ₹125 OFF on orders above ₹249</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-logo" style="background:linear-gradient(135deg,#E4002B,#9A001D);">K</div>
+      <div>
+        <h4>KFC</h4>
+        <div class="deal">Bucket Meal at ₹399 + Free Pepsi</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-logo" style="background:linear-gradient(135deg,#FFC72C,#DA291C);">M</div>
+      <div>
+        <h4>McDonald's</h4>
+        <div class="deal">McSaver Combo — Flat 30% OFF</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+    <div class="rest-card">
+      <div class="rest-logo" style="background:linear-gradient(135deg,#FC8019,#E23744);">W</div>
+      <div>
+        <h4>Wow! Momo</h4>
+        <div class="deal">Steam Momos starting ₹99 only</div>
+        <div class="order-now">ORDER NOW →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Coupon Codes</h2>
+    <span class="meta">Tap to copy & apply at checkout</span>
+  </div>
+  <div class="coupons-grid">
+    <div class="coupon">
+      <span class="ticket-icon">FLAT 50% OFF</span>
+      <h4>CHATORI50</h4>
+      <div class="desc">50% OFF up to ₹100 on orders above ₹199. Valid once per user.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">NEW USER</span>
+      <h4>NEWUSER</h4>
+      <div class="desc">Flat ₹150 OFF on your first 3 orders. No minimum order value.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">BIRYANI SPECIAL</span>
+      <h4>BIRYANI100</h4>
+      <div class="desc">₹100 OFF on all biryani orders above ₹299 from select restaurants.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">WEEKEND DEAL</span>
+      <h4>WEEKEND20</h4>
+      <div class="desc">20% OFF up to ₹80 on Saturdays & Sundays. Valid on all restaurants.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">PRO ONLY</span>
+      <h4>CHATORIPRO</h4>
+      <div class="desc">Extra ₹75 OFF for Chatori Pro members. Stackable with other offers.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">FREE DELIVERY</span>
+      <h4>FREESHIP</h4>
+      <div class="desc">Free delivery on orders above ₹149. Valid on weekdays only.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">LUNCH HOUR</span>
+      <h4>LUNCH40</h4>
+      <div class="desc">40% OFF up to ₹90 between 12 PM - 3 PM on weekdays.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+    <div class="coupon">
+      <span class="ticket-icon">LATE NIGHT</span>
+      <h4>NIGHTOWL</h4>
+      <div class="desc">₹60 OFF on orders placed between 10 PM - 2 AM.</div>
+      <button class="copy-btn">COPY CODE</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Chatori<span>.</span></div>
+      <p>Bhookh lagi? Order kar! India's most loved food delivery app — bringing you 5000+ restaurants in your city.</p>
+      <div class="socials">
+        <span>f</span><span>𝕏</span><span>📷</span><span>▶</span>
+      </div>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Chatori Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Help & Support</a></li>
+        <li><a href="#">Partner with us</a></li>
+        <li><a href="#">Ride with us</a></li>
+        <li><a href="#">Press Kit</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Investor Relations</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get the App</h5>
+      <div class="app-badges">
+        <div class="app-badge">
+          <span class="ic"></span>
+          <div><small>Download on the</small>App Store</div>
+        </div>
+        <div class="app-badge">
+          <span class="ic">▶</span>
+          <div><small>Get it on</small>Google Play</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2022 Chatori Limited. All rights reserved.</div>
+    <div>Made with 🧡 in Bengaluru</div>
+  </div>
+</footer>
+
+</body>
+</html>

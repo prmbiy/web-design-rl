@@ -1,0 +1,56 @@
+{
+  "valid": true,
+  "viewport_width": 1440,
+  "pages": [
+    {
+      "slug": "create",
+      "path": "create.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 490513,
+      "page_width": 1440,
+      "page_height": 3338
+    },
+    {
+      "slug": "event",
+      "path": "event.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1029886,
+      "page_width": 1440,
+      "page_height": 3312
+    },
+    {
+      "slug": "explore",
+      "path": "explore.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 818184,
+      "page_width": 1440,
+      "page_height": 3040
+    },
+    {
+      "slug": "home",
+      "path": "home.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 1014049,
+      "page_width": 1440,
+      "page_height": 3718
+    },
+    {
+      "slug": "organizer",
+      "path": "organizer.png",
+      "failures": [],
+      "response_status": 200,
+      "bytes": 637282,
+      "page_width": 1440,
+      "page_height": 3130
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "expected": 5,
+    "captured": 5
+  }
+}

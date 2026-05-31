@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Смартфоны — купить в Москве, цены от 2 990₽ | ТоргоМир</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1A1A1A; background: #F2F2F2; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* TOP BAR */
+.top-bar { background: #333; color: #fff; height: 56px; display: flex; align-items: center; padding: 0 16px; gap: 16px; position: sticky; top: 0; z-index: 100; }
+.logo { font-size: 22px; font-weight: 900; color: #FF6100; white-space: nowrap; letter-spacing: -0.5px; }
+.logo span { color: #fff; }
+.catalog-btn { background: #FF6100; color: #fff; padding: 8px 14px; font-weight: 700; border-radius: 4px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+.search-box { flex: 1; max-width: 720px; display: flex; height: 36px; border-radius: 4px; overflow: hidden; }
+.search-box input { flex: 1; border: none; padding: 0 12px; font-size: 14px; outline: none; }
+.search-box button { background: #FF6100; color: #fff; padding: 0 18px; font-weight: 700; }
+.city { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #ddd; white-space: nowrap; }
+.city b { color: #fff; font-size: 13px; }
+.top-links { display: flex; gap: 18px; font-size: 12px; }
+.top-links a { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #ddd; }
+.top-links a .ico { font-size: 18px; color: #fff; }
+.top-links a:hover .ico, .top-links a:hover { color: #FF6100; }
+.seller-link { background: #00A857; color: #fff !important; padding: 8px 12px; border-radius: 4px; font-weight: 700; font-size: 12px; align-self: center; }
+
+/* CATEGORY STRIP */
+.cat-strip { background: #444; height: 40px; display: flex; align-items: center; padding: 0 16px; gap: 18px; overflow-x: auto; white-space: nowrap; }
+.cat-strip a { color: #fff; font-size: 13px; display: flex; align-items: center; gap: 6px; padding: 6px 0; }
+.cat-strip a:hover { color: #FF6100; }
+.cat-strip a.active { color: #FF6100; font-weight: 700; }
+.cat-strip .ico { font-size: 14px; }
+.cat-strip a.premium { color: #F0257A; }
+
+/* LOCATION BAR */
+.loc-bar { background: #fff; border-bottom: 1px solid #E0E0E0; padding: 6px 16px; font-size: 12px; color: #7A7A7A; display: flex; gap: 16px; }
+.loc-bar b { color: #1A1A1A; }
+.loc-bar .green { color: #00A857; font-weight: 700; }
+
+/* CONTAINER */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+/* BREADCRUMBS */
+.crumbs { font-size: 12px; color: #7A7A7A; padding: 10px 0 6px; }
+.crumbs a:hover { color: #FF6100; }
+.crumbs .sep { margin: 0 6px; color: #ccc; }
+.crumbs b { color: #1A1A1A; }
+.crumbs .count { color: #7A7A7A; margin-left: 8px; font-weight: 400; }
+
+h1.page-title { font-size: 24px; margin: 4px 0 12px; font-weight: 700; }
+h1.page-title span { color: #7A7A7A; font-weight: 400; font-size: 14px; margin-left: 8px; }
+
+/* SUBNAV pills */
+.subnav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.subnav a { background: #fff; border: 1px solid #E0E0E0; padding: 6px 12px; border-radius: 20px; font-size: 12px; }
+.subnav a.active { background: #FF6100; color: #fff; border-color: #FF6100; font-weight: 700; }
+.subnav a:hover:not(.active) { border-color: #FF6100; color: #FF6100; }
+
+/* LAYOUT */
+.layout { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: flex-start; padding-bottom: 32px; }
+
+/* SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 14px; font-size: 13px; }
+.filter-block { border-bottom: 1px solid #E0E0E0; padding: 10px 0; }
+.filter-block:first-child { padding-top: 0; }
+.filter-block:last-child { border-bottom: none; }
+.filter-block h4 { font-size: 13px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.filter-block h4 .chev { color: #7A7A7A; font-size: 10px; }
+.filter-search { width: 100%; padding: 6px 8px; border: 1px solid #E0E0E0; border-radius: 3px; font-size: 12px; margin-bottom: 8px; outline: none; }
+.filter-search:focus { border-color: #FF6100; }
+.chk { display: flex; align-items: center; gap: 7px; padding: 4px 0; font-size: 12px; cursor: pointer; }
+.chk input { accent-color: #FF6100; cursor: pointer; }
+.chk .cnt { margin-left: auto; color: #7A7A7A; font-size: 11px; }
+.chk:hover { color: #FF6100; }
+.show-more { color: #FF6100; font-size: 12px; margin-top: 4px; cursor: pointer; }
+
+.price-range { display: flex; gap: 6px; margin-bottom: 8px; }
+.price-range input { width: 50%; padding: 5px 6px; border: 1px solid #E0E0E0; border-radius: 3px; font-size: 12px; outline: none; }
+.slider { position: relative; height: 4px; background: #E0E0E0; border-radius: 2px; margin: 14px 4px 8px; }
+.slider .track { position: absolute; left: 15%; right: 30%; height: 100%; background: #FF6100; border-radius: 2px; }
+.slider .knob { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 14px; height: 14px; background: #fff; border: 2px solid #FF6100; border-radius: 50%; }
+.slider .knob.k1 { left: 15%; }
+.slider .knob.k2 { left: 70%; }
+
+.rating-chk .stars { color: #FFC107; letter-spacing: 1px; }
+
+.reset-btn { width: 100%; background: #fff; border: 1px solid #FF6100; color: #FF6100; padding: 8px; border-radius: 4px; font-weight: 700; font-size: 12px; margin-top: 10px; }
+
+/* SORT BAR */
+.sort-bar { background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 8px 12px; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.sort-bar .lbl { color: #7A7A7A; font-size: 12px; }
+.sort-select { padding: 6px 24px 6px 10px; border: 1px solid #E0E0E0; border-radius: 4px; font-size: 12px; background: #fff; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #7A7A7A 50%), linear-gradient(135deg, #7A7A7A 50%, transparent 50%); background-position: calc(100% - 12px) 50%, calc(100% - 8px) 50%; background-size: 4px 4px, 4px 4px; background-repeat: no-repeat; }
+.toggle-pill { padding: 5px 10px; border: 1px solid #E0E0E0; border-radius: 14px; font-size: 12px; background: #fff; cursor: pointer; }
+.toggle-pill.on { background: #FFF1E6; border-color: #FF6100; color: #FF6100; font-weight: 700; }
+.toggle-pill:hover { border-color: #FF6100; }
+.view-toggle { margin-left: auto; display: flex; gap: 4px; }
+.view-toggle button { width: 28px; height: 28px; border: 1px solid #E0E0E0; background: #fff; border-radius: 3px; font-size: 14px; }
+.view-toggle button.on { background: #333; color: #fff; border-color: #333; }
+
+/* PRODUCT GRID */
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.card { background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 10px; position: relative; display: flex; flex-direction: column; }
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-color: #ccc; }
+.card-img { aspect-ratio: 1; border-radius: 4px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #999; position: relative; overflow: hidden; }
+.badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 4px; z-index: 2; }
+.badge { font-size: 10px; padding: 3px 6px; border-radius: 3px; font-weight: 700; color: #fff; }
+.b-discount { background: #E30000; }
+.b-ad { background: #FFC107; color: #333; }
+.b-stock { background: #E30000; }
+.b-new { background: #00A857; }
+.b-bnpl { background: #6E4FE0; }
+.fav { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #999; cursor: pointer; }
+.fav:hover { color: #E30000; }
+
+.card-name { font-size: 13px; line-height: 1.3; margin-bottom: 6px; color: #1A1A1A; min-height: 34px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-name:hover { color: #FF6100; }
+.price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.price { font-size: 20px; font-weight: 900; color: #1A1A1A; }
+.price-old { font-size: 12px; color: #999; text-decoration: line-through; }
+.bnpl-text { font-size: 11px; color: #6E4FE0; margin-bottom: 6px; }
+.bonus-text { font-size: 11px; color: #F0257A; margin-bottom: 6px; }
+.rating-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #7A7A7A; margin-bottom: 6px; }
+.rating-row .stars { color: #FFC107; }
+.rating-row b { color: #1A1A1A; }
+.delivery { font-size: 11px; color: #00A857; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 4px; }
+.delivery .ico { font-size: 11px; }
+.stock-low { font-size: 11px; color: #E30000; font-weight: 700; margin-bottom: 6px; }
+.seller-tag { font-size: 11px; color: #7A7A7A; margin-bottom: 8px; }
+.card-actions { display: flex; gap: 4px; margin-top: auto; }
+.btn-cart { flex: 1; background: #FF6100; color: #fff; padding: 8px; border-radius: 4px; font-weight: 700; font-size: 12px; }
+.btn-cart:hover { background: #e55700; }
+.btn-compare { width: 32px; background: #fff; border: 1px solid #E0E0E0; color: #7A7A7A; border-radius: 4px; font-size: 14px; }
+.btn-compare:hover { border-color: #FF6100; color: #FF6100; }
+
+/* PAGINATION */
+.pagination { background: #fff; border: 1px solid #E0E0E0; border-radius: 4px; padding: 16px; margin-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.show-more-btn { background: #fff; border: 1px solid #FF6100; color: #FF6100; padding: 10px 32px; border-radius: 4px; font-weight: 700; font-size: 13px; }
+.show-more-btn:hover { background: #FF6100; color: #fff; }
+.pages { display: flex; gap: 4px; }
+.pages a { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid #E0E0E0; border-radius: 4px; font-size: 13px; }
+.pages a.on { background: #FF6100; color: #fff; border-color: #FF6100; font-weight: 700; }
+.pages a:hover:not(.on) { border-color: #FF6100; color: #FF6100; }
+.pages .dots { border: none; }
+
+/* CARD IMAGE GRADIENTS */
+.img-iphone { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; }
+.img-samsung { background: linear-gradient(135deg, #4a90e2, #2c5aa0); color: #fff; }
+.img-xiaomi { background: linear-gradient(135deg, #ff6900, #fcb045); color: #fff; }
+.img-realme { background: linear-gradient(135deg, #ffd700, #ffa500); color: #fff; }
+.img-honor { background: linear-gradient(135deg, #2c3e50, #4ca1af); color: #fff; }
+.img-huawei { background: linear-gradient(135deg, #e30000, #8b0000); color: #fff; }
+.img-pink { background: linear-gradient(135deg, #f093fb, #f5576c); color: #fff; }
+.img-green { background: linear-gradient(135deg, #56ab2f, #a8e063); color: #fff; }
+.img-blue { background: linear-gradient(135deg, #00c6ff, #0072ff); color: #fff; }
+.img-purple { background: linear-gradient(135deg, #6e4fe0, #a18cd1); color: #fff; }
+.img-gray { background: linear-gradient(135deg, #bdc3c7, #2c3e50); color: #fff; }
+.img-gold { background: linear-gradient(135deg, #f7971e, #ffd200); color: #fff; }
+
+/* FOOTER */
+footer { background: #2A2A2A; color: #bbb; padding: 32px 16px 16px; font-size: 12px; margin-top: 24px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr) 1.2fr; gap: 24px; }
+.footer-col h5 { color: #fff; font-size: 13px; margin-bottom: 12px; }
+.footer-col a { display: block; padding: 4px 0; color: #bbb; }
+.footer-col a:hover { color: #FF6100; }
+.footer-social { display: flex; gap: 8px; margin-top: 10px; }
+.footer-social a { width: 32px; height: 32px; background: #444; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; color: #fff; }
+.footer-bottom { max-width: 1280px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid #444; color: #888; display: flex; justify-content: space-between; }
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="#" class="logo">Торго<span>Мир</span></a>
+  <button class="catalog-btn">☰ Каталог</button>
+  <div class="search-box">
+    <input type="text" placeholder="Искать смартфоны, ноутбуки, бытовую технику...">
+    <button>Найти</button>
+  </div>
+  <div class="city">📍 <b>Москва</b><br><span style="color:#00A857">доставка завтра</span></div>
+  <div class="top-links">
+    <a href="#"><span class="ico">👤</span>Войти</a>
+    <a href="#"><span class="ico">📦</span>Заказы</a>
+    <a href="#"><span class="ico">♡</span>Избранное</a>
+    <a href="#"><span class="ico">🛒</span>Корзина</a>
+  </div>
+  <a href="#" class="seller-link">Стать продавцом</a>
+</div>
+
+<!-- CATEGORY STRIP -->
+<div class="cat-strip">
+  <a href="#" class="active"><span class="ico">📱</span>Электроника</a>
+  <a href="#"><span class="ico">👕</span>Одежда</a>
+  <a href="#"><span class="ico">👟</span>Обувь</a>
+  <a href="#"><span class="ico">🏠</span>Дом и сад</a>
+  <a href="#"><span class="ico">🧸</span>Детям</a>
+  <a href="#"><span class="ico">💄</span>Красота</a>
+  <a href="#"><span class="ico">⚽</span>Спорт</a>
+  <a href="#"><span class="ico">🚗</span>Авто</a>
+  <a href="#"><span class="ico">📚</span>Книги</a>
+  <a href="#"><span class="ico">🛒</span>Продукты</a>
+  <a href="#"><span class="ico">🐱</span>Зоотовары</a>
+  <a href="#"><span class="ico">💊</span>Аптека</a>
+  <a href="#"><span class="ico">💍</span>Ювелирка</a>
+  <a href="#"><span class="ico">🎨</span>Хобби</a>
+  <a href="#"><span class="ico">🔨</span>Стройка</a>
+  <a href="#"><span class="ico">✏️</span>Канцтовары</a>
+  <a href="#"><span class="ico">🪑</span>Мебель</a>
+  <a href="#" class="premium"><span class="ico">🔞</span>Premium 18+</a>
+</div>
+
+<!-- LOCATION BAR -->
+<div class="loc-bar">
+  <span>Доставка в: <b>Москва, ул. Тверская</b> <a href="#" style="color:#FF6100">Изменить</a></span>
+  <span class="green">✓ Доставка завтра, бесплатно от 1 500₽</span>
+  <span>🎁 Бонусов на счёте: <b>2 145</b></span>
+  <span style="margin-left:auto">Сравнение (0) · Избранное (12)</span>
+</div>
+
+<div class="container">
+
+  <!-- BREADCRUMBS -->
+  <div class="crumbs">
+    <a href="#">Главная</a><span class="sep">›</span>
+    <a href="#">Электроника</a><span class="sep">›</span>
+    <a href="#">Смартфоны и гаджеты</a><span class="sep">›</span>
+    <b>Смартфоны</b>
+    <span class="count">12 847 товаров</span>
+  </div>
+
+  <h1 class="page-title">Смартфоны <span>в Москве</span></h1>
+
+  <!-- SUBNAV -->
+  <div class="subnav">
+    <a href="#" class="active">Все смартфоны</a>
+    <a href="#">Apple</a>
+    <a href="#">Samsung</a>
+    <a href="#">Xiaomi</a>
+    <a href="#">Realme</a>
+    <a href="#">Honor</a>
+    <a href="#">Huawei</a>
+    <a href="#">POCO</a>
+    <a href="#">До 10 000₽</a>
+    <a href="#">До 30 000₽</a>
+    <a href="#">Премиум</a>
+    <a href="#">5G</a>
+  </div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="filter-block">
+        <h4>Бренд <span class="chev">▼</span></h4>
+        <input type="text" class="filter-search" placeholder="Поиск бренда">
+        <label class="chk"><input type="checkbox" checked> Apple <span class="cnt">1 847</span></label>
+        <label class="chk"><input type="checkbox"> Samsung <span class="cnt">2 134</span></label>
+        <label class="chk"><input type="checkbox"> Xiaomi <span class="cnt">1 982</span></label>
+        <label class="chk"><input type="checkbox"> Huawei <span class="cnt">784</span></label>
+        <label class="chk"><input type="checkbox"> Realme <span class="cnt">541</span></label>
+        <label class="chk"><input type="checkbox"> Honor <span class="cnt">623</span></label>
+        <label class="chk"><input type="checkbox"> POCO <span class="cnt">312</span></label>
+        <div class="show-more">Показать все 24 →</div>
+      </div>
+
+      <div class="filter-block">
+        <h4>Цена, ₽</h4>
+        <div class="price-range">
+          <input type="text" value="5 990">
+          <input type="text" value="89 990">
+        </div>
+        <div class="slider">
+          <div class="track"></div>
+          <div class="knob k1"></div>
+          <div class="knob k2"></div>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h4>Рейтинг</h4>
+        <label class="chk rating-chk"><input type="checkbox" checked> <span class="stars">★★★★★</span> от 4.5 <span class="cnt">3 421</span></label>
+        <label class="chk rating-chk"><input type="checkbox"> <span class="stars">★★★★</span>☆ от 4.0 <span class="cnt">5 892</span></label>
+        <label class="chk rating-chk"><input type="checkbox"> <span class="stars">★★★</span>☆☆ от 3.0 <span class="cnt">8 124</span></label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Доставка</h4>
+        <label class="chk"><input type="checkbox" checked> Завтра <span class="cnt">4 215</span></label>
+        <label class="chk"><input type="checkbox"> Послезавтра <span class="cnt">6 891</span></label>
+        <label class="chk"><input type="checkbox"> Бесплатная <span class="cnt">7 432</span></label>
+        <label class="chk"><input type="checkbox"> Самовывоз <span class="cnt">9 124</span></label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Объём памяти</h4>
+        <label class="chk"><input type="checkbox"> 32 ГБ <span class="cnt">412</span></label>
+        <label class="chk"><input type="checkbox"> 64 ГБ <span class="cnt">1 824</span></label>
+        <label class="chk"><input type="checkbox" checked> 128 ГБ <span class="cnt">3 921</span></label>
+        <label class="chk"><input type="checkbox"> 256 ГБ <span class="cnt">2 541</span></label>
+        <label class="chk"><input type="checkbox"> 512 ГБ <span class="cnt">892</span></label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Оперативная память</h4>
+        <label class="chk"><input type="checkbox"> 2 ГБ <span class="cnt">312</span></label>
+        <label class="chk"><input type="checkbox"> 4 ГБ <span class="cnt">2 894</span></label>
+        <label class="chk"><input type="checkbox"> 6 ГБ <span class="cnt">3 421</span></label>
+        <label class="chk"><input type="checkbox"> 8 ГБ и более <span class="cnt">1 982</span></label>
+      </div>
+
+      <div class="filter-block">
+        <h4>Продавец</h4>
+        <input type="text" class="filter-search" placeholder="Поиск продавца">
+        <label class="chk"><input type="checkbox" checked> ТехноГранд <span class="cnt">421</span></label>
+        <label class="chk"><input type="checkbox"> МобиСтор <span class="cnt">298</span></label>
+        <label class="chk"><input type="checkbox"> DigitalShop <span class="cnt">187</span></label>
+        <label class="chk"><input type="checkbox"> Smart-Market <span class="cnt">142</span></label>
+        <div class="show-more">Показать все 127 →</div>
+      </div>
+
+      <div class="filter-block">
+        <h4>Дополнительно</h4>
+        <label class="chk"><input type="checkbox"> Рассрочка доступна <span class="cnt">8 924</span></label>
+        <label class="chk"><input type="checkbox"> Со скидкой <span class="cnt">4 521</span></label>
+        <label class="chk"><input type="checkbox"> Новинки <span class="cnt">412</span></label>
+        <label class="chk"><input type="checkbox"> NFC <span class="cnt">6 821</span></label>
+        <label class="chk"><input type="checkbox"> 5G <span class="cnt">2 134</span></label>
+      </div>
+
+      <button class="reset-btn">Сбросить все фильтры</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <!-- SORT BAR -->
+      <div class="sort-bar">
+        <span class="lbl">Сортировка:</span>
+        <select class="sort-select">
+          <option>По популярности</option>
+          <option>По цене ↑</option>
+          <option>По цене ↓</option>
+          <option>По рейтингу</option>
+        </select>
+        <button class="toggle-pill">Цена ↑</button>
+        <button class="toggle-pill on">По рейтингу</button>
+        <button class="toggle-pill">Новинки</button>
+        <button class="toggle-pill">Со скидкой</button>
+        <button class="toggle-pill">Доставка завтра</button>
+        <div class="view-toggle">
+          <button class="on" title="Сетка">▦</button>
+          <button title="Список">☰</button>
+        </div>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−15%</span>
+            <span class="badge b-ad">Реклама</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-iphone">📱</div>
+          <a href="#" class="card-name">Apple iPhone 13 128GB Midnight, чёрный</a>
+          <div class="price-row">
+            <span class="price">67 990 ₽</span>
+            <span class="price-old">79 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 5 665 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+1 359 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.9</b> · 2 341 отзыв</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−28%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-samsung">📱</div>
+          <a href="#" class="card-name">Samsung Galaxy A52 6/128GB, синий</a>
+          <div class="price-row">
+            <span class="price">24 990 ₽</span>
+            <span class="price-old">34 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 2 082 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+499 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.7</b> · 1 824 отзыва</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">МобиСтор · ★4.6</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−40%</span>
+            <span class="badge b-stock">Осталось 5 шт</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-xiaomi">📱</div>
+          <a href="#" class="card-name">Xiaomi Redmi 9C 3/64GB, серый</a>
+          <div class="price-row">
+            <span class="price">7 490 ₽</span>
+            <span class="price-old">12 490 ₽</span>
+          </div>
+          <div class="bnpl-text">или 624 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+149 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★</span>☆ <b>4.4</b> · 5 712 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">DigitalShop · ★4.5</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−25%</span>
+            <span class="badge b-ad">Реклама</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-honor">📱</div>
+          <a href="#" class="card-name">Honor 50 Lite 6/128GB, чёрный</a>
+          <div class="price-row">
+            <span class="price">17 990 ₽</span>
+            <span class="price-old">23 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 1 499 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+359 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.6</b> · 421 отзыв</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">Smart-Market · ★4.7</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−18%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-iphone">📱</div>
+          <a href="#" class="card-name">Apple iPhone 12 64GB Blue</a>
+          <div class="price-row">
+            <span class="price">54 990 ₽</span>
+            <span class="price-old">66 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 4 582 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+1 099 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.8</b> · 8 124 отзыва</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-new">Новинка</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-realme">📱</div>
+          <a href="#" class="card-name">Realme 9 Pro+ 8/128GB, зелёный</a>
+          <div class="price-row">
+            <span class="price">29 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 2 499 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+599 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.7</b> · 312 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">МобиСтор · ★4.6</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−12%</span>
+            <span class="badge b-bnpl">Рассрочка 0-0-12</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-samsung">📱</div>
+          <a href="#" class="card-name">Samsung Galaxy S21 FE 8/256GB</a>
+          <div class="price-row">
+            <span class="price">52 990 ₽</span>
+            <span class="price-old">59 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 4 415 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+1 059 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.7</b> · 941 отзыв</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−45%</span>
+            <span class="badge b-stock">Осталось 3 шт</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-xiaomi">📱</div>
+          <a href="#" class="card-name">Xiaomi Redmi Note 10 4/128GB</a>
+          <div class="price-row">
+            <span class="price">14 990 ₽</span>
+            <span class="price-old">27 290 ₽</span>
+          </div>
+          <div class="bnpl-text">или 1 249 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+299 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.6</b> · 4 218 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">DigitalShop · ★4.5</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-ad">Реклама</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-iphone">📱</div>
+          <a href="#" class="card-name">Apple iPhone SE 2022 64GB Starlight</a>
+          <div class="price-row">
+            <span class="price">39 990 ₽</span>
+            <span class="price-old">44 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 3 332 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+799 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.7</b> · 1 421 отзыв</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−22%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-huawei">📱</div>
+          <a href="#" class="card-name">Huawei P50 Pro 8/256GB Cocoa Gold</a>
+          <div class="price-row">
+            <span class="price">62 990 ₽</span>
+            <span class="price-old">80 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 5 249 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+1 259 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★</span>☆ <b>4.4</b> · 287 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">МобиСтор · ★4.6</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−35%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-pink">📱</div>
+          <a href="#" class="card-name">Xiaomi Redmi 10 4/64GB Pebble White</a>
+          <div class="price-row">
+            <span class="price">11 990 ₽</span>
+            <span class="price-old">18 490 ₽</span>
+          </div>
+          <div class="bnpl-text">или 999 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+239 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.5</b> · 2 124 отзыва</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">Smart-Market · ★4.7</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-new">Новинка</span>
+            <span class="badge b-discount">−10%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-green">📱</div>
+          <a href="#" class="card-name">POCO X3 Pro 8/256GB Frost Blue</a>
+          <div class="price-row">
+            <span class="price">22 490 ₽</span>
+            <span class="price-old">24 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 1 874 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+449 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.6</b> · 618 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">DigitalShop · ★4.5</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−20%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-blue">📱</div>
+          <a href="#" class="card-name">Honor X8 6/128GB Ocean Blue</a>
+          <div class="price-row">
+            <span class="price">15 990 ₽</span>
+            <span class="price-old">19 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 1 332 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+319 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.5</b> · 412 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-stock">Осталось 2 шт</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-iphone">📱</div>
+          <a href="#" class="card-name">Apple iPhone 13 Pro 256GB Sierra Blue</a>
+          <div class="price-row">
+            <span class="price">109 990 ₽</span>
+            <span class="price-old">124 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 9 165 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+2 199 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.9</b> · 1 821 отзыв</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−15%</span>
+            <span class="badge b-ad">Реклама</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-purple">📱</div>
+          <a href="#" class="card-name">Samsung Galaxy A32 4/64GB Awesome Violet</a>
+          <div class="price-row">
+            <span class="price">14 490 ₽</span>
+            <span class="price-old">16 990 ₽</span>
+          </div>
+          <div class="bnpl-text">или 1 207 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+289 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★</span>☆ <b>4.4</b> · 3 142 отзыва</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">МобиСтор · ★4.6</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 16 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−30%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-gray">📱</div>
+          <a href="#" class="card-name">Realme C25Y 4/64GB Metal Grey</a>
+          <div class="price-row">
+            <span class="price">9 490 ₽</span>
+            <span class="price-old">13 490 ₽</span>
+          </div>
+          <div class="bnpl-text">или 790 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+189 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★</span>☆ <b>4.3</b> · 942 отзыва</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">DigitalShop · ★4.5</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 17 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−18%</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-gold">📱</div>
+          <a href="#" class="card-name">Apple iPhone 11 64GB Yellow</a>
+          <div class="price-row">
+            <span class="price">42 990 ₽</span>
+            <span class="price-old">52 490 ₽</span>
+          </div>
+          <div class="bnpl-text">или 3 582 ₽ × 12 мес ТоргоПлати</div>
+          <div class="bonus-text">+859 бонусов</div>
+          <div class="rating-row"><span class="stars">★★★★★</span> <b>4.7</b> · 6 214 отзывов</div>
+          <div class="delivery">🚚 Доставка завтра</div>
+          <div class="seller-tag">ТехноГранд · ★4.8</div>
+          <div class="card-actions">
+            <button class="btn-cart">В корзину</button>
+            <button class="btn-compare">⇄</button>
+          </div>
+        </div>
+
+        <!-- Card 18 -->
+        <div class="card">
+          <div class="badges">
+            <span class="badge b-discount">−14%</span>
+            <span class="badge b-bnpl">Рассрочка</span>
+          </div>
+          <span class="fav">♡</span>
+          <div class="card-img img-iphone">📱</div>
+          <a href="#" class="card-name">

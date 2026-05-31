@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Schemes & Programs | Ministry of Panchayati Raj and Rural Empowerment</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, 'Helvetica', sans-serif; font-size:12px; color:#222; background:#FFFFFF; line-height:1.3; }
+a { color:#0066CC; text-decoration:underline; }
+a:visited { color:#551A8B; }
+a:hover { color:#CC0000; }
+h1,h2,h3,h4 { font-family: Arial, 'Helvetica', sans-serif; }
+
+/* Utility Bar */
+.utility-bar { background:#1A1A1A; color:#fff; font-size:11px; padding:4px 12px; display:flex; justify-content:space-between; align-items:center; }
+.utility-bar ul { list-style:none; display:flex; gap:10px; }
+.utility-bar a { color:#FFCC00; text-decoration:underline; }
+.utility-bar .fontsizer span { display:inline-block; padding:0 4px; cursor:pointer; border:1px solid #555; margin:0 1px; }
+.utility-bar .lang { padding:0 6px; border-left:1px solid #555; }
+
+/* Header */
+.header { background:#FFFFFF; border-bottom:3px solid #FF6600; padding:8px 12px; display:flex; align-items:center; justify-content:space-between; }
+.header-left { display:flex; align-items:center; gap:12px; }
+.emblem { width:60px; height:75px; background:linear-gradient(180deg,#003366 0%,#003366 50%,#FF6600 50%,#FF6600 100%); display:flex; align-items:center; justify-content:center; color:#FFCC00; font-size:28px; font-weight:bold; border:1px solid #999; font-family:'Times New Roman',serif; }
+.ministry-name h1 { font-family:'Times New Roman',Times,serif; font-size:18px; color:#003366; font-weight:bold; }
+.ministry-name h2 { font-family:'Times New Roman',Times,serif; font-size:15px; color:#003366; font-weight:bold; margin-top:2px; }
+.ministry-name .tagline { font-size:11px; color:#CC0000; font-style:italic; margin-top:3px; }
+.header-right { display:flex; gap:8px; align-items:center; }
+.logo-badge { width:60px; height:60px; border:1px solid #999; display:flex; align-items:center; justify-content:center; text-align:center; font-size:9px; font-weight:bold; padding:2px; }
+.logo-swachh { background:#008000; color:#fff; }
+.logo-amrit { background:linear-gradient(180deg,#FF9933,#FFFFFF,#138808); color:#003366; }
+.logo-g20 { background:#003366; color:#FFCC00; }
+
+/* Nav */
+.mainnav { background:#FF6600; border-top:1px solid #cc5200; border-bottom:2px solid #003366; }
+.mainnav ul { list-style:none; display:flex; max-width:1200px; margin:0 auto; }
+.mainnav li { border-right:1px solid #cc5200; }
+.mainnav a { display:block; padding:8px 14px; color:#fff; text-decoration:none; font-weight:bold; font-size:12px; text-transform:uppercase; }
+.mainnav a:hover, .mainnav li.active a { background:#003366; color:#FFCC00; }
+
+/* Marquee */
+.marquee-bar { background:#FFF3CC; border-bottom:1px solid #CC0000; padding:4px 12px; display:flex; align-items:center; }
+.marquee-label { background:#CC0000; color:#fff; padding:2px 8px; font-weight:bold; font-size:11px; margin-right:8px; flex-shrink:0; }
+.marquee-text { color:#CC0000; font-weight:bold; font-size:12px; white-space:nowrap; overflow:hidden; }
+
+/* Container */
+.container { max-width:1200px; margin:0 auto; padding:0 8px; }
+
+/* Breadcrumb */
+.breadcrumb { background:#F5F5F5; border-bottom:1px solid #CCCCCC; padding:5px 12px; font-size:11px; }
+.breadcrumb a { color:#003366; }
+
+/* Hero */
+.page-hero { background:linear-gradient(90deg,#003366 0%,#004080 100%); color:#fff; padding:12px 14px; border-bottom:3px solid #FFCC00; }
+.page-hero h1 { font-size:16px; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:#FFCC00; font-family:'Times New Roman',serif; }
+.page-hero p { font-size:12px; margin-top:3px; color:#fff; }
+
+/* Layout */
+.main-wrap { display:flex; gap:8px; margin-top:8px; }
+.sidebar { width:220px; flex-shrink:0; }
+.content { flex:1; min-width:0; }
+
+/* Sidebar */
+.sidebar-box { border:1px solid #CCCCCC; margin-bottom:8px; }
+.sidebar-box h3 { background:#003366; color:#FFCC00; padding:5px 8px; font-size:12px; text-transform:uppercase; font-weight:bold; }
+.sidebar-box ul { list-style:none; }
+.sidebar-box li { border-bottom:1px dotted #CCCCCC; }
+.sidebar-box li:last-child { border-bottom:none; }
+.sidebar-box a { display:block; padding:5px 8px; font-size:11px; color:#0066CC; text-decoration:underline; }
+.sidebar-box a:before { content:"▸ "; color:#FF6600; text-decoration:none; }
+.sidebar-box a:hover { background:#FFF3CC; }
+
+.scheme-banner { padding:8px; color:#fff; margin-bottom:6px; border:1px solid #999; }
+.scheme-banner h4 { font-size:12px; font-weight:bold; }
+.scheme-banner p { font-size:10px; margin-top:3px; }
+.scheme-banner.pmay { background:linear-gradient(135deg,#CC0000,#990000); }
+.scheme-banner.mgnrega { background:linear-gradient(135deg,#008000,#005500); }
+.scheme-banner.rgsa { background:linear-gradient(135deg,#FF6600,#CC5200); }
+
+/* Filter Bar */
+.filter-bar { background:#FFF3CC; border:1px solid #FFCC00; padding:8px; margin-bottom:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.filter-bar label { font-size:11px; font-weight:bold; color:#003366; }
+.filter-bar select, .filter-bar input { font-family:Arial; font-size:11px; padding:3px 4px; border:1px solid #999; background:#fff; }
+.filter-bar button { background:#FF6600; color:#fff; border:1px solid #cc5200; padding:4px 12px; font-size:11px; font-weight:bold; cursor:pointer; text-transform:uppercase; }
+.filter-bar button.reset { background:#666; }
+
+/* Schemes Table */
+.section-title { background:#003366; color:#FFCC00; padding:6px 10px; font-size:13px; font-weight:bold; text-transform:uppercase; border-bottom:2px solid #FFCC00; font-family:'Times New Roman',serif; }
+.dt { width:100%; border-collapse:collapse; font-size:11px; border:1px solid #999; margin-bottom:10px; }
+.dt th { background:#003366; color:#FFCC00; padding:6px 5px; text-align:left; font-size:11px; text-transform:uppercase; border:1px solid #002244; }
+.dt td { padding:5px; border:1px solid #CCCCCC; vertical-align:top; }
+.dt tr:nth-child(even) td { background:#F5F5F5; }
+.dt tr:hover td { background:#FFF3CC; }
+.dt td.center { text-align:center; }
+.dt td.right { text-align:right; font-family:'Courier New',monospace; }
+
+.badge { display:inline-block; padding:2px 6px; font-size:10px; font-weight:bold; text-transform:uppercase; border:1px solid; }
+.badge.active { background:#008000; color:#fff; border-color:#005500; }
+.badge.ongoing { background:#FFCC00; color:#003366; border-color:#cc9900; }
+.badge.closed { background:#666; color:#fff; border-color:#333; }
+.badge.new { background:#CC0000; color:#fff; border-color:#990000; }
+
+.scheme-link { color:#0066CC; font-weight:bold; }
+.action-links a { font-size:10px; margin-right:4px; }
+
+/* Downloads */
+.downloads-box { border:1px solid #CCCCCC; margin-bottom:10px; }
+.downloads-box ul { list-style:none; padding:6px 10px; }
+.downloads-box li { padding:4px 0; border-bottom:1px dotted #CCCCCC; font-size:11px; }
+.downloads-box li:before { content:"📄 "; margin-right:4px; }
+.downloads-box li .size { color:#666; font-size:10px; margin-left:6px; }
+.downloads-box li .new { background:#CC0000; color:#fff; padding:1px 4px; font-size:9px; font-weight:bold; margin-left:6px; }
+
+/* Info strip */
+.info-strip { background:#FFF3CC; border:1px solid #FFCC00; padding:6px 10px; margin-bottom:8px; font-size:11px; color:#003366; }
+.info-strip b { color:#CC0000; }
+
+/* Timestamp */
+.timestamp { background:#F5F5F5; border:1px solid #CCCCCC; padding:5px 10px; font-size:11px; color:#666; margin-top:8px; display:flex; justify-content:space-between; }
+
+/* Social/Help strip */
+.social-strip { background:#003366; color:#fff; padding:8px 12px; margin-top:10px; display:flex; justify-content:space-between; align-items:center; font-size:11px; }
+.social-strip .socials a { display:inline-block; width:24px; height:24px; background:#FF6600; color:#fff; text-align:center; line-height:24px; margin-right:4px; text-decoration:none; font-weight:bold; }
+.helpline { background:#CC0000; padding:4px 10px; font-weight:bold; }
+.access-btn { background:#FFCC00; color:#003366; padding:4px 10px; font-weight:bold; border:1px solid #fff; }
+
+/* Footer */
+.footer { background:#003366; color:#fff; padding:14px 12px; margin-top:10px; font-size:11px; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 2fr 2fr 1fr; gap:14px; }
+.footer h4 { color:#FFCC00; font-size:12px; text-transform:uppercase; margin-bottom:6px; border-bottom:1px solid #FF6600; padding-bottom:3px; }
+.footer ul { list-style:none; }
+.footer li { padding:2px 0; }
+.footer a { color:#FFFFFF; text-decoration:underline; font-size:11px; }
+.footer a:hover { color:#FFCC00; }
+.footer-bottom { background:#001a33; color:#ccc; text-align:center; padding:6px; font-size:10px; border-top:1px solid #FF6600; }
+.visitor { font-family:'Courier New',monospace; background:#000; color:#0f0; padding:2px 6px; display:inline-block; border:1px solid #FFCC00; }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <ul>
+    <li><a href="#main">Skip to Main Content</a></li>
+    <li><a href="#sr">Screen Reader Access</a></li>
+    <li class="fontsizer">Font Size: <span>A-</span><span>A</span><span>A+</span></li>
+  </ul>
+  <ul>
+    <li class="lang"><a href="#">English</a> | <a href="#">हिन्दी</a></li>
+    <li class="lang"><a href="#">Sitemap</a></li>
+    <li class="lang"><a href="#">Login</a></li>
+  </ul>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <div class="emblem" title="National Emblem of India">सत्य</div>
+    <div class="ministry-name">
+      <h1>पंचायती राज एवं ग्रामीण सशक्तीकरण मंत्रालय</h1>
+      <h2>Ministry of Panchayati Raj and Rural Empowerment</h2>
+      <div class="tagline">Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="logo-badge logo-swachh">SWACHH<br>BHARAT</div>
+    <div class="logo-badge logo-amrit">AZADI KA<br>AMRIT<br>MAHOTSAV</div>
+    <div class="logo-badge logo-g20">G20<br>INDIA</div>
+  </div>
+</div>
+
+<!-- Main Nav -->
+<nav class="mainnav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About the Ministry</a></li>
+    <li class="active"><a href="#">Schemes &amp; Programs</a></li>
+    <li><a href="#">Tenders &amp; Procurement</a></li>
+    <li><a href="#">Acts &amp; Rules</a></li>
+    <li><a href="#">Publications</a></li>
+    <li><a href="#">RTI</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- Marquee -->
+<div class="marquee-bar">
+  <span class="marquee-label">⚠ NEW</span>
+  <div class="marquee-text">★ RGSA Operational Guidelines 2018 (Revised) uploaded on 18-Oct-2018 ★ Last date for PMAY-G beneficiary verification extended to 30-Nov-2018 ★ National Panchayati Raj Day celebrations on 24-Apr ★ Recruitment notice for 142 Consultant posts uploaded ★</div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="#">Home</a> &gt; <a href="#">Schemes &amp; Programs</a>
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <h1>FLAGSHIP SCHEMES &amp; CENTRALLY SPONSORED PROGRAMS</h1>
+  <p>Active schemes under implementation during FY 2018-19</p>
+</div>
+
+<div class="container">
+<div class="main-wrap">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h3>Citizen Services</h3>
+      <ul>
+        <li><a href="#">Apply for PMAY-G</a></li>
+        <li><a href="#">Check MGNREGA Job Card Status</a></li>
+        <li><a href="#">e-Gram Swaraj Portal</a></li>
+        <li><a href="#">Grievance Registration</a></li>
+        <li><a href="#">Track Application</a></li>
+        <li><a href="#">Beneficiary Search</a></li>
+        <li><a href="#">SECC-2011 Data</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Scheme Guidelines</a></li>
+        <li><a href="#">Operational Manuals</a></li>
+        <li><a href="#">State-wise Reports</a></li>
+        <li><a href="#">Devolution Index</a></li>
+        <li><a href="#">PESA Act 1996</a></li>
+        <li><a href="#">73rd Amendment</a></li>
+      </ul>
+    </div>
+
+    <div class="scheme-banner pmay">
+      <h4>★ PMAY-Gramin</h4>
+      <p>2.95 Crore Houses Sanctioned. Apply Now.</p>
+    </div>
+    <div class="scheme-banner mgnrega">
+      <h4>★ MGNREGA</h4>
+      <p>100 Days Guaranteed Employment</p>
+    </div>
+    <div class="scheme-banner rgsa">
+      <h4>★ RGSA</h4>
+      <p>Capacity Building of Panchayats</p>
+    </div>
+
+    <div class="sidebar-box">
+      <h3>Helpdesk</h3>
+      <ul>
+        <li style="padding:6px 8px; font-size:11px;">
+          <b style="color:#CC0000;">Toll-Free:</b><br>
+          1800-11-6446<br>
+          Mon-Fri 09:30-18:00
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content" id="main">
+
+    <div class="info-strip">
+      <b>NOTE:</b> All schemes listed below are operational during FY 2018-19. Beneficiary data updated quarterly. State-wise allocations available in respective scheme guidelines (PDF). For technical assistance contact NIC-MoPR Helpdesk.
+    </div>
+
+    <!-- Filter Bar -->
+    <form class="filter-bar">
+      <label>State:</label>
+      <select>
+        <option>-- Select State --</option>
+        <option>Andhra Pradesh</option><option>Bihar</option><option>Chhattisgarh</option>
+        <option>Gujarat</option><option>Haryana</option><option>Jharkhand</option>
+        <option>Karnataka</option><option>Madhya Pradesh</option><option>Maharashtra</option>
+        <option>Odisha</option><option>Rajasthan</option><option>Tamil Nadu</option>
+        <option>Uttar Pradesh</option><option>West Bengal</option>
+      </select>
+      <label>Scheme Type:</label>
+      <select>
+        <option>All Types</option>
+        <option>Centrally Sponsored (CSS)</option>
+        <option>Central Sector (CS)</option>
+        <option>State Component</option>
+      </select>
+      <label>Status:</label>
+      <select>
+        <option>All Status</option>
+        <option>Active</option>
+        <option>Ongoing</option>
+        <option>Closed</option>
+      </select>
+      <label>Year:</label>
+      <select>
+        <option>2018-19</option><option>2017-18</option><option>2016-17</option>
+      </select>
+      <label>Keyword:</label>
+      <input type="text" placeholder="Search scheme name..." size="18">
+      <button type="submit">🔍 Search</button>
+      <button type="reset" class="reset">Reset</button>
+    </form>
+
+    <!-- Schemes Table -->
+    <div class="section-title">ACTIVE FLAGSHIP SCHEMES (FY 2018-19)</div>
+    <table class="dt">
+      <thead>
+        <tr>
+          <th style="width:32px;">Sl.</th>
+          <th>Scheme Name</th>
+          <th style="width:75px;">Launch Date</th>
+          <th style="width:75px;">Type</th>
+          <th style="width:90px;">Budget (₹ Cr)</th>
+          <th style="width:110px;">Beneficiaries</th>
+          <th style="width:75px;">Status</th>
+          <th style="width:135px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center">1</td>
+          <td><a href="#" class="scheme-link">Rashtriya Gram Swaraj Abhiyan (RGSA)</a><br><span style="color:#666;font-size:10px;">Capacity Building &amp; Training of Elected Representatives</span></td>
+          <td class="center">24-Apr-2018</td>
+          <td class="center">CSS</td>
+          <td class="right">7,255.50</td>
+          <td>31 Lakh ER</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Apply</a> | <a href="#">Status</a></td>
+        </tr>
+        <tr>
+          <td class="center">2</td>
+          <td><a href="#" class="scheme-link">e-Panchayat Mission Mode Project</a><br><span style="color:#666;font-size:10px;">ICT-enabled service delivery at Gram Panchayat level</span></td>
+          <td class="center">01-Apr-2012</td>
+          <td class="center">CS</td>
+          <td class="right">850.00</td>
+          <td>2.5 Lakh GP</td>
+          <td class="center"><span class="badge ongoing">Ongoing</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Portal</a> | <a href="#">Reports</a></td>
+        </tr>
+        <tr>
+          <td class="center">3</td>
+          <td><a href="#" class="scheme-link">Incentivisation of Panchayats</a><br><span style="color:#666;font-size:10px;">Awards for best performing Gram Panchayats</span></td>
+          <td class="center">2011</td>
+          <td class="center">CS</td>
+          <td class="right">50.00</td>
+          <td>482 GPs</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Nominate</a></td>
+        </tr>
+        <tr>
+          <td class="center">4</td>
+          <td><a href="#" class="scheme-link">Saansad Adarsh Gram Yojana (SAGY)</a><br><span style="color:#666;font-size:10px;">Adoption of Gram Panchayats by MPs for holistic development</span></td>
+          <td class="center">11-Oct-2014</td>
+          <td class="center">CS</td>
+          <td class="right">325.00</td>
+          <td>1,840 GPs</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Dashboard</a></td>
+        </tr>
+        <tr>
+          <td class="center">5</td>
+          <td><a href="#" class="scheme-link">Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)</a> <span class="badge new">New</span><br><span style="color:#666;font-size:10px;">Housing for All in Rural Areas by 2022</span></td>
+          <td class="center">20-Nov-2016</td>
+          <td class="center">CSS</td>
+          <td class="right">21,949.00</td>
+          <td>2.95 Cr HH</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Apply</a> | <a href="#">Status</a></td>
+        </tr>
+        <tr>
+          <td class="center">6</td>
+          <td><a href="#" class="scheme-link">Mahatma Gandhi NREGA (MGNREGA)</a><br><span style="color:#666;font-size:10px;">100 days of guaranteed wage employment per rural household</span></td>
+          <td class="center">02-Feb-2006</td>
+          <td class="center">CSS</td>
+          <td class="right">55,000.00</td>
+          <td>13.62 Cr Workers</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Job Card</a> | <a href="#">MIS</a></td>
+        </tr>
+        <tr>
+          <td class="center">7</td>
+          <td><a href="#" class="scheme-link">Deendayal Antyodaya Yojana - NRLM</a><br><span style="color:#666;font-size:10px;">National Rural Livelihoods Mission</span></td>
+          <td class="center">03-Jun-2011</td>
+          <td class="center">CSS</td>
+          <td class="right">5,750.00</td>
+          <td>5.5 Cr Women SHG</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Apply</a></td>
+        </tr>
+        <tr>
+          <td class="center">8</td>
+          <td><a href="#" class="scheme-link">Shyama Prasad Mukherji Rurban Mission (SPMRM)</a><br><span style="color:#666;font-size:10px;">Cluster-based integrated development of rural areas</span></td>
+          <td class="center">21-Feb-2016</td>
+          <td class="center">CS</td>
+          <td class="right">5,142.08</td>
+          <td>300 Clusters</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Reports</a></td>
+        </tr>
+        <tr>
+          <td class="center">9</td>
+          <td><a href="#" class="scheme-link">Pradhan Mantri Gram Sadak Yojana (PMGSY-III)</a><br><span style="color:#666;font-size:10px;">All-weather road connectivity to unconnected habitations</span></td>
+          <td class="center">25-Dec-2000</td>
+          <td class="center">CSS</td>
+          <td class="right">19,000.00</td>
+          <td>1.78 Lakh Habitations</td>
+          <td class="center"><span class="badge ongoing">Ongoing</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Track</a></td>
+        </tr>
+        <tr>
+          <td class="center">10</td>
+          <td><a href="#" class="scheme-link">National Social Assistance Programme (NSAP)</a><br><span style="color:#666;font-size:10px;">Pension to elderly, widows and disabled persons BPL</span></td>
+          <td class="center">15-Aug-1995</td>
+          <td class="center">CSS</td>
+          <td class="right">9,975.00</td>
+          <td>3.07 Cr Beneficiaries</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Guidelines</a> | <a href="#">Apply</a></td>
+        </tr>
+        <tr>
+          <td class="center">11</td>
+          <td><a href="#" class="scheme-link">Backward Regions Grant Fund (BRGF)</a><br><span style="color:#666;font-size:10px;">Bridging critical gaps in development in 272 backward districts</span></td>
+          <td class="center">19-Feb-2007</td>
+          <td class="center">CS</td>
+          <td class="right">0.00</td>
+          <td>272 Districts</td>
+          <td class="center"><span class="badge closed">Closed</span></td>
+          <td class="action-links"><a href="#">Final Report</a></td>
+        </tr>
+        <tr>
+          <td class="center">12</td>
+          <td><a href="#" class="scheme-link">Mission Antyodaya Survey</a><br><span style="color:#666;font-size:10px;">Annual ranking of Gram Panchayats on 50 development parameters</span></td>
+          <td class="center">02-Oct-2017</td>
+          <td class="center">CS</td>
+          <td class="right">125.00</td>
+          <td>2.66 Lakh GPs Surveyed</td>
+          <td class="center"><span class="badge active">Active</span></td>
+          <td class="action-links"><a href="#">Dashboard</a> | <a href="#">Data</a></td>
+        </tr>
+        <tr>
+          <td class="center">13</td>
+          <td><a href="#" class="scheme-link">e-Gram Swaraj &amp; PFMS Integration</a> <span class="badge new">New</span><br><span style="color:#666;font-size:10px;">Online financial management for Gram Panchayats</span></td>
+          <td class="center">24-Apr-2020*</td>
+          <td class="center">CS</td>
+          <td class="right">Pilot</td>
+          <td>50,000 GPs (Phase-I)</td>
+          <td class="center"><span class="badge ongoing">Ongoing</span></td>
+          <td class="action-links"><a href="#">Portal</a> | <a href="#">Manual</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="text-align:right; font-size:11px; margin-bottom:10px;">
+      Showing 1-13 of 47 schemes &nbsp;|&nbsp; 
+      <a href="#">« Prev</a> &nbsp;
+      <b style="background:#FF6600;color:#fff;padding:1px 6px;">1</b> 
+      <a href="#" style="padding:1px 6px; border:1px solid #ccc;">2</a> 
+      <a href="#" style="padding:1px 6px; border:1px solid #ccc;">3</a> 
+      <a href="#" style="padding:1px 6px; border:1px solid #ccc;">4</a> 
+      &nbsp;<a href="#">Next »</a>
+    </div>
+
+    <!-- Two column lower row -->
+    <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:8px;">
+      <div>
+        <div class="section-title">SCHEME GUIDELINES &amp; FRAMEWORKS (PDF DOWNLOADS)</div>
+        <div class="downloads-box">
+          <ul>
+            <li><a href="#">RGSA Operational Guidelines 2018 (Revised)</a> <span class="size">PDF 4.2 MB</span> <span class="new">NEW</span></li>
+            <li><a href="#">SAGY Phase III Framework Document</a> <span class="size">PDF 1.8 MB</span></li>
+            <li><a href="#">PMAY-G Beneficiary Identification Guidelines</a> <span class="size">PDF 2.6 MB</span></li>
+            <li><a href="#">e-Panchayat MMP Implementation Manual</a> <span class="size">PDF 5.4 MB</span></li>
+            <li><a href="#">Mission Antyodaya Survey Format 2018-19</a> <span class="size">PDF 980 KB</span> <span class="new">NEW</span></li>
+            <li><a href="#">Incentivisation of Panchayats - Award Criteria</a> <span class="size">PDF 1.1 MB</span></li>
+            <li><a href="#">Devolution Index Methodology Report</a> <span class="size">PDF 3.4 MB</span></li>
+            <li><a href="#">Model Panchayat Accounting Manual (Revised)</a> <span class="size">PDF 6.8 MB</span></li>
+            <li><a href="#">PESA (Extension to Scheduled Areas) Act 1996</a> <span class="size">PDF 540 KB</span></li>
+            <li><a href="#">Annual Report 2017-18 (English &amp; Hindi)</a> <span class="size">PDF 18.4 MB</span></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">SCHEME STATUS LEGEND</div>
+        <table class="dt">
+          <tr><td style="width:80px;"><span class="badge active">Active</span></td><td>Currently operational with sanctioned budget</td></tr>
+          <tr><td><span class="badge ongoing">Ongoing</span></td><td>Continuing from previous Five Year Plan</td></tr>
+          <tr><td><span class="badge closed">Closed</span></td><td>Scheme terminated / merged / sunset</td></tr>
+          <tr><td><span class="badge new">New</span></td><td>Launched in current financial year</td></tr>
+        </table>
+
+        <div class="section-title">RELATED LINKS</div>
+        <div class="downloads-box">
+          <ul style="padding:6px 10px;">
+            <li style="border:none;">📌 <a href="#">PMAY-G Awaassoft Portal</a></li>
+            <li style="border:none;">📌 <a href="#">MGNREGA MIS &amp; NREGAsoft</a></li>
+            <li style="border:none;">📌 <a href="#">e-Gram Swaraj Portal</a></li>
+            <li style="border:none;">📌 <a href="#">Mission Antyodaya Dashboard</a></li>
+            <li style="border:none;">📌 <a href="#">PRIASoft Accounting</a></li>
+            <li style="border:none;">📌 <a href="#">SECC-2011 Data</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timestamp">
+      <span><b>Last Updated:</b> 22-Oct-2018 14:32 IST</span>
+      <span><b>Page Visitor Count:</b> 4,72,891</span>
+      <span><a href="#">📥 Export to Excel</a> | <a href="#">🖨 Print</a> | <a href="#">📧 Email</a></span>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<!-- Social/Helpline strip -->
+<div class="social-strip">
+  <div class="socials">
+    <b style="margin-right:8px;">Follow Us:</b>
+    <a href="#" title="Twitter">𝕏</a>
+    <a href="#" title="Facebook">f</a>
+    <a href="#" title="YouTube">▶</a>
+    <a href="#" title="Instagram">◉</a>
+    <a href="#" title="Koo">K</a>
+  </div>
+  <div class="helpline">📞 TOLL-FREE HELPLINE: 1800-11-6446</div>
+  <div class="access-btn">♿ Accessibility</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Related Links</h4>
+      <ul>
+        <li><a href="#">MyGov.in</a></li>
+        <li><a href="#">India.gov.in (National Portal)</a></li>
+        <li><a href="#">PMO India</a></li>
+        <li><a href="#">National Informatics Centre (NIC)</a></li>
+        <li><a href="#">Digital India</a></li>
+        <li><a href="#">data.gov.in</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Important Portals</h4>
+      <ul>
+        <li><a href="#">e-Gram Swaraj</a></li>
+        <li><a href="#">PMAY-G Awaassoft</a></li>
+        <li><a href="#">NREGAsoft (MGNREGA)</a></li>
+        <li><a href="#">Mission Antyodaya</a></li>
+        <li><a href="#">PRIASoft</a></li>
+        <li><a href="#">CPGRAMS Grievance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Policy</h4>
+      <ul>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Copyright Policy</a></li>
+        <li><a href="#">Hyperlinking Policy</a></li>
+        <li><a href="#">Accessibility Statement</a></li>
+        <li><a href="#">Help / FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visitors</h4>
+      <p style="margin-bottom:6px;">Total Visitors:</p>
+      <div class="visitor">04,82,71,309</div>
+      <p style="margin-top:8px; font-size:10px;"><b>Last Updated:</b><br>22-Oct-2018</p>
+      <p style="margin-top:6px; font-size:10px;">Best viewed in IE 9+, Firefox, Chrome at 1024×768</p>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 2018 Ministry of Panchayati Raj and Rural Empowerment, Government of India. All Rights Reserved. | Content owned, updated and maintained by MoPR | Designed, Developed and Hosted by National Informatics Centre (NIC)
+</div>
+
+</body>
+</html>

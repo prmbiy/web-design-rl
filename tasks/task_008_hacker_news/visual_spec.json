@@ -1,0 +1,59 @@
+{
+  "global": {
+    "google_fonts_url": null,
+    "font_heading": "Verdana, Geneva, sans-serif",
+    "font_body": "Verdana, Geneva, sans-serif",
+    "font_mono": null,
+    "size_h1": "13px",
+    "size_h2": "10px",
+    "size_body": "10px",
+    "size_small": "7pt",
+    "color_primary": "#FF6600",
+    "color_secondary": "#828282",
+    "color_accent": "#FF6600",
+    "color_bg": "#F6F6EF",
+    "color_surface": "#F6F6EF",
+    "color_text": "#000000",
+    "color_text_muted": "#828282",
+    "color_border": "#FF6600",
+    "border_radius": "0",
+    "container_max_width": "85%",
+    "section_padding": "2px 6px",
+    "nav_bg": "#FF6600",
+    "nav_height": "24px",
+    "nav_position": "static",
+    "footer_bg": "#F6F6EF",
+    "extra_colors": {
+      "visited_link": "#828282",
+      "subtext": "#828282",
+      "footer_border": "#FF6600",
+      "vote_triangle": "#999999",
+      "vote_triangle_hover": "#FF6600",
+      "input_bg": "#FFFFFF",
+      "row_alt": "#F6F6EF"
+    },
+    "animation_specs": {}
+  },
+  "pages": {
+    "home": {
+      "layout": "Orange top nav bar, then a single-column numbered list of 30 stories with rank, upvote triangle, title, domain in parens, and a subtext line with points/author/time/comments, ending with a 'More' link.",
+      "bg": "#F6F6EF"
+    },
+    "new": {
+      "layout": "Identical layout to home but stories sorted by submission time; numbered list with rank, vote arrow, title, and subtext metadata line.",
+      "bg": "#F6F6EF"
+    },
+    "ask": {
+      "layout": "Numbered list of text-only Ask HN questions with no domain in parens, each followed by points/author/time/comments subtext.",
+      "bg": "#F6F6EF"
+    },
+    "show": {
+      "layout": "Numbered list of Show HN posts with title prefix 'Show HN:', optional domain, and standard subtext line beneath each.",
+      "bg": "#F6F6EF"
+    },
+    "jobs": {
+      "layout": "Numbered list of YC job postings showing role and company as the title with domain in parens and a posted-time subtext, no voting arrows.",
+      "bg": "#F6F6EF"
+    }
+  }
+}

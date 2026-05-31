@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>브랜드 스토리 — 도담 / Dodam Beauty</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', 'Noto Sans KR', sans-serif;
+  background: #FFFAF0;
+  color: #3D2A35;
+  font-size: 16px;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: 'DM Serif Display', 'Noto Sans KR', serif; font-weight: 400; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* === NAV === */
+.promo-bar {
+  background: linear-gradient(90deg, #FFE4E1, #FFF5EE);
+  color: #C8829A;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 24px;
+  letter-spacing: 0.05em;
+}
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,240,0.85);
+  backdrop-filter: blur(14px);
+  height: 72px;
+  border-bottom: 1px solid #F2DCE2;
+  display: flex; align-items: center;
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #C8829A;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: #3D2A35;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #C8829A; }
+.nav-icons { display: flex; gap: 18px; font-size: 18px; color: #3D2A35; }
+.nav-icons span { cursor: pointer; }
+.points-badge {
+  background: #FFB6C1; color: #fff;
+  padding: 4px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+}
+
+/* === HERO === */
+.hero {
+  padding: 100px 24px 80px;
+  background: linear-gradient(135deg, #FFF5EE 0%, #FFE4E1 50%, #FFFAF0 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,182,193,0.4), transparent 70%);
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -80px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(178,223,219,0.3), transparent 70%);
+}
+.hero-content {
+  max-width: 1280px; margin: 0 auto;
+  position: relative; z-index: 2;
+  text-align: center;
+  animation: fadeInHero 1.2s ease-out forwards;
+}
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  font-size: 13px; letter-spacing: 0.3em;
+  color: #C8829A; text-transform: uppercase;
+  margin-bottom: 24px; font-weight: 700;
+}
+.hero h1 {
+  font-size: 64px; line-height: 1.1;
+  margin-bottom: 24px;
+  color: #3D2A35;
+}
+.hero h1 em { color: #C8829A; }
+.hero-sub {
+  font-size: 20px; color: #9B8590;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  max-width: 640px; margin: 0 auto;
+}
+.hero-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px; color: #C8829A;
+  margin-top: 18px; letter-spacing: 0.08em;
+}
+
+/* === SECTIONS === */
+section { padding: 80px 24px; }
+.section-label {
+  font-size: 12px; letter-spacing: 0.3em;
+  color: #C8829A; text-transform: uppercase;
+  margin-bottom: 16px; font-weight: 700;
+}
+.section-title {
+  font-size: 40px; line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+/* === FOUNDER === */
+.founder { background: #FFFAF0; }
+.founder-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 5fr 6fr;
+  gap: 80px; align-items: center;
+}
+.founder-portrait {
+  aspect-ratio: 4/5;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #FFE4E1 0%, #C8829A 100%);
+  position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(200,130,154,0.2);
+}
+.founder-portrait::before {
+  content: '👩🏻‍⚕️';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 180px;
+  filter: saturate(0.7);
+}
+.portrait-caption {
+  background: rgba(255,250,240,0.95);
+  padding: 14px 22px;
+  border-radius: 12px;
+  margin: 24px;
+  position: relative; z-index: 2;
+  font-size: 13px;
+  color: #3D2A35;
+}
+.portrait-caption strong { display: block; font-family: 'DM Serif Display', serif; font-size: 16px; color: #C8829A; margin-bottom: 2px; }
+.founder-text p {
+  margin-bottom: 20px;
+  color: #3D2A35;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.founder-text .kr-text {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  color: #9B8590;
+  border-left: 3px solid #FFB6C1;
+  padding-left: 18px;
+  font-weight: 300;
+}
+.signature {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #C8829A;
+  margin-top: 30px;
+}
+
+/* === LAB FACILITY === */
+.lab { background: #FFF5EE; }
+.lab-intro { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+.lab-intro p { color: #9B8590; font-size: 17px; }
+.lab-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 20px;
+}
+.lab-tile {
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 24px;
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  transition: transform 0.4s ease;
+}
+.lab-tile:hover { transform: scale(1.02); }
+.lab-tile::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(61,42,53,0.6) 100%);
+  z-index: 1;
+}
+.lab-tile span { position: relative; z-index: 2; }
+.lab-tile .emoji { position: absolute; top: 24px; right: 24px; font-size: 36px; z-index: 2; opacity: 0.9; }
+.lab-1 { grid-column: 1; grid-row: 1 / 3; background: linear-gradient(135deg, #B2DFDB, #88B5B0); }
+.lab-2 { background: linear-gradient(135deg, #FFB6C1, #C8829A); }
+.lab-3 { background: linear-gradient(135deg, #FFE4E1, #D4AF37); }
+.lab-4 { background: linear-gradient(135deg, #C8829A, #8B5E73); }
+.lab-5 { background: linear-gradient(135deg, #B2DFDB, #FFB6C1); }
+
+/* === CERTIFICATIONS === */
+.certs { background: #FFFAF0; text-align: center; }
+.certs-header { max-width: 720px; margin: 0 auto 56px; }
+.cert-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.cert-card {
+  background: #FFF5EE;
+  border: 1px solid #F2DCE2;
+  border-radius: 16px;
+  padding: 36px 24px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(200,130,154,0.18);
+}
+.cert-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 8px 20px rgba(200,130,154,0.12);
+}
+.cert-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #3D2A35;
+}
+.cert-card p {
+  font-size: 13px;
+  color: #9B8590;
+  letter-spacing: 0.04em;
+}
+
+/* === PHILOSOPHY === */
+.philosophy {
+  background: linear-gradient(180deg, #FFF5EE 0%, #FFE4E1 100%);
+  text-align: center;
+  position: relative;
+}
+.philosophy-inner { max-width: 880px; margin: 0 auto; }
+.philosophy-quote {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 36px;
+  line-height: 1.4;
+  color: #3D2A35;
+  margin-bottom: 32px;
+}
+.philosophy-quote::before, .philosophy-quote::after {
+  color: #C8829A;
+  font-size: 60px;
+  font-family: 'DM Serif Display', serif;
+  vertical-align: -20px;
+}
+.philosophy-quote::before { content: '“'; margin-right: 8px; }
+.philosophy-quote::after { content: '”'; margin-left: 8px; }
+.philosophy-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  color: #C8829A;
+  font-weight: 500;
+  margin-bottom: 36px;
+  letter-spacing: 0.05em;
+}
+.philosophy-body {
+  font-size: 17px;
+  color: #3D2A35;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.philosophy-divider {
+  width: 60px; height: 2px;
+  background: #FFB6C1;
+  margin: 36px auto;
+}
+
+/* === PRESS === */
+.press { background: #FFFAF0; }
+.press-header { text-align: center; margin-bottom: 64px; }
+.press-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.press-card {
+  background: #FFF5EE;
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 1px solid #F2DCE2;
+}
+.press-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #3D2A35;
+  letter-spacing: 0.02em;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #F2DCE2;
+}
+.press-logo small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: #9B8590; margin-top: 4px;
+  font-style: normal;
+}
+.press-quote {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #3D2A35;
+  margin-bottom: 16px;
+}
+.press-date {
+  font-size: 12px;
+  color: #C8829A;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* === CTA === */
+.cta-strip {
+  background: linear-gradient(90deg, #FFB6C1 0%, #C8829A 100%);
+  text-align: center;
+  padding: 70px 24px;
+  color: #fff;
+}
+.cta-strip h2 { font-size: 38px; margin-bottom: 14px; }
+.cta-strip p { font-size: 16px; opacity: 0.95; margin-bottom: 28px; }
+.btn {
+  display: inline-block;
+  background: #FFFAF0;
+  color: #C8829A;
+  padding: 16px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+/* === FOOTER === */
+footer {
+  background: #FFF5EE;
+  padding: 70px 24px 30px;
+  border-top: 1px solid #F2DCE2;
+}
+.footer-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #F2DCE2;
+}
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 32px;
+  color: #C8829A;
+  margin-bottom: 14px;
+}
+.footer-tag {
+  font-size: 14px;
+  color: #9B8590;
+  margin-bottom: 18px;
+}
+.footer-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: #C8829A;
+}
+.footer-col h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3D2A35;
+  margin-bottom: 18px; font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: #9B8590; text-decoration: none;
+  font-size: 14px; transition: color 0.2s;
+}
+.footer-col a:hover { color: #C8829A; }
+.footer-news input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #F2DCE2;
+  border-radius: 24px;
+  background: #FFFAF0;
+  font-family: inherit;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.footer-news button {
+  width: 100%;
+  padding: 12px;
+  border: none; border-radius: 24px;
+  background: #C8829A; color: #fff;
+  font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; font-size: 12px;
+  cursor: pointer;
+}
+.footer-bottom {
+  max-width: 1280px; margin: 30px auto 0;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: #9B8590;
+}
+
+/* Scroll reveal — using IntersectionObserver substitute via animation delay on load */
+.reveal {
+  opacity: 0;
+  animation: scrollReveal 0.9s ease-out forwards;
+}
+@keyframes scrollReveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal-d1 { animation-delay: 0.1s; }
+.reveal-d2 { animation-delay: 0.25s; }
+.reveal-d3 { animation-delay: 0.4s; }
+.reveal-d4 { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<div class="promo-bar">✦ Free Heartleaf Sun Stick sample with orders over ₩50,000 — 무료 샘플 증정 ✦</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">Dodam</div>
+    <ul class="nav-links">
+      <li><a href="#">New</a></li>
+      <li><a href="#">Skincare</a></li>
+      <li><a href="#">Makeup</a></li>
+      <li><a href="#">Body</a></li>
+      <li><a href="#">Sets</a></li>
+      <li><a href="#" class="active">About</a></li>
+    </ul>
+    <div class="nav-icons">
+      <span class="points-badge">포인트 1,250</span>
+      <span>⌕</span>
+      <span>♡</span>
+      <span>🛍</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Brand Story · 브랜드 스토리</div>
+    <h1>Born in Seongsu,<br>made for <em>the world</em>.</h1>
+    <p class="hero-sub">도담 means 'healthy and lovely growth' in Korean.</p>
+    <p class="hero-kr">— 천천히 자라는, 단단한 아름다움 —</p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-grid">
+    <div class="founder-portrait reveal reveal-d1">
+      <div class="portrait-caption">
+        <strong>Dr. Yuna Park, MD</strong>
+        Founder · Yonsei Dermatology
+      </div>
+    </div>
+    <div class="founder-text reveal reveal-d2">
+      <div class="section-label">Our Founder · 창립자</div>
+      <h2 class="section-title">A dermatologist's quiet promise to her patients.</h2>
+      <p>In 2019, after fifteen years of treating sensitive Korean skin at Yonsei Severance Hospital, Dr. Yuna Park began formulating in a small Seongsu-dong studio above a roastery. She was searching for what her patients couldn't find on shelves — gentle, evidence-based formulas that respected the skin barrier without sacrificing the soft sensoriality of K-beauty.</p>
+      <p class="kr-text">도담은 박유나 원장의 진료실에서 시작되었습니다. 자극 없이도 부드럽고 단단해질 수 있는 피부를 위해, 임상 데이터와 자연 성분을 가장 정직하게 담아냅니다.</p>
+      <p>Today, every Dodam formula is co-developed with the Kim &amp; Park Clinical lab in Seoul and tested on 200+ volunteers across four skin types before release.</p>
+      <div class="signature">— Yuna Park, 박유나</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="lab">
+  <div class="container">
+    <div class="lab-intro reveal reveal-d1">
+      <div class="section-label">Where We Make · 제조</div>
+      <h2 class="section-title">From a Jeju heartleaf farm<br>to our Anseong GMP lab.</h2>
+      <p>Every batch travels from Jeju's volcanic farms to our 2,400㎡ GMP-certified facility in Anseong, where small-batch production is overseen by our R&amp;D chemists.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-tile lab-1 reveal reveal-d1">
+        <span class="emoji">🌿</span>
+        <span>Jeju heartleaf<br>partner farms</span>
+      </div>
+      <div class="lab-tile lab-2 reveal reveal-d2">
+        <span class="emoji">⚗️</span>
+        <span>Anseong GMP lab</span>
+      </div>
+      <div class="lab-tile lab-3 reveal reveal-d3">
+        <span class="emoji">🔬</span>
+        <span>R&amp;D bench</span>
+      </div>
+      <div class="lab-tile lab-4 reveal reveal-d3">
+        <span class="emoji">🌾</span>
+        <span>Rice bran sourcing</span>
+      </div>
+      <div class="lab-tile lab-5 reveal reveal-d4">
+        <span class="emoji">🧪</span>
+        <span>Clinical testing room</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="certs-header reveal reveal-d1">
+    <div class="section-label">Certifications · 인증</div>
+    <h2 class="section-title">Verified gentle. Verified kind.</h2>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card reveal reveal-d1">
+      <div class="cert-icon">🐰</div>
+      <h3>Leaping Bunny</h3>
+      <p>Cruelty-Free Certified</p>
+    </div>
+    <div class="cert-card reveal reveal-d2">
+      <div class="cert-icon">🌱</div>
+      <h3>Vegan Society</h3>
+      <p>100% Vegan Formulas</p>
+    </div>
+    <div class="cert-card reveal reveal-d3">
+      <div class="cert-icon">✓</div>
+      <h3>EWG Verified</h3>
+      <p>Clean Ingredient Standard</p>
+    </div>
+    <div class="cert-card reveal reveal-d4">
+      <div class="cert-icon">🏆</div>
+      <h3>CDFA Award 2022</h3>
+      <p>K-Beauty Export Excellence</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-inner reveal reveal-d1">
+    <div class="section-label">Our Philosophy · 철학</div>
+    <p class="philosophy-quote">We don't believe in overnight transformations. We believe in eight weeks of patient ritual.</p>
+    <div class="philosophy-kr">느린 미용 — Slow Beauty</div>
+    <p class="philosophy-body">Founded by Seoul dermatology lab Kim &amp; Park Clinical in 2019, Dodam is built on the principle that healthy skin is grown, not bought. Our formulas are designed for layering — the original Korean ritual — and every product is hypoallergenic-tested across all four skin types.</p>
+    <div class="philosophy-divider"></div>
+    <p class="philosophy-body" style="font-family: 'Noto Sans KR', sans-serif; color:#9B8590; font-size:15px;">도담의 철학은 '느린 미용'에 있습니다. 빠른 변화보다는, 매일의 정성으로 가꾸는 피부. 우리는 그 여정에 가장 다정한 동반자가 되고 싶습니다.</p>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press">
+  <div class="press-header reveal reveal-d1">
+    <div class="section-label">As Featured In · 미디어</div>
+    <h2 class="section-title">In good company.</h2>
+  </div>
+  <div class="press-grid">
+    <div class="press-card reveal reveal-d1">
+      <div class="press-logo"><em>Vogue</em> <small>Korea</small></div>
+      <p class="press-quote">"Dodam's Rice Glow Essence is the quiet workhorse every Seoul facialist now keeps on her shelf."</p>
+      <div class="press-date">March 2023</div>
+    </div>
+    <div class="press-card reveal reveal-d2">
+      <div class="press-logo">Allure <small>United States</small></div>
+      <p class="press-quote">"A dermatologist-led brand redefining what 'sensitive skin safe' can feel like."</p>
+      <div class="press-date">August 2023</div>
+    </div>
+    <div class="press-card reveal reveal-d3">
+      <div class="press-logo">Refinery29 <small>Global</small></div>
+      <p class="press-quote">"The Heartleaf Sun Stick is the first K-beauty SPF I've worn under makeup without a single pill."</p>
+      <div class="press-date">June 2023</div>
+    </div>
+    <div class="press-card reveal reveal-d4">
+      <div class="press-logo">Dazed <small>Korea</small></div>
+      <p class="press-quote">"성수동에서 시작된 도담은, 한국 스킨케어가 어디로 향하는지를 가장 정확히 보여준다."</p>
+      <div class="press-date">November 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <h2>Begin your own slow ritual.</h2>
+  <p>Take the 60-second skin quiz and earn 500 포인트 — yours, on us.</p>
+  <a href="#" class="btn">Start the Skin Quiz</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Dodam</div>
+      <p class="footer-tag">Glass skin, gently earned.</p>
+      <p class="footer-kr">유리알 같은 피부, 천천히.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Skincare</a></li>
+        <li><a href="#">Makeup</a></li>
+        <li><a href="#">Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Discover</h4>
+      <ul>
+        <li><a href="#">Routine Builder</a></li>
+        <li><a href="#">Skin Quiz</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">포인트 Program</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-news">
+      <h4>Slow letter</h4>
+      <input type="email" placeholder="your@email.com">
+      <button>Subscribe + earn 200P</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2023 Dodam Beauty Co., Ltd. · Seongsu-dong, Seoul</span>
+    <span>Privacy · Terms · 사업자정보</span>
+  </div>
+</footer>
+
+</body>
+</html>

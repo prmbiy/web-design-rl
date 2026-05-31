@@ -1,0 +1,251 @@
+{
+  "brand_name": "Ministry of Panchayati Raj and Rural Empowerment",
+  "tagline": "Sashakt Gram, Samriddh Bharat — Empowered Villages, Prosperous India",
+  "primary_color_name": "Sarkari Orange",
+  "pages": {
+    "home": {
+      "title": "Home | Ministry of Panchayati Raj and Rural Empowerment, Government of India",
+      "nav_items": [
+        "Home",
+        "About the Ministry",
+        "Schemes & Programs",
+        "Tenders & Procurement",
+        "Acts & Rules",
+        "Publications",
+        "RTI",
+        "Contact Us"
+      ],
+      "sections": [
+        {
+          "name": "utility_bar",
+          "description": "Top utility strip with Skip to Main Content, Screen Reader Access, A- A A+ font sizer, language toggle (English/हिन्दी), Sitemap, and Login link."
+        },
+        {
+          "name": "header",
+          "description": "National Emblem of India on left, ministry name in English and Hindi, Swachh Bharat and Azadi ka Amrit Mahotsav logos on right."
+        },
+        {
+          "name": "marquee",
+          "description": "Red scrolling marquee with announcements like 'Last date for PMAY-G beneficiary verification extended to 30-Nov-2018', 'National Panchayati Raj Day celebrations on 24-Apr', 'Recruitment notice for 142 Consultant posts uploaded'."
+        },
+        {
+          "name": "hero",
+          "headline": "EMPOWERING 2.6 LAKH GRAM PANCHAYATS ACROSS BHARAT",
+          "subheadline": "Strengthening grassroots democracy under the 73rd Constitutional Amendment"
+        },
+        {
+          "name": "scheme_banners",
+          "description": "Grid of 4 clickable scheme banners: PMAY-Gramin, MGNREGA, Rashtriya Gram Swaraj Abhiyan (RGSA), and SAGY (Saansad Adarsh Gram Yojana)."
+        },
+        {
+          "name": "citizen_sidebar",
+          "description": "Left sidebar with Citizen Services quick-links: Apply for PMAY-G, Check MGNREGA Job Card Status, e-Gram Swaraj Portal, Grievance Registration, Track Application."
+        },
+        {
+          "name": "whats_new",
+          "description": "Two-column table of latest circulars and tenders with dates like 'Circular No. M-11015/3/2018-RE dated 12-Oct-2018' and 'Tender for ICT Infrastructure at Gram Panchayats'."
+        },
+        {
+          "name": "minister_corner",
+          "description": "Side-by-side photo cards of Hon'ble Minister Shri Narendra Singh Tomar and MoS Shri Ram Kripal Yadav with name plates and message links."
+        },
+        {
+          "name": "stats_strip",
+          "description": "Yellow highlighted strip showing key metrics: 2,62,771 Gram Panchayats, 31.2 Lakh Elected Representatives, ₹2,00,000 Cr Devolved (2017-18)."
+        },
+        {
+          "name": "social_helpline",
+          "description": "Cluttered footer-adjacent strip with Twitter/Facebook/YouTube icons, Toll-Free Helpline 1800-11-6446, and accessibility widget button."
+        },
+        {
+          "name": "footer",
+          "description": "Multi-column footer with Related Links (MyGov, India.gov.in, PMO, NIC), Visitor Counter 4,82,71,309, and Last Updated: 28-Oct-2018 timestamp."
+        }
+      ]
+    },
+    "about": {
+      "title": "About the Ministry | Ministry of Panchayati Raj and Rural Empowerment",
+      "nav_items": [
+        "Home",
+        "About the Ministry",
+        "Schemes & Programs",
+        "Tenders & Procurement",
+        "Acts & Rules",
+        "Publications",
+        "RTI",
+        "Contact Us"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb",
+          "description": "Home > About the Ministry"
+        },
+        {
+          "name": "hero",
+          "headline": "ABOUT THE MINISTRY",
+          "subheadline": "Constituted on 27th May 2004 to oversee implementation of Part IX of the Constitution"
+        },
+        {
+          "name": "history",
+          "description": "Brief historical timeline from 73rd Amendment (1992) through Ministry formation (2004) to Digital Panchayat initiative (2018)."
+        },
+        {
+          "name": "vision_mission_table",
+          "description": "Two-column bordered table with 'Vision' (empowered, accountable, transparent panchayats) and 'Mission' (capacity building, devolution, e-governance) as rows."
+        },
+        {
+          "name": "org_chart",
+          "description": "Static image placeholder of organizational hierarchy from Minister down through Secretary, Additional Secretary, Joint Secretaries to Director-level officers."
+        },
+        {
+          "name": "leadership_profiles",
+          "description": "Grid of officer cards with passport photos and bios: Secretary Shri Amarjeet Sinha (IAS:1983:BH), Additional Secretary Smt. Sushma Singh (IAS:1986:UP), JS Shri Sunil Kumar."
+        },
+        {
+          "name": "allocation_business",
+          "description": "Numbered list table of subjects allocated under the Government of India (Allocation of Business) Rules 1961."
+        },
+        {
+          "name": "timestamp",
+          "description": "Last Updated: 15-Oct-2018 | Visitor No: 12,84,772"
+        }
+      ]
+    },
+    "schemes": {
+      "title": "Schemes & Programs | Ministry of Panchayati Raj and Rural Empowerment",
+      "nav_items": [
+        "Home",
+        "About the Ministry",
+        "Schemes & Programs",
+        "Tenders & Procurement",
+        "Acts & Rules",
+        "Publications",
+        "RTI",
+        "Contact Us"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb",
+          "description": "Home > Schemes & Programs"
+        },
+        {
+          "name": "hero",
+          "headline": "FLAGSHIP SCHEMES & CENTRALLY SPONSORED PROGRAMS",
+          "subheadline": "Active schemes under implementation during FY 2018-19"
+        },
+        {
+          "name": "filter_bar",
+          "description": "Compact filter row with dropdowns for State, Scheme Type (CSS/CS), Status (Active/Closed), and a Search button."
+        },
+        {
+          "name": "schemes_table",
+          "description": "Dense table with columns Sl.No, Scheme Name, Launch Date, Budget Allocation (₹ Cr), Beneficiaries, Status with rows like 'Rashtriya Gram Swaraj Abhiyan | 24-Apr-2018 | 7255.50 | 31 Lakh ER | ACTIVE', 'e-Panchayat Mission Mode Project | 2012 | 850.00 | 2.5 Lakh GP | ONGOING', 'Incentivisation of Panchayats | 2011 | 50.00 | 482 GPs | ACTIVE'."
+        },
+        {
+          "name": "guidelines_downloads",
+          "description": "PDF download list with file sizes for scheme guidelines like 'RGSA Operational Guidelines 2018 (PDF 4.2 MB)', 'SAGY Phase III Framework (PDF 1.8 MB)'."
+        },
+        {
+          "name": "timestamp",
+          "description": "Last Updated: 22-Oct-2018"
+        }
+      ]
+    },
+    "tenders": {
+      "title": "Tenders & Procurement | Ministry of Panchayati Raj and Rural Empowerment",
+      "nav_items": [
+        "Home",
+        "About the Ministry",
+        "Schemes & Programs",
+        "Tenders & Procurement",
+        "Acts & Rules",
+        "Publications",
+        "RTI",
+        "Contact Us"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb",
+          "description": "Home > Tenders & Procurement"
+        },
+        {
+          "name": "hero",
+          "headline": "TENDERS & PROCUREMENT NOTICES",
+          "subheadline": "All procurements conducted through Central Public Procurement Portal (CPPP)"
+        },
+        {
+          "name": "active_tenders_table",
+          "description": "Table with columns Tender ID, Title, Department, Value (₹), Published, Closing Date, Download — sample rows 'MoPR/2018-19/47 | Supply of Desktop Computers for e-Gram Swaraj | NIC Cell | 1,82,00,000 | 18-Oct-2018 | 09-Nov-2018', 'MoPR/2018-19/48 | Hiring of Agency for IEC Campaign RGSA | Programme Division | 2,45,00,000'."
+        },
+        {
+          "name": "corrigenda",
+          "description": "Small table listing corrigenda/addenda issued against published tenders with corrigendum number, date, and PDF link."
+        },
+        {
+          "name": "archived_tenders",
+          "description": "Collapsible section listing closed tenders from 2017-18 and 2016-17 with award details and L1 bidder names."
+        },
+        {
+          "name": "procurement_contacts",
+          "description": "Small grey box with Procurement Officer name, room number in Krishi Bhawan, phone, and email."
+        },
+        {
+          "name": "timestamp",
+          "description": "Last Updated: 28-Oct-2018"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact Us | Ministry of Panchayati Raj and Rural Empowerment",
+      "nav_items": [
+        "Home",
+        "About the Ministry",
+        "Schemes & Programs",
+        "Tenders & Procurement",
+        "Acts & Rules",
+        "Publications",
+        "RTI",
+        "Contact Us"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb",
+          "description": "Home > Contact Us"
+        },
+        {
+          "name": "hero",
+          "headline": "CONTACT THE MINISTRY",
+          "subheadline": "Sardar Patel Bhawan, Sansad Marg, New Delhi - 110001"
+        },
+        {
+          "name": "head_office",
+          "description": "Address block with Ministry HQ, EPABX 011-23741732, Fax 011-23741734, and general email mopr-coord@gov.in."
+        },
+        {
+          "name": "directory_table",
+          "description": "Multi-column directory table of senior officers with Name, Designation, Room No., Phone, Fax, Email — entries like 'Shri Amarjeet Sinha | Secretary | 119, Sardar Patel Bhawan | 011-23741098 | secy-mopr@gov.in'."
+        },
+        {
+          "name": "regional_offices",
+          "description": "Table of National Institute of Rural Development branches across Hyderabad, Guwahati, and Patna with addresses and STD codes."
+        },
+        {
+          "name": "map",
+          "description": "Embedded Google Maps placeholder pinned to Sardar Patel Bhawan, New Delhi."
+        },
+        {
+          "name": "grievance_form",
+          "description": "Citizen grievance form with fields Name, Aadhaar (optional), State, District, Category dropdown (PMAY-G/MGNREGA/Other), Grievance Details, Captcha, Submit button."
+        },
+        {
+          "name": "helpline_strip",
+          "description": "Yellow highlighted strip with Toll-Free Helpline 1800-11-6446 (Mon-Fri 09:30-18:00) and CPGRAMS portal link."
+        },
+        {
+          "name": "timestamp",
+          "description": "Last Updated: 25-Oct-2018 | Visitor No: 12,84,995"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Events & Private Dining | Maison Verleux Hospitality</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3D3D3D;
+  background: #FDF8F0;
+}
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; color: #4A1040; line-height: 1.15; }
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: 84px;
+  background: rgba(253,248,240,0.96);
+  border-bottom: 1px solid rgba(184,137,47,0.3);
+  backdrop-filter: blur(8px);
+}
+.nav-inner {
+  max-width: 1240px; margin: 0 auto; height: 100%;
+  padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600;
+  color: #4A1040;
+  letter-spacing: 0.04em;
+}
+.wordmark small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px; letter-spacing: 0.3em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3D3D3D;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #4A1040; }
+.nav-cta {
+  background: #4A1040;
+  color: #FDF8F0 !important;
+  padding: 12px 22px;
+  border-radius: 2px;
+  font-size: 12px !important;
+  letter-spacing: 0.12em !important;
+}
+.nav-cta:hover { background: #2E0A28; }
+.hours-pill {
+  font-size: 11px;
+  color: #B8892F;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-left: 1px solid #B8892F;
+  padding-left: 16px;
+  margin-left: 4px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(rgba(46,10,40,0.55), rgba(46,10,40,0.65)),
+    radial-gradient(ellipse at 30% 40%, rgba(184,137,47,0.4), transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(184,92,58,0.3), transparent 60%),
+    linear-gradient(135deg, #2E0A28 0%, #4A1040 50%, #3D1535 100%);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,248,225,0.10);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 820px; padding: 0 32px; }
+.hero-eyebrow {
+  font-size: 12px; letter-spacing: 0.4em;
+  color: #D4A85A;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '— '; opacity: 0.6;
+}
+.hero-eyebrow::after { content: ' —'; }
+.hero h1 {
+  font-size: 76px;
+  color: #FDF8F0;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.hero p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #F5EDD8;
+  font-weight: 400;
+}
+
+/* ===== SECTION TITLES ===== */
+.section { padding: 96px 32px; }
+.section-head { text-align: center; margin-bottom: 64px; }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.4em;
+  color: #B8892F; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.section-head h2 {
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 500;
+}
+.section-head p {
+  margin-top: 16px;
+  color: #7A6A6A;
+  max-width: 600px;
+  margin-left: auto; margin-right: auto;
+  font-size: 15px;
+}
+.gold-rule {
+  width: 60px; height: 1px;
+  background: #B8892F;
+  margin: 24px auto;
+}
+
+/* ===== ROOMS ===== */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.room-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(184,137,47,0.25);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(74,16,64,0.08);
+  display: flex; flex-direction: column;
+}
+.room-photo {
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+.room-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,248,225,0.15);
+}
+.room-photo.cellar {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(212,168,90,0.45), transparent 55%),
+    linear-gradient(160deg, #2E0A28 0%, #4A1040 60%, #1f0820 100%);
+}
+.room-photo.greenhouse {
+  background:
+    radial-gradient(circle at 40% 50%, rgba(212,168,90,0.35), transparent 50%),
+    linear-gradient(150deg, #3a4a2a 0%, #2a3a20 50%, #1f2818 100%);
+}
+.room-photo.otsu {
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(184,92,58,0.4), transparent 55%),
+    linear-gradient(135deg, #2a1a15 0%, #4A1040 70%, #2E0A28 100%);
+}
+.room-photo .glyph {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: rgba(212,168,90,0.5);
+  font-style: italic;
+  z-index: 2;
+}
+.room-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+.room-cuisine {
+  font-size: 10px; letter-spacing: 0.3em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.room-body h3 {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.room-body p {
+  font-size: 14px;
+  color: #7A6A6A;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.room-specs {
+  border-top: 1px solid rgba(184,137,47,0.3);
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.spec-row { font-size: 13px; }
+.spec-row strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #4A1040;
+  font-weight: 600;
+  font-feature-settings: 'tnum';
+}
+.spec-row span {
+  font-size: 10px; letter-spacing: 0.2em;
+  color: #B8892F; text-transform: uppercase;
+}
+.room-link {
+  font-size: 12px; letter-spacing: 0.2em;
+  color: #4A1040;
+  text-transform: uppercase;
+  border-bottom: 1px solid #B8892F;
+  padding-bottom: 4px;
+  align-self: flex-start;
+  font-weight: 700;
+}
+
+/* ===== SAMPLE MENUS ===== */
+.sample-menus {
+  background: #F5EDD8;
+  border-top: 1px solid #B8892F;
+  border-bottom: 1px solid #B8892F;
+}
+.menu-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.menu-card {
+  background: #FDF8F0;
+  border: 1px solid #B8892F;
+  padding: 48px 40px;
+  position: relative;
+}
+.menu-card::before {
+  content: ''; position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(184,137,47,0.3);
+  pointer-events: none;
+}
+.menu-card-eyebrow {
+  font-size: 11px; letter-spacing: 0.35em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.menu-card h3 {
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.menu-card .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: #B8892F;
+  font-weight: 600;
+  font-feature-settings: 'tnum';
+  margin-bottom: 28px;
+}
+.menu-card .price small {
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #7A6A6A;
+}
+.menu-courses { list-style: none; }
+.menu-courses li {
+  padding: 14px 0;
+  font-size: 14px;
+  color: #3D3D3D;
+  border-bottom: 1px solid rgba(184,137,47,0.25);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+}
+.menu-courses li:last-child { border-bottom: none; }
+.menu-courses li::before {
+  content: 'I.'; color: #B8892F; margin-right: 12px;
+  font-style: italic;
+}
+.menu-courses li:nth-child(2)::before { content: 'II.'; }
+.menu-courses li:nth-child(3)::before { content: 'III.'; }
+.menu-courses li:nth-child(4)::before { content: 'IV.'; }
+.menu-courses li:nth-child(5)::before { content: 'V.'; }
+.menu-courses li:nth-child(6)::before { content: 'VI.'; }
+.menu-courses li:nth-child(7)::before { content: 'VII.'; }
+.download-link {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 11px; letter-spacing: 0.25em;
+  color: #4A1040;
+  text-transform: uppercase;
+  border-bottom: 1px solid #B8892F;
+  padding-bottom: 3px;
+  font-weight: 700;
+}
+
+/* ===== GALLERY ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 14px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.gallery-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,248,225,0.15);
+}
+.gallery-item::before {
+  content: attr(data-caption);
+  position: absolute;
+  bottom: 12px; left: 14px;
+  z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #F5EDD8;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.g1 { grid-column: span 2; grid-row: span 2;
+  background: radial-gradient(ellipse at 40% 40%, rgba(212,168,90,0.5), transparent 50%), linear-gradient(135deg, #2E0A28, #4A1040); }
+.g2 { background: radial-gradient(circle at 50% 60%, rgba(184,92,58,0.5), transparent 60%), linear-gradient(160deg, #3a1820, #2E0A28); }
+.g3 { background: radial-gradient(circle at 30% 50%, rgba(212,168,90,0.4), transparent 55%), linear-gradient(150deg, #4A1040, #1f0820); }
+.g4 { grid-row: span 2; background: radial-gradient(ellipse at 50% 30%, rgba(212,168,90,0.45), transparent 55%), linear-gradient(180deg, #2a1a15, #4A1040); }
+.g5 { background: radial-gradient(circle at 70% 50%, rgba(184,92,58,0.4), transparent 55%), linear-gradient(120deg, #2E0A28, #3a1828); }
+.g6 { background: radial-gradient(circle at 40% 50%, rgba(212,168,90,0.5), transparent 55%), linear-gradient(150deg, #1f0820, #4A1040); }
+.g7 { grid-column: span 2; background: radial-gradient(ellipse at 50% 50%, rgba(212,168,90,0.45), transparent 60%), linear-gradient(180deg, #2E0A28, #4A1040, #2E0A28); }
+.g8 { background: radial-gradient(circle at 60% 40%, rgba(184,92,58,0.4), transparent 55%), linear-gradient(135deg, #3a1828, #2E0A28); }
+
+/* ===== TASTING CALENDAR ===== */
+.tasting {
+  background: #FFFFFF;
+  border-top: 1px solid #B8892F;
+}
+.tasting-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.tasting-list {
+  list-style: none;
+  border-top: 1px solid #B8892F;
+}
+.tasting-list li {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 8px;
+  border-bottom: 1px solid rgba(184,137,47,0.3);
+}
+.tasting-date {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+}
+.tasting-date .day {
+  display: block;
+  font-size: 42px;
+  font-weight: 600;
+  color: #4A1040;
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+.tasting-date .month {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: #B8892F;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.tasting-info h4 {
+  font-size: 26px;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.tasting-info p {
+  font-size: 13px;
+  color: #7A6A6A;
+}
+.tasting-price {
+  text-align: right;
+}
+.tasting-price strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #B8892F;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-feature-settings: 'tnum';
+}
+.tasting-price a {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #4A1040;
+  text-transform: uppercase;
+  border-bottom: 1px solid #B8892F;
+  padding-bottom: 2px;
+  font-weight: 700;
+}
+
+/* ===== CHEF'S TABLE CALLOUT ===== */
+.chef-callout {
+  background: #2E0A28;
+  color: #FDF8F0;
+  padding: 80px 32px;
+  border-top: 1px solid #B8892F;
+  border-bottom: 1px solid #B8892F;
+}
+.chef-callout-inner {
+  max-width: 1040px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+.chef-photo {
+  height: 360px;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(212,168,90,0.5), transparent 55%),
+    linear-gradient(160deg, #4A1040 0%, #2E0A28 60%, #1f0820 100%);
+  position: relative;
+  border: 1px solid rgba(212,168,90,0.4);
+}
+.chef-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,248,225,0.12);
+}
+.chef-photo::before {
+  content: 'EV';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 96px;
+  color: #D4A85A;
+  letter-spacing: -0.04em;
+  z-index: 2;
+}
+.chef-callout h2 {
+  color: #FDF8F0;
+  font-size: 44px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.chef-callout .gold-eyebrow {
+  font-size: 11px; letter-spacing: 0.4em;
+  color: #D4A85A;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.chef-callout p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: #F5EDD8;
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+.chef-callout p:last-of-type { margin-bottom: 28px; }
+.chef-signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #D4A85A;
+  letter-spacing: 0.05em;
+}
+
+/* ===== INQUIRY FORM ===== */
+.inquiry {
+  background: #4A1040;
+  color: #FDF8F0;
+  padding: 96px 32px;
+}
+.inquiry-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.inquiry .section-head h2 { color: #FDF8F0; }
+.inquiry .section-eyebrow { color: #D4A85A; }
+.inquiry .section-head p { color: #F5EDD8; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 32px;
+}
+.field { display: flex; flex-direction: column; }
+.field.full { grid-column: span 2; }
+.field label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #D4A85A;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.field input, .field select, .field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(212,168,90,0.5);
+  padding: 10px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #FDF8F0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field input::placeholder, .field textarea::placeholder { color: rgba(245,237,216,0.5); font-style: italic; }
+.field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: #D4A85A; }
+.field select option { background: #4A1040; color: #FDF8F0; }
+.field textarea { resize: vertical; min-height: 90px; }
+.submit-wrap {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(212,168,90,0.3);
+}
+.submit-wrap small {
+  font-size: 12px;
+  color: rgba(245,237,216,0.7);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+}
+.submit-btn {
+  background: #B8892F;
+  color: #FDF8F0;
+  border: none;
+  padding: 18px 44px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.submit-btn:hover { background: #D4A85A; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #4A1040;
+  color: #F5EDD8;
+  padding: 80px 32px 32px;
+  border-top: 1px solid #B8892F;
+}
+.footer-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(212,168,90,0.3);
+}
+.footer-brand .wordmark { color: #FDF8F0; font-size: 28px; }
+.footer-brand small { color: #D4A85A; }
+.footer-brand p {
+  margin-top: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #F5EDD8;
+  max-width: 320px;
+}
+.footer-col h5 {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #D4A85A;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; font-size: 14px; }
+.footer-col a:hover { color: #D4A85A; }
+.footer-bottom {
+  max-width: 1240px;
+  margin: 32px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(245,237,216,0.6);
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">Maison Verleux<small>Hospitality</small></div>
+    <ul class="nav-links">
+      <li><a href="#">Restaurants</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Reservations</a></li>
+      <li><a href="#" style="color:#4A1040;font-weight:700;">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gift Cards</a></li>
+      <li><a href="#" class="nav-cta">Reserve Now</a></li>
+      <li class="hours-pill">Today · 5–11pm</li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Events & Private Dining</div>
+    <h1>Gather, Beautifully</h1>
+    <p>From intimate chef's tables to full buyouts for 120.</p>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="section">
+  <div class="section-head">
+    <div class="section-eyebrow">Private Rooms</div>
+    <h2>Three Rooms, Three Atmospheres</h2>
+    <div class="gold-rule"></div>
+    <p>Each room is staffed by a dedicated event captain and sommelier. Custom florals, lighting, and stationery available upon request.</p>
+  </div>
+
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-photo cellar"><span class="glyph">C</span></div>
+      <div class="room-body">
+        <div class="room-cuisine">Cobble Hill · Le Petit Verleux</div>
+        <h3>The Verleux Cellar</h3>
+        <p>An arched brick vault below the bistro, lined with 1,400 bottles. Best for rehearsal dinners and intimate milestone gatherings.</p>
+        <div class="room-specs">
+          <div class="spec-row"><strong>24</strong><span>Seated</span></div>
+          <div class="spec-row"><strong>40</strong><span>Standing</span></div>
+        </div>
+        <a href="#inquiry" class="room-link">Inquire about the Cellar →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <div class="room-photo greenhouse"><span class="glyph">G</span></div>
+      <div class="room-body">
+        <div class="room-cuisine">Hudson, NY · Atelier Hudson</div>
+        <h3>Atelier Greenhouse</h3>
+        <p>A restored glass conservatory adjoining the farmhouse, draped in fig and jasmine. Wood-fired open kitchen sight lines.</p>
+        <div class="room-specs">
+          <div class="spec-row"><strong>60</strong><span>Seated</span></div>
+          <div class="spec-row"><strong>90</strong><span>Standing</span></div>
+        </div>
+        <a href="#inquiry" class="room-link">Inquire about the Greenhouse →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <div class="room-photo otsu"><span class="glyph">O</span></div>
+      <div class="room-body">
+        <div class="room-cuisine">Tribeca · Otsu by Verleux</div>
+        <h3>Otsu Counter Buyout</h3>
+        <p>The entire hinoki counter, reserved for one party. Twelve courses by Chef de Cuisine Kenji Mori, served at the wood.</p>
+        <div class="room-specs">
+          <div class="spec-row"><strong>12</strong><span>Seated</span></div>
+          <div class="spec-row"><strong>★</strong><span>Michelin</span></div>
+        </div>
+        <a href="#inquiry" class="room-link">Inquire about Otsu →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE MENUS -->
+<section class="section sample-menus">
+  <div class="section-head">
+    <div class="section-eyebrow">Sample Menus</div>
+    <h2>Curated for the Occasion</h2>
+    <div class="gold-rule"></div>
+    <p>Two starting points from which Chef Elise customizes for your party. Vegetarian, vegan, and kosher-style adaptations always available.</p>
+  </div>
+
+  <div class="menu-cards">
+    <div class="menu-card">
+      <div class="menu-card-eyebrow">Menu I</div>
+      <h3>Four-Course Seasonal</h3>
+      <div class="price">$145 <small>per guest</small></div>
+      <ul class="menu-courses">
+        <li>Delicata squash velouté, sage oil</li>
+        <li>Hudson Valley trout, brown butter, almonds</li>
+        <li>Wood-roasted hen of the woods, farro verde</li>
+        <li>Concord grape pavlova, crème fraîche</li>
+      </ul>
+      <a href="#" class="download-link">Download PDF ↓</a>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-eyebrow">Menu II</div>
+      <h3>Chef's Tasting with Pairings</h3>
+      <div class="price">$245 <small>per guest</small></div>
+      <ul class="menu-courses">
+        <li>Yellowfin crudo, yuzu kosho, finger lime</li>
+        <li>Hokkaido uni, brown butter dashi</li>
+        <li>Black trumpet agnolotti, white truffle</li>
+        <li>Dry-aged duck breast, quince, foie jus</li>
+        <li>Roquefort with chestnut honey</li>
+        <li>Chocolate soufflé, Armagnac crème anglaise</li>
+        <li>Mignardises by Pastry Chef Soraya Pinto</li>
+      </ul>
+      <a href="#" class="download-link">Download PDF ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section">
+  <div class="section-head">
+    <div class="section-eyebrow">Past Events</div>
+    <h2>A Look at the Room</h2>
+    <div class="gold-rule"></div>
+    <p>Selected weddings, product launches, and birthday dinners hosted across the Verleux properties, 2022–2024.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item g1" data-caption="Larchmont wedding, June 2024"></div>
+    <div class="gallery-item g2" data-caption="Atelier launch dinner"></div>
+    <div class="gallery-item g3" data-caption="50th at the Cellar"></div>
+    <div class="gallery-item g4" data-caption="Otsu counter buyout"></div>
+    <div class="gallery-item g5" data-caption="Maribel rehearsal"></div>
+    <div class="gallery-item g6" data-caption="Greenhouse, autumn"></div>
+    <div class="gallery-item g7" data-caption="Hudson Valley harvest gala, October 2023"></div>
+    <div class="gallery-item g8" data-caption="Pasta Bar 30th"></div>
+  </div>
+</section>
+
+<!-- CHEF'S TABLE CALLOUT -->
+<section class="chef-callout">
+  <div class="chef-callout-inner">
+    <div class="chef-photo"></div>
+    <div>
+      <div class="gold-eyebrow">Chef's Table Experiences</div>
+      <h2>An evening, hand-led.</h2>
+      <p>Once a month, Chef Elise Verleux personally hosts a single seating at the Atelier Hudson kitchen counter. Eight guests. Seven courses. A menu printed only at service.</p>
+      <p>Bookings open at 9:00 AM ET on the 1st of each month, twelve weeks ahead. The 2025 calendar is also available upon written request.</p>
+      <div class="chef-signature">— Elise Verleux, Executive Chef & Founder</div>
+    </div>
+  </div>
+</section>
+
+<!-- TASTING CALENDAR -->
+<section class="section tasting">
+  <div class="tasting-wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Seasonal Calendar</div>
+      <h2>Upcoming Chef's Tables</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <ul class="tasting-list">
+      <li>
+        <div class="tasting-date"><span class="day">14</span><span class="month">Nov</span></div>
+        <div class="tasting-info">
+          <h4>Truffle Dinner</h4>
+          <p>Seven courses with Alba white truffle, paired with Piedmontese reds. Hosted at Atelier Hudson.</p>
+        </div>
+        <div class="tasting-price"><strong>$365</strong><a href="#">Reserve →</a></div>
+      </li>
+      <li>
+        <div class="tasting-date"><span class="day">05</span><span class="month">Dec</span></div>
+        <div class="tasting-info">
+          <h4>Burgundy & Game</h4>
+          <p>Wood-fired venison, partridge, and squab. Twelve Burgundies poured by sommelier Jules Renaud.</p>
+        </div>
+        <div class="tasting-price"><strong>$295</strong><a href="#">Reserve →</a></div>
+      </li>
+      <li>
+        <div class="tasting-date"><span class="day">31</span><span class="month">Dec</span></div>
+        <div class="tasting-info">
+          <h4>New Year's Eve Kaiseki</h4>
+          <p>Twelve-course kaiseki menu by Chef Kenji Mori at the Otsu hinoki counter. Champagne service at midnight.</p>
+        </div>
+        <div class="tasting-price"><strong>$485</strong><a href="#">Reserve →</a></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry" id="inquiry">
+  <div class="inquiry-inner">
+    <div class="section-head">
+      <div class="section-eyebrow">Inquiry</div>
+      <h2>Tell us about your evening</h2>
+      <div class="gold-rule" style="background:#D4A85A;"></div>
+      <p>Our events team typically responds within one business day. For dates inside three weeks, please call (718) 555-0144.</p>
+    </div>
+
+    <form class="form-grid" onsubmit="return false;">
+      <div class="field">
+        <label>Event Type</label>
+        <select>
+          <option>Wedding or rehearsal dinner</option>
+          <option>Birthday / milestone</option>
+          <option>Corporate / product launch</option>
+          <option>Chef's table buyout</option>
+          <option>Other — tell us below</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Preferred Restaurant</label>
+        <select>
+          <option>Atelier Hudson — Greenhouse</option>
+          <option>Le Petit Verleux — The Cellar</option>
+          <option>Otsu by Verleux — Counter Buyout</option>
+          <option>Bar Maribel — Full Bar</option>
+          <option>Verleux Pasta Bar</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Preferred Date</label>
+        <input type="text" placeholder="e.g. Saturday, March 8, 2025">
+      </div>
+      <div class="field">
+        <label>Guest Count</label>
+        <input type="text" placeholder="e.g. 32 guests">
+      </div>
+      <div class="field">
+        <label>Budget Range (per guest)</label>
+        <select>
+          <option>$145 – $195 pp</option>
+          <option>$195 – $250 pp</option>
+          <option>$250 – $350 pp</option>
+          <option>$350+ pp (chef's table tier)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Your Name</label>
+        <input type="text" placeholder="Margaux Lévy">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <div class="field">
+        <label>Phone</label>
+        <input type="text" placeholder="(212) 555-0100">
+      </div>
+      <div class="field full">
+        <label>Tell us more</label>
+        <textarea placeholder="Occasion, allergies, florals, music, anything we should know…"></textarea>
+      </div>
+      <div class="submit-wrap">
+        <small>Routed directly to events@maisonverleux.com</small>
+        <button class="submit-btn" type="submit">Send Inquiry</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="wordmark">Maison Verleux<small>Hospitality</small></div>
+      <p>Five tables. One philosophy. Always seasonal.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Restaurants</h5>
+      <ul>
+        <li><a href="#">Atelier Hudson</a></li>
+        <li><a href="#">Le Petit Verleux</a></li>
+        <li><a href="#">Bar Maribel</a></li>
+        <li><a href="#">Otsu by Verleux</a></li>
+        <li><a href="#">Verleux Pasta Bar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Visit</h5>
+      <ul>
+        <li><a href="#">Reservations</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li>events@maisonverleux.com</li>
+        <li>(718) 555-0144</li>
+        <li>Press · press@maisonverleux.com</li>
+        <li><a href="#">Instagram · @maisonverleux</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Maison Verleux Hospitality LLC</span>
+    <span>Brooklyn · Hudson Valley</span>
+  </div>
+</footer>
+
+</body>
+</html>

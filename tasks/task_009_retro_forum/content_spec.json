@@ -1,0 +1,198 @@
+{
+  "brand_name": "MiataOwners.net",
+  "tagline": "The Internet's Original Mazda MX-5 Enthusiast Community — Since 1999",
+  "primary_color_name": "Roadster Blue",
+  "pages": {
+    "index": {
+      "title": "MiataOwners.net - Forum Index",
+      "nav_items": [
+        "Home",
+        "Forum",
+        "Calendar",
+        "FAQ",
+        "Members",
+        "Search",
+        "Today's Posts"
+      ],
+      "sections": [
+        {
+          "name": "header_banner",
+          "headline": "MiataOwners.net",
+          "subheadline": "Welcome back, RoadsterDan76 — You have 3 unread PMs and 14 new posts since your last visit."
+        },
+        {
+          "name": "leaderboard_ad",
+          "description": "728x90 banner ad placeholder for 'Flyin' Miata - Turbo Kits & Suspension'."
+        },
+        {
+          "name": "category_general",
+          "description": "Category header 'General Discussion' with sub-forums: NA/NB Chat (48,221 threads), NC Owners Lounge (22,109 threads), ND Speculation & Rumors (3,847 threads), each row showing last poster avatar and timestamp."
+        },
+        {
+          "name": "category_technical",
+          "description": "Category header 'Technical Help' with sub-forums: Engine & Drivetrain, Suspension & Brakes, Electrical Gremlins, DIY How-To Archive — each with thread/post counts and 'Last Post by MX5Mike — 14 minutes ago'."
+        },
+        {
+          "name": "category_builds",
+          "description": "Category header 'Build Threads' with sub-forums: Track/Autocross Builds, Turbo & Supercharger Projects, Restoration Logs, Stanced & Show Cars."
+        },
+        {
+          "name": "category_classifieds",
+          "description": "Category header 'Classifieds' with sub-forums: Cars for Sale, Parts for Sale, Wanted to Buy, Vendor Deals — orange 'NEW' badges on active listings."
+        },
+        {
+          "name": "category_meets",
+          "description": "Category header 'Meets & Events' with sub-forums: Miatas at the Gap, Regional Meetups, Track Day Coordination."
+        },
+        {
+          "name": "sidebar_ad",
+          "description": "160x600 skyscraper ad slot for 'Goodwin Racing - MX-5 Performance Parts'."
+        },
+        {
+          "name": "forum_stats",
+          "description": "Statistics block showing 'Threads: 187,432 | Posts: 4,221,908 | Members: 62,114 | Newest Member: TopdownTim'."
+        },
+        {
+          "name": "online_users",
+          "description": "Currently Active Users list showing 347 guests and 82 members with usernames colored by rank (red=admin, blue=mod, green=premium)."
+        },
+        {
+          "name": "birthdays",
+          "description": "Today's Birthdays banner listing 'BoostedNB (38), ZoomZoomKaren (44), MarcoEunos (29)'."
+        }
+      ]
+    },
+    "subforum": {
+      "title": "NA/NB Chat - MiataOwners.net",
+      "nav_items": [
+        "Home",
+        "Forum",
+        "Calendar",
+        "FAQ",
+        "Members",
+        "Search",
+        "Today's Posts"
+      ],
+      "sections": [
+        {
+          "name": "breadcrumb_toolbar",
+          "headline": "Forum Index > General Discussion > NA/NB Chat",
+          "subheadline": "Buttons: [New Thread] [Subscribe] [Mark Forum Read]"
+        },
+        {
+          "name": "sticky_threads",
+          "description": "3 sticky threads in light yellow rows: 'READ FIRST: NA/NB Forum Rules', 'NB Common Problems Megathread (Updated 2012)', 'Post Your Miata Pic Thread VOL.27'."
+        },
+        {
+          "name": "thread_list",
+          "description": "Table of 25 threads with columns Icon/Title/Author/Replies/Views/Last Post, e.g. 'Just picked up a 99 10AE #347! - by ClassicRedNA - 47 replies - 1,204 views - Today 03:42 PM by VTECkiller'; alternating white/grey rows with thread rating stars."
+        },
+        {
+          "name": "pagination",
+          "description": "Page navigator 'Page 1 of 1,847 [1][2][3][4][5]...[Last]' and forum jump dropdown."
+        }
+      ]
+    },
+    "thread": {
+      "title": "Build Thread: 1994 Miata LS-Swap Track Car - MiataOwners.net",
+      "nav_items": [
+        "Home",
+        "Forum",
+        "Calendar",
+        "FAQ",
+        "Members",
+        "Search",
+        "Today's Posts"
+      ],
+      "sections": [
+        {
+          "name": "thread_header",
+          "headline": "Build Thread: 1994 Miata LS-Swap Track Car (V8 Roadster)",
+          "subheadline": "Started by V8Lover_Brad, March 14 2011 — 287 replies, 42,118 views, rated ★★★★★"
+        },
+        {
+          "name": "post_card_op",
+          "description": "First post by V8Lover_Brad: left sidebar shows avatar of red NA, rank 'Senior Member', Posts: 4,217, Joined: Jun 2007, Rep: +312, Location: Austin TX; right side has build intro text, 4 inline JPG photos, and italic blue signature listing '94 R-Package | LS3 Swap | Flyin' Miata Suspension'."
+        },
+        {
+          "name": "banner_ad_after_first_post",
+          "description": "468x60 ad for 'Track Dog Racing - Coilovers $899'."
+        },
+        {
+          "name": "reply_posts",
+          "description": "14 additional post cards with users like 'NBMike_PDX' (Moderator badge, 12,884 posts), 'BoostedBabs' (Premium gold username), 'NewGuy2012' (rank: Junior Member, 14 posts), including nested grey-bordered quote blocks and reaction images."
+        },
+        {
+          "name": "reply_box",
+          "description": "Quick Reply textarea with BBCode toolbar buttons [B][I][U][QUOTE][IMG][URL] and 'Post Reply' / 'Preview' buttons."
+        }
+      ]
+    },
+    "profile": {
+      "title": "V8Lover_Brad - Member Profile",
+      "nav_items": [
+        "Home",
+        "Forum",
+        "Calendar",
+        "FAQ",
+        "Members",
+        "Search",
+        "Today's Posts"
+      ],
+      "sections": [
+        {
+          "name": "profile_header",
+          "headline": "V8Lover_Brad — Senior Member",
+          "subheadline": "'There's no replacement for displacement... except boost.'"
+        },
+        {
+          "name": "avatar_stats",
+          "description": "150x150 avatar of red NA Miata, stats block: Posts 4,217, Threads Started 38, Reputation +312, Join Date Jun 2007, Last Active Today 04:11 PM, Location Austin TX."
+        },
+        {
+          "name": "about_me",
+          "description": "About Me panel with fields Occupation: Diesel Mechanic, Interests: Autocross/BBQ/Beer, Current Ride: 1994 Miata LS3, Previous Rides: 99 10AE, 06 NC Club."
+        },
+        {
+          "name": "awards_infractions",
+          "description": "Awards row showing badges 'Build of the Month - Oct 2011', '5 Year Member', 'Track Day Veteran'; Infractions: 1 expired (off-topic in Classifieds)."
+        },
+        {
+          "name": "recent_posts",
+          "description": "List of 10 most recent posts with thread title, sub-forum, and timestamp linking back to the post."
+        }
+      ]
+    },
+    "search": {
+      "title": "Advanced Search - MiataOwners.net",
+      "nav_items": [
+        "Home",
+        "Forum",
+        "Calendar",
+        "FAQ",
+        "Members",
+        "Search",
+        "Today's Posts"
+      ],
+      "sections": [
+        {
+          "name": "search_form",
+          "headline": "Advanced Search",
+          "subheadline": "Search by Keyword, Username, or Tag"
+        },
+        {
+          "name": "form_fields",
+          "description": "Form rows: Keyword textbox, Username textbox with autocomplete, Date Range dropdown (Last Week/Month/Year), Forum multi-select listing all categories, Sort By (Relevance/Last Post/Replies), Show Results As (Threads/Posts)."
+        },
+        {
+          "name": "quick_links",
+          "description": "Sidebar with quick links 'Today's Posts', 'New Posts Since Last Visit', 'Unanswered Threads', 'Subscribed Threads'."
+        },
+        {
+          "name": "results_preview",
+          "description": "Example results table showing 3 sample hits like 'NB hardtop install DIY - by TopdownTim - Technical Help - 12 replies'."
+        }
+      ]
+    }
+  }
+}

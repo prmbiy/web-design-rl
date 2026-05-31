@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Linkbase — Supply Chain Intelligence for Fortune 1000</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; color: #1A202C; background: #FFFFFF; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: #FFFFFF; border-bottom: 1px solid #E2E8F0; }
+.nav-inner { height: 72px; max-width: 1200px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: #1E3A5F; }
+.logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg, #1E3A5F 0%, #4F6BFF 100%); border-radius: 6px; position: relative; }
+.logo-mark::after { content: ''; position: absolute; inset: 6px; border: 2px solid #fff; border-radius: 2px; border-right: none; border-top: none; }
+.nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: #1A202C; }
+.nav-links a:hover { color: #1E3A5F; }
+.nav-cta { display: flex; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.15s; }
+.btn-ghost { background: transparent; color: #1E3A5F; }
+.btn-ghost:hover { background: #F8FAFC; }
+.btn-primary { background: #1E3A5F; color: #fff; }
+.btn-primary:hover { background: #15293f; }
+.btn-accent { background: #F97316; color: #fff; }
+.btn-accent:hover { background: #ea6a0d; }
+.btn-lg { padding: 14px 28px; font-size: 15px; }
+
+/* Ticker */
+.ticker { background: #F1F5F9; border-bottom: 1px solid #E2E8F0; overflow: hidden; height: 36px; display: flex; align-items: center; }
+.ticker-inner { display: flex; gap: 48px; padding-left: 48px; white-space: nowrap; font-size: 12px; font-weight: 500; color: #4A5568; letter-spacing: 0.04em; text-transform: uppercase; }
+.ticker-inner span { display: inline-flex; align-items: center; gap: 8px; }
+.ticker-inner span::before { content: '●'; color: #22C55E; font-size: 8px; }
+
+/* HERO */
+.hero { padding: 80px 48px 96px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center; }
+.hero h1 { font-size: 56px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: #1A202C; margin-bottom: 20px; }
+.hero h1 .accent { color: #1E3A5F; }
+.hero .sub { font-size: 19px; color: #4A5568; margin-bottom: 32px; line-height: 1.55; max-width: 520px; }
+.hero-ctas { display: flex; gap: 12px; margin-bottom: 40px; }
+.btn-link { font-size: 14px; color: #1E3A5F; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; padding: 14px 8px; }
+.micro-stats { display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid #E2E8F0; }
+.micro-stat { display: flex; flex-direction: column; }
+.micro-stat .val { font-size: 24px; font-weight: 700; color: #1E3A5F; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.micro-stat .lbl { font-size: 12px; color: #4A5568; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; font-weight: 500; }
+
+/* Dashboard Mockup */
+.dashboard { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; box-shadow: 0 20px 50px -20px rgba(30,58,95,0.25), 0 4px 12px rgba(30,58,95,0.06); overflow: hidden; display: grid; grid-template-columns: 160px 1fr; height: 480px; }
+.db-sidebar { background: #1E3A5F; padding: 20px 0; display: flex; flex-direction: column; }
+.db-brand { padding: 0 20px 24px; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 12px; }
+.db-brand-mark { width: 18px; height: 18px; background: linear-gradient(135deg, #4F6BFF, #06B6D4); border-radius: 4px; }
+.db-nav-item { padding: 9px 20px; font-size: 12px; color: rgba(255,255,255,0.65); display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.db-nav-item.active { background: rgba(79,107,255,0.18); color: #fff; border-left: 2px solid #F97316; padding-left: 18px; }
+.db-nav-item .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+.db-main { background: #F8FAFC; padding: 16px; display: grid; grid-template-rows: auto 1fr 1fr; gap: 12px; overflow: hidden; }
+.db-header { display: flex; justify-content: space-between; align-items: center; }
+.db-title { font-size: 13px; font-weight: 700; color: #1A202C; }
+.db-sub { font-size: 11px; color: #4A5568; margin-top: 2px; }
+.db-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.db-kpi { background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; padding: 10px; }
+.db-kpi .lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A5568; font-weight: 600; }
+.db-kpi .val { font-size: 18px; font-weight: 700; color: #1E3A5F; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.db-kpi .delta { font-size: 10px; color: #22C55E; font-weight: 600; margin-top: 2px; }
+.db-kpi .delta.down { color: #EF4444; }
+.db-chart-row { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.db-chart-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; min-height: 0; }
+.db-chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.db-chart-title { font-size: 11px; font-weight: 700; color: #1A202C; }
+.db-chart-legend { display: flex; gap: 8px; font-size: 9px; color: #4A5568; }
+.db-chart-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.db-chart-legend i { width: 8px; height: 2px; background: #4F6BFF; display: inline-block; }
+.db-chart-legend .l2 i { background: #F97316; }
+.db-chart-svg { flex: 1; min-height: 0; }
+
+/* Logo Strip */
+.logo-strip { padding: 56px 48px; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; background: #FFFFFF; }
+.logo-strip-inner { max-width: 1200px; margin: 0 auto; }
+.logo-strip-label { text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #4A5568; font-weight: 600; margin-bottom: 28px; }
+.logo-row { display: grid; grid-template-columns: repeat(8, 1fr); gap: 24px; align-items: center; }
+.logo-item { font-size: 15px; font-weight: 700; text-align: center; color: #94A3B8; letter-spacing: -0.01em; font-style: italic; opacity: 0.85; }
+
+/* Section base */
+.section { padding: 96px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #F97316; font-weight: 700; margin-bottom: 12px; }
+.section h2 { font-size: 36px; font-weight: 700; color: #1A202C; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+.section .lede { font-size: 18px; color: #4A5568; max-width: 640px; }
+.section-head { margin-bottom: 56px; }
+
+/* Feature Grid */
+.features { background: #F8FAFC; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 32px; }
+.feature-icon { width: 44px; height: 44px; border-radius: 8px; background: #EEF2FF; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #4F6BFF; }
+.feature-icon.orange { background: #FFF1E6; color: #F97316; }
+.feature-icon.green { background: #ECFDF3; color: #22C55E; }
+.feature-card h3 { font-size: 20px; font-weight: 700; color: #1A202C; margin-bottom: 10px; }
+.feature-card p { font-size: 15px; color: #4A5568; line-height: 1.6; margin-bottom: 20px; }
+.feature-metric { display: inline-flex; align-items: baseline; gap: 6px; padding: 6px 10px; background: #F8FAFC; border-radius: 4px; border: 1px solid #E2E8F0; }
+.feature-metric .n { font-size: 18px; font-weight: 700; color: #1E3A5F; font-variant-numeric: tabular-nums; }
+.feature-metric .l { font-size: 11px; color: #4A5568; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.feature-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: #1E3A5F; margin-top: 20px; }
+
+/* ROI Stats */
+.roi-stats { background: #1E3A5F; color: #fff; padding: 96px 48px; }
+.roi-inner { max-width: 1200px; margin: 0 auto; }
+.roi-head { text-align: center; margin-bottom: 64px; }
+.roi-head .eyebrow { color: #F97316; }
+.roi-head h2 { color: #fff; }
+.roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.roi-cell { text-align: center; padding: 0 24px; }
+.roi-cell .big { font-size: 72px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.roi-cell .big .unit { color: #F97316; }
+.roi-cell .lbl { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; font-weight: 500; }
+
+/* Testimonial */
+.testimonial { padding: 96px 48px; background: #FFFFFF; }
+.testimonial-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.quote-mark { font-size: 64px; color: #F97316; line-height: 1; font-family: Georgia, serif; margin-bottom: 8px; }
+.quote { font-size: 26px; font-style: italic; color: #4A5568; line-height: 1.5; margin-bottom: 32px; font-weight: 400; }
+.quote .h { background: linear-gradient(180deg, transparent 60%, #FFF1E6 60%); }
+.quote-author { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #1E3A5F, #4F6BFF); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+.quote-meta { text-align: left; }
+.quote-name { font-size: 15px; font-weight: 700; color: #1A202C; }
+.quote-title { font-size: 13px; color: #4A5568; }
+
+/* Integrations Wall */
+.integrations { background: #F8FAFC; padding: 96px 48px; }
+.int-head { text-align: center; margin-bottom: 48px; }
+.int-head h2 { font-size: 36px; font-weight: 700; color: #1A202C; letter-spacing: -0.02em; margin-bottom: 12px; }
+.int-head p { font-size: 16px; color: #4A5568; }
+.int-group { margin-bottom: 32px; }
+.int-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #4A5568; font-weight: 700; margin-bottom: 14px; padding-left: 4px; }
+.int-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; max-width: 1200px; margin: 0 auto; }
+.int-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; padding: 18px 12px; text-align: center; font-size: 12px; font-weight: 600; color: #4A5568; display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 76px; justify-content: center; }
+.int-card .ic { width: 22px; height: 22px; border-radius: 4px; background: linear-gradient(135deg, #4F6BFF, #06B6D4); }
+.int-card.o .ic { background: linear-gradient(135deg, #F97316, #EF4444); }
+.int-card.g .ic { background: linear-gradient(135deg, #22C55E, #06B6D4); }
+.int-card.p .ic { background: linear-gradient(135deg, #A78BFA, #4F6BFF); }
+.int-count { text-align: center; margin-top: 32px; font-size: 14px; color: #4A5568; }
+.int-count a { color: #1E3A5F; font-weight: 700; border-bottom: 1px solid #1E3A5F; }
+
+/* Footer CTA */
+.footer-cta { background: linear-gradient(135deg, #1E3A5F 0%, #2c4e7a 100%); padding: 80px 48px; position: relative; overflow: hidden; }
+.footer-cta::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%); }
+.fcta-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 48px; position: relative; }
+.fcta-inner h2 { color: #fff; font-size: 40px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.fcta-inner p { color: rgba(255,255,255,0.75); font-size: 16px; margin-top: 12px; max-width: 520px; }
+.fcta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.btn-outline-white { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.08); }
+
+/* Footer */
+.footer { background: #1E3A5F; color: rgba(255,255,255,0.7); padding: 64px 48px 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-brand .logo { color: #fff; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.footer-col a:hover { color: #fff; }
+.footer-bot { max-width: 1200px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; }
+.footer-badges { display: flex; gap: 10px; }
+.footer-badge { padding: 4px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; font-size: 11px; color: rgba(255,255,255,0.85); font-weight: 600; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="logo-mark"></span> Linkbase</a>
+    <nav class="nav-links">
+      <a href="/platform">Platform</a>
+      <a href="/solutions">Solutions</a>
+      <a href="/integrations">Integrations</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/resources">Resources</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="/login">Log in</a>
+      <a class="btn btn-primary" href="/demo">Request demo</a>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>CARGILL</span>
+    <span>WHIRLPOOL</span>
+    <span>HENKEL</span>
+    <span>MONDELEZ</span>
+    <span>STANLEY BLACK &amp; DECKER</span>
+    <span>KIMBERLY-CLARK</span>
+    <span>BRIDGESTONE</span>
+    <span>OWENS CORNING</span>
+    <span>CARDINAL HEALTH</span>
+    <span>TRACTOR SUPPLY</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>Cut supply chain costs by <span class="accent">23%</span> in 90 days</h1>
+    <p class="sub">Linkbase unifies demand, inventory, and supplier data into one decision platform trusted by global operations teams.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-lg" href="/demo">Request demo →</a>
+      <a class="btn-link" href="/roi">Run the ROI calculator</a>
+    </div>
+    <div class="micro-stats">
+      <div class="micro-stat"><span class="val">23%</span><span class="lbl">Avg cost savings</span></div>
+      <div class="micro-stat"><span class="val">NPS 72</span><span class="lbl">Customer score</span></div>
+      <div class="micro-stat"><span class="val">99.97%</span><span class="lbl">Platform uptime</span></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD MOCKUP -->
+  <div class="dashboard">
+    <aside class="db-sidebar">
+      <div class="db-brand"><span class="db-brand-mark"></span> Linkbase</div>
+      <div class="db-nav-item active"><span class="dot"></span> Overview</div>
+      <div class="db-nav-item"><span class="dot"></span> Forecasts</div>
+      <div class="db-nav-item"><span class="dot"></span> Inventory</div>
+      <div class="db-nav-item"><span class="dot"></span> Suppliers</div>
+      <div class="db-nav-item"><span class="dot"></span> Alerts</div>
+      <div class="db-nav-item" style="margin-top:auto; opacity:0.7;"><span class="dot"></span> Settings</div>
+    </aside>
+    <div class="db-main">
+      <div class="db-header">
+        <div>
+          <div class="db-title">Operations Overview</div>
+          <div class="db-sub">Q4 2024 · All Regions</div>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <div style="font-size:10px; padding:4px 8px; background:#fff; border:1px solid #E2E8F0; border-radius:4px; color:#4A5568; font-weight:600;">Last 90 days ▾</div>
+        </div>
+      </div>
+
+      <div class="db-kpis">
+        <div class="db-kpi"><div class="lbl">Cost Savings YTD</div><div class="val">$14.2M</div><div class="delta">▲ 18.3%</div></div>
+        <div class="db-kpi"><div class="lbl">Fill Rate</div><div class="val">98.4%</div><div class="delta">▲ 2.1pts</div></div>
+        <div class="db-kpi"><div class="lbl">Cycle Time</div><div class="val">6.2d</div><div class="delta">▼ 1.4d</div></div>
+      </div>
+
+      <div class="db-chart-row" style="grid-template-rows: 1fr 1fr; display: grid; gap: 8px;">
+        <div class="db-chart-card">
+          <div class="db-chart-head">
+            <span class="db-chart-title">Demand Forecast — Q4 2024</span>
+            <div class="db-chart-legend">
+              <span><i></i>Forecast</span>
+              <span class="l2"><i></i>Actual</span>
+            </div>
+          </div>
+          <svg class="db-chart-svg" viewBox="0 0 320 90" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#4F6BFF" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#4F6BFF" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g stroke="#E2E8F0" stroke-width="0.5">
+              <line x1="0" y1="22" x2="320" y2="22"/>
+              <line x1="0" y1="45" x2="320" y2="45"/>
+              <line x1="0" y1="68" x2="320" y2="68"/>
+            </g>
+            <path d="M0,60 L40,52 L80,48 L120,38 L160,30 L200,34 L240,24 L280,18 L320,14 L320,90 L0,90 Z" fill="url(#g1)"/>
+            <polyline points="0,60 40,52 80,48 120,38 160,30 200,34 240,24 280,18 320,14" fill="none" stroke="#4F6BFF" stroke-width="1.6"/>
+            <polyline points="0,64 40,58 80,52 120,42 160,36 200,30" fill="none" stroke="#F97316" stroke-width="1.6" stroke-dasharray="3,2"/>
+            <g fill="#4A5568" font-size="6" font-family="Inter">
+              <text x="0" y="86">Oct 1</text>
+              <text x="100" y="86">Oct 22</text>
+              <text x="200" y="86">Nov 12</text>
+              <text x="290" y="86">Dec 3</text>
+            </g>
+          </svg>
+        </div>
+        <div class="db-chart-card">
+          <div class="db-chart-head">
+            <span class="db-chart-title">On-Hand Inventory by DC</span>
+            <div class="db-chart-legend">
+              <span style="color:#4F6BFF;">● Chicago</span>
+              <span style="color:#22C55E;">● Atlanta</span>
+              <span style="color:#A78BFA;">● Reno</span>
+            </div>
+          </div>
+          <svg class="db-chart-svg" viewBox="0 0 320 90" preserveAspectRatio="none">
+            <g stroke="#E2E8F0" stroke-width="0.5">
+              <line x1="0" y1="22" x2="320" y2="22"/>
+              <line x1="0" y1="45" x2="320" y2="45"/>
+              <line x1="0" y1="68" x2="320" y2="68"/>
+            </g>
+            <polyline points="0,30 40,34 80,28 120,38 160,32 200,40 240,36 280,42 320,38" fill="none" stroke="#4F6BFF" stroke-width="1.4"/>
+            <polyline points="0,50 40,48 80,54 120,46 160,52 200,48 240,54 280,50 320,56" fill="none" stroke="#22C55E" stroke-width="1.4"/>
+            <polyline points="0,68 40,64 80,66 120,60 160,64 200,58 240,62 280,56 320,60" fill="none" stroke="#A78BFA" stroke-width="1.4"/>
+            <g fill="#4A5568" font-size="6" font-family="Inter">
+              <text x="0" y="86">W1</text>
+              <text x="80" y="86">W4</text>
+              <text x="160" y="86">W8</text>
+              <text x="240" y="86">W12</text>
+              <text x="305" y="86">W16</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<section class="logo-strip">
+  <div class="logo-strip-inner">
+    <div class="logo-strip-label">Trusted by operations teams at Fortune 500 companies</div>
+    <div class="logo-row">
+      <div class="logo-item">CARGILL</div>
+      <div class="logo-item">Whirlpool</div>
+      <div class="logo-item">HENKEL</div>
+      <div class="logo-item">Mondelēz</div>
+      <div class="logo-item">STANLEY</div>
+      <div class="logo-item">Kimberly-Clark</div>
+      <div class="logo-item">BRIDGESTONE</div>
+      <div class="logo-item">Owens Corning</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE GRID -->
+<section class="section features">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="eyebrow">The Platform</div>
+      <h2>Three modules. One demand-and-supply graph.</h2>
+      <p class="lede">Linkbase replaces brittle spreadsheets and disconnected planning tools with a single, machine-learning-powered system of record for your supply chain.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </div>
+        <h3>Demand Sensing</h3>
+        <p>Probabilistic ML forecasts at SKU-location-week resolution. Continuously ingests POS, EDI 852, web signals, and macro indicators.</p>
+        <div class="feature-metric"><span class="n">14%</span><span class="l">MAPE reduction</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon orange">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3"/><path d="M8 13h8"/></svg>
+        </div>
+        <h3>Inventory Optimization</h3>
+        <p>Multi-echelon safety stock policies that balance service levels and working capital across DCs, plants, and tier-1 suppliers.</p>
+        <div class="feature-metric"><span class="n">$2.4B</span><span class="l">Inventory optimized</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Supplier Risk</h3>
+        <p>Real-time tier-2 disruption alerts powered by 18,000+ data sources. Financial health scores, geopolitical exposure, and ESG signals.</p>
+        <div class="feature-metric"><span class="n">47%</span><span class="l">Fewer stockouts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI STATS -->
+<section class="roi-stats">
+  <div class="roi-inner">
+    <div class="roi-head">
+      <div class="eyebrow">By the numbers</div>
+      <h2>ROI that finance teams can defend</h2>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-cell">
+        <div class="big"><span class="unit">$</span>2.4<span class="unit">B</span></div>
+        <div class="lbl">Inventory optimized across customer base</div>
+      </div>
+      <div class="roi-cell">
+        <div class="big">47<span class="unit">%</span></div>
+        <div class="lbl">Fewer stockouts in year one</div>
+      </div>
+      <div class="roi-cell">
+        <div class="big">11<span class="unit">x</span></div>
+        <div class="lbl">Average ROI in year one</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <div class="quote-mark">“</div>
+    <p class="quote">Linkbase let us cut <span class="h">working capital by $80M</span> in the first year while improving fill rate across every region. It is now the system our planning team opens before email.</p>
+    <div class="quote-author">
+      <div class="avatar">SC</div>
+      <div class="quote-meta">
+        <div class="quote-name">Sarah Chen</div>
+        <div class="quote-title">VP Global Operations, Whirlpool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS WALL -->
+<section class="integrations">
+  <div class="int-head">
+    <h2>50+ pre-built integrations</h2>
+    <p>Connect your existing stack in days, not quarters.</p>
+  </div>
+
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="int-group">
+      <div class="int-group-label">ERP Systems</div>
+      <div class="int-grid">
+        <div class="int-card"><span class="ic"></span>SAP S/4HANA</div>
+        <div class="int-card"><span class="ic"></span>Oracle NetSuite</div>
+        <div class="int-card"><span class="ic"></span>Microsoft D365</div>
+        <div class="int-card"><span class="ic"></span>Infor LN</div>
+        <div class="int-card"><span class="ic"></span>Workday</div>
+        <div class="int-card"><span class="ic"></span>Epicor</div>
+        <div class="int-card"><span class="ic"></span>QAD</div>
+        <div class="int-card"><span class="ic"></span>IFS Cloud</div>
+      </div>
+    </div>
+
+    <div class="int-group">
+      <div class="int-group-label">Warehouse Management</div>
+      <div class="int-grid">
+        <div class="int-card o"><span class="ic"></span>Manhattan</div>
+        <div class="int-card o"><span class="ic"></span>Blue Yonder</div>
+        <div class="int-card o"><span class="ic"></span>Körber</div>
+        <div class="int-card o"><span class="ic"></span>HighJump</div>
+        <div class="int-card o"><span class="ic"></span>Softeon</div>
+        <div class="int-card o"><span class="ic"></span>Tecsys</div>
+        <div class="int-card o"><span class="ic"></span>Logiwa</div>
+        <div class="int-card o"><span class="ic"></span>Made4net</div>
+      </div>
+    </div>
+
+    <div class="int-group">
+      <div class="int-group-label">Data &amp; Analytics</div>
+      <div class="int-grid">
+        <div class="int-card g"><span class="ic"></span>Snowflake</div>
+        <div class="int-card g"><span class="ic"></span>Databricks</div>
+        <div class="int-card g"><span class="ic"></span>BigQuery</div>
+        <div class="int-card g"><span class="ic"></span>Redshift</div>
+        <div class="int-card g"><span class="ic"></span>Tableau</div>
+        <div class="int-card g"><span class="ic"></span>Power BI</div>
+        <div class="int-card g"><span class="ic"></span>dbt Cloud</div>
+        <div class="int-card g"><span class="ic"></span>Fivetran</div>
+      </div>
+    </div>
+
+    <div class="int-group">
+      <div class="int-group-label">EDI &amp; Procurement</div>
+      <div class="int-grid">
+        <div class="int-card p"><span class="ic"></span>SPS Commerce</div>
+        <div class="int-card p"><span class="ic"></span>TrueCommerce</div>
+        <div class="int-card p"><span class="ic"></span>Coupa</div>
+        <div class="int-card p"><span class="ic"></span>Ariba</div>
+        <div class="int-card p"><span class="ic"></span>Jaggaer</div>
+        <div class="int-card p"><span class="ic"></span>GEP SMART</div>
+        <div class="int-card p"><span class="ic"></span>Ivalua</div>
+        <div class="int-card p"><span class="ic"></span>Coupa Pay</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="int-count">Need something custom? <a href="/integrations">View all 50+ connectors →</a></div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="fcta-inner">
+    <div>
+      <h2>See Linkbase on your data</h2>
+      <p>A 30-minute custom demo with a senior solutions engineer. We'll load a sample of your data and show you exactly where the savings are.</p>
+    </div>
+    <div class="fcta-actions">
+      <a class="btn btn-outline-white btn-lg" href="/roi">Run ROI calculator</a>
+      <a class="btn btn-accent btn-lg" href="/demo">Request demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="/"><span class="logo-mark"></span> Linkbase</a>
+      <p>Forecast demand. Optimize inventory. Mitigate supplier risk. Supply chain intelligence for Fortune 1000 operations teams.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="/platform">Platform</a>
+      <a href="/integrations">Integrations</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/security">Security</a>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <a href="/solutions">Manufacturing</a>
+      <a href="/solutions">Retail</a>
+      <a href="/solutions">Healthcare</a>
+      <a href="/solutions">CPG</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="/resources">Case studies</a>
+      <a href="/resources">Webinars</a>
+      <a href="/resources">Blog</a>
+      <a href="/resources">Gartner report</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about">About</a>
+      <a href="/careers">Careers</a>
+      <a href="/contact">Contact</a>
+      <a href="/legal">Legal</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div>© 2024 Linkbase Analytics, Inc. All rights reserved.</div>
+    <div class="footer-badges">
+      <span class="footer-badge">SOC 2 Type II</span>
+      <span class="footer-badge">ISO 27001</span>
+      <span class="footer-badge">GDPR</span>
+      <span class="footer-badge">99.9% SLA</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
