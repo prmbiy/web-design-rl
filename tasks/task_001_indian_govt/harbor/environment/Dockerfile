@@ -1,6 +1,5 @@
 FROM node:22-alpine
 
-# Chromium and all its deps, plus tooling
 RUN apk add --no-cache \
     bash \
     ca-certificates \
@@ -15,14 +14,9 @@ RUN apk add --no-cache \
     harfbuzz \
     ttf-freefont
 
-# Tell Playwright to use the system Chromium — skip its own download
 ENV PLAYWRIGHT_BROWSERS_PATH=/dev/null
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 ENV PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium-browser
-
-# Trust host CA bundle (handles corporate proxy)
-COPY --chown=root:root ca-certificates.crt /usr/local/share/ca-certificates/proxy.crt
-RUN update-ca-certificates 2>/dev/null || true
 
 RUN npm install -g playwright @anthropic-ai/claude-code \
     && chmod -R a+rw /usr/local/lib/node_modules \

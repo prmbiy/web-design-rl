@@ -1,25 +1,28 @@
-FROM node:22-slim
+FROM node:22-alpine
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk add --no-cache \
+    bash \
     ca-certificates \
+    chromium \
+    chromium-chromedriver \
     curl \
     ffmpeg \
+    font-freefont \
     git \
-    python3 \
-    python3-pip \
-    python3-venv \
-    && rm -rf /var/lib/apt/lists/*
+    nss \
+    freetype \
+    harfbuzz \
+    ttf-freefont
 
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+ENV PLAYWRIGHT_BROWSERS_PATH=/dev/null
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+ENV PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-RUN npm install -g playwright \
-    && mkdir -p /ms-playwright \
-    && playwright install --with-deps chromium \
-    && chmod -R a+rx /ms-playwright
+RUN npm install -g playwright @anthropic-ai/claude-code \
+    && chmod -R a+rw /usr/local/lib/node_modules \
+    && chmod -R a+rw /usr/local/bin
 
-RUN pip3 install --break-system-packages --no-cache-dir playwright
-
-RUN useradd -m -s /bin/bash agent
+RUN adduser -D -s /bin/bash agent
 
 RUN mkdir -p /app/site /task/screenshots /logs/agent /logs/verifier \
     && chown -R agent:agent /app /logs/agent
@@ -31,6 +34,7 @@ COPY --chown=root:root task_screenrecordings /task/screenrecordings
 RUN chmod -R a+rX /task/screenrecordings
 
 COPY --chown=root:root checker /opt/checker
+RUN cd /opt/checker && npm install playwright
 RUN chmod -R go-rwx /opt/checker && chmod 700 /opt/checker
 
 USER agent

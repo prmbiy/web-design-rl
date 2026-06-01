@@ -1,0 +1,17 @@
+You are summarizing the result of a visual similarity evaluation between a reference webpage design and an agent-generated version.
+
+Overall score: {{ "%.2f"|format(score) }} / 1.0
+Topology score (sections present): {{ "%.2f"|format(topology) }}
+
+Design dimension scores:
+{% for dim, d in design.items() %}- {{ dim }}: {{ d.score }}/5 — {{ d.reason }}
+{% endfor %}
+
+Per-section content scores (word-set F1):
+{% for label, s in sections.items() %}- {{ label }} ({{ s.type }}): {{ "%.2f"|format(s.content_score) }}{% if s.content_score < 0.5 %} ← low{% endif %}
+
+{% endfor %}
+
+Write exactly ONE sentence (no more) naming the two most important failures that explain why the score is not higher. Use the dimension reasons and low content scores above as your basis. Be specific. If the score is near 1.0, say "The agent replicated the design with only minor differences."
+
+Output only the sentence, no preamble.

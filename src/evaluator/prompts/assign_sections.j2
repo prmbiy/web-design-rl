@@ -1,0 +1,35 @@
+You are assigning OCR-extracted words to webpage sections.
+
+You have been given:
+1. A list of named sections with descriptions (from the ground-truth page)
+2. The full OCR word list from the GROUND-TRUTH image (words with fractional y positions)
+3. The full OCR word list from the AGENT-GENERATED image (words with fractional y positions)
+
+Your job is to assign every word in BOTH word lists to the most appropriate section label.
+If a word does not belong to any section, assign it to "unassigned".
+
+SECTIONS:
+{% for section in sections %}
+- label: "{{ section.label }}" ({{ section.type }})
+  description: {{ section.description }}
+{% endfor %}
+
+GROUND-TRUTH WORD LIST (format: "word [y=0.NN]"):
+{{ gt_words }}
+
+AGENT WORD LIST (format: "word [y=0.NN]"):
+{{ agent_words }}
+
+Rules:
+- Use the section descriptions as anchors — assign words that clearly belong to a section's content
+- Use the fractional y position as a secondary signal — words for the same section should cluster vertically
+- Assign the same label to corresponding words in both lists (e.g. "Early Bird" belongs to tickets_step in both)
+- If a word could belong to multiple sections, use the description content match over the y position
+- Every word must be assigned to exactly one label or "unassigned"
+- Output ONLY a JSON object in the exact shape below, no prose, no markdown fences
+
+Output shape:
+{
+  "gt_sections":    {"nav": ["word1", "word2", ...], "tickets_step": ["Early", "Bird", "$20", ...], "unassigned": [...]},
+  "agent_sections": {"nav": ["word1", "word2", ...], "tickets_step": ["Early", "Bird", "$25", ...], "unassigned": [...]}
+}

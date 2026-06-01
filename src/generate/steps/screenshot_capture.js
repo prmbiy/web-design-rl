@@ -90,6 +90,7 @@ async function main() {
       try {
         const context = await browser.newContext({
           viewport: { width: VIEWPORT_WIDTH, height: 900 },
+          deviceScaleFactor: 2,
         });
         const bpage = await context.newPage();
         const response = await bpage.goto(url, { waitUntil: "domcontentloaded", timeout: 15000 });

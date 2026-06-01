@@ -97,7 +97,7 @@ async function main() {
 
   if (slugs.length === 0) {
     fs.mkdirSync(path.dirname(rewardOut), { recursive: true });
-    fs.writeFileSync(rewardOut, JSON.stringify({ score: 0.0, checker: "completeness-v1", error: "no ground truth screenshots found" }, null, 2));
+    fs.writeFileSync(rewardOut, JSON.stringify({ score: 0.0 }, null, 2));
     return;
   }
 
@@ -115,9 +115,12 @@ async function main() {
   const rendered = results.filter((r) => r.rendered).length;
   const score = rendered / slugs.length;
 
-  const reward = { score: Math.round(score * 1e6) / 1e6, checker: "completeness-v1", total_pages: slugs.length, rendered_pages: rendered, results };
+  // Harbor requires reward.json to contain only {"score": float}
+  // Write detailed info to a separate file for inspection
+  const detail = { score: Math.round(score * 1e6) / 1e6, checker: "completeness-v1", total_pages: slugs.length, rendered_pages: rendered, results };
   fs.mkdirSync(path.dirname(rewardOut), { recursive: true });
-  fs.writeFileSync(rewardOut, JSON.stringify(reward, null, 2));
+  fs.writeFileSync(rewardOut, JSON.stringify({ score: Math.round(score * 1e6) / 1e6 }, null, 2));
+  fs.writeFileSync(rewardOut.replace("reward.json", "checker_detail.json"), JSON.stringify(detail, null, 2));
   fs.writeFileSync(path.join(path.dirname(rewardOut), "reward.txt"), `${score.toFixed(6)}\n`);
 
   console.log(`Checker done: ${rendered}/${slugs.length} pages rendered. Score: ${score.toFixed(4)}`);

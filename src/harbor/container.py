@@ -6,26 +6,31 @@ def render_dockerfile(has_animations: bool) -> str:
         else ""
     )
 
-    return f"""FROM node:22-slim
+    return f"""FROM node:22-alpine
 
-RUN apt-get update && apt-get install -y --no-install-recommends \\
+RUN apk add --no-cache \\
+    bash \\
     ca-certificates \\
+    chromium \\
+    chromium-chromedriver \\
     curl \\
     ffmpeg \\
+    font-freefont \\
     git \\
-    python3 \\
-    python3-pip \\
-    python3-venv \\
-    && rm -rf /var/lib/apt/lists/*
+    nss \\
+    freetype \\
+    harfbuzz \\
+    ttf-freefont
 
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+ENV PLAYWRIGHT_BROWSERS_PATH=/dev/null
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+ENV PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-RUN npm install -g playwright \\
-    && mkdir -p /ms-playwright \\
-    && playwright install --with-deps chromium \\
-    && chmod -R a+rx /ms-playwright
+RUN npm install -g playwright @anthropic-ai/claude-code \\
+    && chmod -R a+rw /usr/local/lib/node_modules \\
+    && chmod -R a+rw /usr/local/bin
 
-RUN useradd -m -s /bin/bash agent
+RUN adduser -D -s /bin/bash agent
 
 RUN mkdir -p /app/site /task/screenshots /logs/agent /logs/verifier \\
     && chown -R agent:agent /app /logs/agent
