@@ -1,0 +1,82 @@
+{
+  "score": 0.999326,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 1.0,
+    "weighted_content": 0.9987,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand accent colors, gradients, badge backgrounds, and icon colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav links match precisely between both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, avatars, and decorative elements render correctly and identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, nav spacing, and element proportions appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active typescript.ts tab, Most Popular highlighted pricing card, and filled CTA buttons all match in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "platform_features": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 86,
+        "agent_word_count": 86
+      },
+      "developer_experience": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 101,
+        "agent_word_count": 101
+      },
+      "stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 71,
+        "agent_word_count": 71
+      },
+      "testimonials": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "pricing": {
+        "type": "pricing",
+        "content_score": 0.9945,
+        "gt_word_count": 90,
+        "agent_word_count": 91
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

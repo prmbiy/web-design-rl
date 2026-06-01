@@ -1,0 +1,51 @@
+{
+  "task": "task_030_community_events",
+  "avg_score": 0.870141,
+  "avg_topology": 0.871,
+  "avg_content": 0.999,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The two images appear identical in their use of brand orange CTA, gradient hero card, colored pills, and accent colors."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading sizes, weights, button text, badge caps, and label styling all appear to match exactly."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Icons, emojis, headphone illustration, and placeholder boxes render identically in both versions."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button padding, pill sizing, form spacing, and overall layout density appear visually identical."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Selected Music pill, In-person format toggle, step indicators, and Publish button all show matching active states."
+    }
+  },
+  "pages": {
+    "create": {
+      "score": 0.71,
+      "explanation": "The score is held back primarily by an incomplete topology (0.71), indicating several reference sections are missing from the agent-generated version, even though all rendered sections matched perfectly in content and design."
+    },
+    "event": {
+      "score": 0.825,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "explore": {
+      "score": 0.9236,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "home": {
+      "score": 0.9429,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "organizer": {
+      "score": 0.9492,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

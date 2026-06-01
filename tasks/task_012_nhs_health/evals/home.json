@@ -1,0 +1,94 @@
+{
+  "score": 0.933333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The images appear identical with matching NHS blue headers, green accents, and red emergency box."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, and link styling appear identical between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons for GP, pharmacy, calendar, and the phone mockup render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, button sizes, card proportions, and nav density appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active pill states, button variants, and interactive element styling appear identical."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero_search": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "get_medical_help": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 130,
+        "agent_word_count": 130
+      },
+      "nhs_app": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 56,
+        "agent_word_count": 56
+      },
+      "top_health_topics": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "health_a_to_z": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "emergency_info": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 58,
+        "agent_word_count": 58
+      },
+      "covid_vaccinations": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 120,
+        "agent_word_count": 120
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

@@ -1,0 +1,82 @@
+{
+  "score": 0.971429,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9714,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in color usage including the Yale blue headings, red accents, yellow best-paper badge, and blue/red diagram fills."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, small-caps section labels, monospace code tokens, and badge styling all look the same between versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Diagrams, flow charts, and the scatter visualization render identically with proper boxes and arrows in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, padding on badges and pills, nav density, and card sizing appear consistent across both images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Research' nav underline and Yale University outlined CTA button states appear identical in both."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "research_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "thread_01_llm": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 108,
+        "agent_word_count": 108
+      },
+      "thread_02_multimodal": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 97,
+        "agent_word_count": 97
+      },
+      "thread_03_robustness": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 114,
+        "agent_word_count": 114
+      },
+      "thread_04_interpretability": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 118,
+        "agent_word_count": 118
+      },
+      "ongoing_projects": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 92,
+        "agent_word_count": 92
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

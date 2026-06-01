@@ -1,0 +1,88 @@
+{
+  "score": 0.975,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.975,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand teal accents, gradient cards, badge colors, and clearance pill colors appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link typography appear visually indistinguishable."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Emoji icons, decorative images, and QR code placeholder all render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, padding, spacing, and overall layout proportions look identical across both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active Buy tab, selected pill state, and filled vs outline button variants are matched accurately."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero_search": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 66,
+        "agent_word_count": 66
+      },
+      "featured_suburb_reports": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 86,
+        "agent_word_count": 86
+      },
+      "auction_results": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 82,
+        "agent_word_count": 82
+      },
+      "first_home_buyer_guide": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 97,
+        "agent_word_count": 97
+      },
+      "property_news": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 118,
+        "agent_word_count": 118
+      },
+      "suburb_spotlight": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 85,
+        "agent_word_count": 85
+      },
+      "app_download": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

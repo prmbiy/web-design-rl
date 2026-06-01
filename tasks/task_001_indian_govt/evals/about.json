@@ -1,0 +1,124 @@
+{
+  "score": 0.673333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6733,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange header, blue section bars, colored gradient cards, and accent button colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, section title caps, nav link styling, and body text hierarchy look consistent across both images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Logo, social icons, person avatar silhouettes, and org chart boxes all render correctly with no missing placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, sidebar item spacing, table row heights, and card sizing match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Brief History' sidebar item with orange highlight and the active 'About the Ministry' nav tab state are preserved identically."
+      }
+    },
+    "sections": {
+      "top_utility_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "header_branding": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "latest_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "page_title_breadcrumb": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 67,
+        "agent_word_count": 67
+      },
+      "historical_background": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 212,
+        "agent_word_count": 212
+      },
+      "vision_mission": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 131,
+        "agent_word_count": 131
+      },
+      "org_chart": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "leadership_cards": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 97,
+        "agent_word_count": 97
+      },
+      "allocation_business_rules": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "page_meta_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "social_follow_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "accessibility_widget": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The overall score is held back primarily by an incomplete topology (only 0.67 of expected sections present), since all design dimensions and per-section content scores are perfect."
+}

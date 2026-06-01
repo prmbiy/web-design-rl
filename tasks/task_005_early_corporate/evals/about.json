@@ -1,0 +1,100 @@
+{
+  "score": 0.826704,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8424,
+    "weighted_content": 0.9627,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand colors, accent blues, orange CTA buttons, badge backgrounds, and section header colors appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, table text, nav links, and label styling all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, monogram circles, award badges (star, 100, checkmark), and all decorative elements render identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, padding, spacing of nav items, table row heights, and card proportions appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Interactive states like the highlighted timeline row and button styles appear consistent across both versions."
+      }
+    },
+    "sections": {
+      "top_header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 139,
+        "agent_word_count": 139
+      },
+      "mission": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "company_timeline": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 117,
+        "agent_word_count": 117
+      },
+      "leadership_team": {
+        "type": "generic",
+        "content_score": 0.5231,
+        "gt_word_count": 95,
+        "agent_word_count": 35
+      },
+      "press_releases": {
+        "type": "generic",
+        "content_score": 0.9917,
+        "gt_word_count": 61,
+        "agent_word_count": 60
+      },
+      "awards": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "contact_info": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete leadership team content (F1 0.52, missing or mismatched names/titles) and minor gaps in section topology coverage (0.84) indicating some expected sections are not fully represented."
+}

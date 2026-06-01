@@ -1,0 +1,112 @@
+{
+  "score": 0.95,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.95,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of orange CTAs, red discount badges, color swatches, and accent colors throughout."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button text, badge styling, and nav link typography appear visually identical between both images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, product images, avatar circles, flag emojis, and decorative elements all render the same way in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, badge padding, card dimensions, and spacing between elements appear indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Selected pill states (like the orange-bordered 128GB option and active thumbnail), filled vs outline buttons all match."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "delivery_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "breadcrumbs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "product_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 109,
+        "agent_word_count": 109
+      },
+      "product_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "seller_info": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "specifications": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 94,
+        "agent_word_count": 94
+      },
+      "reviews_summary": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 69,
+        "agent_word_count": 69
+      },
+      "reviews_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 133,
+        "agent_word_count": 133
+      },
+      "seller_products": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 58,
+        "agent_word_count": 58
+      },
+      "related_products": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

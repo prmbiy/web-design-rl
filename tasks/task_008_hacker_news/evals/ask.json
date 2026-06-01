@@ -1,0 +1,64 @@
+{
+  "score": 0.5,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.5,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange header bar, black text, and grey subtext colors match the reference precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Font weights, sizes, and styling of headlines, subtext, and nav links appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The Y Combinator logo and upvote triangle icons render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, list density, padding, and nav item spacing match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'ask' nav state and link styling appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "intro_rules": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "ask_hn_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 573,
+        "agent_word_count": 573
+      },
+      "more_link": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the topology score of 0.50, indicating that roughly half of the expected sections are missing from the agent-generated version, despite perfect content matching on the sections that were rendered."
+}

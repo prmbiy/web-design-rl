@@ -1,0 +1,94 @@
+{
+  "score": 0.519812,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.52,
+    "weighted_content": 0.9993,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of accent colors, button orange, navy headers, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, nav link styling, and badge text appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, badge labels (99, J2, SOX), and customer logo placeholders render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, nav spacing, and overall element proportions appear matching."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Interactive element states (filled CTA buttons, nav items) appear identical with no visible differences."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 0.9956,
+        "gt_word_count": 340,
+        "agent_word_count": 339
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "why_verisys_features": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "welcome_content": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "cta_actions": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer_links": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "footer_legal": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the low topology score (0.52), indicating that roughly half of the reference sections are missing from the agent-generated version, despite the present sections matching perfectly in content and design dimensions."
+}

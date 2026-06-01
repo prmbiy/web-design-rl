@@ -1,0 +1,76 @@
+{
+  "score": 0.966667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9667,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand blue accents, gradient cards, code syntax colors, and badge colors all appear to match the reference closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, body text, and label/caps styling all appear visually identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, SDK language badges, logo, and decorative elements all render correctly without any placeholders or missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card padding, spacing, and nav density all appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active JavaScript tab, button styles, and input field states all appear to match the reference visually."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 59,
+        "agent_word_count": 59
+      },
+      "sdks": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "builders_grant": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 50,
+        "agent_word_count": 50
+      },
+      "testnet_faucet": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "docs_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

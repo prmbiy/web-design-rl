@@ -1,0 +1,76 @@
+{
+  "score": 0.965228,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9667,
+    "weighted_content": 0.997,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of gradient accents, badge colors, and overall dark theme with cyan/purple highlights."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, badge text styling, and nav link typography all match between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, letter tiles, and decorative star elements appear to render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, button padding, badge dimensions, and spacing between elements all appear consistent across both images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All Protocols' pill state and Launch App button styling appear identical in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "tvl_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "protocol_filters": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "protocols_grid": {
+        "type": "pricing",
+        "content_score": 0.9896,
+        "gt_word_count": 190,
+        "agent_word_count": 194
+      },
+      "ecosystem_fund_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

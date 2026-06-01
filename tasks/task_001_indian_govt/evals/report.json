@@ -1,0 +1,51 @@
+{
+  "task": "task_001_indian_govt",
+  "avg_score": 0.709668,
+  "avg_topology": 0.71,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The orange header, blue section bars, colored gradient cards, and accent button colors appear identical between both versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, section title caps, nav link styling, and body text hierarchy look consistent across both images."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Logo, social icons, person avatar silhouettes, and org chart boxes all render correctly with no missing placeholders."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button padding, sidebar item spacing, table row heights, and card sizing match the reference closely."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "The active 'Brief History' sidebar item with orange highlight and the active 'About the Ministry' nav tab state are preserved identically."
+    }
+  },
+  "pages": {
+    "about": {
+      "score": 0.6733,
+      "explanation": "The overall score is held back primarily by an incomplete topology (only 0.67 of expected sections present), since all design dimensions and per-section content scores are perfect."
+    },
+    "contact": {
+      "score": 0.7458,
+      "explanation": "The score is held back primarily by the incomplete topology coverage (0.75), indicating some reference sections are missing from the generated version, rather than by any design or content fidelity issues which all scored perfectly."
+    },
+    "home": {
+      "score": 0.7862,
+      "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is limited by the topology score of 0.79, indicating that some expected sections from the reference are missing or not properly aligned in the generated version."
+    },
+    "schemes": {
+      "score": 0.6173,
+      "explanation": "The score is held back primarily by incomplete section topology coverage (0.62), as missing or misaligned sections\u2014not visual fidelity\u2014account for the gap, since all per-section content F1 scores and design dimensions are otherwise perfect."
+    },
+    "tenders": {
+      "score": 0.7257,
+      "explanation": "Despite perfect design dimension and content scores, the overall result is limited by the topology score of 0.73, indicating several reference sections are missing or misaligned in the generated structure."
+    }
+  }
+}

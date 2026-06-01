@@ -1,0 +1,70 @@
+{
+  "score": 0.96,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand orange, gradient food card backgrounds, badge colors, and accent colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, button labels, and badge styling all look consistent with the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All food icons, veg/non-veg indicators, bestseller stars, and decorative elements render identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card dimensions, spacing between elements, and nav item density appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Recommended' pill state with orange highlight and ADD button styling appear identical."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "restaurant_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "info_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "offers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "menu_with_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 237,
+        "agent_word_count": 237
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

@@ -1,0 +1,94 @@
+{
+  "score": 0.933333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand orange, gradient hero panels, colored card backgrounds, badge colors, and nav accents all appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge text, and nav link styling all look the same in size and weight."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All emoji icons, product illustrations, category icons, and decorative images render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizes, card dimensions, grid spacing, and nav density appear consistent across both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active/filled button states, badge highlights, and interactive element styling appear identical with no visible differences."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "hero_banners": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "product_of_day": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 112,
+        "agent_word_count": 112
+      },
+      "popular_categories": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 87,
+        "agent_word_count": 87
+      },
+      "hot_offers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 68,
+        "agent_word_count": 68
+      },
+      "torgo_plati_promo": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "recommended_products": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 102,
+        "agent_word_count": 102
+      },
+      "app_download": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

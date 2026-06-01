@@ -1,0 +1,94 @@
+{
+  "score": 0.911111,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9111,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of Yale blue accents, badge colors (red, yellow, blue pills), and overall color palette."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, serif display fonts, caps labels, and badge text styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The decorative blue figure illustration in the group photo section and all icons render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, nav spacing, card proportions, and overall layout density appear indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Interactive element states like nav links and pill badges appear styled identically with no visible differences."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "research_focus": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 69,
+        "agent_word_count": 69
+      },
+      "highlighted_publications": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 55,
+        "agent_word_count": 55
+      },
+      "open_positions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "recent_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 87,
+        "agent_word_count": 87
+      },
+      "the_lab_photo": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "funding_support": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

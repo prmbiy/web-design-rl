@@ -1,0 +1,76 @@
+{
+  "score": 0.93114,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 0.9953,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of accent colors, gradients, badges, and icon coloring."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Headings, labels, and pill text styling all appear consistent between both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, decorative elements, and avatars render correctly in both with no visible placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card dimensions, badge proportions, and spacing all match closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active/filled button states and status pills appear identically styled in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero_community": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "hangouts": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "vip_proposals": {
+        "type": "generic",
+        "content_score": 0.9849,
+        "gt_word_count": 98,
+        "agent_word_count": 101
+      },
+      "ambassador_tiers": {
+        "type": "pricing",
+        "content_score": 0.9896,
+        "gt_word_count": 96,
+        "agent_word_count": 96
+      },
+      "hackathon_calendar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

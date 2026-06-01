@@ -1,0 +1,88 @@
+{
+  "score": 0.222222,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.2222,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The yellow accent highlights, black sections, and gradient card fills appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, serif styling, italic accents, and label/badge text styling match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All decorative card tiles, gradient blocks, and table bullets render correctly with no missing icons or placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizing, table cell density, badge padding, and spacing between elements appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Highlighted text states (yellow marker fills) and the dark CTA section appear rendered identically."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 169,
+        "agent_word_count": 169
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "manifesto_principles": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "team_grid": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "clients_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "awards_marquee": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "locations": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer_cta": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The low overall score stems primarily from poor topology coverage (0.22), indicating most reference sections are missing from the generated layout, despite the few rendered sections matching content and design dimensions perfectly."
+}

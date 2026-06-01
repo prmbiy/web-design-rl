@@ -1,0 +1,88 @@
+{
+  "score": 0.975,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.975,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The gradient card colors, CTA button green, and overall warm cream palette appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif, small-caps labels, pill text styling, and nav link weights all appear consistent."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Gradient image cards, search icon, and decorative elements all render correctly with no broken placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, card dimensions, and nav spacing match closely between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The Book Class filled green button and outline pills retain their visual state styling identically."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "teacher_amara": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 66,
+        "agent_word_count": 66
+      },
+      "teacher_ines": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 94,
+        "agent_word_count": 94
+      },
+      "teacher_devan": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 72,
+        "agent_word_count": 72
+      },
+      "teacher_yuki": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "feature_amara": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "teaching_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

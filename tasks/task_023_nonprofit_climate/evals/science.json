@@ -1,0 +1,100 @@
+{
+  "score": 0.698701,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6987,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Green accents, red threshold markers, and stat colors appear nearly identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps labels, and body text styling match closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Charts, bar visualizations, and decorative elements render correctly with no missing icons or placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, button sizing, card padding, and nav density appear consistent across both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Donate button and interactive elements show matching filled/outline treatments with no visible state differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "hero_science": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "key_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "quote_otto": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "viz_temperature": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "viz_extreme_weather": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 89,
+        "agent_word_count": 89
+      },
+      "viz_sea_level": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 239,
+        "agent_word_count": 239
+      },
+      "key_findings": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "faq_misconceptions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "sources_cited": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the topology gap (0.70), indicating missing or misaligned sections despite all listed sections scoring perfect content F1, suggesting structural/layout omissions rather than visual or textual mismatches."
+}

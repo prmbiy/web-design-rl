@@ -1,0 +1,94 @@
+{
+  "score": 0.955556,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9556,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All accent colors including blue pre-order button, orange badges, and yellow PDF marker match identically."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, label caps styling, and body text hierarchy appear identical between both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "PDF icon, badge icons, and all decorative elements render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, table row spacing, badge dimensions, and section spacing match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Button fills, badge states, and nav styling appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "display_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "sensor_processor_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 64,
+        "agent_word_count": 64
+      },
+      "battery_power_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 64,
+        "agent_word_count": 64
+      },
+      "connectivity_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 49,
+        "agent_word_count": 49
+      },
+      "materials_dimensions_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "lens_mount_sensors_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "spec_sheet_download": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

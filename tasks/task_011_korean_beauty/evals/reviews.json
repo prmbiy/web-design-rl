@@ -1,0 +1,82 @@
+{
+  "score": 0.805399,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8083,
+    "weighted_content": 0.9927,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The pink/peach gradients, badge colors, and accent tones appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif italic, body weights, and pill/badge text styling all match closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Emojis, decorative icons, and gradient card illustrations all render properly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, padding, pill dimensions, and spacing between elements match the reference precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active filter pill ('All'), selected sort toggle, and tab highlight states appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "reviews_hero": {
+        "type": "hero",
+        "content_score": 0.9688,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "filters": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "community_photo_wall": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 239,
+        "agent_word_count": 239
+      },
+      "featured_transformation": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 113,
+        "agent_word_count": 113
+      },
+      "skincare_journeys": {
+        "type": "generic",
+        "content_score": 0.9803,
+        "gt_word_count": 152,
+        "agent_word_count": 152
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held below 1.0 primarily by the topology score (0.81) indicating some sections are missing or misaligned, with minor secondary content gaps in the reviews_hero (0.97) and skincare_journeys (0.98) sections."
+}

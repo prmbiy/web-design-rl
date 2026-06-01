@@ -1,0 +1,76 @@
+{
+  "score": 0.612761,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6143,
+    "weighted_content": 0.995,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The yellow accent, black backgrounds, and card color palette (red, cyan, green, brown stripes) appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, italic serif styling, caps labels, and nav typography all match closely between the versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Decorative gradient orbs, striped patterns, sparkle icons in the marquee, and all card visuals render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Grid card sizing, padding, label placement, and nav spacing appear to match the reference precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'ALL' filter tab with underline and other interactive state indicators appear to be rendered the same way."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "hero_selected_work": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "filter_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "projects_grid": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "stats_block": {
+        "type": "generic",
+        "content_score": 0.9615,
+        "gt_word_count": 52,
+        "agent_word_count": 52
+      },
+      "clients_marquee": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing or misaligned sections reflected in the 0.61 topology score, along with a minor content gap in the stats_block (0.96 F1)."
+}

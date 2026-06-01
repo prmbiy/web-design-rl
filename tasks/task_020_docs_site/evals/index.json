@@ -1,0 +1,94 @@
+{
+  "score": 0.666667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6667,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The blue header, accent colors on nav items, code block dark background, and card colors all appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, nav link styling, and section header treatments look indistinguishable between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, emojis (rocket, brain, books, ship, note), and decorative elements render correctly and identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, padding on cards, table row heights, button sizes, and nav density all match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Home' nav item, selected 'pip' tab, and active 'Installation' on-this-page indicator all appear in the same highlighted states."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 193,
+        "agent_word_count": 193
+      },
+      "hero_intro": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "installation": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "quick_example": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "explore_docs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "features_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "community_support": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 43,
+        "agent_word_count": 43
+      },
+      "cloud_cta": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.67), indicating that roughly a third of the expected sections are missing from the agent-generated version."
+}

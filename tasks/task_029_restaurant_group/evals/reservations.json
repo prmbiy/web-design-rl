@@ -1,0 +1,76 @@
+{
+  "score": 0.664286,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6643,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The deep burgundy accents, cream backgrounds, gold dividers, and dark footer all appear to match the reference precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Serif headings, uppercase tracked labels, and body text weights/sizes appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The diamond divider, ML avatar circle, and decorative elements all render correctly without missing icons or placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, time pill sizing, form field spacing, and card proportions all align with the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected 6:45 PM time slot is filled with burgundy, struck-through unavailable times, and outline pills are styled consistently with the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "reservation_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 202,
+        "agent_word_count": 202
+      },
+      "private_dining_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "cancellation_policy": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "tonight_availability": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 61,
+        "agent_word_count": 61
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 50,
+        "agent_word_count": 50
+      }
+    }
+  },
+  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.66), indicating several reference sections are missing from the agent-generated version."
+}

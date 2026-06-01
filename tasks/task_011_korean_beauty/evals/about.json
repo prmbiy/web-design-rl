@@ -1,0 +1,88 @@
+{
+  "score": 0.909294,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.95,
+    "weighted_content": 0.9143,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The color palette, gradients on cards, pink accents, and badge colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, italic serif accents, caps labels, and body text styling all match closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, avatar illustration, and decorative elements all render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card dimensions, spacing, and nav density appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state, filled CTA button, and pill states look identical in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "brand_story_hero": {
+        "type": "hero",
+        "content_score": 0.7907,
+        "gt_word_count": 24,
+        "agent_word_count": 19
+      },
+      "founder_story": {
+        "type": "generic",
+        "content_score": 0.9161,
+        "gt_word_count": 143,
+        "agent_word_count": 143
+      },
+      "where_we_make": {
+        "type": "generic",
+        "content_score": 0.8974,
+        "gt_word_count": 36,
+        "agent_word_count": 42
+      },
+      "certifications": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 75,
+        "agent_word_count": 75
+      },
+      "philosophy": {
+        "type": "generic",
+        "content_score": 0.9451,
+        "gt_word_count": 90,
+        "agent_word_count": 92
+      },
+      "press_features": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "skin_quiz_cta": {
+        "type": "form_step",
+        "content_score": 0.8696,
+        "gt_word_count": 11,
+        "agent_word_count": 12
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.9394,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by content mismatches in the brand_story_hero section (0.79) and the skin_quiz_cta section (0.87), where the agent's wording diverges from the reference."
+}

@@ -1,0 +1,130 @@
+{
+  "score": 0.6475,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6475,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of brand pink accents, gradient card fills, badge colors, and nav link colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, and decorative gradient placeholders render consistently in both images with no missing or broken assets visible."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, card dimensions, and spacing between elements appear matched between the two layouts."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active TV nav pill, filled CTA buttons, and trending/hot badges all show consistent active/filled states in both versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "trending_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "billboard_ad": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "section_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "featured_bachelor": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 98,
+        "agent_word_count": 98
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 268,
+        "agent_word_count": 268
+      },
+      "rhobh_stranger_things": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "viewer_poll": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "bridgerton_succession": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "sponsored_content": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "love_island_survivor": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "leaderboard_ad": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "streaming_war_poll": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 34,
+        "agent_word_count": 34
+      },
+      "yellowstone_white_lotus": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "you_may_also_like": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "Despite perfect design and content scores, the overall result is held back by an incomplete topology (0.65), indicating several expected sections from the reference are missing or not properly structured in the agent's version."
+}

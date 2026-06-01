@@ -1,0 +1,94 @@
+{
+  "score": 0.742857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Both pages use identical link blue, green featured row highlighting, and neutral text colors with no perceptible difference."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, link styling, and monospace-like table text appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Neither version uses icons or images beyond text, and both render the plain layout identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing of nav items, column widths, row heights, and search controls match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The featured row highlight states and link styling are rendered the same in both versions."
+      }
+    },
+    "sections": {
+      "top_nav_search": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "page_header_links": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "nearby_locations": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "browse_categories": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "listings_header_sort": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "listings_table": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 417,
+        "agent_word_count": 417
+      },
+      "pagination": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "flag_listing_options": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as some reference sections appear to be missing from the agent's output, rather than by any color, typography, or content-matching issues."
+}

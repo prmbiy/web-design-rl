@@ -1,0 +1,82 @@
+{
+  "score": 0.914286,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9143,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of accent colors on CTAs, badge pills, dot indicators, and the orange event space section."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, weights, label caps, and nav link styling all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Avatar placeholders, archive image gradients, and calendar dot icons render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, calendar cell dimensions, and spacing between elements match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All Events' pill, highlighted nav item, selected calendar date, and RSVP button states appear identical."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "event_filters": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "calendar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 82,
+        "agent_word_count": 82
+      },
+      "upcoming_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 293,
+        "agent_word_count": 293
+      },
+      "archives_gallery": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 78,
+        "agent_word_count": 78
+      },
+      "event_space_cta": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

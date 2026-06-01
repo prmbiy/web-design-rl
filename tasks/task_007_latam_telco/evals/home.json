@@ -1,0 +1,112 @@
+{
+  "score": 0.916667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9167,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand colors, gradients, badge fills, and CTA accents appear identical between both images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and pill text styling appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, logos, emoji, and decorative map illustrations all render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear consistent."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab underline, selected $200 pill, filled vs outlined CTAs, and highlighted Pro card all match."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "promo_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero_plan": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 77,
+        "agent_word_count": 77
+      },
+      "plan_finder_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "pricing_plans": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 121,
+        "agent_word_count": 121
+      },
+      "streaming_services": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "recharge_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 49,
+        "agent_word_count": 49
+      },
+      "data_doubles_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "portability_promo": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 61,
+        "agent_word_count": 61
+      },
+      "stores_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "status_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

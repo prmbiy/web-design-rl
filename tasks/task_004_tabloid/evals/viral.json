@@ -1,0 +1,106 @@
+{
+  "score": 0.927273,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9273,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand pink, gradient fills on cards, badge colors, and accent hues appear virtually identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, and nav link typography all look consistent with the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, avatars, and decorative illustrations in the Weird News section all render correctly with no visible placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, badge padding, nav spacing, and pill dimensions match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active trending pill, viral nav highlight, and badge states appear identical to the reference."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "trending_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "hero_article": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "ad_geico": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "tweet_roundup": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 162,
+        "agent_word_count": 162
+      },
+      "ad_lancome": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "tiktoks_grid": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 34,
+        "agent_word_count": 34
+      },
+      "reddit_week": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 147,
+        "agent_word_count": 147
+      },
+      "pumpkin_poll": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "ad_hulu": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "weird_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "you_may_also_like": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

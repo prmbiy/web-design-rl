@@ -1,0 +1,88 @@
+{
+  "score": 0.888889,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8889,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand orange accents, green veg indicators, red non-veg indicator, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, pill text casing, and nav link styling all appear matched."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons including cart, search, location pin, scooter emoji, and party emoji all render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, spacing between elements, and nav density look identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected UPI pill, quantity selectors, and Place Order button states appear consistent between both."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "breadcrumb_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "restaurant_header": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "cart_items": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "apply_coupon": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "delivery_address": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "bill_details": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "cancellation_notice": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "checkout_bar": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

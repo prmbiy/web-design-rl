@@ -1,0 +1,112 @@
+{
+  "score": 0.786154,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7862,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange, blue, red, and green accent colors across header, cards, nav, and badges match the reference exactly."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps styling on section titles, nav link styling, and badge typography appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji indicators, scheme illustrations, minister avatar placeholders, and photo gallery tiles all render properly as in the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, nav item spacing, button padding, and section densities match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlighting, NEW badges, and link/button variants appear consistent with the reference design."
+      }
+    },
+    "sections": {
+      "top_utility_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "masthead": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "hero_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "citizen_services_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 84,
+        "agent_word_count": 84
+      },
+      "flagship_schemes": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 43,
+        "agent_word_count": 43
+      },
+      "latest_updates": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 113,
+        "agent_word_count": 113
+      },
+      "ministers_corner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "stats_glance": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "right_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "footer_follow_helpline": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer_links": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 90,
+        "agent_word_count": 90
+      },
+      "footer_copyright": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      }
+    }
+  },
+  "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is limited by the topology score of 0.79, indicating that some expected sections from the reference are missing or not properly aligned in the generated version."
+}

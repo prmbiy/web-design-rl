@@ -1,0 +1,76 @@
+{
+  "score": 0.863431,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 0.8902,
+    "design_score": 0.96,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Both versions use the same dark background with green accent colors for headings, links, and badges, matching closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Monospace fonts, heading sizes, and pill/badge text styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 4,
+        "reason": "Both versions show the same icons and lack of decorative imagery, with the agent version showing an extra green cursor/caret bar next to the Writing heading."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, pill sizes, padding, and overall layout density appear nearly identical between both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The 'All' filter pill is shown as active/selected with the same green outline styling in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 0.8571,
+        "gt_word_count": 4,
+        "agent_word_count": 3
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "filters": {
+        "type": "generic",
+        "content_score": 0.5,
+        "gt_word_count": 10,
+        "agent_word_count": 6
+      },
+      "pinned_post": {
+        "type": "generic",
+        "content_score": 0.9357,
+        "gt_word_count": 84,
+        "agent_word_count": 87
+      },
+      "recent_posts": {
+        "type": "generic",
+        "content_score": 0.993,
+        "gt_word_count": 430,
+        "agent_word_count": 430
+      },
+      "subscribe": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.8364,
+        "gt_word_count": 30,
+        "agent_word_count": 25
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the filters section's low content fidelity (0.50 F1, indicating missing or incorrect filter labels) and the extraneous green cursor/caret bar next to the Writing heading that doesn't appear in the reference."
+}

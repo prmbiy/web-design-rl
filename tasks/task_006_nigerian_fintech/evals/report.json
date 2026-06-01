@@ -1,0 +1,51 @@
+{
+  "task": "task_006_nigerian_fintech",
+  "avg_score": 0.865238,
+  "avg_topology": 0.865,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "Brand greens, purple commission table, and purple form section all match the reference closely with consistent accent and badge colors."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, button labels, and pill/badge styling appear identical to the reference."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Icons, emoji (fire), avatar placeholders, and map illustration all render correctly as in the reference."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button sizes, padding, table row spacing, and form element spacing match the reference proportions."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Active nav link (Agents in green), filled vs outline buttons, and WhatsApp floating button states appear consistent with the reference."
+    }
+  },
+  "pages": {
+    "agents": {
+      "score": 0.6667,
+      "explanation": "The score is held back primarily by the topology gap (0.67) indicating missing or misaligned sections in the overall page structure, despite per-section content and design dimensions all scoring perfectly."
+    },
+    "business": {
+      "score": 0.8083,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "home": {
+      "score": 0.9333,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "personal": {
+      "score": 0.9429,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "security": {
+      "score": 0.975,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

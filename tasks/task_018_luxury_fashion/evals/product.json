@@ -1,0 +1,82 @@
+{
+  "score": 0.605873,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.67,
+    "weighted_content": 0.9286,
+    "design_score": 0.88,
+    "design_dimensions": {
+      "color": {
+        "score": 4,
+        "reason": "Colors of buttons, swatches, and text accents match closely, with the third product image showing slightly faded/lighter rendering but overall palette is consistent."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and nav typography appear identical with same serif/sans hierarchy and letter spacing."
+      },
+      "assets": {
+        "score": 3,
+        "reason": "All product images render correctly except the third related product (Sac Camille Mini) appears washed out/faded compared to reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, spacing between elements, swatch dimensions, and footer layout proportions match the reference well."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The filled Reserve button and outline Add to Bag button variants are correctly differentiated matching the reference states."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "breadcrumb": {
+        "type": "generic",
+        "content_score": 0.8889,
+        "gt_word_count": 4,
+        "agent_word_count": 5
+      },
+      "product_main": {
+        "type": "hero",
+        "content_score": 0.8527,
+        "gt_word_count": 67,
+        "agent_word_count": 62
+      },
+      "product_image_2": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_image_3": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_image_4": {
+        "type": "media",
+        "content_score": 0.8,
+        "gt_word_count": 11,
+        "agent_word_count": 9
+      },
+      "related_products": {
+        "type": "generic",
+        "content_score": 0.9725,
+        "gt_word_count": 55,
+        "agent_word_count": 54
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the washed-out/faded rendering of the third related product image (Sac Camille Mini) that weakens asset fidelity, and by content mismatches in the product_image_4 media section (0.80 F1) along with minor gaps in the hero product_main copy (0.85 F1)."
+}

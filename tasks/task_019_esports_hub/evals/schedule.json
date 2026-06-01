@@ -1,0 +1,70 @@
+{
+  "score": 0.952047,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 0.9834,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of red accent colors, team badge colors, status pill backgrounds (green WIN, red LOSS), and nav link colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button caps styling, badge text, and nav link typography all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, team logos, and decorative elements render identically with no visible placeholder boxes or missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, table row spacing, and nav item density all match precisely between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab underline on UPCOMING, red-outlined match highlights in the bracket, LIVE pulse indicator, and filled vs outline button states are all preserved identically."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 0.9231,
+        "gt_word_count": 7,
+        "agent_word_count": 6
+      },
+      "live_scores_ticker": {
+        "type": "navigation",
+        "content_score": 0.9677,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "filters": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "schedule_main": {
+        "type": "generic",
+        "content_score": 0.9973,
+        "gt_word_count": 188,
+        "agent_word_count": 189
+      },
+      "playoffs_bracket": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

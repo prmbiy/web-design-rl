@@ -1,0 +1,100 @@
+{
+  "score": 0.94,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.94,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand colors, gradient cards, accent reds, and category color blocks appear virtually identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, nav link styling, badge caps, and label sizing match the reference closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji, weather glyphs, and decorative illustrations render correctly and match the reference placement and style."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizing, nav density, button padding, and form element spacing all appear consistent with the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlight on the breaking news tab and button states appear preserved identically."
+      }
+    },
+    "sections": {
+      "top_utility_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "masthead_search": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "breaking_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "promo_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "featured_hero_with_sidebar": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 71,
+        "agent_word_count": 71
+      },
+      "headlines_grid": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 155,
+        "agent_word_count": 155
+      },
+      "main_sections": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "ana_promo": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "opinion_columns": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "archive_search": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

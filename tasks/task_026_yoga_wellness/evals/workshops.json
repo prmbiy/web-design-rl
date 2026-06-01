@@ -1,0 +1,64 @@
+{
+  "score": 0.558191,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9,
+    "weighted_content": 0.7204,
+    "design_score": 0.52,
+    "design_dimensions": {
+      "color": {
+        "score": 2,
+        "reason": "The agent version is missing the workshop card sections entirely so the colored gradient fills, green reserve buttons, and accent colors visible in the reference are absent in the middle area, though the footer and header colors match."
+      },
+      "typography": {
+        "score": 4,
+        "reason": "Visible typography in the hero, form, and footer appears consistent in weight, size, and styling between both versions."
+      },
+      "assets": {
+        "score": 1,
+        "reason": "The agent version is missing the three workshop card images/illustrations (sparkle, circle, command icon gradient blocks) that are prominent in the reference."
+      },
+      "proportion": {
+        "score": 2,
+        "reason": "Button sizing, form field spacing, and nav density match where visible, but the missing card sections leave large empty gaps disrupting overall page proportion."
+      },
+      "states": {
+        "score": 4,
+        "reason": "Interactive elements like the Book Class button, Subscribe button, and Send Inquiry button appear with matching filled styling in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 0.9231,
+        "gt_word_count": 6,
+        "agent_word_count": 7
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.6,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "media_gallery": {
+        "type": "media",
+        "content_score": 0.1667,
+        "gt_word_count": 27,
+        "agent_word_count": 297
+      },
+      "registration_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      }
+    }
+  },
+  "explanation": "The score is held back by the entirely missing workshop card sections\u2014removing the gradient fills, green reserve buttons, and three icon illustrations (color 2/5, assets 1/5)\u2014and the resulting media gallery content mismatch (F1 0.17) that leaves large proportional gaps in the page layout."
+}

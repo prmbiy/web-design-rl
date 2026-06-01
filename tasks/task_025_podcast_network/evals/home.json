@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of purple background, coral/red CTAs, yellow accent text, and the gradient card fills."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, italic accent treatment, caps labels, and nav link styling all match precisely between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All decorative gradient cards, play icons, and minor graphical elements render identically with no missing or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear identical across both renders."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Interactive states like the filled CTA buttons and player controls appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "shows_grid": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 155,
+        "agent_word_count": 155
+      },
+      "editors_pick": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "newsletter_signup": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 57,
+        "agent_word_count": 57
+      },
+      "membership_support": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "about_network": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

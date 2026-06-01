@@ -1,12 +1,13 @@
-"""Stage 1: GT description and OCR-based soft sectioning.
+"""Stage 1: GT description + OCR-based word bucketing.
 
 Two steps:
-  1. describe_gt()      — LLM sees GT image, outputs section list with NL descriptions (no coordinates)
-  2. assign_sections()  — OCR both images, LLM assigns words to sections using the descriptions
+  1. describe_gt()     — LLM sees GT image, outputs section list with y-fraction bounds
+  2. bucket_sections() — OCR both images, Python assigns words to sections by y-position
 """
 from __future__ import annotations
 
 import base64
+import io
 import json
 import re
 from dataclasses import dataclass, field
@@ -20,7 +21,7 @@ from .utils import get_client
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _MODEL = "claude-opus-4-7"
-_MAX_TOKENS = 8192
+_DESCRIBE_MAX_TOKENS = 8192
 _OCR_CONF_THRESHOLD = 30
 
 VALID_TYPES = {
@@ -33,7 +34,8 @@ VALID_TYPES = {
 class SectionSpec:
     label: str
     type: str
-    description: str
+    y_top: float
+    y_bottom: float
 
 
 @dataclass
@@ -42,10 +44,22 @@ class SectionWords:
     type: str
     gt_words: list[str] = field(default_factory=list)
     agent_words: list[str] = field(default_factory=list)
+    # mean y-fraction of agent words — used for topology ordering check
+    agent_mean_y: float = 0.0
 
 
 def _encode(path: Path) -> str:
-    return base64.standard_b64encode(path.read_bytes()).decode("ascii")
+    """Half-resolution encode for API — further downscale if still over 8000px."""
+    with Image.open(path) as img:
+        w, h = img.size
+        w, h = w // 2, h // 2
+        if max(w, h) > 7900:
+            scale = 7900 / max(w, h)
+            w, h = int(w * scale), int(h * scale)
+        img = img.resize((w, h), Image.LANCZOS)
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        return base64.standard_b64encode(buf.getvalue()).decode("ascii")
 
 
 def _jinja() -> Environment:
@@ -53,37 +67,6 @@ def _jinja() -> Environment:
         loader=FileSystemLoader(str(_PROMPTS_DIR)),
         keep_trailing_newline=True,
     )
-
-
-def _call_vision(prompt: str, *image_paths: Path) -> str:
-    client = get_client()
-    content: list = []
-    for img_path in image_paths:
-        content.append({
-            "type": "image",
-            "source": {
-                "type": "base64",
-                "media_type": "image/png",
-                "data": _encode(img_path),
-            },
-        })
-    content.append({"type": "text", "text": prompt})
-    msg = client.messages.create(
-        model=_MODEL,
-        max_tokens=_MAX_TOKENS,
-        messages=[{"role": "user", "content": content}],
-    )
-    return "".join(block.text for block in msg.content if block.type == "text")
-
-
-def _call_text(prompt: str) -> str:
-    client = get_client()
-    msg = client.messages.create(
-        model=_MODEL,
-        max_tokens=_MAX_TOKENS,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return "".join(block.text for block in msg.content if block.type == "text")
 
 
 def _parse_json(text: str) -> object:
@@ -100,17 +83,13 @@ def _parse_json(text: str) -> object:
         raise
 
 
-def _ocr_word_list(image_path: Path) -> str:
-    """Run tesseract on an image and return a formatted word list string.
-
-    Each line: "word [y=0.NN]" — fractional y position normalised to image height.
-    Words below the confidence threshold are excluded.
-    """
+def _ocr_words_with_y(image_path: Path) -> list[tuple[str, float]]:
+    """Return list of (word, y_fraction) from tesseract OCR."""
     with Image.open(image_path) as img:
         height = img.height
         data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
 
-    lines: list[str] = []
+    results: list[tuple[str, float]] = []
     for i, word in enumerate(data["text"]):
         word = (word or "").strip()
         if not word:
@@ -122,17 +101,53 @@ def _ocr_word_list(image_path: Path) -> str:
         if conf < _OCR_CONF_THRESHOLD:
             continue
         y_centre = data["top"][i] + data["height"][i] / 2.0
-        y_frac = round(y_centre / height, 3) if height > 0 else 0.0
-        lines.append(f"{word} [y={y_frac:.3f}]")
-    # Keep at most 600 words — enough for any page, prevents prompt overflow on dense layouts
-    return "\n".join(lines[:600])
+        y_frac = round(y_centre / height, 4) if height > 0 else 0.0
+        results.append((word, y_frac))
+    return results[:600]
+
+
+# Also expose the string format for the scorer's ordering check
+def _ocr_word_list(image_path: Path) -> str:
+    return "\n".join(
+        f"{w} [y={y:.3f}]" for w, y in _ocr_words_with_y(image_path)
+    )
+
+
+def _bucket_words(
+    words: list[tuple[str, float]],
+    specs: list[SectionSpec],
+) -> dict[str, list[str]]:
+    """Assign each word to a section by y-fraction overlap. Pure Python, no LLM."""
+    buckets: dict[str, list[str]] = {s.label: [] for s in specs}
+    buckets["unassigned"] = []
+    for word, y in words:
+        assigned = False
+        for spec in specs:
+            if spec.y_top <= y <= spec.y_bottom:
+                buckets[spec.label].append(word)
+                assigned = True
+                break
+        if not assigned:
+            buckets["unassigned"].append(word)
+    return buckets
 
 
 def describe_gt(gt_path: Path) -> list[SectionSpec]:
-    """Stage 1A: LLM describes the GT image sections with no coordinates."""
+    """LLM describes GT sections with y-fraction bounds. Small output (~1024 tokens)."""
     prompt = _jinja().get_template("describe_gt.j2").render()
-    raw = _call_vision(prompt, gt_path)
+    client = get_client()
+    content = [
+        {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode(gt_path)}},
+        {"type": "text", "text": prompt},
+    ]
+    msg = client.messages.create(
+        model=_MODEL,
+        max_tokens=_DESCRIBE_MAX_TOKENS,
+        messages=[{"role": "user", "content": content}],
+    )
+    raw = "".join(block.text for block in msg.content if block.type == "text")
     data = _parse_json(raw)
+
     specs: list[SectionSpec] = []
     for item in data:
         sec_type = item.get("type", "generic")
@@ -141,37 +156,34 @@ def describe_gt(gt_path: Path) -> list[SectionSpec]:
         specs.append(SectionSpec(
             label=item["label"],
             type=sec_type,
-            description=item["description"],
+            y_top=float(item.get("y_top", 0.0)),
+            y_bottom=float(item.get("y_bottom", 1.0)),
         ))
     return specs
 
 
-def assign_sections(
+def bucket_sections(
     gt_path: Path,
     agent_path: Path,
     specs: list[SectionSpec],
 ) -> list[SectionWords]:
-    """Stage 1B: OCR both images, LLM assigns words to sections."""
-    gt_words = _ocr_word_list(gt_path)
-    agent_words = _ocr_word_list(agent_path)
+    """OCR both images, bucket words by y-fraction into sections. No LLM call."""
+    gt_words = _ocr_words_with_y(gt_path)
+    agent_words = _ocr_words_with_y(agent_path)
 
-    prompt = _jinja().get_template("assign_sections.j2").render(
-        sections=specs,
-        gt_words=gt_words,
-        agent_words=agent_words,
-    )
-    raw = _call_text(prompt)
-    data = _parse_json(raw)
-
-    gt_map: dict[str, list[str]] = data.get("gt_sections", {})
-    agent_map: dict[str, list[str]] = data.get("agent_sections", {})
+    gt_buckets = _bucket_words(gt_words, specs)
+    agent_buckets = _bucket_words(agent_words, specs)
 
     result: list[SectionWords] = []
     for spec in specs:
+        aw = agent_buckets.get(spec.label, [])
+        agent_ys = [y for w, y in agent_words if w in aw]
+        mean_y = sum(agent_ys) / len(agent_ys) if agent_ys else 0.0
         result.append(SectionWords(
             label=spec.label,
             type=spec.type,
-            gt_words=gt_map.get(spec.label, []),
-            agent_words=agent_map.get(spec.label, []),
+            gt_words=gt_buckets.get(spec.label, []),
+            agent_words=aw,
+            agent_mean_y=mean_y,
         ))
     return result

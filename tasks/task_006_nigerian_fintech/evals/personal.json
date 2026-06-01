@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand greens, purple gradient section, badge pills, and accent colors throughout."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, pill caps styling, and nav link styling all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, phone mockup, and flag images render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card spacing, and nav density look indistinguishable between the two."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlight on 'Personal', filled CTA vs outline secondary button, and chat widget state all match."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 104,
+        "agent_word_count": 104
+      },
+      "trust_badges": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "products_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 196,
+        "agent_word_count": 196
+      },
+      "comparison_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 144,
+        "agent_word_count": 144
+      },
+      "diaspora_remittance": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "cta_download": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

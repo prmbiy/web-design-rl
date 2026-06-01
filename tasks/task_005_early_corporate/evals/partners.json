@@ -1,0 +1,100 @@
+{
+  "score": 0.718182,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7182,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand blues, gold/silver/grey tier headers, orange CTA, and accent colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps section labels, table headers, and nav link styling match closely with no perceptible difference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Trophy, medal, clipboard icons, handshake illustration, and check/dash symbols render identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, table row spacing, nav density, and form element proportions appear visually identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Partners' nav tab highlight and the orange Apply Now button state look the same in both versions."
+      }
+    },
+    "sections": {
+      "top_header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 57,
+        "agent_word_count": 57
+      },
+      "stats_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 167,
+        "agent_word_count": 167
+      },
+      "partner_tiers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "find_partner_search": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "benefits_comparison": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 195,
+        "agent_word_count": 195
+      },
+      "apply_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 94,
+        "agent_word_count": 94
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.72), as not all reference sections were reproduced, even though the sections that were present matched perfectly in both content and visual design."
+}

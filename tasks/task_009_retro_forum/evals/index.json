@@ -1,0 +1,106 @@
+{
+  "score": 0.766667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7667,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of brand colors, accent oranges, blue navigation, badge colors, and icon tints."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, link styling, badge caps treatment, and body text all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Folder icons, avatar pills, decorative graphics, and the sponsor banner all render identically with no missing or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, padding, row heights, button sizes, and column widths look indistinguishable between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlighting, link states, and pill/badge treatments appear identical in both renders."
+      }
+    },
+    "sections": {
+      "site_header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "breadcrumb_actions": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "advertisement_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "general_discussion_forums": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 87,
+        "agent_word_count": 87
+      },
+      "technical_help_forums": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 110,
+        "agent_word_count": 110
+      },
+      "build_threads_forums": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 120,
+        "agent_word_count": 120
+      },
+      "sidebar_sponsor_and_users": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 102,
+        "agent_word_count": 102
+      },
+      "classifieds_forums": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "meets_events_forums": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 92,
+        "agent_word_count": 92
+      },
+      "birthdays_and_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

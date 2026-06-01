@@ -1,0 +1,94 @@
+{
+  "score": 0.875,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.875,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand red accents, gradient cards, badge colors, and nav link colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps styling on labels, button typography, and nav link styling all match closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, play buttons, flag emoji, and avatar placeholders render identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, table row spacing, and nav density all appear matched."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active LIVE pill, filled vs outline button variants, and highlighted nav items appear consistent across both."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "match_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "hero_announcement": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 51,
+        "agent_word_count": 51
+      },
+      "latest_news": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 83,
+        "agent_word_count": 83
+      },
+      "upcoming_matches": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      },
+      "roster_spotlight": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "live_twitch": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "sponsors": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "discord_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

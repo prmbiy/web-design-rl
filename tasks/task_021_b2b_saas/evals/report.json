@@ -1,0 +1,51 @@
+{
+  "task": "task_021_b2b_saas",
+  "avg_score": 0.802758,
+  "avg_topology": 0.803,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The two images appear visually identical in all brand accent colors, gradients, badges, and icon colors."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, body text, button labels, and pill/badge styling appear identical between both versions."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "All icons, logos, avatars, and decorative elements render the same way in both images."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button padding, badge sizing, nav spacing, and overall element proportions match precisely."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Active nav states, filled vs outline buttons, and highlighted elements appear identical in both versions."
+    }
+  },
+  "pages": {
+    "home": {
+      "score": 0.9556,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "platform": {
+      "score": 0.5055,
+      "explanation": "The score is held back primarily by topology gaps where several reference sections are missing or misaligned in the agent's version, despite per-section content and design dimensions otherwise matching closely."
+    },
+    "pricing": {
+      "score": 0.85,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "resources": {
+      "score": 0.9778,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "solutions": {
+      "score": 0.725,
+      "explanation": "The score is held back primarily by the topology gap (0.72), indicating several reference sections are missing or misaligned in the agent's version, despite perfect design dimension and content F1 scores across all detected sections."
+    }
+  }
+}

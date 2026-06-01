@@ -1,0 +1,51 @@
+{
+  "task": "task_023_nonprofit_climate",
+  "avg_score": 0.785425,
+  "avg_topology": 0.785,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The two images appear visually identical in terms of accent greens, donate button color, advisor avatar background colors, and donut chart segment colors."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, serif/sans pairings, small caps labels, and nav link styling all match the reference precisely."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Avatar initials, checkmark icons, donut chart, and all decorative elements render identically with no missing or broken assets."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Card sizes, button padding, nav spacing, and the executive team color block sizing appear to match the reference exactly."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "The filled Donate button and other interactive elements show consistent styling with no visible state differences."
+    }
+  },
+  "pages": {
+    "about": {
+      "score": 0.9333,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "action": {
+      "score": 0.603,
+      "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is held back by an incomplete topology (0.60), indicating that roughly 40% of the reference sections are missing from the agent-generated version."
+    },
+    "home": {
+      "score": 0.8603,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "science": {
+      "score": 0.6987,
+      "explanation": "The score is held back primarily by the topology gap (0.70), indicating missing or misaligned sections despite all listed sections scoring perfect content F1, suggesting structural/layout omissions rather than visual or textual mismatches."
+    },
+    "stories": {
+      "score": 0.8317,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "score": 0.775,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.775,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of blue headers, orange accents, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button text, and nav link styling appear visually identical between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, avatars, star ratings, and decorative elements all render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, form spacing, and overall layout proportions appear indistinguishable from the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Checkbox states, radio button selections, and active elements match the reference exactly."
+      }
+    },
+    "sections": {
+      "header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "ad_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "advanced_search_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "search_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 212,
+        "agent_word_count": 212
+      },
+      "sample_results": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 142,
+        "agent_word_count": 142
+      },
+      "sidebar_quicklinks": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "forum_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      }
+    }
+  },
+  "explanation": "Despite perfect design and content matches, the score is held back by missing sections reflected in the 0.78 topology score, indicating the agent omitted some structural regions from the reference layout."
+}

@@ -1,0 +1,82 @@
+{
+  "score": 0.625,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.625,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand purple accents, gradient cards, badges, and icon colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, monospace labels, and pill text styling match closely throughout."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, avatars, and decorative gradients all render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and spacing appear consistent between versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'All Posts' pill and filled CTA buttons render with the same highlighted styling."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "category_filters": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "featured_posts": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 333,
+        "agent_word_count": 333
+      },
+      "changelog": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 214,
+        "agent_word_count": 214
+      },
+      "newsletter_signup": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "authors": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.62), indicating several reference sections are missing from the agent-generated version."
+}

@@ -1,0 +1,88 @@
+{
+  "score": 0.975,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.975,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange brand color, gradient fills, badges, rating stars, and accent colors all match identically."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Headings, button labels, badge text, and nav link styling appear identical in weight and size."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, emoji, product placeholder illustrations, and avatars render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab underline, selected pill button, and CTA filled states match the reference exactly."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "seller_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "tabs_ratings": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "promo_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "category_filters": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 61,
+        "agent_word_count": 61
+      },
+      "products_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 261,
+        "agent_word_count": 261
+      },
+      "pagination": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "contact_schedule_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

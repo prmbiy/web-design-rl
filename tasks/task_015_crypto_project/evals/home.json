@@ -1,0 +1,82 @@
+{
+  "score": 0.994185,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 1.0,
+    "weighted_content": 0.9884,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear to use identical cyan/blue accent colors, gradients on protocol pills, and dark backgrounds."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, badge caps styling, and nav link typography all appear identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, social logos, and decorative constellation graphics render correctly and match."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements look consistent between both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Launch App button styling and other interactive element states appear to match with no visible differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.9722,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "stats": {
+        "type": "generic",
+        "content_score": 0.9643,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "technology_features": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 90,
+        "agent_word_count": 90
+      },
+      "ecosystem_protocols": {
+        "type": "generic",
+        "content_score": 0.9884,
+        "gt_word_count": 86,
+        "agent_word_count": 86
+      },
+      "developers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "community": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

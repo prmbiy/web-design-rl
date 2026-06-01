@@ -1,0 +1,88 @@
+{
+  "score": 0.923618,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.925,
+    "weighted_content": 0.997,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand gradient logo, orange CTA, category pill colors, card gradients, and badge colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, pill text caps styling, button labels, and nav link typography all match closely with no discernible difference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All emoji icons (headphones, chili, yoga, tree, mic, camera, tea, coffee) and decorative elements render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizing, button padding, pill dimensions, filter spacing, and grid layout proportions appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'All' pill, selected checkboxes (Music, Food & Drink), active 'Free' price filter, and active page '1' all show identical state styling."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "search_bar": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "category_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "filters_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 170,
+        "agent_word_count": 170
+      },
+      "events_grid": {
+        "type": "generic",
+        "content_score": 0.9641,
+        "gt_word_count": 124,
+        "agent_word_count": 127
+      },
+      "map_section": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "pagination": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

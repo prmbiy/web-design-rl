@@ -1,0 +1,82 @@
+{
+  "score": 0.808333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8083,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand greens, purples, badge pills, and gradient cards match the reference closely across all sections."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps labels, body text, and button typography appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons in feature cards, avatars, and chat bubble all render correctly with no placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card padding, pill dimensions, and nav spacing match the reference proportions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav item, highlighted Growth pricing card, and primary/outline button variants are preserved identically."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 114,
+        "agent_word_count": 114
+      },
+      "compliance_badges": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "features": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 204,
+        "agent_word_count": 204
+      },
+      "pricing": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 149,
+        "agent_word_count": 149
+      },
+      "testimonials": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 118,
+        "agent_word_count": 118
+      },
+      "cta_book_demo": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

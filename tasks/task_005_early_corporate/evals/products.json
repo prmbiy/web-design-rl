@@ -1,0 +1,106 @@
+{
+  "score": 0.7,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand blues, orange CTAs, badge backgrounds, and nav link colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link fonts look indistinguishable."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, checkmarks, square decorative images, and all visual symbols render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, padding, table row heights, and nav spacing match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Product Family' nav highlight and button variants appear identical."
+      }
+    },
+    "sections": {
+      "top_utility_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "header_branding": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 321,
+        "agent_word_count": 321
+      },
+      "product_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "featured_product": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "right_sidebar_resources": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_catalog": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 117,
+        "agent_word_count": 117
+      },
+      "comparison_matrix": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 91,
+        "agent_word_count": 91
+      },
+      "cta_demo": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the topology gap (0.70) indicating missing or misaligned sections, rather than any design-dimension or per-section content failures, which all scored perfectly."
+}

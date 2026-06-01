@@ -1,0 +1,70 @@
+{
+  "score": 0.944413,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 0.9675,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The color palette of cream backgrounds, dark text, and muted greys appears identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif italic styling, small-caps labels, and body text weights all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The decorative map illustration and all section dividers render correctly in both versions with no missing elements."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, form field spacing, label-to-input gaps, and overall section proportions look indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Input field underline styling and button outline/filled states appear consistent between the two versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "page_title": {
+        "type": "hero",
+        "content_score": 0.8333,
+        "gt_word_count": 5,
+        "agent_word_count": 7
+      },
+      "boutiques_and_form": {
+        "type": "form_step",
+        "content_score": 0.9965,
+        "gt_word_count": 143,
+        "agent_word_count": 144
+      },
+      "defile_invitation": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 74,
+        "agent_word_count": 74
+      },
+      "services_concierge": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

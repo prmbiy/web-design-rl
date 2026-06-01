@@ -1,0 +1,51 @@
+{
+  "task": "task_017_brutalist_agency",
+  "avg_score": 0.516173,
+  "avg_topology": 0.521,
+  "avg_content": 0.981,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The yellow accent, black blocks, and highlight colors appear identical between both versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Serif display headings, italic accents, and small caps labels match the reference closely in weight and style."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Clock illustration, color palette swatches, striped pattern, and all decorative elements render correctly."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Spacing, grid sizing of artifact cards, and overall padding appear consistent with the reference."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "No interactive state differences are visible, and the static button/badge highlights match."
+    }
+  },
+  "pages": {
+    "case_study": {
+      "score": 0.178,
+      "explanation": "The low score stems primarily from poor section topology coverage (0.18), indicating most reference sections are missing or misaligned in the generated version, compounded by incomplete top navigation content (F1 0.57) where key nav items are absent."
+    },
+    "contact": {
+      "score": 0.873,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "home": {
+      "score": 0.6949,
+      "explanation": "The score is held back by incomplete topology coverage (only 0.71 of expected sections present) and a weak content match in the Halder featured work section (F1 0.74), indicating missing or altered copy there."
+    },
+    "studio": {
+      "score": 0.2222,
+      "explanation": "The low overall score stems primarily from poor topology coverage (0.22), indicating most reference sections are missing from the generated layout, despite the few rendered sections matching content and design dimensions perfectly."
+    },
+    "work": {
+      "score": 0.6128,
+      "explanation": "The score is held back primarily by missing or misaligned sections reflected in the 0.61 topology score, along with a minor content gap in the stats_block (0.96 F1)."
+    }
+  }
+}

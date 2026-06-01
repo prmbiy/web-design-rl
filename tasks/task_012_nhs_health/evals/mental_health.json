@@ -1,0 +1,94 @@
+{
+  "score": 0.977778,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9778,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand colors including NHS blue header, red urgent alert border, green talking therapies box, and blue link colors match precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, body text, and nav link styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons (depression, anxiety, OCD, PTSD, eating disorders, postnatal, checkmark, info) render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizing, button padding, spacing between elements, and nav density all appear to match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Mental health' nav tab indicator and button/input styling appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "urgent_help_alert": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 76,
+        "agent_word_count": 76
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "mental_health_conditions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 195,
+        "agent_word_count": 195
+      },
+      "talking_therapies": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 98,
+        "agent_word_count": 98
+      },
+      "support_under_18s": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 102,
+        "agent_word_count": 102
+      },
+      "support_for_carers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 58,
+        "agent_word_count": 58
+      },
+      "page_review_dates": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

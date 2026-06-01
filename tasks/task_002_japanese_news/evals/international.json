@@ -1,0 +1,118 @@
+{
+  "score": 0.895238,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8952,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand colors, red accent tabs, gradient cards, and badge colors appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, nav link styling, and label sizing all match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, flag elements, and decorative images render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, card dimensions, and nav spacing all appear the same as reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active red tab state and selected nav highlighting are preserved exactly as in the reference."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "header_logo_search": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "breaking_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "international_header": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "region_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "world_map_news": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "ad_banner_ufj": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "asia_pacific_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 74,
+        "agent_word_count": 74
+      },
+      "americas_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 108,
+        "agent_word_count": 108
+      },
+      "foreign_bureaus": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "ad_banner_ana": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "europe_news": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "sidebar_weather_markets_sports": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

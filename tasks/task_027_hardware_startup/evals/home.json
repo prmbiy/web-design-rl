@@ -1,0 +1,70 @@
+{
+  "score": 0.987455,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 1.0,
+    "weighted_content": 0.9749,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Orange accents, blue display, badge colors, and CTA button all match identically."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps labels, nav link styling, and button typography appear identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Camera render, KS/TW/arrow icons, and flag emoji all render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and nav spacing all match the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Pre-order button filled state and reserve CTA appear identical with no visible state differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.8889,
+        "gt_word_count": 17,
+        "agent_word_count": 19
+      },
+      "key_specs": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "pricing_countdown": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "trust_badges": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

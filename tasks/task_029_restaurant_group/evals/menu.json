@@ -1,0 +1,106 @@
+{
+  "score": 0.927273,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9273,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The cream backgrounds, burgundy CTA, gold dividers, dietary symbol pills, and dark purple footer all match closely between versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serifs, small-caps section labels, nav link weights, and price/body text styling appear virtually identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Dietary symbol badges, divider ornaments, and all decorative elements render correctly in both versions with no missing icons."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing between menu items, badge sizes, nav density, and footer column layout look consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Atelier Hudson' tab with underline highlight and the seasonal special pill state appear matched in both."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero_menu_intro": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "pantry_sources": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "menu_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "atelier_header": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "starters": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 106,
+        "agent_word_count": 106
+      },
+      "mains": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 113,
+        "agent_word_count": 113
+      },
+      "sides_garden_hearth": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "sweets": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 50,
+        "agent_word_count": 50
+      },
+      "cocktails_cellar": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "dietary_note": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

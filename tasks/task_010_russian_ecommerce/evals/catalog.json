@@ -1,0 +1,106 @@
+{
+  "score": 0.516667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.5167,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent colors, badge backgrounds, gradient card fills, and nav colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge styling, and nav link typography match closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji, and phone illustrations render correctly and identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, badge dimensions, card spacing, and nav density appear identical across both images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Selected filter checkboxes, active sort pill, and view toggle states are rendered the same way in both versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "delivery_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "breadcrumbs_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "filter_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "sort_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "filters_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 509,
+        "agent_word_count": 509
+      },
+      "product_grid_row1": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_grid_row2": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_grid_row3": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_grid_row4": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "product_grid_row5": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "Despite perfect design dimension and content scores, the overall score is held down by the low topology score (0.52), indicating that roughly half of the expected sections are missing or misaligned in the agent's generated layout."
+}

@@ -1,0 +1,94 @@
+{
+  "score": 0.5,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.5,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Accent blues, badge colors (FUNCTION/CLASS blue, yes green), and admonition backgrounds (yellow deprecated, green note, red danger) appear identical between both images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, code font, badge caps styling, and nav link typography all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons (search, edit, copy, warning) and emoji-style markers in callouts render consistently in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Padding, table spacing, badge sizes, sidebar density, and code block proportions look indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlighting on quill.core and the on-this-page indicator appear identical in both versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 272,
+        "agent_word_count": 272
+      },
+      "right_toc_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "quill_core_intro": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "quill_task_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "pipeline_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 234,
+        "agent_word_count": 234
+      },
+      "taskcontext_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "prev_next_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "Despite perfect design dimension and content scores, the overall score is held back by an incomplete topology (0.50), indicating roughly half of the reference sections are missing from the agent-generated version."
+}

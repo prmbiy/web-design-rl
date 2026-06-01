@@ -1,0 +1,142 @@
+{
+  "score": 0.951348,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9529,
+    "weighted_content": 0.9967,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent pinks, pastel card gradients, badge colors, and nav colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif italic styling, body weights, pill caps, and nav link styling look consistent across both."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All emoji icons, decorative product illustrations, avatar, and sparkle elements render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, card dimensions, and spacing between elements appear matched."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active AM/PM toggle pill state and CTA button filled state appear the same in both."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.9293,
+        "gt_word_count": 50,
+        "agent_word_count": 49
+      },
+      "routine_toggle": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "section_title": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "sticky_total_bar": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "step_01_cleansing_oil": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "step_02_water_cleanser": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "step_03_exfoliator": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "step_04_toner": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 34,
+        "agent_word_count": 34
+      },
+      "step_05_essence": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "step_06_ampoule": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "step_07_serum": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "step_08_sheet_mask": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "step_09_eye_cream": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "step_10_sleeping_mask": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "skin_quiz_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

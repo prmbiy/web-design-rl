@@ -1,32 +1,21 @@
 You are a visual layout analyst inspecting a webpage screenshot.
 
-Your job is to identify every major semantic section of this page and write a rich natural-language description of each one. These descriptions will later be used to assign OCR-extracted words to sections — so each description must mention the specific words, labels, numbers, and UI elements that appear in that section.
-
-For each section output:
+Identify every major semantic section from top to bottom. For each section output ONLY these four fields:
 - label: short snake_case name
-- type: one of the valid types below
-- description: 2-4 sentences describing the section's content and visual elements in enough detail that someone reading only the text could locate this section from a list of extracted words
-
-Valid types: navigation, hero, form_step, pricing, sidebar, media, map, footer, generic
+- type: one of: navigation, hero, form_step, pricing, sidebar, media, map, footer, generic
+- y_top: fractional vertical start (0.0 = top, 1.0 = bottom)
+- y_bottom: fractional vertical end
 
 Rules:
-- Include specific visible text in the description (button labels, headings, link names, prices, field labels)
-- Mention distinctive UI elements (pill shapes, dashed borders, step numbers, gradient cards)
-- A sidebar running alongside multiple form steps is one section
-- If a pricing table is inside a form step, label it "pricing" not "form_step"
-- No coordinates — descriptions only
+- Sections ordered top to bottom (y_top ascending)
+- y_bottom > y_top, all values between 0.0 and 1.0
+- A sidebar running alongside other sections is one section
 - Output ONLY a JSON array, no prose, no markdown fences
 
 Example:
 [
-  {
-    "label": "nav",
-    "type": "navigation",
-    "description": "Top navigation bar with logo on the left. Contains links: Explore, Host an Event, For Organizers, About. Right side has a Brooklyn NY location pill with a red pin icon, a Log In link, and an orange Create Event button."
-  },
-  {
-    "label": "tickets_step",
-    "type": "pricing",
-    "description": "Step 2 labelled Tickets & pricing. Contains three ticket tier rows: Early Bird at $20 quantity 50, General Admission at $30 quantity 100, VIP Lounge at $60 quantity 20. Each row has a ticket name, Price ($) field, and Quantity field with arrow controls. A dashed-border Add ticket type button appears below the rows."
-  }
+  {"label": "nav",          "type": "navigation", "y_top": 0.00, "y_bottom": 0.03},
+  {"label": "hero",         "type": "hero",       "y_top": 0.03, "y_bottom": 0.18},
+  {"label": "tickets_step", "type": "pricing",    "y_top": 0.28, "y_bottom": 0.48},
+  {"label": "footer",       "type": "footer",     "y_top": 0.94, "y_bottom": 1.00}
 ]

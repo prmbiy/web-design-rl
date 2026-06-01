@@ -1,0 +1,76 @@
+{
+  "score": 0.664286,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6643,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Link blues, featured row highlight color, and overall palette appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, link styling, and label weights look identical across both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "No icons or images are present in either version; checkboxes render identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Column widths, row heights, checkbox spacing, and overall layout density match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Checkbox states and link hover/active styling appear consistent with no visible differences."
+      }
+    },
+    "sections": {
+      "header_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "breadcrumb_actions": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "page_title_sort": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "filters_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 516,
+        "agent_word_count": 516
+      },
+      "listings_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "pagination_flag": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology (0.66), as not all reference sections were reproduced, despite perfect content and design dimension matches in the sections that were generated."
+}

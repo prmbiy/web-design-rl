@@ -1,0 +1,142 @@
+{
+  "score": 0.551111,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.5511,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of accent reds, navy header, badge colors, and bar chart fills."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, nav link styling, badge caps, and label sizing all match the reference precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, illustrations, category placeholder images, and decorative elements all render the same way in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Padding, nav density, card sizing, and spacing between elements look indistinguishable between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active \u653f\u6cbb nav tab and the selected pagination '1' button both display identical highlighted states."
+      }
+    },
+    "sections": {
+      "top_utility_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "header_logo_ad": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "breaking_news_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "subcategory_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "section_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero_article": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "sidebar_politicians_polls": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 196,
+        "agent_word_count": 196
+      },
+      "date_divider_dec11": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "article_list_dec11": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "opinion_commentary": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "date_divider_dec10": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "article_list_dec10": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "date_divider_dec9": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "article_list_dec9": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "pagination": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is limited by incomplete topology coverage (only 0.55 of expected sections matched), indicating that several reference sections are missing from the agent-generated version despite the rendered sections matching perfectly in both content and visual design."
+}

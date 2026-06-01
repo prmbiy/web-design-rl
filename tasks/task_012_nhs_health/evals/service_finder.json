@@ -1,0 +1,76 @@
+{
+  "score": 0.817143,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8171,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of NHS blue, green CTAs, badge colors, and map pin colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, button weights, badge text, and nav link styling appear identical between both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons (GP, dentist, pharmacy, etc.), star ratings, and map pins render identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, form element spacing, and nav density look visually identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected GP tab, checked Yes checkbox, selected radio button, and filled green book buttons all match between versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "service_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "search_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "results_and_map": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 246,
+        "agent_word_count": 246
+      },
+      "review_dates": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 56,
+        "agent_word_count": 56
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

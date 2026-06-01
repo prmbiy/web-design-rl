@@ -1,0 +1,82 @@
+{
+  "score": 0.808333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8083,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Teal brand color, orange CTAs, colored avatar circles, and badge colors all appear identical between versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button text, pill labels in caps, and nav styling all match closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Trophy emoji, house emoji, avatar initials, and checkmarks all render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, pill dimensions, card spacing, and form element proportions appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active Agents nav tab with underline, toggle switch in on state, and filled vs outline button variants all match."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "sub_nav_search": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "filters_bar": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "agents_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 320,
+        "agent_word_count": 320
+      },
+      "leaderboard_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "appraisal_cta": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 72,
+        "agent_word_count": 72
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

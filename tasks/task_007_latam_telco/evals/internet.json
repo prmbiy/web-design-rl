@@ -1,0 +1,100 @@
+{
+  "score": 0.768182,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7682,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand accents, teal gradients, orange CTAs, and badge colors appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, and button label typography all match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, and decorative elements render correctly without any placeholders or missing visuals."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge proportions, and form element spacing all appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Selected calendar date, active time slot, popular plan highlight, and active nav item states all match the reference."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "promo_banner": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero_coverage": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 116,
+        "agent_word_count": 116
+      },
+      "status_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "fiber_plans": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 211,
+        "agent_word_count": 211
+      },
+      "plans_comparison": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "speed_test": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 113,
+        "agent_word_count": 113
+      },
+      "installation_scheduler": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "service_status": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is primarily held back by missing sections reflected in the 0.77 topology score, rather than any design or per-section content failures, which all scored perfectly."
+}

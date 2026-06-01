@@ -1,0 +1,70 @@
+{
+  "score": 0.96,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange accents, blue CTA, green checkmarks, and red X icons all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, label caps styling, and body text hierarchy appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Check and X icons, emoji flags, and all decorative elements render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Table cell sizing, button padding, badge dimensions, and section spacing all appear to match the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The highlighted 'OUR PICK' column with orange border and the filled blue Pre-order button states match the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "spec_comparison_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 134,
+        "agent_word_count": 134
+      },
+      "value_calculation": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "verdict": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

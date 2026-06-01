@@ -1,0 +1,94 @@
+{
+  "score": 0.977778,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9778,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange accent CTAs, navy hero, gradient blog cards, and badge colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, caps badges, and nav link styling look matched throughout."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, play buttons, avatars, and decorative blog imagery render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, form spacing, and nav density appear consistent between both images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab underline on All Resources and filled CTA buttons appear the same in both versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "customer_logos_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "resource_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "featured_analyst_report": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 80,
+        "agent_word_count": 80
+      },
+      "upcoming_webinars": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 91,
+        "agent_word_count": 91
+      },
+      "from_the_blog": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 109,
+        "agent_word_count": 109
+      },
+      "video_demo_library": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 56,
+        "agent_word_count": 56
+      },
+      "customer_case_studies": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 81,
+        "agent_word_count": 81
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

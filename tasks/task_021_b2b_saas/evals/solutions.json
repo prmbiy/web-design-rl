@@ -1,0 +1,106 @@
+{
+  "score": 0.725,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.725,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Both pages use identical orange accents, dark navy card backgrounds, and matching badge/pill colors throughout."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, caps labels, and pill text styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, avatar circles with letters, and checkmarks all render correctly and consistently in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, card padding, nav spacing, and overall element proportions look indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active Manufacturing tab pill and other interactive states appear identically styled in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "client_logos": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "industry_intro": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 76,
+        "agent_word_count": 76
+      },
+      "manufacturing_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 155,
+        "agent_word_count": 155
+      },
+      "retail_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 135,
+        "agent_word_count": 135
+      },
+      "healthcare_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 125,
+        "agent_word_count": 125
+      },
+      "cpg_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "stats_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "pricing_tiers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "cta_demo": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the topology gap (0.72), indicating several reference sections are missing or misaligned in the agent's version, despite perfect design dimension and content F1 scores across all detected sections."
+}

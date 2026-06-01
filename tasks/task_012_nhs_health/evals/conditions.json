@@ -1,0 +1,112 @@
+{
+  "score": 0.786154,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7862,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The NHS blue header, yellow warning callout, green important callout, red emergency callout, and grey info boxes all match the reference closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading hierarchy, bold text, link styling, and body text weights appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Warning triangle icon, numbered circles, and chevron separators all render correctly as in the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Letter buttons, callout box padding, numbered list spacing, and overall element sizing match the reference well."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav item underline, link styling, and letter button borders appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "az_letters": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "contents_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 107,
+        "agent_word_count": 107
+      },
+      "overview": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "symptoms": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 160,
+        "agent_word_count": 160
+      },
+      "causes": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 100,
+        "agent_word_count": 100
+      },
+      "getting_diagnosed": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 83,
+        "agent_word_count": 83
+      },
+      "treatment": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      },
+      "living_with": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "more_resources": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      }
+    }
+  },
+  "explanation": "The score is held below 1.0 primarily by the incomplete topology coverage (0.79), indicating some reference sections are missing from the agent-generated version, despite all present sections achieving perfect content F1 scores and full marks across every design dimension."
+}

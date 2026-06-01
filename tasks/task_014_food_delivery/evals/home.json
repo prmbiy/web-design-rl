@@ -1,0 +1,94 @@
+{
+  "score": 0.911111,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9111,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The color palette including brand orange, badge colors, gradient card backgrounds, and category tile pastels appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, nav link styles and body text hierarchy look indistinguishable."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All food icons, illustrations, emoji, and decorative images render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizes, pill dimensions, and spacing between elements appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Pure Veg' filter pill and PRO badge states are rendered the same way in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "promo_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "offer_cards": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "categories": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "top_restaurants": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 127,
+        "agent_word_count": 127
+      },
+      "whats_on_your_mind": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "popular_brands": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 106,
+        "agent_word_count": 106
+      },
+      "all_restaurants_filters": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "all_restaurants_grid": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 152,
+        "agent_word_count": 152
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

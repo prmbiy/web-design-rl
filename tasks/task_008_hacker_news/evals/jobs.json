@@ -1,0 +1,52 @@
+{
+  "score": 0.666667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6667,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange header bar, black text, and grey secondary text match the reference exactly."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Font family, sizes, and weights for nav, list items, and footer appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The Y Combinator logo icon renders correctly and no other assets are missing."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, list density, nav item spacing, and overall layout proportions match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Link styling and inactive states appear consistent with the reference with no visible interactive state differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "job_listings": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 586,
+        "agent_word_count": 586
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing sections reflected in the 0.67 topology score, rather than by any design or content fidelity issues within the rendered sections."
+}

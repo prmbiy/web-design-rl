@@ -19,7 +19,7 @@ from pathlib import Path
 
 from .aggregate import final_score, topology_score, weighted_aggregate
 from .explain import explain
-from .segment import SectionWords, assign_sections, describe_gt
+from .segment import SectionWords, bucket_sections, describe_gt
 from .signals import content_score, design_score
 
 
@@ -50,8 +50,8 @@ def grade(gt_path: Path, agent_path: Path) -> dict:
     specs = describe_gt(gt_path)
     print(f"        {len(specs)} sections identified", flush=True)
 
-    print("  [2/4] OCR + assigning words to sections...", flush=True)
-    sections: list[SectionWords] = assign_sections(gt_path, agent_path, specs)
+    print("  [2/4] OCR + bucketing words to sections...", flush=True)
+    sections: list[SectionWords] = bucket_sections(gt_path, agent_path, specs)
     for s in sections:
         print(f"        {s.label}: gt={len(s.gt_words)} words  agent={len(s.agent_words)} words", flush=True)
 
@@ -69,10 +69,7 @@ def grade(gt_path: Path, agent_path: Path) -> dict:
         }
         print(f"        {s.label}: content_score={cs:.3f}", flush=True)
 
-    from .segment import _ocr_word_list
-    word_y_map = _parse_y_from_word_list(_ocr_word_list(agent_path))
-    agent_mean_ys = {s.label: _mean_y_for_section(s.agent_words, word_y_map) for s in sections}
-
+    agent_mean_ys = {s.label: s.agent_mean_y for s in sections}
     topo = topology_score(sections, agent_mean_ys)
     w_content = weighted_aggregate(sections, section_content_scores)
     print(f"        topology={topo:.3f}  weighted_content={w_content:.3f}", flush=True)

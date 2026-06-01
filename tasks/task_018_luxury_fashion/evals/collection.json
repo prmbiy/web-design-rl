@@ -1,0 +1,100 @@
+{
+  "score": 0.884102,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8869,
+    "weighted_content": 0.9938,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The cream backgrounds, dark gradient hero/section, and muted product tones appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Serif display headings, small-caps labels, and nav link styling all match in weight and size relationship."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The abstract product silhouettes, gradient images, and minimal icons render identically with no missing placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Nav spacing, product card sizing, section padding, and footer column proportions look indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Tout' tab underline and other nav indicators appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "collection_title": {
+        "type": "hero",
+        "content_score": 0.9545,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "look_04_hero": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "pour_la_femme_products": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "look_11_media": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 43,
+        "agent_word_count": 43
+      },
+      "quote_block": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "soieries_mailles_products": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "look_27_media": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "maroquinerie_souliers_products": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

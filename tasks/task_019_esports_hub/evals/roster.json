@@ -1,0 +1,88 @@
+{
+  "score": 0.743357,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7444,
+    "weighted_content": 0.9971,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand colors including red accents, yellow logo, blue Discord button, and gradient fills appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, nav link styling, and label typography all match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, logos, flag indicators, and placeholder card silhouettes render identically with no missing or broken elements."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, spacing between sections, and nav density all appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state on TEAMS, highlighted VISION/CONTENT tabs, and LIVE/FINAL pill states are all preserved identically."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "live_ticker": {
+        "type": "navigation",
+        "content_score": 0.973,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "team_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "starting_five": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "coaching_staff": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "support_staff": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "sponsors": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "discord_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), with the live_ticker section also showing minor content mismatch (0.97) rather than a perfect text match."
+}

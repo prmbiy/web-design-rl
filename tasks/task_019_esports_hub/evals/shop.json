@@ -1,0 +1,106 @@
+{
+  "score": 0.962882,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9636,
+    "weighted_content": 0.9984,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The red accents, yellow CTAs, dark backgrounds, and badge colors appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, all-caps labels, and button text styling match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, placeholder images, and decorative gradient elements render the same in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, badge dimensions, card spacing, and nav density all appear consistent."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab indicator on 'ALL', highlighted nav 'SHOP', and filled vs outlined CTAs all match."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "live_ticker": {
+        "type": "navigation",
+        "content_score": 0.9714,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "hero_pro_kit": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 43,
+        "agent_word_count": 43
+      },
+      "limited_drop_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "category_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "value_props": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "jerseys_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "hoodies_tees_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "gear_accessories_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "signed_collection": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 84,
+        "agent_word_count": 84
+      },
+      "sponsors": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

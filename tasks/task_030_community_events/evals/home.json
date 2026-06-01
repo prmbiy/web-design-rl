@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange CTAs, gradient cards, category pill colors, and badge colors appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, pill labels, and nav styling all match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, avatar circles, and gradient decorations all render correctly with no visible placeholders or missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements appear to match the reference precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active states on pills (All Events highlighted), follow buttons, and CTA styling appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "hero_search": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 52,
+        "agent_word_count": 52
+      },
+      "featured_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 97,
+        "agent_word_count": 97
+      },
+      "weekend_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 150,
+        "agent_word_count": 150
+      },
+      "map_section": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "new_on_blockparty": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "popular_organizers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

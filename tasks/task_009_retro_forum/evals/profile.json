@@ -1,0 +1,88 @@
+{
+  "score": 0.774603,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7746,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand colors, orange accents, blue navigation, and badge/pill colors all appear identical between the two images."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, button labels, and nav link styling all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, avatar image, award badges, and decorative elements all render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, table row spacing, badge sizes, and nav item density appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'MEMBERS' nav tab and the 'About Me' selected tab states appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "breadcrumb_actions": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "profile_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "profile_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "profile_content": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 361,
+        "agent_word_count": 361
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "profile_footer_info": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing or misaligned sections reflected in the 0.77 topology score, rather than by any visual dimension or per-section content failures, which all scored perfectly."
+}

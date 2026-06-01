@@ -1,0 +1,94 @@
+{
+  "score": 0.85,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.85,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent colors, button fills, badge colors, and dark footer match the reference precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, label caps styling, and pricing typography appear identical between versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, checkmarks, logos, and award badges all render correctly with no placeholders visible."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card dimensions, padding, and spacing between elements appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected Annual toggle, highlighted Growth card, and filled Request demo button states match the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "logos_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "pricing_tiers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 159,
+        "agent_word_count": 159
+      },
+      "compare_capabilities": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 130,
+        "agent_word_count": 130
+      },
+      "savings_calculator": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 77,
+        "agent_word_count": 77
+      },
+      "timeline_rollout": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 95,
+        "agent_word_count": 95
+      },
+      "industry_recognition": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "demo_cta": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

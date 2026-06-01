@@ -1,0 +1,88 @@
+{
+  "score": 0.831746,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8317,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The brand greens, gradient card fills, badge colors, and accent reds all appear to match exactly between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, nav link treatment, and label hierarchies appear visually identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, map pins, play buttons, and logo all render correctly with no missing placeholders or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear consistent across both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab indicator on 'All', filled vs outline button variants, and CTA states look the same in both."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "reporting_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "cover_story": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 100,
+        "agent_word_count": 100
+      },
+      "pull_quote": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "latest_dispatches": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 210,
+        "agent_word_count": 210
+      },
+      "video_portraits": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 129,
+        "agent_word_count": 129
+      },
+      "newsletter_signup": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 51,
+        "agent_word_count": 51
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

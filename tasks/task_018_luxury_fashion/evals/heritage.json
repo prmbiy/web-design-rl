@@ -1,0 +1,88 @@
+{
+  "score": 0.881066,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9,
+    "weighted_content": 0.9579,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The cream background, dark grey image tiles, and muted beige accent on the third signature card all appear to match the reference palette closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Display serif for '1923', italic subtitles, small-caps labels, and body serif all appear to match the reference styling well."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Image placeholders, the video player with circular play button, and the chevron/V/DV signature graphics all render correctly with no broken icons."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Section spacing, grid sizing of image tiles, and label-to-content spacing appear consistent with the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "No visible interactive states to compare, and the static elements like the play button appear consistent."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 0.7778,
+        "gt_word_count": 8,
+        "agent_word_count": 10
+      },
+      "hero_1923": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "intro_text": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 275,
+        "agent_word_count": 275
+      },
+      "les_mains_gallery": {
+        "type": "media",
+        "content_score": 0.8857,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "video_portrait": {
+        "type": "media",
+        "content_score": 0.9609,
+        "gt_word_count": 89,
+        "agent_word_count": 90
+      },
+      "trois_signatures": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "quote": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "collection_privee": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the navigation section's incomplete word match (F1 0.78) and minor content gaps in the les_mains_gallery section (F1 0.89)."
+}

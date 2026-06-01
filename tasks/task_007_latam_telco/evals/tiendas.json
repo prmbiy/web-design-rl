@@ -1,0 +1,94 @@
+{
+  "score": 0.825,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.825,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of teal hero gradient, orange accents, green status indicators, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link typography all appear identical between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, map markers, contact icons, and decorative elements render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, pill dimensions, table row spacing, and overall layout proportions match exactly."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Tiendas' nav underline, selected 'Todas' filter pill, and highlighted Reforma 222 card state all appear identical."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero_status": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 78,
+        "agent_word_count": 78
+      },
+      "status_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "store_finder_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 121,
+        "agent_word_count": 121
+      },
+      "schedules_table": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 126,
+        "agent_word_count": 126
+      },
+      "contact_channels": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 90,
+        "agent_word_count": 90
+      },
+      "self_service_actions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 99,
+        "agent_word_count": 99
+      },
+      "video_call_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

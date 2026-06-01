@@ -1,0 +1,94 @@
+{
+  "score": 0.933333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of accent greens, donate button color, advisor avatar background colors, and donut chart segment colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, serif/sans pairings, small caps labels, and nav link styling all match the reference precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Avatar initials, checkmark icons, donut chart, and all decorative elements render identically with no missing or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, button padding, nav spacing, and the executive team color block sizing appear to match the reference exactly."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The filled Donate button and other interactive elements show consistent styling with no visible state differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "about_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "mission_pillars": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 110,
+        "agent_word_count": 110
+      },
+      "advisory_board": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 195,
+        "agent_word_count": 195
+      },
+      "executive_team": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "financials": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 73,
+        "agent_word_count": 73
+      },
+      "third_party_ratings": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "as_reported_in": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "annual_report_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

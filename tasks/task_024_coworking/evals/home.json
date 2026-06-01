@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The images appear identical with matching orange accents, dark hero gradient, cream backgrounds, and consistent CTA button colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, badge caps styling, and nav link typography all appear identical between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, avatar circles with initials, checkmarks, and decorative elements render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The 'Most Popular' card highlight, filled vs outline buttons, and active states all match between versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "membership_pricing": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 156,
+        "agent_word_count": 156
+      },
+      "community_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "member_spotlights": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "book_tour": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

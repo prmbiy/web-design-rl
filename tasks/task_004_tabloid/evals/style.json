@@ -1,0 +1,118 @@
+{
+  "score": 0.745714,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7457,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The pink/magenta brand accents, gradient cards, and badge colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and badge caps styling look the same across both images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, and decorative gradient placeholders all render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, badge dimensions, card spacing, and nav density appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state on STYLE, filled vs outline buttons, and trending pill states look the same."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "trending_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "leaderboard_ad": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "section_title": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "hero_carousel": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "best_dressed_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 285,
+        "agent_word_count": 285
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 55,
+        "agent_word_count": 55
+      },
+      "mid_ad": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "worst_dressed_list": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "sponsored_walmart": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "outfit_breakdowns": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 87,
+        "agent_word_count": 87
+      },
+      "you_may_also_like": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology (0.75), indicating several reference sections are missing from the generated layout, rather than by any design or per-section content failures, which all scored perfectly."
+}

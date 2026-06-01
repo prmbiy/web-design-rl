@@ -1,0 +1,51 @@
+{
+  "task": "task_013_aus_real_estate",
+  "avg_score": 0.852222,
+  "avg_topology": 0.852,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "Teal brand color, orange CTAs, colored avatar circles, and badge colors all appear identical between versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, button text, pill labels in caps, and nav styling all match closely."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Trophy emoji, house emoji, avatar initials, and checkmarks all render correctly in both versions."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button sizes, pill dimensions, card spacing, and form element proportions appear identical."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Active Agents nav tab with underline, toggle switch in on state, and filled vs outline button variants all match."
+    }
+  },
+  "pages": {
+    "agents": {
+      "score": 0.8083,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "home": {
+      "score": 0.975,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "listing": {
+      "score": 0.7444,
+      "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as all present sections and design dimensions otherwise score perfectly, indicating missing sections from the reference rather than visual or content mismatches."
+    },
+    "search": {
+      "score": 0.9333,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "suburb": {
+      "score": 0.8,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

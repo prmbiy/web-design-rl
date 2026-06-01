@@ -1,0 +1,70 @@
+{
+  "score": 0.92,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.92,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange accent color on CTAs, badges, checkmarks, and the highlighted dedicated desk card matches the reference precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif, body weights, caps labels, and button text styling all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Checkmarks, dashes, and plus/minus FAQ icons render correctly with no broken placeholders, matching the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge dimensions, and table row spacing all appear to match the reference exactly."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active Monthly pill, highlighted Dedicated Desk card with filled CTA, outlined secondary buttons, and expanded FAQ state all match the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "pricing_plans": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 146,
+        "agent_word_count": 146
+      },
+      "feature_comparison": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 81,
+        "agent_word_count": 81
+      },
+      "faq": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 72,
+        "agent_word_count": 72
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

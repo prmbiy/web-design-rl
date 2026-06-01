@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand purple accents on CTAs, badges, pills, and check icons match closely between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, and label/badge styling appear nearly identical across both designs."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, check marks, and decorative elements render correctly in both with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, badge proportions, and spacing appear visually identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The Annual pill selected state and Pro card highlighted state are preserved correctly."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "pricing_tiers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 152,
+        "agent_word_count": 152
+      },
+      "enterprise_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "compare_plans": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 190,
+        "agent_word_count": 190
+      },
+      "usage_based": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 109,
+        "agent_word_count": 109
+      },
+      "faq": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

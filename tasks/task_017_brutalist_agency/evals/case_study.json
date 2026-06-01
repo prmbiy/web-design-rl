@@ -1,0 +1,100 @@
+{
+  "score": 0.178039,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.1818,
+    "weighted_content": 0.9584,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The yellow accent, black blocks, and highlight colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Serif display headings, italic accents, and small caps labels match the reference closely in weight and style."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Clock illustration, color palette swatches, striped pattern, and all decorative elements render correctly."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, grid sizing of artifact cards, and overall padding appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "No interactive state differences are visible, and the static button/badge highlights match."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 0.5714,
+        "gt_word_count": 9,
+        "agent_word_count": 5
+      },
+      "side_nav": {
+        "type": "sidebar",
+        "content_score": 0.9493,
+        "gt_word_count": 172,
+        "agent_word_count": 163
+      },
+      "hero_title": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "hero_clock_media": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "brief_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "process_artifacts": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "results_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "credits_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "marquee_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "related_work": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The low score stems primarily from poor section topology coverage (0.18), indicating most reference sections are missing or misaligned in the generated version, compounded by incomplete top navigation content (F1 0.57) where key nav items are absent."
+}

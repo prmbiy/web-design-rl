@@ -1,0 +1,51 @@
+{
+  "task": "task_029_restaurant_group",
+  "avg_score": 0.845296,
+  "avg_topology": 0.845,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The deep purple hero, cream background, gold accents, and card gradients appear identical between the two versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading serif fonts, small caps labels, and button text weights all match the reference closely."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Decorative gradient cards, monogram letters, and image placeholders render identically with no broken icons."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Card sizing, button padding, nav spacing, and form field proportions appear to match the reference precisely."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Reserve button styling and link states look consistent with the reference with no visible differences."
+    }
+  },
+  "pages": {
+    "events": {
+      "score": 0.8317,
+      "explanation": "The score is held back primarily by the topology gap (0.83), indicating one or more reference sections are missing from the agent-generated version, rather than by any design or content-matching issues."
+    },
+    "home": {
+      "score": 0.9429,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "menu": {
+      "score": 0.9273,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "reservations": {
+      "score": 0.6643,
+      "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.66), indicating several reference sections are missing from the agent-generated version."
+    },
+    "restaurants": {
+      "score": 0.8603,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

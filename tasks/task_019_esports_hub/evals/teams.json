@@ -1,0 +1,82 @@
+{
+  "score": 0.767238,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.775,
+    "weighted_content": 0.98,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of accent reds, yellows, greens, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps treatments, and label styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, trophy graphics, and logo placeholders render the same way in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card padding, pill dimensions, and nav spacing look identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active SCHEDULE nav link, selected ALL TEAMS pill, and RANKING toggle states match exactly."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "match_ticker": {
+        "type": "navigation",
+        "content_score": 0.931,
+        "gt_word_count": 28,
+        "agent_word_count": 30
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.9444,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "filters": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "active_rosters": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 108,
+        "agent_word_count": 108
+      },
+      "trophy_shelf": {
+        "type": "generic",
+        "content_score": 0.9709,
+        "gt_word_count": 104,
+        "agent_word_count": 102
+      },
+      "partners": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing or mismatched sections reflected in the 0.78 topology score, along with minor content gaps in the match_ticker (0.93) and hero (0.94) sections."
+}

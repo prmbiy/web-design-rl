@@ -1,0 +1,106 @@
+{
+  "score": 0.927273,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9273,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The blue header, orange CTA buttons, accent colors, and badge backgrounds appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, nav link styling, table text, and badge typography appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons (bank, medical, gear, government, cart, chart) render correctly and identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card spacing, table row density, and nav item spacing look identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "No visible differences in active/hover states on nav or interactive elements between the two versions."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 34,
+        "agent_word_count": 34
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 66,
+        "agent_word_count": 66
+      },
+      "right_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 121,
+        "agent_word_count": 121
+      },
+      "industry_solutions_grid": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 119,
+        "agent_word_count": 119
+      },
+      "regulatory_compliance": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 77,
+        "agent_word_count": 77
+      },
+      "customer_success_table": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 57,
+        "agent_word_count": 57
+      },
+      "cta_section": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "footer_links": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      },
+      "footer_legal": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

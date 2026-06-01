@@ -1,0 +1,82 @@
+{
+  "score": 1.0,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 1.0,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand accent colors, gradients, badge backgrounds, and bank logo colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, pill text caps styling, and nav typography match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, bank logos, and decorative elements render identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card spacing, and nav density appear visually identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state on 'Offers', filled CTA buttons, and pill styles are consistent across both versions."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "offers_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "bank_offers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 84,
+        "agent_word_count": 84
+      },
+      "first_order_promo": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "chatori_pro": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 109,
+        "agent_word_count": 109
+      },
+      "restaurant_offers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 101,
+        "agent_word_count": 101
+      },
+      "coupon_codes": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 90,
+        "agent_word_count": 90
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

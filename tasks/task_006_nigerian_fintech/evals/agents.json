@@ -1,0 +1,94 @@
+{
+  "score": 0.666667,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6667,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand greens, purple commission table, and purple form section all match the reference closely with consistent accent and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and pill/badge styling appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji (fire), avatar placeholders, and map illustration all render correctly as in the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, padding, table row spacing, and form element spacing match the reference proportions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav link (Agents in green), filled vs outline buttons, and WhatsApp floating button states appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "info_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "commission_structure": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 163,
+        "agent_word_count": 163
+      },
+      "agent_density_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 158,
+        "agent_word_count": 158
+      },
+      "signup_requirements": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 166,
+        "agent_word_count": 166
+      },
+      "agent_stories": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "compliance_badges": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "cta_banner": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by the topology gap (0.67) indicating missing or misaligned sections in the overall page structure, despite per-section content and design dimensions all scoring perfectly."
+}

@@ -1,0 +1,88 @@
+{
+  "score": 0.949228,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.95,
+    "weighted_content": 0.9984,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The gradient hero, orange CTA buttons, colored badges, and accent colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button text, pill labels, and nav link styling appear visually identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All emojis, icons, avatars, event card illustrations, and the map visualization render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements look the same across both images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Upcoming' tab with underline, selected 'All' pill, and Follow button filled state all match between versions."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "hero_profile": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "stats_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "tabs_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "upcoming_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 92,
+        "agent_word_count": 92
+      },
+      "past_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 116,
+        "agent_word_count": 116
+      },
+      "venues_map": {
+        "type": "map",
+        "content_score": 0.9877,
+        "gt_word_count": 41,
+        "agent_word_count": 40
+      },
+      "reviews": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 159,
+        "agent_word_count": 159
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

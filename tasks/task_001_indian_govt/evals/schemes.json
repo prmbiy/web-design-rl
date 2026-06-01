@@ -1,0 +1,112 @@
+{
+  "score": 0.617308,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6173,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent colors on buttons, status badges (green ACTIVE, yellow ONGOING, grey CLOSED), nav bars, and section headers appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge text casing, and nav link styling all match the reference closely with no visible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji pins, logos, and decorative elements all render correctly in the same positions as the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, table row spacing, and nav density appear consistent with the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlighting on SCHEMES & PROGRAMS, status pill states, and link styling all appear identical to the reference."
+      }
+    },
+    "sections": {
+      "top_utility_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "site_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "announcements_ticker": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "breadcrumb_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 140,
+        "agent_word_count": 140
+      },
+      "filter_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 51,
+        "agent_word_count": 51
+      },
+      "schemes_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 246,
+        "agent_word_count": 246
+      },
+      "guidelines_downloads": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 88,
+        "agent_word_count": 88
+      },
+      "status_legend_related": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "page_meta_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "social_helpline": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.62), as missing or misaligned sections\u2014not visual fidelity\u2014account for the gap, since all per-section content F1 scores and design dimensions are otherwise perfect."
+}

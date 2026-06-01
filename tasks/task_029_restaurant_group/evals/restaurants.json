@@ -1,0 +1,88 @@
+{
+  "score": 0.860317,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8603,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The burgundy CTA button, gold accent text, and purple gradient image placeholders match the reference palette very closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif italics, small-caps labels, and body text weights appear nearly identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Gradient image placeholders, decorative caption text, and overall asset rendering match without broken icons or placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, padding, label spacing, and nav density appear consistent with the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Filled vs outline button variants (Reserve vs View Menu/Order) appear correctly differentiated as in the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "otsu_restaurant": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 139,
+        "agent_word_count": 139
+      },
+      "atelier_hudson": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 122,
+        "agent_word_count": 122
+      },
+      "le_petit_verleux": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 142,
+        "agent_word_count": 142
+      },
+      "bar_maribel": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 109,
+        "agent_word_count": 109
+      },
+      "verleux_pasta_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "evening_gallery": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

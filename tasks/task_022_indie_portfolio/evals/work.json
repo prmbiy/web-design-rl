@@ -1,0 +1,76 @@
+{
+  "score": 0.930908,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 0.9948,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The green accent colors, dark background, and card gradients appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, monospace styling, badge text, and nav link styling all match closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons like the fish, code blocks, terminal mockups, and arrow indicators all render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, padding, badge dimensions, and nav spacing appear to match the reference precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Work' nav item highlighted in green, dark mode toggle, and contribution graph cells all display matching states."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "featured_project": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 67,
+        "agent_word_count": 67
+      },
+      "selected_works": {
+        "type": "generic",
+        "content_score": 0.9623,
+        "gt_word_count": 174,
+        "agent_word_count": 171
+      },
+      "open_source_contributions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 67,
+        "agent_word_count": 67
+      },
+      "github_activity": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

@@ -1,0 +1,51 @@
+{
+  "task": "task_014_food_delivery",
+  "avg_score": 0.924063,
+  "avg_topology": 0.924,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The two images appear identical in brand orange accents, green veg indicators, red non-veg indicator, and badge colors."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, button labels, pill text casing, and nav link styling all appear matched."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Icons including cart, search, location pin, scooter emoji, and party emoji all render correctly in both versions."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button padding, pill sizing, spacing between elements, and nav density look identical."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "The selected UPI pill, quantity selectors, and Place Order button states appear consistent between both."
+    }
+  },
+  "pages": {
+    "cart": {
+      "score": 0.8889,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "home": {
+      "score": 0.9111,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "offers": {
+      "score": 1.0,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "orders": {
+      "score": 0.8603,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "restaurant": {
+      "score": 0.96,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

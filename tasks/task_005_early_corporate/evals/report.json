@@ -1,0 +1,51 @@
+{
+  "task": "task_005_early_corporate",
+  "avg_score": 0.738394,
+  "avg_topology": 0.742,
+  "avg_content": 0.992,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "All brand colors, accent blues, orange CTA buttons, badge backgrounds, and section header colors appear identical between the two versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, table text, nav links, and label styling all appear to match precisely."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Icons, monogram circles, award badges (star, 100, checkmark), and all decorative elements render identically."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button sizes, padding, spacing of nav items, table row heights, and card proportions appear identical."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Interactive states like the highlighted timeline row and button styles appear consistent across both versions."
+    }
+  },
+  "pages": {
+    "about": {
+      "score": 0.8267,
+      "explanation": "The score is held back primarily by incomplete leadership team content (F1 0.52, missing or mismatched names/titles) and minor gaps in section topology coverage (0.84) indicating some expected sections are not fully represented."
+    },
+    "home": {
+      "score": 0.5198,
+      "explanation": "The score is held back primarily by the low topology score (0.52), indicating that roughly half of the reference sections are missing from the agent-generated version, despite the present sections matching perfectly in content and design dimensions."
+    },
+    "partners": {
+      "score": 0.7182,
+      "explanation": "The score is held back primarily by incomplete section topology coverage (0.72), as not all reference sections were reproduced, even though the sections that were present matched perfectly in both content and visual design."
+    },
+    "products": {
+      "score": 0.7,
+      "explanation": "The score is held back primarily by the topology gap (0.70) indicating missing or misaligned sections, rather than any design-dimension or per-section content failures, which all scored perfectly."
+    },
+    "solutions": {
+      "score": 0.9273,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

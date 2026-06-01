@@ -1,0 +1,51 @@
+{
+  "task": "task_011_korean_beauty",
+  "avg_score": 0.885269,
+  "avg_topology": 0.901,
+  "avg_content": 0.966,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The color palette, gradients on cards, pink accents, and badge colors appear identical between both versions."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading weights, italic serif accents, caps labels, and body text styling all match closely."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Icons, emojis, avatar illustration, and decorative elements all render correctly and identically."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Button sizes, card dimensions, spacing, and nav density appear to match precisely."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Active nav state, filled CTA button, and pill states look identical in both versions."
+    }
+  },
+  "pages": {
+    "about": {
+      "score": 0.9093,
+      "explanation": "The score is held back primarily by content mismatches in the brand_story_hero section (0.79) and the skin_quiz_cta section (0.87), where the agent's wording diverges from the reference."
+    },
+    "home": {
+      "score": 0.8603,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "reviews": {
+      "score": 0.8054,
+      "explanation": "The score is held below 1.0 primarily by the topology score (0.81) indicating some sections are missing or misaligned, with minor secondary content gaps in the reviews_hero (0.97) and skincare_journeys (0.98) sections."
+    },
+    "routine": {
+      "score": 0.9513,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "skincare": {
+      "score": 0.9,
+      "explanation": "The two most important shortfalls are the main_nav content mismatch (F1 0.78), indicating missing or altered navigation link text, and the product_grid_with_sidebar sidebar content gap (F1 0.90), suggesting some filter labels or product details diverge from the reference."
+    }
+  }
+}

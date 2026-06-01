@@ -1,0 +1,76 @@
+{
+  "score": 0.899985,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 0.9285,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The pink accents, gradient card backgrounds, and badge colors appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif/italic styling, badge caps, and nav link weights look identical in both images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis (rabbit, sprout, checkmark), and decorative product bottle shapes render identically in both."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizes, badge padding, filter spacing, and nav density appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected Cleansers tab underline, checked Oily checkbox, and active pagination state appear identical."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 0.7778,
+        "gt_word_count": 8,
+        "agent_word_count": 10
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.962,
+        "gt_word_count": 39,
+        "agent_word_count": 40
+      },
+      "filter_tabs": {
+        "type": "navigation",
+        "content_score": 0.9429,
+        "gt_word_count": 36,
+        "agent_word_count": 34
+      },
+      "product_grid_with_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.8985,
+        "gt_word_count": 299,
+        "agent_word_count": 302
+      },
+      "pagination": {
+        "type": "navigation",
+        "content_score": 0.9677,
+        "gt_word_count": 16,
+        "agent_word_count": 15
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.9831,
+        "gt_word_count": 30,
+        "agent_word_count": 29
+      }
+    }
+  },
+  "explanation": "The two most important shortfalls are the main_nav content mismatch (F1 0.78), indicating missing or altered navigation link text, and the product_grid_with_sidebar sidebar content gap (F1 0.90), suggesting some filter labels or product details diverge from the reference."
+}

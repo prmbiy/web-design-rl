@@ -1,0 +1,88 @@
+{
+  "score": 0.975,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.975,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand colors, accent oranges, teal hero, badge pills, and streaming service color tags."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and pill text styling all match between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, flags, map illustrations, and decorative elements render identically in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, table spacing, and nav density appear the same across both versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Selected tab (Volaris Plan), highlighted 'M\u00e1s Popular' column, and filled CTA buttons match in both renders."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "promo_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 71,
+        "agent_word_count": 71
+      },
+      "plans_comparison": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 210,
+        "agent_word_count": 210
+      },
+      "portability_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 67,
+        "agent_word_count": 67
+      },
+      "coverage_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "features_strip": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

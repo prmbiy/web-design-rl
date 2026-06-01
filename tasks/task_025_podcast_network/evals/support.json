@@ -1,0 +1,82 @@
+{
+  "score": 0.971429,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9714,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in accent colors, gradients, badges, and icon colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all match."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, illustrations, and merchandise images render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizes, pill dimensions, and spacing between elements all appear matching."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The 'Most Popular' highlighted card, active nav link, and selected donation pill states all match."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "support_funds": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 75,
+        "agent_word_count": 75
+      },
+      "membership_tiers": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 137,
+        "agent_word_count": 137
+      },
+      "patreon_cta": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "one_time_donation": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "merchandise": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 59,
+        "agent_word_count": 59
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

@@ -1,0 +1,70 @@
+{
+  "score": 0.96,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Accent colors, gradient fills on cards, badges, and nav elements appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, nav link styling, and body text all match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, gradient artworks, and decorative card images render correctly and identically."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements look the same."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All' filter pill state and other interactive element states appear consistent."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "filter_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 6,
+        "agent_word_count": 6
+      },
+      "shows_grid_row1": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 74,
+        "agent_word_count": 74
+      },
+      "shows_grid_row2": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

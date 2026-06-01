@@ -1,0 +1,82 @@
+{
+  "score": 0.625,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.625,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent colors including the blue Pre-order button, orange section labels, and colored avatar circles match the reference closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps treatments, and label styling appear consistent with the reference throughout the page."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons in the workshop section grid and avatar circles render correctly with no visible placeholders or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card proportions, and spacing between sections appear nearly identical to the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The filled Pre-order button and other interactive element states look consistent with the reference's filled vs outline treatment."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero_story": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "letter_from_founder": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 394,
+        "agent_word_count": 394
+      },
+      "prototype_timeline": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 114,
+        "agent_word_count": 114
+      },
+      "workshop_gallery": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 39,
+        "agent_word_count": 39
+      },
+      "team_profiles": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "community_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing sections reflected in the 0.62 topology score, despite all present sections having perfect content matches and all design dimensions scoring 5/5."
+}

@@ -1,0 +1,100 @@
+{
+  "score": 0.842424,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8424,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear to use identical navy blue accents, yellow spotlight highlight, red/dark card placeholders, and matching link colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps labels, body sizing, and nav link styling appear identical across both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Initial-based avatar tiles, the collaboration network diagram, and all decorative elements render identically with no missing icons or placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card padding, table spacing, badge sizing, and nav density all match precisely between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'People' nav underline and other interactive state indicators appear consistent between both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 21,
+        "agent_word_count": 21
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "principal_investigator": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 81,
+        "agent_word_count": 81
+      },
+      "phd_students": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 134,
+        "agent_word_count": 134
+      },
+      "phd_spotlight": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 130,
+        "agent_word_count": 130
+      },
+      "postdoctoral_researchers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 38,
+        "agent_word_count": 38
+      },
+      "research_scientists": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 61,
+        "agent_word_count": 61
+      },
+      "visiting_researchers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "alumni": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 59,
+        "agent_word_count": 59
+      },
+      "collaboration_network": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

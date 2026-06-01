@@ -1,0 +1,70 @@
+{
+  "score": 0.88,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.88,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of purple background, gradient thumbnail tiles, coral/red accent CTAs, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link typography all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All gradient tile placeholders, play button icons, and logo render identically with no missing or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, badge dimensions, row spacing, and nav density appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active pagination state (1), selected nav (Episodes), and Become a Supporter CTA all appear in matching highlighted states."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "filters": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "episode_list": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 214,
+        "agent_word_count": 214
+      },
+      "pagination": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

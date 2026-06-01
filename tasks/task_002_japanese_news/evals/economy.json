@@ -1,0 +1,130 @@
+{
+  "score": 0.798077,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7981,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in their use of red brand colors, gradient hero cards, badge colors, and nav link tones."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge styling, and nav link typography all appear to match exactly between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, decorative gradient illustrations, and placeholder graphics render identically in both images with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, padding, badge sizing, table density, and nav item proportions look indistinguishable between the two."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav highlight on '\u7d4c\u6e08' and other interactive element states appear consistent and properly rendered in both images."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "header_branding": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "market_ticker": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "breadcrumb_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "index_summary": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "featured_articles": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 69,
+        "agent_word_count": 69
+      },
+      "stock_movers_table": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 97,
+        "agent_word_count": 97
+      },
+      "ad_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "earnings_section": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 60,
+        "agent_word_count": 60
+      },
+      "real_estate_section": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "stats_row": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "archive_search": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "opinion_column": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "sidebar_right": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.80), indicating some reference sections are missing from the agent's version, rather than by any content or visual design discrepancies."
+}

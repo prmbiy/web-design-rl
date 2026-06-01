@@ -1,0 +1,94 @@
+{
+  "score": 0.911111,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9111,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand colors, gradients, badge fills, and icon colors across all sections."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, emoji, avatars, and decorative images render the same way in both images with no placeholders visible."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, spacing, and nav density are visually indistinguishable between reference and generated."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav (Paquetes), highlighted 'M\u00e1s Popular' card, and filled vs outline CTA states appear identical in both images."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "promo_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "hero_calculator": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 65,
+        "agent_word_count": 65
+      },
+      "pricing_plans": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 144,
+        "agent_word_count": 144
+      },
+      "savings_comparison": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 102,
+        "agent_word_count": 102
+      },
+      "family_plan": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 143,
+        "agent_word_count": 143
+      },
+      "streaming_included": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "streaming_logos": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

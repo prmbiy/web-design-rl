@@ -1,0 +1,112 @@
+{
+  "score": 0.666075,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.6673,
+    "weighted_content": 0.9963,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The color palette including the cream backgrounds, green CTA button, and the colored grid blocks (green, pink, beige) appears virtually identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif fonts, italic accents, small-caps section labels, and nav link styling all match closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons in the colored grid (asterisk, command symbol, flower) and the sun icon in the green section render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, nav spacing, grid block proportions, and section spacing all appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The 'Book class' CTA button maintains its filled green state and nav items appear in matching default states with no visible differences."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero_story": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "founding_story": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 216,
+        "agent_word_count": 216
+      },
+      "philosophy_quote": {
+        "type": "generic",
+        "content_score": 0.9714,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "three_principles": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 104,
+        "agent_word_count": 104
+      },
+      "space_image": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "space_stats": {
+        "type": "generic",
+        "content_score": 0.9759,
+        "gt_word_count": 83,
+        "agent_word_count": 83
+      },
+      "space_gallery": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "testimonials": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "karma_class": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "faq_new_here": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "press_logos": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing sections reflected in the 0.67 topology score, with a minor secondary shortfall in the philosophy_quote section's content fidelity (F1 0.97)."
+}

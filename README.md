@@ -1,157 +1,108 @@
 # web-design-rl
 
-RL environment pipeline for testing coding agents' ability to replicate multi-page web designs.
+RL environment pipeline for testing coding agents' ability to replicate multi-page web designs from screenshots.
 
-## Overview
+**Three phases:**
+1. **Generate** — DNA → blueprint → design plan → HTML/CSS → screenshots (30 sites, done)
+2. **Run** — agent sees screenshots, writes HTML+CSS, verifier renders and scores it
+3. **Grade** — visual similarity signals (Phase 3, TBD)
 
-Three phases:
-1. **Generate** — create ground-truth websites from scratch (DNA → blueprint → design plan → HTML/CSS → screenshots)
-2. **Harbor task** — package as Harbor tasks that agents receive screenshots and must replicate
-3. **Grade** — render agent output and compare to ground truth using 5 continuous signals
-
-See [docs/CONTEXT.md](docs/CONTEXT.md) for full project context, [docs/PLAN_phase1.md](docs/PLAN_phase1.md) for Phase 1, and [docs/PLAN_phase2.md](docs/PLAN_phase2.md) for Phase 2.
+---
 
 ## Setup
 
-### Prerequisites
-- [uv](https://docs.astral.sh/uv/) — Python package manager (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
-- Node.js 18+
-- Docker — required to build and run Harbor tasks
-- ffmpeg (for screen recordings — `brew install ffmpeg` or `apt install ffmpeg`)
-
-### Install
+**Prerequisites:** Python 3.11+, Node.js 18+, Docker, [`uv`](https://docs.astral.sh/uv/)
 
 ```bash
-# Python environment
-uv sync                          # creates .venv and installs all Python deps
-source .venv/bin/activate        # macOS/Linux
-# .venv\Scripts\activate         # Windows
+# Install uv if needed
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Node.js renderer
-npm install                      # installs Playwright
-npx playwright install chromium  # downloads headless Chromium
+# Python env
+uv sync
+source .venv/bin/activate
 
-# Harbor task runner (installs the `harbor` CLI globally via uv)
+# Node (for Phase 1 renderer only)
+npm install
+npx playwright install chromium
+
+# Harbor CLI
 uv tool install harbor
 
 # API key
-cp .env.example .env             # then edit .env and set ANTHROPIC_API_KEY
+cp .env.example .env   # set ANTHROPIC_API_KEY inside
 ```
 
-## Phase 1: Generate Websites
+> **Network proxy required** if your machine blocks `api.anthropic.com` via SSL inspection (corporate proxy). See proxy section below.
+
+---
+
+## Phase 1: Generate Websites (already done)
+
+30 sites already generated in `tasks/`. Skip this unless re-generating.
 
 ```bash
-# List all 30 DNA archetypes
-python scripts/generate.py --list
-
-# Generate all 30 sites
-python scripts/generate.py
-
-# Generate specific sites
-python scripts/generate.py --ids 001 002 003
-
-# Run in parallel (3 concurrent)
+python scripts/generate.py              # all 30
+python scripts/generate.py --ids 001    # specific
 python scripts/generate.py --concurrency 3
-
-# Force regenerate (ignore cache)
-python scripts/generate.py --force
-
-# Re-run a single step
-python scripts/generate.py --ids 001 --step blueprint
-python scripts/generate.py --ids 001 --step renderer
 ```
 
-Output for each site is written to `tasks/task_{id}_{name}/`:
-```
-tasks/task_001_indian_govt/
-  site_dna.json           # copy of source DNA
-  blueprint.json          # fictional content spec
-  design_plan.json        # visual design spec
-  source/                 # HTML/CSS ground truth
-    home.html
-    about.html
-    ...
-  screenshots/            # ground truth PNGs (1440px wide)
-    home.png
-    about.png
-    ...
-  screenrecordings/       # only for animated sites
-    home.mp4
-    ...
-  generation_complete.json
-```
+Output per site: `tasks/task_NNN_name/` with `source/`, `screenshots/`, `screenrecordings/` (animated only).
 
-## Phase 2: Package Harbor Tasks
+---
 
-Wraps each Phase 1 task directory into a Harbor task. Requires Phase 1 output to exist first.
+## Phase 2: Run Agent
+
+### 1. Package tasks into Harbor format
 
 ```bash
-# Package all completed tasks
-python scripts/pack.py
-
-# Package specific tasks
-python scripts/pack.py --ids 001 016
-
-# Force overwrite existing harbor/ dirs
-python scripts/pack.py --force
+python scripts/pack.py          # all 30
+python scripts/pack.py --ids 001
+python scripts/pack.py --force  # overwrite
 ```
 
-Each task gets a `harbor/` directory alongside its Phase 1 output:
+### 2. Start the proxy (if needed)
+
+Required on machines with corporate SSL inspection. Run in a dedicated tmux window and keep it alive.
+
+```bash
+python scripts/proxy.py   # listens on 0.0.0.0:9000, forwards to api.anthropic.com
+```
+
+### 3. Run tasks
+
+```bash
+python scripts/run.py            # all 30, 4 concurrent
+python scripts/run.py -n 8       # 8 concurrent
+python scripts/run.py --ids 001  # single task
+```
+
+Results are copied to `tasks/task_NNN_name/agent_result/` as each task finishes:
 ```
 tasks/task_001_indian_govt/
-  harbor/
-    instruction.md              # what the agent sees
-    task.toml                   # Harbor metadata
-    environment/
-      Dockerfile                # Node 22 + Playwright + ground-truth screenshots
-      task_screenshots/         # ground-truth PNGs baked into image
-        home.png
-        about.png
-        ...
-      task_screenrecordings/    # only for animated sites
-      checker/
-        run.py                  # completeness checker (not the real grader)
-    solution/
-      site/                     # oracle HTML files
-      solve.sh
-    tests/
-      test.sh
+  agent_result/
+    agent_screenshots/   # rendered PNGs of agent's output
+      home.png
+      about.png
+      ...
+    reward.json          # completeness score (0–1)
+    checker_detail.json  # per-page breakdown
+    agent_log.jsonl      # full Claude Code trajectory
 ```
 
-To run a task with Harbor:
+### tmux setup (recommended for long runs)
+
 ```bash
-# Make sure ANTHROPIC_API_KEY is set
-export ANTHROPIC_API_KEY=sk-ant-...   # or load from .env
+# Window 1 — proxy
+python scripts/proxy.py
 
-# Run the agent on a single task (claude-code agent, opus model)
-harbor run \
-  -p tasks/task_001_indian_govt/harbor \
-  -a claude-code \
-  -m claude-opus-4-7 \
-  --ae ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY
+# Window 2 — run (Ctrl+b c to open new window)
+python scripts/run.py -n 8
 
-# Run multiple tasks with 4 concurrent trials (default)
-harbor run \
-  -p tasks/task_001_indian_govt/harbor \
-  -p tasks/task_002_japanese_news/harbor \
-  -a claude-code \
-  -m claude-opus-4-7 \
-  --ae ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
-  -n 4
-
-# Run N attempts per task (for statistical robustness)
-harbor run \
-  -p tasks/task_001_indian_govt/harbor \
-  -a claude-code \
-  -m claude-opus-4-7 \
-  --ae ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
-  -k 3
+# Detach: Ctrl+b d
+# Reattach: tmux attach -t harbor
 ```
 
-Job results land under `jobs/<job_id>/`. Agent screenshots are at
-`jobs/<job_id>/harbor__<trial>/verifier/agent_screenshots/`.
-
-The agent (Claude Code) sees the screenshots, writes HTML to `/app/site/`. After it finishes, the verifier renders the agent's output with Playwright and saves screenshots to `/logs/verifier/agent_screenshots/` for Phase 3 comparison.
+---
 
 ## DNA Archetypes (30 sites)
 
@@ -188,4 +139,4 @@ The agent (Claude Code) sees the screenshots, writes HTML to `/app/site/`. After
 | 029 | Local restaurant group | A | |
 | 030 | Community events platform | A | 🎬 |
 
-**B** = reference-anchored archetype, **A** = pure AI archetype, 🎬 = includes CSS animations
+**B** = reference-anchored archetype, **A** = pure AI archetype, 🎬 = CSS animations

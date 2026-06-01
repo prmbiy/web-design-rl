@@ -1,0 +1,88 @@
+{
+  "score": 0.860317,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8603,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The pastel pinks, peaches, mints, and gradient fills on cards and hero match the reference precisely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, italic accents, badge caps, and label styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, sun/moon symbols, product illustrations, and decorative elements all render correctly with no placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, card dimensions, badge proportions, and spacing all match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav cart indicator and filled CTA button states appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "promo_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 57,
+        "agent_word_count": 57
+      },
+      "new_arrivals": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 163,
+        "agent_word_count": 163
+      },
+      "skin_routine": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 86,
+        "agent_word_count": 86
+      },
+      "bestsellers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 100,
+        "agent_word_count": 100
+      },
+      "philosophy": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "community_tags": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

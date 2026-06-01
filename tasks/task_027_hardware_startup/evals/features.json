@@ -1,0 +1,88 @@
+{
+  "score": 0.744444,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7444,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The dark background, orange accent color on buttons, badges, and differentiator text all match closely."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, caps styling, and label hierarchy appear identical to the reference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All decorative figure illustrations (sensor, codec pipeline, mount swap, display, NovaGrip) render correctly without placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, section spacing, and grid layout match the reference closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav link highlighting and pre-order CTA button styling appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "features_intro": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "feature_sensor": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 64,
+        "agent_word_count": 64
+      },
+      "feature_codec": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 83,
+        "agent_word_count": 83
+      },
+      "feature_mount": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 67,
+        "agent_word_count": 67
+      },
+      "feature_display": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "feature_audio": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 80,
+        "agent_word_count": 80
+      },
+      "reserve_cta": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

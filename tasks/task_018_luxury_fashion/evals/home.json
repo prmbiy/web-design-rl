@@ -1,0 +1,70 @@
+{
+  "score": 0.811463,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8333,
+    "weighted_content": 0.9475,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The beige gradient hero, dark brown video section, and muted neutral palette appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Serif headings, small-caps labels, and body text weights and sizes match closely throughout."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Product cards with letter monograms, play button icon, and gradient imagery all render correctly with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing between sections, card sizing, nav density, and footer layout appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "No distinct interactive states visible, and what's shown (links, play button) appears in matching default styling."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "hero_silences_du_nord": {
+        "type": "hero",
+        "content_score": 0.875,
+        "gt_word_count": 7,
+        "agent_word_count": 9
+      },
+      "collection_intro": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "season_pieces": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "campaign_film": {
+        "type": "media",
+        "content_score": 0.8571,
+        "gt_word_count": 22,
+        "agent_word_count": 27
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete content in the hero_silences_du_nord section (F1 0.88) and missing or mismatched text in the campaign_film media section (F1 0.86), reflecting minor wording gaps despite perfect visual dimension scores."
+}

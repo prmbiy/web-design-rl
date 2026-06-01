@@ -1,0 +1,82 @@
+{
+  "score": 0.872991,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.875,
+    "weighted_content": 0.9954,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Both versions use the same black background with identical yellow accent colors on the CTA button, marquee bar, and small dot accents."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, serif display type, caps labels, and body text styling appear visually identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, arrows, dots, and decorative marks all render correctly and match the reference without placeholders or broken elements."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, form field spacing, card sizing, and nav spacing all closely mirror the reference layout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The selected yellow pill in the budget range and the filled yellow send button states are preserved identically."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "hero_talk_to_us": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "primary_email_contact": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "office_locations": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "brief_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 108,
+        "agent_word_count": 108
+      },
+      "elsewhere_and_fine_print": {
+        "type": "generic",
+        "content_score": 0.9552,
+        "gt_word_count": 32,
+        "agent_word_count": 35
+      },
+      "booking_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

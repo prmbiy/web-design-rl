@@ -1,0 +1,76 @@
+{
+  "score": 0.933333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The navy blue accents, badge colors, and gold 'best paper' highlight appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link fonts all appear to match precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The Yale 'Y' logo icon and all decorative elements render correctly in both versions with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, filter pill spacing, and nav item density all appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All' filter pills in both Year and Topic rows show the same filled navy selected state matching the reference."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "filters": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "publications_2023": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 189,
+        "agent_word_count": 189
+      },
+      "publications_2022": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 112,
+        "agent_word_count": 112
+      },
+      "earlier_publications_link": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 29,
+        "agent_word_count": 29
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

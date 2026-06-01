@@ -8,13 +8,26 @@ import re
 from pathlib import Path
 
 from PIL import Image
-
 from .utils import get_client
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _DESIGN_MODEL = "claude-opus-4-7"
 _DESIGN_MAX_TOKENS = 512
 _DIMENSIONS = ("color", "typography", "assets", "proportion", "states")
+
+
+def _encode_half(path: Path) -> str:
+    """Half-resolution encode for API — further downscale if still over 8000px."""
+    with Image.open(path) as img:
+        w, h = img.size
+        w, h = w // 2, h // 2
+        if max(w, h) > 7900:
+            scale = 7900 / max(w, h)
+            w, h = int(w * scale), int(h * scale)
+        img = img.resize((w, h), Image.LANCZOS)
+        buf = io.BytesIO()
+        img.save(buf, format="PNG")
+        return base64.standard_b64encode(buf.getvalue()).decode("ascii")
 
 
 def _unit(v: float) -> float:
@@ -88,8 +101,8 @@ def design_score(gt_path: Path, agent_path: Path) -> tuple[float, dict]:
         messages=[{
             "role": "user",
             "content": [
-                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _pil_to_b64(gt_path)}},
-                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _pil_to_b64(agent_path)}},
+                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode_half(gt_path)}},
+                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode_half(agent_path)}},
                 {"type": "text", "text": prompt},
             ],
         }],

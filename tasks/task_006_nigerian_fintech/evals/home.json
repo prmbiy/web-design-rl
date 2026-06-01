@@ -1,0 +1,94 @@
+{
+  "score": 0.933333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9333,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in brand green CTAs, purple gradient section, badge colors, and icon tints."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link typography all match between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, phone mockups, avatars, and decorative elements all render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizes, spacing between elements, and nav density appear indistinguishable."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active button fills, outline variants, and highlighted pill states look the same in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 115,
+        "agent_word_count": 115
+      },
+      "trust_badges": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "by_the_numbers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 84,
+        "agent_word_count": 84
+      },
+      "features": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 83,
+        "agent_word_count": 83
+      },
+      "ussd_banner": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 101,
+        "agent_word_count": 101
+      },
+      "testimonials": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 54,
+        "agent_word_count": 54
+      },
+      "partners": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "app_download": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 37,
+        "agent_word_count": 37
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

@@ -1,0 +1,82 @@
+{
+  "score": 0.808333,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8083,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The accent orange, green category labels, cream backgrounds, and dark Slack panel colors appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Serif headings, uppercase labels, and body text weights and sizes all match closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Monogram letters, avatar initials, emoji in the Slack panel, and all icons render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizes, card padding, pill dimensions, and spacing between elements appear consistent across both renders."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All Perks' filter pill, active 'Community' nav link, and filled CTA button states are all preserved correctly."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      },
+      "member_spotlights": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 141,
+        "agent_word_count": 141
+      },
+      "upcoming_events": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 99,
+        "agent_word_count": 99
+      },
+      "partner_perks": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 196,
+        "agent_word_count": 196
+      },
+      "slack_community": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 63,
+        "agent_word_count": 63
+      },
+      "waitlist_form": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

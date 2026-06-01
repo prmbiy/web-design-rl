@@ -1,0 +1,106 @@
+{
+  "score": 0.788889,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7889,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of dark purple background, orange/red accent colors, gradient fills, and badge colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, caps labels, and button typography appear identical between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, avatar circles, play buttons, and decorative elements render identically with no visible placeholders."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, padding, spacing between elements, and overall layout proportions match exactly."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Interactive states like the supporter CTA, active nav items, and filled vs outline button variants appear identical."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "breadcrumb": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "episode_player_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 224,
+        "agent_word_count": 224
+      },
+      "episode_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "episode_notes": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "quote": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "chapters": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "host_and_guest": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 77,
+        "agent_word_count": 77
+      },
+      "links_mentioned": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "transcript": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 40,
+        "agent_word_count": 40
+      },
+      "share_and_subscribe": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.79), as not all reference sections were fully replicated in the agent's version."
+}

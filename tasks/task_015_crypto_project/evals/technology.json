@@ -1,0 +1,82 @@
+{
+  "score": 0.941198,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 0.9965,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The cyan/purple gradients, accent colors on buttons, audited badges, and nav elements appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, monospaced label caps, body text, and button typography all appear consistent in both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, circular pipeline nodes, bar chart, and logo all render correctly with no missing or placeholder assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Spacing, padding, card sizing, table row density, and button proportions all match closely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active 'Technology' nav link, Submit/Launch button fills, and audited pill states appear consistent across both."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.9804,
+        "gt_word_count": 25,
+        "agent_word_count": 26
+      },
+      "consensus_flow": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "parallel_throughput": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 78,
+        "agent_word_count": 78
+      },
+      "comparison_table": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 55,
+        "agent_word_count": 55
+      },
+      "security_audits": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 56,
+        "agent_word_count": 56
+      },
+      "bug_bounty": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 18,
+        "agent_word_count": 18
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

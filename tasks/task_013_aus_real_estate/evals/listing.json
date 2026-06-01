@@ -1,0 +1,106 @@
+{
+  "score": 0.744444,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7444,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "Brand teal, orange CTA, green badge, and all accent colors appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button text, badge caps, and nav link styling all match closely with no perceptible difference."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji, and placeholder illustrations render identically in both versions including the floorplan diagram and section icons."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, form element spacing, and overall layout density appear matched throughout."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active Buy tab, selected Photos tab, checked checkbox, and filled CTA button states all appear consistent."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "sub_nav_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "breadcrumbs_media_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "photo_gallery": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "price_summary": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "agent_enquiry_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 227,
+        "agent_word_count": 227
+      },
+      "auction_inspection_times": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "property_description": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 17,
+        "agent_word_count": 17
+      },
+      "floorplan_section": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "suburb_profile": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "schools_transport": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 61,
+        "agent_word_count": 61
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as all present sections and design dimensions otherwise score perfectly, indicating missing sections from the reference rather than visual or content mismatches."
+}

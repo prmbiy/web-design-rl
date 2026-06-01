@@ -1,0 +1,51 @@
+{
+  "task": "task_012_nhs_health",
+  "avg_score": 0.803834,
+  "avg_topology": 0.804,
+  "avg_content": 1.0,
+  "avg_design": 1.0,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 5.0,
+      "worst_reason": "The NHS blue header, yellow warning callout, green important callout, red emergency callout, and grey info boxes all match the reference closely."
+    },
+    "typography": {
+      "avg_score": 5.0,
+      "worst_reason": "Heading hierarchy, bold text, link styling, and body text weights appear identical to the reference."
+    },
+    "assets": {
+      "avg_score": 5.0,
+      "worst_reason": "Warning triangle icon, numbered circles, and chevron separators all render correctly as in the reference."
+    },
+    "proportion": {
+      "avg_score": 5.0,
+      "worst_reason": "Letter buttons, callout box padding, numbered list spacing, and overall element sizing match the reference well."
+    },
+    "states": {
+      "avg_score": 5.0,
+      "worst_reason": "Active nav item underline, link styling, and letter button borders appear consistent with the reference."
+    }
+  },
+  "pages": {
+    "conditions": {
+      "score": 0.7862,
+      "explanation": "The score is held below 1.0 primarily by the incomplete topology coverage (0.79), indicating some reference sections are missing from the agent-generated version, despite all present sections achieving perfect content F1 scores and full marks across every design dimension."
+    },
+    "home": {
+      "score": 0.9333,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "medicines": {
+      "score": 0.5048,
+      "explanation": "Despite perfect design and content scores across all dimensions and sections, the overall and topology scores are limited to 0.50, indicating significant missing or misaligned sections in the generated page's structural layout that aren't reflected in the per-section breakdown."
+    },
+    "mental_health": {
+      "score": 0.9778,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "service_finder": {
+      "score": 0.8171,
+      "explanation": "The agent replicated the design with only minor differences."
+    }
+  }
+}

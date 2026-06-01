@@ -1,0 +1,82 @@
+{
+  "score": 0.942857,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9429,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in terms of brand purple background, gold accents, orange CTA button, and card gradient fills."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading serif italic styling, button caps, label weights, and nav link styling all match precisely between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Decorative glow elements, star icons, quote mark, and card image gradients all render identically with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, nav spacing, and pill dimensions appear consistent between reference and generated versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active status dots, reserve button states, and nav link states appear identical with matching highlight treatments."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 15,
+        "agent_word_count": 15
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 58,
+        "agent_word_count": 58
+      },
+      "tonight_status_bar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "restaurants_grid": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 180,
+        "agent_word_count": 180
+      },
+      "honors_awards": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      },
+      "press_quotes": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 81,
+        "agent_word_count": 81
+      },
+      "private_dining_events": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

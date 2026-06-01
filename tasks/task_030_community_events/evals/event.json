@@ -1,0 +1,94 @@
+{
+  "score": 0.825,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.825,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear to use identical brand accents, gradients, badges, and icon colors throughout."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, button labels, and pill styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, avatar circles, map illustration, and emoji all render consistently in both images."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, card dimensions, and spacing match exactly."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active states like the highlighted VIP Lounge ticket option and selected nav appear the same in both."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 7,
+        "agent_word_count": 7
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "event_meta_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "about_and_included": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 155,
+        "agent_word_count": 155
+      },
+      "tickets_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "schedule": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "location_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "whos_going": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 8,
+        "agent_word_count": 8
+      },
+      "similar_events": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 78,
+        "agent_word_count": 78
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

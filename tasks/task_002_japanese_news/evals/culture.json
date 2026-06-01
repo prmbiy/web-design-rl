@@ -1,0 +1,106 @@
+{
+  "score": 0.7,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.7,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in color palette including the red brand accents, nav colors, badge colors, and gradient fills on cards."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, badge text styling, and nav link styling appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, emoji-style illustrations on cards, and decorative graphics render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, nav spacing, and element density appear indistinguishable between the two."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state on the highlighted tab and other interactive element states appear identical."
+      }
+    },
+    "sections": {
+      "top_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "header_with_ad": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 13,
+        "agent_word_count": 13
+      },
+      "section_title": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "feature_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "weekend_reviews": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 75,
+        "agent_word_count": 75
+      },
+      "sidebar_bestsellers": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 59,
+        "agent_word_count": 59
+      },
+      "pr_ad": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "events_calendar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 57,
+        "agent_word_count": 57
+      },
+      "food_travel_lifestyle": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 53,
+        "agent_word_count": 53
+      },
+      "stock_ticker": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by missing or unmatched sections reflected in the 0.70 topology score, rather than by any color, typography, asset, proportion, or state discrepancies, which all scored perfectly."
+}

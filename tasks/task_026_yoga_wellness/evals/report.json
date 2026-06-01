@@ -1,0 +1,51 @@
+{
+  "task": "task_026_yoga_wellness",
+  "avg_score": 0.73572,
+  "avg_topology": 0.826,
+  "avg_content": 0.93,
+  "avg_design": 0.864,
+  "design_dimensions": {
+    "color": {
+      "avg_score": 4.4,
+      "worst_reason": "The agent version is missing the workshop card sections entirely so the colored gradient fills, green reserve buttons, and accent colors visible in the reference are absent in the middle area, though the footer and header colors match."
+    },
+    "typography": {
+      "avg_score": 4.8,
+      "worst_reason": "Visible typography in the hero, form, and footer appears consistent in weight, size, and styling between both versions."
+    },
+    "assets": {
+      "avg_score": 3.6,
+      "worst_reason": "The agent version is missing the three workshop card images/illustrations (sparkle, circle, command icon gradient blocks) that are prominent in the reference."
+    },
+    "proportion": {
+      "avg_score": 4.0,
+      "worst_reason": "Button sizing, form field spacing, and nav density match where visible, but the missing card sections leave large empty gaps disrupting overall page proportion."
+    },
+    "states": {
+      "avg_score": 4.8,
+      "worst_reason": "Interactive elements like the Book Class button, Subscribe button, and Send Inquiry button appear with matching filled styling in both versions."
+    }
+  },
+  "pages": {
+    "about": {
+      "score": 0.6661,
+      "explanation": "The score is held back primarily by missing sections reflected in the 0.67 topology score, with a minor secondary shortfall in the philosophy_quote section's content fidelity (F1 0.97)."
+    },
+    "home": {
+      "score": 0.727,
+      "explanation": "The agent version is missing the first 'Slow Flow Vinyasa' card with its hexagon icon (assets 2/5), which disrupts the three-column layout balance (proportion 3/5) and lowers the practice_formats content match to 0.81."
+    },
+    "schedule": {
+      "score": 0.7523,
+      "explanation": "The score is held back primarily by incomplete topology coverage (0.77, indicating missing or misaligned sections) and weaker content fidelity in the filters_sidebar (0.87) and tuesday_classes (0.90) sections."
+    },
+    "teachers": {
+      "score": 0.975,
+      "explanation": "The agent replicated the design with only minor differences."
+    },
+    "workshops": {
+      "score": 0.5582,
+      "explanation": "The score is held back by the entirely missing workshop card sections\u2014removing the gradient fills, green reserve buttons, and three icon illustrations (color 2/5, assets 1/5)\u2014and the resulting media gallery content mismatch (F1 0.17) that leaves large proportional gaps in the page layout."
+    }
+  }
+}

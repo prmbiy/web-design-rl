@@ -1,0 +1,100 @@
+{
+  "score": 0.505455,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.5055,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two pages appear visually identical in terms of brand accents, dark navy chart backgrounds, badge colors, and CTA button colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, sizes, label styling, and nav link typography appear consistent across both versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, chart visualizations, heatmap tiles, and avatar circles all render correctly with no visible placeholders or broken assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, module spacing, and nav density look identical between the two images."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active tab/pill states in the module selector and sidebar navigation appear consistently highlighted in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 9,
+        "agent_word_count": 9
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "demand_forecasting": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 153,
+        "agent_word_count": 153
+      },
+      "inventory_optimization": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 134,
+        "agent_word_count": 134
+      },
+      "supplier_analytics": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 163,
+        "agent_word_count": 163
+      },
+      "reporting_alerts": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 94,
+        "agent_word_count": 94
+      },
+      "compliance": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "data_residency": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "enterprise_sla": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "cta_demo": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by topology gaps where several reference sections are missing or misaligned in the agent's version, despite per-section content and design dimensions otherwise matching closely."
+}

@@ -1,0 +1,94 @@
+{
+  "score": 0.8,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The teal brand color, orange accents, green/orange badges, and chart colors all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, button labels, and table typography appear visually identical."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, chart elements, map markers, and property card placeholders all render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, card sizing, table row density, and spacing between elements appear to match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Buy' nav state, filled vs outline button variants (Search vs More filters), and pill states all appear consistent."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      },
+      "search_bar": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "breadcrumbs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "suburb_hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "key_stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "price_trend_and_demographics": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 95,
+        "agent_word_count": 95
+      },
+      "schools_and_map": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 62,
+        "agent_word_count": 62
+      },
+      "recent_sales": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 132,
+        "agent_word_count": 132
+      },
+      "for_sale_listings": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 173,
+        "agent_word_count": 173
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

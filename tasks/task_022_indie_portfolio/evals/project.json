@@ -1,0 +1,94 @@
+{
+  "score": 0.9,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The green accent color, dark background, and muted gray text appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Monospace font usage, heading sizes, label styling, and pill text all match the reference closely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "ASCII diagrams, code blocks, terminal window dots, and decorative elements all render correctly with no missing assets."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, spacing between elements, and nav density appear consistent with the reference."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active nav state on 'Work', filled vs outline button variants, and active tab styling are preserved identically."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 35,
+        "agent_word_count": 35
+      },
+      "problem": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 123,
+        "agent_word_count": 123
+      },
+      "approach": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 91,
+        "agent_word_count": 91
+      },
+      "architecture_diagram": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "screens": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 104,
+        "agent_word_count": 104
+      },
+      "decisions": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 112,
+        "agent_word_count": 112
+      },
+      "outcomes": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 20,
+        "agent_word_count": 20
+      },
+      "built_with": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 14,
+        "agent_word_count": 14
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

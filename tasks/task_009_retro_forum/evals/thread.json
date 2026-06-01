@@ -1,0 +1,124 @@
+{
+  "score": 0.914286,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.9143,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear visually identical in their color palette including the navy header, blue accent buttons, yellow premium badges, and colored avatar placeholders."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, badge caps styling, and nav link styling all appear identical between the two versions."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emoji, avatar placeholders, and image blocks render the same way in both images with no missing or broken assets visible."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, badge sizing, post layout spacing, and overall density appear indistinguishable between the two."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Active page pill, filled vs outline button variants, and other interactive states look identical in both renderings."
+      }
+    },
+    "sections": {
+      "site_header": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 32,
+        "agent_word_count": 32
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 34,
+        "agent_word_count": 34
+      },
+      "breadcrumb_thread_actions": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "thread_title": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 66,
+        "agent_word_count": 66
+      },
+      "pagination_top": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "post_opening": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 192,
+        "agent_word_count": 192
+      },
+      "ad_banner": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "post_nbmike_1": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 33,
+        "agent_word_count": 33
+      },
+      "post_boostedbabs_1": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 36,
+        "agent_word_count": 36
+      },
+      "post_vblover_reply": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 25,
+        "agent_word_count": 25
+      },
+      "post_newguy": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 31,
+        "agent_word_count": 31
+      },
+      "post_nbmike_2": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 30,
+        "agent_word_count": 30
+      },
+      "post_vteckiller": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "post_classicredna": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 28,
+        "agent_word_count": 28
+      },
+      "post_mx5mike": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

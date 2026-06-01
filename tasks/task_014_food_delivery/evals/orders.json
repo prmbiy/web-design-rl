@@ -1,0 +1,88 @@
+{
+  "score": 0.860317,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8603,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "All brand orange accents, green/red badges, gradient card icons, and nav colors appear identical to the reference."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, button weights, badge caps styling, and nav text all match the reference precisely."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All emoji icons, food illustrations, store badges, and social icons render correctly and match the reference."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizes, card spacing, and nav density appear identical between the two versions."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'All Orders' pill, rating stars, and reorder/help button variants match the reference states exactly."
+      }
+    },
+    "sections": {
+      "navigation": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 22,
+        "agent_word_count": 22
+      },
+      "order_truffles": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 48,
+        "agent_word_count": 48
+      },
+      "order_meghana": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "order_empire": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "order_dominos": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 45,
+        "agent_word_count": 45
+      },
+      "order_behrouz": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 46,
+        "agent_word_count": 46
+      },
+      "view_all_orders": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

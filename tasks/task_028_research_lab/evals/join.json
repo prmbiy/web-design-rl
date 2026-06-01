@@ -1,0 +1,70 @@
+{
+  "score": 0.96,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.96,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The Yale blue navy, badge colors, and accent yellow callout box appear identical between both versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, badge caps styling, and body text hierarchy look indistinguishable between the two images."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "The Y logo button, bullet arrow markers, and all decorative elements render correctly in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Card sizing, badge padding, nav spacing, and overall layout proportions match precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "The active 'Join Us' nav item with underline indicator is preserved identically in both versions."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 19,
+        "agent_word_count": 19
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 10,
+        "agent_word_count": 10
+      },
+      "how_to_apply_and_faq": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 342,
+        "agent_word_count": 342
+      },
+      "open_positions": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 129,
+        "agent_word_count": 129
+      },
+      "visiting_researchers": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 59,
+        "agent_word_count": 59
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 41,
+        "agent_word_count": 41
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}

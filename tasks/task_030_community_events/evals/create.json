@@ -1,0 +1,82 @@
+{
+  "score": 0.71,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.71,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The two images appear identical in their use of brand orange CTA, gradient hero card, colored pills, and accent colors."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading sizes, weights, button text, badge caps, and label styling all appear to match exactly."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "Icons, emojis, headphone illustration, and placeholder boxes render identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button padding, pill sizing, form spacing, and overall layout density appear visually identical."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Selected Music pill, In-person format toggle, step indicators, and Publish button all show matching active states."
+      }
+    },
+    "sections": {
+      "nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 11,
+        "agent_word_count": 11
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 23,
+        "agent_word_count": 23
+      },
+      "basics_step": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 200,
+        "agent_word_count": 200
+      },
+      "live_preview_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "tickets_step": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 65,
+        "agent_word_count": 65
+      },
+      "media_step": {
+        "type": "media",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "map_step": {
+        "type": "map",
+        "content_score": 1.0,
+        "gt_word_count": 26,
+        "agent_word_count": 26
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      }
+    }
+  },
+  "explanation": "The score is held back primarily by an incomplete topology (0.71), indicating several reference sections are missing from the agent-generated version, even though all rendered sections matched perfectly in content and design."
+}

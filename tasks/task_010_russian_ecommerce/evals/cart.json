@@ -1,0 +1,106 @@
+{
+  "score": 0.811111,
+  "scorer": "visual-similarity-v2",
+  "components": {
+    "topology": 0.8111,
+    "weighted_content": 1.0,
+    "design_score": 1.0,
+    "design_dimensions": {
+      "color": {
+        "score": 5,
+        "reason": "The orange accents, button colors, badge backgrounds, and card gradient fills all appear identical between the two versions."
+      },
+      "typography": {
+        "score": 5,
+        "reason": "Heading weights, body text, button labels, and pill/badge typography match closely with no perceptible differences."
+      },
+      "assets": {
+        "score": 5,
+        "reason": "All icons, emojis, product images, and decorative illustrations appear to render correctly and identically in both versions."
+      },
+      "proportion": {
+        "score": 5,
+        "reason": "Button sizing, padding, spacing between elements, and nav density all appear to match the reference precisely."
+      },
+      "states": {
+        "score": 5,
+        "reason": "Checkbox checked states, selected radio buttons, and active tab indicators all appear consistent with the reference."
+      }
+    },
+    "sections": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 24,
+        "agent_word_count": 24
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 16,
+        "agent_word_count": 16
+      },
+      "info_bar": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "cart_tabs": {
+        "type": "navigation",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "cart_items": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 139,
+        "agent_word_count": 139
+      },
+      "order_summary_sidebar": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 44,
+        "agent_word_count": 44
+      },
+      "promo_code": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "benefits": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 27,
+        "agent_word_count": 27
+      },
+      "recommended_products": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 70,
+        "agent_word_count": 70
+      },
+      "recently_viewed": {
+        "type": "pricing",
+        "content_score": 1.0,
+        "gt_word_count": 47,
+        "agent_word_count": 47
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 1.0,
+        "gt_word_count": 42,
+        "agent_word_count": 42
+      }
+    }
+  },
+  "explanation": "The agent replicated the design with only minor differences."
+}
