@@ -1,0 +1,38 @@
+{
+  "score": 1,
+  "checker": "completeness-v1",
+  "total_pages": 5,
+  "rendered_pages": 5,
+  "results": [
+    {
+      "slug": "index",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/index.png"
+    },
+    {
+      "slug": "profile",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/profile.png"
+    },
+    {
+      "slug": "search",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/search.png"
+    },
+    {
+      "slug": "subforum",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/subforum.png"
+    },
+    {
+      "slug": "thread",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/thread.png"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "score": 1,
+  "checker": "completeness-v1",
+  "total_pages": 5,
+  "rendered_pages": 5,
+  "results": [
+    {
+      "slug": "ask",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/ask.png"
+    },
+    {
+      "slug": "home",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/home.png"
+    },
+    {
+      "slug": "jobs",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/jobs.png"
+    },
+    {
+      "slug": "new",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/new.png"
+    },
+    {
+      "slug": "show",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/show.png"
+    }
+  ]
+}

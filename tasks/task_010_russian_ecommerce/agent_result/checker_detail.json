@@ -1,0 +1,38 @@
+{
+  "score": 1,
+  "checker": "completeness-v1",
+  "total_pages": 5,
+  "rendered_pages": 5,
+  "results": [
+    {
+      "slug": "cart",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/cart.png"
+    },
+    {
+      "slug": "catalog",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/catalog.png"
+    },
+    {
+      "slug": "home",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/home.png"
+    },
+    {
+      "slug": "product",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/product.png"
+    },
+    {
+      "slug": "seller",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/seller.png"
+    }
+  ]
+}

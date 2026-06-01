@@ -1,0 +1,38 @@
+{
+  "score": 1,
+  "checker": "completeness-v1",
+  "total_pages": 5,
+  "rendered_pages": 5,
+  "results": [
+    {
+      "slug": "culture",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/culture.png"
+    },
+    {
+      "slug": "economy",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/economy.png"
+    },
+    {
+      "slug": "home",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/home.png"
+    },
+    {
+      "slug": "international",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/international.png"
+    },
+    {
+      "slug": "politics",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/politics.png"
+    }
+  ]
+}

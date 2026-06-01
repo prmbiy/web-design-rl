@@ -1,0 +1,38 @@
+{
+  "score": 1,
+  "checker": "completeness-v1",
+  "total_pages": 5,
+  "rendered_pages": 5,
+  "results": [
+    {
+      "slug": "community",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/community.png"
+    },
+    {
+      "slug": "events",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/events.png"
+    },
+    {
+      "slug": "home",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/home.png"
+    },
+    {
+      "slug": "membership",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/membership.png"
+    },
+    {
+      "slug": "spaces",
+      "file_exists": true,
+      "rendered": true,
+      "screenshot": "/logs/verifier/agent_screenshots/spaces.png"
+    }
+  ]
+}
