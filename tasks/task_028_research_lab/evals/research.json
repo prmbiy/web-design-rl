@@ -1,82 +1,82 @@
 {
-  "score": 0.971429,
+  "score": 0.856451,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.9714,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "weighted_content": 0.8033,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in color usage including the Yale blue headings, red accents, yellow best-paper badge, and blue/red diagram fills."
+        "reason": "Navy and red accent colors on badges, nav, and section headers match closely, including the diagram colors."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, small-caps section labels, monospace code tokens, and badge styling all look the same between versions."
+        "reason": "Serif headings, caps thread labels, and badge text styling appear nearly identical in weight and size hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Diagrams, flow charts, and the scatter visualization render identically with proper boxes and arrows in both versions."
+        "score": 4,
+        "reason": "Diagrams render correctly with similar shapes and arrows; the agent version is missing the small image/emoji icon in the multimodal diagram but otherwise matches."
       },
       "proportion": {
         "score": 5,
-        "reason": "Spacing, padding on badges and pills, nav density, and card sizing appear consistent across both images."
+        "reason": "Badge padding, nav spacing, and section proportions look very similar with only minor diagram sizing differences."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Research' nav underline and Yale University outlined CTA button states appear identical in both."
+        "reason": "Active 'Research' nav underline and badge fill/outline variants are preserved consistently."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.75,
         "gt_word_count": 20,
-        "agent_word_count": 20
+        "agent_word_count": 12
       },
-      "research_hero": {
+      "research_areas_hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.9545,
         "gt_word_count": 22,
         "agent_word_count": 22
       },
-      "thread_01_llm": {
+      "thread_01_foundations": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 108,
-        "agent_word_count": 108
+        "content_score": 0.8269,
+        "gt_word_count": 110,
+        "agent_word_count": 98
       },
-      "thread_02_multimodal": {
+      "thread_02_grounding": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 97,
-        "agent_word_count": 97
+        "content_score": 0.7326,
+        "gt_word_count": 94,
+        "agent_word_count": 78
       },
-      "thread_03_robustness": {
+      "thread_03_safety": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 114,
-        "agent_word_count": 114
+        "content_score": 0.7812,
+        "gt_word_count": 99,
+        "agent_word_count": 93
       },
       "thread_04_interpretability": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 118,
-        "agent_word_count": 118
+        "content_score": 0.7212,
+        "gt_word_count": 108,
+        "agent_word_count": 100
       },
       "ongoing_projects": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 92,
-        "agent_word_count": 92
+        "type": "generic",
+        "content_score": 0.8191,
+        "gt_word_count": 101,
+        "agent_word_count": 87
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.6512,
+        "gt_word_count": 46,
+        "agent_word_count": 40
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The footer content diverges significantly (F1 0.65) and the multimodal diagram is missing its small image/emoji icon, dragging down the assets and content fidelity."
 }

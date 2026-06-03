@@ -1,49 +1,49 @@
 {
-  "score": 0.673333,
+  "score": 0.354925,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6733,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.4667,
+    "weighted_content": 0.6011,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange header, blue section bars, colored gradient cards, and accent button colors appear identical between both versions."
+        "reason": "Brand colors, orange section headers, blue nav, and accent colors match very closely throughout."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, section title caps, nav link styling, and body text hierarchy look consistent across both images."
+        "reason": "Heading weights, sizes, and overall text styling appear nearly identical to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Logo, social icons, person avatar silhouettes, and org chart boxes all render correctly with no missing placeholders."
+        "score": 3,
+        "reason": "Avatar placeholders show question mark icons instead of the reference's person silhouette icons, and social media icons appear slightly different."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, sidebar item spacing, table row heights, and card sizing match the reference closely."
+        "reason": "Button sizes, padding, table spacing, and overall layout proportions closely mirror the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Brief History' sidebar item with orange highlight and the active 'About the Ministry' nav tab state are preserved identically."
+        "reason": "Active nav state on 'About the Ministry' and other interactive elements appear consistent with the reference."
       }
     },
     "sections": {
-      "top_utility_bar": {
+      "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
-      "header_branding": {
+      "header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
+        "content_score": 0.0,
+        "gt_word_count": 5,
         "agent_word_count": 4
       },
       "latest_ticker": {
@@ -52,73 +52,67 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "page_title_breadcrumb": {
+      "page_title": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.625,
+        "gt_word_count": 8,
+        "agent_word_count": 8
       },
-      "left_sidebar": {
+      "sidebar_menu": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
+        "content_score": 0.8388,
+        "gt_word_count": 363,
+        "agent_word_count": 400
       },
       "historical_background": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 212,
-        "agent_word_count": 212
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "vision_mission": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 131,
-        "agent_word_count": 131
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "org_chart": {
+      "organizational_chart": {
         "type": "media",
-        "content_score": 1.0,
+        "content_score": 0.6389,
         "gt_word_count": 41,
-        "agent_word_count": 41
+        "agent_word_count": 31
       },
-      "leadership_cards": {
+      "leadership_officers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 97,
-        "agent_word_count": 97
+        "content_score": 0.6886,
+        "gt_word_count": 179,
+        "agent_word_count": 155
       },
       "allocation_business_rules": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 4,
         "agent_word_count": 0
       },
-      "page_meta_bar": {
+      "page_meta": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "social_follow_bar": {
+      "social_helpline": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
-      },
-      "accessibility_widget": {
-        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       }
     }
   },
-  "explanation": "The overall score is held back primarily by an incomplete topology (only 0.67 of expected sections present), since all design dimensions and per-section content scores are perfect."
+  "explanation": "The score is held back primarily by missing or empty top-level navigation sections (top_bar, header, and main_nav all scoring 0.00) and the complete absence of the allocation_business_rules content (0.00), compounded by incorrect avatar placeholder icons in the leadership section."
 }

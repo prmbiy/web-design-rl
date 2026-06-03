@@ -1,82 +1,82 @@
 {
-  "score": 0.941198,
+  "score": 0.389983,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 0.9965,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.2867,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The cyan/purple gradients, accent colors on buttons, audited badges, and nav elements appear identical between both versions."
+        "score": 3,
+        "reason": "The agent version preserves the cyan accent and dark background but loses the purple/pink gradients on the consensus pipeline circles and the audit cards' green 'AUDITED' badges and purple 'Pass' text are missing."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, monospaced label caps, body text, and button typography all appear consistent in both versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and the monospaced caps labels are very similar, though minor differences in size hierarchy exist."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, circular pipeline nodes, bar chart, and logo all render correctly with no missing or placeholder assets."
+        "score": 2,
+        "reason": "The benchmark bar chart visualization and the three audit firm cards with their score/pass indicators are entirely missing from the agent version."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, padding, card sizing, table row density, and button proportions all match closely."
+        "score": 3,
+        "reason": "Overall section spacing and button sizing are close, but the agent version omits significant content blocks making proportions of remaining elements slightly different."
       },
       "states": {
-        "score": 5,
-        "reason": "Active 'Technology' nav link, Submit/Launch button fills, and audited pill states appear consistent across both."
+        "score": 4,
+        "reason": "The active Veltrax row highlight in the comparison table and Submit a Report button styling appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.9804,
-        "gt_word_count": 25,
-        "agent_word_count": 26
+        "content_score": 0.8205,
+        "gt_word_count": 23,
+        "agent_word_count": 16
       },
       "consensus_flow": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.2353,
+        "gt_word_count": 22,
+        "agent_word_count": 12
       },
       "parallel_throughput": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 78,
-        "agent_word_count": 78
+        "content_score": 0.1034,
+        "gt_word_count": 49,
+        "agent_word_count": 9
       },
       "comparison_table": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 55,
-        "agent_word_count": 55
+        "type": "generic",
+        "content_score": 0.4167,
+        "gt_word_count": 12,
+        "agent_word_count": 12
       },
       "security_audits": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 56,
-        "agent_word_count": 56
+        "content_score": 0.1739,
+        "gt_word_count": 24,
+        "agent_word_count": 22
       },
       "bug_bounty": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 8
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by entirely missing assets in the security_audits section (the three audit firm cards with their AUDITED badges, scores, and Pass indicators) and severely incomplete content across the navigation, bug_bounty, footer, and parallel_throughput sections (all scoring 0.00\u20130.10)."
 }

@@ -1,44 +1,50 @@
 {
-  "score": 0.505455,
+  "score": 0.408653,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.5055,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.4667,
+    "weighted_content": 0.7914,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Color palette including code block backgrounds, accent colors on links, callout boxes (yellow warning, red danger, blue note), and nav highlights appear identical."
+        "reason": "Accent colors, code block dark theme, callout backgrounds (note/warning/danger), and nav highlights closely match the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, weights, monospace code styling, table headers, and nav link typography all match closely."
+        "reason": "Heading sizes, weights, inline code styling, and nav link typography appear consistent between both versions."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons in nav (GitHub mark, star emoji), section markers, and code copy buttons render consistently in both versions."
+        "reason": "Icons in the header, copy buttons, and callout markers all render correctly with no missing placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, padding in tables, code blocks, callouts, and sidebar item density appear essentially identical."
+        "score": 4,
+        "reason": "Spacing, table density, code block padding, and sidebar item density are very close, with only minor differences in vertical rhythm."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav item highlighting (Configuration/quill.toml) and link states appear to match between both versions."
+        "reason": "Active nav item highlight on 'Configuration' and copy button states are properly styled in both versions."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 0
       },
-      "sidebar": {
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.7788,
+        "gt_word_count": 165,
+        "agent_word_count": 156
+      },
+      "right_toc_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 132,
-        "agent_word_count": 132
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "page_header": {
         "type": "hero",
@@ -46,41 +52,53 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "intro_resolution_order": {
+      "configuration_intro": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "quill_toml_section": {
+      "quill_toml_example": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.1818,
+        "gt_word_count": 2,
+        "agent_word_count": 20
       },
       "options_reference": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 192,
-        "agent_word_count": 192
+        "content_score": 0.8103,
+        "gt_word_count": 234,
+        "agent_word_count": 230
       },
       "environment_variables": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 87,
-        "agent_word_count": 87
+        "content_score": 0.6364,
+        "gt_word_count": 46,
+        "agent_word_count": 42
       },
       "profiles": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.8421,
+        "gt_word_count": 36,
+        "agent_word_count": 40
       },
       "advanced_patterns": {
         "type": "generic",
+        "content_score": 0.8571,
+        "gt_word_count": 17,
+        "agent_word_count": 18
+      },
+      "programmatic_overrides": {
+        "type": "generic",
+        "content_score": 0.7243,
+        "gt_word_count": 91,
+        "agent_word_count": 94
+      },
+      "inspecting_config": {
+        "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 125,
-        "agent_word_count": 125
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "prev_next_nav": {
         "type": "navigation",
@@ -96,5 +114,5 @@
       }
     }
   },
-  "explanation": "Despite perfect design dimension and per-section content scores, the overall score is limited by the low topology score (0.51), indicating that roughly half of the expected sections are missing or misaligned in the agent-generated version."
+  "explanation": "The score is held back primarily by a completely missing/mismatched top navigation (F1 0.00) and a severely incomplete quill.toml example section (F1 0.18)."
 }

@@ -1,106 +1,106 @@
 {
-  "score": 0.766667,
+  "score": 0.508631,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7667,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.725,
+    "weighted_content": 0.4431,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear visually identical in terms of brand colors, accent oranges, blue navigation, badge colors, and icon tints."
+        "reason": "Brand blues, orange CTAs, and category badge colors closely match the reference palette."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, link styling, badge caps treatment, and body text all appear identical between the two versions."
+        "reason": "Heading sizes, weights, and link styling appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Folder icons, avatar pills, decorative graphics, and the sponsor banner all render identically with no missing or broken assets."
+        "reason": "Folder icons, badges, and sponsor imagery render correctly with no missing placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, padding, row heights, button sizes, and column widths look indistinguishable between the two images."
+        "score": 4,
+        "reason": "Spacing, padding, and row sizing are very close though slightly more vertical breathing room in some rows."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav highlighting, link states, and pill/badge treatments appear identical in both renders."
+        "reason": "Active nav tab (Home) and button states appear consistent with the reference."
       }
     },
     "sections": {
-      "site_header": {
+      "header": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
-      },
-      "breadcrumb_actions": {
-        "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 1
       },
-      "advertisement_banner": {
-        "type": "hero",
-        "content_score": 1.0,
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 0.0,
         "gt_word_count": 8,
-        "agent_word_count": 8
+        "agent_word_count": 9
       },
-      "general_discussion_forums": {
+      "advertisement": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 17
+      },
+      "general_discussion": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 87,
-        "agent_word_count": 87
-      },
-      "technical_help_forums": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 110,
-        "agent_word_count": 110
-      },
-      "build_threads_forums": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 120,
-        "agent_word_count": 120
-      },
-      "sidebar_sponsor_and_users": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 102,
+        "content_score": 0.3288,
+        "gt_word_count": 44,
         "agent_word_count": 102
       },
-      "classifieds_forums": {
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 0.5594,
+        "gt_word_count": 291,
+        "agent_word_count": 349
+      },
+      "technical_help": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "meets_events_forums": {
+      "build_threads": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 92,
-        "agent_word_count": 92
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "birthdays_and_stats": {
+      "classifieds": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "meets_events": {
+        "type": "generic",
+        "content_score": 0.4238,
+        "gt_word_count": 77,
+        "agent_word_count": 74
+      },
+      "birthdays_stats": {
+        "type": "generic",
+        "content_score": 0.7273,
+        "gt_word_count": 25,
+        "agent_word_count": 19
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
+        "content_score": 0.5455,
         "gt_word_count": 13,
-        "agent_word_count": 13
+        "agent_word_count": 9
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched navigation content (header, main_nav, and breadcrumb all scoring 0.00) and weak hero/advertisement text replication (0.00), compounded by low word overlap in general_discussion (0.33) and meets_events (0.42)."
 }

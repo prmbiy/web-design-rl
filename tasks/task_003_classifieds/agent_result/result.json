@@ -1,0 +1,39 @@
+{
+    "id": "18afdbe3-56cd-4a59-a53f-480e8fa7539e",
+    "started_at": "2026-06-01T20:49:09.272939",
+    "updated_at": "2026-06-01T20:55:38.164753",
+    "finished_at": "2026-06-01T20:55:38.164753",
+    "n_total_trials": 1,
+    "stats": {
+        "n_completed_trials": 1,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "claude-code__claude-opus-4-7__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "score": {
+                        "1": [
+                            "harbor__U8cDjuT"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 1255997,
+        "n_cache_tokens": 1165871,
+        "n_output_tokens": 33916,
+        "cost_usd": 1.9939405000000001
+    }
+}

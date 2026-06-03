@@ -1,142 +1,136 @@
 {
-  "score": 0.951348,
+  "score": 0.108712,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9529,
-    "weighted_content": 0.9967,
-    "design_score": 1.0,
+    "topology": 0.3129,
+    "weighted_content": 0.1348,
+    "design_score": 0.56,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The accent pinks, pastel card gradients, badge colors, and nav colors all appear identical between the two versions."
+        "score": 3,
+        "reason": "The agent version preserves the pink/cream palette in header, CTAs, and quiz card but is missing the colorful product card gradients and badge colors that dominate the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading serif italic styling, body weights, pill caps, and nav link styling look consistent across both."
+        "score": 4,
+        "reason": "Headings, italic accents, and pill/label styling appear consistent with the reference where visible."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emoji icons, decorative product illustrations, avatar, and sparkle elements render identically in both versions."
+        "score": 1,
+        "reason": "All product cards, icons, emojis, and avatar illustrations from the 10-step list are completely missing in the agent version, leaving large blank space."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, card dimensions, and spacing between elements appear matched."
+        "score": 2,
+        "reason": "Header, hero, toggle pills, and footer proportions match well, but the absent step cards leave disproportionate empty space."
       },
       "states": {
-        "score": 5,
-        "reason": "The active AM/PM toggle pill state and CTA button filled state appear the same in both."
+        "score": 4,
+        "reason": "The active AM Routine pill is correctly highlighted with the filled pink state matching the reference."
       }
     },
     "sections": {
-      "promo_bar": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
-      },
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.3333,
+        "gt_word_count": 23,
+        "agent_word_count": 7
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.9293,
-        "gt_word_count": 50,
-        "agent_word_count": 49
+        "content_score": 0.6585,
+        "gt_word_count": 40,
+        "agent_word_count": 42
       },
-      "routine_toggle": {
+      "routine_toggle_summary": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.6154,
+        "gt_word_count": 5,
         "agent_word_count": 8
       },
-      "section_title": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+      "section_heading": {
+        "type": "generic",
+        "content_score": 0.2308,
+        "gt_word_count": 10,
+        "agent_word_count": 16
       },
-      "sticky_total_bar": {
+      "sticky_bundle_bar": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.0,
+        "gt_word_count": 24,
+        "agent_word_count": 0
       },
-      "step_01_cleansing_oil": {
+      "step_01_cleanse": {
         "type": "form_step",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 32,
-        "agent_word_count": 32
+        "agent_word_count": 0
       },
       "step_02_water_cleanser": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 32,
-        "agent_word_count": 32
+        "content_score": 0.0,
+        "gt_word_count": 29,
+        "agent_word_count": 0
       },
       "step_03_exfoliator": {
         "type": "form_step",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 29,
-        "agent_word_count": 29
+        "agent_word_count": 0
       },
       "step_04_toner": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
+        "content_score": 0.0,
+        "gt_word_count": 31,
+        "agent_word_count": 0
       },
       "step_05_essence": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.0,
+        "gt_word_count": 34,
+        "agent_word_count": 0
       },
-      "step_06_ampoule": {
+      "step_06_treatment": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.0,
+        "gt_word_count": 26,
+        "agent_word_count": 0
       },
       "step_07_serum": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.0,
+        "gt_word_count": 24,
+        "agent_word_count": 0
       },
       "step_08_sheet_mask": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 31,
-        "agent_word_count": 31
+        "content_score": 0.0,
+        "gt_word_count": 29,
+        "agent_word_count": 0
       },
       "step_09_eye_cream": {
         "type": "form_step",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 29,
-        "agent_word_count": 29
+        "agent_word_count": 0
       },
       "step_10_sleeping_mask": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
       "skin_quiz_cta": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
+        "type": "hero",
+        "content_score": 0.7111,
+        "gt_word_count": 44,
+        "agent_word_count": 46
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.7049,
+        "gt_word_count": 54,
+        "agent_word_count": 68
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The agent version omitted all ten product step cards (steps 01\u201310 scoring 0.00 with missing assets, icons, and emojis) and lacks the sticky bundle bar (0.00), leaving large empty space and breaking the page's core content and proportions."
 }

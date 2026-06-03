@@ -1,88 +1,82 @@
 {
-  "score": 0.888889,
+  "score": 0.808565,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8889,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.6971,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in brand orange accents, green veg indicators, red non-veg indicator, and badge colors."
+        "reason": "Brand orange, green CTAs, and pill colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, pill text casing, and nav link styling all appear matched."
+        "reason": "Heading weights, label sizing, and pill text styling appear nearly identical."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons including cart, search, location pin, scooter emoji, and party emoji all render correctly in both versions."
+        "score": 4,
+        "reason": "Icons, emoji (35 min delivery), and MF avatar render correctly in both, though the cart icon in nav looks slightly different."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, spacing between elements, and nav density look identical."
+        "score": 4,
+        "reason": "Button padding, pill sizes, and spacing are very similar with only minor differences in quantity selector width."
       },
       "states": {
         "score": 5,
-        "reason": "The selected UPI pill, quantity selectors, and Place Order button states appear consistent between both."
+        "reason": "UPI selected pill, Place Order filled button, and Change outline button states all match correctly."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.3478,
+        "gt_word_count": 12,
+        "agent_word_count": 11
       },
       "breadcrumb_title": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.75,
         "gt_word_count": 8,
         "agent_word_count": 8
       },
-      "restaurant_header": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
-      },
-      "cart_items": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+      "restaurant_items": {
+        "type": "form_step",
+        "content_score": 0.8125,
+        "gt_word_count": 52,
+        "agent_word_count": 44
       },
       "apply_coupon": {
         "type": "form_step",
-        "content_score": 1.0,
+        "content_score": 0.8421,
         "gt_word_count": 11,
-        "agent_word_count": 11
+        "agent_word_count": 8
       },
       "delivery_address": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.75,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
+      "payment_bar": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 6
       },
       "bill_details": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.6792,
+        "gt_word_count": 24,
+        "agent_word_count": 29
       },
       "cancellation_notice": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
-      },
-      "checkout_bar": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.9524,
+        "gt_word_count": 31,
+        "agent_word_count": 32
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the empty payment_bar section (0.00 F1) and the sparse top_nav content (0.35 F1), indicating missing navigation and payment bar text relative to the reference."
 }

@@ -1,100 +1,100 @@
 {
-  "score": 0.768182,
+  "score": 0.673234,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7682,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8869,
+    "weighted_content": 0.5582,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand accents, teal gradients, orange CTAs, and badge colors appear identical between the two versions."
+        "reason": "Brand teal, orange CTAs, yellow accents, and badge colors all match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, badge caps styling, and button label typography all match the reference closely."
+        "reason": "Heading weights, button labels, and pill text styling appear nearly identical with consistent hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, emojis, and decorative elements render correctly without any placeholders or missing visuals."
+        "reason": "Icons, emojis, and gauge visualizations render correctly in both versions with similar appearance."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, badge proportions, and form element spacing all appear consistent with the reference."
+        "score": 4,
+        "reason": "Button sizes, card padding, and spacing between elements are very close, though the agent version's hero section appears slightly more compact."
       },
       "states": {
         "score": 5,
-        "reason": "Selected calendar date, active time slot, popular plan highlight, and active nav item states all match the reference."
+        "reason": "The 'most popular' card highlight, active nav item underline, and selected calendar date states are all replicated correctly."
       }
     },
     "sections": {
       "promo_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
-      "nav": {
+      "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.2667,
+        "gt_word_count": 7,
+        "agent_word_count": 8
       },
-      "promo_banner": {
+      "sub_promo_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.381,
+        "gt_word_count": 12,
+        "agent_word_count": 9
       },
-      "hero_coverage": {
+      "hero_with_coverage_form": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 116,
-        "agent_word_count": 116
+        "content_score": 0.6154,
+        "gt_word_count": 90,
+        "agent_word_count": 66
       },
       "status_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 19
       },
       "fiber_plans": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 211,
-        "agent_word_count": 211
+        "content_score": 0.6051,
+        "gt_word_count": 185,
+        "agent_word_count": 129
       },
-      "plans_comparison": {
+      "plans_comparison_table": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 73,
-        "agent_word_count": 73
+        "content_score": 0.7448,
+        "gt_word_count": 75,
+        "agent_word_count": 70
       },
       "speed_test": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
+        "content_score": 0.7397,
+        "gt_word_count": 35,
+        "agent_word_count": 38
       },
       "installation_scheduler": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
+        "content_score": 0.6996,
+        "gt_word_count": 117,
+        "agent_word_count": 106
       },
       "service_status": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.7652,
+        "gt_word_count": 54,
+        "agent_word_count": 61
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.3333,
+        "gt_word_count": 4,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The score is primarily held back by missing sections reflected in the 0.77 topology score, rather than any design or per-section content failures, which all scored perfectly."
+  "explanation": "The score is held back primarily by missing or mismatched navigation content (promo_bar at 0.00, main_nav at 0.27, sub_promo_bar at 0.38) and weak generic/footer text replication (status_bar at 0.00, footer at 0.33), indicating the agent failed to reproduce the header and footer copy accurately."
 }

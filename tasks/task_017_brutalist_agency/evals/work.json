@@ -1,44 +1,50 @@
 {
-  "score": 0.612761,
+  "score": 0.138361,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6143,
-    "weighted_content": 0.995,
-    "design_score": 1.0,
+    "topology": 0.2222,
+    "weighted_content": 0.8053,
+    "design_score": 0.44,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The yellow accent, black backgrounds, and card color palette (red, cyan, green, brown stripes) appear identical between the two versions."
+        "score": 2,
+        "reason": "The agent version preserves the yellow accent and black/cream palette but is missing most of the colorful project tile backgrounds (red gradients, brown, green, dark backgrounds) that define the reference's grid."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, italic serif styling, caps labels, and nav typography all match closely between the versions."
+        "score": 4,
+        "reason": "Heading fonts, italic yellow display type, and small caps labels appear to match the reference styling closely."
       },
       "assets": {
-        "score": 5,
-        "reason": "Decorative gradient orbs, striped patterns, sparkle icons in the marquee, and all card visuals render correctly and identically."
+        "score": 1,
+        "reason": "Major visual assets like the Koruna yellow orb, Halder pattern, Obscura/Valkyrie gradients, and Atlas Denim metallic image are absent in the agent version, leaving empty tiles."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Grid card sizing, padding, label placement, and nav spacing appear to match the reference precisely."
+        "score": 1,
+        "reason": "The grid layout is broken \u2014 tiles are stacked in a single column instead of a multi-column mosaic, and the overall page only fills the left portion of the viewport."
       },
       "states": {
-        "score": 5,
-        "reason": "The active 'ALL' filter tab with underline and other interactive state indicators appear to be rendered the same way."
+        "score": 3,
+        "reason": "The filter pill 'ALL' active state appears similar but other interactive states are hard to evaluate and the filter bar styling differs."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.4167,
         "gt_word_count": 18,
-        "agent_word_count": 18
+        "agent_word_count": 6
       },
-      "hero_selected_work": {
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 0.2449,
+        "gt_word_count": 76,
+        "agent_word_count": 22
+      },
+      "hero": {
         "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "filter_bar": {
         "type": "navigation",
@@ -46,19 +52,25 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "projects_grid": {
+      "work_grid": {
         "type": "media",
         "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "stats_block": {
+      "stats": {
         "type": "generic",
-        "content_score": 0.9615,
-        "gt_word_count": 52,
-        "agent_word_count": 52
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "clients_marquee": {
+      "clients": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "contact_cta": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -67,10 +79,10 @@
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The score is held back primarily by missing or misaligned sections reflected in the 0.61 topology score, along with a minor content gap in the stats_block (0.96 F1)."
+  "explanation": "The score is held down by missing key visual assets (Koruna orb, Halder pattern, Obscura/Valkyrie gradients, Atlas Denim image) that leave project tiles empty, and a broken proportion where the work grid collapses into a single stacked column on the left instead of a multi-column mosaic filling the viewport."
 }

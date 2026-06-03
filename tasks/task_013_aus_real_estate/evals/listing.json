@@ -1,106 +1,100 @@
 {
-  "score": 0.744444,
+  "score": 0.612804,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7444,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8869,
+    "weighted_content": 0.5419,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Brand teal, orange CTA, green badge, and all accent colors appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand teal, orange CTAs, and badge colors match closely, though the agent version lacks the colored property/feature icons present in the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button text, badge caps, and nav link styling all match closely with no perceptible difference."
+        "reason": "Heading sizes, weights, and label styling appear very similar between the two versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji, and placeholder illustrations render identically in both versions including the floorplan diagram and section icons."
+        "score": 2,
+        "reason": "The reference shows rendered emoji/illustrations (house, magnifying glass, tree, bed) while the agent version displays broken image placeholders with question mark icons."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, pill sizing, form element spacing, and overall layout density appear matched throughout."
+        "reason": "Button padding, form field spacing, and overall element sizing are nearly identical to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active Buy tab, selected Photos tab, checked checkbox, and filled CTA button states all appear consistent."
+        "reason": "Active Buy tab, selected Photos tab, checked checkbox, and filled vs outline button variants are all represented correctly."
       }
     },
     "sections": {
-      "top_nav": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.4286,
+        "gt_word_count": 6,
         "agent_word_count": 8
       },
-      "sub_nav_tabs": {
+      "category_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.381,
+        "gt_word_count": 15,
+        "agent_word_count": 6
       },
-      "breadcrumbs_media_tabs": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
-      },
-      "photo_gallery": {
+      "media_gallery": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.1695,
+        "gt_word_count": 10,
+        "agent_word_count": 49
       },
       "price_summary": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.3273,
+        "gt_word_count": 33,
+        "agent_word_count": 22
       },
-      "agent_enquiry_sidebar": {
+      "agent_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 227,
-        "agent_word_count": 227
+        "content_score": 0.7875,
+        "gt_word_count": 168,
+        "agent_word_count": 119
       },
-      "auction_inspection_times": {
+      "auction_inspection": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "property_description": {
+      "description": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.8271,
+        "gt_word_count": 60,
+        "agent_word_count": 73
       },
-      "floorplan_section": {
+      "floorplan": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.6286,
+        "gt_word_count": 15,
+        "agent_word_count": 20
       },
-      "suburb_profile": {
+      "suburb_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
+        "content_score": 0.5882,
+        "gt_word_count": 11,
+        "agent_word_count": 6
       },
       "schools_transport": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 61,
-        "agent_word_count": 61
+        "content_score": 0.7723,
+        "gt_word_count": 49,
+        "agent_word_count": 52
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as all present sections and design dimensions otherwise score perfectly, indicating missing sections from the reference rather than visual or content mismatches."
+  "explanation": "The score is held back primarily by broken image placeholders replacing the reference's rendered emoji/illustrations (assets 2/5) and missing or mismatched content in key sections including the footer (0.00), media gallery (0.17), category tabs (0.38), and navigation (0.43)."
 }

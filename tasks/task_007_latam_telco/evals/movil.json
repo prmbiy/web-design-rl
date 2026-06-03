@@ -1,88 +1,88 @@
 {
-  "score": 0.975,
+  "score": 0.410585,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.975,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8603,
+    "weighted_content": 0.2345,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in brand colors, accent oranges, teal hero, badge pills, and streaming service color tags."
+        "score": 3,
+        "reason": "Brand teal, orange CTAs, yellow accents, and pill colors match closely; the comparison table uses a light mint background instead of dark teal, which is a noticeable difference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, and pill text styling all match between the two versions."
+        "score": 4,
+        "reason": "Heading weights, button text, and pill styling appear very similar with matching hierarchy and caps treatment on badges."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, flags, map illustrations, and decorative elements render identically in both images."
+        "score": 3,
+        "reason": "Many emojis and flag icons render as placeholder boxes in the agent version, whereas the reference shows them rendering (though some boxes also appear there)."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, table spacing, and nav density appear the same across both versions."
+        "score": 4,
+        "reason": "Button padding, badge sizes, nav spacing, and form element proportions are very close to the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Selected tab (Volaris Plan), highlighted 'M\u00e1s Popular' column, and filled CTA buttons match in both renders."
+        "score": 4,
+        "reason": "Active tab (M\u00f3vil), selected Volaris Plan toggle, and highlighted 'Pro' column states are preserved consistently with the reference."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 3
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "content_score": 0.2857,
+        "gt_word_count": 3,
+        "agent_word_count": 4
       },
       "promo_banner": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 16,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 71,
-        "agent_word_count": 71
+        "content_score": 0.2857,
+        "gt_word_count": 12,
+        "agent_word_count": 23
       },
       "plans_comparison": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 210,
-        "agent_word_count": 210
+        "content_score": 0.3069,
+        "gt_word_count": 144,
+        "agent_word_count": 45
       },
-      "portability_form": {
+      "port_number_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
+        "content_score": 0.2535,
+        "gt_word_count": 42,
+        "agent_word_count": 29
       },
       "coverage_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 60,
-        "agent_word_count": 60
+        "content_score": 0.5385,
+        "gt_word_count": 67,
+        "agent_word_count": 37
       },
-      "features_strip": {
+      "features_highlights": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 7
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.1429,
+        "gt_word_count": 3,
+        "agent_word_count": 11
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by widespread missing text content across nearly every section (top_bar, promo_banner, features_highlights, and footer all near zero F1), and by broken asset rendering where emojis and flag icons appear as placeholder boxes instead of proper glyphs."
 }

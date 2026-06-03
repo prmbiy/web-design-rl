@@ -1,94 +1,94 @@
 {
-  "score": 0.933333,
+  "score": 0.648929,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.9333,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "weighted_content": 0.5906,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in brand green CTAs, purple gradient section, badge colors, and icon tints."
+        "score": 4,
+        "reason": "The green accent, purple gradient section, and overall color palette match closely, though some icon backgrounds in feature cards appear slightly different in saturation."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav link typography all match between the two images."
+        "reason": "Heading weights, sizes, and body text hierarchy appear nearly identical with consistent button and label styling."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, phone mockups, avatars, and decorative elements all render identically in both versions."
+        "score": 3,
+        "reason": "Most icons render correctly but some emojis (waving hand, question marks) appear as placeholder boxes in the generated version, and feature card icons look slightly less detailed."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizes, spacing between elements, and nav density appear indistinguishable."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and spacing between elements are very close to the reference with only minor differences in card and pill dimensions."
       },
       "states": {
-        "score": 5,
-        "reason": "Active button fills, outline variants, and highlighted pill states look the same in both versions."
+        "score": 4,
+        "reason": "Interactive states like the filled CTA button and outlined secondary buttons are preserved consistently across both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.7273,
+        "gt_word_count": 6,
+        "agent_word_count": 5
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 115,
-        "agent_word_count": 115
+        "content_score": 0.65,
+        "gt_word_count": 53,
+        "agent_word_count": 67
       },
-      "trust_badges": {
+      "certifications": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.3448,
+        "gt_word_count": 16,
+        "agent_word_count": 13
       },
-      "by_the_numbers": {
+      "stats_numbers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 84,
-        "agent_word_count": 84
+        "content_score": 0.8254,
+        "gt_word_count": 33,
+        "agent_word_count": 30
       },
       "features": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 83,
-        "agent_word_count": 83
+        "content_score": 0.9137,
+        "gt_word_count": 97,
+        "agent_word_count": 100
       },
       "ussd_banner": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 101,
-        "agent_word_count": 101
+        "content_score": 0.5714,
+        "gt_word_count": 7,
+        "agent_word_count": 14
       },
       "testimonials": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
+        "content_score": 0.8284,
+        "gt_word_count": 83,
+        "agent_word_count": 86
       },
       "partners": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 5
       },
       "app_download": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.6667,
+        "gt_word_count": 57,
+        "agent_word_count": 54
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing content in the partners and footer sections (both scoring 0.00 on word-set F1) and by broken asset rendering where emojis like the waving hand and question marks appear as placeholder boxes."
 }

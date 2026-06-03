@@ -1,76 +1,76 @@
 {
-  "score": 0.933333,
+  "score": 0.638639,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.4373,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand accents, badge colors, card gradient fills, and nav colors appear identical between the two images."
+        "reason": "Brand greens, accent oranges, badge colors, and card background tints closely match the reference across CTAs, badges, and agent pills."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, weights, button labels, and badge text styling look consistent across both versions."
+        "reason": "Heading sizes, label weights, and badge text styling appear nearly identical with consistent hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, agent avatars, and house illustration placeholders render identically with no missing or broken elements."
+        "score": 2,
+        "reason": "The agent version shows broken image placeholders (question mark icons) on every property card instead of clean colored card backgrounds as in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, button padding, filter sidebar spacing, and pagination density appear matching."
+        "score": 4,
+        "reason": "Button padding, filter sidebar density, card sizing, and spacing between elements are very close to the reference with only minor differences."
       },
       "states": {
         "score": 5,
-        "reason": "Selected filter pills (3+, 2+, House, Garage), active pagination page, and checkbox states all appear consistent."
+        "reason": "Selected pills (3+ Beds, 2+ Bath, House checkbox, Grid toggle) display correct active/filled styling matching the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.6087,
+        "gt_word_count": 11,
+        "agent_word_count": 12
       },
       "search_filters_bar": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.5385,
+        "gt_word_count": 17,
+        "agent_word_count": 9
       },
       "results_header": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "type": "generic",
+        "content_score": 0.125,
+        "gt_word_count": 8,
+        "agent_word_count": 8
       },
       "filters_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 270,
-        "agent_word_count": 270
+        "content_score": 0.5992,
+        "gt_word_count": 135,
+        "agent_word_count": 122
       },
       "listings_grid": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 277,
-        "agent_word_count": 277
+        "type": "generic",
+        "content_score": 0.6572,
+        "gt_word_count": 256,
+        "agent_word_count": 237
       },
       "pagination": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by broken image placeholders on every property card instead of clean colored backgrounds, and by missing or mismatched content in the pagination and footer sections (both scoring 0.00)."
 }

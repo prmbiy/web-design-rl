@@ -1,94 +1,94 @@
 {
-  "score": 0.955556,
+  "score": 0.727362,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9556,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9778,
+    "weighted_content": 0.5278,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear visually identical in all brand accent colors, gradients, badges, and icon colors."
+        "reason": "The brand navy, orange accents, card colors, and integration icon color groupings closely match the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, button labels, and pill/badge styling appear identical between both versions."
+        "reason": "Heading weights, label caps, and button typography appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, logos, avatars, and decorative elements render the same way in both images."
+        "reason": "Icons, avatar, dashboard mock, and integration tiles all render correctly with no placeholder artifacts."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, nav spacing, and overall element proportions match precisely."
+        "score": 4,
+        "reason": "Button sizes, card padding, and pill spacing are very close, with only minor differences in hero text sizing."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav states, filled vs outline buttons, and highlighted elements appear identical in both versions."
+        "reason": "Active nav item in the dashboard mock and primary vs secondary button variants are rendered consistently with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.3636,
+        "gt_word_count": 8,
+        "agent_word_count": 3
       },
-      "logo_ticker": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
+      "logo_bar": {
+        "type": "navigation",
+        "content_score": 0.9778,
+        "gt_word_count": 22,
         "agent_word_count": 23
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 90,
-        "agent_word_count": 90
+        "content_score": 0.7387,
+        "gt_word_count": 58,
+        "agent_word_count": 53
       },
       "trusted_by": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.875,
+        "gt_word_count": 8,
+        "agent_word_count": 8
       },
       "platform_modules": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 90,
+        "content_score": 0.884,
+        "gt_word_count": 91,
         "agent_word_count": 90
       },
-      "roi_stats": {
+      "roi_numbers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 12
       },
       "testimonial": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.9412,
+        "gt_word_count": 36,
+        "agent_word_count": 32
       },
       "integrations": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
+        "content_score": 0.8671,
+        "gt_word_count": 70,
+        "agent_word_count": 73
       },
-      "cta_demo": {
+      "demo_cta": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 3
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched content in key sections\u2014specifically the ROI numbers, demo CTA, and footer all scoring 0.00\u2014and a weak navigation word match (0.36) indicating incorrect nav labels."
 }

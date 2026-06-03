@@ -1,82 +1,88 @@
 {
-  "score": 0.999326,
+  "score": 0.158489,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 1.0,
-    "weighted_content": 0.9987,
-    "design_score": 1.0,
+    "topology": 0.4444,
+    "weighted_content": 0.1932,
+    "design_score": 0.52,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in brand accent colors, gradients, badge backgrounds, and icon colors."
+        "score": 3,
+        "reason": "The agent version preserves the purple accent on CTAs and gradient text but is missing the colored card icons, code block colors, stat highlights, and pricing card accents seen in the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav links match precisely between both versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, nav links, and button text styling appear very similar between the two versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, avatars, and decorative elements render correctly and identically in both images."
+        "score": 1,
+        "reason": "Many key assets are missing in the agent version including feature card icons, code editor content, avatars, stats numbers, and pricing tiers, leaving large empty areas."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, nav spacing, and element proportions appear identical."
+        "score": 3,
+        "reason": "Nav, badges, and button proportions match well, but section heights are mostly empty due to missing content blocks."
       },
       "states": {
-        "score": 5,
-        "reason": "The active typescript.ts tab, Most Popular highlighted pricing card, and filled CTA buttons all match in both versions."
+        "score": 2,
+        "reason": "The primary filled CTA and outline secondary button states are preserved, but the highlighted 'Most Popular' pricing card state and other selected tab states are absent."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.6154,
+        "gt_word_count": 31,
+        "agent_word_count": 21
       },
-      "platform_features": {
+      "trusted_by": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 86,
-        "agent_word_count": 86
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 4
+      },
+      "platform_toolkit": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 39,
+        "agent_word_count": 0
       },
       "developer_experience": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 101,
-        "agent_word_count": 101
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 37,
+        "agent_word_count": 0
       },
       "stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 71,
-        "agent_word_count": 71
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "testimonials": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.0,
+        "gt_word_count": 26,
+        "agent_word_count": 0
       },
       "pricing": {
         "type": "pricing",
-        "content_score": 0.9945,
-        "gt_word_count": 90,
-        "agent_word_count": 91
+        "content_score": 0.0,
+        "gt_word_count": 37,
+        "agent_word_count": 2
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 10
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The agent version is missing most page sections below the hero (trusted_by, platform_toolkit, developer_experience, stats, testimonials, pricing, and footer all scored 0.00) and lacks critical visual assets like feature card icons, code editor content, avatars, stat numbers, and pricing tiers, leaving large empty areas."
 }

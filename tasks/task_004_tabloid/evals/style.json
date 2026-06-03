@@ -1,44 +1,44 @@
 {
-  "score": 0.745714,
+  "score": 0.412661,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7457,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6179,
+    "weighted_content": 0.5758,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The pink/magenta brand accents, gradient cards, and badge colors appear identical between both versions."
+        "reason": "The pink/magenta accent colors, gradients, and badge fills closely match the reference throughout."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, and badge caps styling look the same across both images."
+        "score": 4,
+        "reason": "Heading weights, caps usage on badges, and nav styling appear very similar with only minor weight differences in some headings."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, and decorative gradient placeholders all render identically in both versions."
+        "score": 2,
+        "reason": "The agent version shows question mark placeholders instead of the actual emojis, icons, and decorative images present in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, badge dimensions, card spacing, and nav density appear to match precisely."
+        "score": 4,
+        "reason": "Button sizes, badge proportions, and overall spacing/density closely mirror the reference layout."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav state on STYLE, filled vs outline buttons, and trending pill states look the same."
+        "score": 4,
+        "reason": "Active nav state on STYLE, filled CTA buttons, and pill states appear consistent with the reference."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.4706,
+        "gt_word_count": 10,
+        "agent_word_count": 7
       },
       "trending_ticker": {
         "type": "navigation",
@@ -46,37 +46,37 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "leaderboard_ad": {
+      "ad_banner_top": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 10
       },
       "section_title": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
-      },
-      "hero_carousel": {
-        "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.5,
         "gt_word_count": 12,
         "agent_word_count": 12
       },
+      "hero_carousel": {
+        "type": "hero",
+        "content_score": 0.4878,
+        "gt_word_count": 12,
+        "agent_word_count": 29
+      },
       "best_dressed_list": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 285,
-        "agent_word_count": 285
+        "content_score": 0.7107,
+        "gt_word_count": 222,
+        "agent_word_count": 217
       },
       "sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 55,
-        "agent_word_count": 55
+        "content_score": 0.561,
+        "gt_word_count": 51,
+        "agent_word_count": 31
       },
-      "mid_ad": {
+      "ad_banner_mid": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -84,35 +84,35 @@
       },
       "worst_dressed_list": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.7952,
+        "gt_word_count": 42,
+        "agent_word_count": 41
       },
       "sponsored_walmart": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 63,
-        "agent_word_count": 63
+        "content_score": 0.2683,
+        "gt_word_count": 58,
+        "agent_word_count": 24
       },
       "outfit_breakdowns": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 87,
-        "agent_word_count": 87
+        "content_score": 0.6171,
+        "gt_word_count": 95,
+        "agent_word_count": 80
       },
       "you_may_also_like": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology (0.75), indicating several reference sections are missing from the generated layout, rather than by any design or per-section content failures, which all scored perfectly."
+  "explanation": "The two most important failures are missing visual assets (emojis, icons, and decorative images replaced with question mark placeholders) and significant content gaps in key sections, particularly the empty ad_banner_top and you_may_also_like sections plus low word-overlap in main_nav, hero_carousel, and sponsored_walmart."
 }

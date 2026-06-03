@@ -1,94 +1,94 @@
 {
-  "score": 0.911111,
+  "score": 0.630357,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9111,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9,
+    "weighted_content": 0.5608,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in brand colors, gradients, badge fills, and icon colors across all sections."
+        "score": 4,
+        "reason": "The agent version uses similar teal, orange, and yellow accents but lacks the hero gradient background and the floating chat bubble accent, and the comparativa section background is darker teal instead of gradient."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all appear identical between the two versions."
+        "reason": "Headings, prices, and badge styling closely match the reference with similar weights, sizes, and caps treatment."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, emoji, avatars, and decorative images render the same way in both images with no placeholders visible."
+        "score": 2,
+        "reason": "The agent version shows generic placeholder square icons in card headers and streaming service area instead of the colored emoji/illustrated icons (house, people, rocket) in the reference."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, pill sizing, spacing, and nav density are visually indistinguishable between reference and generated."
+        "reason": "Button sizes, badge dimensions, card spacing, and nav density appear very close to the reference with only minor differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav (Paquetes), highlighted 'M\u00e1s Popular' card, and filled vs outline CTA states appear identical in both images."
+        "reason": "The 'M\u00e1s Popular' card highlighted state with orange border and the selected Disney+ pill state are both preserved correctly."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 9
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.5,
+        "gt_word_count": 3,
+        "agent_word_count": 5
       },
       "promo_banner": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 7,
-        "agent_word_count": 7
+        "agent_word_count": 0
       },
       "hero_calculator": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 65,
-        "agent_word_count": 65
+        "content_score": 0.5586,
+        "gt_word_count": 56,
+        "agent_word_count": 55
       },
       "pricing_plans": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 144,
-        "agent_word_count": 144
+        "content_score": 0.6359,
+        "gt_word_count": 127,
+        "agent_word_count": 90
       },
-      "savings_comparison": {
+      "savings_calculator": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 102,
-        "agent_word_count": 102
+        "content_score": 0.6875,
+        "gt_word_count": 49,
+        "agent_word_count": 47
       },
       "family_plan": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 143,
-        "agent_word_count": 143
+        "content_score": 0.7164,
+        "gt_word_count": 147,
+        "agent_word_count": 121
       },
-      "streaming_included": {
+      "streaming_promo": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.9615,
+        "gt_word_count": 26,
+        "agent_word_count": 26
       },
-      "streaming_logos": {
+      "streaming_services": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "content_score": 0.9231,
+        "gt_word_count": 6,
+        "agent_word_count": 7
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 32,
-        "agent_word_count": 32
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing/empty content in the top_bar, promo_banner, and footer sections (0.00 F1 scores) and by the use of generic placeholder square icons instead of the reference's colored illustrated icons (house, people, rocket) in card headers and the streaming services area."
 }

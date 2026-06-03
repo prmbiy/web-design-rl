@@ -1,50 +1,50 @@
 {
-  "score": 0.71,
+  "score": 0.571641,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.71,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.75,
+    "weighted_content": 0.7644,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in their use of brand orange CTA, gradient hero card, colored pills, and accent colors."
+        "score": 4,
+        "reason": "Brand orange CTAs, gradient hero card, and category pill colors closely match, though the Publish Event button appears slightly desaturated/lighter in the generated version."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, weights, button text, badge caps, and label styling all appear to match exactly."
+        "reason": "Heading weights, label sizes, and pill text styling appear nearly identical between the two versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, headphone illustration, and placeholder boxes render identically in both versions."
+        "score": 3,
+        "reason": "The generated hero card shows a broken image placeholder (question mark box) instead of the headphone icon, and some pill icons render slightly differently."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, form spacing, and overall layout density appear visually identical."
+        "score": 4,
+        "reason": "Button sizes, form spacing, and pill dimensions are very close, with only minor differences in step indicator spacing and card padding."
       },
       "states": {
-        "score": 5,
-        "reason": "Selected Music pill, In-person format toggle, step indicators, and Publish button all show matching active states."
+        "score": 3,
+        "reason": "Active step indicators and selected pill states (Music, In-person) are preserved similarly, though the Publish Event button looks more like a disabled/lighter state in the generated version."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.64,
+        "gt_word_count": 16,
+        "agent_word_count": 9
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.8444,
         "gt_word_count": 23,
-        "agent_word_count": 23
+        "agent_word_count": 22
       },
       "basics_step": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 200,
-        "agent_word_count": 200
+        "content_score": 0.7628,
+        "gt_word_count": 186,
+        "agent_word_count": 147
       },
       "live_preview_sidebar": {
         "type": "sidebar",
@@ -54,29 +54,29 @@
       },
       "tickets_step": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 65,
-        "agent_word_count": 65
+        "content_score": 0.5714,
+        "gt_word_count": 47,
+        "agent_word_count": 51
       },
       "media_step": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.8224,
+        "gt_word_count": 45,
+        "agent_word_count": 62
       },
       "map_step": {
         "type": "map",
         "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 9
       }
     }
   },
-  "explanation": "The score is held back primarily by an incomplete topology (0.71), indicating several reference sections are missing from the agent-generated version, even though all rendered sections matched perfectly in content and design."
+  "explanation": "The score is held back primarily by the missing footer section (0.00 content F1) and the broken hero image placeholder replacing the headphone icon, compounded by a desaturated Publish Event button that reads as a disabled state."
 }

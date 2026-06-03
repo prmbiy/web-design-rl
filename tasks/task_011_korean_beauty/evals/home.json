@@ -1,88 +1,88 @@
 {
-  "score": 0.860317,
+  "score": 0.169693,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.3778,
+    "weighted_content": 0.2984,
+    "design_score": 0.6,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The pastel pinks, peaches, mints, and gradient fills on cards and hero match the reference precisely."
+        "score": 3,
+        "reason": "The pink CTA button, dark top banner, and hero pink gradient are preserved, but most product card gradients and decorative color blocks from the middle sections are entirely missing in the generated version."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, italic accents, badge caps, and label styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading weights, italic accent text, nav links, and badge styling appear consistent with the reference in the visible top and footer sections."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, sun/moon symbols, product illustrations, and decorative elements all render correctly with no placeholders."
+        "score": 1,
+        "reason": "The hero flower illustration is replaced with a plain pink circle, and all product mockups, routine icons, and Instagram tile images are missing from the middle sections."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, card dimensions, badge proportions, and spacing all match the reference closely."
+        "score": 4,
+        "reason": "Button padding, nav spacing, badge sizing, and footer form proportions match the reference closely in the rendered areas."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav cart indicator and filled CTA button states appear consistent with the reference."
+        "score": 3,
+        "reason": "The cart badge indicator and primary filled CTA button states are visible and match, though many interactive card states cannot be assessed due to missing content."
       }
     },
     "sections": {
       "promo_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.0,
+        "gt_word_count": 17,
+        "agent_word_count": 0
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.6667,
+        "gt_word_count": 10,
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
+        "content_score": 0.675,
+        "gt_word_count": 34,
+        "agent_word_count": 46
       },
       "new_arrivals": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 163,
-        "agent_word_count": 163
+        "content_score": 0.0,
+        "gt_word_count": 95,
+        "agent_word_count": 0
       },
-      "skin_routine": {
+      "ritual_routine": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 86,
-        "agent_word_count": 86
+        "content_score": 0.0,
+        "gt_word_count": 132,
+        "agent_word_count": 0
       },
       "bestsellers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 100,
-        "agent_word_count": 100
+        "content_score": 0.0,
+        "gt_word_count": 95,
+        "agent_word_count": 0
       },
-      "philosophy": {
+      "brand_philosophy": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.0,
+        "gt_word_count": 25,
+        "agent_word_count": 0
       },
-      "community_tags": {
+      "instagram_tag": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
+        "content_score": 0.7755,
+        "gt_word_count": 57,
+        "agent_word_count": 41
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.5714,
+        "gt_word_count": 13,
+        "agent_word_count": 22
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing assets across the middle sections (hero flower replaced with a plain circle, plus absent product mockups, routine icons, and Instagram images) and entirely empty content in the new_arrivals, ritual_routine, bestsellers, and brand_philosophy sections."
 }

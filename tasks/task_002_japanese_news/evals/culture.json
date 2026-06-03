@@ -1,106 +1,106 @@
 {
-  "score": 0.7,
+  "score": 0.417411,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8567,
+    "weighted_content": 0.2945,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in color palette including the red brand accents, nav colors, badge colors, and gradient fills on cards."
+        "score": 4,
+        "reason": "The red accent color, nav bar, badges, and category colors match well, though the colored card backgrounds are present without the illustrations on top."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, sizes, badge text styling, and nav link styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and nav link styling appear very similar to the reference with consistent hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, emoji-style illustrations on cards, and decorative graphics render identically in both versions."
+        "score": 1,
+        "reason": "Most icons and illustrations are missing, replaced with placeholder question mark boxes throughout the hero, review cards, and lifestyle section."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, nav spacing, and element density appear indistinguishable between the two."
+        "score": 4,
+        "reason": "Layout proportions, padding, badge sizing, and nav density closely match the reference structure."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav state on the highlighted tab and other interactive element states appear identical."
+        "score": 4,
+        "reason": "Active nav state (english tab highlighted) and button states appear consistent with the reference."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.4,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       },
-      "header_with_ad": {
+      "header_logo_ad": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.6,
+        "gt_word_count": 12,
+        "agent_word_count": 8
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 7
       },
-      "section_title": {
+      "breadcrumb_title": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 4,
+        "content_score": 0.0,
+        "gt_word_count": 13,
         "agent_word_count": 4
       },
-      "feature_hero": {
+      "cover_story_hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.1277,
+        "gt_word_count": 18,
+        "agent_word_count": 29
       },
       "weekend_reviews": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 75,
-        "agent_word_count": 75
+        "content_score": 0.1667,
+        "gt_word_count": 18,
+        "agent_word_count": 18
       },
-      "sidebar_bestsellers": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 59,
-        "agent_word_count": 59
-      },
-      "pr_ad": {
+      "promo_ad_banner": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.2857,
+        "gt_word_count": 10,
+        "agent_word_count": 11
       },
       "events_calendar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
+        "content_score": 0.1698,
+        "gt_word_count": 52,
+        "agent_word_count": 54
       },
       "food_travel_lifestyle": {
         "type": "media",
+        "content_score": 0.0645,
+        "gt_word_count": 44,
+        "agent_word_count": 18
+      },
+      "sidebar": {
+        "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 53,
-        "agent_word_count": 53
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "stock_ticker": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 9
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.3419,
+        "gt_word_count": 60,
+        "agent_word_count": 57
       }
     }
   },
-  "explanation": "The score is held back primarily by missing or unmatched sections reflected in the 0.70 topology score, rather than by any color, typography, asset, proportion, or state discrepancies, which all scored perfectly."
+  "explanation": "The score is held back primarily by missing icons and illustrations across the hero, review cards, and lifestyle sections (assets 1/5), and by severe text content mismatches in the main navigation (0.00), breadcrumb title (0.00), stock ticker (0.00), and cover story hero (0.13)."
 }

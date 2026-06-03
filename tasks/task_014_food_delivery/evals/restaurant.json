@@ -1,70 +1,76 @@
 {
-  "score": 0.96,
+  "score": 0.494052,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.96,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8171,
+    "weighted_content": 0.4492,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The brand orange, gradient food card backgrounds, badge colors, and accent colors all appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand orange, gradient card backgrounds, and badge colors closely match, though the page background has a slight peach tint vs white in reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, button labels, and badge styling all look consistent with the reference."
+        "score": 4,
+        "reason": "Headings, prices, and labels appear similarly weighted and sized, with consistent badge/pill styling."
       },
       "assets": {
-        "score": 5,
-        "reason": "All food icons, veg/non-veg indicators, bestseller stars, and decorative elements render identically."
+        "score": 2,
+        "reason": "Food emoji/icons inside the colored tiles are missing in the generated version, showing only blank circles instead of the illustrations."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card dimensions, spacing between elements, and nav item density appear to match precisely."
+        "score": 4,
+        "reason": "Card sizes, ADD button placement, menu sidebar spacing, and coupon strip proportions are very close to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Recommended' pill state with orange highlight and ADD button styling appear identical."
+        "reason": "Active 'Recommended' menu item highlighting and Cart button active state are preserved correctly."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.375,
+        "gt_word_count": 6,
+        "agent_word_count": 10
       },
-      "restaurant_hero": {
+      "restaurant_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.7273,
+        "gt_word_count": 9,
+        "agent_word_count": 13
       },
       "info_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.1667,
+        "gt_word_count": 10,
+        "agent_word_count": 2
       },
       "offers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 12,
+        "content_score": 0.2941,
+        "gt_word_count": 22,
         "agent_word_count": 12
       },
-      "menu_with_sidebar": {
+      "menu_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 237,
-        "agent_word_count": 237
+        "content_score": 0.5532,
+        "gt_word_count": 79,
+        "agent_word_count": 62
+      },
+      "menu_items": {
+        "type": "generic",
+        "content_score": 0.7238,
+        "gt_word_count": 148,
+        "agent_word_count": 167
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing food emoji/illustrations inside the colored menu tiles (assets 2/5) and substantial content gaps in the navigation, info bar, offers strip, and footer sections (F1 scores of 0.38, 0.17, 0.29, and 0.00 respectively)."
 }

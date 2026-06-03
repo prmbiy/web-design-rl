@@ -1,92 +1,98 @@
 {
-  "score": 0.505455,
+  "score": 0.625646,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.5055,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8367,
+    "weighted_content": 0.5756,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two pages appear visually identical in terms of brand accents, dark navy chart backgrounds, badge colors, and CTA button colors."
+        "score": 4,
+        "reason": "Brand orange accents, dark navy panels, and blue chart colors closely match, though the supplier heatmap in the generated version uses brighter, more saturated multicolor cells vs the more muted palette of the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, sizes, label styling, and nav link typography appear consistent across both versions."
+        "score": 4,
+        "reason": "Heading weights, label caps, and nav styling appear very similar with only minor differences in heading size hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, chart visualizations, heatmap tiles, and avatar circles all render correctly with no visible placeholders or broken assets."
+        "reason": "Icons, avatars, and chart visualizations render correctly with no placeholders or broken assets visible."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, module spacing, and nav density look identical between the two images."
+        "reason": "Button sizes, padding, tab spacing, and module card proportions appear nearly identical to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab/pill states in the module selector and sidebar navigation appear consistently highlighted in both versions."
+        "reason": "Active tab underline, selected sidebar item highlight, and primary CTA button states are consistently rendered matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.4286,
+        "gt_word_count": 8,
+        "agent_word_count": 6
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "content_score": 0.9024,
+        "gt_word_count": 43,
+        "agent_word_count": 39
+      },
+      "module_tabs": {
+        "type": "navigation",
+        "content_score": 0.2857,
+        "gt_word_count": 12,
+        "agent_word_count": 2
       },
       "demand_forecasting": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 153,
-        "agent_word_count": 153
+        "content_score": 0.8767,
+        "gt_word_count": 109,
+        "agent_word_count": 110
       },
       "inventory_optimization": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 134,
-        "agent_word_count": 134
+        "content_score": 0.7814,
+        "gt_word_count": 108,
+        "agent_word_count": 107
       },
       "supplier_analytics": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 163,
-        "agent_word_count": 163
+        "content_score": 0.7935,
+        "gt_word_count": 97,
+        "agent_word_count": 87
       },
       "reporting_alerts": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 94,
-        "agent_word_count": 94
+        "content_score": 0.7965,
+        "gt_word_count": 118,
+        "agent_word_count": 108
       },
-      "compliance": {
+      "security_compliance": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.7838,
+        "gt_word_count": 37,
+        "agent_word_count": 37
       },
       "data_residency": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4167,
+        "gt_word_count": 18,
+        "agent_word_count": 6
       },
       "enterprise_sla": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "type": "pricing",
+        "content_score": 0.1538,
+        "gt_word_count": 8,
+        "agent_word_count": 5
       },
       "cta_demo": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4762,
+        "gt_word_count": 8,
+        "agent_word_count": 13
       },
       "footer": {
         "type": "footer",
@@ -96,5 +102,5 @@
       }
     }
   },
-  "explanation": "The score is held back primarily by topology gaps where several reference sections are missing or misaligned in the agent's version, despite per-section content and design dimensions otherwise matching closely."
+  "explanation": "The score is held back primarily by very low content fidelity in the enterprise_sla pricing section (0.15) and the module_tabs navigation (0.29), with additional weakness in the cta_demo form (0.48) and data_residency map (0.42) sections missing key reference copy."
 }

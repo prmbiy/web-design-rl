@@ -1,94 +1,94 @@
 {
-  "score": 0.9,
+  "score": 0.417165,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7714,
+    "weighted_content": 0.2015,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The green accent color, dark background, and muted gray text appear identical between both versions."
+        "reason": "Green accent color, syntax highlighting hues, and badge backgrounds appear consistent between both versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Monospace font usage, heading sizes, label styling, and pill text all match the reference closely."
+        "score": 4,
+        "reason": "Monospace font, heading weights, and label styles match closely, though the agent version's headings wrap differently due to narrower content width."
       },
       "assets": {
         "score": 5,
-        "reason": "ASCII diagrams, code blocks, terminal window dots, and decorative elements all render correctly with no missing assets."
+        "reason": "Diagrams, code blocks, and decorative elements all render correctly with no missing icons or placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, spacing between elements, and nav density appear consistent with the reference."
+        "score": 3,
+        "reason": "The agent version appears more vertically stretched with narrower content area causing text to wrap more, and stat cards/buttons feel slightly tighter."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav state on 'Work', filled vs outline button variants, and active tab styling are preserved identically."
+        "reason": "Active 'Store' tab underline, filled 'Get started' button vs outlined GitHub button, and nav active state all appear consistent."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "content_score": 0.2105,
+        "gt_word_count": 14,
+        "agent_word_count": 5
       },
       "problem": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 123,
-        "agent_word_count": 123
+        "content_score": 0.4286,
+        "gt_word_count": 82,
+        "agent_word_count": 30
       },
       "approach": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 91,
-        "agent_word_count": 91
+        "content_score": 0.5174,
+        "gt_word_count": 142,
+        "agent_word_count": 59
       },
       "architecture_diagram": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 6
       },
       "screens": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 104,
-        "agent_word_count": 104
+        "content_score": 0.339,
+        "gt_word_count": 35,
+        "agent_word_count": 24
       },
       "decisions": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 112,
-        "agent_word_count": 112
+        "content_score": 0.2222,
+        "gt_word_count": 71,
+        "agent_word_count": 19
       },
       "outcomes": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
-      },
-      "built_with": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.2222,
+        "gt_word_count": 12,
+        "agent_word_count": 6
+      },
+      "stack_links": {
+        "type": "generic",
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 3
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by widespread content mismatches in key sections (nav, hero, architecture_diagram, stack_links, and footer all scoring 0.00\u20130.21, indicating missing or incorrect text/links) and by proportion issues where the narrower content area stretches the layout vertically and forces excessive text wrapping."
 }

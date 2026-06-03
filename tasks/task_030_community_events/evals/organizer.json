@@ -1,52 +1,58 @@
 {
-  "score": 0.949228,
+  "score": 0.705888,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.95,
-    "weighted_content": 0.9984,
-    "design_score": 1.0,
+    "topology": 0.9333,
+    "weighted_content": 0.6326,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The gradient hero, orange CTA buttons, colored badges, and accent colors all appear identical between the two versions."
+        "reason": "Brand colors, gradients on cards, pill backgrounds, and CTA accents match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button text, pill labels, and nav link styling appear visually identical."
+        "reason": "Headings, labels, badges, and nav links appear nearly identical in weight and size."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emojis, icons, avatars, event card illustrations, and the map visualization render identically in both versions."
+        "score": 2,
+        "reason": "The agent version shows missing-image placeholder icons (question marks in boxes) on the event cards instead of the rendered headphones/saxophone/dancer/wine illustrations, and similar placeholder boxes appear for small past-event icons."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements look the same across both images."
+        "reason": "Button sizes, pill padding, card dimensions, and spacing between elements are very close to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Upcoming' tab with underline, selected 'All' pill, and Follow button filled state all match between versions."
+        "reason": "Active 'Upcoming' tab underline, selected Music/Art pills, and filled vs outline buttons (Follow vs Share) are represented correctly."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
+        "content_score": 0.6207,
+        "gt_word_count": 13,
+        "agent_word_count": 16
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
+      },
+      "organizer_header": {
+        "type": "generic",
+        "content_score": 0.7647,
+        "gt_word_count": 16,
         "agent_word_count": 18
       },
-      "hero_profile": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
-      },
-      "stats_bar": {
+      "stats": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.8696,
         "gt_word_count": 12,
-        "agent_word_count": 12
+        "agent_word_count": 11
       },
-      "tabs_nav": {
+      "tabs": {
         "type": "navigation",
         "content_score": 1.0,
         "gt_word_count": 8,
@@ -54,35 +60,35 @@
       },
       "upcoming_events": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 92,
-        "agent_word_count": 92
+        "content_score": 0.8,
+        "gt_word_count": 80,
+        "agent_word_count": 80
       },
       "past_events": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 116,
-        "agent_word_count": 116
+        "content_score": 0.5549,
+        "gt_word_count": 66,
+        "agent_word_count": 107
       },
       "venues_map": {
         "type": "map",
-        "content_score": 0.9877,
-        "gt_word_count": 41,
-        "agent_word_count": 40
+        "content_score": 0.8767,
+        "gt_word_count": 38,
+        "agent_word_count": 35
       },
       "reviews": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.9367,
         "gt_word_count": 159,
-        "agent_word_count": 159
+        "agent_word_count": 157
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 6
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing event illustration assets (rendered as question-mark placeholders) and absent hero and footer content (both scoring 0.00 in word-set F1)."
 }

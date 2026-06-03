@@ -1,100 +1,94 @@
 {
-  "score": 0.718182,
+  "score": 0.450404,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7182,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6667,
+    "weighted_content": 0.5512,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand blues, gold/silver/grey tier headers, orange CTA, and accent colors all appear identical between the two versions."
+        "reason": "Brand blues, orange CTAs, gold/silver tier headers, and green checkmarks all match closely between versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps section labels, table headers, and nav link styling match closely with no perceptible difference."
+        "score": 4,
+        "reason": "Heading sizes, weights, table labels, and nav styling appear very similar with only minor differences in hero text scaling."
       },
       "assets": {
-        "score": 5,
-        "reason": "Trophy, medal, clipboard icons, handshake illustration, and check/dash symbols render identically in both images."
+        "score": 2,
+        "reason": "The reference shows a trophy icon, medal, clipboard, and decorative hero image, while the agent version displays question-mark placeholder boxes for these icons."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, table row spacing, nav density, and form element proportions appear visually identical."
+        "score": 4,
+        "reason": "Button sizes, table row density, nav spacing, and card proportions are largely consistent with the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active 'Partners' nav tab highlight and the orange Apply Now button state look the same in both versions."
+        "reason": "The active 'Partners' nav tab is highlighted in orange in both versions, and form/button states look equivalent."
       }
     },
     "sections": {
-      "top_header": {
+      "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 5
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "breadcrumb": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.25,
+        "gt_word_count": 1,
+        "agent_word_count": 7
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 0.5892,
+        "gt_word_count": 116,
+        "agent_word_count": 125
       },
       "hero": {
         "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
-      },
-      "stats_bar": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
-      },
-      "sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 167,
-        "agent_word_count": 167
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "partner_tiers": {
-        "type": "pricing",
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "find_partner_search": {
+      "partner_search": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "content_score": 0.56,
+        "gt_word_count": 19,
+        "agent_word_count": 31
       },
       "benefits_comparison": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 195,
-        "agent_word_count": 195
+        "content_score": 0.5981,
+        "gt_word_count": 94,
+        "agent_word_count": 120
       },
-      "apply_cta": {
+      "cta_apply": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.701,
+        "gt_word_count": 38,
+        "agent_word_count": 59
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 94,
-        "agent_word_count": 94
+        "content_score": 0.16,
+        "gt_word_count": 5,
+        "agent_word_count": 20
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.72), as not all reference sections were reproduced, even though the sections that were present matched perfectly in both content and visual design."
+  "explanation": "The score is held down primarily by missing iconography (trophy, medal, clipboard, and hero image rendered as question-mark placeholders) and weak navigation/footer content fidelity, with top_bar and main_nav scoring 0.00 and footer at 0.16."
 }

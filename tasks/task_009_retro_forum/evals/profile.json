@@ -1,88 +1,76 @@
 {
-  "score": 0.774603,
+  "score": 0.478941,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7746,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7143,
+    "weighted_content": 0.541,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The brand colors, orange accents, blue navigation, and badge/pill colors all appear identical between the two images."
+        "reason": "Brand blues, orange CTA, yellow award background, and pink infraction box all match closely with the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, button labels, and nav link styling all appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, nav caps styling, and table label hierarchy appear very similar to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, avatar image, award badges, and decorative elements all render identically with no missing assets."
+        "score": 3,
+        "reason": "Award icons render as flat colored circles rather than the more detailed medal/badge icons in the reference, and small row icons appear simpler."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, table row spacing, badge sizes, and nav item density appear identical."
+        "score": 4,
+        "reason": "Overall layout proportions are close, though the avatar area is slightly larger and some row spacing is a bit more generous than reference."
       },
       "states": {
-        "score": 5,
-        "reason": "The active 'MEMBERS' nav tab and the 'About Me' selected tab states appear consistent between both versions."
+        "score": 4,
+        "reason": "The active 'About Me' tab and active 'Members' nav item are highlighted similarly with matching orange/active styling."
       }
     },
     "sections": {
       "header": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 2
       },
       "breadcrumb_actions": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.5217,
+        "gt_word_count": 10,
+        "agent_word_count": 13
       },
       "profile_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 2
       },
-      "profile_tabs": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+      "profile_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.7709,
+        "gt_word_count": 331,
+        "agent_word_count": 315
       },
       "profile_content": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 361,
-        "agent_word_count": 361
-      },
-      "sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "profile_footer_info": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
-      },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.8,
+        "gt_word_count": 15,
+        "agent_word_count": 15
       }
     }
   },
-  "explanation": "The score is held back primarily by missing or misaligned sections reflected in the 0.77 topology score, rather than by any visual dimension or per-section content failures, which all scored perfectly."
+  "explanation": "The score is held back primarily by the empty main_nav section (0.00 F1) missing the reference's navigation labels and the missing/mismatched profile_header content (0.00 F1) that fails to reproduce the hero's name, title, and identifying details."
 }

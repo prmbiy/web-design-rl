@@ -1,80 +1,80 @@
 {
-  "score": 0.831746,
+  "score": 0.654355,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8317,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8603,
+    "weighted_content": 0.6012,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The brand greens, gradient card fills, badge colors, and accent reds all appear to match exactly between the two versions."
+        "score": 4,
+        "reason": "Brand greens, red badges, and gradient card fills match closely, though the agent version's map blobs are uniform green while reference has varied color-coded pin dots more distinctly visible."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, badge caps styling, nav link treatment, and label hierarchies appear visually identical."
+        "reason": "Heading weights, serif display font, caps labels, and badge styling all appear consistent with the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, map pins, play buttons, and logo all render correctly with no missing placeholders or broken assets."
+        "reason": "Icons, play buttons, map pins, and avatar elements render correctly with no missing placeholders or broken graphics."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear consistent across both versions."
+        "score": 4,
+        "reason": "Button padding, badge sizing, card dimensions, and nav spacing are very close to the reference with only minor layout density differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab indicator on 'All', filled vs outline button variants, and CTA states look the same in both."
+        "reason": "Active tab underline on 'ALL', filled green CTA buttons versus outline secondary buttons, and weather pill states all match the reference treatment."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.3636,
+        "gt_word_count": 14,
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.973,
         "gt_word_count": 19,
-        "agent_word_count": 19
+        "agent_word_count": 18
       },
       "reporting_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.7872,
+        "gt_word_count": 50,
+        "agent_word_count": 44
       },
       "cover_story": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 100,
-        "agent_word_count": 100
+        "content_score": 0.6667,
+        "gt_word_count": 73,
+        "agent_word_count": 77
       },
       "pull_quote": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.6667,
+        "gt_word_count": 11,
+        "agent_word_count": 7
       },
       "latest_dispatches": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 210,
-        "agent_word_count": 210
+        "content_score": 0.836,
+        "gt_word_count": 282,
+        "agent_word_count": 218
       },
       "video_portraits": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 129,
-        "agent_word_count": 129
+        "content_score": 0.1075,
+        "gt_word_count": 26,
+        "agent_word_count": 67
       },
       "newsletter_signup": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 51,
-        "agent_word_count": 51
+        "content_score": 0.4,
+        "gt_word_count": 6,
+        "agent_word_count": 9
       },
       "footer": {
         "type": "footer",
@@ -84,5 +84,5 @@
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the video_portraits section's near-empty content match (0.11) and weak text fidelity in the navigation (0.36) and newsletter signup (0.40), compounded by the map's uniform green blobs lacking the reference's color-coded pin variation."
 }

@@ -1,76 +1,76 @@
 {
-  "score": 0.366667,
+  "score": 0.321719,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.3667,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.75,
+    "weighted_content": 0.2179,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The pink/magenta gradients, yellow sponsored sections, and accent colors appear identical between both versions."
+        "score": 3,
+        "reason": "The pink/magenta brand colors and gradient fills are similar but the agent version uses more uniform pink gradients without the orange/yellow variations seen in the reference cards."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, badge caps styling, and nav link typography all appear consistent between the two images."
+        "score": 4,
+        "reason": "Heading weights and sizes are similar with proper hierarchy, badges use caps styling, but some headings appear slightly heavier and less refined than the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emojis, icons, and decorative imagery render identically in both versions with no missing placeholders."
+        "score": 1,
+        "reason": "The agent version shows broken image placeholders (question mark icons in boxes) throughout where the reference displays proper emoji/decorative icons and imagery."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, padding, badge dimensions, and nav spacing appear visually identical."
+        "score": 4,
+        "reason": "Overall layout proportions, card sizes, and spacing between elements are well-matched with similar nav density and button sizing."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav items, badge states, and button variants appear to match the reference precisely."
+        "score": 4,
+        "reason": "Active nav state on HOME and trending pill states appear preserved with similar highlight treatment."
       }
     },
     "sections": {
-      "top_alert_bar": {
+      "top_breaking_bar": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 2
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 1
       },
-      "trending_bar": {
+      "trending_ticker": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 4,
         "agent_word_count": 0
       },
-      "hero_story": {
+      "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 41
       },
-      "ad_banner": {
+      "ad_lancome": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0526,
         "gt_word_count": 11,
-        "agent_word_count": 11
+        "agent_word_count": 27
       },
       "breaking_now": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 46,
+        "type": "generic",
+        "content_score": 0.6585,
+        "gt_word_count": 36,
         "agent_word_count": 46
       },
       "gossip_grid": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 455,
-        "agent_word_count": 455
+        "type": "generic",
+        "content_score": 0.3301,
+        "gt_word_count": 345,
+        "agent_word_count": 176
       },
-      "sidebar_top10": {
+      "sidebar_top10_and_ads": {
         "type": "sidebar",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -78,29 +78,29 @@
       },
       "star_approved_finds": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.12,
+        "gt_word_count": 44,
+        "agent_word_count": 56
       },
       "royal_tea": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 51,
+        "agent_word_count": 14
       },
       "viral_video": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0606,
+        "gt_word_count": 18,
+        "agent_word_count": 48
       },
       "you_may_also_like": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 9,
         "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent-generated version is missing many required sections, as reflected in the low topology score (0.37) indicating only about a third of the reference's sections are present, which is the primary failure despite perfect content matches and design dimension scores on the sections that were implemented."
+  "explanation": "The score is held down by broken image assets (question-mark placeholders instead of the reference's emoji/decorative imagery) and near-zero text content matches across key sections including the top breaking bar, main nav, trending ticker, hero, royal tea, and \"you may also like.\""
 }

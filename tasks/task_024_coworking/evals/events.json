@@ -1,82 +1,82 @@
 {
-  "score": 0.914286,
+  "score": 0.578189,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9143,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.6539,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in their use of accent colors on CTAs, badge pills, dot indicators, and the orange event space section."
+        "score": 3,
+        "reason": "Accent orange on CTAs, pill backgrounds, and section colors match well, though archive thumbnails appear as flat tan boxes instead of the varied gradient tints in the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading sizes, weights, label caps, and nav link styling all appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading serif, body sans-serif, and small caps labels match closely with similar weights and sizing across nav, badges, and section titles."
       },
       "assets": {
-        "score": 5,
-        "reason": "Avatar placeholders, archive image gradients, and calendar dot icons render identically in both versions."
+        "score": 3,
+        "reason": "Avatar circles with initials render correctly, but the archive image placeholders are uniformly flat beige instead of the subtle colored gradients in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, calendar cell dimensions, and spacing between elements match precisely."
+        "score": 4,
+        "reason": "Button padding, pill sizing, calendar cell proportions, and overall spacing closely mirror the reference layout."
       },
       "states": {
-        "score": 5,
-        "reason": "The active 'All Events' pill, highlighted nav item, selected calendar date, and RSVP button states appear identical."
+        "score": 4,
+        "reason": "Active 'All Events' filter pill, selected calendar date highlight, and 'Open RSVP' vs filled RSVP button states are all preserved correctly."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.8,
+        "gt_word_count": 8,
+        "agent_word_count": 7
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.8108,
         "gt_word_count": 19,
-        "agent_word_count": 19
+        "agent_word_count": 18
       },
       "event_filters": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
+        "content_score": 0.3636,
+        "gt_word_count": 2,
         "agent_word_count": 9
       },
       "calendar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 82,
-        "agent_word_count": 82
+        "content_score": 0.4884,
+        "gt_word_count": 48,
+        "agent_word_count": 38
       },
       "upcoming_events": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 293,
-        "agent_word_count": 293
+        "content_score": 0.8526,
+        "gt_word_count": 294,
+        "agent_word_count": 269
       },
       "archives_gallery": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 78,
-        "agent_word_count": 78
+        "content_score": 0.6573,
+        "gt_word_count": 71,
+        "agent_word_count": 72
       },
       "event_space_cta": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.5172,
+        "gt_word_count": 31,
+        "agent_word_count": 27
       },
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by weak content fidelity in the event_filters and calendar sections (0.36 and 0.49 F1), and by archive thumbnails rendering as flat beige boxes instead of the reference's varied colored gradients."
 }

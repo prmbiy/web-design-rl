@@ -1,94 +1,94 @@
 {
-  "score": 0.911111,
+  "score": 0.709886,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9111,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.825,
+    "weighted_content": 0.8009,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of Yale blue accents, badge colors (red, yellow, blue pills), and overall color palette."
+        "reason": "Brand navy, red accents, yellow badges, and blue publication pills all match closely between the two versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, serif display fonts, caps labels, and badge text styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and small caps labels appear nearly identical with only very subtle differences in heading scale."
       },
       "assets": {
         "score": 5,
-        "reason": "The decorative blue figure illustration in the group photo section and all icons render identically with no missing assets."
+        "reason": "Icons, logo, and the group photo illustration render correctly in both versions with matching style."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, nav spacing, card proportions, and overall layout density appear indistinguishable."
+        "score": 4,
+        "reason": "Card sizes, badge padding, and nav spacing closely match, though the agent version feels slightly more compact vertically."
       },
       "states": {
         "score": 5,
-        "reason": "Interactive element states like nav links and pill badges appear styled identically with no visible differences."
+        "reason": "No distinct interactive states are visible in either version, and link styling appears consistent."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.7333,
+        "gt_word_count": 16,
+        "agent_word_count": 14
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.963,
         "gt_word_count": 27,
         "agent_word_count": 27
       },
       "research_focus": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.963,
         "gt_word_count": 69,
-        "agent_word_count": 69
+        "agent_word_count": 66
       },
       "highlighted_publications": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 55,
-        "agent_word_count": 55
+        "content_score": 0.6596,
+        "gt_word_count": 49,
+        "agent_word_count": 45
       },
       "open_positions": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 73,
-        "agent_word_count": 73
+        "content_score": 0.922,
+        "gt_word_count": 70,
+        "agent_word_count": 71
       },
       "recent_news": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 87,
-        "agent_word_count": 87
+        "content_score": 0.869,
+        "gt_word_count": 84,
+        "agent_word_count": 84
       },
-      "the_lab_photo": {
+      "lab_photo": {
         "type": "media",
         "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
       "funding_support": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "type": "pricing",
+        "content_score": 0.8333,
+        "gt_word_count": 43,
+        "agent_word_count": 41
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.7921,
+        "gt_word_count": 49,
+        "agent_word_count": 52
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the missing top bar navigation content (F1 = 0.00) and the incomplete highlighted publications section (F1 = 0.66), compounded by a slightly more vertically compact layout."
 }

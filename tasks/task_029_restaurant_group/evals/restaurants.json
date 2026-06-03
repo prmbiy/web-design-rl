@@ -1,80 +1,80 @@
 {
-  "score": 0.860317,
+  "score": 0.674389,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.8603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "weighted_content": 0.6078,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The burgundy CTA button, gold accent text, and purple gradient image placeholders match the reference palette very closely."
+        "reason": "The deep burgundy accents, cream backgrounds, and gradient card fills closely match the reference palette across CTAs, badges, and image placeholders."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading serif italics, small-caps labels, and body text weights appear nearly identical to the reference."
+        "reason": "Heading serif styling, italic accents, and small-caps labels appear visually consistent with the reference in weight and hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "Gradient image placeholders, decorative caption text, and overall asset rendering match without broken icons or placeholders."
+        "reason": "Both versions use the same abstract gradient blocks as image placeholders with no missing icons or broken rendering."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, padding, label spacing, and nav density appear consistent with the reference layout."
+        "score": 4,
+        "reason": "Button padding, badge sizing, nav spacing, and card proportions are very close though section spacing feels slightly more compact in the generated version."
       },
       "states": {
         "score": 5,
-        "reason": "Filled vs outline button variants (Reserve vs View Menu/Order) appear correctly differentiated as in the reference."
+        "reason": "Filled vs outline button variants and nav link styling appear consistent with no visible state rendering issues."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.6,
         "gt_word_count": 12,
-        "agent_word_count": 12
+        "agent_word_count": 8
       },
-      "hero": {
+      "hero_intro": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.5333,
+        "gt_word_count": 24,
+        "agent_word_count": 21
       },
-      "otsu_restaurant": {
+      "otsu_verleux": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 139,
-        "agent_word_count": 139
+        "content_score": 0.8346,
+        "gt_word_count": 129,
+        "agent_word_count": 137
       },
       "atelier_hudson": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.6996,
         "gt_word_count": 122,
-        "agent_word_count": 122
+        "agent_word_count": 101
       },
       "le_petit_verleux": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 142,
-        "agent_word_count": 142
+        "content_score": 0.8018,
+        "gt_word_count": 117,
+        "agent_word_count": 110
       },
       "bar_maribel": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 109,
-        "agent_word_count": 109
+        "content_score": 0.4065,
+        "gt_word_count": 95,
+        "agent_word_count": 28
       },
       "verleux_pasta_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.4,
+        "gt_word_count": 8,
+        "agent_word_count": 2
       },
       "evening_gallery": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.5,
+        "gt_word_count": 2,
+        "agent_word_count": 2
       },
       "footer": {
         "type": "footer",
@@ -84,5 +84,5 @@
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by weak content fidelity in the bar_maribel (0.41) and verleux_pasta_bar (0.40) sections, compounded by low text-match scores in the nav (0.60) and hero_intro (0.53) where key wording diverges from the reference."
 }

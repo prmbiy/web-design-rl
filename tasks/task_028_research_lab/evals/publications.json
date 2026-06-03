@@ -1,76 +1,76 @@
 {
-  "score": 0.933333,
+  "score": 0.659673,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9,
+    "weighted_content": 0.5059,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The navy blue accents, badge colors, and gold 'best paper' highlight appear identical between the two versions."
+        "reason": "Navy blue badges, accent colors, and the yellow Best Paper Runner-Up badge all match closely between reference and generated versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav link fonts all appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, italic citations, and badge text styling are very similar with only minor differences in badge text casing (e.g., NeurIPS vs NEURIPS)."
       },
       "assets": {
         "score": 5,
-        "reason": "The Yale 'Y' logo icon and all decorative elements render correctly in both versions with no missing assets."
+        "reason": "Both renditions show the star icon on the Best Paper badge and the Yale 'Y' logo correctly without missing assets."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, filter pill spacing, and nav item density all appear consistent with the reference."
+        "reason": "Padding, badge sizing, and spacing between entries are nearly identical, with only very subtle differences in vertical rhythm."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'All' filter pills in both Year and Topic rows show the same filled navy selected state matching the reference."
+        "reason": "Active 'All' filter pills are highlighted in navy in both versions, and the Publications nav link shows the active underline state similarly."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.9091,
+        "gt_word_count": 17,
+        "agent_word_count": 16
       },
       "page_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.1176,
+        "gt_word_count": 16,
+        "agent_word_count": 1
       },
       "filters": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.5778,
+        "gt_word_count": 16,
+        "agent_word_count": 29
       },
       "publications_2023": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 189,
-        "agent_word_count": 189
+        "content_score": 0.7051,
+        "gt_word_count": 169,
+        "agent_word_count": 143
       },
       "publications_2022": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 112,
-        "agent_word_count": 112
+        "content_score": 0.7234,
+        "gt_word_count": 119,
+        "agent_word_count": 116
       },
-      "earlier_publications_link": {
+      "earlier_publications_toggle": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 14
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.878,
+        "gt_word_count": 58,
+        "agent_word_count": 65
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by a near-empty page header section (content F1 0.12) and a completely missing earlier publications toggle (F1 0.00), both of which omit key reference content."
 }

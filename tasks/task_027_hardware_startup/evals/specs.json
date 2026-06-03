@@ -1,94 +1,94 @@
 {
-  "score": 0.955556,
+  "score": 0.65728,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9556,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.3546,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All accent colors including blue pre-order button, orange badges, and yellow PDF marker match identically."
+        "reason": "Accent orange, blue CTA, and dark background colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, label caps styling, and body text hierarchy appear identical between both versions."
+        "reason": "Heading weight, monospace labels, and table typography appear nearly identical."
       },
       "assets": {
         "score": 5,
-        "reason": "PDF icon, badge icons, and all decorative elements render correctly in both versions."
+        "reason": "PDF icon, cart icon, and badge elements render correctly in both with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, table row spacing, badge dimensions, and section spacing match precisely."
+        "score": 4,
+        "reason": "Button sizes, table row heights, and badge proportions are very close, with only minor spacing differences."
       },
       "states": {
         "score": 5,
-        "reason": "Button fills, badge states, and nav styling appear consistent between both versions."
+        "reason": "Pre-order button filled state and badge styling appear consistent across both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 3
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.9057,
+        "gt_word_count": 27,
+        "agent_word_count": 26
       },
       "display_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "content_score": 0.56,
+        "gt_word_count": 11,
+        "agent_word_count": 14
       },
       "sensor_processor_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 64,
-        "agent_word_count": 64
+        "content_score": 0.3077,
+        "gt_word_count": 12,
+        "agent_word_count": 27
       },
       "battery_power_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 64,
-        "agent_word_count": 64
+        "content_score": 0.35,
+        "gt_word_count": 18,
+        "agent_word_count": 22
       },
       "connectivity_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 49,
-        "agent_word_count": 49
+        "content_score": 0.8214,
+        "gt_word_count": 27,
+        "agent_word_count": 29
       },
       "materials_dimensions_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.0,
+        "gt_word_count": 12,
+        "agent_word_count": 15
       },
       "lens_mount_sensors_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.0,
+        "gt_word_count": 13,
+        "agent_word_count": 7
       },
       "spec_sheet_download": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 5
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.375,
+        "gt_word_count": 11,
+        "agent_word_count": 21
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing or incorrect content in key spec sections (materials_dimensions, lens_mount_sensors, and spec_sheet_download all scoring 0.00) and a completely mismatched navigation (0.00 F1), indicating major textual omissions despite strong visual fidelity."
 }

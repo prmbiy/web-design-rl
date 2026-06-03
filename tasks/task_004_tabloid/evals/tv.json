@@ -1,130 +1,130 @@
 {
-  "score": 0.6475,
+  "score": 0.515068,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6475,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8135,
+    "weighted_content": 0.5864,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in terms of brand pink accents, gradient card fills, badge colors, and nav link colors."
+        "score": 3,
+        "reason": "The agent version uses orange/red gradients on cards instead of the reference's pink/magenta gradients, though brand accent pink on buttons and badges is preserved."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading weights, badge caps styling, and nav link typography appear very similar with only minor differences in heading size hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, and decorative gradient placeholders render consistently in both images with no missing or broken assets visible."
+        "score": 2,
+        "reason": "The agent version shows broken image placeholder icons (question mark boxes) in sponsored content, 'You May Also Like' section, and ad player area where the reference shows proper imagery."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, card dimensions, and spacing between elements appear matched between the two layouts."
+        "score": 4,
+        "reason": "Button padding, badge sizing, nav spacing, and overall element proportions closely match the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active TV nav pill, filled CTA buttons, and trending/hot badges all show consistent active/filled states in both versions."
+        "score": 4,
+        "reason": "Active TV nav state, filled subscribe button, and poll bar fills are present and styled similarly to the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.5455,
+        "gt_word_count": 8,
+        "agent_word_count": 3
       },
       "trending_ticker": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "billboard_ad": {
-        "type": "generic",
-        "content_score": 1.0,
+        "type": "media",
+        "content_score": 0.7368,
         "gt_word_count": 8,
-        "agent_word_count": 8
+        "agent_word_count": 11
       },
       "section_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
-      },
-      "featured_bachelor": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 98,
-        "agent_word_count": 98
-      },
-      "sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 268,
-        "agent_word_count": 268
-      },
-      "rhobh_stranger_things": {
-        "type": "media",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 15
+      },
+      "bachelor_feature": {
+        "type": "media",
+        "content_score": 0.7682,
+        "gt_word_count": 76,
+        "agent_word_count": 75
+      },
+      "rhobh_stranger_grid": {
+        "type": "generic",
+        "content_score": 0.8066,
+        "gt_word_count": 94,
+        "agent_word_count": 87
       },
       "viewer_poll": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.6512,
+        "gt_word_count": 19,
+        "agent_word_count": 24
       },
-      "bridgerton_succession": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+      "bridgerton_succession_grid": {
+        "type": "generic",
+        "content_score": 0.6825,
+        "gt_word_count": 62,
+        "agent_word_count": 64
       },
       "sponsored_content": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.3556,
+        "gt_word_count": 21,
+        "agent_word_count": 24
       },
-      "love_island_survivor": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+      "love_island_survivor_grid": {
+        "type": "generic",
+        "content_score": 0.7222,
+        "gt_word_count": 75,
+        "agent_word_count": 69
       },
       "leaderboard_ad": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "type": "media",
+        "content_score": 0.3846,
+        "gt_word_count": 9,
+        "agent_word_count": 17
       },
       "streaming_war_poll": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
+        "content_score": 0.7234,
+        "gt_word_count": 25,
+        "agent_word_count": 22
       },
-      "yellowstone_white_lotus": {
-        "type": "media",
+      "yellowstone_whitelotus_grid": {
+        "type": "generic",
+        "content_score": 0.7143,
+        "gt_word_count": 56,
+        "agent_word_count": 42
+      },
+      "sidebar_where_to_watch": {
+        "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "you_may_also_like": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.6557,
+        "gt_word_count": 98,
+        "agent_word_count": 146
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "Despite perfect design and content scores, the overall result is held back by an incomplete topology (0.65), indicating several expected sections from the reference are missing or not properly structured in the agent's version."
+  "explanation": "The score is held back primarily by broken image placeholders throughout sponsored content, \"You May Also Like,\" and ad areas (assets 2/5, sponsored_content F1 0.36, leaderboard_ad F1 0.38), and by missing or mismatched text in key structural sections including the trending ticker, section header, and footer (all scoring 0.00)."
 }

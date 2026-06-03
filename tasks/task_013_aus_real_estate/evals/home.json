@@ -1,88 +1,94 @@
 {
-  "score": 0.975,
+  "score": 0.662549,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.975,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9778,
+    "weighted_content": 0.5552,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand teal accents, gradient cards, badge colors, and clearance pill colors appear identical between the two images."
+        "reason": "Brand teal, gradient cards, orange badges, and clearance pill colors all match closely between versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav link typography appear visually indistinguishable."
+        "score": 4,
+        "reason": "Heading weights, badge caps styling, and nav link treatment appear nearly identical with only very minor size differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Emoji icons, decorative images, and QR code placeholder all render correctly and match the reference."
+        "score": 2,
+        "reason": "The reference uses distinct emoji icons in the first home buyer cards while the generated version shows generic placeholder box icons instead."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, padding, spacing, and overall layout proportions look identical across both versions."
+        "score": 4,
+        "reason": "Button padding, pill sizing, and form element spacing are very similar with only slight differences in card heights."
       },
       "states": {
         "score": 5,
-        "reason": "Active Buy tab, selected pill state, and filled vs outline button variants are matched accurately."
+        "reason": "Active Buy tab, selected pill states, and filled vs outline button variants are preserved correctly in the generated version."
       }
     },
     "sections": {
-      "nav": {
+      "top_nav": {
+        "type": "navigation",
+        "content_score": 0.2,
+        "gt_word_count": 2,
+        "agent_word_count": 8
+      },
+      "sub_nav": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "gt_word_count": 6,
+        "agent_word_count": 6
       },
       "hero_search": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 66,
-        "agent_word_count": 66
+        "content_score": 0.4324,
+        "gt_word_count": 25,
+        "agent_word_count": 12
       },
       "featured_suburb_reports": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 86,
-        "agent_word_count": 86
+        "content_score": 0.7928,
+        "gt_word_count": 56,
+        "agent_word_count": 55
       },
       "auction_results": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 82,
-        "agent_word_count": 82
+        "content_score": 0.7455,
+        "gt_word_count": 65,
+        "agent_word_count": 45
       },
       "first_home_buyer_guide": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 97,
-        "agent_word_count": 97
+        "content_score": 0.6579,
+        "gt_word_count": 71,
+        "agent_word_count": 81
       },
-      "property_news": {
+      "news_insights": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 118,
-        "agent_word_count": 118
+        "content_score": 0.828,
+        "gt_word_count": 84,
+        "agent_word_count": 73
       },
       "suburb_spotlight": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 85,
-        "agent_word_count": 85
+        "content_score": 0.4625,
+        "gt_word_count": 109,
+        "agent_word_count": 51
       },
-      "app_download": {
+      "app_promo": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.1111,
+        "gt_word_count": 9,
+        "agent_word_count": 9
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 10,
-        "agent_word_count": 10
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing or incorrect content in key sections (footer at 0.00, app_promo at 0.11, and top_nav at 0.20) and by the use of generic placeholder box icons instead of the reference's distinct emoji icons in the first home buyer cards."
 }

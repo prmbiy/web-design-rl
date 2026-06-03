@@ -1,82 +1,82 @@
 {
-  "score": 0.942857,
+  "score": 0.518266,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.3446,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in terms of purple background, coral/red CTAs, yellow accent text, and the gradient card fills."
+        "score": 4,
+        "reason": "Accent coral CTA and gradient card fills match closely, though some gradients (Signal Drift, Cold Open) appear slightly more diffuse/pink rather than the reference's sharper diagonal striped texture."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, italic accent treatment, caps labels, and nav link styling all match precisely between the two versions."
+        "score": 4,
+        "reason": "Heading serif italic styling, weights, and label caps match well, with only minor differences in heading line breaks and sizing."
       },
       "assets": {
         "score": 5,
-        "reason": "All decorative gradient cards, play icons, and minor graphical elements render identically with no missing or broken assets."
+        "reason": "All icons, play buttons, and decorative gradient cards render correctly with no missing assets or placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear identical across both renders."
+        "score": 4,
+        "reason": "Button padding, card sizing, and spacing are very close to the reference with only minor variations in hero text wrapping and player width."
       },
       "states": {
-        "score": 5,
-        "reason": "Interactive states like the filled CTA buttons and player controls appear consistent between both versions."
+        "score": 4,
+        "reason": "Interactive states like the filled coral CTA button and play button appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
+        "content_score": 0.75,
+        "gt_word_count": 26,
+        "agent_word_count": 30
       },
       "shows_grid": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 155,
-        "agent_word_count": 155
+        "content_score": 0.1935,
+        "gt_word_count": 41,
+        "agent_word_count": 21
       },
       "editors_pick": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.3103,
+        "gt_word_count": 10,
+        "agent_word_count": 48
       },
       "newsletter_signup": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 18
       },
       "membership_support": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.6882,
+        "gt_word_count": 37,
+        "agent_word_count": 56
       },
       "about_network": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.7143,
+        "gt_word_count": 8,
+        "agent_word_count": 6
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing or mismatched textual content in key sections (nav, newsletter_signup, and about_network all scored 0.00) and weak content fidelity in the shows_grid (0.19) and editors_pick (0.31) sections despite strong visual styling."
 }

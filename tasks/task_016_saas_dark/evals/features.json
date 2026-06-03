@@ -1,94 +1,94 @@
 {
-  "score": 0.955556,
+  "score": 0.304361,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9556,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6,
+    "weighted_content": 0.2545,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Purple accent CTAs, gradient bars, and badge colors match the reference closely with similar dark theme."
+        "score": 4,
+        "reason": "Brand purple accents, badge pills, and integration icon tints match closely though some middle sections like Experiments and Observability cards are missing colored content."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, badge caps styling, and nav link typography appear nearly identical."
+        "reason": "Heading weight/size, badge caps styling, and nav link styling appear consistent with the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All integration icons, chart bars, and UI elements render correctly with no missing placeholders."
+        "score": 2,
+        "reason": "Integration icons and checkmarks render correctly, but several entire sections (charts, event stream, comparison table, video player) are missing rather than misrendered."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, table spacing, and grid layout match the reference very closely."
+        "score": 4,
+        "reason": "Button sizing, badge padding, and nav spacing match well in the sections that do render."
       },
       "states": {
-        "score": 5,
-        "reason": "Active pills, primary filled buttons, and status indicators are styled consistently with the reference."
+        "score": 4,
+        "reason": "The Features nav item active state and Start free filled button appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.9189,
         "gt_word_count": 19,
-        "agent_word_count": 19
+        "agent_word_count": 18
       },
       "targeting_rollouts": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 111,
-        "agent_word_count": 111
+        "content_score": 0.3478,
+        "gt_word_count": 27,
+        "agent_word_count": 19
       },
-      "bayesian_stats": {
+      "experiments": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 116,
-        "agent_word_count": 116
+        "content_score": 0.0,
+        "gt_word_count": 16,
+        "agent_word_count": 0
       },
-      "existing_stack": {
+      "observability": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.0,
+        "gt_word_count": 20,
+        "agent_word_count": 0
       },
       "comparison_table": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.0,
+        "gt_word_count": 13,
+        "agent_word_count": 0
       },
-      "video_walkthrough": {
+      "video_demo": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 55,
-        "agent_word_count": 55
+        "content_score": 0.1613,
+        "gt_word_count": 33,
+        "agent_word_count": 29
       },
       "integrations": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 56,
-        "agent_word_count": 56
+        "content_score": 0.1111,
+        "gt_word_count": 32,
+        "agent_word_count": 4
       },
-      "cta_start": {
+      "cta": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 2
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down primarily by missing entire sections (experiments, observability, comparison table, CTA, and footer all scored 0.00, reflected in the assets score of 2/5) and weak content fidelity in the sections that do exist beyond the nav and hero (targeting_rollouts at 0.35, video_demo at 0.16, integrations at 0.11)."
 }

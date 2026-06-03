@@ -1,70 +1,70 @@
 {
-  "score": 0.96,
+  "score": 0.703775,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.96,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "weighted_content": 0.5462,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The Yale blue navy, badge colors, and accent yellow callout box appear identical between both versions."
+        "reason": "The navy blue accents, yellow callout box, and red/blue badges match closely between the two versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, badge caps styling, and body text hierarchy look indistinguishable between the two images."
+        "score": 4,
+        "reason": "Heading sizes, weights, and the small caps treatment in the footer navigation labels are very similar with only minor differences."
       },
       "assets": {
         "score": 5,
-        "reason": "The Y logo button, bullet arrow markers, and all decorative elements render correctly in both versions."
+        "reason": "Both versions render the small red triangle bullets and Y logo correctly without missing icons or placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizing, badge padding, nav spacing, and overall layout proportions match precisely."
+        "score": 4,
+        "reason": "Card padding, badge sizing, and spacing are very close, though the agent version's open positions cards appear slightly more compressed vertically."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Join Us' nav item with underline indicator is preserved identically in both versions."
+        "reason": "The active 'Join Us' nav link underline state is preserved in both versions with similar styling."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.7778,
         "gt_word_count": 19,
-        "agent_word_count": 19
+        "agent_word_count": 17
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.3333,
         "gt_word_count": 10,
-        "agent_word_count": 10
+        "agent_word_count": 2
       },
       "how_to_apply_and_faq": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 342,
-        "agent_word_count": 342
+        "content_score": 0.924,
+        "gt_word_count": 341,
+        "agent_word_count": 343
       },
       "open_positions": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 129,
-        "agent_word_count": 129
+        "type": "generic",
+        "content_score": 0.7751,
+        "gt_word_count": 95,
+        "agent_word_count": 114
       },
       "visiting_researchers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 59,
-        "agent_word_count": 59
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 23
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.7071,
+        "gt_word_count": 52,
+        "agent_word_count": 47
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the missing visiting_researchers section content (0.00 F1) and the substantially incomplete hero section text (0.33 F1)."
 }

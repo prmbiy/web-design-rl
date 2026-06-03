@@ -1,76 +1,76 @@
 {
-  "score": 0.930908,
+  "score": 0.40154,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 0.9948,
-    "design_score": 1.0,
+    "topology": 0.8571,
+    "weighted_content": 0.0969,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The green accent colors, dark background, and card gradients appear identical between the two versions."
+        "score": 4,
+        "reason": "Green accent colors, badge pills, and card gradients match closely, though the Cobalt card gradient appears slightly more uniform blue without the purple transition."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading sizes, monospace styling, badge text, and nav link styling all match closely."
+        "score": 4,
+        "reason": "Heading sizes, monospace styling, and pill text weights closely mirror the reference with only minor differences in scale."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons like the fish, code blocks, terminal mockups, and arrow indicators all render correctly and identically."
+        "reason": "Icons render correctly including the fish/star icons and code window dots, with no missing or broken placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, padding, badge dimensions, and nav spacing appear to match the reference precisely."
+        "score": 4,
+        "reason": "Card sizes, badge padding, and spacing are very similar, though the code preview cards appear slightly more compressed vertically."
       },
       "states": {
-        "score": 5,
-        "reason": "Active 'Work' nav item highlighted in green, dark mode toggle, and contribution graph cells all display matching states."
+        "score": 4,
+        "reason": "Active nav link highlighting, dark mode toggle, and contribution graph cell states appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.1333,
         "gt_word_count": 14,
-        "agent_word_count": 14
+        "agent_word_count": 1
       },
       "featured_project": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
+        "content_score": 0.1429,
+        "gt_word_count": 5,
+        "agent_word_count": 9
       },
       "selected_works": {
         "type": "generic",
-        "content_score": 0.9623,
-        "gt_word_count": 174,
-        "agent_word_count": 171
+        "content_score": 0.0,
+        "gt_word_count": 15,
+        "agent_word_count": 9
       },
       "open_source_contributions": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
+        "content_score": 0.0,
+        "gt_word_count": 16,
+        "agent_word_count": 7
       },
       "github_activity": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "type": "media",
+        "content_score": 0.25,
+        "gt_word_count": 5,
+        "agent_word_count": 3
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by severely low content/text fidelity across nearly every section (nav, hero, selected_works, open_source, and footer all scoring near 0 on word-set F1) and minor visual deviations like the Cobalt card gradient lacking its purple transition and the code preview cards being vertically compressed."
 }

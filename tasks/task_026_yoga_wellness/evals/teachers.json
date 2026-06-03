@@ -1,88 +1,88 @@
 {
-  "score": 0.975,
+  "score": 0.315673,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.975,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.5867,
+    "weighted_content": 0.4362,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The gradient card colors, CTA button green, and overall warm cream palette appear identical between both versions."
+        "score": 3,
+        "reason": "The agent version uses a more saturated green gradient for the single card rather than the soft peach/cream gradient in the reference, and other colored cards are missing."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading serif, small-caps labels, pill text styling, and nav link weights all appear consistent."
+        "score": 4,
+        "reason": "Heading serif, body text, and pill/badge caps styling appear very similar in weight and proportion to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Gradient image cards, search icon, and decorative elements all render correctly with no broken placeholders."
+        "score": 2,
+        "reason": "Only one teacher card with gradient is rendered instead of multiple cards with varied gradient images, leaving large empty space."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, card dimensions, and nav spacing match closely between the two images."
+        "score": 3,
+        "reason": "Button padding, badge sizing, and nav spacing match closely; however the overall layout is sparse due to missing cards creating large vertical gaps."
       },
       "states": {
-        "score": 5,
-        "reason": "The Book Class filled green button and outline pills retain their visual state styling identically."
+        "score": 4,
+        "reason": "Button fills and outline pill variants appear consistent with the reference styling."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.6667,
+        "gt_word_count": 7,
         "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 17,
+        "content_score": 0.56,
+        "gt_word_count": 8,
         "agent_word_count": 17
       },
       "teacher_amara": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 66,
-        "agent_word_count": 66
+        "content_score": 0.6429,
+        "gt_word_count": 60,
+        "agent_word_count": 52
       },
       "teacher_ines": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 94,
-        "agent_word_count": 94
+        "content_score": 0.0,
+        "gt_word_count": 91,
+        "agent_word_count": 0
       },
       "teacher_devan": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 72,
-        "agent_word_count": 72
+        "content_score": 0.0,
+        "gt_word_count": 56,
+        "agent_word_count": 0
       },
       "teacher_yuki": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 70,
-        "agent_word_count": 70
+        "content_score": 0.0,
+        "gt_word_count": 85,
+        "agent_word_count": 0
       },
       "feature_amara": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 70,
-        "agent_word_count": 70
+        "type": "media",
+        "content_score": 0.5957,
+        "gt_word_count": 62,
+        "agent_word_count": 32
       },
-      "teaching_cta": {
+      "training_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.7536,
+        "gt_word_count": 36,
+        "agent_word_count": 33
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.6316,
+        "gt_word_count": 14,
+        "agent_word_count": 24
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The agent failed to render three of the four teacher cards (teacher_ines, teacher_devan, and teacher_yuki all scored 0.00), and the single card it did produce uses a saturated green gradient instead of the reference's soft peach/cream palette, leaving large empty gaps in the layout."
 }

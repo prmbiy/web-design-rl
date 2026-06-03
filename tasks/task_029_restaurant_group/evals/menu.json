@@ -1,106 +1,106 @@
 {
-  "score": 0.927273,
+  "score": 0.602049,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9273,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7889,
+    "weighted_content": 0.5663,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The cream backgrounds, burgundy CTA, gold dividers, dietary symbol pills, and dark purple footer all match closely between versions."
+        "reason": "The cream background, burgundy reserve button, dark footer, and gold accent colors all closely match the reference palette."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading serifs, small-caps section labels, nav link weights, and price/body text styling appear virtually identical."
+        "reason": "Serif headings, italic subheadings, and small caps section labels appear faithfully reproduced with similar weights and sizes."
       },
       "assets": {
         "score": 5,
-        "reason": "Dietary symbol badges, divider ornaments, and all decorative elements render correctly in both versions with no missing icons."
+        "reason": "Dietary symbol icons (V, VG, GF, DF) and the diamond divider ornaments render correctly in both versions with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing between menu items, badge sizes, nav density, and footer column layout look consistent with the reference."
+        "score": 4,
+        "reason": "Spacing between menu items, badge sizing, and the navigation/tab density are very close, with only very minor differences in vertical rhythm."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Atelier Hudson' tab with underline highlight and the seasonal special pill state appear matched in both."
+        "reason": "The active 'Atelier Hudson' tab with underline and the 'Seasonal Special' highlighted badge are both rendered consistently with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.875,
+        "gt_word_count": 8,
+        "agent_word_count": 8
       },
       "hero_menu_intro": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.8,
+        "gt_word_count": 36,
+        "agent_word_count": 34
       },
-      "pantry_sources": {
+      "tonights_pantry": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "gt_word_count": 13,
+        "agent_word_count": 13
       },
       "menu_tabs": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "gt_word_count": 2,
+        "agent_word_count": 2
       },
-      "atelier_header": {
+      "atelier_hudson_header": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.5217,
+        "gt_word_count": 11,
+        "agent_word_count": 12
       },
       "starters": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 106,
-        "agent_word_count": 106
+        "content_score": 0.551,
+        "gt_word_count": 96,
+        "agent_word_count": 100
       },
       "mains": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
+        "content_score": 0.4598,
+        "gt_word_count": 82,
+        "agent_word_count": 92
       },
-      "sides_garden_hearth": {
+      "sides_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.5,
+        "gt_word_count": 42,
+        "agent_word_count": 54
       },
-      "sweets": {
+      "sweets_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 50,
-        "agent_word_count": 50
+        "content_score": 0.4444,
+        "gt_word_count": 16,
+        "agent_word_count": 29
       },
       "cocktails_cellar": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 6
       },
       "dietary_note": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the completely missing cocktails_cellar section (0.00 F1) and substantial content mismatches across the pricing-heavy menu sections (mains 0.46, sweets 0.44, sides 0.50, starters 0.55), indicating many menu items, descriptions, and prices diverge from the reference."
 }

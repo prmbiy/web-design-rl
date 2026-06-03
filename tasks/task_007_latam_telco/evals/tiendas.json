@@ -1,94 +1,94 @@
 {
-  "score": 0.825,
+  "score": 0.354872,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.825,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7,
+    "weighted_content": 0.3739,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in their use of teal hero gradient, orange accents, green status indicators, and badge colors."
+        "score": 2,
+        "reason": "The agent version uses a flat orange hero instead of the teal gradient, and contact card icon backgrounds use pastel tints rather than the reference's green/teal accents."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav link typography all appear identical between the two images."
+        "score": 4,
+        "reason": "Heading weights, sizes, and badge/pill text styling are very close to the reference with only minor differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, map markers, contact icons, and decorative elements render identically with no missing assets."
+        "score": 2,
+        "reason": "Most icons appear as generic question-mark or placeholder boxes in the contact cards and tr\u00e1mite tiles rather than the distinct illustrative icons in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, pill dimensions, table row spacing, and overall layout proportions match exactly."
+        "score": 4,
+        "reason": "Overall layout, button padding, pill sizing, and spacing closely match the reference with only slight differences."
       },
       "states": {
-        "score": 5,
-        "reason": "Active 'Tiendas' nav underline, selected 'Todas' filter pill, and highlighted Reforma 222 card state all appear identical."
+        "score": 4,
+        "reason": "Active tab underline, selected store card highlight, and pill active states are present and match the reference well."
       }
     },
     "sections": {
-      "promo_bar": {
+      "promo_banner": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 1
       },
-      "hero_status": {
+      "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 78,
-        "agent_word_count": 78
+        "content_score": 0.6757,
+        "gt_word_count": 44,
+        "agent_word_count": 30
       },
       "status_banner": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.0,
+        "gt_word_count": 19,
+        "agent_word_count": 0
       },
-      "store_finder_map": {
+      "store_locator_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 121,
-        "agent_word_count": 121
+        "content_score": 0.5369,
+        "gt_word_count": 99,
+        "agent_word_count": 50
       },
       "schedules_table": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 126,
-        "agent_word_count": 126
+        "content_score": 0.75,
+        "gt_word_count": 108,
+        "agent_word_count": 108
       },
       "contact_channels": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 90,
-        "agent_word_count": 90
+        "content_score": 0.5405,
+        "gt_word_count": 97,
+        "agent_word_count": 51
       },
-      "self_service_actions": {
+      "online_services": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 99,
-        "agent_word_count": 99
+        "content_score": 0.4487,
+        "gt_word_count": 104,
+        "agent_word_count": 52
       },
-      "video_call_cta": {
+      "videocall_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 2,
         "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.6667,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing/empty content in the promo banner, nav, status banner, and videocall CTA sections (all 0.00 F1), and by weak visual fidelity in color (flat orange hero instead of the teal gradient) and assets (generic placeholder icons replacing the reference's distinct illustrative icons)."
 }

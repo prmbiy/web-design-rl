@@ -1,50 +1,50 @@
 {
-  "score": 0.664286,
+  "score": 0.668584,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6643,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7833,
+    "weighted_content": 0.747,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The deep burgundy accents, cream backgrounds, gold dividers, and dark footer all appear to match the reference precisely."
+        "reason": "Brand burgundy, cream backgrounds, gold accents, and pill colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Serif headings, uppercase tracked labels, and body text weights/sizes appear identical to the reference."
+        "reason": "Heading serif, caps labels, and body font weights appear nearly identical with matching hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "The diamond divider, ML avatar circle, and decorative elements all render correctly without missing icons or placeholders."
+        "reason": "Avatar circle, decorative dividers, and absence of broken icons are consistent across both versions."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, time pill sizing, form field spacing, and card proportions all align with the reference layout."
+        "score": 4,
+        "reason": "Button padding, time pill sizing, and form spacing are very similar with only slight differences in card width ratios."
       },
       "states": {
         "score": 5,
-        "reason": "The selected 6:45 PM time slot is filled with burgundy, struck-through unavailable times, and outline pills are styled consistently with the reference."
+        "reason": "Selected time pill (6:45 PM) and disabled/greyed-out times are rendered identically in both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.6923,
+        "gt_word_count": 12,
+        "agent_word_count": 14
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.5714,
+        "gt_word_count": 15,
+        "agent_word_count": 6
       },
       "reservation_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 202,
-        "agent_word_count": 202
+        "content_score": 0.8415,
+        "gt_word_count": 168,
+        "agent_word_count": 160
       },
       "private_dining_sidebar": {
         "type": "sidebar",
@@ -52,25 +52,19 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "cancellation_policy": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
       "tonight_availability": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 61,
-        "agent_word_count": 61
+        "content_score": 0.6849,
+        "gt_word_count": 34,
+        "agent_word_count": 39
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 50,
-        "agent_word_count": 50
+        "content_score": 0.1111,
+        "gt_word_count": 13,
+        "agent_word_count": 5
       }
     }
   },
-  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.66), indicating several reference sections are missing from the agent-generated version."
+  "explanation": "The footer content is almost entirely missing (F1 0.11) and the hero section copy diverges significantly from the reference (F1 0.57), dragging down the overall score despite strong visual fidelity."
 }

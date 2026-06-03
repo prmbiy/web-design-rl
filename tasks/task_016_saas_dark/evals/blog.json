@@ -1,82 +1,82 @@
 {
-  "score": 0.625,
+  "score": 0.399194,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.625,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.1886,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Brand purple accents, gradient cards, badges, and icon colors appear identical between both versions."
+        "score": 4,
+        "reason": "Accent purples, badge colors, and card gradients match well, though the Series B card uses a more saturated purple gradient versus the reference's green tint."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, monospace labels, and pill text styling match closely throughout."
+        "reason": "Heading sizes, weights, and pill/badge text styling closely mirror the reference with similar caps and weight treatments."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, avatars, and decorative gradients all render correctly in both versions."
+        "score": 2,
+        "reason": "The agent version is missing the second row of featured cards, changelog section, newsletter section, and several emoji/icon decorations present in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing appear consistent between versions."
+        "score": 4,
+        "reason": "Button padding, pill sizing, nav spacing, and card proportions appear nearly identical to the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active 'All Posts' pill and filled CTA buttons render with the same highlighted styling."
+        "score": 4,
+        "reason": "Active 'All Posts' pill state and primary CTA button styling are properly rendered matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 1
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "content_score": 0.4348,
+        "gt_word_count": 17,
+        "agent_word_count": 6
       },
-      "category_filters": {
+      "post_filters": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.5714,
+        "gt_word_count": 3,
+        "agent_word_count": 4
       },
       "featured_posts": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 333,
-        "agent_word_count": 333
+        "content_score": 0.2909,
+        "gt_word_count": 112,
+        "agent_word_count": 53
       },
       "changelog": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 214,
-        "agent_word_count": 214
-      },
-      "newsletter_signup": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 69,
         "agent_word_count": 0
+      },
+      "newsletter_form": {
+        "type": "form_step",
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 12
       },
       "authors": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0488,
+        "gt_word_count": 24,
+        "agent_word_count": 17
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.3333,
+        "gt_word_count": 3,
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.62), indicating several reference sections are missing from the agent-generated version."
+  "explanation": "The score is held back primarily by missing assets (the second row of featured cards, changelog, and newsletter sections are absent, scoring 0.00) and severe content mismatches in the navigation (0.00), authors (0.05), and featured posts (0.29) sections."
 }

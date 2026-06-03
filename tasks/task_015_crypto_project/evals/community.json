@@ -1,76 +1,76 @@
 {
-  "score": 0.93114,
+  "score": 0.654557,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 0.9953,
-    "design_score": 1.0,
+    "topology": 0.9667,
+    "weighted_content": 0.4343,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear visually identical in terms of accent colors, gradients, badges, and icon coloring."
+        "reason": "Brand blue gradient headings, purple CTAs, status badges, and accent colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Headings, labels, and pill text styling all appear consistent between both versions."
+        "reason": "Heading weights, body sizing, uppercase labels, and badge typography appear nearly identical."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, decorative elements, and avatars render correctly in both with no visible placeholders."
+        "score": 4,
+        "reason": "Icons render correctly in both, though the hangout card icons in the generated version use slightly different shapes (e.g., play button vs alien for Reddit, chat bubble vs message icon)."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card dimensions, badge proportions, and spacing all match closely."
+        "score": 4,
+        "reason": "Card sizing, button padding, and spacing between elements are very close, with the ambassador tier cards slightly more compact in the generated version."
       },
       "states": {
         "score": 5,
-        "reason": "Active/filled button states and status pills appear identically styled in both versions."
+        "reason": "Active nav highlight, gradient CTA buttons, and status pill states (passed/active/failed) appear consistent across both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.2857,
+        "gt_word_count": 5,
+        "agent_word_count": 2
       },
-      "hero_community": {
+      "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.8,
+        "gt_word_count": 13,
+        "agent_word_count": 12
       },
       "hangouts": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.4324,
+        "gt_word_count": 19,
+        "agent_word_count": 18
       },
-      "vip_proposals": {
+      "governance_proposals": {
         "type": "generic",
-        "content_score": 0.9849,
-        "gt_word_count": 98,
-        "agent_word_count": 101
+        "content_score": 0.2597,
+        "gt_word_count": 45,
+        "agent_word_count": 32
       },
       "ambassador_tiers": {
         "type": "pricing",
-        "content_score": 0.9896,
-        "gt_word_count": 96,
-        "agent_word_count": 96
+        "content_score": 0.3111,
+        "gt_word_count": 26,
+        "agent_word_count": 19
       },
       "hackathon_calendar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.6441,
+        "gt_word_count": 37,
+        "agent_word_count": 22
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 8
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing footer content (0.00 F1) and weak text fidelity in the navigation, governance proposals, and ambassador tiers sections, indicating the agent's copy diverges substantially from the reference despite strong visual styling."
 }

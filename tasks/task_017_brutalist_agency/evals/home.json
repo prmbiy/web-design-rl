@@ -1,82 +1,76 @@
 {
-  "score": 0.694851,
+  "score": 0.341344,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.71,
-    "weighted_content": 0.9573,
-    "design_score": 1.0,
+    "topology": 0.8571,
+    "weighted_content": 0.1165,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The yellow accent, black background, and gradient fills appear identical between both versions."
+        "score": 4,
+        "reason": "The yellow accent and black background palette is preserved, but the agent version is missing the yellow gradient on the Halder card and some color accents in the manifesto section."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, italic serif treatments, small caps labels, and nav styling all match closely."
+        "score": 4,
+        "reason": "Heading typography, weight contrast, and label styling closely match the reference with similar serif display fonts and small caps labels."
       },
       "assets": {
-        "score": 5,
-        "reason": "Decorative elements like the Koruna disc, Halder card, and Nemesis gradient render identically with no missing assets."
+        "score": 2,
+        "reason": "The Koruna target graphic renders correctly, but the Halder card with yellow gradient and the Nemesis XI overlay text/graphic in the manifesto section are missing."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, sizing of cards, nav density, and section proportions appear to match the reference precisely."
+        "score": 3,
+        "reason": "Overall layout proportions, spacing, and the yellow marquee strip match well, though the missing Halder section creates a large gap affecting vertical rhythm."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav indicator (01/05) and ticker highlight appear consistent between versions."
+        "score": 4,
+        "reason": "Interactive states like the active nav pill and selected indicators appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 2
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.4,
+        "gt_word_count": 17,
+        "agent_word_count": 8
       },
       "featured_work_koruna": {
         "type": "media",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 9
       },
       "featured_work_halder": {
         "type": "media",
-        "content_score": 0.7368,
+        "content_score": 0.1739,
         "gt_word_count": 10,
-        "agent_word_count": 9
+        "agent_word_count": 13
       },
       "clients_marquee": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 3
       },
       "manifesto": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
-      },
-      "awards_footnote": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The score is held back by incomplete topology coverage (only 0.71 of expected sections present) and a weak content match in the Halder featured work section (F1 0.74), indicating missing or altered copy there."
+  "explanation": "The agent failed to render the Halder card with its yellow gradient and the Nemesis XI overlay assets in the manifesto section, and across nearly every section the textual content diverges sharply from the reference (nav, clients marquee, manifesto, and footer all scoring 0.00 F1)."
 }

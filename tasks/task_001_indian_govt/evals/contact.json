@@ -1,30 +1,30 @@
 {
-  "score": 0.745833,
+  "score": 0.413841,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7458,
-    "weighted_content": 1.0,
+    "topology": 0.5,
+    "weighted_content": 0.6554,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange header, blue navigation bar, yellow toll-free box, and accent colors all appear identical between both versions."
+        "reason": "Brand orange, blue, yellow accents and table header colors match the reference closely across all sections."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, nav link styling, badge caps, and body text formatting match precisely."
+        "reason": "Heading weights, table header caps, button labels, and nav styling appear consistent with the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, the gear logo, social media icons, and the map illustration render identically in both versions."
+        "reason": "Icons, badges, map image, and decorative elements render correctly with no missing assets or placeholders."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button sizes, form field spacing, table row heights, and nav density appear indistinguishable between the two."
+        "reason": "Button sizes, form field spacing, table row density, and nav spacing match very closely to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav item (Contact Us), button fill states, and form input styling all match the reference."
+        "reason": "Filled submit button, outline reset button, and input/checkbox states appear consistent with the reference."
       }
     },
     "sections": {
@@ -34,97 +34,97 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "header_banner": {
+      "site_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 4
       },
       "main_nav": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "latest_ticker": {
+      "announcements_ticker": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
+      },
+      "breadcrumb": {
         "type": "navigation",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "page_title": {
-        "type": "generic",
+        "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
       "sidebar_citizen_services": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.6997,
+        "gt_word_count": 162,
+        "agent_word_count": 161
       },
-      "helpline_and_grievance_portal": {
+      "helpline_grievance": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "ministry_head_office": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "officers_directory_table": {
+      "directory_senior_officers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 154,
-        "agent_word_count": 154
-      },
-      "nird_regional_branches": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 79,
-        "agent_word_count": 79
-      },
-      "location_map": {
-        "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
-      },
-      "grievance_form": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 129,
-        "agent_word_count": 129
-      },
-      "page_meta_bar": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
-      },
-      "social_and_helpline_bar": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
-      },
-      "footer_links": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
-      },
-      "footer_copyright": {
-        "type": "footer",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
+      },
+      "nird_regional_branches": {
+        "type": "generic",
+        "content_score": 0.4667,
+        "gt_word_count": 29,
+        "agent_word_count": 31
+      },
+      "location_map": {
+        "type": "map",
+        "content_score": 0.5517,
+        "gt_word_count": 34,
+        "agent_word_count": 53
+      },
+      "online_grievance_form": {
+        "type": "form_step",
+        "content_score": 0.6942,
+        "gt_word_count": 61,
+        "agent_word_count": 60
+      },
+      "page_meta_footer_info": {
+        "type": "generic",
+        "content_score": 0.6939,
+        "gt_word_count": 25,
+        "agent_word_count": 24
+      },
+      "social_contact_bar": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.4167,
+        "gt_word_count": 15,
+        "agent_word_count": 9
       }
     }
   },
-  "explanation": "The score is held back primarily by the incomplete topology coverage (0.75), indicating some reference sections are missing from the generated version, rather than by any design or content fidelity issues which all scored perfectly."
+  "explanation": "The score is held back primarily by missing or empty key sections\u2014site_header, announcements_ticker, and social_contact_bar all scored 0.00\u2014and by incomplete content in the footer (0.42) and nird_regional_branches (0.47) sections."
 }

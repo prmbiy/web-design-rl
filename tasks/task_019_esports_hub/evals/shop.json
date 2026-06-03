@@ -1,106 +1,106 @@
 {
-  "score": 0.962882,
+  "score": 0.496632,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9636,
-    "weighted_content": 0.9984,
-    "design_score": 1.0,
+    "topology": 0.8967,
+    "weighted_content": 0.1477,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The red accents, yellow CTAs, dark backgrounds, and badge colors appear identical between the two images."
+        "reason": "Both versions share the same red/yellow accent palette on CTAs, badges, and gradient card fills with very similar tones."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, all-caps labels, and button text styling match the reference closely."
+        "reason": "Heading weights, caps usage, and badge/label styling appear nearly identical between the two versions."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, placeholder images, and decorative gradient elements render the same in both versions."
+        "reason": "Icons, jersey graphics, and decorative SVGs render correctly in both versions with matching style."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, badge dimensions, card spacing, and nav density all appear consistent."
+        "score": 4,
+        "reason": "Button sizes, badge dimensions, and overall card proportions are very close, though minor spacing differences exist in the hero area."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab indicator on 'ALL', highlighted nav 'SHOP', and filled vs outlined CTAs all match."
+        "reason": "Active tab underline, filled CTA buttons, and outlined secondary buttons appear consistently styled in both versions."
       }
     },
     "sections": {
-      "nav": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
       },
       "live_ticker": {
         "type": "navigation",
-        "content_score": 0.9714,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 2
       },
       "hero_pro_kit": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 43,
-        "agent_word_count": 43
+        "content_score": 0.6667,
+        "gt_word_count": 21,
+        "agent_word_count": 12
       },
-      "limited_drop_banner": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+      "drop_countdown": {
+        "type": "pricing",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 5
       },
       "category_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
-      "value_props": {
+      "benefits_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
-      "jerseys_grid": {
+      "jerseys_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.2143,
+        "gt_word_count": 16,
+        "agent_word_count": 12
       },
-      "hoodies_tees_grid": {
+      "hoodies_tees_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.375,
+        "gt_word_count": 13,
+        "agent_word_count": 19
       },
-      "gear_accessories_grid": {
+      "gear_accessories_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 10
       },
       "signed_collection": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 84,
-        "agent_word_count": 84
+        "content_score": 0.1111,
+        "gt_word_count": 9,
+        "agent_word_count": 9
       },
-      "sponsors": {
+      "sponsors_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 5
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 8
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The agent's content text diverges significantly from the reference across nearly all sections (top_nav, live_ticker, drop_countdown, category_tabs, benefits_bar, gear_accessories, sponsors_bar, and footer all scoring 0.00), and even the product sections (jerseys at 0.21, signed_collection at 0.11) show poor word-set overlap indicating incorrect product names"
 }

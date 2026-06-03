@@ -1,30 +1,30 @@
 {
-  "score": 0.666667,
+  "score": 0.55833,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.6667,
-    "weighted_content": 1.0,
+    "weighted_content": 0.675,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange header bar, black text, and grey secondary text match the reference exactly."
+        "reason": "The orange header bar, white background, and grey meta text colors match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Font family, sizes, and weights for nav, list items, and footer appear identical to the reference."
+        "reason": "Font family, sizes, and weights for the header, list items, and footer appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "The Y Combinator logo icon renders correctly and no other assets are missing."
+        "reason": "The Y logo, triangle upvote arrows, and small text links all render correctly with no missing icons."
       },
       "proportion": {
         "score": 5,
-        "reason": "Spacing, list density, nav item spacing, and overall layout proportions match the reference closely."
+        "reason": "Spacing between list items, header padding, and footer layout proportions match the reference very closely."
       },
       "states": {
         "score": 5,
-        "reason": "Link styling and inactive states appear consistent with the reference with no visible interactive state differences."
+        "reason": "Link styling and the active 'jobs' nav state appear consistent with the reference."
       }
     },
     "sections": {
@@ -36,17 +36,17 @@
       },
       "job_listings": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 586,
-        "agent_word_count": 586
+        "content_score": 0.4018,
+        "gt_word_count": 266,
+        "agent_word_count": 416
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
+        "content_score": 0.5714,
         "gt_word_count": 14,
         "agent_word_count": 14
       }
     }
   },
-  "explanation": "The score is held back primarily by missing sections reflected in the 0.67 topology score, rather than by any design or content fidelity issues within the rendered sections."
+  "explanation": "The score is held back primarily by inaccurate job listing content (F1 0.40), which fails to match the reference's text, and an incomplete footer (F1 0.57) missing key links or wording."
 }

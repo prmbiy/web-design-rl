@@ -1,82 +1,82 @@
 {
-  "score": 0.808333,
+  "score": 0.745373,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8083,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.7437,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Teal brand color, orange CTAs, colored avatar circles, and badge colors all appear identical between versions."
+        "reason": "Brand teal, orange CTAs, badge colors, and avatar tints all match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button text, pill labels in caps, and nav styling all match closely."
+        "reason": "Headings, labels, and pill text appear nearly identical in weight and size hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Trophy emoji, house emoji, avatar initials, and checkmarks all render correctly in both versions."
+        "score": 4,
+        "reason": "Icons and avatars render correctly, though the trophy emoji in 'Top 10 Agents' header appears missing and the appraisal icon looks slightly different."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button sizes, pill dimensions, card spacing, and form element proportions appear identical."
+        "reason": "Button padding, pill sizing, and spacing are very close to the reference with only minor differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active Agents nav tab with underline, toggle switch in on state, and filled vs outline button variants all match."
+        "reason": "Active 'Agents' tab, toggle switch, and filled vs outline button variants are all preserved correctly."
       }
     },
     "sections": {
-      "top_nav": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.7619,
+        "gt_word_count": 13,
         "agent_word_count": 8
       },
-      "sub_nav_search": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+      "search_bar": {
+        "type": "form_step",
+        "content_score": 0.7692,
+        "gt_word_count": 19,
+        "agent_word_count": 20
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.9333,
+        "gt_word_count": 7,
+        "agent_word_count": 8
       },
-      "filters_bar": {
+      "filters": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.5,
+        "gt_word_count": 12,
+        "agent_word_count": 12
       },
-      "agents_list": {
+      "agent_listings": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 320,
-        "agent_word_count": 320
+        "content_score": 0.688,
+        "gt_word_count": 258,
+        "agent_word_count": 210
       },
-      "leaderboard_sidebar": {
+      "sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "appraisal_cta": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 60,
-        "agent_word_count": 60
+        "type": "form_step",
+        "content_score": 0.7458,
+        "gt_word_count": 29,
+        "agent_word_count": 30
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 72,
-        "agent_word_count": 72
+        "content_score": 0.2105,
+        "gt_word_count": 8,
+        "agent_word_count": 11
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The footer content is largely missing (F1 0.21) and the filters section is incomplete (F1 0.50), which together account for most of the gap from a perfect score."
 }

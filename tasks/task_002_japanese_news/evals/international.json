@@ -1,112 +1,118 @@
 {
-  "score": 0.895238,
+  "score": 0.39836,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8952,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8872,
+    "weighted_content": 0.178,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Brand colors, red accent tabs, gradient cards, and badge colors appear identical between the two images."
+        "score": 4,
+        "reason": "The red header, nav bar, and category accent colors are well preserved, though the card gradient fills are slightly more muted and uniform in the generated version."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, nav link styling, and label sizing all match the reference closely."
+        "score": 4,
+        "reason": "Heading sizes, weights, and nav link styling closely match the reference with appropriate hierarchy between titles and body text."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, flag elements, and decorative images render identically with no missing assets."
+        "score": 2,
+        "reason": "All card images are replaced with question-mark placeholder icons, and emoji/decorative images present in the reference are missing."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, card dimensions, and nav spacing all appear the same as reference."
+        "score": 4,
+        "reason": "Overall layout proportions, card sizing, nav density, and spacing between elements closely mirror the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "The active red tab state and selected nav highlighting are preserved exactly as in the reference."
+        "score": 4,
+        "reason": "The active tab state (\u30a2\u30b8\u30a2\u30fb\u592a\u5e73\u6d0b) is shown with a red underline similar to the reference, though slightly less emphasized."
       }
     },
     "sections": {
-      "top_bar": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.1667,
+        "gt_word_count": 4,
         "agent_word_count": 8
       },
       "header_logo_search": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.7368,
+        "gt_word_count": 11,
+        "agent_word_count": 8
       },
-      "main_nav": {
+      "category_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
-      "breaking_news": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+      "breaking_news_banner": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
-      "international_header": {
+      "section_title_international": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 10
       },
       "region_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
       "world_map_news": {
         "type": "map",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 33,
-        "agent_word_count": 33
+        "agent_word_count": 22
       },
       "ad_banner_ufj": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 17
       },
       "asia_pacific_news": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 74,
-        "agent_word_count": 74
+        "type": "media",
+        "content_score": 0.0,
+        "gt_word_count": 14,
+        "agent_word_count": 33
       },
       "americas_news": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 108,
-        "agent_word_count": 108
+        "type": "media",
+        "content_score": 0.0784,
+        "gt_word_count": 15,
+        "agent_word_count": 36
       },
-      "foreign_bureaus": {
+      "foreign_bureau_notes": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.1386,
+        "gt_word_count": 49,
+        "agent_word_count": 52
       },
       "ad_banner_ana": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 3
       },
       "europe_news": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
+        "type": "media",
+        "content_score": 0.0476,
+        "gt_word_count": 10,
+        "agent_word_count": 32
       },
-      "sidebar_weather_markets_sports": {
+      "middle_east_africa_news": {
+        "type": "media",
+        "content_score": 0.101,
+        "gt_word_count": 59,
+        "agent_word_count": 40
+      },
+      "right_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -114,5 +120,5 @@
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing/placeholder assets (all card images replaced with question-mark icons and decorative emojis absent) and severely mismatched textual content across nearly every section (category_nav, breaking_news_banner, region_tabs, world_map_news, and all regional news blocks scoring at or near 0)."
 }

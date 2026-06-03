@@ -1,94 +1,88 @@
 {
-  "score": 0.911111,
+  "score": 0.506814,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9111,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8317,
+    "weighted_content": 0.5387,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The color palette including brand orange, badge colors, gradient card backgrounds, and category tile pastels appear identical between both versions."
+        "score": 3,
+        "reason": "The hero banner colors and overall palette match well, but the category circles and food card images are flat brown/tan gradients instead of the colorful varied tones seen in the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, badge caps styling, nav link styles and body text hierarchy look indistinguishable."
+        "score": 4,
+        "reason": "Heading sizes, weights, and label/badge typography appear consistent with the reference layout."
       },
       "assets": {
-        "score": 5,
-        "reason": "All food icons, illustrations, emoji, and decorative images render correctly and match the reference."
+        "score": 2,
+        "reason": "Food icons, category illustrations, and store badge images are missing or replaced with solid colored shapes/placeholders throughout the page."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizes, pill dimensions, and spacing between elements appear identical."
+        "score": 4,
+        "reason": "Card sizes, padding, badge dimensions, and spacing between elements closely mirror the reference layout."
       },
       "states": {
-        "score": 5,
-        "reason": "The active 'Pure Veg' filter pill and PRO badge states are rendered the same way in both versions."
+        "score": 4,
+        "reason": "The active 'Pure Veg' filter pill and other interactive states are preserved with similar highlighting as the reference."
       }
     },
     "sections": {
-      "nav": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.5405,
+        "gt_word_count": 18,
+        "agent_word_count": 19
       },
       "promo_banner": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "gt_word_count": 14,
+        "agent_word_count": 14
       },
       "offer_cards": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.7059,
+        "gt_word_count": 9,
+        "agent_word_count": 8
       },
-      "categories": {
+      "category_icons": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 18,
+        "agent_word_count": 0
       },
       "top_restaurants": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 127,
-        "agent_word_count": 127
+        "content_score": 0.5579,
+        "gt_word_count": 105,
+        "agent_word_count": 85
       },
       "whats_on_your_mind": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.5882,
+        "gt_word_count": 16,
+        "agent_word_count": 18
       },
       "popular_brands": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 106,
-        "agent_word_count": 106
+        "content_score": 0.514,
+        "gt_word_count": 108,
+        "agent_word_count": 71
       },
-      "all_restaurants_filters": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
-      },
-      "all_restaurants_grid": {
+      "all_restaurants_nearby": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 152,
-        "agent_word_count": 152
+        "content_score": 0.5468,
+        "gt_word_count": 158,
+        "agent_word_count": 109
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
+        "content_score": 0.0,
+        "gt_word_count": 10,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing/placeholder assets\u2014especially the category icons (0.00 F1) and footer content (0.00 F1)\u2014and by the flat brown/tan fills used in place of the reference's colorful food and category illustrations."
 }

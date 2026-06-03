@@ -1,106 +1,100 @@
 {
-  "score": 0.7,
+  "score": 0.558389,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6987,
+    "weighted_content": 0.6784,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand blues, orange CTAs, badge backgrounds, and nav link colors appear identical between both versions."
+        "reason": "Brand blues, orange CTAs, and accent colors match closely between both versions with consistent palette use."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, badge caps styling, and nav link fonts look indistinguishable."
+        "reason": "Heading sizes, weight contrasts, caps treatment on section labels, and nav link styling appear nearly identical."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, checkmarks, square decorative images, and all visual symbols render correctly in both versions."
+        "score": 4,
+        "reason": "Both versions show similar simple icon placeholders/boxes; no missing or broken icons noticeable in the agent version."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, padding, table row heights, and nav spacing match precisely."
+        "score": 4,
+        "reason": "Button padding, table row spacing, and nav density closely match, with only very minor spacing differences in the featured product section."
       },
       "states": {
         "score": 5,
-        "reason": "Active 'Product Family' nav highlight and button variants appear identical."
+        "reason": "Active nav item (Product Family) is highlighted in orange in both versions, and button variants (filled orange vs outline/link) are consistent."
       }
     },
     "sections": {
-      "top_utility_nav": {
+      "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
-      },
-      "header_branding": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 7,
+        "content_score": 0.0,
+        "gt_word_count": 1,
         "agent_word_count": 7
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
-      },
-      "breadcrumb": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 2
       },
       "left_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 321,
-        "agent_word_count": 321
+        "content_score": 0.5515,
+        "gt_word_count": 145,
+        "agent_word_count": 156
       },
-      "product_hero": {
+      "right_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.7545,
+        "gt_word_count": 89,
+        "agent_word_count": 78
+      },
+      "hero": {
         "type": "hero",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "featured_product": {
+      "features_bar": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "right_sidebar_resources": {
-        "type": "sidebar",
+      "featured_product": {
+        "type": "hero",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "product_catalog": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 117,
-        "agent_word_count": 117
+        "content_score": 0.8947,
+        "gt_word_count": 19,
+        "agent_word_count": 19
       },
-      "comparison_matrix": {
+      "edition_comparison": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 91,
-        "agent_word_count": 91
+        "content_score": 0.5985,
+        "gt_word_count": 51,
+        "agent_word_count": 86
       },
       "cta_demo": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.6818,
+        "gt_word_count": 23,
+        "agent_word_count": 21
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 29
       }
     }
   },
-  "explanation": "The score is held back primarily by the topology gap (0.70) indicating missing or misaligned sections, rather than any design-dimension or per-section content failures, which all scored perfectly."
+  "explanation": "The score is held down primarily by missing or mismatched content in the top_bar, main_nav, and footer sections (all scoring 0.00), along with weaker text fidelity in the edition_comparison and cta_demo sections."
 }

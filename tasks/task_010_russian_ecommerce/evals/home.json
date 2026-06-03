@@ -1,94 +1,94 @@
 {
-  "score": 0.933333,
+  "score": 0.477263,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9,
+    "weighted_content": 0.3406,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The brand orange, gradient hero panels, colored card backgrounds, badge colors, and nav accents all appear identical between the two images."
+        "score": 4,
+        "reason": "Brand orange CTAs, badge colors, and card background tints are well preserved with only minor differences in social icon styling."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, badge text, and nav link styling all look the same in size and weight."
+        "score": 4,
+        "reason": "Heading weights, button text, and badge styling closely match the reference with consistent hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emoji icons, product illustrations, category icons, and decorative images render correctly and identically."
+        "score": 2,
+        "reason": "Most product images, category icons, and the QR code render as placeholder boxes with question marks, a major asset failure."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizes, card dimensions, grid spacing, and nav density appear consistent across both versions."
+        "score": 4,
+        "reason": "Button padding, badge sizing, card dimensions, and nav spacing are very close to the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active/filled button states, badge highlights, and interactive element styling appear identical with no visible differences."
+        "score": 4,
+        "reason": "Active pill states on counters and cart button styling appear consistent with the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       },
       "category_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 8
       },
       "hero_banners": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       },
-      "product_of_day": {
+      "deal_of_day": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 112,
-        "agent_word_count": 112
+        "content_score": 0.4203,
+        "gt_word_count": 63,
+        "agent_word_count": 75
       },
       "popular_categories": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 87,
-        "agent_word_count": 87
+        "content_score": 0.0571,
+        "gt_word_count": 32,
+        "agent_word_count": 38
       },
       "hot_offers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 68,
-        "agent_word_count": 68
+        "content_score": 0.5747,
+        "gt_word_count": 47,
+        "agent_word_count": 40
       },
-      "torgo_plati_promo": {
+      "torgoplati_promo": {
         "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "recommended_products": {
+      "recommendations": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 102,
-        "agent_word_count": 102
+        "content_score": 0.3419,
+        "gt_word_count": 54,
+        "agent_word_count": 63
       },
       "app_download": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "type": "media",
+        "content_score": 0.2,
+        "gt_word_count": 9,
+        "agent_word_count": 1
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 2,
+        "content_score": 0.0,
+        "gt_word_count": 3,
         "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The two biggest failures are widespread missing assets (product images, category icons, and the QR code rendering as placeholder boxes with question marks) and severe textual content gaps across key sections including top_nav, category_nav, hero_banners, and footer all scoring 0.00."
 }

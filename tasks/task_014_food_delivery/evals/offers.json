@@ -1,82 +1,82 @@
 {
-  "score": 1.0,
+  "score": 0.545201,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 1.0,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.3262,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand accent colors, gradients, badge backgrounds, and bank logo colors appear identical between both versions."
+        "reason": "Brand orange, gradient hero, badge pills, and dark Chatori Pro section colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, pill text caps styling, and nav typography match precisely."
+        "reason": "Heading weights, button text, and pill labels appear nearly identical in styling and hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, bank logos, and decorative elements render identically in both images."
+        "score": 3,
+        "reason": "Most icons render correctly, but the decorative illustration in the gradient hero banner appears as a plain triangle/placeholder shape instead of the reference illustration."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, card spacing, and nav density appear visually identical."
+        "reason": "Button sizes, card padding, pill dimensions, and overall spacing are very close to the reference with only minor differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav state on 'Offers', filled CTA buttons, and pill styles are consistent across both versions."
+        "reason": "Active nav highlight on Offers, filled vs outline button variants, and copy code button states appear consistent with the reference."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.25,
+        "gt_word_count": 10,
+        "agent_word_count": 6
       },
       "offers_header": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.8846,
         "gt_word_count": 28,
-        "agent_word_count": 28
+        "agent_word_count": 24
       },
       "bank_offers": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 84,
-        "agent_word_count": 84
+        "type": "generic",
+        "content_score": 0.7761,
+        "gt_word_count": 74,
+        "agent_word_count": 60
       },
       "first_order_promo": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.0,
+        "gt_word_count": 19,
+        "agent_word_count": 0
       },
-      "chatori_pro": {
+      "chatori_pro_pricing": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 109,
-        "agent_word_count": 109
+        "content_score": 0.0714,
+        "gt_word_count": 52,
+        "agent_word_count": 4
       },
       "restaurant_offers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 101,
-        "agent_word_count": 101
+        "content_score": 0.4615,
+        "gt_word_count": 69,
+        "agent_word_count": 35
       },
       "coupon_codes": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 90,
-        "agent_word_count": 90
+        "type": "generic",
+        "content_score": 0.2105,
+        "gt_word_count": 133,
+        "agent_word_count": 19
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 12
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by major content gaps in key sections\u2014particularly the missing first_order_promo, chatori_pro_pricing, footer, and coupon_codes text\u2014and by the hero banner's decorative illustration rendering as a plain placeholder shape instead of the reference artwork."
 }

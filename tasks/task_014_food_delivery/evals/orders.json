@@ -1,88 +1,88 @@
 {
-  "score": 0.860317,
+  "score": 0.734694,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.6294,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "All brand orange accents, green/red badges, gradient card icons, and nav colors appear identical to the reference."
+        "score": 4,
+        "reason": "Brand orange CTAs, status badges, and accent colors match closely, though restaurant image thumbnails are rendered as plain solid color circles instead of containing food imagery."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, button weights, badge caps styling, and nav text all match the reference precisely."
+        "reason": "Heading weights, body text, badge caps styling, and button labels appear very similar to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emoji icons, food illustrations, store badges, and social icons render correctly and match the reference."
+        "score": 2,
+        "reason": "Food thumbnail images are missing/replaced with plain colored circles in the agent version while reference shows actual food illustrations; other icons render correctly."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, pill sizes, card spacing, and nav density appear identical between the two versions."
+        "reason": "Button sizes, pill dimensions, card spacing, and overall layout proportions closely mirror the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'All Orders' pill, rating stars, and reorder/help button variants match the reference states exactly."
+        "reason": "Active 'All Orders' pill, reorder filled button, outline help button, and rating badges all match the reference states well."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
+        "content_score": 0.4444,
+        "gt_word_count": 8,
         "agent_word_count": 10
       },
       "page_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.9474,
+        "gt_word_count": 18,
+        "agent_word_count": 20
       },
       "order_truffles": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.6111,
+        "gt_word_count": 41,
+        "agent_word_count": 31
       },
       "order_meghana": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.5758,
+        "gt_word_count": 38,
+        "agent_word_count": 28
       },
       "order_empire": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "content_score": 0.725,
+        "gt_word_count": 40,
+        "agent_word_count": 40
       },
       "order_dominos": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.4058,
+        "gt_word_count": 43,
+        "agent_word_count": 26
       },
       "order_behrouz": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.5532,
+        "gt_word_count": 28,
+        "agent_word_count": 19
       },
-      "view_all_orders": {
+      "view_all_orders_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.6486,
+        "gt_word_count": 21,
+        "agent_word_count": 16
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.4,
+        "gt_word_count": 3,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing food thumbnail imagery (rendered as plain colored circles instead of actual food illustrations, hurting the assets dimension) and weak text content fidelity in the navigation, Domino's order card, and footer sections."
 }

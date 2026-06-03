@@ -1,47 +1,59 @@
 {
-  "score": 0.666667,
+  "score": 0.447879,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6667,
-    "weighted_content": 1.0,
+    "topology": 0.5,
+    "weighted_content": 0.7915,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The blue header, accent colors on nav items, code block dark background, and card colors all appear identical between both versions."
+        "reason": "Brand blues, green supported badges, and code block dark backgrounds match closely with similar accent tones throughout."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, nav link styling, and section header treatments look indistinguishable between the two images."
+        "reason": "Heading sizes, weights, and nav link styling appear nearly identical between the two versions."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, emojis (rocket, brain, books, ship, note), and decorative elements render correctly and identically in both versions."
+        "reason": "Icons render correctly in both versions for community links and card headers, with similar emoji/icon usage."
       },
       "proportion": {
         "score": 5,
-        "reason": "Spacing, padding on cards, table row heights, button sizes, and nav density all match precisely."
+        "reason": "Card padding, button sizing, table density, and nav spacing are very consistent between the two layouts."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'Home' nav item, selected 'pip' tab, and active 'Installation' on-this-page indicator all appear in the same highlighted states."
+        "reason": "Active nav item (Home) and selected pip tab are highlighted similarly in both versions with matching treatments."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.5,
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
-      "sidebar": {
+      "left_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.8171,
+        "gt_word_count": 171,
+        "agent_word_count": 157
+      },
+      "right_toc_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 193,
-        "agent_word_count": 193
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "hero_intro": {
+      "doc_header": {
         "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "intro": {
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
@@ -54,33 +66,33 @@
       },
       "quick_example": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "explore_docs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 63,
-        "agent_word_count": 63
+        "content_score": 0.5862,
+        "gt_word_count": 58,
+        "agent_word_count": 58
       },
       "features_table": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 63,
-        "agent_word_count": 63
+        "type": "generic",
+        "content_score": 0.7816,
+        "gt_word_count": 73,
+        "agent_word_count": 101
       },
       "community_support": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 43,
-        "agent_word_count": 43
+        "content_score": 0.64,
+        "gt_word_count": 22,
+        "agent_word_count": 28
       },
       "cloud_cta": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.8462,
+        "gt_word_count": 26,
+        "agent_word_count": 26
       },
       "footer": {
         "type": "footer",
@@ -90,5 +102,5 @@
       }
     }
   },
-  "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.67), indicating that roughly a third of the expected sections are missing from the agent-generated version."
+  "explanation": "The score is held back primarily by the missing quick_example section content (0.00 F1) and the incomplete top_nav links (0.50 F1), compounded by overall low topology coverage (0.50) indicating several expected sections are absent or misaligned."
 }

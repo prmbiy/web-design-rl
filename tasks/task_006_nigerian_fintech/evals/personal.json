@@ -1,82 +1,82 @@
 {
-  "score": 0.942857,
+  "score": 0.60296,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.7528,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear identical in brand greens, purple gradient section, badge pills, and accent colors throughout."
+        "score": 3,
+        "reason": "The agent uses a more saturated teal/green for the phone mockup and card area instead of the lighter mint gradient in the reference, though CTAs and accent colors are similar."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, sizes, pill caps styling, and nav link styling all appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, sizes, and badge/pill text styling closely match the reference with only minor differences in line wrapping."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, phone mockup, and flag images render identically in both versions."
+        "score": 2,
+        "reason": "Most icons in the feature cards and trust bar appear as placeholder boxes/question marks in the agent version while the reference shows proper icons and emojis."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card spacing, and nav density look indistinguishable between the two."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and overall spacing are very close to the reference with only slight variations in card/phone proportions."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav highlight on 'Personal', filled CTA vs outline secondary button, and chat widget state all match."
+        "score": 4,
+        "reason": "Active nav state (Personal in green) and filled vs outline button variants are preserved consistently with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.4545,
         "gt_word_count": 11,
         "agent_word_count": 11
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 104,
-        "agent_word_count": 104
+        "content_score": 0.7521,
+        "gt_word_count": 55,
+        "agent_word_count": 62
       },
       "trust_badges": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.5161,
+        "gt_word_count": 21,
+        "agent_word_count": 10
       },
       "products_grid": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 196,
-        "agent_word_count": 196
+        "content_score": 0.7989,
+        "gt_word_count": 189,
+        "agent_word_count": 169
       },
       "comparison_table": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 144,
-        "agent_word_count": 144
+        "content_score": 0.8661,
+        "gt_word_count": 102,
+        "agent_word_count": 122
       },
       "diaspora_remittance": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.4819,
+        "gt_word_count": 49,
+        "agent_word_count": 34
       },
-      "cta_download": {
+      "open_account_cta": {
         "type": "form_step",
         "content_score": 1.0,
-        "gt_word_count": 31,
-        "agent_word_count": 31
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.3333,
+        "gt_word_count": 6,
+        "agent_word_count": 6
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing/placeholder icons throughout the feature cards and trust bar (assets 2/5) and weak content fidelity in the nav, diaspora remittance, and footer sections (F1 scores of 0.45, 0.48, and 0.33)."
 }

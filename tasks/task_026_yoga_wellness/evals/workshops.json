@@ -1,30 +1,30 @@
 {
-  "score": 0.558191,
+  "score": 0.492299,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9,
-    "weighted_content": 0.7204,
-    "design_score": 0.52,
+    "topology": 0.7771,
+    "weighted_content": 0.5069,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 2,
-        "reason": "The agent version is missing the workshop card sections entirely so the colored gradient fills, green reserve buttons, and accent colors visible in the reference are absent in the middle area, though the footer and header colors match."
+        "score": 3,
+        "reason": "The agent version preserves the cream background, green CTA button, and green gradient card, but is missing the second and third workshop sections with their pink/orange gradient and multi-color gradient cards."
       },
       "typography": {
-        "score": 4,
-        "reason": "Visible typography in the hero, form, and footer appears consistent in weight, size, and styling between both versions."
+        "score": 5,
+        "reason": "Heading, label, and button typography appear consistent with the reference in weight, size, and small-caps styling."
       },
       "assets": {
-        "score": 1,
-        "reason": "The agent version is missing the three workshop card images/illustrations (sparkle, circle, command icon gradient blocks) that are prominent in the reference."
+        "score": 2,
+        "reason": "The first gradient card renders but lacks the sparkle icon overlay seen in the reference, and the additional workshop cards with their icons/gradients are entirely absent."
       },
       "proportion": {
-        "score": 2,
-        "reason": "Button sizing, form field spacing, and nav density match where visible, but the missing card sections leave large empty gaps disrupting overall page proportion."
+        "score": 4,
+        "reason": "Button padding, form field spacing, and nav density match closely, though the missing sections create large empty whitespace that affects overall page proportion."
       },
       "states": {
-        "score": 4,
-        "reason": "Interactive elements like the Book Class button, Subscribe button, and Send Inquiry button appear with matching filled styling in both versions."
+        "score": 5,
+        "reason": "The Reserve button outline state and Subscribe button styling match the reference's interactive element styling."
       }
     },
     "sections": {
@@ -36,29 +36,41 @@
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.6,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.2105,
+        "gt_word_count": 3,
+        "agent_word_count": 16
       },
-      "media_gallery": {
-        "type": "media",
-        "content_score": 0.1667,
-        "gt_word_count": 27,
-        "agent_word_count": 297
+      "winter_immersion": {
+        "type": "pricing",
+        "content_score": 0.8606,
+        "gt_word_count": 87,
+        "agent_word_count": 78
+      },
+      "breath_backbends_workshop": {
+        "type": "pricing",
+        "content_score": 0.0,
+        "gt_word_count": 92,
+        "agent_word_count": 0
+      },
+      "costa_rica_retreat": {
+        "type": "pricing",
+        "content_score": 0.4235,
+        "gt_word_count": 123,
+        "agent_word_count": 47
       },
       "registration_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 63,
-        "agent_word_count": 63
+        "content_score": 0.7342,
+        "gt_word_count": 36,
+        "agent_word_count": 43
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 40,
+        "content_score": 0.7595,
+        "gt_word_count": 39,
         "agent_word_count": 40
       }
     }
   },
-  "explanation": "The score is held back by the entirely missing workshop card sections\u2014removing the gradient fills, green reserve buttons, and three icon illustrations (color 2/5, assets 1/5)\u2014and the resulting media gallery content mismatch (F1 0.17) that leaves large proportional gaps in the page layout."
+  "explanation": "The score is held back primarily by the entirely missing breath_backbends_workshop and costa_rica_retreat sections (with their pink/orange and multi-color gradient cards and icons), and by the hero section's very low content match (0.21) indicating most of its text and sparkle icon assets were not reproduced."
 }

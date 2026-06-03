@@ -1,82 +1,82 @@
 {
-  "score": 0.994135,
+  "score": 0.511724,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 1.0,
-    "weighted_content": 0.9883,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.256,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The green accent colors, badge colors, and overall dark terminal palette appear identical between the two images."
+        "reason": "Green accent colors on terminal text, badges, and links match closely, with similar dark background and gradient glow effect."
       },
       "typography": {
         "score": 5,
-        "reason": "Monospace font, heading sizes, badge styling, and nav link weights all match precisely."
+        "reason": "Monospace font usage, heading sizes, and badge/pill styling appear nearly identical between versions."
       },
       "assets": {
         "score": 5,
-        "reason": "Diamond bullets, terminal window dots, arrow icons, and decorative elements all render correctly in both versions."
+        "reason": "Diamond bullet icons, terminal window dots, and decorative grid patterns on cards render correctly in both versions."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, badge padding, nav spacing, and section spacing appear identical."
+        "score": 4,
+        "reason": "Card sizing, badge padding, nav spacing, and section spacing are very similar though the hero appears slightly more compact in the generated version."
       },
       "states": {
         "score": 5,
-        "reason": "Badge states (alpha, recording, in progress) and link styling appear consistent between both versions."
+        "reason": "Link hover/accent states and badge variants (alpha, recording, in progress) appear consistently styled across both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.2,
+        "gt_word_count": 23,
+        "agent_word_count": 7
       },
       "featured_work": {
         "type": "generic",
-        "content_score": 0.9032,
-        "gt_word_count": 80,
-        "agent_word_count": 75
+        "content_score": 0.1429,
+        "gt_word_count": 10,
+        "agent_word_count": 18
       },
       "tools_of_trade": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 7
       },
       "currently_building": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.1818,
+        "gt_word_count": 16,
+        "agent_word_count": 6
       },
       "recent_writing": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 56,
-        "agent_word_count": 56
+        "content_score": 0.08,
+        "gt_word_count": 7,
+        "agent_word_count": 18
       },
       "contact_echo": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.8571,
+        "gt_word_count": 3,
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by severe content mismatches across nearly every section (nav, hero, featured_work, tools_of_trade, currently_building, and recent_writing all scoring below 0.20 F1) and a slightly compressed hero proportion compared to the reference."
 }

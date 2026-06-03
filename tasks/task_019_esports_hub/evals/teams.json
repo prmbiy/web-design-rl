@@ -1,82 +1,82 @@
 {
-  "score": 0.767238,
+  "score": 0.418612,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.775,
-    "weighted_content": 0.98,
-    "design_score": 1.0,
+    "topology": 0.9429,
+    "weighted_content": 0.088,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear visually identical in terms of accent reds, yellows, greens, and badge colors."
+        "reason": "Brand red accents, yellow stat numbers, green/red win-loss colors, and dark backgrounds are all closely matched between the two versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps treatments, and label styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and caps usage on labels and pills match well, with only very minor differences in proportions."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, trophy graphics, and logo placeholders render the same way in both images."
+        "score": 2,
+        "reason": "Trophy shelf icons appear as broken/placeholder boxes in the agent version while the reference shows proper trophy/medal icons."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card padding, pill dimensions, and nav spacing look identical."
+        "score": 4,
+        "reason": "Card sizes, button padding, pill dimensions, and spacing are very similar with only slight differences in nav density."
       },
       "states": {
         "score": 5,
-        "reason": "Active SCHEDULE nav link, selected ALL TEAMS pill, and RANKING toggle states match exactly."
+        "reason": "Active nav tab, selected 'All Teams' filter, and 'Ranking' sort toggle states are rendered with matching highlighted styling."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.4,
+        "gt_word_count": 4,
+        "agent_word_count": 1
       },
       "match_ticker": {
         "type": "navigation",
-        "content_score": 0.931,
-        "gt_word_count": 28,
-        "agent_word_count": 30
+        "content_score": 0.129,
+        "gt_word_count": 23,
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.9444,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.0,
+        "gt_word_count": 21,
+        "agent_word_count": 2
       },
-      "filters": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+      "filter_bar": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 1
       },
       "active_rosters": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 108,
-        "agent_word_count": 108
+        "type": "generic",
+        "content_score": 0.0571,
+        "gt_word_count": 16,
+        "agent_word_count": 19
       },
       "trophy_shelf": {
         "type": "generic",
-        "content_score": 0.9709,
-        "gt_word_count": 104,
-        "agent_word_count": 102
+        "content_score": 0.1395,
+        "gt_word_count": 19,
+        "agent_word_count": 24
       },
       "partners": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The score is held back primarily by missing or mismatched sections reflected in the 0.78 topology score, along with minor content gaps in the match_ticker (0.93) and hero (0.94) sections."
+  "explanation": "The score is dragged down primarily by broken trophy shelf assets rendering as placeholder boxes instead of proper trophy/medal icons, and by pervasive content mismatches across nearly every section (hero, filter bar, partners, footer all at 0.00 F1, with match ticker and rosters near zero)."
 }

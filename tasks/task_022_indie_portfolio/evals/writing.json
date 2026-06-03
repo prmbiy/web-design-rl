@@ -1,76 +1,76 @@
 {
-  "score": 0.863431,
+  "score": 0.54135,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9333,
-    "weighted_content": 0.8902,
+    "topology": 0.8171,
+    "weighted_content": 0.365,
     "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Both versions use the same dark background with green accent colors for headings, links, and badges, matching closely."
+        "reason": "Green accent colors on pills, links, and featured card match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Monospace fonts, heading sizes, and pill/badge text styling appear identical between the two versions."
+        "reason": "Monospace font, heading sizes, and badge text styling appear consistent with reference."
       },
       "assets": {
-        "score": 4,
-        "reason": "Both versions show the same icons and lack of decorative imagery, with the agent version showing an extra green cursor/caret bar next to the Writing heading."
+        "score": 5,
+        "reason": "Icons and indicators render correctly in both versions with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, pill sizes, padding, and overall layout density appear nearly identical between both versions."
+        "score": 4,
+        "reason": "Filter pills in the agent version appear slightly more rounded/larger and the featured card has a visible toggle button not present in reference, but spacing is otherwise similar."
       },
       "states": {
         "score": 5,
-        "reason": "The 'All' filter pill is shown as active/selected with the same green outline styling in both versions."
+        "reason": "Active 'All' filter pill is highlighted in both, and Writing nav link active state is preserved similarly."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 0.8571,
+        "content_score": 0.0,
         "gt_word_count": 4,
-        "agent_word_count": 3
+        "agent_word_count": 1
       },
-      "page_header": {
+      "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.2857,
+        "gt_word_count": 6,
+        "agent_word_count": 8
       },
       "filters": {
         "type": "generic",
-        "content_score": 0.5,
-        "gt_word_count": 10,
-        "agent_word_count": 6
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
-      "pinned_post": {
+      "featured_post": {
         "type": "generic",
-        "content_score": 0.9357,
-        "gt_word_count": 84,
-        "agent_word_count": 87
+        "content_score": 0.7037,
+        "gt_word_count": 26,
+        "agent_word_count": 28
       },
       "recent_posts": {
         "type": "generic",
-        "content_score": 0.993,
-        "gt_word_count": 430,
-        "agent_word_count": 430
+        "content_score": 0.3515,
+        "gt_word_count": 247,
+        "agent_word_count": 83
       },
       "subscribe": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 0.8364,
-        "gt_word_count": 30,
-        "agent_word_count": 25
+        "content_score": 0.1818,
+        "gt_word_count": 4,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The score is held back primarily by the filters section's low content fidelity (0.50 F1, indicating missing or incorrect filter labels) and the extraneous green cursor/caret bar next to the Writing heading that doesn't appear in the reference."
+  "explanation": "The score is held back primarily by major content mismatches in the navigation, filters, and footer sections (all near-zero F1) and significant text divergence in the hero and recent_posts sections, despite strong visual fidelity in color, typography, and assets."
 }

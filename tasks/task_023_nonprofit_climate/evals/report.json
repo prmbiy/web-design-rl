@@ -1,51 +1,51 @@
 {
   "task": "task_023_nonprofit_climate",
-  "avg_score": 0.785425,
-  "avg_topology": 0.785,
-  "avg_content": 1.0,
-  "avg_design": 1.0,
+  "avg_score": 0.652699,
+  "avg_topology": 0.814,
+  "avg_content": 0.697,
+  "avg_design": 0.912,
   "design_dimensions": {
     "color": {
-      "avg_score": 5.0,
-      "worst_reason": "The two images appear visually identical in terms of accent greens, donate button color, advisor avatar background colors, and donut chart segment colors."
+      "avg_score": 4.6,
+      "worst_reason": "Brand greens, orange CTA, and red urgent badge all match closely, though the hero card gradient in the agent version lacks the radial glow effect of the reference."
     },
     "typography": {
-      "avg_score": 5.0,
-      "worst_reason": "Heading weights, serif/sans pairings, small caps labels, and nav link styling all match the reference precisely."
+      "avg_score": 4.8,
+      "worst_reason": "Heading weights, badge caps styling, and nav link treatment appear nearly identical with only very subtle size differences."
     },
     "assets": {
-      "avg_score": 5.0,
-      "worst_reason": "Avatar initials, checkmark icons, donut chart, and all decorative elements render identically with no missing or broken assets."
+      "avg_score": 4.0,
+      "worst_reason": "The story cards in the generated version show broken/placeholder icons (question mark boxes) where the reference displays proper illustrations like sun, shrimp, and school."
     },
     "proportion": {
-      "avg_score": 5.0,
-      "worst_reason": "Card sizes, button padding, nav spacing, and the executive team color block sizing appear to match the reference exactly."
+      "avg_score": 4.4,
+      "worst_reason": "Button padding, badge sizing, card dimensions, and nav spacing closely mirror the reference with only minor variations."
     },
     "states": {
       "avg_score": 5.0,
-      "worst_reason": "The filled Donate button and other interactive elements show consistent styling with no visible state differences."
+      "worst_reason": "Donate button filled style and other interactive element states look consistent with the reference."
     }
   },
   "pages": {
     "about": {
-      "score": 0.9333,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.8153,
+      "explanation": "The score is held back primarily by missing content in the annual report CTA and footer sections (both scoring 0.00) and significant word mismatch in the \"as reported in\" media section (0.47)."
     },
     "action": {
-      "score": 0.603,
-      "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is held back by an incomplete topology (0.60), indicating that roughly 40% of the reference sections are missing from the agent-generated version."
+      "score": 0.5677,
+      "explanation": "The score is held back by missing hero content\u2014specifically the distinctive raised-fist illustration and its radial glow gradient\u2014and by weak text fidelity in the navigation (0.38), actions/stats (0.42), and especially the join_roster form (0.22) sections."
     },
     "home": {
-      "score": 0.8603,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.6486,
+      "explanation": "The score is held back by broken story card assets (placeholder question-mark boxes instead of the reference's sun, shrimp, and school illustrations) and a completely missing newsletter signup section (content F1 of 0.00)."
     },
     "science": {
-      "score": 0.6987,
-      "explanation": "The score is held back primarily by the topology gap (0.70), indicating missing or misaligned sections despite all listed sections scoring perfect content F1, suggesting structural/layout omissions rather than visual or textual mismatches."
+      "score": 0.5775,
+      "explanation": "The score is held back primarily by a sparse navigation section (content F1 only 0.33, missing most reference nav links) and incomplete hero copy (F1 0.65), compounded by weaker temperature visualization text (F1 0.56)."
     },
     "stories": {
-      "score": 0.8317,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.6544,
+      "explanation": "The score is held back primarily by the video_portraits section's near-empty content match (0.11) and weak text fidelity in the navigation (0.36) and newsletter signup (0.40), compounded by the map's uniform green blobs lacking the reference's color-coded pin variation."
     }
   }
 }

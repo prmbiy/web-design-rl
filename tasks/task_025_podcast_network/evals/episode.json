@@ -1,106 +1,100 @@
 {
-  "score": 0.788889,
+  "score": 0.40678,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7889,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7682,
+    "weighted_content": 0.1391,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of dark purple background, orange/red accent colors, gradient fills, and badge colors."
+        "reason": "Accent colors, gradient hero card, badge pinks, and CTA orange/red match the reference closely across both layouts."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, caps labels, and button typography appear identical between the two images."
+        "score": 4,
+        "reason": "Heading sizes, caps labels, and pill text largely match, though the blockquote uses an italic serif in the agent version versus a non-italic style in the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, avatar circles, play buttons, and decorative elements render identically with no visible placeholders."
+        "reason": "Icons, avatars, play button, and decorative elements render correctly with no missing assets or placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, padding, spacing between elements, and overall layout proportions match exactly."
+        "score": 4,
+        "reason": "Button padding, pill sizing, and spacing are very close, with only minor differences in the audio player control sizing and header layout density."
       },
       "states": {
         "score": 5,
-        "reason": "Interactive states like the supporter CTA, active nav items, and filled vs outline button variants appear identical."
+        "reason": "Filled vs outline button variants and interactive pill states appear consistent between both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.1538,
+        "gt_word_count": 4,
+        "agent_word_count": 9
       },
       "breadcrumb": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
-      "episode_player_sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 224,
-        "agent_word_count": 224
-      },
-      "episode_header": {
+      "episode_hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4211,
+        "gt_word_count": 12,
+        "agent_word_count": 7
       },
-      "episode_notes": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+      "player_and_details": {
+        "type": "media",
+        "content_score": 0.125,
+        "gt_word_count": 49,
+        "agent_word_count": 79
       },
       "quote": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.1875,
+        "gt_word_count": 10,
+        "agent_word_count": 22
       },
       "chapters": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 3
       },
       "host_and_guest": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 77,
-        "agent_word_count": 77
+        "content_score": 0.2105,
+        "gt_word_count": 10,
+        "agent_word_count": 28
       },
       "links_mentioned": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.0,
+        "gt_word_count": 10,
+        "agent_word_count": 0
       },
       "transcript": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
+        "content_score": 0.1579,
+        "gt_word_count": 34,
+        "agent_word_count": 4
       },
       "share_and_subscribe": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.79), as not all reference sections were fully replicated in the agent's version."
+  "explanation": "The score is held back primarily by extensive textual content mismatches across nearly every section (breadcrumb, chapters, links mentioned, share/subscribe, and footer all score 0.00, with nav, player details, and quote also very low), and secondarily by the blockquote being rendered in an italic serif rather than the reference's non-italic style."
 }

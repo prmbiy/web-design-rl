@@ -1,92 +1,92 @@
 {
-  "score": 0.786154,
+  "score": 0.545665,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7862,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6423,
+    "weighted_content": 0.7791,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The NHS blue header, yellow warning callout, green important callout, red emergency callout, and grey info boxes all match the reference closely."
+        "reason": "NHS blue header, colored callout borders (yellow, green, red), and blue links all match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading hierarchy, bold text, link styling, and body text weights appear identical to the reference."
+        "reason": "Heading hierarchy, weights, and body text styling appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Warning triangle icon, numbered circles, and chevron separators all render correctly as in the reference."
+        "reason": "Warning triangle icon, numbered step circles, and letter tiles all render correctly as in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Letter buttons, callout box padding, numbered list spacing, and overall element sizing match the reference well."
+        "score": 4,
+        "reason": "Letter pills, callout box padding, and content spacing match well, though the overall layout is slightly more compressed."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav item underline, link styling, and letter button borders appear consistent with the reference."
+        "score": 4,
+        "reason": "The Y letter pill appears selected/highlighted in the agent version when no specific letter should be active, differing slightly from the reference's neutral state."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.4706,
+        "gt_word_count": 8,
+        "agent_word_count": 9
       },
       "breadcrumb": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.375,
+        "gt_word_count": 10,
+        "agent_word_count": 6
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.64,
+        "gt_word_count": 29,
+        "agent_word_count": 21
       },
-      "az_letters": {
+      "alphabet_browse": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.3333,
+        "gt_word_count": 23,
+        "agent_word_count": 31
       },
       "contents_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 107,
-        "agent_word_count": 107
+        "content_score": 0.931,
+        "gt_word_count": 137,
+        "agent_word_count": 153
       },
       "overview": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 31,
-        "agent_word_count": 31
+        "content_score": 0.8958,
+        "gt_word_count": 47,
+        "agent_word_count": 49
       },
       "symptoms": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 160,
-        "agent_word_count": 160
+        "content_score": 0.9471,
+        "gt_word_count": 199,
+        "agent_word_count": 198
       },
       "causes": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 100,
-        "agent_word_count": 100
+        "content_score": 0.8864,
+        "gt_word_count": 91,
+        "agent_word_count": 85
       },
       "getting_diagnosed": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 83,
-        "agent_word_count": 83
+        "content_score": 0.7115,
+        "gt_word_count": 56,
+        "agent_word_count": 48
       },
       "treatment": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "living_with": {
         "type": "generic",
@@ -103,10 +103,10 @@
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The score is held below 1.0 primarily by the incomplete topology coverage (0.79), indicating some reference sections are missing from the agent-generated version, despite all present sections achieving perfect content F1 scores and full marks across every design dimension."
+  "explanation": "The score is held back by low content fidelity in the top navigation (0.47), breadcrumb (0.38), and alphabet browse (0.33) sections, compounded by an incorrect active-state on the \"Y\" letter pill that should appear neutral."
 }

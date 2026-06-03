@@ -1,112 +1,106 @@
 {
-  "score": 0.617308,
+  "score": 0.444968,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6173,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.581,
+    "weighted_content": 0.5719,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The accent colors on buttons, status badges (green ACTIVE, yellow ONGOING, grey CLOSED), nav bars, and section headers appear identical between both versions."
+        "reason": "Brand orange, blue header, green/orange/grey status badges, and yellow accents all match the reference closely."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, badge text casing, and nav link styling all match the reference closely with no visible differences."
+        "score": 4,
+        "reason": "Heading weights, table caps labels, and badge text styling appear very similar to the reference with only subtle differences."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, emoji pins, logos, and decorative elements all render correctly in the same positions as the reference."
+        "reason": "Icons, logos, social media buttons, and PDF indicators all render correctly with no missing or broken assets."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, table row spacing, and nav density appear consistent with the reference layout."
+        "reason": "Button padding, badge sizing, table row density, and nav spacing closely mirror the reference layout."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav highlighting on SCHEMES & PROGRAMS, status pill states, and link styling all appear identical to the reference."
+        "reason": "Active nav tab highlighting, status pills (ACTIVE/ONGOING/CLOSED), and filled SEARCH vs outline RESET buttons are reproduced correctly."
       }
     },
     "sections": {
       "top_utility_bar": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
-      },
-      "site_header": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
-      },
-      "main_nav": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
-      },
-      "announcements_ticker": {
-        "type": "generic",
-        "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "breadcrumb_title": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+      "ministry_header": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 10,
+        "agent_word_count": 3
       },
-      "sidebar": {
-        "type": "sidebar",
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
+      },
+      "announcement_ticker": {
+        "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 140,
-        "agent_word_count": 140
+        "gt_word_count": 5,
+        "agent_word_count": 5
+      },
+      "page_title": {
+        "type": "hero",
+        "content_score": 0.5714,
+        "gt_word_count": 13,
+        "agent_word_count": 8
+      },
+      "sidebar_links": {
+        "type": "sidebar",
+        "content_score": 0.5078,
+        "gt_word_count": 320,
+        "agent_word_count": 322
       },
       "filter_form": {
         "type": "form_step",
         "content_score": 1.0,
-        "gt_word_count": 51,
-        "agent_word_count": 51
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "schemes_table": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 246,
-        "agent_word_count": 246
-      },
-      "guidelines_downloads": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 88,
-        "agent_word_count": 88
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "status_legend_related": {
+      "guidelines_and_legend": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.7857,
+        "gt_word_count": 114,
+        "agent_word_count": 110
       },
       "page_meta_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.5625,
+        "gt_word_count": 18,
+        "agent_word_count": 14
       },
-      "social_helpline": {
-        "type": "generic",
-        "content_score": 1.0,
+      "social_and_helpline": {
+        "type": "navigation",
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 12
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.62), as missing or misaligned sections\u2014not visual fidelity\u2014account for the gap, since all per-section content F1 scores and design dimensions are otherwise perfect."
+  "explanation": "The score is held down primarily by missing or mismatched structural sections\u2014the ministry header hero and main navigation failed to render matching content (0.00 F1)\u2014and by absent footer and social/helpline blocks (both 0.00 F1), leaving key topology gaps despite strong visual fidelity elsewhere."
 }

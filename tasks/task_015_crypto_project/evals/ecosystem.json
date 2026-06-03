@@ -1,76 +1,76 @@
 {
-  "score": 0.965228,
+  "score": 0.491166,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9667,
-    "weighted_content": 0.997,
-    "design_score": 1.0,
+    "topology": 0.8171,
+    "weighted_content": 0.2822,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of gradient accents, badge colors, and overall dark theme with cyan/purple highlights."
+        "reason": "Accent colors, gradient hero text, badge colors and card icon gradients closely match the reference palette."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, badge text styling, and nav link typography all match between the two versions."
+        "reason": "Heading weights, badge caps styling, and nav link typography appear nearly identical between versions."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, letter tiles, and decorative star elements appear to render identically in both versions."
+        "reason": "Icons render correctly as colored gradient squares with letters; no missing or broken assets, though fewer cards shown."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, button padding, badge dimensions, and spacing between elements all appear consistent across both images."
+        "score": 3,
+        "reason": "Card sizes, button padding, and pill dimensions are consistent, though the agent version shows only 3 protocol cards instead of 12, leaving a large empty area."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'All Protocols' pill state and Launch App button styling appear identical in both versions."
+        "reason": "The active 'All Protocols' pill has the same highlighted outline state and Launch App button styling matches the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.4444,
+        "gt_word_count": 5,
+        "agent_word_count": 4
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.4545,
         "gt_word_count": 16,
-        "agent_word_count": 16
+        "agent_word_count": 6
       },
       "tvl_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.25,
+        "gt_word_count": 10,
+        "agent_word_count": 6
       },
       "protocol_filters": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 3,
-        "agent_word_count": 3
+        "agent_word_count": 0
       },
       "protocols_grid": {
         "type": "pricing",
-        "content_score": 0.9896,
-        "gt_word_count": 190,
-        "agent_word_count": 194
+        "content_score": 0.1316,
+        "gt_word_count": 60,
+        "agent_word_count": 16
       },
-      "ecosystem_fund_cta": {
+      "ecosystem_fund": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.5,
+        "gt_word_count": 11,
+        "agent_word_count": 21
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.3,
+        "gt_word_count": 10,
+        "agent_word_count": 10
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing protocol grid content (only 3 of 12 cards rendered, leaving large empty space and a 0.13 F1) and weak text fidelity across key sections including the protocol_filters (0.00), tvl_stats (0.25), and nav (0.44)."
 }

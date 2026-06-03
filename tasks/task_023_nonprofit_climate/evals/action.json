@@ -1,80 +1,80 @@
 {
-  "score": 0.60303,
+  "score": 0.567654,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6987,
+    "weighted_content": 0.7449,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in their use of green accents, orange CTAs, red urgency badges, and overall palette."
+        "score": 4,
+        "reason": "Brand greens, orange CTA, and red urgent badge all match closely, though the hero card gradient in the agent version lacks the radial glow effect of the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, label caps, button text, and nav styling all look consistent between the two versions."
+        "reason": "Heading weights, sizes, and uppercase label styling appear very similar between the two versions with consistent hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, the fist illustration, map markers, and graphic tiles all appear to render correctly in both versions."
+        "score": 3,
+        "reason": "The reference has a distinctive raised-fist illustration in the hero card which is absent in the agent version, and icons otherwise render correctly."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, form spacing, and nav density appear matched across both images."
+        "reason": "Button padding, pill sizing, form spacing, and nav density appear nearly identical across both versions."
       },
       "states": {
         "score": 5,
-        "reason": "Selected pill states (Phone banker, Community organizer) and filled vs outline buttons appear consistent."
+        "reason": "Selected role cards show the same green outline/filled state and CTAs match filled vs outline variants consistently."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.381,
+        "gt_word_count": 12,
+        "agent_word_count": 9
       },
       "hero_pick_your_power": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 80,
-        "agent_word_count": 80
+        "content_score": 0.8976,
+        "gt_word_count": 69,
+        "agent_word_count": 58
       },
-      "stats_bar": {
+      "actions_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.4242,
+        "gt_word_count": 21,
+        "agent_word_count": 12
       },
       "featured_petition": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 92,
-        "agent_word_count": 92
+        "content_score": 0.8852,
+        "gt_word_count": 87,
+        "agent_word_count": 96
       },
       "call_representative": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 155,
-        "agent_word_count": 155
+        "content_score": 0.8227,
+        "gt_word_count": 148,
+        "agent_word_count": 151
       },
       "carbon_calculator": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 106,
-        "agent_word_count": 106
+        "content_score": 0.6766,
+        "gt_word_count": 102,
+        "agent_word_count": 99
       },
-      "chapters_map": {
+      "find_chapter_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 125,
-        "agent_word_count": 125
+        "content_score": 0.9057,
+        "gt_word_count": 159,
+        "agent_word_count": 159
       },
-      "roster_signup": {
+      "join_roster": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.2222,
+        "gt_word_count": 2,
+        "agent_word_count": 16
       },
       "toolkit_share": {
         "type": "media",
@@ -82,7 +82,7 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "donation_cta": {
+      "donate_cta": {
         "type": "pricing",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -96,5 +96,5 @@
       }
     }
   },
-  "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is held back by an incomplete topology (0.60), indicating that roughly 40% of the reference sections are missing from the agent-generated version."
+  "explanation": "The score is held back by missing hero content\u2014specifically the distinctive raised-fist illustration and its radial glow gradient\u2014and by weak text fidelity in the navigation (0.38), actions/stats (0.42), and especially the join_roster form (0.22) sections."
 }

@@ -1,80 +1,80 @@
 {
-  "score": 0.860317,
+  "score": 0.648626,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8889,
+    "weighted_content": 0.6594,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand colors including the green hero gradient, orange CTAs, red alert badge, and card gradients appear identical between the two versions."
+        "reason": "Brand greens, orange CTA, red alert badge, and section background colors all match closely between reference and generated versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, sizes, badge caps styling, and nav link typography all appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, badge caps styling, and nav link treatment appear nearly identical with only very subtle size differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, illustrations on story cards, and decorative elements render identically with no missing assets."
+        "score": 2,
+        "reason": "The story cards in the generated version show broken/placeholder icons (question mark boxes) where the reference displays proper illustrations like sun, shrimp, and school."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear identical."
+        "score": 4,
+        "reason": "Button padding, badge sizing, card dimensions, and nav spacing closely mirror the reference with only minor variations."
       },
       "states": {
         "score": 5,
-        "reason": "The selected Monthly tab and the highlighted $35 donation pill show the same active state styling in both versions."
+        "reason": "The selected Monthly tab and active $35 pill states are rendered correctly with matching highlighted styling versus inactive variants."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.7273,
+        "gt_word_count": 11,
+        "agent_word_count": 11
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.8571,
+        "gt_word_count": 15,
+        "agent_word_count": 13
       },
       "stats_metrics": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 60,
-        "agent_word_count": 60
+        "content_score": 0.7381,
+        "gt_word_count": 46,
+        "agent_word_count": 38
       },
       "campaigns": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 150,
-        "agent_word_count": 150
+        "content_score": 0.867,
+        "gt_word_count": 117,
+        "agent_word_count": 116
       },
       "impact_dashboard": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 104,
-        "agent_word_count": 104
+        "content_score": 0.7788,
+        "gt_word_count": 66,
+        "agent_word_count": 47
       },
       "stories_of_change": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.9231,
+        "gt_word_count": 98,
+        "agent_word_count": 97
       },
       "donate_section": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.7647,
+        "gt_word_count": 58,
+        "agent_word_count": 44
       },
       "newsletter_signup": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 35,
-        "agent_word_count": 35
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 1
       },
       "footer": {
         "type": "footer",
@@ -84,5 +84,5 @@
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by broken story card assets (placeholder question-mark boxes instead of the reference's sun, shrimp, and school illustrations) and a completely missing newsletter signup section (content F1 of 0.00)."
 }

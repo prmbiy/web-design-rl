@@ -1,74 +1,68 @@
 {
-  "score": 0.811111,
+  "score": 0.483935,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8111,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8869,
+    "weighted_content": 0.4113,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The orange accents, button colors, badge backgrounds, and card gradient fills all appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand orange CTAs, badges, and accent colors closely match the reference, though product card backgrounds in the agent version use varied pastel tints instead of neutral grey."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, button labels, and pill/badge typography match closely with no perceptible differences."
+        "score": 4,
+        "reason": "Heading sizes, weights, and label styling appear very similar with consistent hierarchy across both versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, emojis, product images, and decorative illustrations appear to render correctly and identically in both versions."
+        "score": 2,
+        "reason": "All product images and icons are missing in the agent version, showing question mark placeholders instead of the actual product photos and some icons."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, padding, spacing between elements, and nav density all appear to match the reference precisely."
+        "score": 3,
+        "reason": "Overall layout proportions match well, but quantity stepper controls are missing the +/- buttons and some spacing differs slightly in cart items."
       },
       "states": {
-        "score": 5,
-        "reason": "Checkbox checked states, selected radio buttons, and active tab indicators all appear consistent with the reference."
+        "score": 4,
+        "reason": "Selected tab underline, checked checkboxes, and active radio button states are preserved correctly matching the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 8
       },
       "category_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.1714,
+        "gt_word_count": 14,
+        "agent_word_count": 21
       },
-      "info_bar": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
-      },
-      "page_header": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+      "breadcrumbs_title": {
+        "type": "generic",
+        "content_score": 0.3333,
+        "gt_word_count": 8,
+        "agent_word_count": 4
       },
       "cart_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4,
+        "gt_word_count": 3,
+        "agent_word_count": 2
       },
       "cart_items": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 139,
-        "agent_word_count": 139
+        "type": "pricing",
+        "content_score": 0.4211,
+        "gt_word_count": 105,
+        "agent_word_count": 104
       },
       "order_summary_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.2264,
+        "gt_word_count": 32,
+        "agent_word_count": 21
       },
       "promo_code": {
         "type": "form_step",
@@ -76,31 +70,31 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "benefits": {
+      "guarantees": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 5
       },
-      "recommended_products": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 70,
-        "agent_word_count": 70
+      "related_products": {
+        "type": "media",
+        "content_score": 0.4842,
+        "gt_word_count": 53,
+        "agent_word_count": 42
       },
       "recently_viewed": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "type": "media",
+        "content_score": 0.4928,
+        "gt_word_count": 35,
+        "agent_word_count": 34
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing product images and icons throughout (showing question mark placeholders instead of actual assets) and severely mismatched text content in key sections including the top navigation, footer, and guarantees (all 0.00 F1), along with weak category nav, breadcrumbs, cart tabs, cart items, and sidebar copy."
 }

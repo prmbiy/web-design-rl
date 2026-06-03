@@ -1,118 +1,94 @@
 {
-  "score": 0.798077,
+  "score": 0.410023,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7981,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8767,
+    "weighted_content": 0.2554,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in their use of red brand colors, gradient hero cards, badge colors, and nav link tones."
+        "score": 4,
+        "reason": "The overall color palette including red accents, navy header, colored cards, and badge colors closely matches the reference with only subtle variations."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, badge styling, and nav link typography all appear to match exactly between the two versions."
+        "score": 3,
+        "reason": "Heading hierarchy and weights are similar, though some Japanese characters appear to have rendering issues and labels look slightly less refined."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, decorative gradient illustrations, and placeholder graphics render identically in both images with no missing assets."
+        "score": 2,
+        "reason": "Multiple image placeholders show question mark icons instead of actual images, and some text appears as boxes indicating missing font/icon rendering."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, padding, badge sizing, table density, and nav item proportions look indistinguishable between the two."
+        "score": 4,
+        "reason": "Layout proportions, spacing, table density, and card sizing largely mirror the reference with only minor differences in padding."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav highlight on '\u7d4c\u6e08' and other interactive element states appear consistent and properly rendered in both images."
+        "score": 4,
+        "reason": "Interactive states like the active nav item highlight and button styles appear consistent with the reference design."
       }
     },
     "sections": {
-      "top_bar": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
-      },
-      "header_branding": {
-        "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.4615,
         "gt_word_count": 13,
         "agent_word_count": 13
       },
-      "main_nav": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
-      },
-      "market_ticker": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "breadcrumb_title": {
+      "section_header": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
-      },
-      "index_summary": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
-      },
-      "featured_articles": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 69,
-        "agent_word_count": 69
-      },
-      "stock_movers_table": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 97,
-        "agent_word_count": 97
-      },
-      "ad_banner": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
-      },
-      "earnings_section": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 60,
-        "agent_word_count": 60
-      },
-      "real_estate_section": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
-      },
-      "stats_row": {
-        "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 3,
         "agent_word_count": 3
       },
+      "market_indices": {
+        "type": "generic",
+        "content_score": 0.4,
+        "gt_word_count": 11,
+        "agent_word_count": 4
+      },
+      "featured_stories": {
+        "type": "hero",
+        "content_score": 0.1789,
+        "gt_word_count": 55,
+        "agent_word_count": 68
+      },
+      "top_movers_table": {
+        "type": "generic",
+        "content_score": 0.1165,
+        "gt_word_count": 49,
+        "agent_word_count": 54
+      },
+      "ad_banner": {
+        "type": "media",
+        "content_score": 0.1429,
+        "gt_word_count": 13,
+        "agent_word_count": 29
+      },
+      "earnings_news": {
+        "type": "generic",
+        "content_score": 0.0896,
+        "gt_word_count": 25,
+        "agent_word_count": 42
+      },
+      "real_estate": {
+        "type": "generic",
+        "content_score": 0.1154,
+        "gt_word_count": 36,
+        "agent_word_count": 16
+      },
       "archive_search": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       },
       "opinion_column": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.087,
+        "gt_word_count": 26,
+        "agent_word_count": 20
       },
-      "sidebar_right": {
+      "sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -120,11 +96,11 @@
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.1957,
+        "gt_word_count": 54,
+        "agent_word_count": 38
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.80), indicating some reference sections are missing from the agent's version, rather than by any content or visual design discrepancies."
+  "explanation": "The score is held back by widespread missing assets (placeholder question-mark icons and unrendered glyph boxes) and severely low content fidelity across nearly all sections (e.g., section_header 0.00, archive_search 0.00, earnings_news 0.09, opinion_column 0.09, top_movers_table 0.12), indicating the agent failed to reproduce the reference's actual text and imag"
 }

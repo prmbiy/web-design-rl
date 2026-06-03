@@ -1,70 +1,76 @@
 {
-  "score": 0.952047,
+  "score": 0.332587,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.96,
-    "weighted_content": 0.9834,
-    "design_score": 1.0,
+    "topology": 0.5048,
+    "weighted_content": 0.3978,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of red accent colors, team badge colors, status pill backgrounds (green WIN, red LOSS), and nav link colors."
+        "reason": "Brand red accents, colored team badges, and status pills closely match the reference palette with similar gradient hero treatment."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button caps styling, badge text, and nav link typography all appear identical between the two versions."
+        "reason": "Heading weights, caps labels, and pill text styling appear nearly identical between the two versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, team logos, and decorative elements render identically with no visible placeholder boxes or missing assets."
+        "score": 4,
+        "reason": "Team logos render as simple letter tiles rather than the more detailed icons in the reference, but all icons display without placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, pill sizing, table row spacing, and nav item density all match precisely between the two images."
+        "score": 4,
+        "reason": "Button padding, row heights, and bracket card sizing are very close, with only minor spacing variations in the sidebar and bracket area."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab underline on UPCOMING, red-outlined match highlights in the bracket, LIVE pulse indicator, and filled vs outline button states are all preserved identically."
+        "reason": "Active tab underline, live pill, win/loss badges, and outlined bracket highlights are all present and styled consistently with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 0.9231,
-        "gt_word_count": 7,
-        "agent_word_count": 6
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       },
       "live_scores_ticker": {
         "type": "navigation",
-        "content_score": 0.9677,
-        "gt_word_count": 31,
-        "agent_word_count": 31
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.1481,
+        "gt_word_count": 11,
+        "agent_word_count": 16
       },
       "filters": {
+        "type": "form_step",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "teams_tournaments_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.1591,
+        "gt_word_count": 54,
+        "agent_word_count": 34
+      },
+      "schedule_listings": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "schedule_main": {
+      "vct_playoffs_bracket": {
         "type": "generic",
-        "content_score": 0.9973,
-        "gt_word_count": 188,
-        "agent_word_count": 189
-      },
-      "playoffs_bracket": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 16,
+        "content_score": 0.0,
+        "gt_word_count": 21,
         "agent_word_count": 16
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched textual content in key sections like the nav, live scores ticker, hero, sidebar, and bracket (multiple 0.00 F1 scores), and by the simplified letter-tile team logos that fail to replicate the reference's detailed team icons."
 }

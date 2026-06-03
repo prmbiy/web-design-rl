@@ -1,82 +1,82 @@
 {
-  "score": 0.808333,
+  "score": 0.778885,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8083,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9714,
+    "weighted_content": 0.6836,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The accent orange, green category labels, cream backgrounds, and dark Slack panel colors appear identical between the two versions."
+        "score": 4,
+        "reason": "Accent colors on CTAs, badges, and category labels match closely; card gradients are slightly more uniform/solid in the generated version but overall palette is well preserved."
       },
       "typography": {
         "score": 5,
-        "reason": "Serif headings, uppercase labels, and body text weights and sizes all match closely with no perceptible differences."
+        "reason": "Headings, labels, and pill text styling closely mirror the reference with similar weights and caps treatment."
       },
       "assets": {
         "score": 5,
-        "reason": "Monogram letters, avatar initials, emoji in the Slack panel, and all icons render identically in both versions."
+        "reason": "Letter avatars, perk card initials, and chat avatars all render correctly with no missing icons or placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card padding, pill dimensions, and spacing between elements appear consistent across both renders."
+        "score": 4,
+        "reason": "Button padding, pill sizes, and card spacing are very close, with only minor differences in spotlight card image height ratios."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'All Perks' filter pill, active 'Community' nav link, and filled CTA button states are all preserved correctly."
+        "reason": "Active 'All Perks' pill, active 'Community' nav link, and primary filled buttons all show the correct active/filled styling matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.75,
+        "gt_word_count": 9,
+        "agent_word_count": 7
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.95,
+        "gt_word_count": 20,
+        "agent_word_count": 20
       },
       "member_spotlights": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.8255,
         "gt_word_count": 141,
-        "agent_word_count": 141
+        "agent_word_count": 157
       },
       "upcoming_events": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 99,
-        "agent_word_count": 99
+        "content_score": 0.6941,
+        "gt_word_count": 89,
+        "agent_word_count": 81
       },
       "partner_perks": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 196,
-        "agent_word_count": 196
+        "content_score": 0.7313,
+        "gt_word_count": 114,
+        "agent_word_count": 113
       },
-      "slack_community": {
+      "community_chat": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 63,
-        "agent_word_count": 63
+        "content_score": 0.592,
+        "gt_word_count": 69,
+        "agent_word_count": 56
       },
       "waitlist_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.5352,
+        "gt_word_count": 49,
+        "agent_word_count": 22
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the completely missing footer section (0.00 F1) and weak content fidelity in the waitlist form (0.54) and community chat (0.59) sections."
 }

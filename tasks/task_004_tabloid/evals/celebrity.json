@@ -1,148 +1,124 @@
 {
-  "score": 0.558852,
+  "score": 0.324989,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.5589,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6222,
+    "weighted_content": 0.3646,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The pink/magenta to yellow gradients, accent colors, badges, and nav styling appear identical between both versions."
+        "score": 4,
+        "reason": "Brand pink accents, gradient cards, and badge colors are well preserved across both versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading sizes, weights, caps treatment on pills/badges, and nav link styling look identical."
+        "score": 4,
+        "reason": "Heading sizes, weights, and badge/pill text styling closely match the reference with only minor differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Emojis, icons, and decorative elements all appear to render correctly in both images with no placeholders."
+        "score": 1,
+        "reason": "Many icons, emojis, and decorative images are rendered as question mark placeholders throughout the generated page."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Padding, button sizes, badge dimensions, and spacing between elements all match closely."
+        "score": 4,
+        "reason": "Padding, spacing, and element sizing are very similar with only slight variations in card heights and nav density."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav pill (CELEBRITY), trending HOT badges, and CTA button states appear consistent between versions."
+        "score": 4,
+        "reason": "Active pill states like CELEBRITY tab and filled CTAs are present and match the reference reasonably well."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
       },
-      "trending_bar": {
+      "trending_ticker": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.0,
+        "gt_word_count": 9,
         "agent_word_count": 8
       },
       "category_nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 9
       },
-      "hero_featured": {
+      "hero_exclusive": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 25
       },
       "ad_banner_top": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.6452,
+        "gt_word_count": 18,
+        "agent_word_count": 13
       },
       "paparazzi_feed": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 190,
-        "agent_word_count": 190
+        "content_score": 0.4828,
+        "gt_word_count": 99,
+        "agent_word_count": 104
       },
-      "most_read_sidebar": {
+      "sidebar_most_read_and_ads": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.4224,
+        "gt_word_count": 92,
+        "agent_word_count": 69
       },
       "ad_banner_mid": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "splitsville_section": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "video_ad": {
+      "exclusive_countdown": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "dish_meter": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 0
+      },
+      "slideshow_fine_wine": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.2623,
+        "gt_word_count": 9,
+        "agent_word_count": 52
       },
-      "newsletter_signup": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "ad_sidebar_geico": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 64,
-        "agent_word_count": 64
-      },
-      "exclusive_unlock": {
+      "sponsored_walmart": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.1379,
+        "gt_word_count": 34,
+        "agent_word_count": 53
       },
-      "dish_meter_ratings": {
+      "you_may_also_like": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "vip_upsell": {
-        "type": "pricing",
-        "content_score": 1.0,
+        "content_score": 0.6032,
         "gt_word_count": 80,
-        "agent_word_count": 80
-      },
-      "slideshow_celebs": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
-      },
-      "sponsored_content": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "recommended_links": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 46
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology (0.56), as several reference sections appear to be missing from the agent-generated version, despite the matched sections scoring perfectly on content and all design dimensions rating 5/5."
+  "explanation": "The score is held back primarily by broken assets (icons, emojis, and decorative images rendering as question mark placeholders) and missing or mismatched text content across critical sections including top_nav, trending_ticker, category_nav, hero_exclusive, dish_meter, and footer (all scoring 0.00)."
 }

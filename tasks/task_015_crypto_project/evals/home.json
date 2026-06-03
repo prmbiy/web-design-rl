@@ -1,82 +1,82 @@
 {
-  "score": 0.994185,
+  "score": 0.52672,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 1.0,
-    "weighted_content": 0.9884,
-    "design_score": 1.0,
+    "weighted_content": 0.1734,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear to use identical cyan/blue accent colors, gradients on protocol pills, and dark backgrounds."
+        "score": 4,
+        "reason": "Brand cyan accents, gradient stat numbers, and colored pill icons match closely, though the agent's hero has an extra purple glow box behind the heading."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, badge caps styling, and nav link typography all appear identical."
+        "reason": "Heading weights, caps labels, and body text styling appear very similar between the two versions."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, social logos, and decorative constellation graphics render correctly and match."
+        "reason": "All icons, letter avatars, and decorative elements render correctly with no missing or broken placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements look consistent between both versions."
+        "score": 3,
+        "reason": "Button sizes, pill dimensions, nav spacing, and card layouts are consistent, with only minor differences in the technology cards (agent appears to be missing the three feature cards in the visible area)."
       },
       "states": {
         "score": 5,
-        "reason": "Launch App button styling and other interactive element states appear to match with no visible differences."
+        "reason": "Filled primary CTA vs outline secondary button states are preserved correctly in both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 6,
+        "content_score": 0.0,
+        "gt_word_count": 2,
         "agent_word_count": 6
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.9722,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.3125,
+        "gt_word_count": 23,
+        "agent_word_count": 9
       },
       "stats": {
         "type": "generic",
-        "content_score": 0.9643,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 5
       },
-      "technology_features": {
+      "technology": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 90,
-        "agent_word_count": 90
+        "content_score": 0.0,
+        "gt_word_count": 52,
+        "agent_word_count": 5
       },
-      "ecosystem_protocols": {
+      "ecosystem": {
         "type": "generic",
-        "content_score": 0.9884,
-        "gt_word_count": 86,
-        "agent_word_count": 86
+        "content_score": 0.4906,
+        "gt_word_count": 31,
+        "agent_word_count": 22
       },
       "developers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
+        "content_score": 0.3934,
+        "gt_word_count": 37,
+        "agent_word_count": 24
       },
       "community": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 14
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by widespread textual mismatches across nearly every section (nav, stats, technology, community, and footer all scoring 0.00 on word-set F1), and by proportion issues in the technology section where the agent appears to be missing the three feature cards in the visible area."
 }

@@ -1,70 +1,64 @@
 {
-  "score": 0.222222,
+  "score": 0.267429,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.2222,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.625,
+    "weighted_content": 0.2958,
+    "design_score": 0.56,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The yellow accent highlights, black sections, and gradient card fills appear identical between both versions."
+        "score": 3,
+        "reason": "Yellow accent, black cards, and cream background are present but the yellow highlights are less integrated (e.g., hero yellow is a disconnected block, and no yellow gradient cards appear)."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, serif styling, italic accents, and label/badge text styling match the reference closely."
+        "score": 4,
+        "reason": "Serif display headings and small caps labels match the reference style well, though heading scale is smaller relative to viewport."
       },
       "assets": {
-        "score": 5,
-        "reason": "All decorative card tiles, gradient blocks, and table bullets render correctly with no missing icons or placeholders."
+        "score": 2,
+        "reason": "Member cards render as plain black rectangles missing the large letter monograms and gradient treatments seen in reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizing, table cell density, badge padding, and spacing between elements appear consistent with the reference."
+        "score": 1,
+        "reason": "Layout is extremely narrow/left-aligned with vast empty space on the right, making section proportions and card sizing dramatically different from the reference's full-width grid."
       },
       "states": {
-        "score": 5,
-        "reason": "Highlighted text states (yellow marker fills) and the dark CTA section appear rendered identically."
+        "score": 4,
+        "reason": "Highlighted text states (yellow marker behind 'depreciates', 'long now', 'loud') are preserved similarly."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 3,
-        "agent_word_count": 3
-      },
-      "sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 169,
-        "agent_word_count": 169
+        "agent_word_count": 1
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.3051,
+        "gt_word_count": 37,
+        "agent_word_count": 22
       },
-      "manifesto_principles": {
+      "manifesto": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.8496,
+        "gt_word_count": 61,
+        "agent_word_count": 52
       },
       "team_grid": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.1364,
+        "gt_word_count": 34,
+        "agent_word_count": 10
       },
-      "clients_list": {
+      "clients": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 23,
         "agent_word_count": 0
       },
-      "awards_marquee": {
+      "awards_ticker": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -72,17 +66,17 @@
       },
       "locations": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 14,
+        "agent_word_count": 5
       },
-      "footer_cta": {
+      "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 4,
         "agent_word_count": 0
       }
     }
   },
-  "explanation": "The low overall score stems primarily from poor topology coverage (0.22), indicating most reference sections are missing from the generated layout, despite the few rendered sections matching content and design dimensions perfectly."
+  "explanation": "The score is held down by severely broken proportions (a narrow left-aligned layout with vast empty right-side space instead of a full-width grid) and missing assets in the team grid (plain black rectangles lacking the reference's large letter monograms and gradient treatments, reflected in the 0.14 team_grid content score)."
 }

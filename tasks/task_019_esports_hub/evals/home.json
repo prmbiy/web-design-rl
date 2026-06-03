@@ -1,86 +1,86 @@
 {
-  "score": 0.875,
+  "score": 0.14,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.875,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.45,
+    "weighted_content": 0.0622,
+    "design_score": 0.56,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The brand red accents, gradient cards, badge colors, and nav link colors appear identical between both versions."
+        "score": 3,
+        "reason": "Brand reds, badges, and accent colors match well, though the agent version is missing the colored roster spotlight gradient cards and Twitch chat purple accents."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps styling on labels, button typography, and nav link styling all match closely."
+        "score": 4,
+        "reason": "Heading weights, caps styling, and nav link typography closely match the reference across visible sections."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, play buttons, flag emoji, and avatar placeholders render identically in both images."
+        "score": 1,
+        "reason": "Major sections like upcoming matches table, roster spotlight cards, and Twitch chat embed are entirely missing, leaving large empty areas instead of rendered assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, table row spacing, and nav density all appear matched."
+        "score": 3,
+        "reason": "Header, hero, news cards, and footer proportions look correct, but missing sections leave abnormal vertical spacing."
       },
       "states": {
-        "score": 5,
-        "reason": "Active LIVE pill, filled vs outline button variants, and highlighted nav items appear consistent across both."
+        "score": 3,
+        "reason": "Live badges and button states appear similar, but absent interactive sections (tabs, chat, match reminders) prevent full state replication."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 1
       },
-      "match_ticker": {
+      "live_ticker": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "content_score": 0.0,
+        "gt_word_count": 14,
+        "agent_word_count": 0
       },
       "hero_announcement": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 51,
-        "agent_word_count": 51
+        "content_score": 0.1143,
+        "gt_word_count": 25,
+        "agent_word_count": 10
       },
       "latest_news": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 83,
-        "agent_word_count": 83
+        "content_score": 0.0,
+        "gt_word_count": 23,
+        "agent_word_count": 13
       },
       "upcoming_matches": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 0
       },
       "roster_spotlight": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.0,
+        "gt_word_count": 11,
+        "agent_word_count": 0
       },
-      "live_twitch": {
+      "live_on_twitch": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 31,
-        "agent_word_count": 31
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 0
       },
       "sponsors": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
       "discord_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 32,
-        "agent_word_count": 32
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 5
       },
       "footer": {
         "type": "footer",
@@ -90,5 +90,5 @@
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by entirely missing key sections\u2014upcoming matches table, roster spotlight cards, and the Twitch chat embed (assets 1/5)\u2014and near-zero content overlap across nearly every section including top_nav, live_ticker, latest_news, and hero_announcement."
 }

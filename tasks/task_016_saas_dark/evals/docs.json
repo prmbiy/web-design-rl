@@ -1,44 +1,44 @@
 {
-  "score": 0.860317,
+  "score": 0.517459,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8603,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7,
+    "weighted_content": 0.5585,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Accent purples, green/red/yellow badges, and icon tints all match the reference closely."
+        "reason": "Accent purples, badge colors, HTTP method pill colors, and icon tints match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, monospace code, and label caps appear identical to the reference."
+        "reason": "Heading weights, body text, code monospace, and section labels appear nearly identical in styling and hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, emoji-style graphics, and decorative elements render correctly with no placeholders."
+        "score": 4,
+        "reason": "Icons render correctly in both, though the Flexor logo mark and some card icons appear slightly simpler/less detailed in the generated version."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Spacing, card sizes, button padding, and nav density match the reference precisely."
+        "score": 4,
+        "reason": "Card padding, button sizing, and overall spacing are very close, with only minor differences in the copy button placement within the code block."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav item (Introduction), selected npm tab, and active badges appear consistent with the reference."
+        "reason": "Active nav item, selected npm tab, and ACTIVE status pills are all rendered with appropriate highlighting matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "docs_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 131,
-        "agent_word_count": 131
+        "content_score": 0.4848,
+        "gt_word_count": 41,
+        "agent_word_count": 25
       },
       "hero": {
         "type": "hero",
@@ -46,43 +46,49 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
+      "stats": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
       "initialize_project": {
         "type": "form_step",
         "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
       "install_sdk": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "content_score": 0.3333,
+        "gt_word_count": 19,
+        "agent_word_count": 5
       },
       "follow_guide": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
+        "type": "form_step",
+        "content_score": 0.2414,
+        "gt_word_count": 28,
+        "agent_word_count": 30
       },
       "rest_api_reference": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 105,
-        "agent_word_count": 105
+        "content_score": 0.4583,
+        "gt_word_count": 27,
+        "agent_word_count": 21
       },
       "help_updates": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 48,
-        "agent_word_count": 48
+        "content_score": 0.6809,
+        "gt_word_count": 26,
+        "agent_word_count": 21
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched textual content in the navigation and footer sections (both scoring 0.00 F1), and by significant content gaps in the install_sdk, follow_guide, and rest_api_reference sections despite strong visual styling fidelity."
 }

@@ -1,94 +1,70 @@
 {
-  "score": 0.742857,
+  "score": 0.557885,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7429,
-    "weighted_content": 1.0,
+    "topology": 0.7833,
+    "weighted_content": 0.4244,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Both pages use identical link blue, green featured row highlighting, and neutral text colors with no perceptible difference."
+        "reason": "Blue links, green highlighted featured rows, and overall neutral palette match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, link styling, and monospace-like table text appear identical between the two versions."
+        "reason": "Heading sizes, link styling, and body text weights appear identical between both versions."
       },
       "assets": {
         "score": 5,
-        "reason": "Neither version uses icons or images beyond text, and both render the plain layout identically."
+        "reason": "Neither version uses notable icons or images, and both render text-only layouts consistently."
       },
       "proportion": {
         "score": 5,
-        "reason": "Spacing of nav items, column widths, row heights, and search controls match precisely."
+        "reason": "Row spacing, column widths, and nav density appear to match the reference accurately."
       },
       "states": {
         "score": 5,
-        "reason": "The featured row highlight states and link styling are rendered the same in both versions."
+        "reason": "Featured row highlighting and link states appear consistent with the reference."
       }
     },
     "sections": {
-      "top_nav_search": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.4615,
+        "gt_word_count": 5,
+        "agent_word_count": 8
       },
-      "breadcrumb": {
+      "page_title_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.6809,
+        "gt_word_count": 26,
+        "agent_word_count": 21
       },
-      "page_header_links": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
-      },
-      "nearby_locations": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
-      },
-      "browse_categories": {
+      "browse_by_category": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "content_score": 0.3457,
+        "gt_word_count": 38,
+        "agent_word_count": 43
       },
-      "listings_header_sort": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
-      },
-      "listings_table": {
+      "recent_listings": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 417,
-        "agent_word_count": 417
+        "content_score": 0.699,
+        "gt_word_count": 401,
+        "agent_word_count": 403
       },
       "pagination": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "flag_listing_options": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 3,
         "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.2941,
+        "gt_word_count": 8,
+        "agent_word_count": 26
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as some reference sections appear to be missing from the agent's output, rather than by any color, typography, or content-matching issues."
+  "explanation": "The score is held back primarily by missing pagination content (0.00) and weak footer and category-browsing text coverage (0.29 and 0.35 F1), indicating key navigational and categorical text elements from the reference were not reproduced."
 }

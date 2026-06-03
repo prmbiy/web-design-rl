@@ -1,100 +1,100 @@
 {
-  "score": 0.826704,
+  "score": 0.469272,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8424,
-    "weighted_content": 0.9627,
-    "design_score": 1.0,
+    "topology": 0.6987,
+    "weighted_content": 0.4633,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand colors, accent blues, orange CTA buttons, badge backgrounds, and section header colors appear identical between the two versions."
+        "reason": "Brand blues, orange CTAs, and badge colors match closely with the reference palette."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, table text, nav links, and label styling all appear to match precisely."
+        "reason": "Heading sizes, weights, and uppercase section labels appear nearly identical to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, monogram circles, award badges (star, 100, checkmark), and all decorative elements render identically."
+        "score": 4,
+        "reason": "Avatar initial blocks render correctly, though one (SW) appears faded/transparent unlike the reference."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button sizes, padding, spacing of nav items, table row heights, and card proportions appear identical."
+        "reason": "Button sizes, nav spacing, and card proportions closely match the reference layout."
       },
       "states": {
-        "score": 5,
-        "reason": "Interactive states like the highlighted timeline row and button styles appear consistent across both versions."
+        "score": 3,
+        "reason": "Active nav item (Company) is highlighted similarly, but one leadership card appears in a disabled/faded state not present in the reference."
       }
     },
     "sections": {
-      "top_header": {
+      "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       },
       "breadcrumb": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 7
       },
       "sidebar": {
         "type": "sidebar",
+        "content_score": 0.7534,
+        "gt_word_count": 81,
+        "agent_word_count": 65
+      },
+      "about_hero": {
+        "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 139,
-        "agent_word_count": 139
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "mission": {
-        "type": "hero",
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "company_timeline": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 117,
-        "agent_word_count": 117
+        "content_score": 0.6885,
+        "gt_word_count": 133,
+        "agent_word_count": 111
       },
       "leadership_team": {
         "type": "generic",
-        "content_score": 0.5231,
-        "gt_word_count": 95,
-        "agent_word_count": 35
+        "content_score": 0.2154,
+        "gt_word_count": 14,
+        "agent_word_count": 51
       },
       "press_releases": {
         "type": "generic",
-        "content_score": 0.9917,
-        "gt_word_count": 61,
-        "agent_word_count": 60
-      },
-      "awards": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
       "contact_info": {
-        "type": "map",
-        "content_score": 1.0,
+        "type": "generic",
+        "content_score": 0.5143,
         "gt_word_count": 40,
-        "agent_word_count": 40
+        "agent_word_count": 30
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 37
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete leadership team content (F1 0.52, missing or mismatched names/titles) and minor gaps in section topology coverage (0.84) indicating some expected sections are not fully represented."
+  "explanation": "The score is held back primarily by missing or mismatched navigation and footer content (top_bar, main_nav, breadcrumb, and footer all scoring 0.00) and weak leadership/press release sections (leadership_team at 0.22 with a faded card state, and press_releases at 0.00)."
 }

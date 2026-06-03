@@ -1,88 +1,94 @@
 {
-  "score": 0.975,
+  "score": 0.408634,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.975,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7143,
+    "weighted_content": 0.2642,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange brand color, gradient fills, badges, rating stars, and accent colors all match identically."
+        "reason": "Brand orange, badges (red, green, yellow), rating stars, and nav colors closely match the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Headings, button labels, badge text, and nav link styling appear identical in weight and size."
+        "reason": "Heading sizes, button labels, and badge text styling appear nearly identical to the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, emoji, product placeholder illustrations, and avatars render correctly and match the reference."
+        "score": 2,
+        "reason": "Product images render as placeholder boxes with question marks instead of the actual product illustrations shown in the reference, and the map pin is also a placeholder."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear consistent with the reference."
+        "reason": "Button padding, card sizing, pill dimensions, and nav spacing closely follow the reference layout."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab underline, selected pill button, and CTA filled states match the reference exactly."
+        "reason": "Active tab underline, selected category pill, and filled CTA buttons all reflect the same active/inactive treatment as the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 5
       },
-      "seller_hero": {
+      "seller_header": {
         "type": "hero",
         "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "tabs_ratings": {
+      "tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 3
+      },
+      "ratings": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 6
       },
       "promo_banner": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 13
       },
-      "category_filters": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 61,
-        "agent_word_count": 61
+      "categories_filter": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 12,
+        "agent_word_count": 0
       },
-      "products_grid": {
+      "product_grid": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 261,
-        "agent_word_count": 261
+        "content_score": 0.564,
+        "gt_word_count": 188,
+        "agent_word_count": 156
       },
       "pagination": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       },
-      "contact_schedule_map": {
+      "contact_info": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.1667,
+        "gt_word_count": 25,
+        "agent_word_count": 35
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing/placeholder product imagery and the map pin (assets scored 2/5) and by widespread text content mismatches across nearly every section (top_nav, tabs, ratings, promo_banner, categories_filter, pagination, contact_info, and footer all scoring 0.00\u20130.17)."
 }

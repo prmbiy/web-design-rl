@@ -1,106 +1,106 @@
 {
-  "score": 0.725,
+  "score": 0.59208,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.725,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9455,
+    "weighted_content": 0.4525,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Both pages use identical orange accents, dark navy card backgrounds, and matching badge/pill colors throughout."
+        "score": 2,
+        "reason": "The agent uses solid flat colors (green, purple, blue) for the testimonial cards instead of the reference's unified dark navy gradient backgrounds, which is an immediately obvious difference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, caps labels, and pill text styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and label/badge text styling closely match the reference with similar hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, avatar circles with letters, and checkmarks all render correctly and consistently in both images."
+        "reason": "Icons, checkmarks, avatar letter circles, and logos all render correctly in both versions with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, card padding, nav spacing, and overall element proportions look indistinguishable."
+        "score": 4,
+        "reason": "Button padding, pill sizing, card spacing, and overall layout proportions appear nearly identical to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The active Manufacturing tab pill and other interactive states appear identically styled in both versions."
+        "reason": "The active 'Manufacturing' tab state is rendered correctly with the dark filled appearance matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.7692,
+        "gt_word_count": 7,
+        "agent_word_count": 6
       },
-      "client_logos": {
+      "logo_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.9302,
+        "gt_word_count": 20,
+        "agent_word_count": 23
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.8916,
+        "gt_word_count": 40,
+        "agent_word_count": 43
       },
-      "industry_intro": {
+      "industry_tabs_intro": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 76,
-        "agent_word_count": 76
+        "content_score": 0.7711,
+        "gt_word_count": 48,
+        "agent_word_count": 35
       },
       "manufacturing_section": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 155,
-        "agent_word_count": 155
+        "content_score": 0.651,
+        "gt_word_count": 174,
+        "agent_word_count": 167
       },
       "retail_section": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.4975,
         "gt_word_count": 135,
-        "agent_word_count": 135
+        "agent_word_count": 66
       },
       "healthcare_section": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 125,
-        "agent_word_count": 125
+        "content_score": 0.5109,
+        "gt_word_count": 85,
+        "agent_word_count": 52
       },
       "cpg_section": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.7656,
+        "gt_word_count": 84,
+        "agent_word_count": 125
       },
-      "stats_banner": {
+      "stats_band": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4444,
+        "gt_word_count": 7,
+        "agent_word_count": 2
       },
       "pricing_tiers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 7
       },
       "cta_demo": {
         "type": "form_step",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 9
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 5
       }
     }
   },
-  "explanation": "The score is held back primarily by the topology gap (0.72), indicating several reference sections are missing or misaligned in the agent's version, despite perfect design dimension and content F1 scores across all detected sections."
+  "explanation": "The agent omitted the pricing tiers, CTA demo form, and footer sections entirely (0.00 content scores), and used flat green/purple/blue testimonial card backgrounds instead of the reference's unified dark navy gradient."
 }

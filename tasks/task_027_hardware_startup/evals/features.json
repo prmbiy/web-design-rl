@@ -1,88 +1,88 @@
 {
-  "score": 0.744444,
+  "score": 0.590715,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7444,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.3014,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The dark background, orange accent color on buttons, badges, and differentiator text all match closely."
+        "reason": "The agent version preserves the dark background, orange accent colors on CTAs, differentiator highlights, and lens icons matching the reference closely."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps styling, and label hierarchy appear identical to the reference."
+        "score": 4,
+        "reason": "Heading weights and caps styling match well, though the agent's hero heading wraps differently and appears slightly tighter, with similar label/pill treatment."
       },
       "assets": {
-        "score": 5,
-        "reason": "All decorative figure illustrations (sensor, codec pipeline, mount swap, display, NovaGrip) render correctly without placeholders."
+        "score": 4,
+        "reason": "Icons and decorative figure illustrations (sensor, codec, mount swap, display, NovaGrip) render correctly with similar visual treatment to the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, section spacing, and grid layout match the reference closely."
+        "score": 4,
+        "reason": "Overall layout proportions match, though the hero heading takes more vertical space and some figure panels have slightly different aspect ratios."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav link highlighting and pre-order CTA button styling appear consistent with the reference."
+        "reason": "The active nav link (Features) and pre-order button styling match the reference's filled accent state appropriately."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 2
       },
       "features_intro": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 23,
+        "content_score": 0.6316,
+        "gt_word_count": 11,
+        "agent_word_count": 8
+      },
+      "sensor_feature": {
+        "type": "media",
+        "content_score": 0.5862,
+        "gt_word_count": 37,
+        "agent_word_count": 21
+      },
+      "codec_feature": {
+        "type": "media",
+        "content_score": 0.36,
+        "gt_word_count": 22,
+        "agent_word_count": 28
+      },
+      "mount_feature": {
+        "type": "media",
+        "content_score": 0.1351,
+        "gt_word_count": 51,
         "agent_word_count": 23
       },
-      "feature_sensor": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 64,
-        "agent_word_count": 64
+      "display_feature": {
+        "type": "media",
+        "content_score": 0.5778,
+        "gt_word_count": 24,
+        "agent_word_count": 21
       },
-      "feature_codec": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 83,
-        "agent_word_count": 83
-      },
-      "feature_mount": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
-      },
-      "feature_display": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
-      },
-      "feature_audio": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 80,
-        "agent_word_count": 80
+      "audio_feature": {
+        "type": "media",
+        "content_score": 0.2667,
+        "gt_word_count": 7,
+        "agent_word_count": 8
       },
       "reserve_cta": {
         "type": "pricing",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down primarily by missing or mismatched textual content in the nav, reserve_cta, and footer sections (all scoring 0.00), and by significantly divergent feature copy in the mount_feature (0.14), audio_feature (0.27), and codec_feature (0.36) panels."
 }

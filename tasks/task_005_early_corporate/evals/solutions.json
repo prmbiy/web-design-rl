@@ -1,106 +1,100 @@
 {
-  "score": 0.927273,
+  "score": 0.534537,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9273,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8646,
+    "weighted_content": 0.5164,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The blue header, orange CTA buttons, accent colors, and badge backgrounds appear identical between both versions."
+        "score": 4,
+        "reason": "Brand blues, orange CTAs, and section colors match closely, though the trusted-by pills appear white instead of light grey-blue."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, nav link styling, table text, and badge typography appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, caps labels, and nav styling closely mirror the reference with only subtle weight differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons (bank, medical, gear, government, cart, chart) render correctly and identically in both versions."
+        "score": 2,
+        "reason": "Industry category icons render as generic question-mark placeholder boxes instead of the distinct themed icons in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card spacing, table row density, and nav item spacing look identical."
+        "score": 4,
+        "reason": "Button sizes, card spacing, and nav density are very similar, with only slight padding differences in the cards."
       },
       "states": {
-        "score": 5,
-        "reason": "No visible differences in active/hover states on nav or interactive elements between the two versions."
+        "score": 4,
+        "reason": "Active nav highlighting and button variants (filled orange vs outline) appear consistent with the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
-      },
-      "main_nav": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.2353,
+        "gt_word_count": 6,
+        "agent_word_count": 11
       },
       "breadcrumb": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.7692,
+        "gt_word_count": 6,
+        "agent_word_count": 7
       },
-      "hero": {
+      "hero_title": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.7692,
+        "gt_word_count": 27,
+        "agent_word_count": 25
       },
       "left_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 66,
-        "agent_word_count": 66
+        "content_score": 0.3874,
+        "gt_word_count": 91,
+        "agent_word_count": 131
       },
       "right_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 121,
-        "agent_word_count": 121
+        "content_score": 0.4483,
+        "gt_word_count": 34,
+        "agent_word_count": 24
       },
-      "industry_solutions_grid": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 119,
-        "agent_word_count": 119
-      },
-      "regulatory_compliance": {
+      "solutions_intro": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 77,
-        "agent_word_count": 77
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "industry_grid": {
+        "type": "generic",
+        "content_score": 0.625,
+        "gt_word_count": 87,
+        "agent_word_count": 105
+      },
+      "compliance_accelerators": {
+        "type": "generic",
+        "content_score": 0.8143,
+        "gt_word_count": 67,
+        "agent_word_count": 73
       },
       "customer_success_table": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
+        "type": "pricing",
+        "content_score": 0.7723,
+        "gt_word_count": 50,
+        "agent_word_count": 51
       },
-      "cta_section": {
+      "cta_demo": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
-      "footer_links": {
+      "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
-      },
-      "footer_legal": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 6
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is dragged down primarily by missing content in the cta_demo and footer sections (both scoring 0.00) and by industry category icons rendering as generic question-mark placeholders instead of the reference's distinct themed icons."
 }

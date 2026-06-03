@@ -1,82 +1,82 @@
 {
-  "score": 0.942857,
+  "score": 0.736861,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.7537,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The orange CTAs, gradient cards, category pill colors, and badge colors appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand orange CTA, gradient cards, and category pill colors are well preserved, though the featured cards lost their orange border accent and FEATURED badges."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, pill labels, and nav styling all match the reference closely."
+        "score": 4,
+        "reason": "Heading weights, button text, and badge styling closely match the reference with similar hierarchy and sizing."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, avatar circles, and gradient decorations all render correctly with no visible placeholders or missing assets."
+        "score": 3,
+        "reason": "Most icons render correctly but several emojis (fire, sparkles, music note) appear as generic placeholders or different glyphs, and map pulse markers look slightly different."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements appear to match the reference precisely."
+        "score": 4,
+        "reason": "Overall spacing, card sizes, and button padding are very similar, though the category pill row appears slightly more compressed and the 'All Events' pill is cut off."
       },
       "states": {
-        "score": 5,
-        "reason": "Active states on pills (All Events highlighted), follow buttons, and CTA styling appear consistent between both versions."
+        "score": 3,
+        "reason": "The active 'All Events' pill state from the reference is missing/cut off in the generated version, while other follow buttons and outline states match."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+        "content_score": 0.6667,
+        "gt_word_count": 9,
+        "agent_word_count": 9
       },
       "hero_search": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 52,
-        "agent_word_count": 52
-      },
-      "featured_events": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 97,
-        "agent_word_count": 97
-      },
-      "weekend_events": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 150,
-        "agent_word_count": 150
-      },
-      "map_section": {
-        "type": "map",
-        "content_score": 1.0,
+        "content_score": 0.6667,
         "gt_word_count": 47,
-        "agent_word_count": 47
+        "agent_word_count": 28
+      },
+      "featured_this_week": {
+        "type": "generic",
+        "content_score": 0.8889,
+        "gt_word_count": 75,
+        "agent_word_count": 87
+      },
+      "this_weekend_brooklyn": {
+        "type": "generic",
+        "content_score": 0.75,
+        "gt_word_count": 107,
+        "agent_word_count": 117
+      },
+      "map_promo": {
+        "type": "map",
+        "content_score": 0.96,
+        "gt_word_count": 26,
+        "agent_word_count": 24
       },
       "new_on_blockparty": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.9109,
+        "gt_word_count": 49,
+        "agent_word_count": 52
       },
       "popular_organizers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "content_score": 0.8235,
+        "gt_word_count": 45,
+        "agent_word_count": 40
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 4
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The footer content is entirely missing (0.00 F1), and key visual assets are degraded\u2014several emoji glyphs render as placeholders and the featured cards lost their orange border accents and FEATURED badges."
 }

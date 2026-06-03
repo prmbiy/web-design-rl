@@ -1,88 +1,88 @@
 {
-  "score": 0.923618,
+  "score": 0.604475,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.925,
-    "weighted_content": 0.997,
-    "design_score": 1.0,
+    "topology": 0.8603,
+    "weighted_content": 0.5252,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand gradient logo, orange CTA, category pill colors, card gradients, and badge colors all appear identical between the two versions."
+        "reason": "Brand colors, gradients, and badge colors match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, pill text caps styling, button labels, and nav link typography all match closely with no discernible difference."
+        "reason": "Heading sizes, weights, and label styles appear nearly identical."
       },
       "assets": {
-        "score": 5,
-        "reason": "All emoji icons (headphones, chili, yoga, tree, mic, camera, tea, coffee) and decorative elements render correctly and identically."
+        "score": 2,
+        "reason": "The agent version shows broken image placeholders (question mark boxes) instead of the emoji icons (headphones, pepper, woman, etc.) in the event cards."
       },
       "proportion": {
         "score": 5,
-        "reason": "Card sizing, button padding, pill dimensions, filter spacing, and grid layout proportions appear to match precisely."
+        "reason": "Button, pill, and card sizing along with spacing appear well-matched to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active 'All' pill, selected checkboxes (Music, Food & Drink), active 'Free' price filter, and active page '1' all show identical state styling."
+        "reason": "Active 'All' pill, selected checkboxes, and active pagination state are rendered consistently with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.6154,
+        "gt_word_count": 11,
+        "agent_word_count": 15
       },
-      "hero": {
+      "page_header": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.3,
         "gt_word_count": 16,
-        "agent_word_count": 16
+        "agent_word_count": 4
       },
       "search_bar": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0833,
+        "gt_word_count": 3,
+        "agent_word_count": 21
       },
-      "category_tabs": {
+      "category_filters": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.5,
+        "gt_word_count": 11,
+        "agent_word_count": 9
       },
       "filters_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 170,
-        "agent_word_count": 170
+        "content_score": 0.7801,
+        "gt_word_count": 138,
+        "agent_word_count": 144
       },
       "events_grid": {
         "type": "generic",
-        "content_score": 0.9641,
-        "gt_word_count": 124,
-        "agent_word_count": 127
+        "content_score": 0.8087,
+        "gt_word_count": 106,
+        "agent_word_count": 124
       },
       "map_section": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.8333,
+        "gt_word_count": 29,
+        "agent_word_count": 31
       },
       "pagination": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.087,
+        "gt_word_count": 3,
+        "agent_word_count": 20
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by broken image placeholders replacing the emoji icons in event cards (assets 2/5) and by significant content mismatches in the search bar (0.08), footer (0.09), and hero header (0.30) sections."
 }

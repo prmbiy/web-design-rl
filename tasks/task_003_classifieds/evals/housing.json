@@ -1,76 +1,64 @@
 {
-  "score": 0.664286,
+  "score": 0.613877,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6643,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7333,
+    "weighted_content": 0.7142,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Link blues, featured row highlight color, and overall palette appear identical between the two images."
+        "reason": "The blue link colors, green featured row highlights, and overall neutral palette match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, link styling, and label weights look identical across both versions."
+        "reason": "Heading sizes, link weights, and body text styling appear nearly identical with consistent font choices."
       },
       "assets": {
         "score": 5,
-        "reason": "No icons or images are present in either version; checkboxes render identically."
+        "reason": "Both pages are text/checkbox-based with no icons or images, and checkboxes render identically."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Column widths, row heights, checkbox spacing, and overall layout density match precisely."
+        "score": 4,
+        "reason": "Column spacing, row density, sidebar width, and padding are very close to the reference with only marginal differences."
       },
       "states": {
         "score": 5,
-        "reason": "Checkbox states and link hover/active styling appear consistent with no visible differences."
+        "reason": "Checkbox states, link styling, and featured row highlights appear consistent with the reference."
       }
     },
     "sections": {
-      "header_nav": {
+      "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+        "content_score": 0.7333,
+        "gt_word_count": 14,
+        "agent_word_count": 16
       },
-      "breadcrumb_actions": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
-      },
-      "page_title_sort": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
+      "page_header": {
+        "type": "hero",
+        "content_score": 0.6102,
+        "gt_word_count": 26,
+        "agent_word_count": 33
       },
       "filters_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 516,
-        "agent_word_count": 516
+        "content_score": 0.6583,
+        "gt_word_count": 351,
+        "agent_word_count": 363
       },
-      "listings_table": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "pagination_flag": {
-        "type": "navigation",
+      "listings": {
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
+        "content_score": 0.6923,
+        "gt_word_count": 12,
         "agent_word_count": 14
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete section topology (0.66), as not all reference sections were reproduced, despite perfect content and design dimension matches in the sections that were generated."
+  "explanation": "The score is held back primarily by weak hero/page_header content fidelity (0.61) and incomplete navigation and filter sidebar text (0.73 and 0.66 F1), indicating missing or mismatched wording in those sections despite strong visual styling."
 }

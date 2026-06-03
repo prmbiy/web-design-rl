@@ -1,51 +1,51 @@
 {
   "task": "task_016_saas_dark",
-  "avg_score": 0.876611,
-  "avg_topology": 0.877,
-  "avg_content": 1.0,
-  "avg_design": 1.0,
+  "avg_score": 0.352212,
+  "avg_topology": 0.659,
+  "avg_content": 0.27,
+  "avg_design": 0.776,
   "design_dimensions": {
     "color": {
-      "avg_score": 5.0,
-      "worst_reason": "Brand purple accents, gradient cards, badges, and icon colors appear identical between both versions."
+      "avg_score": 4.2,
+      "worst_reason": "The agent version preserves the purple accent on CTAs and gradient text but is missing the colored card icons, code block colors, stat highlights, and pricing card accents seen in the reference."
     },
     "typography": {
-      "avg_score": 5.0,
-      "worst_reason": "Heading weights, sizes, monospace labels, and pill text styling match closely throughout."
+      "avg_score": 4.8,
+      "worst_reason": "Heading sizes, weights, nav links, and button text styling appear very similar between the two versions."
     },
     "assets": {
-      "avg_score": 5.0,
-      "worst_reason": "Icons, emojis, avatars, and decorative gradients all render correctly in both versions."
+      "avg_score": 2.4,
+      "worst_reason": "Many key assets are missing in the agent version including feature card icons, code editor content, avatars, stats numbers, and pricing tiers, leaving large empty areas."
     },
     "proportion": {
-      "avg_score": 5.0,
-      "worst_reason": "Button padding, badge sizing, card dimensions, and spacing appear consistent between versions."
+      "avg_score": 4.0,
+      "worst_reason": "Nav, badges, and button proportions match well, but section heights are mostly empty due to missing content blocks."
     },
     "states": {
-      "avg_score": 5.0,
-      "worst_reason": "Active 'All Posts' pill and filled CTA buttons render with the same highlighted styling."
+      "avg_score": 4.0,
+      "worst_reason": "The primary filled CTA and outline secondary button states are preserved, but the highlighted 'Most Popular' pricing card state and other selected tab states are absent."
     }
   },
   "pages": {
     "blog": {
-      "score": 0.625,
-      "explanation": "Despite perfect design dimension and content scores, the overall score is limited by an incomplete topology (0.62), indicating several reference sections are missing from the agent-generated version."
+      "score": 0.3992,
+      "explanation": "The score is held back primarily by missing assets (the second row of featured cards, changelog, and newsletter sections are absent, scoring 0.00) and severe content mismatches in the navigation (0.00), authors (0.05), and featured posts (0.29) sections."
     },
     "docs": {
-      "score": 0.8603,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.5175,
+      "explanation": "The score is held back primarily by missing or mismatched textual content in the navigation and footer sections (both scoring 0.00 F1), and by significant content gaps in the install_sdk, follow_guide, and rest_api_reference sections despite strong visual styling fidelity."
     },
     "features": {
-      "score": 0.9556,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.3044,
+      "explanation": "The score is held down primarily by missing entire sections (experiments, observability, comparison table, CTA, and footer all scored 0.00, reflected in the assets score of 2/5) and weak content fidelity in the sections that do exist beyond the nav and hero (targeting_rollouts at 0.35, video_demo at 0.16, integrations at 0.11)."
     },
     "home": {
-      "score": 0.9993,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.1585,
+      "explanation": "The agent version is missing most page sections below the hero (trusted_by, platform_toolkit, developer_experience, stats, testimonials, pricing, and footer all scored 0.00) and lacks critical visual assets like feature card icons, code editor content, avatars, stat numbers, and pricing tiers, leaving large empty areas."
     },
     "pricing": {
-      "score": 0.9429,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.3816,
+      "explanation": "The score is held back by major missing content sections (compare_plans, enterprise_cta, usage_pricing, faq, and footer all score 0.00) and weak pricing tier content fidelity (0.19), despite strong visual styling across color, typography, and proportions."
     }
   }
 }

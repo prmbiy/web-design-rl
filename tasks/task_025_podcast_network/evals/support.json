@@ -1,82 +1,82 @@
 {
-  "score": 0.971429,
+  "score": 0.389456,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9714,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.1654,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in accent colors, gradients, badges, and icon colors."
+        "score": 4,
+        "reason": "The accent coral/pink CTA colors, purple backgrounds, and yellow highlight text are well matched, though merch card gradients differ slightly in saturation."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, badge caps styling, and nav link typography all match."
+        "reason": "Heading serif, italic accent, small-caps labels, and button text weights closely mirror the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons, illustrations, and merchandise images render identically with no missing assets."
+        "score": 2,
+        "reason": "Reference shows distinct themed icons (palette, document, etc.) and merch product illustrations, while the generated version uses generic placeholder square icons and question-mark placeholders on merch cards."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizes, pill dimensions, and spacing between elements all appear matching."
+        "score": 4,
+        "reason": "Card sizing, button padding, badge dimensions, and nav spacing are very close to the reference with only minor differences."
       },
       "states": {
-        "score": 5,
-        "reason": "The 'Most Popular' highlighted card, active nav link, and selected donation pill states all match."
+        "score": 4,
+        "reason": "The 'Most Popular' highlighted plan, selected $25 donation pill, and primary vs outline buttons are all represented similarly to the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 6
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.1667,
+        "gt_word_count": 15,
+        "agent_word_count": 9
       },
       "support_funds": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 75,
-        "agent_word_count": 75
+        "content_score": 0.35,
+        "gt_word_count": 18,
+        "agent_word_count": 22
       },
       "membership_tiers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 137,
-        "agent_word_count": 137
+        "content_score": 0.1818,
+        "gt_word_count": 9,
+        "agent_word_count": 13
       },
       "patreon_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.5714,
+        "gt_word_count": 8,
+        "agent_word_count": 13
       },
       "one_time_donation": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.0,
+        "gt_word_count": 13,
+        "agent_word_count": 0
       },
       "merchandise": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 59,
-        "agent_word_count": 59
+        "content_score": 0.1935,
+        "gt_word_count": 11,
+        "agent_word_count": 20
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched textual content across nearly every section (nav, hero, donation form, and footer all scoring near 0 F1) and by weak asset fidelity, where themed icons and merch product illustrations are replaced with generic placeholder squares and question marks."
 }

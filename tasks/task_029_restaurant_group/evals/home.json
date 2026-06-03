@@ -1,82 +1,88 @@
 {
-  "score": 0.942857,
+  "score": 0.542243,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.95,
+    "weighted_content": 0.3016,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The two images appear visually identical in terms of brand purple background, gold accents, orange CTA button, and card gradient fills."
+        "score": 4,
+        "reason": "The deep purple hero, cream backgrounds, and orange CTA accents match closely, though the card gradient fills are slightly less varied in the generated version."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading serif italic styling, button caps, label weights, and nav link styling all match precisely between the two versions."
+        "score": 4,
+        "reason": "Serif headings, italic accent words, and small caps labels are well replicated with similar weights and sizes."
       },
       "assets": {
         "score": 5,
-        "reason": "Decorative glow elements, star icons, quote mark, and card image gradients all render identically with no missing assets."
+        "reason": "Decorative elements like the quotation mark, star icons, and award badges render correctly with no missing placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, nav spacing, and pill dimensions appear consistent between reference and generated versions."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and nav spacing are very close, though the status pill row appears slightly more compressed horizontally."
       },
       "states": {
-        "score": 5,
-        "reason": "Active status dots, reserve button states, and nav link states appear identical with matching highlight treatments."
+        "score": 4,
+        "reason": "Interactive states like the filled Reserve buttons and outline secondary buttons appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.1333,
+        "gt_word_count": 8,
+        "agent_word_count": 7
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 58,
-        "agent_word_count": 58
+        "content_score": 0.2308,
+        "gt_word_count": 13,
+        "agent_word_count": 13
       },
       "tonight_status_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.381,
+        "gt_word_count": 15,
+        "agent_word_count": 27
+      },
+      "restaurants_intro": {
+        "type": "generic",
+        "content_score": 0.3704,
+        "gt_word_count": 6,
+        "agent_word_count": 21
       },
       "restaurants_grid": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 180,
-        "agent_word_count": 180
+        "type": "media",
+        "content_score": 0.4595,
+        "gt_word_count": 51,
+        "agent_word_count": 97
       },
-      "honors_awards": {
+      "awards": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.4762,
+        "gt_word_count": 14,
+        "agent_word_count": 7
       },
-      "press_quotes": {
+      "testimonial_quote": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 81,
-        "agent_word_count": 81
+        "content_score": 0.5039,
+        "gt_word_count": 89,
+        "agent_word_count": 38
       },
-      "private_dining_events": {
+      "private_events": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.1739,
+        "gt_word_count": 8,
+        "agent_word_count": 15
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.0,
+        "gt_word_count": 13,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by severe content mismatches in the footer (0.00), nav (0.13), and private_events (0.17) sections where the agent's text diverges almost entirely from the reference, and by weak word-set overlap in the hero (0.23) that fails to convey the reference's headline messaging."
 }

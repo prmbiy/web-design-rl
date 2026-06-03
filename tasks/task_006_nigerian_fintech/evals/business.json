@@ -1,82 +1,82 @@
 {
-  "score": 0.808333,
+  "score": 0.683231,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8083,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9429,
+    "weighted_content": 0.6493,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand greens, purples, badge pills, and gradient cards match the reference closely across all sections."
+        "reason": "Brand purple, green CTA, and badge colors closely match between versions with similar gradient hero card."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps labels, body text, and button typography appear identical to the reference."
+        "score": 4,
+        "reason": "Heading weights, sizes, and label/badge caps styling appear very similar with minor weight differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons in feature cards, avatars, and chat bubble all render correctly with no placeholders."
+        "score": 3,
+        "reason": "Reference shows distinct colored icons (lightning, naira symbol) while agent version shows generic placeholder-like square icons for most feature cards."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card padding, pill dimensions, and nav spacing match the reference proportions."
+        "score": 4,
+        "reason": "Button sizing, card padding, and nav spacing are very close to the reference with only subtle differences."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav item, highlighted Growth pricing card, and primary/outline button variants are preserved identically."
+        "score": 4,
+        "reason": "The 'Most Popular' growth card highlight and active nav state are preserved similarly in both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.5556,
         "gt_word_count": 10,
-        "agent_word_count": 10
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 114,
-        "agent_word_count": 114
+        "content_score": 0.8312,
+        "gt_word_count": 74,
+        "agent_word_count": 80
       },
       "compliance_badges": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.64,
+        "gt_word_count": 15,
+        "agent_word_count": 10
       },
       "features": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 204,
-        "agent_word_count": 204
+        "content_score": 0.913,
+        "gt_word_count": 182,
+        "agent_word_count": 186
       },
       "pricing": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 149,
-        "agent_word_count": 149
+        "content_score": 0.7727,
+        "gt_word_count": 109,
+        "agent_word_count": 111
       },
       "testimonials": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 118,
-        "agent_word_count": 118
+        "content_score": 0.7527,
+        "gt_word_count": 100,
+        "agent_word_count": 86
       },
-      "cta_book_demo": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
+      "cta": {
+        "type": "hero",
+        "content_score": 0.3256,
+        "gt_word_count": 11,
+        "agent_word_count": 32
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by a missing/empty footer section (0.00 content match) and weak CTA section content alignment (0.33), compounded by generic placeholder-style icons replacing the reference's distinct colored lightning and naira symbols in the feature cards."
 }

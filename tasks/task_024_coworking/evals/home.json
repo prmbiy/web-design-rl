@@ -1,82 +1,82 @@
 {
-  "score": 0.942857,
+  "score": 0.730151,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.7089,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The images appear identical with matching orange accents, dark hero gradient, cream backgrounds, and consistent CTA button colors."
+        "reason": "The orange accent color, dark community section, cream card backgrounds, and badge colors all match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, badge caps styling, and nav link typography all appear identical between the two images."
+        "reason": "Heading serif font, body text weight, and uppercase label styling appear nearly identical with proper hierarchy maintained."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, avatar circles with initials, checkmarks, and decorative elements render identically in both versions."
+        "reason": "Hero gradient illustration, avatar circles with initials, checkmark icons, and location pins all render correctly in both versions."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear identical."
+        "score": 4,
+        "reason": "Button padding, card sizing, badge proportions, and nav spacing are very similar, with only slight differences in hero section height."
       },
       "states": {
         "score": 5,
-        "reason": "The 'Most Popular' card highlight, filled vs outline buttons, and active states all match between versions."
+        "reason": "The 'Most Popular' card highlighted state, filled vs outline button variants, and active location pill all appear consistent between versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
+        "content_score": 0.8696,
+        "gt_word_count": 11,
         "agent_word_count": 12
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.7368,
+        "gt_word_count": 11,
+        "agent_word_count": 8
       },
       "membership_pricing": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 156,
-        "agent_word_count": 156
+        "content_score": 0.7883,
+        "gt_word_count": 126,
+        "agent_word_count": 148
       },
       "community_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.5714,
+        "gt_word_count": 21,
+        "agent_word_count": 21
       },
       "events": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 70,
-        "agent_word_count": 70
+        "content_score": 0.7765,
+        "gt_word_count": 38,
+        "agent_word_count": 47
       },
       "member_spotlights": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.7119,
+        "gt_word_count": 64,
+        "agent_word_count": 54
       },
       "book_tour": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 32,
-        "agent_word_count": 32
+        "content_score": 0.7143,
+        "gt_word_count": 8,
+        "agent_word_count": 6
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The footer section is entirely missing or empty (0.00 F1 score), and the community_stats section has significantly mismatched content (0.57 F1), which together drag down the overall score despite strong visual fidelity."
 }

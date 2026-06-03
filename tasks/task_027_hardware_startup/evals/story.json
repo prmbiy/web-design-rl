@@ -1,82 +1,82 @@
 {
-  "score": 0.625,
+  "score": 0.611926,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.625,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.4387,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The accent colors including the blue Pre-order button, orange section labels, and colored avatar circles match the reference closely."
+        "reason": "Brand accent colors (orange/amber, blue pre-order button, colored avatar circles) match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, caps treatments, and label styling appear consistent with the reference throughout the page."
+        "reason": "Heading weights, caps treatment for section labels, and overall type hierarchy appear nearly identical."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons in the workshop section grid and avatar circles render correctly with no visible placeholders or broken assets."
+        "reason": "Icons in the workshop grid render correctly in both, with similar simple line/shape placeholders and avatar circles."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card proportions, and spacing between sections appear nearly identical to the reference."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and nav spacing look very similar, though the hero heading wraps differently due to width variations."
       },
       "states": {
         "score": 5,
-        "reason": "The filled Pre-order button and other interactive element states look consistent with the reference's filled vs outline treatment."
+        "reason": "The pre-order button filled state and nav active styling appear consistent across both versions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
-      },
-      "hero_story": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
-      },
-      "letter_from_founder": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 394,
-        "agent_word_count": 394
-      },
-      "prototype_timeline": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 114,
-        "agent_word_count": 114
-      },
-      "workshop_gallery": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
-      },
-      "team_profiles": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 5,
         "agent_word_count": 0
+      },
+      "hero": {
+        "type": "hero",
+        "content_score": 0.7838,
+        "gt_word_count": 38,
+        "agent_word_count": 36
+      },
+      "founder_letter": {
+        "type": "generic",
+        "content_score": 0.5732,
+        "gt_word_count": 164,
+        "agent_word_count": 164
+      },
+      "prototypes_timeline": {
+        "type": "generic",
+        "content_score": 0.4819,
+        "gt_word_count": 53,
+        "agent_word_count": 30
+      },
+      "workshop_media": {
+        "type": "media",
+        "content_score": 0.3279,
+        "gt_word_count": 24,
+        "agent_word_count": 37
+      },
+      "team": {
+        "type": "generic",
+        "content_score": 0.32,
+        "gt_word_count": 20,
+        "agent_word_count": 30
       },
       "community_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.6,
+        "gt_word_count": 20,
+        "agent_word_count": 30
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 5
       }
     }
   },
-  "explanation": "The score is held back primarily by missing sections reflected in the 0.62 topology score, despite all present sections having perfect content matches and all design dimensions scoring 5/5."
+  "explanation": "The score is held back primarily by missing/mismatched navigation and footer content (both at 0.00 F1) and weak textual fidelity in the workshop_media (0.33) and team (0.32) sections, indicating the agent failed to reproduce key copy despite strong visual styling."
 }

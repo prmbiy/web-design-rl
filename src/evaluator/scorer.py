@@ -151,7 +151,7 @@ def _task_report(task_dir: Path, page_results: dict[str, dict]) -> dict:
 
 
 def run_task(task_dir: Path) -> None:
-    gt_dir = task_dir / "screenshots"
+    gt_dir = task_dir / "harbor" / "environment" / "task_screenshots"
     agent_dir = task_dir / "agent_result" / "agent_screenshots"
     evals_dir = task_dir / "evals"
 

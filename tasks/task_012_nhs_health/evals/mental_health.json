@@ -1,94 +1,100 @@
 {
-  "score": 0.977778,
+  "score": 0.671586,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9778,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.92,
+    "weighted_content": 0.62,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "All brand colors including NHS blue header, red urgent alert border, green talking therapies box, and blue link colors match precisely."
+        "reason": "Brand blues, green CTA, red alert accent, and section background tints all match the reference closely."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, sizes, body text, and nav link styling appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading sizes, weights, and link styling appear consistent with the reference with only very minor differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons (depression, anxiety, OCD, PTSD, eating disorders, postnatal, checkmark, info) render correctly and match the reference."
+        "score": 3,
+        "reason": "Card icons render but use simpler/generic glyphs rather than the distinct themed icons in the reference (e.g., cloud for depression, heart for postnatal)."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizing, button padding, spacing between elements, and nav density all appear to match the reference closely."
+        "score": 4,
+        "reason": "Card sizes, button padding, nav spacing, and form element proportions closely mirror the reference layout."
       },
       "states": {
         "score": 5,
-        "reason": "Active 'Mental health' nav tab indicator and button/input styling appear consistent with the reference."
+        "reason": "Active 'Mental health' nav tab is shown with the same highlighted styling and link states appear consistent."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.2,
+        "gt_word_count": 4,
+        "agent_word_count": 6
+      },
+      "category_nav": {
+        "type": "navigation",
+        "content_score": 0.3636,
+        "gt_word_count": 5,
+        "agent_word_count": 6
       },
       "breadcrumb": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
+        "content_score": 0.6667,
+        "gt_word_count": 8,
         "agent_word_count": 4
       },
       "urgent_help_alert": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 76,
-        "agent_word_count": 76
+        "content_score": 0.8966,
+        "gt_word_count": 73,
+        "agent_word_count": 72
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.2667,
+        "gt_word_count": 13,
+        "agent_word_count": 2
       },
       "mental_health_conditions": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 195,
-        "agent_word_count": 195
+        "content_score": 0.9098,
+        "gt_word_count": 135,
+        "agent_word_count": 131
       },
       "talking_therapies": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 98,
-        "agent_word_count": 98
+        "content_score": 0.8667,
+        "gt_word_count": 93,
+        "agent_word_count": 87
       },
       "support_under_18s": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 102,
-        "agent_word_count": 102
+        "content_score": 0.9302,
+        "gt_word_count": 65,
+        "agent_word_count": 64
       },
       "support_for_carers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 58,
-        "agent_word_count": 58
+        "content_score": 0.8785,
+        "gt_word_count": 107,
+        "agent_word_count": 107
       },
-      "page_review_dates": {
+      "review_dates": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 12
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.8519,
+        "gt_word_count": 60,
+        "agent_word_count": 48
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched navigation content (top_nav 0.20, category_nav 0.36) and incomplete hero text (0.27), compounded by generic placeholder icons on the condition cards instead of the reference's themed glyphs."
 }

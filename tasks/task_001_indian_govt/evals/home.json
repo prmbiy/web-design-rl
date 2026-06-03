@@ -1,112 +1,106 @@
 {
-  "score": 0.786154,
+  "score": 0.430374,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7862,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6381,
+    "weighted_content": 0.5889,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange, blue, red, and green accent colors across header, cards, nav, and badges match the reference exactly."
+        "reason": "Brand colors, gradients, badge colors and accent reds/oranges/greens match closely across nav, cards, and sections."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps styling on section titles, nav link styling, and badge typography appear identical to the reference."
+        "score": 4,
+        "reason": "Heading weights, caps usage on section titles, and nav link styling appear very similar with only subtle differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji indicators, scheme illustrations, minister avatar placeholders, and photo gallery tiles all render properly as in the reference."
+        "score": 2,
+        "reason": "Several icons in Minister's Corner and Photo Gallery render as placeholder question-mark boxes instead of the proper avatars/images in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, nav item spacing, button padding, and section densities match the reference closely."
+        "score": 4,
+        "reason": "Card sizes, nav density, button padding, and overall spacing closely mirror the reference layout."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav highlighting, NEW badges, and link/button variants appear consistent with the reference design."
+        "score": 4,
+        "reason": "Active 'HOME' nav tab and highlighted helpline/accessibility buttons are preserved similarly, though minor differences exist in button styling."
       }
     },
     "sections": {
-      "top_utility_bar": {
+      "header": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
-      },
-      "masthead": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.2,
+        "gt_word_count": 6,
+        "agent_word_count": 4
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "hero_banner": {
         "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 15
+      },
+      "flagship_schemes": {
+        "type": "generic",
+        "content_score": 0.4494,
+        "gt_word_count": 40,
+        "agent_word_count": 49
+      },
+      "updates_and_tenders": {
+        "type": "generic",
+        "content_score": 0.6764,
+        "gt_word_count": 156,
+        "agent_word_count": 187
+      },
+      "ministers_corner": {
+        "type": "generic",
+        "content_score": 0.8609,
+        "gt_word_count": 71,
+        "agent_word_count": 80
+      },
+      "panchayati_raj_glance": {
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "citizen_services_sidebar": {
+      "left_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 84,
-        "agent_word_count": 84
-      },
-      "flagship_schemes": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 43,
-        "agent_word_count": 43
-      },
-      "latest_updates": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
-      },
-      "ministers_corner": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
-      },
-      "stats_glance": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "right_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 73,
-        "agent_word_count": 73
+        "gt_word_count": 4,
+        "agent_word_count": 4
       },
-      "footer_follow_helpline": {
-        "type": "footer",
+      "photo_gallery": {
+        "type": "media",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "footer_links": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 90,
-        "agent_word_count": 90
+      "social_follow": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 9
       },
-      "footer_copyright": {
+      "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.0,
+        "gt_word_count": 17,
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "Although all design dimensions and per-section content scores are perfect, the overall score is limited by the topology score of 0.79, indicating that some expected sections from the reference are missing or not properly aligned in the generated version."
+  "explanation": "The score is held back primarily by missing or empty key sections\u2014header navigation, main nav, hero banner, social follow, and footer all scoring at or near 0\u2014and by broken assets where Minister's Corner avatars and Photo Gallery images render as placeholder question-mark boxes instead of the proper imagery."
 }

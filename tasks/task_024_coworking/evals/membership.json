@@ -1,70 +1,70 @@
 {
-  "score": 0.92,
+  "score": 0.794586,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.92,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "weighted_content": 0.8074,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange accent color on CTAs, badges, checkmarks, and the highlighted dedicated desk card matches the reference precisely."
+        "reason": "The orange/terracotta accents, cream backgrounds, and dark footer match closely between both versions with consistent badge and CTA colors."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading serif, body weights, caps labels, and button text styling all appear identical between the two versions."
+        "score": 4,
+        "reason": "Heading serifs, label caps, and price weights appear nearly identical, though the comparison table headers in the generated version are slightly more emphasized as caps."
       },
       "assets": {
         "score": 5,
-        "reason": "Checkmarks, dashes, and plus/minus FAQ icons render correctly with no broken placeholders, matching the reference."
+        "reason": "Checkmark icons, dashes, and plus/minus toggles render correctly in both versions with no missing or broken assets."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, card sizing, badge dimensions, and table row spacing all appear to match the reference exactly."
+        "reason": "Card sizing, button padding, badge dimensions, and spacing between elements match the reference very closely."
       },
       "states": {
-        "score": 5,
-        "reason": "The active Monthly pill, highlighted Dedicated Desk card with filled CTA, outlined secondary buttons, and expanded FAQ state all match the reference."
+        "score": 4,
+        "reason": "The Monthly active pill, Most Popular highlighted card, expanded FAQ state, and active nav link all replicate correctly, though the expanded FAQ answer text appears in orange rather than dark gray."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.9091,
         "gt_word_count": 12,
-        "agent_word_count": 12
+        "agent_word_count": 10
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.8,
+        "gt_word_count": 24,
+        "agent_word_count": 21
       },
       "pricing_plans": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 146,
-        "agent_word_count": 146
+        "content_score": 0.7583,
+        "gt_word_count": 132,
+        "agent_word_count": 108
       },
       "feature_comparison": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 81,
-        "agent_word_count": 81
+        "content_score": 0.9185,
+        "gt_word_count": 66,
+        "agent_word_count": 69
       },
       "faq": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 72,
-        "agent_word_count": 72
+        "content_score": 0.9461,
+        "gt_word_count": 84,
+        "agent_word_count": 83
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 6,
+        "content_score": 0.375,
+        "gt_word_count": 10,
         "agent_word_count": 6
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by a footer that diverges significantly from the reference (0.38 content match) and an expanded FAQ answer rendered in orange instead of dark gray."
 }

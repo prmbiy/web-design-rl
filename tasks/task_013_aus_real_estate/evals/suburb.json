@@ -1,94 +1,94 @@
 {
-  "score": 0.8,
+  "score": 0.443193,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7429,
+    "weighted_content": 0.4332,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The teal brand color, orange accents, green/orange badges, and chart colors all appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand teal, orange CTAs, badge colors, and chart colors match closely with only minor saturation differences in card gradients."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, body text, button labels, and table typography appear visually identical."
+        "score": 4,
+        "reason": "Heading sizes, label caps, and button font weights closely mirror the reference with only subtle differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, chart elements, map markers, and property card placeholders all render correctly and match the reference."
+        "score": 3,
+        "reason": "Property card images render as placeholder icons rather than gradient-only cards, and small icons in features are rendered as boxes/glyphs that look slightly off."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, table row density, and spacing between elements appear to match precisely."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and overall spacing are largely consistent though card image areas and school map proportions differ slightly."
       },
       "states": {
-        "score": 5,
-        "reason": "The active 'Buy' nav state, filled vs outline button variants (Search vs More filters), and pill states all appear consistent."
+        "score": 4,
+        "reason": "Active filter buttons (More filters outlined), filled Search button, and demographic chart highlighted bar states are preserved correctly."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.4,
+        "gt_word_count": 12,
+        "agent_word_count": 8
       },
       "search_bar": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.8571,
+        "gt_word_count": 12,
+        "agent_word_count": 9
       },
       "breadcrumbs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 9,
         "agent_word_count": 0
       },
       "suburb_hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.25,
+        "gt_word_count": 19,
+        "agent_word_count": 13
       },
       "key_stats": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
-      },
-      "price_trend_and_demographics": {
-        "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 95,
-        "agent_word_count": 95
-      },
-      "schools_and_map": {
-        "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 62,
-        "agent_word_count": 62
-      },
-      "recent_sales": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 132,
-        "agent_word_count": 132
+        "content_score": 0.0,
+        "gt_word_count": 21,
+        "agent_word_count": 5
+      },
+      "trend_and_demographics": {
+        "type": "media",
+        "content_score": 0.6225,
+        "gt_word_count": 77,
+        "agent_word_count": 74
+      },
+      "schools_map": {
+        "type": "map",
+        "content_score": 0.5618,
+        "gt_word_count": 39,
+        "agent_word_count": 50
+      },
+      "recent_sales_table": {
+        "type": "generic",
+        "content_score": 0.8735,
+        "gt_word_count": 131,
+        "agent_word_count": 114
       },
       "for_sale_listings": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 173,
-        "agent_word_count": 173
+        "type": "generic",
+        "content_score": 0.5751,
+        "gt_word_count": 126,
+        "agent_word_count": 107
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing or empty content sections (breadcrumbs, key_stats, and footer all scoring 0.00) and weak hero/top_nav fidelity compounded by placeholder icons replacing proper property card imagery."
 }

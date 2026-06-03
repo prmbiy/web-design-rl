@@ -1,86 +1,80 @@
 {
-  "score": 0.666667,
+  "score": 0.657846,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6667,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8603,
+    "weighted_content": 0.6093,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand greens, purple commission table, and purple form section all match the reference closely with consistent accent and badge colors."
+        "reason": "Brand greens, purple table, and dark CTA gradient match closely, with similar badge and pill colors throughout."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, and pill/badge styling appear identical to the reference."
+        "reason": "Heading weights, body text, and uppercase label styling appear nearly identical between the two versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji (fire), avatar placeholders, and map illustration all render correctly as in the reference."
+        "score": 3,
+        "reason": "Most icons render correctly but the Lagos State fire emoji and Anambra emoji appear as missing/placeholder boxes in the generated version."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button sizes, padding, table row spacing, and form element spacing match the reference proportions."
+        "reason": "Button sizes, badge padding, table row spacing, and form element proportions closely mirror the reference."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav link (Agents in green), filled vs outline buttons, and WhatsApp floating button states appear consistent with the reference."
+        "reason": "Filled vs outline button variants and interactive element styling appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.5714,
+        "gt_word_count": 6,
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 70,
-        "agent_word_count": 70
-      },
-      "info_bar": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.7292,
+        "gt_word_count": 50,
+        "agent_word_count": 46
       },
       "commission_structure": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 163,
-        "agent_word_count": 163
+        "content_score": 0.8039,
+        "gt_word_count": 150,
+        "agent_word_count": 156
       },
       "agent_density_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 158,
-        "agent_word_count": 158
+        "content_score": 0.7619,
+        "gt_word_count": 85,
+        "agent_word_count": 83
       },
-      "signup_requirements": {
+      "requirements_signup": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 166,
-        "agent_word_count": 166
+        "content_score": 0.7988,
+        "gt_word_count": 184,
+        "agent_word_count": 154
       },
       "agent_stories": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.7667,
         "gt_word_count": 28,
-        "agent_word_count": 28
+        "agent_word_count": 32
       },
       "compliance_badges": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 1
       },
-      "cta_banner": {
+      "cta_become_agent": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 4
       },
       "footer": {
         "type": "footer",
@@ -90,5 +84,5 @@
       }
     }
   },
-  "explanation": "The score is held back primarily by the topology gap (0.67) indicating missing or misaligned sections in the overall page structure, despite per-section content and design dimensions all scoring perfectly."
+  "explanation": "The score is held back by two empty sections\u2014compliance_badges and cta_become_agent (both 0.00 F1)\u2014and by missing asset rendering, specifically the Lagos State fire emoji and Anambra emoji appearing as placeholder boxes."
 }

@@ -1,100 +1,112 @@
 {
-  "score": 0.94,
+  "score": 0.253615,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.94,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.5385,
+    "weighted_content": 0.222,
+    "design_score": 0.72,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Brand colors, gradient cards, accent reds, and category color blocks appear virtually identical between both versions."
+        "score": 4,
+        "reason": "The brand reds, blue gradient banners, ticker, and colored card tiles match the reference palette closely with similar saturation."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, nav link styling, badge caps, and label sizing match the reference closely with no perceptible differences."
+        "score": 4,
+        "reason": "Heading weights, nav link styling, and section labels appear comparable, though some headlines look slightly smaller/lighter than reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji, weather glyphs, and decorative illustrations render correctly and match the reference placement and style."
+        "score": 2,
+        "reason": "All decorative images and icons on the tiles are missing, showing question-mark placeholders, and the weather/sports icons are absent or simplified."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizing, nav density, button padding, and form element spacing all appear consistent with the reference layout."
+        "score": 4,
+        "reason": "Overall layout grid, card sizes, nav density, and spacing are very close to the reference with only minor differences."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav highlight on the breaking news tab and button states appear preserved identically."
+        "score": 4,
+        "reason": "The active red 'speed' nav tab and breaking badge states are preserved similarly to the reference."
       }
     },
     "sections": {
-      "top_utility_bar": {
+      "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "content_score": 0.2222,
+        "gt_word_count": 3,
+        "agent_word_count": 6
       },
-      "masthead_search": {
+      "header_logo_search": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 18,
-        "agent_word_count": 18
-      },
-      "category_nav": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 1,
+        "content_score": 0.0,
+        "gt_word_count": 5,
         "agent_word_count": 1
       },
-      "breaking_ticker": {
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
+      },
+      "breaking_news_ticker": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
+      },
+      "market_ticker": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 4,
-        "agent_word_count": 4
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "promo_banner": {
+      "hero_banner_ad": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
       },
-      "featured_hero_with_sidebar": {
+      "featured_news": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 71,
-        "agent_word_count": 71
+        "content_score": 0.0615,
+        "gt_word_count": 36,
+        "agent_word_count": 29
       },
       "headlines_grid": {
         "type": "generic",
+        "content_score": 0.1143,
+        "gt_word_count": 78,
+        "agent_word_count": 62
+      },
+      "sidebar": {
+        "type": "sidebar",
         "content_score": 1.0,
-        "gt_word_count": 155,
-        "agent_word_count": 155
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "main_sections": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 23,
-        "agent_word_count": 23
+        "content_score": 0.1224,
+        "gt_word_count": 35,
+        "agent_word_count": 14
       },
-      "ana_promo": {
+      "promo_banner": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 22,
-        "agent_word_count": 22
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 18
       },
       "opinion_columns": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0408,
+        "gt_word_count": 32,
+        "agent_word_count": 17
       },
-      "archive_search": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
+      "archive_section": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 9,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held down by missing decorative imagery and icons across the tiles (assets 2/5, showing question-mark placeholders) and by widespread textual content mismatches in nearly every section\u2014including header_logo_search, main_nav, breaking_news_ticker, hero_banner_ad, featured_news, headlines_grid, and opinion_columns\u2014all scoring at or near zero F1."
 }

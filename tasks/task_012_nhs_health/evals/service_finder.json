@@ -1,76 +1,100 @@
 {
-  "score": 0.817143,
+  "score": 0.602177,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8171,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7432,
+    "weighted_content": 0.7005,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of NHS blue, green CTAs, badge colors, and map pin colors."
+        "reason": "Brand blues, green CTAs, yellow stars, and badge colors match closely between the two versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, button weights, badge text, and nav link styling appear identical between both versions."
+        "reason": "Heading sizes, weights, and label styling appear nearly identical with consistent hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "All icons (GP, dentist, pharmacy, etc.), star ratings, and map pins render identically in both images."
+        "score": 3,
+        "reason": "Icons in service tabs render correctly in both, though the map pins in the agent version appear all blue versus the reference having mixed colors with numbered markers."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, form element spacing, and nav density look visually identical."
+        "reason": "Button padding, card spacing, filter sidebar width, and overall layout proportions are very close to the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The selected GP tab, checked Yes checkbox, selected radio button, and filled green book buttons all match between versions."
+        "reason": "Active GP tab, checked checkbox, selected radio button, and filled vs outline button variants all match the reference accurately."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.1739,
+        "gt_word_count": 14,
+        "agent_word_count": 9
       },
-      "hero": {
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 7
+      },
+      "page_header": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.24,
+        "gt_word_count": 14,
+        "agent_word_count": 11
       },
       "service_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.5556,
+        "gt_word_count": 13,
+        "agent_word_count": 23
       },
       "search_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.8889,
+        "gt_word_count": 22,
+        "agent_word_count": 23
       },
-      "results_and_map": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 246,
-        "agent_word_count": 246
+      "filters_sidebar": {
+        "type": "sidebar",
+        "content_score": 0.8083,
+        "gt_word_count": 177,
+        "agent_word_count": 162
       },
-      "review_dates": {
+      "results_list": {
         "type": "generic",
+        "content_score": 0.8254,
+        "gt_word_count": 59,
+        "agent_word_count": 67
+      },
+      "map": {
+        "type": "map",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
+      "help_box": {
+        "type": "sidebar",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "review_dates": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 12,
+        "agent_word_count": 12
+      },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 56,
+        "content_score": 0.8889,
+        "gt_word_count": 52,
         "agent_word_count": 56
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing or mismatched navigation text (top_nav 0.17, breadcrumb 0.00) and a weak page header (0.24), compounded by map pins rendering as uniform blue instead of the reference's mixed-color numbered markers."
 }

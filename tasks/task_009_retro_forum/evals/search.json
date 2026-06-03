@@ -1,82 +1,88 @@
 {
-  "score": 0.775,
+  "score": 0.423094,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.775,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6267,
+    "weighted_content": 0.3903,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear identical in their use of blue headers, orange accents, and badge colors."
+        "reason": "The blue header, orange CTA buttons, and accent colors match closely with very similar palette throughout."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button text, and nav link styling appear visually identical between the two images."
+        "reason": "Heading weights, nav links, and label styling appear nearly identical with matching font hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, avatars, star ratings, and decorative elements all render correctly and match the reference."
+        "score": 4,
+        "reason": "Icons, thread/folder icons, badges, and small decorative elements render correctly in both versions."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button sizes, form spacing, and overall layout proportions appear indistinguishable from the reference."
+        "reason": "Button sizes, form spacing, and nav density closely mirror the reference with only minor differences."
       },
       "states": {
         "score": 5,
-        "reason": "Checkbox states, radio button selections, and active elements match the reference exactly."
+        "reason": "Checkbox checked states, radio selections, and active link styles appear consistent with the reference."
       }
     },
     "sections": {
-      "header": {
+      "site_header": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 47,
-        "agent_word_count": 47
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 1
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 27,
+        "agent_word_count": 3
       },
       "ad_banner": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 37,
-        "agent_word_count": 37
+        "content_score": 0.9583,
+        "gt_word_count": 24,
+        "agent_word_count": 24
       },
-      "advanced_search_title": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+      "advanced_search_header": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 0
       },
       "search_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 212,
-        "agent_word_count": 212
+        "content_score": 0.6548,
+        "gt_word_count": 176,
+        "agent_word_count": 160
+      },
+      "sidebar_quick_links": {
+        "type": "sidebar",
+        "content_score": 0.3614,
+        "gt_word_count": 48,
+        "agent_word_count": 35
       },
       "sample_results": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 142,
-        "agent_word_count": 142
-      },
-      "sidebar_quicklinks": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.3419,
+        "gt_word_count": 58,
+        "agent_word_count": 59
       },
       "forum_stats": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.0,
+        "gt_word_count": 19,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
         "content_score": 1.0,
-        "gt_word_count": 2,
-        "agent_word_count": 2
+        "gt_word_count": 0,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "Despite perfect design and content matches, the score is held back by missing sections reflected in the 0.78 topology score, indicating the agent omitted some structural regions from the reference layout."
+  "explanation": "The score is held down primarily by missing or mismatched navigation content (both site_header and main_nav scored 0.00) and absent header/stats text in the advanced_search_header and forum_stats sections (also 0.00)."
 }

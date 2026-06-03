@@ -1,110 +1,110 @@
 {
-  "score": 0.725714,
+  "score": 0.497485,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7257,
-    "weighted_content": 1.0,
+    "topology": 0.6429,
+    "weighted_content": 0.5477,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The brand colors, status badges (LIVE green, CLOSING orange, NEW red), accent oranges, and nav blues all appear identical to the reference."
+        "reason": "Brand orange, blue nav, yellow notice bar, green LIVE badges, and red NEW pills all match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, table label caps, button text, and nav link styling all match the reference closely."
+        "reason": "Heading sizes, badge caps weight, and table label styling appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons including the ministry emblem, social media icons, phone icon, and folder icons all render correctly as in the reference."
+        "reason": "Icons, logos, social media icons, and decorative arrows all render correctly without placeholders."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, table row spacing, and nav density appear visually identical to the reference."
+        "reason": "Button padding, badge sizing, table row density, and nav spacing match the reference very closely."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'ACTIVE TENDERS' tab highlighting and status pills appear to match the reference's selected state styling."
+        "reason": "Active 'Tenders & Procurement' nav tab, active pagination page, and ACTIVE TENDERS tab highlight are reproduced faithfully."
       }
     },
     "sections": {
-      "top_utility_bar": {
+      "top_bar": {
         "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 1
+      },
+      "header": {
+        "type": "hero",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 4
+      },
+      "main_nav": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 3
+      },
+      "breadcrumb": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
+      },
+      "sidebar": {
+        "type": "sidebar",
+        "content_score": 0.7104,
+        "gt_word_count": 284,
+        "agent_word_count": 310
+      },
+      "page_title": {
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "site_header": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
-      },
-      "main_nav": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
-      },
-      "citizen_services_sidebar": {
-        "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
-      },
-      "tenders_intro": {
+      "notices": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "tender_tabs_filters": {
         "type": "form_step",
         "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "active_tenders_table": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 217,
-        "agent_word_count": 217
-      },
-      "corrigenda_section": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 67,
-        "agent_word_count": 67
-      },
-      "archived_tenders_2017_18": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 81,
-        "agent_word_count": 81
-      },
-      "archived_collapsed": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.5192,
+        "gt_word_count": 54,
+        "agent_word_count": 50
       },
-      "procurement_officer_contact": {
+      "corrigenda_table": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.6667,
+        "gt_word_count": 61,
+        "agent_word_count": 53
+      },
+      "archived_tenders": {
+        "type": "generic",
+        "content_score": 0.8436,
+        "gt_word_count": 109,
+        "agent_word_count": 102
+      },
+      "procurement_contact": {
+        "type": "generic",
+        "content_score": 0.7241,
+        "gt_word_count": 30,
+        "agent_word_count": 28
       },
       "page_meta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
-      },
-      "social_follow_bar": {
-        "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 2
       },
       "footer": {
         "type": "footer",
@@ -114,5 +114,5 @@
       }
     }
   },
-  "explanation": "Despite perfect design dimension and content scores, the overall result is limited by the topology score of 0.73, indicating several reference sections are missing or misaligned in the generated structure."
+  "explanation": "The score is held back by missing or mismatched content in key navigation areas (top_bar, main_nav, breadcrumb all at 0.00) and an absent hero header plus page_meta section, leaving the page structurally incomplete despite strong visual fidelity."
 }

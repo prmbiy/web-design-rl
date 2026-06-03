@@ -1,86 +1,86 @@
 {
-  "score": 0.666075,
+  "score": 0.522904,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6673,
-    "weighted_content": 0.9963,
-    "design_score": 1.0,
+    "topology": 0.6154,
+    "weighted_content": 0.7794,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The color palette including the cream backgrounds, green CTA button, and the colored grid blocks (green, pink, beige) appears virtually identical between the two versions."
+        "reason": "The sage green CTA, cream backgrounds, and the colored gradient blocks (green, peach, pink) are reproduced with very close fidelity to the reference palette."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading serif fonts, italic accents, small-caps section labels, and nav link styling all match closely with no perceptible differences."
+        "score": 4,
+        "reason": "Serif headings with italic accents, small-caps labels, and nav link styling all closely match, though heading weight appears very slightly heavier in the agent version."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons in the colored grid (asterisk, command symbol, flower) and the sun icon in the green section render correctly and match the reference."
+        "reason": "Icons (sun, asterisk, command, heart) render correctly and the gradient decorative blocks display properly without placeholder issues."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, nav spacing, grid block proportions, and section spacing all appear consistent with the reference."
+        "score": 4,
+        "reason": "Button padding, nav spacing, and grid block proportions are very close, with only minor differences in spacing around section headings."
       },
       "states": {
         "score": 5,
-        "reason": "The 'Book class' CTA button maintains its filled green state and nav items appear in matching default states with no visible differences."
+        "reason": "The Book Class button maintains its filled green state and nav items appear consistent, with no visible state regressions."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.8889,
+        "gt_word_count": 8,
+        "agent_word_count": 10
       },
-      "hero_story": {
+      "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 35,
+        "content_score": 0.9565,
+        "gt_word_count": 34,
         "agent_word_count": 35
       },
       "founding_story": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 216,
-        "agent_word_count": 216
+        "content_score": 0.9476,
+        "gt_word_count": 215,
+        "agent_word_count": 224
       },
-      "philosophy_quote": {
+      "quote_banner": {
         "type": "generic",
-        "content_score": 0.9714,
-        "gt_word_count": 70,
-        "agent_word_count": 70
+        "content_score": 0.8361,
+        "gt_word_count": 61,
+        "agent_word_count": 61
       },
-      "three_principles": {
+      "philosophy": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 104,
-        "agent_word_count": 104
+        "content_score": 0.6369,
+        "gt_word_count": 50,
+        "agent_word_count": 107
       },
-      "space_image": {
+      "media_image": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 55,
+        "agent_word_count": 0
       },
-      "space_stats": {
+      "the_space": {
         "type": "generic",
-        "content_score": 0.9759,
-        "gt_word_count": 83,
-        "agent_word_count": 83
+        "content_score": 0.8434,
+        "gt_word_count": 81,
+        "agent_word_count": 85
       },
       "space_gallery": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 70,
+        "content_score": 0.9275,
+        "gt_word_count": 68,
         "agent_word_count": 70
       },
       "testimonials": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 3,
-        "agent_word_count": 3
+        "content_score": 0.3889,
+        "gt_word_count": 28,
+        "agent_word_count": 8
       },
       "karma_class": {
         "type": "generic",
@@ -88,13 +88,13 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "faq_new_here": {
+      "faq": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "press_logos": {
+      "featured_in": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -108,5 +108,5 @@
       }
     }
   },
-  "explanation": "The score is held back primarily by missing sections reflected in the 0.67 topology score, with a minor secondary shortfall in the philosophy_quote section's content fidelity (F1 0.97)."
+  "explanation": "The score is held back primarily by the missing media_image section (0.00 F1) and the substantially incomplete testimonials content (0.39 F1)."
 }

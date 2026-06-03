@@ -1,82 +1,82 @@
 {
-  "score": 0.805399,
+  "score": 0.471551,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8083,
-    "weighted_content": 0.9927,
-    "design_score": 1.0,
+    "topology": 0.8417,
+    "weighted_content": 0.4405,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The pink/peach gradients, badge colors, and accent tones appear identical between the two versions."
+        "score": 3,
+        "reason": "Brand pink accents, gradient hero blobs, and pill colors match well but the agent version is missing the colorful photo card gradients in the community wall."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading serif italic, body weights, and pill/badge text styling all match closely."
+        "reason": "Heading serif, italic accent, body weight, and pill/label text styling appear nearly identical between versions."
       },
       "assets": {
-        "score": 5,
-        "reason": "Emojis, decorative icons, and gradient card illustrations all render properly and identically."
+        "score": 1,
+        "reason": "Agent version is missing all the decorative emoji icons (flower, heart, leaf, mirror, tulip, droplet) and card gradient backgrounds in the photo wall."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, padding, pill dimensions, and spacing between elements match the reference precisely."
+        "score": 4,
+        "reason": "Button padding, pill sizes, nav spacing, and stat layout proportions look consistent with the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active filter pill ('All'), selected sort toggle, and tab highlight states appear consistent with the reference."
+        "score": 4,
+        "reason": "Active 'All' filter pill, selected 'Photo Reviews First' toggle, and active featured tab states all appear correctly highlighted."
       }
     },
     "sections": {
       "promo_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.0,
+        "gt_word_count": 19,
+        "agent_word_count": 0
       },
-      "main_nav": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.4706,
+        "gt_word_count": 9,
+        "agent_word_count": 8
       },
-      "reviews_hero": {
+      "hero_reviews": {
         "type": "hero",
-        "content_score": 0.9688,
-        "gt_word_count": 32,
-        "agent_word_count": 32
+        "content_score": 0.8125,
+        "gt_word_count": 35,
+        "agent_word_count": 29
       },
       "filters": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
+        "content_score": 0.3793,
+        "gt_word_count": 35,
+        "agent_word_count": 23
       },
       "community_photo_wall": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 239,
-        "agent_word_count": 239
+        "content_score": 0.1385,
+        "gt_word_count": 201,
+        "agent_word_count": 30
       },
       "featured_transformation": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
+        "content_score": 0.8493,
+        "gt_word_count": 99,
+        "agent_word_count": 120
       },
       "skincare_journeys": {
         "type": "generic",
-        "content_score": 0.9803,
-        "gt_word_count": 152,
-        "agent_word_count": 152
+        "content_score": 0.3301,
+        "gt_word_count": 164,
+        "agent_word_count": 42
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.5747,
+        "gt_word_count": 38,
+        "agent_word_count": 49
       }
     }
   },
-  "explanation": "The score is held below 1.0 primarily by the topology score (0.81) indicating some sections are missing or misaligned, with minor secondary content gaps in the reviews_hero (0.97) and skincare_journeys (0.98) sections."
+  "explanation": "The score is held down by missing decorative assets (emoji icons and gradient photo card backgrounds, scoring 1/5 on assets and 0.14 on the community photo wall) and weak content fidelity in key sections like the promo bar (0.00), filters (0.38), and skincare journeys (0.33)."
 }

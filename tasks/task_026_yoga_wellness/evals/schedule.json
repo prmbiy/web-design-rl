@@ -1,56 +1,56 @@
 {
-  "score": 0.752319,
+  "score": 0.18894,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.7692,
-    "weighted_content": 0.956,
-    "design_score": 1.0,
+    "topology": 0.241,
+    "weighted_content": 0.6078,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The cream background, green accent buttons, and pill/badge colors all match the reference closely."
+        "reason": "The agent matches the cream background, green CTA, and badge colors (online pink, beginner tan) closely to the reference."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading serif, body text, and uppercase labels appear identical in weight and size."
+        "reason": "Heading serif italics, uppercase nav labels, and small caps pill text all match the reference styling well."
       },
       "assets": {
         "score": 5,
-        "reason": "No missing icons or broken assets; toggle and decorative elements render correctly."
+        "reason": "Icons, radio buttons, toggle switch, and decorative elements all render correctly without placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, row spacing, and overall layout density appear to match the reference precisely."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and sidebar filter spacing appear consistent, though the agent only shows Monday while reference shows all days (content difference, not proportion)."
       },
       "states": {
         "score": 5,
-        "reason": "Selected day tab (MON), active toggle, and reserve/waitlist button variants are all rendered consistently."
+        "reason": "Active MON tab with green fill, checked checkboxes, selected radio, and toggle-on state are all rendered correctly matching the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 0.9231,
-        "gt_word_count": 7,
+        "content_score": 0.8571,
+        "gt_word_count": 8,
         "agent_word_count": 6
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.9885,
-        "gt_word_count": 43,
-        "agent_word_count": 44
-      },
-      "schedule_tabs": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.8049,
+        "gt_word_count": 39,
+        "agent_word_count": 43
       },
       "filters_sidebar": {
         "type": "sidebar",
-        "content_score": 0.8722,
-        "gt_word_count": 112,
-        "agent_word_count": 115
+        "content_score": 0.4841,
+        "gt_word_count": 105,
+        "agent_word_count": 52
+      },
+      "schedule_toolbar": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
       "monday_classes": {
         "type": "generic",
@@ -60,41 +60,41 @@
       },
       "tuesday_classes": {
         "type": "generic",
-        "content_score": 0.8972,
-        "gt_word_count": 56,
-        "agent_word_count": 51
+        "content_score": 0.0,
+        "gt_word_count": 69,
+        "agent_word_count": 0
       },
       "wednesday_classes": {
         "type": "generic",
-        "content_score": 0.9186,
-        "gt_word_count": 86,
-        "agent_word_count": 86
+        "content_score": 0.0,
+        "gt_word_count": 55,
+        "agent_word_count": 0
       },
       "thursday_classes": {
         "type": "generic",
-        "content_score": 0.9593,
-        "gt_word_count": 62,
-        "agent_word_count": 61
+        "content_score": 0.0,
+        "gt_word_count": 67,
+        "agent_word_count": 0
       },
       "friday_classes": {
         "type": "generic",
-        "content_score": 0.9811,
-        "gt_word_count": 52,
-        "agent_word_count": 54
+        "content_score": 0.0,
+        "gt_word_count": 35,
+        "agent_word_count": 0
       },
       "saturday_classes": {
         "type": "generic",
-        "content_score": 0.9697,
-        "gt_word_count": 50,
-        "agent_word_count": 49
+        "content_score": 0.9273,
+        "gt_word_count": 56,
+        "agent_word_count": 54
       },
       "sunday_classes": {
         "type": "generic",
         "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "gt_word_count": 0,
+        "agent_word_count": 0
       },
-      "cancellation_note": {
+      "cancellations_note": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -108,5 +108,5 @@
       }
     }
   },
-  "explanation": "The score is held back primarily by incomplete topology coverage (0.77, indicating missing or misaligned sections) and weaker content fidelity in the filters_sidebar (0.87) and tuesday_classes (0.90) sections."
+  "explanation": "The agent failed to render class content for Tuesday through Friday (all scoring 0.00) and omitted significant filter sidebar terms (0.48 F1), leaving the schedule largely incomplete despite strong visual styling."
 }

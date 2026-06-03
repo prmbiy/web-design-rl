@@ -1,94 +1,94 @@
 {
-  "score": 0.85,
+  "score": 0.757845,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.85,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9556,
+    "weighted_content": 0.6262,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The accent colors, button fills, badge colors, and dark footer match the reference precisely."
+        "reason": "Brand navy, orange CTA, green checkmarks, and badge colors all match closely between versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, label caps styling, and pricing typography appear identical between versions."
+        "reason": "Heading weights, pricing emphasis, table labels, and small caps section labels appear nearly identical."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, checkmarks, logos, and award badges all render correctly with no placeholders visible."
+        "reason": "Icons, checkmarks, and recognition badges render correctly with no missing or placeholder elements."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizes, card dimensions, padding, and spacing between elements appear consistent with the reference."
+        "score": 4,
+        "reason": "Card sizing, button padding, table row density, and spacing are very close, with only minor differences in table column widths."
       },
       "states": {
         "score": 5,
-        "reason": "The selected Annual toggle, highlighted Growth card, and filled Request demo button states match the reference."
+        "reason": "Active 'Annual' toggle, highlighted 'Most Popular' card, and filled vs outline button variants are all rendered accurately."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 25,
-        "agent_word_count": 25
+        "content_score": 0.1379,
+        "gt_word_count": 26,
+        "agent_word_count": 3
       },
       "logos_bar": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 0
+        "agent_word_count": 22
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 24,
-        "agent_word_count": 24
+        "content_score": 0.9583,
+        "gt_word_count": 25,
+        "agent_word_count": 23
       },
       "pricing_tiers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 159,
-        "agent_word_count": 159
+        "content_score": 0.8814,
+        "gt_word_count": 151,
+        "agent_word_count": 144
       },
       "compare_capabilities": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 130,
-        "agent_word_count": 130
+        "content_score": 0.8908,
+        "gt_word_count": 114,
+        "agent_word_count": 124
       },
       "savings_calculator": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 77,
-        "agent_word_count": 77
+        "content_score": 0.8058,
+        "gt_word_count": 74,
+        "agent_word_count": 65
       },
       "timeline_rollout": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 95,
-        "agent_word_count": 95
+        "content_score": 0.6962,
+        "gt_word_count": 94,
+        "agent_word_count": 64
       },
       "industry_recognition": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 17,
-        "agent_word_count": 17
+        "content_score": 0.75,
+        "gt_word_count": 14,
+        "agent_word_count": 10
       },
-      "demo_cta": {
+      "cta_demo": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 9
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or empty content in the navigation, logos bar, CTA demo, and footer sections (0.00\u20130.14 F1), and to a lesser extent by minor proportion mismatches in table column widths."
 }

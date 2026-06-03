@@ -1,106 +1,106 @@
 {
-  "score": 0.927273,
+  "score": 0.353083,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9273,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.8111,
+    "weighted_content": 0.1906,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The brand pink, gradient fills on cards, badge colors, and accent hues appear virtually identical between the two versions."
+        "score": 3,
+        "reason": "The agent version preserves the pink/orange gradient theme and badge colors but the TikTok cards lack the vibrant multi-color gradient variety seen in reference (purple, green, etc.)."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, badge caps styling, and nav link typography all look consistent with the reference."
+        "score": 4,
+        "reason": "Heading sizes, badge caps styling, and nav link weights appear very similar to the reference with only minor differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emojis, avatars, and decorative illustrations in the Weird News section all render correctly with no visible placeholders."
+        "score": 2,
+        "reason": "Many images render as broken placeholder boxes (question mark icons) in the agent version, including all 'Weird News' thumbnails and 'You May Also Like' images, plus missing play button icons on some cards."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizes, badge padding, nav spacing, and pill dimensions match the reference closely."
+        "score": 4,
+        "reason": "Overall layout proportions, badge sizing, card dimensions, and spacing closely match the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active trending pill, viral nav highlight, and badge states appear identical to the reference."
+        "score": 4,
+        "reason": "Interactive states like the active VIRAL nav pill and trending bar highlights appear consistent with the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
         "content_score": 1.0,
-        "gt_word_count": 13,
-        "agent_word_count": 13
+        "gt_word_count": 7,
+        "agent_word_count": 7
       },
       "trending_ticker": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 4
       },
       "hero_article": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.3103,
+        "gt_word_count": 20,
+        "agent_word_count": 38
       },
       "ad_geico": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 0
       },
       "tweet_roundup": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 162,
-        "agent_word_count": 162
+        "content_score": 0.7645,
+        "gt_word_count": 147,
+        "agent_word_count": 146
       },
       "ad_lancome": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 1
       },
-      "tiktoks_grid": {
+      "tiktoks_section": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
+        "content_score": 0.1351,
+        "gt_word_count": 15,
+        "agent_word_count": 133
       },
       "reddit_week": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 147,
-        "agent_word_count": 147
+        "content_score": 0.1224,
+        "gt_word_count": 139,
+        "agent_word_count": 57
       },
-      "pumpkin_poll": {
+      "poll_pumpkin_spice": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
+        "content_score": 0.0256,
+        "gt_word_count": 9,
+        "agent_word_count": 69
       },
       "ad_hulu": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 10
       },
-      "weird_news": {
+      "weird_news_wednesday": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.0194,
+        "gt_word_count": 73,
+        "agent_word_count": 30
       },
       "you_may_also_like": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 46,
-        "agent_word_count": 46
+        "type": "footer",
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by widespread broken image placeholders across the Weird News, You May Also Like, and TikTok sections (assets: 2/5), and by severely mismatched textual content in most sections including the trending ticker, ads, poll, Reddit week, and weird news (multiple 0.00\u20130.14 F1 scores)."
 }

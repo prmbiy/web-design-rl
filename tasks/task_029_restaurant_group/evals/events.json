@@ -1,88 +1,88 @@
 {
-  "score": 0.831746,
+  "score": 0.461087,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8317,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7111,
+    "weighted_content": 0.3368,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The deep purple hero, cream background, gold accents, and card gradients appear identical between the two versions."
+        "reason": "The deep purple background, cream content area, and gold accent colors match closely between both versions with consistent card gradients."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading serif fonts, small caps labels, and button text weights all match the reference closely."
+        "reason": "Headings use the same serif italic style and body/label hierarchy appears nearly identical with matching caps treatment on section labels."
       },
       "assets": {
         "score": 5,
-        "reason": "Decorative gradient cards, monogram letters, and image placeholders render identically with no broken icons."
+        "reason": "Both versions use the same blurred gradient placeholders for images and letter monograms in cards with no broken icons visible."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Card sizing, button padding, nav spacing, and form field proportions appear to match the reference precisely."
+        "score": 4,
+        "reason": "Card sizing, button padding, form spacing, and nav density appear very close to the reference with only minor spacing variations."
       },
       "states": {
         "score": 5,
-        "reason": "Reserve button styling and link states look consistent with the reference with no visible differences."
+        "reason": "The Reserve Now button and other interactive elements maintain similar filled/outline treatments consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.6,
         "gt_word_count": 9,
-        "agent_word_count": 9
+        "agent_word_count": 11
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.1429,
+        "gt_word_count": 11,
+        "agent_word_count": 3
       },
       "private_rooms": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 123,
-        "agent_word_count": 123
+        "type": "pricing",
+        "content_score": 0.8476,
+        "gt_word_count": 136,
+        "agent_word_count": 133
       },
       "sample_menus": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 101,
-        "agent_word_count": 101
+        "type": "generic",
+        "content_score": 0.6087,
+        "gt_word_count": 85,
+        "agent_word_count": 53
       },
       "past_events_gallery": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 122,
-        "agent_word_count": 122
+        "content_score": 0.5765,
+        "gt_word_count": 98,
+        "agent_word_count": 72
       },
       "chefs_table_experience": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 57,
-        "agent_word_count": 57
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 2
       },
-      "seasonal_calendar": {
+      "upcoming_calendar": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       },
       "inquiry_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.1429,
+        "gt_word_count": 9,
+        "agent_word_count": 5
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
+        "content_score": 0.0,
+        "gt_word_count": 5,
         "agent_word_count": 0
       }
     }
   },
-  "explanation": "The score is held back primarily by the topology gap (0.83), indicating one or more reference sections are missing from the agent-generated version, rather than by any design or content-matching issues."
+  "explanation": "The score is held back primarily by missing or empty content in key sections (chefs_table_experience, upcoming_calendar, and footer all scoring 0.00) and severely mismatched copy in the hero and inquiry_form sections (F1 of 0.14), indicating the agent failed to reproduce the reference's actual text content despite strong visual styling."
 }

@@ -1,94 +1,88 @@
 {
-  "score": 0.825,
+  "score": 0.711293,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.825,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.95,
+    "weighted_content": 0.5375,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear to use identical brand accents, gradients, badges, and icon colors throughout."
+        "reason": "Brand orange CTAs, gradient hero, badge colors, and avatar colors match closely between both versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, button labels, and pill styling appear identical between the two versions."
+        "reason": "Heading sizes, button weights, and pill text styling appear nearly identical with only very minor spacing differences."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, avatar circles, map illustration, and emoji all render consistently in both images."
+        "score": 4,
+        "reason": "Icons, avatars, and map rendering all appear correctly, though the footer social icons render slightly differently with one less item visible."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing match exactly."
+        "reason": "Button padding, badge sizing, and overall element spacing are very close to the reference with negligible differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active states like the highlighted VIP Lounge ticket option and selected nav appear the same in both."
+        "reason": "Active states like the location selector pill, sold-out ticket, and Get Tickets button all appear consistent with the reference."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.381,
+        "gt_word_count": 8,
+        "agent_word_count": 13
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.1538,
+        "gt_word_count": 9,
+        "agent_word_count": 30
       },
       "event_meta_bar": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
-      },
-      "about_and_included": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 155,
-        "agent_word_count": 155
+        "content_score": 0.0,
+        "gt_word_count": 10,
+        "agent_word_count": 3
       },
-      "tickets_sidebar": {
+      "about_and_tickets": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.8459,
+        "gt_word_count": 137,
+        "agent_word_count": 142
       },
       "schedule": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.8267,
+        "gt_word_count": 37,
+        "agent_word_count": 38
       },
       "location_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.9811,
+        "gt_word_count": 27,
+        "agent_word_count": 26
       },
       "whos_going": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 8,
+        "content_score": 0.4,
+        "gt_word_count": 2,
         "agent_word_count": 8
       },
       "similar_events": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 78,
-        "agent_word_count": 78
+        "type": "media",
+        "content_score": 0.7447,
+        "gt_word_count": 48,
+        "agent_word_count": 46
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by major content mismatches in the hero (0.15) and event_meta_bar (0.00) sections, along with missing or incorrect footer text (0.00) and weak navigation wording (0.38)."
 }

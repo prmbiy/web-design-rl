@@ -1,70 +1,82 @@
 {
-  "score": 0.987455,
+  "score": 0.520508,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 1.0,
-    "weighted_content": 0.9749,
-    "design_score": 1.0,
+    "topology": 0.875,
+    "weighted_content": 0.3097,
+    "design_score": 0.88,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Orange accents, blue display, badge colors, and CTA button all match identically."
+        "score": 4,
+        "reason": "Accent orange, blue CTA, and badge colors closely match, though the agent's '6K/60fps' stat uses orange while the reference shows white/orange mix."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, caps labels, nav link styling, and button typography appear identical."
+        "score": 4,
+        "reason": "Heading weight appears slightly heavier/bolder in the agent version and the stat numbers are colored differently, but overall hierarchy is preserved."
       },
       "assets": {
         "score": 5,
-        "reason": "Camera render, KS/TW/arrow icons, and flag emoji all render correctly and identically."
+        "reason": "Camera render, KS/TW/arrow icons and flag emoji all render correctly with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and nav spacing all match the reference."
+        "score": 4,
+        "reason": "Button sizing, pill spacing, and section layout are very close, with only minor differences in countdown digit spacing and stat block sizing."
       },
       "states": {
         "score": 5,
-        "reason": "Pre-order button filled state and reserve CTA appear identical with no visible state differences."
+        "reason": "Filled Pre-order and Reserve buttons render with proper accent fills matching the reference's interactive states."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.3636,
+        "gt_word_count": 2,
+        "agent_word_count": 9
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.8889,
-        "gt_word_count": 17,
-        "agent_word_count": 19
+        "content_score": 0.8,
+        "gt_word_count": 13,
+        "agent_word_count": 17
+      },
+      "product_media": {
+        "type": "media",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 2
       },
       "key_specs": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 6,
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 2
+      },
+      "pricing_reserve": {
+        "type": "pricing",
+        "content_score": 0.4444,
+        "gt_word_count": 3,
         "agent_word_count": 6
       },
-      "pricing_countdown": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 15,
-        "agent_word_count": 15
+      "press_note": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 0
       },
       "trust_badges": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 30,
-        "agent_word_count": 30
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 3
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 33,
-        "agent_word_count": 33
+        "content_score": 0.6,
+        "gt_word_count": 8,
+        "agent_word_count": 12
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched textual content in several sections (product_media, key_specs, press_note, and trust_badges all scored 0.00, with nav at 0.36), and by minor visual deviations including the orange-colored '6K/60fps' stat and slightly heavier heading weights that diverge from the reference's typography."
 }

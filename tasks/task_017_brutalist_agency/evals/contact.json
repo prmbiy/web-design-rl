@@ -1,82 +1,82 @@
 {
-  "score": 0.872991,
+  "score": 0.389543,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.875,
-    "weighted_content": 0.9954,
-    "design_score": 1.0,
+    "weighted_content": 0.3304,
+    "design_score": 0.56,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Both versions use the same black background with identical yellow accent colors on the CTA button, marquee bar, and small dot accents."
+        "score": 3,
+        "reason": "The agent version preserves the black background, white text, and yellow accent dot/marquee, but is missing the prominent yellow highlighted budget pill that exists in the reference."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, serif display type, caps labels, and body text styling appear visually identical between the two versions."
+        "score": 4,
+        "reason": "Heading weights and serif styling for 'TALK TO US' and section headers match well, with similar caps labels and small mono-style annotations."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, arrows, dots, and decorative marks all render correctly and match the reference without placeholders or broken elements."
+        "score": 4,
+        "reason": "The yellow circular dot punctuation and arrow icons render correctly in both versions with no missing placeholders."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, form field spacing, card sizing, and nav spacing all closely mirror the reference layout."
+        "score": 2,
+        "reason": "The agent version appears horizontally cut off, with content like 'NEW YORK' clipped and the third 'SEOUL' column missing, plus the budget options only show one option instead of three side-by-side pills."
       },
       "states": {
-        "score": 5,
-        "reason": "The selected yellow pill in the budget range and the filled yellow send button states are preserved identically."
+        "score": 1,
+        "reason": "The reference shows a clearly highlighted yellow selected budget pill and a visible yellow 'SEND BRIEF' button, while the agent version shows no selected state and the send button is not visible."
       }
     },
     "sections": {
-      "top_nav": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 5,
-        "agent_word_count": 5
-      },
-      "hero_talk_to_us": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 36,
-        "agent_word_count": 36
-      },
-      "primary_email_contact": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
-      },
-      "office_locations": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
-      },
-      "brief_form": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 108,
-        "agent_word_count": 108
-      },
-      "elsewhere_and_fine_print": {
-        "type": "generic",
-        "content_score": 0.9552,
-        "gt_word_count": 32,
-        "agent_word_count": 35
-      },
-      "booking_banner": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 1,
-        "agent_word_count": 1
-      },
-      "footer": {
-        "type": "footer",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
+      },
+      "hero_talk_to_us": {
+        "type": "hero",
+        "content_score": 0.1538,
+        "gt_word_count": 31,
+        "agent_word_count": 8
+      },
+      "email_primary": {
+        "type": "generic",
+        "content_score": 0.3636,
+        "gt_word_count": 5,
+        "agent_word_count": 6
+      },
+      "offices": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 8,
+        "agent_word_count": 1
+      },
+      "brief_form": {
+        "type": "form_step",
+        "content_score": 0.3448,
+        "gt_word_count": 15,
+        "agent_word_count": 14
+      },
+      "elsewhere_meta": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 9
+      },
+      "ticker": {
+        "type": "generic",
+        "content_score": 0.5263,
+        "gt_word_count": 14,
+        "agent_word_count": 5
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.4,
+        "gt_word_count": 2,
+        "agent_word_count": 3
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is dragged down by severe proportion issues (the layout is horizontally clipped, cutting off the SEOUL office column and collapsing the three budget pills into one) and missing interactive states (no highlighted yellow selected budget pill or visible yellow 'SEND BRIEF' button), which also explains the near-zero content match in the offices and elsewhere_meta sections."
 }

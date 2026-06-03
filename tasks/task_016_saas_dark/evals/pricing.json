@@ -1,82 +1,82 @@
 {
-  "score": 0.942857,
+  "score": 0.381555,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9429,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.71,
+    "weighted_content": 0.1548,
+    "design_score": 0.92,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Brand purple accents on CTAs, badges, pills, and check icons match closely between both versions."
+        "reason": "The purple accent, gradient hero text, pill colors, and check icon colors match closely between versions."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, sizes, and label/badge styling appear nearly identical across both designs."
+        "reason": "Headings, body, and pill text styling appear nearly identical in weight and hierarchy."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, check marks, and decorative elements render correctly in both with no missing assets."
+        "score": 3,
+        "reason": "Icons and checkmarks render correctly in the agent version, though the entire comparison table, enterprise card, and usage section are missing as assets/content."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, card sizing, badge proportions, and spacing appear visually identical."
+        "reason": "Pricing cards, buttons, badges, and nav spacing have proportions that closely mirror the reference."
       },
       "states": {
         "score": 5,
-        "reason": "The Annual pill selected state and Pro card highlighted state are preserved correctly."
+        "reason": "The Annual toggle active state and 'Most Popular' highlighted card with filled CTA are correctly reproduced."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.3333,
+        "gt_word_count": 4,
+        "agent_word_count": 2
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.5,
+        "gt_word_count": 17,
+        "agent_word_count": 7
       },
       "pricing_tiers": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 152,
-        "agent_word_count": 152
+        "content_score": 0.1928,
+        "gt_word_count": 42,
+        "agent_word_count": 41
       },
       "enterprise_cta": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 42,
-        "agent_word_count": 42
+        "content_score": 0.0,
+        "gt_word_count": 7,
+        "agent_word_count": 0
       },
       "compare_plans": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 190,
-        "agent_word_count": 190
+        "content_score": 0.0,
+        "gt_word_count": 64,
+        "agent_word_count": 0
       },
-      "usage_based": {
+      "usage_pricing": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 109,
-        "agent_word_count": 109
+        "content_score": 0.0513,
+        "gt_word_count": 34,
+        "agent_word_count": 5
       },
       "faq": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 26
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.0,
+        "gt_word_count": 13,
+        "agent_word_count": 7
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by major missing content sections (compare_plans, enterprise_cta, usage_pricing, faq, and footer all score 0.00) and weak pricing tier content fidelity (0.19), despite strong visual styling across color, typography, and proportions."
 }

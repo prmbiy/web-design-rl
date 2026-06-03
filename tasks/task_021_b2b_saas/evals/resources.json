@@ -1,94 +1,94 @@
 {
-  "score": 0.977778,
+  "score": 0.773436,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9778,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9556,
+    "weighted_content": 0.6588,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The orange accent CTAs, navy hero, gradient blog cards, and badge colors appear identical between both versions."
+        "reason": "Brand orange CTAs, blue hero card, gradient blog tiles, and badge colors all match the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, caps badges, and nav link styling look matched throughout."
+        "reason": "Heading weights, button text, and pill styling appear nearly identical to the reference."
       },
       "assets": {
         "score": 5,
-        "reason": "Icons, play buttons, avatars, and decorative blog imagery render identically with no missing assets."
+        "reason": "Icons, play buttons on video tiles, avatar circles, and decorative illustrations all render correctly as in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, form spacing, and nav density appear consistent between both images."
+        "score": 4,
+        "reason": "Button padding, badge sizing, and form element spacing are very close, though some sections feel slightly more compact vertically."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab underline on All Resources and filled CTA buttons appear the same in both versions."
+        "reason": "Active 'All Resources' tab underline and filled vs outline button variants are preserved correctly."
       }
     },
     "sections": {
-      "top_nav": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.5,
+        "gt_word_count": 8,
+        "agent_word_count": 4
       },
-      "customer_logos_bar": {
+      "logo_bar": {
         "type": "navigation",
-        "content_score": 1.0,
+        "content_score": 0.6316,
         "gt_word_count": 16,
-        "agent_word_count": 16
+        "agent_word_count": 22
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
+        "content_score": 0.8485,
         "gt_word_count": 28,
-        "agent_word_count": 28
+        "agent_word_count": 38
       },
       "resource_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 16,
-        "agent_word_count": 16
+        "content_score": 0.0,
+        "gt_word_count": 15,
+        "agent_word_count": 1
       },
-      "featured_analyst_report": {
+      "featured_report": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 80,
-        "agent_word_count": 80
+        "content_score": 0.7597,
+        "gt_word_count": 73,
+        "agent_word_count": 56
       },
       "upcoming_webinars": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 91,
-        "agent_word_count": 91
+        "content_score": 0.8,
+        "gt_word_count": 82,
+        "agent_word_count": 78
       },
       "from_the_blog": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 109,
-        "agent_word_count": 109
+        "content_score": 0.784,
+        "gt_word_count": 71,
+        "agent_word_count": 54
       },
       "video_demo_library": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 56,
-        "agent_word_count": 56
+        "content_score": 0.7818,
+        "gt_word_count": 64,
+        "agent_word_count": 46
       },
       "customer_case_studies": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 81,
-        "agent_word_count": 81
+        "content_score": 0.7982,
+        "gt_word_count": 102,
+        "agent_word_count": 116
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 5,
+        "content_score": 0.0,
+        "gt_word_count": 1,
         "agent_word_count": 5
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by the completely missing footer content (0.00 F1) and absent resource_tabs navigation labels (0.00 F1), both of which leave major textual sections unreplicated despite strong visual fidelity elsewhere."
 }

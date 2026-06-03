@@ -1,106 +1,82 @@
 {
-  "score": 0.516667,
+  "score": 0.350066,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.5167,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.75,
+    "weighted_content": 0.2535,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The accent colors, badge backgrounds, gradient card fills, and nav colors appear identical between both versions."
+        "score": 4,
+        "reason": "Brand orange, badge colors, and card gradient fills are largely preserved, though some card backgrounds appear slightly different in saturation."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, badge styling, and nav link typography match closely with no perceptible differences."
+        "score": 4,
+        "reason": "Heading sizes, button weights, and badge text styling closely match the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji, and phone illustrations render correctly and identically in both versions."
+        "score": 2,
+        "reason": "Product images are rendered as broken/placeholder boxes with question marks instead of the phone illustrations shown in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button sizing, badge dimensions, card spacing, and nav density appear identical across both images."
+        "score": 4,
+        "reason": "Button padding, badge sizes, filter spacing, and overall grid proportions look consistent with the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Selected filter checkboxes, active sort pill, and view toggle states are rendered the same way in both versions."
+        "score": 3,
+        "reason": "Active pills, checked checkboxes, and filled CTA states are preserved, though the '\u0421\u043e \u0441\u043a\u0438\u0434\u043a\u043e\u0439' and '\u0414\u043e\u0441\u0442\u0430\u0432\u043a\u0430 \u0437\u0430\u0432\u0442\u0440\u0430' pills appear as outlined rather than filled like in the reference."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.0,
+        "gt_word_count": 3,
+        "agent_word_count": 8
       },
       "category_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 29,
-        "agent_word_count": 29
+        "content_score": 0.0,
+        "gt_word_count": 16,
+        "agent_word_count": 3
       },
-      "delivery_bar": {
+      "breadcrumb_title": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.087,
+        "gt_word_count": 4,
+        "agent_word_count": 19
       },
-      "breadcrumbs_title": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
-      },
-      "filter_tabs": {
+      "brand_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.1111,
+        "gt_word_count": 5,
+        "agent_word_count": 13
       },
-      "sort_bar": {
+      "sort_filters": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 8,
-        "agent_word_count": 8
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
       },
       "filters_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 509,
-        "agent_word_count": 509
+        "content_score": 0.4093,
+        "gt_word_count": 245,
+        "agent_word_count": 317
       },
-      "product_grid_row1": {
+      "products_grid": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.4074,
+        "gt_word_count": 89,
+        "agent_word_count": 127
       },
-      "product_grid_row2": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "product_grid_row3": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "product_grid_row4": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "product_grid_row5": {
-        "type": "pricing",
+      "footer": {
+        "type": "footer",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       }
     }
   },
-  "explanation": "Despite perfect design dimension and content scores, the overall score is held down by the low topology score (0.52), indicating that roughly half of the expected sections are missing or misaligned in the agent's generated layout."
+  "explanation": "The score is held back primarily by broken product image assets rendered as placeholder boxes instead of the phone illustrations, and by near-zero text content matches across the top navigation, category nav, breadcrumb title, brand tabs, and sort filters."
 }

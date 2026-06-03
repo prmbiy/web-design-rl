@@ -1,51 +1,51 @@
 {
   "task": "task_013_aus_real_estate",
-  "avg_score": 0.852222,
-  "avg_topology": 0.852,
-  "avg_content": 1.0,
-  "avg_design": 1.0,
+  "avg_score": 0.620512,
+  "avg_topology": 0.897,
+  "avg_content": 0.542,
+  "avg_design": 0.84,
   "design_dimensions": {
     "color": {
-      "avg_score": 5.0,
-      "worst_reason": "Teal brand color, orange CTAs, colored avatar circles, and badge colors all appear identical between versions."
+      "avg_score": 4.6,
+      "worst_reason": "Brand teal, orange CTAs, and badge colors match closely, though the agent version lacks the colored property/feature icons present in the reference."
     },
     "typography": {
-      "avg_score": 5.0,
-      "worst_reason": "Heading weights, button text, pill labels in caps, and nav styling all match closely."
+      "avg_score": 4.6,
+      "worst_reason": "Heading weights, badge caps styling, and nav link treatment appear nearly identical with only very minor size differences."
     },
     "assets": {
-      "avg_score": 5.0,
-      "worst_reason": "Trophy emoji, house emoji, avatar initials, and checkmarks all render correctly in both versions."
+      "avg_score": 2.6,
+      "worst_reason": "The reference uses distinct emoji icons in the first home buyer cards while the generated version shows generic placeholder box icons instead."
     },
     "proportion": {
-      "avg_score": 5.0,
-      "worst_reason": "Button sizes, pill dimensions, card spacing, and form element proportions appear identical."
+      "avg_score": 4.4,
+      "worst_reason": "Button padding, pill sizing, and form element spacing are very similar with only slight differences in card heights."
     },
     "states": {
-      "avg_score": 5.0,
-      "worst_reason": "Active Agents nav tab with underline, toggle switch in on state, and filled vs outline button variants all match."
+      "avg_score": 4.8,
+      "worst_reason": "Active filter buttons (More filters outlined), filled Search button, and demographic chart highlighted bar states are preserved correctly."
     }
   },
   "pages": {
     "agents": {
-      "score": 0.8083,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.7454,
+      "explanation": "The footer content is largely missing (F1 0.21) and the filters section is incomplete (F1 0.50), which together account for most of the gap from a perfect score."
     },
     "home": {
-      "score": 0.975,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.6625,
+      "explanation": "The score is held back by missing or incorrect content in key sections (footer at 0.00, app_promo at 0.11, and top_nav at 0.20) and by the use of generic placeholder box icons instead of the reference's distinct emoji icons in the first home buyer cards."
     },
     "listing": {
-      "score": 0.7444,
-      "explanation": "The score is held back primarily by incomplete section topology coverage (0.74), as all present sections and design dimensions otherwise score perfectly, indicating missing sections from the reference rather than visual or content mismatches."
+      "score": 0.6128,
+      "explanation": "The score is held back primarily by broken image placeholders replacing the reference's rendered emoji/illustrations (assets 2/5) and missing or mismatched content in key sections including the footer (0.00), media gallery (0.17), category tabs (0.38), and navigation (0.43)."
     },
     "search": {
-      "score": 0.9333,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.6386,
+      "explanation": "The score is held down by broken image placeholders on every property card instead of clean colored backgrounds, and by missing or mismatched content in the pagination and footer sections (both scoring 0.00)."
     },
     "suburb": {
-      "score": 0.8,
-      "explanation": "The agent replicated the design with only minor differences."
+      "score": 0.4432,
+      "explanation": "The score is held back by missing or empty content sections (breadcrumbs, key_stats, and footer all scoring 0.00) and weak hero/top_nav fidelity compounded by placeholder icons replacing proper property card imagery."
     }
   }
 }

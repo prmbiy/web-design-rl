@@ -1,38 +1,38 @@
 {
-  "score": 0.727015,
+  "score": 0.260001,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8171,
-    "weighted_content": 0.9794,
-    "design_score": 0.8,
+    "topology": 0.5048,
+    "weighted_content": 0.3902,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "Color palette of muted beige, cream, and sage green CTA button matches closely between both versions."
+        "score": 4,
+        "reason": "The green BOOK CLASS button and overall warm beige palette are preserved well in the agent version."
       },
       "typography": {
-        "score": 5,
-        "reason": "Serif headings with italic accents, small caps labels, and body text hierarchy appear identical."
+        "score": 4,
+        "reason": "Heading serif italic styling and nav caps appear consistent, though the agent version is missing several middle sections so fewer comparisons are possible."
       },
       "assets": {
         "score": 2,
-        "reason": "The agent version is missing the first 'Slow Flow Vinyasa' card with its hexagon icon, leaving only two of three cards visible."
+        "reason": "The agent version is missing the three card icons, teacher spotlight image, and class listing content entirely, leaving large blank areas."
       },
       "proportion": {
-        "score": 3,
-        "reason": "Button sizes, spacing, and card proportions match well, though the missing card affects the three-column layout balance."
+        "score": 2,
+        "reason": "Hero and footer proportions match well, but the agent omits most middle sections leaving disproportionate empty regions."
       },
       "states": {
-        "score": 5,
-        "reason": "Interactive states like the green Reserve buttons and Book Class CTA appear consistent in both versions."
+        "score": 4,
+        "reason": "The book class button state matches; few other interactive states are visible to evaluate due to missing sections."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.6154,
+        "gt_word_count": 5,
+        "agent_word_count": 8
       },
       "hero": {
         "type": "hero",
@@ -42,35 +42,35 @@
       },
       "practice_formats": {
         "type": "generic",
-        "content_score": 0.8095,
+        "content_score": 0.0,
         "gt_word_count": 100,
-        "agent_word_count": 68
+        "agent_word_count": 0
       },
-      "weekly_classes": {
+      "upcoming_classes": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 68,
-        "agent_word_count": 68
+        "content_score": 0.1702,
+        "gt_word_count": 43,
+        "agent_word_count": 4
       },
       "teacher_spotlight": {
         "type": "media",
-        "content_score": 1.0,
+        "content_score": 0.0,
         "gt_word_count": 86,
-        "agent_word_count": 86
+        "agent_word_count": 0
       },
       "membership_pricing": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 105,
-        "agent_word_count": 105
+        "content_score": 0.3238,
+        "gt_word_count": 73,
+        "agent_word_count": 32
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.5283,
+        "gt_word_count": 31,
+        "agent_word_count": 22
       }
     }
   },
-  "explanation": "The agent version is missing the first 'Slow Flow Vinyasa' card with its hexagon icon (assets 2/5), which disrupts the three-column layout balance (proportion 3/5) and lowers the practice_formats content match to 0.81."
+  "explanation": "The agent omitted entire middle sections\u2014teacher spotlight imagery, practice formats cards, and upcoming class listings (content F1 of 0.00\u20130.17)\u2014and failed to render the associated card icons and spotlight assets, leaving large blank regions that break proportional balance."
 }

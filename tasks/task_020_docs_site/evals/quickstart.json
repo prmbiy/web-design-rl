@@ -1,30 +1,30 @@
 {
-  "score": 0.609524,
+  "score": 0.512361,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.6095,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.6381,
+    "weighted_content": 0.7659,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "All accent colors, admonition backgrounds (green, yellow, red), code block dark theme, and nav link colors appear identical between the two versions."
+        "score": 4,
+        "reason": "Brand blues, admonition background tints, and nav link colors closely match the reference with only minor variation in code block syntax highlighting hues."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading sizes, weights, badge caps styling, code font, and nav typography match closely with no perceptible differences."
+        "reason": "Heading sizes, weights, and the small-caps section labels in the sidebar match closely with body text styling consistent."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, emoji (lightbulb, warning), and Next Steps card icons all render identically in both versions."
+        "score": 3,
+        "reason": "Emoji icons in admonitions render but the Next Steps card icons appear as generic placeholder boxes instead of the distinct calendar/chart/cloud icons in the reference."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Padding, spacing, card sizing, button proportions, and nav density appear identical across both images."
+        "score": 4,
+        "reason": "Spacing, padding, code block sizing, and nav density are very similar with only tiny differences in card icon area."
       },
       "states": {
         "score": 5,
-        "reason": "Active nav item highlighting on 'Step 1: Initialize' and Copy button styling appear consistent in both versions."
+        "reason": "Active sidebar item (Step 1: Initialize) and active on-page TOC link both show the highlighted state matching the reference."
       }
     },
     "sections": {
@@ -36,71 +36,71 @@
       },
       "left_sidebar": {
         "type": "sidebar",
-        "content_score": 1.0,
-        "gt_word_count": 160,
-        "agent_word_count": 160
-      },
-      "breadcrumb_title": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "prerequisites_callout": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "step_1_initialize": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 34,
-        "agent_word_count": 34
-      },
-      "step_2_define_task": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 113,
-        "agent_word_count": 113
-      },
-      "step_3_build_pipeline": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 83,
-        "agent_word_count": 83
-      },
-      "step_4_run": {
-        "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 68,
-        "agent_word_count": 68
-      },
-      "next_steps_cards": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
-      },
-      "prev_next_links": {
-        "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
-      },
-      "footer": {
-        "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.782,
+        "gt_word_count": 126,
+        "agent_word_count": 140
       },
       "right_toc_sidebar": {
         "type": "sidebar",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
+      },
+      "page_header": {
+        "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "prerequisites": {
+        "type": "generic",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "step1_initialize": {
+        "type": "form_step",
+        "content_score": 0.7111,
+        "gt_word_count": 26,
+        "agent_word_count": 19
+      },
+      "step2_define_task": {
+        "type": "form_step",
+        "content_score": 0.704,
+        "gt_word_count": 57,
+        "agent_word_count": 68
+      },
+      "step3_build_pipeline": {
+        "type": "form_step",
+        "content_score": 0.816,
+        "gt_word_count": 63,
+        "agent_word_count": 62
+      },
+      "step4_run": {
+        "type": "form_step",
+        "content_score": 0.9278,
+        "gt_word_count": 48,
+        "agent_word_count": 49
+      },
+      "next_steps": {
+        "type": "pricing",
+        "content_score": 0.4571,
+        "gt_word_count": 23,
+        "agent_word_count": 47
+      },
+      "prev_next_nav": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 0
+      },
+      "footer": {
+        "type": "footer",
+        "content_score": 0.6087,
+        "gt_word_count": 11,
+        "agent_word_count": 12
       }
     }
   },
-  "explanation": "Despite perfect design and content scores, the overall score is held back by an incomplete topology (0.61), indicating several reference sections are missing from the agent-generated version."
+  "explanation": "The score is held back primarily by the missing prev/next navigation section (0.00) and the incomplete Next Steps card (0.46), where distinct calendar/chart/cloud icons render as generic placeholder boxes."
 }

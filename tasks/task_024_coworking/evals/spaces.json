@@ -1,94 +1,94 @@
 {
-  "score": 0.911111,
+  "score": 0.651376,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9111,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.9,
+    "weighted_content": 0.6875,
+    "design_score": 0.76,
     "design_dimensions": {
       "color": {
-        "score": 5,
-        "reason": "The accent orange CTA, green availability badges, dark seat-count pills, and beige card backgrounds all match the reference closely."
+        "score": 4,
+        "reason": "Background tones, orange CTAs, and badge colors match well, though card illustrations are missing color in the generated version."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, body text, uppercase eyebrow labels, and pill text styling appear consistent with the reference."
+        "reason": "Heading sizes, weights, and small caps labels appear consistent with the reference."
       },
       "assets": {
-        "score": 5,
-        "reason": "All illustrative icons (building, book, phone, chair, ticket, leaf, palette) and amenity icons render correctly and match the reference."
+        "score": 1,
+        "reason": "All decorative illustrations and most amenity icons render as question mark placeholders instead of the reference's colored icons."
       },
       "proportion": {
         "score": 5,
-        "reason": "Button padding, badge sizing, card dimensions, and spacing between elements appear identical to the reference."
+        "reason": "Button padding, badge sizing, card layout, and spacing closely mirror the reference."
       },
       "states": {
-        "score": 5,
-        "reason": "Active nav state on 'Spaces', filled vs outline button variants, and badge states all match the reference."
+        "score": 4,
+        "reason": "Active nav state, filled vs outline button variants, and pill states match the reference appropriately."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 12,
-        "agent_word_count": 12
+        "content_score": 0.9524,
+        "gt_word_count": 11,
+        "agent_word_count": 10
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 45,
-        "agent_word_count": 45
+        "content_score": 0.9367,
+        "gt_word_count": 39,
+        "agent_word_count": 40
       },
-      "main_focus_rooms": {
+      "main_floor_and_focus_rooms": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 101,
-        "agent_word_count": 101
+        "content_score": 0.8116,
+        "gt_word_count": 67,
+        "agent_word_count": 71
       },
-      "phone_meeting_rooms": {
+      "phone_booths_and_meeting_rooms": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 82,
-        "agent_word_count": 82
+        "content_score": 0.8592,
+        "gt_word_count": 69,
+        "agent_word_count": 73
       },
-      "event_space": {
+      "foundry_event_space": {
         "type": "generic",
-        "content_score": 1.0,
+        "content_score": 0.6076,
+        "gt_word_count": 52,
+        "agent_word_count": 106
+      },
+      "roof_deck_and_private_studios": {
+        "type": "generic",
+        "content_score": 0.6049,
         "gt_word_count": 111,
-        "agent_word_count": 111
-      },
-      "roof_studios": {
-        "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 78,
-        "agent_word_count": 78
+        "agent_word_count": 51
       },
       "virtual_tour": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 51,
-        "agent_word_count": 51
+        "content_score": 0.9011,
+        "gt_word_count": 44,
+        "agent_word_count": 47
       },
-      "amenities": {
+      "amenities_included": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 20,
-        "agent_word_count": 20
+        "content_score": 0.5641,
+        "gt_word_count": 28,
+        "agent_word_count": 11
       },
-      "cta_book_tour": {
-        "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 40,
-        "agent_word_count": 40
+      "book_tour_cta": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 1,
+        "agent_word_count": 1
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 14,
-        "agent_word_count": 14
+        "content_score": 0.0,
+        "gt_word_count": 4,
+        "agent_word_count": 0
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing decorative illustrations and amenity icons rendering as question mark placeholders (assets 1/5), and by entirely absent book_tour_cta and footer sections (both 0.00 F1)."
 }

@@ -1,112 +1,112 @@
 {
-  "score": 0.916667,
+  "score": 0.481092,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.9167,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 0.7462,
+    "weighted_content": 0.4895,
+    "design_score": 0.8,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The brand colors, gradients, badge fills, and CTA accents appear identical between both images."
+        "reason": "Brand teal, orange CTAs, gradient hero, and badge colors match closely between both versions."
       },
       "typography": {
-        "score": 5,
-        "reason": "Heading weights, button labels, and pill text styling appear to match precisely."
+        "score": 4,
+        "reason": "Heading weights, button labels, and pill text styling are very similar with only minor differences in heading scale."
       },
       "assets": {
-        "score": 5,
-        "reason": "Icons, logos, emoji, and decorative map illustrations all render correctly and identically."
+        "score": 2,
+        "reason": "Some icons appear as placeholder boxes/squares in the generated version (e.g., tab icons, plan badges, recharge inputs, store list items) where reference shows proper icons."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, badge dimensions, and spacing between elements appear consistent."
+        "score": 4,
+        "reason": "Button padding, card sizing, and overall spacing are nearly identical with only subtle layout differences."
       },
       "states": {
         "score": 5,
-        "reason": "Active tab underline, selected $200 pill, filled vs outlined CTAs, and highlighted Pro card all match."
+        "reason": "Active tab underline, selected $200 amount pill, highlighted Pro card, and Volaris carrier selection states are all preserved correctly."
       }
     },
     "sections": {
       "top_bar": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 15,
+        "content_score": 0.0,
+        "gt_word_count": 0,
         "agent_word_count": 15
       },
       "main_nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 7,
-        "agent_word_count": 7
+        "content_score": 0.625,
+        "gt_word_count": 8,
+        "agent_word_count": 8
       },
       "promo_banner": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 10,
-        "agent_word_count": 10
+        "content_score": 0.0,
+        "gt_word_count": 6,
+        "agent_word_count": 0
       },
       "hero_plan": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 77,
-        "agent_word_count": 77
+        "content_score": 0.6522,
+        "gt_word_count": 50,
+        "agent_word_count": 42
       },
-      "plan_finder_tabs": {
+      "plan_tabs": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 28,
-        "agent_word_count": 28
+        "content_score": 0.8,
+        "gt_word_count": 26,
+        "agent_word_count": 24
       },
       "pricing_plans": {
         "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 121,
-        "agent_word_count": 121
+        "content_score": 0.5641,
+        "gt_word_count": 96,
+        "agent_word_count": 99
       },
-      "streaming_services": {
+      "streaming_logos": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 11,
-        "agent_word_count": 11
+        "content_score": 0.6,
+        "gt_word_count": 10,
+        "agent_word_count": 10
       },
       "recharge_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 49,
-        "agent_word_count": 49
+        "content_score": 0.4324,
+        "gt_word_count": 27,
+        "agent_word_count": 10
       },
       "data_doubles_banner": {
-        "type": "generic",
+        "type": "hero",
         "content_score": 1.0,
         "gt_word_count": 3,
         "agent_word_count": 3
       },
-      "portability_promo": {
+      "portability_form": {
         "type": "form_step",
-        "content_score": 1.0,
-        "gt_word_count": 61,
-        "agent_word_count": 61
+        "content_score": 0.6139,
+        "gt_word_count": 54,
+        "agent_word_count": 47
       },
       "stores_map": {
         "type": "map",
-        "content_score": 1.0,
-        "gt_word_count": 60,
-        "agent_word_count": 60
+        "content_score": 0.4828,
+        "gt_word_count": 12,
+        "agent_word_count": 17
       },
       "status_bar": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 19,
-        "agent_word_count": 19
+        "content_score": 0.0,
+        "gt_word_count": 5,
+        "agent_word_count": 0
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 54,
-        "agent_word_count": 54
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back by missing sections (top_bar, promo_banner, status_bar, and footer all scoring 0.00) and placeholder boxes replacing proper icons across tabs, plan badges, recharge inputs, and store listings (assets 2/5)."
 }

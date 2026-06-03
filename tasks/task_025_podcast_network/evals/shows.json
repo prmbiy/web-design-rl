@@ -1,70 +1,64 @@
 {
-  "score": 0.96,
+  "score": 0.719367,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.96,
-    "weighted_content": 1.0,
-    "design_score": 1.0,
+    "topology": 1.0,
+    "weighted_content": 0.4787,
+    "design_score": 0.96,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "Accent colors, gradient fills on cards, badges, and nav elements appear identical between the two versions."
+        "reason": "Brand accent reds, card gradients, and purple background tones match closely with only minor variations in gradient intensity."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, badge caps styling, nav link styling, and body text all match precisely."
+        "reason": "Heading serif, label caps, and body weights all closely match the reference styling."
       },
       "assets": {
         "score": 5,
-        "reason": "All icons, gradient artworks, and decorative card images render correctly and identically."
+        "reason": "Icons, circular indicators, and decorative card elements all render correctly with no missing assets."
       },
       "proportion": {
-        "score": 5,
-        "reason": "Button padding, card sizing, pill dimensions, and spacing between elements look the same."
+        "score": 4,
+        "reason": "Card sizes and overall layout are very similar but cards appear slightly smaller/tighter and the Field Recordings card layout differs slightly with title at top."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'All' filter pill state and other interactive element states appear consistent."
+        "reason": "Selected 'All' pill state is properly highlighted in white matching the reference, and other pills appear as outlined inactive states."
       }
     },
     "sections": {
-      "navigation": {
+      "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 9,
-        "agent_word_count": 9
+        "content_score": 0.3077,
+        "gt_word_count": 6,
+        "agent_word_count": 7
       },
       "hero": {
         "type": "hero",
-        "content_score": 1.0,
-        "gt_word_count": 26,
-        "agent_word_count": 26
+        "content_score": 0.9545,
+        "gt_word_count": 21,
+        "agent_word_count": 23
       },
       "filter_bar": {
+        "type": "navigation",
+        "content_score": 0.0,
+        "gt_word_count": 2,
+        "agent_word_count": 1
+      },
+      "shows_grid": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 6,
-        "agent_word_count": 6
-      },
-      "shows_grid_row1": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 74,
-        "agent_word_count": 74
-      },
-      "shows_grid_row2": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 39,
-        "agent_word_count": 39
+        "content_score": 0.5352,
+        "gt_word_count": 46,
+        "agent_word_count": 25
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 44,
-        "agent_word_count": 44
+        "content_score": 0.0,
+        "gt_word_count": 12,
+        "agent_word_count": 5
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by missing or mismatched navigation and footer content (nav F1 0.31, footer and filter_bar F1 0.00), compounded by proportion issues where cards render slightly tighter and the Field Recordings card places its title at the top unlike the reference."
 }

@@ -1,40 +1,40 @@
 {
-  "score": 0.842424,
+  "score": 0.825358,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8424,
-    "weighted_content": 1.0,
+    "topology": 0.96,
+    "weighted_content": 0.7195,
     "design_score": 1.0,
     "design_dimensions": {
       "color": {
         "score": 5,
-        "reason": "The two images appear to use identical navy blue accents, yellow spotlight highlight, red/dark card placeholders, and matching link colors."
+        "reason": "The agent version uses very similar Yale blue accents, red avatars, and yellow spotlight background matching the reference closely."
       },
       "typography": {
         "score": 5,
-        "reason": "Heading weights, caps labels, body sizing, and nav link styling appear identical across both versions."
+        "reason": "Heading weights, caps labels, and body text styling appear nearly identical with similar hierarchy."
       },
       "assets": {
         "score": 5,
-        "reason": "Initial-based avatar tiles, the collaboration network diagram, and all decorative elements render identically with no missing icons or placeholders."
+        "reason": "Initial-based avatar tiles render correctly in both, and the collaboration network diagram appears in both versions with matching styling."
       },
       "proportion": {
         "score": 5,
-        "reason": "Card padding, table spacing, badge sizing, and nav density all match precisely between the two images."
+        "reason": "Spacing, card sizes, padding, and nav density look essentially the same with only very subtle differences."
       },
       "states": {
         "score": 5,
-        "reason": "The active 'People' nav underline and other interactive state indicators appear consistent between both versions."
+        "reason": "The active 'People' nav underline and spotlight badge styling match the reference well."
       }
     },
     "sections": {
       "nav": {
         "type": "navigation",
-        "content_score": 1.0,
-        "gt_word_count": 21,
-        "agent_word_count": 21
+        "content_score": 0.6667,
+        "gt_word_count": 18,
+        "agent_word_count": 18
       },
-      "page_header": {
+      "people_hero": {
         "type": "hero",
         "content_score": 1.0,
         "gt_word_count": 8,
@@ -42,59 +42,59 @@
       },
       "principal_investigator": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 81,
+        "content_score": 0.9441,
+        "gt_word_count": 80,
         "agent_word_count": 81
       },
       "phd_students": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 134,
-        "agent_word_count": 134
+        "content_score": 0.6972,
+        "gt_word_count": 102,
+        "agent_word_count": 116
       },
       "phd_spotlight": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 130,
-        "agent_word_count": 130
+        "content_score": 0.7263,
+        "gt_word_count": 83,
+        "agent_word_count": 107
       },
       "postdoctoral_researchers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 38,
-        "agent_word_count": 38
+        "content_score": 0.5357,
+        "gt_word_count": 59,
+        "agent_word_count": 53
       },
       "research_scientists": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 61,
-        "agent_word_count": 61
+        "content_score": 0.303,
+        "gt_word_count": 32,
+        "agent_word_count": 34
       },
       "visiting_researchers": {
         "type": "generic",
-        "content_score": 1.0,
-        "gt_word_count": 41,
-        "agent_word_count": 41
+        "content_score": 0.5806,
+        "gt_word_count": 57,
+        "agent_word_count": 36
       },
       "alumni": {
-        "type": "pricing",
-        "content_score": 1.0,
-        "gt_word_count": 59,
-        "agent_word_count": 59
+        "type": "generic",
+        "content_score": 0.8925,
+        "gt_word_count": 94,
+        "agent_word_count": 92
       },
       "collaboration_network": {
         "type": "media",
-        "content_score": 1.0,
-        "gt_word_count": 27,
-        "agent_word_count": 27
+        "content_score": 0.6667,
+        "gt_word_count": 17,
+        "agent_word_count": 10
       },
       "footer": {
         "type": "footer",
-        "content_score": 1.0,
-        "gt_word_count": 0,
-        "agent_word_count": 0
+        "content_score": 0.7158,
+        "gt_word_count": 50,
+        "agent_word_count": 45
       }
     }
   },
-  "explanation": "The agent replicated the design with only minor differences."
+  "explanation": "The score is held back primarily by weak content fidelity in the research_scientists section (F1 0.30) and incomplete coverage in the postdoctoral_researchers section (F1 0.54), indicating missing or mismatched names and details despite the strong visual replication."
 }
