@@ -1,47 +1,53 @@
 {
-  "score": 0.138361,
+  "score": 0.13292,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.2222,
-    "weighted_content": 0.8053,
-    "design_score": 0.44,
+    "topology": 0.2,
+    "weighted_content": 0.8092,
+    "design_score": 0.52,
     "design_dimensions": {
       "color": {
-        "score": 2,
-        "reason": "The agent version preserves the yellow accent and black/cream palette but is missing most of the colorful project tile backgrounds (red gradients, brown, green, dark backgrounds) that define the reference's grid."
+        "score": 3,
+        "reason": "The agent version preserves the yellow accent and black/cream palette but is missing many of the colored project tiles (red, teal, brown, green gradients) seen in the reference grid."
       },
       "typography": {
         "score": 4,
-        "reason": "Heading fonts, italic yellow display type, and small caps labels appear to match the reference styling closely."
+        "reason": "Heading typography uses a similar serif with italic yellow accents and the proportions of large display type to body are close to the reference."
       },
       "assets": {
-        "score": 1,
-        "reason": "Major visual assets like the Koruna yellow orb, Halder pattern, Obscura/Valkyrie gradients, and Atlas Denim metallic image are absent in the agent version, leaving empty tiles."
+        "score": 2,
+        "reason": "Most of the project card visuals/gradients are missing or rendered as plain blocks, and the discipline filter tabs and client logo separators (stars) are absent or simplified."
       },
       "proportion": {
-        "score": 1,
-        "reason": "The grid layout is broken \u2014 tiles are stacked in a single column instead of a multi-column mosaic, and the overall page only fills the left portion of the viewport."
+        "score": 2,
+        "reason": "Overall vertical layout is similar but the project grid collapses into single-column stacked rows instead of the reference's multi-column mosaic, changing card proportions significantly."
       },
       "states": {
-        "score": 3,
-        "reason": "The filter pill 'ALL' active state appears similar but other interactive states are hard to evaluate and the filter bar styling differs."
+        "score": 2,
+        "reason": "The active filter pill ('ALL' underlined) and other interactive states visible in the reference filter bar are not shown in the agent version."
       }
     },
     "sections": {
       "top_nav": {
         "type": "navigation",
-        "content_score": 0.4167,
+        "content_score": 0.3333,
         "gt_word_count": 18,
         "agent_word_count": 6
       },
-      "sidebar": {
+      "left_sidebar": {
         "type": "sidebar",
-        "content_score": 0.2449,
+        "content_score": 0.2124,
         "gt_word_count": 76,
-        "agent_word_count": 22
+        "agent_word_count": 37
       },
-      "hero": {
+      "hero_title": {
         "type": "hero",
+        "content_score": 1.0,
+        "gt_word_count": 0,
+        "agent_word_count": 0
+      },
+      "intro_meta": {
+        "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
@@ -58,19 +64,19 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "stats": {
+      "stats_section": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "clients": {
+      "clients_marquee": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "contact_cta": {
+      "cta_contact": {
         "type": "generic",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -84,5 +90,5 @@
       }
     }
   },
-  "explanation": "The score is held down by missing key visual assets (Koruna orb, Halder pattern, Obscura/Valkyrie gradients, Atlas Denim image) that leave project tiles empty, and a broken proportion where the work grid collapses into a single stacked column on the left instead of a multi-column mosaic filling the viewport."
+  "explanation": "The score is held down primarily by the missing multi-color project tiles and mosaic grid (collapsed into a single-column stack with plain blocks instead of the reference's varied gradients and proportions) and by weak navigation/sidebar content fidelity (top_nav F1 0.33, left_sidebar F1 0.21) along with absent filter-state indicators like the underlined 'ALL' pill"
 }

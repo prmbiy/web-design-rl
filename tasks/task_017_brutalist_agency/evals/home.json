@@ -1,30 +1,30 @@
 {
-  "score": 0.341344,
+  "score": 0.384193,
   "scorer": "visual-similarity-v2",
   "components": {
-    "topology": 0.8571,
-    "weighted_content": 0.1165,
-    "design_score": 0.68,
+    "topology": 0.875,
+    "weighted_content": 0.0382,
+    "design_score": 0.84,
     "design_dimensions": {
       "color": {
-        "score": 4,
-        "reason": "The yellow accent and black background palette is preserved, but the agent version is missing the yellow gradient on the Halder card and some color accents in the manifesto section."
+        "score": 5,
+        "reason": "The agent version preserves the black background, white text, and yellow accent color used in the reference, with similar application on the highlighted words and yellow nav bar."
       },
       "typography": {
-        "score": 4,
-        "reason": "Heading typography, weight contrast, and label styling closely match the reference with similar serif display fonts and small caps labels."
+        "score": 5,
+        "reason": "The serif display typeface, italic accents, and small caps labels closely match the reference styling and weight relationships."
       },
       "assets": {
-        "score": 2,
-        "reason": "The Koruna target graphic renders correctly, but the Halder card with yellow gradient and the Nemesis XI overlay text/graphic in the manifesto section are missing."
+        "score": 3,
+        "reason": "The agent version is missing the second 'HALDER' featured work card and the gradient 'NEMESIS XI' element, reducing the visual richness considerably."
       },
       "proportion": {
-        "score": 3,
-        "reason": "Overall layout proportions, spacing, and the yellow marquee strip match well, though the missing Halder section creates a large gap affecting vertical rhythm."
+        "score": 4,
+        "reason": "The featured work card is smaller relative to the page width and the manifesto section appears more compressed, but overall spacing and proportions are reasonably close."
       },
       "states": {
         "score": 4,
-        "reason": "Interactive states like the active nav pill and selected indicators appear consistent with the reference."
+        "reason": "The yellow horizontal scrolling pill/marquee bar appears with the same active styling, and no interactive state differences are obvious."
       }
     },
     "sections": {
@@ -36,9 +36,9 @@
       },
       "hero": {
         "type": "hero",
-        "content_score": 0.4,
+        "content_score": 0.0,
         "gt_word_count": 17,
-        "agent_word_count": 8
+        "agent_word_count": 2
       },
       "featured_work_koruna": {
         "type": "media",
@@ -48,21 +48,27 @@
       },
       "featured_work_halder": {
         "type": "media",
-        "content_score": 0.1739,
+        "content_score": 0.2353,
         "gt_word_count": 10,
-        "agent_word_count": 13
+        "agent_word_count": 7
       },
       "clients_marquee": {
         "type": "generic",
         "content_score": 0.0,
         "gt_word_count": 0,
-        "agent_word_count": 3
+        "agent_word_count": 4
       },
       "manifesto": {
         "type": "generic",
         "content_score": 0.0,
         "gt_word_count": 3,
-        "agent_word_count": 4
+        "agent_word_count": 7
+      },
+      "awards": {
+        "type": "generic",
+        "content_score": 0.0,
+        "gt_word_count": 0,
+        "agent_word_count": 2
       },
       "footer": {
         "type": "footer",
@@ -72,5 +78,5 @@
       }
     }
   },
-  "explanation": "The agent failed to render the Halder card with its yellow gradient and the Nemesis XI overlay assets in the manifesto section, and across nearly every section the textual content diverges sharply from the reference (nav, clients marquee, manifesto, and footer all scoring 0.00 F1)."
+  "explanation": "The score is held back by near-zero word-set F1 across nearly every section (nav, hero, manifesto, awards, footer all at 0.00), indicating the actual text content was not replicated, and by missing key assets\u2014specifically the second 'HALDER' featured work card and the gradient 'NEMESIS XI' element."
 }

@@ -83,9 +83,11 @@ def _parse_json(text: str) -> object:
         raise
 
 
-def _ocr_words_with_y(image_path: Path) -> list[tuple[str, float]]:
+def _ocr_words_with_y(image_path: Path, crop_width: int | None = None) -> list[tuple[str, float]]:
     """Return list of (word, y_fraction) from tesseract OCR."""
     with Image.open(image_path) as img:
+        if crop_width and img.width > crop_width:
+            img = img.crop((0, 0, crop_width, img.height))
         height = img.height
         data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
 
@@ -169,7 +171,7 @@ def bucket_sections(
 ) -> list[SectionWords]:
     """OCR both images, bucket words by y-fraction into sections. No LLM call."""
     gt_words = _ocr_words_with_y(gt_path)
-    agent_words = _ocr_words_with_y(agent_path)
+    agent_words = _ocr_words_with_y(agent_path, crop_width=1440)
 
     gt_buckets = _bucket_words(gt_words, specs)
     agent_buckets = _bucket_words(agent_words, specs)

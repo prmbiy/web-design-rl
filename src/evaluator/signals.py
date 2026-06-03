@@ -16,9 +16,11 @@ _DESIGN_MAX_TOKENS = 512
 _DIMENSIONS = ("color", "typography", "assets", "proportion", "states")
 
 
-def _encode_half(path: Path) -> str:
+def _encode_half(path: Path, crop_width: int | None = None) -> str:
     """Half-resolution encode for API — further downscale if still over 8000px."""
     with Image.open(path) as img:
+        if crop_width and img.width > crop_width:
+            img = img.crop((0, 0, crop_width, img.height))
         w, h = img.size
         w, h = w // 2, h // 2
         if max(w, h) > 7900:
@@ -102,7 +104,7 @@ def design_score(gt_path: Path, agent_path: Path) -> tuple[float, dict]:
             "role": "user",
             "content": [
                 {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode_half(gt_path)}},
-                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode_half(agent_path)}},
+                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode_half(agent_path, crop_width=1440)}},
                 {"type": "text", "text": prompt},
             ],
         }],

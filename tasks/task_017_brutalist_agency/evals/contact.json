@@ -1,30 +1,30 @@
 {
-  "score": 0.389543,
+  "score": 0.420378,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.875,
-    "weighted_content": 0.3304,
-    "design_score": 0.56,
+    "weighted_content": 0.3209,
+    "design_score": 0.64,
     "design_dimensions": {
       "color": {
         "score": 3,
-        "reason": "The agent version preserves the black background, white text, and yellow accent dot/marquee, but is missing the prominent yellow highlighted budget pill that exists in the reference."
+        "reason": "The agent version preserves the black background and yellow accent stripe but is missing the prominent yellow highlighted budget pill (\u20ac50-250K) and yellow send button that appear in the reference."
       },
       "typography": {
         "score": 4,
-        "reason": "Heading weights and serif styling for 'TALK TO US' and section headers match well, with similar caps labels and small mono-style annotations."
+        "reason": "The serif display headings, caps labels, and monospace-style body text all closely match the reference styling and weight relationships."
       },
       "assets": {
         "score": 4,
-        "reason": "The yellow circular dot punctuation and arrow icons render correctly in both versions with no missing placeholders."
+        "reason": "Icons like arrows and the yellow dot accent render correctly, with no broken placeholders visible."
       },
       "proportion": {
-        "score": 2,
-        "reason": "The agent version appears horizontally cut off, with content like 'NEW YORK' clipped and the third 'SEOUL' column missing, plus the budget options only show one option instead of three side-by-side pills."
+        "score": 3,
+        "reason": "Overall layout proportions are similar but the agent version appears cropped/wider causing the right column (NEW YORK, Seoul) to be cut off and form section feels less balanced."
       },
       "states": {
-        "score": 1,
-        "reason": "The reference shows a clearly highlighted yellow selected budget pill and a visible yellow 'SEND BRIEF' button, while the agent version shows no selected state and the send button is not visible."
+        "score": 2,
+        "reason": "The agent version is missing the highlighted/selected yellow state on the budget range pill and the filled yellow CTA button that are clearly shown in the reference."
       }
     },
     "sections": {
@@ -40,31 +40,31 @@
         "gt_word_count": 31,
         "agent_word_count": 8
       },
-      "email_primary": {
+      "primary_contact_email": {
         "type": "generic",
         "content_score": 0.3636,
         "gt_word_count": 5,
         "agent_word_count": 6
       },
-      "offices": {
+      "office_locations": {
         "type": "generic",
         "content_score": 0.0,
         "gt_word_count": 8,
-        "agent_word_count": 1
+        "agent_word_count": 4
       },
       "brief_form": {
         "type": "form_step",
-        "content_score": 0.3448,
+        "content_score": 0.3077,
         "gt_word_count": 15,
-        "agent_word_count": 14
+        "agent_word_count": 11
       },
-      "elsewhere_meta": {
+      "elsewhere_and_fine_print": {
         "type": "generic",
         "content_score": 0.0,
         "gt_word_count": 5,
         "agent_word_count": 9
       },
-      "ticker": {
+      "booking_marquee": {
         "type": "generic",
         "content_score": 0.5263,
         "gt_word_count": 14,
@@ -78,5 +78,5 @@
       }
     }
   },
-  "explanation": "The score is dragged down by severe proportion issues (the layout is horizontally clipped, cutting off the SEOUL office column and collapsing the three budget pills into one) and missing interactive states (no highlighted yellow selected budget pill or visible yellow 'SEND BRIEF' button), which also explains the near-zero content match in the offices and elsewhere_meta sections."
+  "explanation": "The score is held down by missing interactive states\u2014specifically the highlighted yellow budget pill (\u20ac50-250K) and filled yellow CTA send button\u2014and by severe content mismatches in key sections, most notably office_locations and elsewhere_and_fine_print (0.00 F1) and the hero_talk_to_us block (0.15 F1)."
 }

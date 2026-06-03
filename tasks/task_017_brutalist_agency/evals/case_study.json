@@ -1,30 +1,30 @@
 {
-  "score": 0.126924,
+  "score": 0.139985,
   "scorer": "visual-similarity-v2",
   "components": {
     "topology": 0.1818,
-    "weighted_content": 0.8362,
-    "design_score": 0.56,
+    "weighted_content": 0.8598,
+    "design_score": 0.68,
     "design_dimensions": {
       "color": {
-        "score": 3,
-        "reason": "The yellow accent and black backgrounds are present, but the agent version is missing the gradient hero fill quality and several colored elements like the palette swatches and brown Halder card colors are partially preserved but less vibrant overall."
+        "score": 4,
+        "reason": "The agent version preserves the yellow highlight accent and black/cream palette but lacks some accent colors like the red/blue palette swatches and richer card variations seen in the reference."
       },
       "typography": {
-        "score": 3,
-        "reason": "The display serif headings with italic accents are reproduced reasonably well, but the agent version appears stretched vertically and some hierarchy details like the smaller metadata labels feel less refined."
+        "score": 4,
+        "reason": "Heading typography with italic serif and yellow highlights is well-replicated, though the agent version's hero text feels slightly less refined in weight contrast."
       },
       "assets": {
         "score": 2,
-        "reason": "Key visual assets like the watch clock face, palette swatches, and factory image are missing or replaced with empty colored blocks in the agent version."
+        "reason": "The agent version is missing several visual artifacts including the watch face illustration, palette swatches, sketch image, and the second related work card."
       },
       "proportion": {
-        "score": 2,
-        "reason": "The agent version has excessive vertical whitespace and the content is confined to the left half of the viewport, creating very different proportions compared to the full-width reference layout."
+        "score": 3,
+        "reason": "Overall layout proportions and section spacing are similar, though the agent omits content blocks and has fewer grid cards in the process section."
       },
       "states": {
         "score": 4,
-        "reason": "Few interactive states are visible in either version, and the highlighted text spans with yellow backgrounds are preserved similarly."
+        "reason": "Both versions show minimal interactive state styling with similar static link and label treatments, no notable differences in active states."
       }
     },
     "sections": {
@@ -36,9 +36,9 @@
       },
       "left_sidebar": {
         "type": "sidebar",
-        "content_score": 0.6646,
+        "content_score": 0.6812,
         "gt_word_count": 187,
-        "agent_word_count": 138
+        "agent_word_count": 133
       },
       "hero_title": {
         "type": "hero",
@@ -46,7 +46,7 @@
         "gt_word_count": 0,
         "agent_word_count": 0
       },
-      "hero_clock_media": {
+      "hero_media": {
         "type": "media",
         "content_score": 1.0,
         "gt_word_count": 0,
@@ -59,13 +59,13 @@
         "agent_word_count": 0
       },
       "process_artifacts": {
-        "type": "generic",
+        "type": "media",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
       },
       "results_stats": {
-        "type": "generic",
+        "type": "pricing",
         "content_score": 1.0,
         "gt_word_count": 0,
         "agent_word_count": 0
@@ -96,5 +96,5 @@
       }
     }
   },
-  "explanation": "The score is low primarily because key visual assets (watch clock face, palette swatches, factory image) are missing or replaced with empty colored blocks, and the proportions are badly off with excessive vertical whitespace confining content to the left half of the viewport instead of filling the full-width reference layout."
+  "explanation": "The score is dragged down primarily by missing assets (watch face illustration, palette swatches, sketch image, and second related work card) and by content mismatches in the top navigation and footer sections, both scoring 0.00 on word-set F1."
 }
