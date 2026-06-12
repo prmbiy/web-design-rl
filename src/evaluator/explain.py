@@ -5,7 +5,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-from .utils import get_client
+from .utils import create_message
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _MODEL = "claude-opus-4-7"
@@ -23,8 +23,7 @@ def explain(
         .get_template("explain.j2")
         .render(score=score, topology=topology, design=design, sections=sections)
     )
-    client = get_client()
-    msg = client.messages.create(
+    msg = create_message(
         model=_MODEL,
         max_tokens=_MAX_TOKENS,
         messages=[{"role": "user", "content": prompt}],

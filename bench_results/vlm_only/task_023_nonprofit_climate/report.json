@@ -1,0 +1,27 @@
+{
+  "task": "task_023_nonprofit_climate",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "about": {
+      "score": 0.0,
+      "components": {}
+    },
+    "action": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "science": {
+      "score": 0.0,
+      "components": {}
+    },
+    "stories": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

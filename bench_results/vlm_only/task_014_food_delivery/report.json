@@ -1,0 +1,27 @@
+{
+  "task": "task_014_food_delivery",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "cart": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "offers": {
+      "score": 0.0,
+      "components": {}
+    },
+    "orders": {
+      "score": 0.0,
+      "components": {}
+    },
+    "restaurant": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

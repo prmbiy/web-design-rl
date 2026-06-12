@@ -1,0 +1,27 @@
+{
+  "task": "task_024_coworking",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "community": {
+      "score": 0.0,
+      "components": {}
+    },
+    "events": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "membership": {
+      "score": 0.0,
+      "components": {}
+    },
+    "spaces": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

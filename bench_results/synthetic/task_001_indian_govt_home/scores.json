@@ -1,0 +1,824 @@
+{
+  "variants": [
+    {
+      "name": "identity",
+      "tier_index": 1,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "recolor",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "grayscale",
+      "tier_index": 3,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "band_delete",
+      "tier_index": 4,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "band_shuffle",
+      "tier_index": 5,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "blank_white",
+      "tier_index": 6,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "section_delete",
+      "tier_index": 4,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "font_swap",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "typography_drift",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "dim_assets",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "dim_proportion",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "dim_states",
+      "tier_index": 2,
+      "is_trap": false,
+      "trap_kind": null
+    },
+    {
+      "name": "trap_bg_color",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "standard"
+    },
+    {
+      "name": "trap_solid_block",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "standard"
+    },
+    {
+      "name": "trap_text_dump",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "standard"
+    },
+    {
+      "name": "trap_layout_content_wrong",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_content_design_broken",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_polished_different",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_dim_color",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_dim_typography",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_dim_proportion",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    },
+    {
+      "name": "trap_dim_states",
+      "tier_index": 99,
+      "is_trap": true,
+      "trap_kind": "llm_specific"
+    }
+  ],
+  "methods": {
+    "ours": {
+      "scores": {
+        "identity": 0.5,
+        "recolor": 0.1982,
+        "grayscale": 0.3485,
+        "band_delete": 0.2404,
+        "band_shuffle": 0.3981,
+        "blank_white": 0.0,
+        "section_delete": 0.1722,
+        "font_swap": 0.2388,
+        "typography_drift": 0.2496,
+        "dim_assets": 0.3125,
+        "dim_proportion": 0.1983,
+        "dim_states": 0.2587,
+        "trap_bg_color": 0.0,
+        "trap_solid_block": 0.0,
+        "trap_text_dump": 0.0946,
+        "trap_layout_content_wrong": 0.2021,
+        "trap_content_design_broken": 0.1314,
+        "trap_polished_different": 0.2417,
+        "trap_dim_color": 0.2818,
+        "trap_dim_typography": 0.2657,
+        "trap_dim_proportion": 0.2077,
+        "trap_dim_states": 0.3238
+      },
+      "components": {
+        "identity": {
+          "topology": 0.5,
+          "weighted_content": 1.0,
+          "design_score": 1.0
+        },
+        "recolor": {
+          "topology": 0.2667,
+          "weighted_content": 0.8462,
+          "design_score": 0.64
+        },
+        "grayscale": {
+          "topology": 0.75,
+          "weighted_content": 0.4094,
+          "design_score": 0.52
+        },
+        "band_delete": {
+          "topology": 0.3333,
+          "weighted_content": 0.8022,
+          "design_score": 0.64
+        },
+        "band_shuffle": {
+          "topology": 0.575,
+          "weighted_content": 0.4246,
+          "design_score": 0.96
+        },
+        "blank_white": {
+          "topology": 0.0,
+          "weighted_content": 0.4857,
+          "design_score": 0.2
+        },
+        "section_delete": {
+          "topology": 0.2667,
+          "weighted_content": 0.7315,
+          "design_score": 0.56
+        },
+        "font_swap": {
+          "topology": 0.375,
+          "weighted_content": 0.5135,
+          "design_score": 0.76
+        },
+        "typography_drift": {
+          "topology": 0.5048,
+          "weighted_content": 0.429,
+          "design_score": 0.56
+        },
+        "dim_assets": {
+          "topology": 0.625,
+          "weighted_content": 0.3199,
+          "design_score": 0.68
+        },
+        "dim_proportion": {
+          "topology": 0.75,
+          "weighted_content": 0.2489,
+          "design_score": 0.28
+        },
+        "dim_states": {
+          "topology": 0.4167,
+          "weighted_content": 0.602,
+          "design_score": 0.64
+        },
+        "trap_bg_color": {
+          "topology": 0.0,
+          "weighted_content": 0.4194,
+          "design_score": 0.2
+        },
+        "trap_solid_block": {
+          "topology": 0.0,
+          "weighted_content": 0.4194,
+          "design_score": 0.2
+        },
+        "trap_text_dump": {
+          "topology": 0.3086,
+          "weighted_content": 0.4133,
+          "design_score": 0.2
+        },
+        "trap_layout_content_wrong": {
+          "topology": 0.775,
+          "weighted_content": 0.0015,
+          "design_score": 0.52
+        },
+        "trap_content_design_broken": {
+          "topology": 0.4286,
+          "weighted_content": 0.2932,
+          "design_score": 0.32
+        },
+        "trap_polished_different": {
+          "topology": 0.3667,
+          "weighted_content": 0.5184,
+          "design_score": 0.8
+        },
+        "trap_dim_color": {
+          "topology": 0.46,
+          "weighted_content": 0.585,
+          "design_score": 0.64
+        },
+        "trap_dim_typography": {
+          "topology": 0.4286,
+          "weighted_content": 0.4799,
+          "design_score": 0.76
+        },
+        "trap_dim_proportion": {
+          "topology": 0.625,
+          "weighted_content": 0.3445,
+          "design_score": 0.32
+        },
+        "trap_dim_states": {
+          "topology": 0.7143,
+          "weighted_content": 0.3066,
+          "design_score": 0.6
+        }
+      },
+      "metrics": {
+        "rank_fidelity": 0.64,
+        "dynamic_span": 0.5,
+        "trap_rejection_standard": 1.0,
+        "trap_rejection_llm": 1.0,
+        "n_ordered_pairs": 50,
+        "n_correct_pairs": 32
+      }
+    },
+    "content_only": {
+      "scores": {
+        "identity": 1.0,
+        "recolor": 0.8513,
+        "grayscale": 0.6422,
+        "band_delete": 0.438,
+        "band_shuffle": 0.7523,
+        "blank_white": 0.0,
+        "section_delete": 0.4866,
+        "font_swap": 0.5479,
+        "typography_drift": 0.5385,
+        "dim_assets": 0.5481,
+        "dim_proportion": 0.3167,
+        "dim_states": 0.5471,
+        "trap_bg_color": 0.0,
+        "trap_solid_block": 0.0,
+        "trap_text_dump": 0.4693,
+        "trap_layout_content_wrong": 0.0094,
+        "trap_content_design_broken": 0.2341,
+        "trap_polished_different": 0.219,
+        "trap_dim_color": 0.5509,
+        "trap_dim_typography": 0.5479,
+        "trap_dim_proportion": 0.3056,
+        "trap_dim_states": 0.5471
+      },
+      "components": {
+        "identity": {
+          "content": 1.0
+        },
+        "recolor": {
+          "content": 0.8512820512820514
+        },
+        "grayscale": {
+          "content": 0.6421725239616614
+        },
+        "band_delete": {
+          "content": 0.43795620437956206
+        },
+        "band_shuffle": {
+          "content": 0.7523277467411545
+        },
+        "blank_white": {
+          "content": 0.0
+        },
+        "section_delete": {
+          "content": 0.48659003831417624
+        },
+        "font_swap": {
+          "content": 0.547945205479452
+        },
+        "typography_drift": {
+          "content": 0.5384615384615384
+        },
+        "dim_assets": {
+          "content": 0.5480943738656987
+        },
+        "dim_proportion": {
+          "content": 0.3167420814479638
+        },
+        "dim_states": {
+          "content": 0.5471014492753623
+        },
+        "trap_bg_color": {
+          "content": 0.0
+        },
+        "trap_solid_block": {
+          "content": 0.0
+        },
+        "trap_text_dump": {
+          "content": 0.4692737430167598
+        },
+        "trap_layout_content_wrong": {
+          "content": 0.0093603744149766
+        },
+        "trap_content_design_broken": {
+          "content": 0.2340966921119593
+        },
+        "trap_polished_different": {
+          "content": 0.21899441340782125
+        },
+        "trap_dim_color": {
+          "content": 0.5508771929824561
+        },
+        "trap_dim_typography": {
+          "content": 0.547945205479452
+        },
+        "trap_dim_proportion": {
+          "content": 0.3056179775280899
+        },
+        "trap_dim_states": {
+          "content": 0.5471014492753623
+        }
+      },
+      "metrics": {
+        "rank_fidelity": 0.7,
+        "dynamic_span": 1.0,
+        "trap_rejection_standard": 1.0,
+        "trap_rejection_llm": 1.0,
+        "n_ordered_pairs": 50,
+        "n_correct_pairs": 35
+      }
+    },
+    "clip_only": {
+      "scores": {
+        "identity": 0.0,
+        "recolor": 0.0,
+        "grayscale": 0.0,
+        "band_delete": 0.0,
+        "band_shuffle": 0.0,
+        "blank_white": 0.0,
+        "section_delete": 0.0,
+        "font_swap": 0.0,
+        "typography_drift": 0.0,
+        "dim_assets": 0.0,
+        "dim_proportion": 0.0,
+        "dim_states": 0.0,
+        "trap_bg_color": 0.0,
+        "trap_solid_block": 0.0,
+        "trap_text_dump": 0.0,
+        "trap_layout_content_wrong": 0.0,
+        "trap_content_design_broken": 0.0,
+        "trap_polished_different": 0.0,
+        "trap_dim_color": 0.0,
+        "trap_dim_typography": 0.0,
+        "trap_dim_proportion": 0.0,
+        "trap_dim_states": 0.0
+      },
+      "components": {
+        "identity": {},
+        "recolor": {},
+        "grayscale": {},
+        "band_delete": {},
+        "band_shuffle": {},
+        "blank_white": {},
+        "section_delete": {},
+        "font_swap": {},
+        "typography_drift": {},
+        "dim_assets": {},
+        "dim_proportion": {},
+        "dim_states": {},
+        "trap_bg_color": {},
+        "trap_solid_block": {},
+        "trap_text_dump": {},
+        "trap_layout_content_wrong": {},
+        "trap_content_design_broken": {},
+        "trap_polished_different": {},
+        "trap_dim_color": {},
+        "trap_dim_typography": {},
+        "trap_dim_proportion": {},
+        "trap_dim_states": {}
+      },
+      "metrics": {
+        "rank_fidelity": 1.0,
+        "dynamic_span": 0.0,
+        "trap_rejection_standard": 1.0,
+        "trap_rejection_llm": 1.0,
+        "n_ordered_pairs": 50,
+        "n_correct_pairs": 50
+      }
+    },
+    "vlm_only": {
+      "scores": {
+        "identity": 1.0,
+        "recolor": 0.6,
+        "grayscale": 0.64,
+        "band_delete": 0.64,
+        "band_shuffle": 0.96,
+        "blank_white": 0.2,
+        "section_delete": 0.64,
+        "font_swap": 0.72,
+        "typography_drift": 0.68,
+        "dim_assets": 0.68,
+        "dim_proportion": 0.28,
+        "dim_states": 0.64,
+        "trap_bg_color": 0.2,
+        "trap_solid_block": 0.2,
+        "trap_text_dump": 0.2,
+        "trap_layout_content_wrong": 0.52,
+        "trap_content_design_broken": 0.28,
+        "trap_polished_different": 0.76,
+        "trap_dim_color": 0.56,
+        "trap_dim_typography": 0.8,
+        "trap_dim_proportion": 0.32,
+        "trap_dim_states": 0.6
+      },
+      "components": {
+        "identity": {
+          "color": 1.0,
+          "typography": 1.0,
+          "assets": 1.0,
+          "proportion": 1.0,
+          "states": 1.0
+        },
+        "recolor": {
+          "color": 0.4,
+          "typography": 0.8,
+          "assets": 0.4,
+          "proportion": 0.8,
+          "states": 0.6
+        },
+        "grayscale": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.4,
+          "proportion": 0.8,
+          "states": 0.6
+        },
+        "band_delete": {
+          "color": 0.8,
+          "typography": 0.8,
+          "assets": 0.4,
+          "proportion": 0.4,
+          "states": 0.8
+        },
+        "band_shuffle": {
+          "color": 1.0,
+          "typography": 1.0,
+          "assets": 1.0,
+          "proportion": 0.8,
+          "states": 1.0
+        },
+        "blank_white": {
+          "color": 0.2,
+          "typography": 0.2,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.2
+        },
+        "section_delete": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.4,
+          "proportion": 0.6,
+          "states": 0.8
+        },
+        "font_swap": {
+          "color": 0.8,
+          "typography": 0.8,
+          "assets": 0.8,
+          "proportion": 0.6,
+          "states": 0.6
+        },
+        "typography_drift": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.6,
+          "proportion": 0.6,
+          "states": 0.8
+        },
+        "dim_assets": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.6,
+          "proportion": 0.6,
+          "states": 0.8
+        },
+        "dim_proportion": {
+          "color": 0.4,
+          "typography": 0.4,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.2
+        },
+        "dim_states": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.6,
+          "proportion": 0.6,
+          "states": 0.6
+        },
+        "trap_bg_color": {
+          "color": 0.2,
+          "typography": 0.2,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.2
+        },
+        "trap_solid_block": {
+          "color": 0.2,
+          "typography": 0.2,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.2
+        },
+        "trap_text_dump": {
+          "color": 0.2,
+          "typography": 0.2,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.2
+        },
+        "trap_layout_content_wrong": {
+          "color": 0.8,
+          "typography": 0.6,
+          "assets": 0.2,
+          "proportion": 0.4,
+          "states": 0.6
+        },
+        "trap_content_design_broken": {
+          "color": 0.2,
+          "typography": 0.4,
+          "assets": 0.2,
+          "proportion": 0.4,
+          "states": 0.2
+        },
+        "trap_polished_different": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.8,
+          "proportion": 0.8,
+          "states": 0.8
+        },
+        "trap_dim_color": {
+          "color": 0.4,
+          "typography": 0.8,
+          "assets": 0.4,
+          "proportion": 0.6,
+          "states": 0.6
+        },
+        "trap_dim_typography": {
+          "color": 0.8,
+          "typography": 1.0,
+          "assets": 0.8,
+          "proportion": 0.6,
+          "states": 0.8
+        },
+        "trap_dim_proportion": {
+          "color": 0.4,
+          "typography": 0.4,
+          "assets": 0.2,
+          "proportion": 0.2,
+          "states": 0.4
+        },
+        "trap_dim_states": {
+          "color": 0.6,
+          "typography": 0.8,
+          "assets": 0.6,
+          "proportion": 0.4,
+          "states": 0.6
+        }
+      },
+      "metrics": {
+        "rank_fidelity": 0.7,
+        "dynamic_span": 0.8,
+        "trap_rejection_standard": 1.0,
+        "trap_rejection_llm": 1.0,
+        "n_ordered_pairs": 50,
+        "n_correct_pairs": 35
+      }
+    },
+    "design2code": {
+      "scores": {
+        "identity": 0.9,
+        "recolor": 0.8306,
+        "grayscale": 0.8178,
+        "band_delete": 0.7371,
+        "band_shuffle": 0.8186,
+        "blank_white": 0.1,
+        "section_delete": 0.6402,
+        "font_swap": 0.6485,
+        "typography_drift": 0.638,
+        "dim_assets": 0.6483,
+        "dim_proportion": 0.5914,
+        "dim_states": 0.6483,
+        "trap_bg_color": 0.1,
+        "trap_solid_block": 0.1,
+        "trap_text_dump": 0.6645,
+        "trap_layout_content_wrong": 0.5891,
+        "trap_content_design_broken": 0.5587,
+        "trap_polished_different": 0.6907,
+        "trap_dim_color": 0.6255,
+        "trap_dim_typography": 0.6485,
+        "trap_dim_proportion": 0.5973,
+        "trap_dim_states": 0.6482
+      },
+      "components": {
+        "identity": {
+          "size": 1.0,
+          "text": 1.0,
+          "position": 1.0,
+          "color": 1.0,
+          "clip": 0.5
+        },
+        "recolor": {
+          "size": 0.9755754821978367,
+          "text": 0.9798834278512918,
+          "position": 0.9535580079588756,
+          "color": 0.7437782831510092,
+          "clip": 0.5
+        },
+        "grayscale": {
+          "size": 0.9474286203970288,
+          "text": 0.9034983842870953,
+          "position": 0.8734918986361876,
+          "color": 0.8645216709158086,
+          "clip": 0.5
+        },
+        "band_delete": {
+          "size": 0.4023387842598483,
+          "text": 0.93629808429179,
+          "position": 0.9163372024743555,
+          "color": 0.9306761118275875,
+          "clip": 0.5
+        },
+        "band_shuffle": {
+          "size": 0.9751939427905639,
+          "text": 0.9544383346425765,
+          "position": 0.714522597470284,
+          "color": 0.9489667536193394,
+          "clip": 0.5
+        },
+        "blank_white": {
+          "size": 0.0,
+          "text": 0.0,
+          "position": 0.0,
+          "color": 0.0,
+          "clip": 0.5
+        },
+        "section_delete": {
+          "size": 0.2384059731132817,
+          "text": 0.8318092636591333,
+          "position": 0.7609339025782116,
+          "color": 0.8700196095717949,
+          "clip": 0.5
+        },
+        "font_swap": {
+          "size": 0.2721888212461261,
+          "text": 0.8674091895542742,
+          "position": 0.7083055003829944,
+          "color": 0.8947674795613355,
+          "clip": 0.5
+        },
+        "typography_drift": {
+          "size": 0.2617795259108234,
+          "text": 0.8658538745547822,
+          "position": 0.6806037708890084,
+          "color": 0.8819351849129996,
+          "clip": 0.5
+        },
+        "dim_assets": {
+          "size": 0.27898066318961123,
+          "text": 0.8609141299799545,
+          "position": 0.7201201122562546,
+          "color": 0.8813631819106211,
+          "clip": 0.5
+        },
+        "dim_proportion": {
+          "size": 0.29659686299307697,
+          "text": 0.7799101638461499,
+          "position": 0.5548383861786578,
+          "color": 0.8258308371132399,
+          "clip": 0.5
+        },
+        "dim_states": {
+          "size": 0.27917777983362807,
+          "text": 0.8609141299799545,
+          "position": 0.7201089115394088,
+          "color": 0.8813707733075242,
+          "clip": 0.5
+        },
+        "trap_bg_color": {
+          "size": 0.0,
+          "text": 0.0,
+          "position": 0.0,
+          "color": 0.0,
+          "clip": 0.5
+        },
+        "trap_solid_block": {
+          "size": 0.0,
+          "text": 0.0,
+          "position": 0.0,
+          "color": 0.0,
+          "clip": 0.5
+        },
+        "trap_text_dump": {
+          "size": 0.3636204568264009,
+          "text": 0.9523314874740098,
+          "position": 0.6542830136045861,
+          "color": 0.8525133263072843,
+          "clip": 0.5
+        },
+        "trap_layout_content_wrong": {
+          "size": 0.2638964124662411,
+          "text": 0.6250360750360751,
+          "position": 0.8225406019738123,
+          "color": 0.734031146548154,
+          "clip": 0.5
+        },
+        "trap_content_design_broken": {
+          "size": 0.23034244206647986,
+          "text": 0.7440428256029279,
+          "position": 0.6370403334456927,
+          "color": 0.6818539036175307,
+          "clip": 0.5
+        },
+        "trap_polished_different": {
+          "size": 0.6840653914922195,
+          "text": 0.7900505664543743,
+          "position": 0.6322898706792943,
+          "color": 0.8469844941816806,
+          "clip": 0.5
+        },
+        "trap_dim_color": {
+          "size": 0.2765678704008239,
+          "text": 0.873485658264932,
+          "position": 0.7222134032480513,
+          "color": 0.7551312933695993,
+          "clip": 0.5
+        },
+        "trap_dim_typography": {
+          "size": 0.2721888212461261,
+          "text": 0.8674091895542742,
+          "position": 0.7083055003829944,
+          "color": 0.8947674795613355,
+          "clip": 0.5
+        },
+        "trap_dim_proportion": {
+          "size": 0.26169353347093427,
+          "text": 0.8004539204959371,
+          "position": 0.5962692742604963,
+          "color": 0.8282920937721541,
+          "clip": 0.5
+        },
+        "trap_dim_states": {
+          "size": 0.2783677004097185,
+          "text": 0.8609141299799545,
+          "position": 0.7201201122562546,
+          "color": 0.8813631819106211,
+          "clip": 0.5
+        }
+      },
+      "metrics": {
+        "rank_fidelity": 0.6,
+        "dynamic_span": 0.8,
+        "trap_rejection_standard": 1.0,
+        "trap_rejection_llm": 1.0,
+        "n_ordered_pairs": 50,
+        "n_correct_pairs": 30
+      }
+    }
+  }
+}

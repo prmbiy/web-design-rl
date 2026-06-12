@@ -1,0 +1,27 @@
+{
+  "task": "task_002_japanese_news",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "culture": {
+      "score": 0.0,
+      "components": {}
+    },
+    "economy": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "international": {
+      "score": 0.0,
+      "components": {}
+    },
+    "politics": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

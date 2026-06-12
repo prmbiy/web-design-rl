@@ -1,0 +1,27 @@
+{
+  "task": "task_022_indie_portfolio",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "about": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "project": {
+      "score": 0.0,
+      "components": {}
+    },
+    "work": {
+      "score": 0.0,
+      "components": {}
+    },
+    "writing": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

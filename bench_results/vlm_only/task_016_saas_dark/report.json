@@ -1,0 +1,27 @@
+{
+  "task": "task_016_saas_dark",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "blog": {
+      "score": 0.0,
+      "components": {}
+    },
+    "docs": {
+      "score": 0.0,
+      "components": {}
+    },
+    "features": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "pricing": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

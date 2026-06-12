@@ -1,0 +1,27 @@
+{
+  "task": "task_010_russian_ecommerce",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "cart": {
+      "score": 0.0,
+      "components": {}
+    },
+    "catalog": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "product": {
+      "score": 0.0,
+      "components": {}
+    },
+    "seller": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

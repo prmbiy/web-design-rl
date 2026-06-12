@@ -1,0 +1,27 @@
+{
+  "task": "task_021_b2b_saas",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "platform": {
+      "score": 0.0,
+      "components": {}
+    },
+    "pricing": {
+      "score": 0.0,
+      "components": {}
+    },
+    "resources": {
+      "score": 0.0,
+      "components": {}
+    },
+    "solutions": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

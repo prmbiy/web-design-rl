@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 from PIL import Image
-from .utils import get_client
+from .utils import create_message
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _DESIGN_MODEL = "claude-opus-4-7"
@@ -96,8 +96,7 @@ def design_score(gt_path: Path, agent_path: Path) -> tuple[float, dict]:
         .render()
     )
 
-    client = get_client()
-    msg = client.messages.create(
+    msg = create_message(
         model=_DESIGN_MODEL,
         max_tokens=_DESIGN_MAX_TOKENS,
         messages=[{

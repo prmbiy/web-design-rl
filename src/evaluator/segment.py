@@ -17,7 +17,7 @@ import pytesseract
 from jinja2 import Environment, FileSystemLoader
 from PIL import Image
 
-from .utils import get_client
+from .utils import create_message
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _MODEL = "claude-opus-4-7"
@@ -83,11 +83,18 @@ def _parse_json(text: str) -> object:
         raise
 
 
-def _ocr_words_with_y(image_path: Path, crop_width: int | None = None) -> list[tuple[str, float]]:
-    """Return list of (word, y_fraction) from tesseract OCR."""
+def _ocr_words_with_y(image_path: Path, crop_width: int | None = None, scale_width: int = 1440) -> list[tuple[str, float]]:
+    """Return list of (word, y_fraction) from tesseract OCR.
+
+    Downscales to scale_width before OCR to avoid decompression bomb errors
+    on 2x images and keep tesseract fast.
+    """
     with Image.open(image_path) as img:
         if crop_width and img.width > crop_width:
             img = img.crop((0, 0, crop_width, img.height))
+        if img.width > scale_width:
+            scale = scale_width / img.width
+            img = img.resize((scale_width, int(img.height * scale)), Image.LANCZOS)
         height = img.height
         data = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
 
@@ -137,12 +144,11 @@ def _bucket_words(
 def describe_gt(gt_path: Path) -> list[SectionSpec]:
     """LLM describes GT sections with y-fraction bounds. Small output (~1024 tokens)."""
     prompt = _jinja().get_template("describe_gt.j2").render()
-    client = get_client()
     content = [
         {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": _encode(gt_path)}},
         {"type": "text", "text": prompt},
     ]
-    msg = client.messages.create(
+    msg = create_message(
         model=_MODEL,
         max_tokens=_DESCRIBE_MAX_TOKENS,
         messages=[{"role": "user", "content": content}],

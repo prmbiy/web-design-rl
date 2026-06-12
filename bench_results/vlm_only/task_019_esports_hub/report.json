@@ -1,0 +1,27 @@
+{
+  "task": "task_019_esports_hub",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "roster": {
+      "score": 0.0,
+      "components": {}
+    },
+    "schedule": {
+      "score": 0.0,
+      "components": {}
+    },
+    "shop": {
+      "score": 0.0,
+      "components": {}
+    },
+    "teams": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

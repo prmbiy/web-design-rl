@@ -1,0 +1,27 @@
+{
+  "task": "task_004_tabloid",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "celebrity": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "style": {
+      "score": 0.0,
+      "components": {}
+    },
+    "tv": {
+      "score": 0.0,
+      "components": {}
+    },
+    "viral": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

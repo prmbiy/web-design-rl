@@ -1,0 +1,27 @@
+{
+  "task": "task_007_latam_telco",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "internet": {
+      "score": 0.0,
+      "components": {}
+    },
+    "movil": {
+      "score": 0.0,
+      "components": {}
+    },
+    "paquetes": {
+      "score": 0.0,
+      "components": {}
+    },
+    "tiendas": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

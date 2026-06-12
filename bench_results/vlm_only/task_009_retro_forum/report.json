@@ -1,0 +1,27 @@
+{
+  "task": "task_009_retro_forum",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "index": {
+      "score": 0.0,
+      "components": {}
+    },
+    "profile": {
+      "score": 0.0,
+      "components": {}
+    },
+    "search": {
+      "score": 0.0,
+      "components": {}
+    },
+    "subforum": {
+      "score": 0.0,
+      "components": {}
+    },
+    "thread": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

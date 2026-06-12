@@ -1,0 +1,27 @@
+{
+  "task": "task_029_restaurant_group",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "events": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "menu": {
+      "score": 0.0,
+      "components": {}
+    },
+    "reservations": {
+      "score": 0.0,
+      "components": {}
+    },
+    "restaurants": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

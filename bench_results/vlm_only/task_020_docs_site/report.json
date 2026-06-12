@@ -1,0 +1,27 @@
+{
+  "task": "task_020_docs_site",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "api": {
+      "score": 0.0,
+      "components": {}
+    },
+    "configuration": {
+      "score": 0.0,
+      "components": {}
+    },
+    "index": {
+      "score": 0.0,
+      "components": {}
+    },
+    "installation": {
+      "score": 0.0,
+      "components": {}
+    },
+    "quickstart": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

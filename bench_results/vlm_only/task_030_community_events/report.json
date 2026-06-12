@@ -1,0 +1,27 @@
+{
+  "task": "task_030_community_events",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "create": {
+      "score": 0.0,
+      "components": {}
+    },
+    "event": {
+      "score": 0.0,
+      "components": {}
+    },
+    "explore": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "organizer": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

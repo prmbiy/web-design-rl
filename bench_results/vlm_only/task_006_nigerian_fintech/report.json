@@ -1,0 +1,27 @@
+{
+  "task": "task_006_nigerian_fintech",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "agents": {
+      "score": 0.0,
+      "components": {}
+    },
+    "business": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "personal": {
+      "score": 0.0,
+      "components": {}
+    },
+    "security": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

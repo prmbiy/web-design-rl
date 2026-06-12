@@ -1,0 +1,27 @@
+{
+  "task": "task_011_korean_beauty",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "about": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "reviews": {
+      "score": 0.0,
+      "components": {}
+    },
+    "routine": {
+      "score": 0.0,
+      "components": {}
+    },
+    "skincare": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

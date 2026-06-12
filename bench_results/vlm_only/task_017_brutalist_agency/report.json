@@ -1,0 +1,27 @@
+{
+  "task": "task_017_brutalist_agency",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "case_study": {
+      "score": 0.0,
+      "components": {}
+    },
+    "contact": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "studio": {
+      "score": 0.0,
+      "components": {}
+    },
+    "work": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

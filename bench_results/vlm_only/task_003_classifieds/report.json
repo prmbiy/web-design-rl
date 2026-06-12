@@ -1,0 +1,27 @@
+{
+  "task": "task_003_classifieds",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "community": {
+      "score": 0.0,
+      "components": {}
+    },
+    "forsale": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "housing": {
+      "score": 0.0,
+      "components": {}
+    },
+    "jobs": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

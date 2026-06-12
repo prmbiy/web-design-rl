@@ -1,0 +1,27 @@
+{
+  "task": "task_025_podcast_network",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "episode": {
+      "score": 0.0,
+      "components": {}
+    },
+    "episodes": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "shows": {
+      "score": 0.0,
+      "components": {}
+    },
+    "support": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

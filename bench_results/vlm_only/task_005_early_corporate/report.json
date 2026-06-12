@@ -1,0 +1,27 @@
+{
+  "task": "task_005_early_corporate",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "about": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "partners": {
+      "score": 0.0,
+      "components": {}
+    },
+    "products": {
+      "score": 0.0,
+      "components": {}
+    },
+    "solutions": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

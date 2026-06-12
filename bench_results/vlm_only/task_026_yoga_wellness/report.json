@@ -1,0 +1,27 @@
+{
+  "task": "task_026_yoga_wellness",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "about": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "schedule": {
+      "score": 0.0,
+      "components": {}
+    },
+    "teachers": {
+      "score": 0.0,
+      "components": {}
+    },
+    "workshops": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "task_012_nhs_health",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "conditions": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "medicines": {
+      "score": 0.0,
+      "components": {}
+    },
+    "mental_health": {
+      "score": 0.0,
+      "components": {}
+    },
+    "service_finder": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

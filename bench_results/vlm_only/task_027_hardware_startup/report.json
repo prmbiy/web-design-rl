@@ -1,0 +1,27 @@
+{
+  "task": "task_027_hardware_startup",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "compare": {
+      "score": 0.0,
+      "components": {}
+    },
+    "features": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "specs": {
+      "score": 0.0,
+      "components": {}
+    },
+    "story": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "task_013_aus_real_estate",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "agents": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "listing": {
+      "score": 0.0,
+      "components": {}
+    },
+    "search": {
+      "score": 0.0,
+      "components": {}
+    },
+    "suburb": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}

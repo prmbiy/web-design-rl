@@ -1,0 +1,27 @@
+{
+  "task": "task_018_luxury_fashion",
+  "method": "vlm_only",
+  "avg_score": 0.0,
+  "pages": {
+    "collection": {
+      "score": 0.0,
+      "components": {}
+    },
+    "contact": {
+      "score": 0.0,
+      "components": {}
+    },
+    "heritage": {
+      "score": 0.0,
+      "components": {}
+    },
+    "home": {
+      "score": 0.0,
+      "components": {}
+    },
+    "product": {
+      "score": 0.0,
+      "components": {}
+    }
+  }
+}
