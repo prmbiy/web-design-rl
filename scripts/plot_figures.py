@@ -95,7 +95,7 @@ def fig_evals_eval_rank_fidelity():
         return
     data = json.loads(summary_path.read_text())
 
-    methods = ["ours", "content_only", "vlm_only", "design2code", "clip_only"]
+    methods = ["ours", "content_only", "vlm_only", "design2code"]
     pages = [e["page"].replace("task_", "").replace("_home", "").replace("_create", "") for e in data]
     rf = {m: [] for m in methods}
     for entry in data:
@@ -118,7 +118,7 @@ def fig_evals_eval_rank_fidelity():
     ax.set_ylim(0, 1.15)
     ax.axhline(1.0, color="black", linestyle="--", linewidth=0.8, alpha=0.4)
     ax.legend(fontsize=9)
-    fig.text(0.99, 0.01, "†CLIP rank_fidelity=1.0 is trivial: dynamic_span=0 (scores all variants identically)",
+    fig.text(0.99, 0.01, "†design2code uses image-only block detection (no HTML required)",
              ha="right", fontsize=7, color="grey")
     plt.tight_layout()
     out = FIGS / "evals_eval_rank_fidelity.png"
@@ -134,7 +134,7 @@ def fig_evals_eval_span():
         return
     data = json.loads(summary_path.read_text())
 
-    methods = ["ours", "content_only", "vlm_only", "design2code", "clip_only"]
+    methods = ["ours", "content_only", "vlm_only", "design2code"]
     spans = {m: [] for m in methods}
     for entry in data:
         for m in methods:
